@@ -2,7 +2,7 @@ id: cs_train_lower
 name: Train
 description: Layout reconstruction of Train, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
 source_image: Train - Lower Radar.png
-grid: 1.48
+grid: 1.42
 wall_thickness: 0.32
 
 // TRACED DRAFT. The footprint is read from the radar; everything below
@@ -12,53 +12,57 @@ wall_thickness: 0.32
 layer ground z=0 height=5 roof=no
 
 legend
-  A  area_a  "Area A"  lane   // rgb 87,73,58  value 0.34
-  B  area_b  "Area B"  lane   // rgb 100,96,82  value 0.39
-  C  area_c  "Area C"  lane   // rgb 91,112,117  value 0.46
+  A  area_a  "Area A"  lane   // rgb 46,44,34  value 0.18
+  B  area_b  "Area B"  lane   // rgb 93,78,63  value 0.37
+  C  area_c  "Area C"  lane   // rgb 93,98,88  value 0.39
+  D  area_d  "Area D"  lane   // rgb 118,93,70  value 0.46
+  E  area_e  "Area E"  lane   // rgb 90,113,118  value 0.46
 end
 
 plan
-....................CCCCC.......CCC.CCCC......
-....................CCCCCCCCCCCCCCCCCCCC......
-..................CCCCCCCCCCCCCCCCCCCCCC......
-CCCCCCCCCC....CCCCCCCCCCCCCCC.CCC.CCCCCC......
-CCCCCCCCCCCCCCCCCCCCCCCCCCCCC..CC..CCCCC......
-CCCCCCCCCCCCCCCCCCCCC....CCC.........CC.......
-CCCCCCCC...CCCCCCCCCC....CCC.........BB.......
-...CCCC......CCCCCC..................BB.......
-.............CCCCCC..................BB.......
-.............CCCCCC..................BB.......
-.............BBBCCC..................BB.......
-.............BBBBBB..................BB.......
-.............BBBBBB...........BBB....BBB......
-.............BBBBBBBBBBBBBBBBBBBB....BBB......
-.............AABBBBBBBBBBBBBBBBBBBBBBBBBBBBB..
-..............ABBBBBBBBBBBBBBBBBBBBBBBBBBBBB..
-..............ABBBBBBBBBBBBBBBBBBBBBBBBBBBBB..
-..............ABBBBBBBBBBBBBBBBBBB.BB.....BB..
-..............A.A.A.BBBBBBBBBBBBBBBBB.....BB..
-..............A.AAAABBBBBBBBBBBBBBBBB.....BB..
-..............A.AAABBBBBBBBBBBBBBB.BB....BBB..
-..............A.A.ABBBBBBBBBBBBBBBBBBBBBBBBBB.
-..............A.AAABBBBBBBBBBBBBBBBBBBBBBBBBB.
-..............AAAAABBBBBBBBBBBBBBBBBBBBBBBBBB.
-..........BBBBBBBBBBBBBBB..BBB.BBB..........BB
-..........BBBBBBBBBBBB.....BBB..BB..........BB
-..........BB.BB..BB........BBB..............BB
-..........BBBBBBBBB........BBBBBBB..........BB
-...........BBBB............BBBBBBB..........BB
-............BBB.............BBBBBB..........BB
-............BBBAAAAAAAAAAAAAABBBBBBBBAAAAA..AA
-............BBBAAAAAAAAAAAAAAABBBBBBAAAAAA..AA
-............BBB....AAAAACAAAAABBBBBAAA.AAAAAAA
-............BBB....AAAAACCAAAABBBBAAAA.AAAAAAA
-............BBB....AAAAAAAAAAAAAAAAAAA.AAAAA..
-............BBB....AAAAABBBAAAAAAAAAAA.AAAAA..
-............BBB....AAAAABBBBAAAAAAAAAA.AAAAAAA
-............BBB....AAAAAAABBAAAAAAAAAA.AAAAAAA
-............BBB....AAAAAAAABBAAAAAAAAA.AAAAAAA
-............BBB....BBBAAAAABBBAAAAAAAA.AAAAAAA
-.............BBBBBBBBBBB....BBBBAAAAAAAAAAAAAA
-.............BBBBBBBBBBB....BBBBBAAAAAAAAAAAAA
+.....................EEEEE........EEE.EEEE......
+.....................EEEEEEEEEEEEEEEEEEEEE......
+...................EEEEEEEEEEEEEEEEEEEEEEE......
+...............EEEEEEEEEEEEEEE.EEEEEEEEEEE......
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEE..EE..EEEEEE......
+EEEEEEEEEEEEEEEEEEEEEE....EEEE........CC........
+EEEEEEEEEEEEEEEEEEEEEE....EEEE........CCC.......
+...EEEEE......EEEEEE.......EE.........CCC.......
+..............EEEEEE..................CCC.......
+..............EEEEEE..................CC........
+..............CCEEEE..................CC........
+..............CCCCCC..................CC........
+..............CCCCCC..................CC........
+..............CCCCCCCCCCCC.....CCCC....CCC......
+..............CCCCCCCCCCCCCCCCCCCCC.CCCCCCCCCC..
+..............AACCCCCCCCCCCCCCCCCCCCCCCCCCCCCC..
+..............AACCCCCCCCCCCCCCCCCCCCCCCCCCCCCC..
+..............AACCCCCCCCCCCCCCCCCCCCCCCCCCCCCC..
+..............AAACCCCCCCCCCCCCCCCCC.CC.....CCC..
+..............A..A.CCCCCCCCCCCCCCCCCCC.....CCC..
+..............A..AAACCCCCCCCCCCCCCCCCC.....CCC..
+..............A..AAACCCCCCCCCCCCCCCCCCC....CCC..
+..............A..AAACCCCCCCCCCCCCCCCCCCCCCCCCCC.
+..............A.AAAACCCCCCCCCCCCCCCCCCCCCCCCCCC.
+..............AAAAAACCCCCCCCCCCCCCCCCCCCCCCCCCC.
+..........DDDDDDDCCCCCCCCC..CCC.CCC..........CCC
+..........DDDDDDDCCCCCC.....CCC..CC...........CC
+..........DD..D....D........CCC...............CC
+..........DDDDDDDDDD........CCC...............CC
+..........DDDDDDDDDD........CCCCCCCC..........CC
+............DDDD............CCCCCCCC..........CC
+............DDDD.....BBBBBBBBBBBBBBBBBB..BB...BB
+............DDDDDBBBBBBBBBBBBBBBBBBBBBBBBBBB..BB
+............DDDD....BBBBBBBBBBBBBBBBBBBB.BBB.BBB
+............DDDD....BBBBBBBBBBBBBBBBBBBB.BBBBBBB
+............DDDD....BBBBBBBBBBBBBBBBBBBB.BBBBBBB
+............DDDD....BBBBBBBBBBBBBBBBBBBB.BBBBB..
+............DDDD....BBBBBBBBBBBBBBBBBBBB.BBBBBBB
+............DDDD....BBBBBBBBBBBBBBBBBBBB.BBBBBBB
+............DDDD....BBBBBBBBBBBBBBBBBBBB.BBBBBBB
+............DDDD....BBBBBBBBBBBBBBBBBBBB.BBBBBBB
+............DDDD....DDDBBBBBBBBBBBBBBBBB.BBBBBBB
+..............DDDDDDDDDDD....BBBBBBBBBBBBBBBBBBB
+..............DDDDDDDDDDD....BBBBBBBBBBBBBBBBBBB
 end
 

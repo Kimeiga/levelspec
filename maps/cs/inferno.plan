@@ -2,7 +2,7 @@ id: cs_inferno
 name: Inferno
 description: Layout reconstruction of Inferno, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
 source_image: Inferno - Radar.png
-grid: 1.48
+grid: 1.42
 wall_thickness: 0.29
 
 // TRACED DRAFT. The footprint is read from the radar; everything below
@@ -12,57 +12,61 @@ wall_thickness: 0.29
 layer ground z=0 height=5 roof=no
 
 legend
-  A  area_a  "Area A"  lane  // rgb 29,58,58  value 0.23
-  B  area_b  "Area B"  lane  +0.42  // rgb 49,58,62  value 0.25
-  C  area_c  "Area C"  lane  +0.84  // rgb 69,69,69  value 0.27
+  A  area_a  "Area A"  lane  // rgb 28,57,58  value 0.23
+  B  area_b  "Area B"  lane  // rgb 44,56,61  value 0.24
+  C  area_c  "Area C"  lane  // rgb 52,60,63  value 0.25
+  D  area_d  "Area D"  lane  // rgb 64,66,66  value 0.26
+  E  area_e  "Area E"  lane  +0.40  // rgb 73,72,71  value 0.29
 end
 
 plan
-......................CCCBB...................
-......................CCCBBBB.................
-......................CCCBBBB.................
-......................CC.CBBBBBB..............
-..................CC..CC.CCBBBBB..............
-..................CCCCCC.CCBBBBB..............
-..................CCCCCCC.....BBB.............
-..................CCCCCCCBB...BBBBBBBBBB.B....
-..................CCCCCCCBBBBBBBBBBBBBBBBB....
-..................CCCCCCCBBBBBBBBBBBBBBBBB....
-..................CCCCCCCBBB.......BBBBBBBB...
-..................CCCCCCCBBB.......CBBBBBBBB..
-..................CCCCCCCBBB.......CBBBBBBBBB.
-.........................BBB.......CBBBBBBBBB.
-.........................BBB.......CCBBBBBBBB.
-......................BBBBBB.......C.....BBBB.
-......................BBBBBB.......C.....BBBB.
-.....................BBBBBBBB......CCCCBBBBBB.
-.....................BBB...BB......CCCCBBBBB..
-....................BBB............CCCCCBBBB..
-...................BBB.............CCCCCCCCC..
-...................BB...............CC...CCCC.
-..................BBB...............CC....CCC.
-.................BBBB...............CC....CCC.
-...................BB...............CC......CC
-...................B...........CCCCCCCCCCCCCCC
-...................B............CCCCCCCCCCCCCC
-...................B............CC....CCCCCC..
-............AAAAABBB............CC.......CCC..
-.AA......AAAAAAAABBB...........CCC.......CC...
-AAA......AAAAA....BBBBBBBBBB....BB...CCCCCC...
-AAAA.AAA.AAAAA....BBBBBBBBBBBBBBBB...CCCCCCC..
-AAAAAAAAAAAAAA....BBBBBBBBBBBBBBBB...CCCCCCCC.
-AAAAAA...AAAAA....BBBB...BBBBBBBBB...CCCCBBCCC
-AAAAAA...AAABCCCCCC......BBB..BBBB...CCCCBBBCC
-AAAAAA.BBBBBBCCCCCC......BBB..BBBB...CCCCBBBCC
-AAAAAA.BBBBBBCCCCCCCCC...BBB..BBBBBBBBBBBBBCCC
-AAA....BBBBBBBCBBCCCCBBBBBBBCCCCBBBBBBBBBBBBCC
-AAAAAB.BBBBBBBBBBBBBBBBBBBBBCCCCCBBBBCCBBBBBBB
-.AAAAB.BBBBBBBBBBBBBBBBBBBBBCCCC.....CCCBBBBBB
-.....B.BBBBBBCCBB....BBBBBBBCCCCCCCCCCCCBBBBBB
-....BBBBBBBB.CCC.....B.....B..CCCCCCCC.BBBBBBB
-......BBBBB..CCCCBBBBB....BB..BB.......BBBBBB.
-.............CCC.....B....BB..BB........BBBB..
-.....................BBBBBBBBBBB..............
-.....................BBBBBBBB.................
+.......................CCCCC....................
+.......................CCCCCCCC.................
+.......................CCCCCCCC.................
+.......................CC..CCCCCC...............
+...................E...EE.CCCCCCC...............
+...................EEEEEE.CCCCCCC...............
+...................EEEEEEE...C.CCC..............
+...................EEEEEEECC...CCCCCCCCCCC......
+...................EEEEEEECC...CCCCCCCCCCCCC....
+...................EEEEEEECCCCCCCCCCCCCCCCCC....
+...................EEEEEEECCCCCCCC..CCCCCCCC....
+...................EEEEEEECCC.......DCCCCCCCC...
+...................EEEEEEECCC.......DDCCCCCCCC..
+..........................CCC.......DDCCCCCCCCC.
+..........................CCC.......DDCCCCCCCCC.
+..........................CCC.......DD....CCCCC.
+.......................CCCCCC.......D......CCCC.
+......................CCCCCCC.......D......CCCC.
+......................CCCCCCCC......DDDDCCCCCC..
+.....................CCC............DDDDCCCCCC..
+.....................CCC............DDDDCCCCCC..
+....................CCC.............DDDDCCCCCC..
+....................BB................DD...CCCC.
+...................BBB................DD....EEE.
+..................BBBB................DD....EEE.
+...................BBB................EE.....EEE
+....................B............EEEEEEEEEEEEEEE
+....................B.............EEEEEEEEEEEEEE
+....................B.............EEEEEEEEEEEE..
+.............AAAABBBB.............EE......DDDD..
+............AAAAABBBB............EEE......DDD...
+.AAA.....AAAAAA....BBBB..BBBB....CCE....DDDDD...
+AAAA.....AAAAAA....BBBBBBBBBCC...CCC..DDDDDDD...
+AAAAAAAAAAAAAAA....BBBBBBBBCCCCCCCCC..DDDDDDDDD.
+AAAA.AAAAAAAABB....BBBBBBBBCCCCCCCCC..DDDDDDDDD.
+AAA.AAA..AAABBDDDDDD.......CCC..CCC...DDDDDDCCDD
+AAAAAAA..BBBBDDDDDDD.......CCC..CCCC..DDDDDCCCDD
+AAAAAAA.BBBBBDDDDDDD.......CCC..CCCC..DDDCCCCCDD
+AAAA....BBBBBDDDDDDDDD.....CCC.ECCCCCCCCCCCCCCCC
+AAA.....BBBBBDDDBBDDDDBBBBBCCCEEECCCCCCCCCCCCCCC
+AAAAABB.BBBBBDDDBBBBBBBBBBBCCCEEEECCCCCEECCCCCCC
+..AAABB.BBBBBDDDBBBBBBBBBBBCCCEEE......EEECCCCCC
+.....BBBBBBBBDDDD.....BBBBBCCCEEEEEEEEEE.CCCCCCC
+.....BBBBBBB..DDD.....B.....CC.EEEEEEEEE.CCCCCC.
+......BBBB....DDDDDDBBB....CCC..E........CCCCCC.
+..............DD......B....CCC..E...............
+..............D.......BBBBBBCCCEE...............
+......................BBBBBBBC..................
 end
 

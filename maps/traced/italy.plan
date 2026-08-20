@@ -2,7 +2,7 @@ id: cs_italy
 name: Italy
 description: Layout reconstruction of Italy, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
 source_image: Italy - Radar.png
-grid: 1.48
+grid: 1.42
 wall_thickness: 0.32
 
 // TRACED DRAFT. The footprint is read from the radar; everything below
@@ -12,57 +12,60 @@ wall_thickness: 0.32
 layer ground z=0 height=5 roof=no
 
 legend
-  A  area_a  "Area A"  lane   // rgb 80,58,32  value 0.32
-  B  area_b  "Area B"  lane   // rgb 83,72,37  value 0.33
-  C  area_c  "Area C"  lane   // rgb 91,85,63  value 0.36
+  A  area_a  "Area A"  lane   // rgb 80,48,31  value 0.31
+  B  area_b  "Area B"  lane   // rgb 80,59,32  value 0.32
+  C  area_c  "Area C"  lane   // rgb 83,71,37  value 0.33
+  D  area_d  "Area D"  lane   // rgb 87,80,56  value 0.34
 end
 
 plan
-............BBBBBBBBCCCCC.
-............BBBBBBBBCCCCC.
-............BBBBBBBBCCCCC.
-............BBBBBBBBCCCCC.
-............BBBBBBBBBBBCC.
-......BBBBBBBBBBBBBBBBBBC.
-......BBBBBBBBBBBBBBBBBBC.
-......BBBBBBAAA......BB...
-......BB...AAAA......BBB..
-......BB..AAAAA......BBB..
-......BBBBAAAAAAAAAABBBB..
-......BBBBAAAAAAAAAABBBB..
-BBBBBBBB.BBA.AA.......BB..
-BBBB..BBBBBB.AA.......AA..
-BBBA..BB.....AA.......AA..
-BBAAAABBAAAAAAA.......AA..
-BBAAAAAAAAAAAAA.......AA..
-BBAA...BB....AAAAAAA..AA..
-AAAA...BBB...AAAAAAA..AA..
-AAAA...BBB........AA..AA..
-AAAA....BB........AA..A...
-AAAA....BBBBBAAAAAAAAAAAA.
-AAAA....BBB......AAAAAAAA.
-AAAA....BBB......AA.....A.
-AAAAAAA..B.......AA.....A.
-.AAAAAA..A.......AA.....A.
-.....AA..AAAA...AAAAAAAAAA
-....AAA....AA...AAAAAAAA..
-....AAA....AA...AAAAAAAA..
-....AAA....AAAAAAAAAAAAA..
-....AAA....AAAA.AAAAAAAA..
-....AAA....AA...AAAAAAAAA.
-....AAA....AA...AAAAAAAAAA
-....AAA...AAA.............
-....AAA...AAA.............
-....AAAA..AAA.............
-.....AAA.AAAA.............
-.....AAAAAAAA.............
-.......AAAA...............
-......AAAAA...............
-....AAAAAAA...............
-....AAAAAAA...............
-....AAAAAAA...............
-....BAAAAAA...............
-....BAAAAAA...............
-........AA................
+.............CCCCCCCCDDDDD.
+............CCCCCCCCCDDDDD.
+.............CCCCCCCCDDDDD.
+.............CCCCCCCCDDDDD.
+.........C...CCCCCCCCCDDDD.
+.......CCCCCCCCCCCCCCCCDDD.
+......CCCCCCCCCCCCCCCCCCDD.
+......CCCCCCCCCC......CCC..
+......CCC...CCBB......CC...
+......CCC..CCBBB......CCC..
+......CCCCCCCCBB......CCC..
+......CCCCCCCCBBBBBBBCCCC..
+......CCCCCCCCBB..BBBCCCC..
+CCCCCCCCCCCC..BB.......CC..
+CCCC..CCCCBB..BB.......BB..
+CCBBBBCCCBBBBBBB.......BB..
+CCBBBBCCBBBBBBBB.......BB..
+CCBBBBCCCBBBBBBB.......B...
+CCBB...CCC....BBBBBBB..B...
+BBBB...CCC....BBBBBBB..B...
+BBBB...CCC.........BB..B...
+BBBB....CCC.......BBB..B...
+BBBB....CCCCCCBBBBBBBBBBBB.
+BBBB....CCC......BBBBBBBBB.
+BBBB....CCC.......BB.....B.
+BBBBBBB..C.......BBB.....B.
+.BBBBBB..B........BB.....B.
+.....BB..BBBBB...BBBBBBBBBB
+....BBB....BBB...BBBBBBBBB.
+.....BB....BBB...BBBBBBBB..
+....BBB....BBBBBBBBBBBBBB..
+....BBB....BBBBBBBBBBBBBB..
+....BBB....BB....BBBBBBBB..
+....BBB....BB....BBBBBBBBBB
+....BBB....BB......BB.....B
+....BBBB...BBB.............
+....BBBB..BBBB.............
+.....BBB..BBBB.............
+.....BBAA.AABB.............
+......AAAAAAA..............
+.......AAAA................
+....AAAAAAA................
+....AAAAAAA................
+....AAAAAAA................
+....AAAAAAA................
+....AAAAAAA................
+....AAAAAAAA...............
+........AA.................
 end
 

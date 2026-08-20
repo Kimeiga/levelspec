@@ -186,6 +186,50 @@ def despeckle(band, occ, rounds):
     return band
 
 
+def absorb_fragments(band, occ, min_cells):
+    """
+    Merge small islands of a band into whatever surrounds them.
+
+    Colour clustering is per-cell, so a band is not one region — it is confetti
+    of that shade scattered across the map. Given an elevation each, those
+    fragments become one-cell platforms and pits that cut the floor into pieces
+    the navmesh cannot join, and the whole map falls back to flat. Merging any
+    connected piece below a threshold into its dominant neighbour turns the
+    bands into the handful of large terraces the radar was actually shading.
+    """
+    h, w = band.shape
+    seen = np.zeros_like(occ, dtype=bool)
+    for sy in range(h):
+        for sx in range(w):
+            if not occ[sy, sx] or seen[sy, sx]:
+                continue
+            b = band[sy, sx]
+            stack, comp = [(sy, sx)], []
+            seen[sy, sx] = True
+            while stack:
+                y, x = stack.pop()
+                comp.append((y, x))
+                for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    ny, nx = y + dy, x + dx
+                    if (0 <= ny < h and 0 <= nx < w and occ[ny, nx]
+                            and not seen[ny, nx] and band[ny, nx] == b):
+                        seen[ny, nx] = True
+                        stack.append((ny, nx))
+            if len(comp) >= min_cells:
+                continue
+            votes = Counter()
+            for y, x in comp:
+                for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    ny, nx = y + dy, x + dx
+                    if 0 <= ny < h and 0 <= nx < w and occ[ny, nx] and band[ny, nx] != b:
+                        votes[band[ny, nx]] += 1
+            if votes:
+                into = votes.most_common(1)[0][0]
+                for y, x in comp:
+                    band[y, x] = into
+    return band
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("image")
@@ -200,7 +244,9 @@ def main():
     ap.add_argument("--white-cut", type=float, default=232.0)  # kept for compatibility
     ap.add_argument("--bg-tol", type=float, default=26.0, help="colour distance that still counts as background")
     ap.add_argument("--alpha-cut", type=float, default=40.0)
-    ap.add_argument("--smooth", type=int, default=2)
+    ap.add_argument("--smooth", type=int, default=3)
+    ap.add_argument("--min-band", type=float, default=0.03,
+                    help="smallest connected piece of a band, as a fraction of the map")
     args = ap.parse_args()
 
     stem = os.path.splitext(os.path.basename(args.image))[0]
@@ -213,6 +259,11 @@ def main():
     occ = largest_component(occ)
     band, centres = band_colours(col, occ, args.bands)
     band = despeckle(band, occ, args.smooth)
+    # Two passes: absorbing one fragment can leave its neighbour below the
+    # threshold too, and a second sweep catches those.
+    floor_cells = max(6, int(occ.sum() * args.min_band))
+    band = absorb_fragments(band, occ, floor_cells)
+    band = absorb_fragments(band, occ, floor_cells)
 
     grid = args.grid or round(args.span / max(occ.shape), 2)
     used = sorted({int(b) for b in band[occ]})

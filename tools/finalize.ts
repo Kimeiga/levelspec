@@ -43,13 +43,22 @@ function hash(s: string): number {
  * Elevation profiles, most interesting first. Each maps a band index to a
  * height; the first that survives the gates is the one that ships.
  */
+/**
+ * Elevation profiles, most interesting first.
+ *
+ * Anything taller than the player's step (0.45 m) needs a ramp to stay
+ * walkable, and a trace has no idea where a ramp belongs — so the bands become
+ * terrain you walk up rather than storeys you cannot reach. Each adjacent pair
+ * stays inside a step, but across five bands that still stacks to nearly two
+ * metres of relief, which is the difference between a floorplan and a place.
+ * The shape of it comes off the radar's own shading, so no two maps terrace
+ * the same way.
+ */
 const PROFILES: { name: string; step: (i: number, n: number) => number }[] = [
-  // Anything taller than the player's step (0.45 m) needs a ramp to remain
-  // walkable, and a trace has no idea where a ramp belongs — so the bands are
-  // realised as terrain you can walk up rather than storeys you cannot. It is
-  // less dramatic than a true second floor and it is honest: the relief comes
-  // straight off the radar's own shading, and every metre of it is reachable.
+  { name: 'stepped', step: (i) => i * 0.44 },
   { name: 'terrace', step: (i) => i * 0.42 },
+  { name: 'basin', step: (i) => (i === 0 ? -0.42 : (i - 1) * 0.4) },
+  { name: 'plateau', step: (i, n) => (i >= n - 2 ? 0.42 * (i - (n - 3)) : 0) },
   { name: 'kerb', step: (i) => i * 0.28 },
   { name: 'lip', step: (i, n) => (i >= n - 1 ? 0.4 : 0) },
   { name: 'flat', step: () => 0 },
