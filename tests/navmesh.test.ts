@@ -60,16 +60,36 @@ describe('navmesh sensitivity', () => {
     assert.ok(mesh.ok);
   });
 
-  it('disagrees with the spec when the geometry is not actually walkable', () => {
-    // A 1.2 m sill: the spec graph treats it as a traversable opening because a
-    // player can vault it. An agent that only walks and steps cannot, and the
-    // bake says so. Two derivations, two answers, and the difference is visible
-    // rather than assumed away.
+  it('closes an opening nobody can climb through', () => {
+    // A 1.2 m sill and a player who cannot vault: the opening is a window to
+    // look through, not a way in. The spec graph used to call it traversable
+    // on a bare height comparison and hand back a connected map that the
+    // geometry disagreed with; it now asks what the player can actually do.
     const level = compile(highSill(1.2));
     const report = validate(level);
     const mesh = bakeNavmesh(level);
 
-    assert.equal(report.navigation.components, 1, 'spec graph still calls it connected');
+    assert.equal(report.navigation.components, 2, 'spec graph: two rooms, no route');
+    assert.ok(
+      level.diagnostics.some((d) => d.code === 'OPENING_NOT_TRAVERSABLE'),
+      'and says which opening it was',
+    );
+    assert.ok(mesh.playable_islands > 0, 'navmesh agrees');
+    assert.ok(mesh.unreachable_spaces.includes('b'));
+  });
+
+  it('opens it again for a player who can vault, and the navmesh still objects', () => {
+    // Declaring the vault is what makes the route real to the spec graph. The
+    // bake walks and steps and nothing else, so it still refuses — which is
+    // the whole point of deriving it twice: two derivations, two answers, and
+    // the difference visible rather than assumed away.
+    const spec = highSill(1.2);
+    spec.player = { radius: 0.35, height: 1.8, step: 0.45, crouch: 1.1, vault: 1.25 };
+    const level = compile(spec);
+    const report = validate(level);
+    const mesh = bakeNavmesh(level);
+
+    assert.equal(report.navigation.components, 1, 'spec graph: connected, by vaulting');
     assert.ok(mesh.playable_islands > 0, 'navmesh finds an island the spec graph missed');
     assert.ok(mesh.unreachable_spaces.includes('b'), 'and names the room you cannot walk to');
     assert.ok(mesh.unreachable_markers.includes('far'));

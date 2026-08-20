@@ -3,12 +3,11 @@
  *
  *   node tools/plans.ts [name-filter]
  */
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { readdirSync, readFileSync, writeFileSync, mkdirSync, statSync } from 'node:fs';
+import { join, dirname } from 'node:path';
 import { planToSpec, PlanError } from '../src/authoring/plan.ts';
 import { compile } from '../src/core/compiler.ts';
-import { validate } from '../src/core/validate.ts';
-import { bakeNavmesh } from '../src/core/navmesh.ts';
+import { validateForRuntime } from '../src/core/validate.ts';
 
 const dir = join(import.meta.dirname, '../maps');
 const out = join(import.meta.dirname, '../generated/maps');
@@ -17,17 +16,34 @@ const filter = process.argv[2];
 
 let ok = 0;
 let bad = 0;
-const files = readdirSync(dir).filter((f) => f.endsWith('.plan')).filter((f) => !filter || f.includes(filter));
+/**
+ * Every plan under `maps/`, subdirectories included.
+ *
+ * The library the game actually ships lives in `maps/cs` and `maps/hand`; a
+ * scan of the top level alone checked one smoke test and reported that
+ * everything passed.
+ */
+function walk(root: string, prefix = ''): { rel: string; abs: string }[] {
+  const out: { rel: string; abs: string }[] = [];
+  for (const name of readdirSync(root).sort()) {
+    const abs = join(root, name);
+    if (statSync(abs).isDirectory()) out.push(...walk(abs, `${prefix}${name}/`));
+    else if (name.endsWith('.plan')) out.push({ rel: `${prefix}${name}`, abs });
+  }
+  return out;
+}
 
-for (const file of files.sort()) {
-  const text = readFileSync(join(dir, file), 'utf8');
+const files = walk(dir).filter((f) => !filter || f.rel.includes(filter));
+
+for (const { rel: file, abs } of files) {
+  const text = readFileSync(abs, 'utf8');
   try {
     const spec = planToSpec(text);
     const level = compile(spec);
-    const report = validate(level);
-    const nav = bakeNavmesh(level);
+    const report = validateForRuntime(level);
+    const nav = report.breached;
     const errs = report.diagnostics.filter((d) => d.severity === 'error');
-    const status = errs.length === 0 && nav.ok ? 'PASS' : 'FAIL';
+    const status = report.passed && nav.ok ? 'PASS' : 'FAIL';
     if (status === 'PASS') ok++; else bad++;
     const area = level.solids.length;
     console.log(
@@ -43,7 +59,9 @@ for (const file of files.sort()) {
       for (const v of (nav.void_examples ?? []).slice(0, 3))
         console.log(`      ! walk off at ${v.from.map((n) => n.toFixed(1)).join(',')} -> ${v.to.map((n) => n.toFixed(1)).join(',')}`);
     }
-    writeFileSync(join(out, file.replace('.plan', '.json')), JSON.stringify(spec, null, 2));
+    const artifact = join(out, file.replace('.plan', '.json'));
+    mkdirSync(dirname(artifact), { recursive: true });
+    writeFileSync(artifact, JSON.stringify(spec, null, 2));
   } catch (e) {
     bad++;
     if (e instanceof PlanError) {

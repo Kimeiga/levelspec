@@ -33,6 +33,8 @@ import {
   type NavGraph,
   type NavNode,
   type Opening,
+  type PlayerSpec,
+  type TraversalAction,
   type Rect,
   type Solid,
   type SolidRole,
@@ -61,8 +63,26 @@ interface LayerState {
   zAt: Map<string, number>;
 }
 
+/**
+ * How an opening of this shape is got through, given what the player can do.
+ *
+ * A sill is not a height, it is a question about the controller: 0.9 m is a
+ * route for someone who vaults and a wall for someone who does not. Deciding
+ * it here, once, is what stops the navigation graph proving a map connected
+ * through a window nobody can climb.
+ */
+export function traversalFor(sill: number, head: number, player: PlayerSpec): TraversalAction {
+  const clear = head - sill;
+  if (clear < (player.crouch ?? DEFAULTS.player.crouch) - 0.05) return 'blocked';
+  if (sill <= 1e-6) return clear >= player.height - 0.05 ? 'walk' : 'crouch';
+  if (sill <= player.step + 1e-6) return 'step';
+  if (sill <= (player.vault ?? 0) + 1e-6) return 'vault';
+  return 'blocked';
+}
+
 export function compile(spec: LevelSpec): CompiledLevel {
   const g = spec.grid ?? DEFAULTS.grid;
+  const player = spec.player ?? DEFAULTS.player;
   const wt = spec.wall_thickness ?? DEFAULTS.wall_thickness;
   const ft = spec.floor_thickness ?? DEFAULTS.floor_thickness;
   const diagnostics: Diagnostic[] = [];
@@ -215,7 +235,9 @@ export function compile(spec: LevelSpec): CompiledLevel {
           exterior: left === OUTSIDE || right === OUTSIDE,
           open: type === 'open',
           sill: 0,
-          head: Infinity,
+          // The layer's own ceiling, not `Infinity`: this is serialised.
+          head: layer.height,
+          action: type === 'open' ? 'walk' : 'blocked',
         });
       }
     }
@@ -369,7 +391,9 @@ export function compile(spec: LevelSpec): CompiledLevel {
 
       const profile = PORTAL_PROFILE[portal.kind];
       const sill = portal.sill ?? profile.sill;
-      const head = portal.head ?? profile.head;
+      // `null` in the profile means "as high as the wall goes"; resolved here,
+      // so nothing downstream ever sees a head it cannot serialise.
+      const head = portal.head ?? profile.head ?? layer.height;
       const runLen = run.end - run.start;
       let t0: number;
       let t1: number;
@@ -415,25 +439,42 @@ export function compile(spec: LevelSpec): CompiledLevel {
         }
       }
 
-      const opening: Opening = { portal: portal.id, kind: portal.kind, t0, t1, sill, head };
+      const action = traversalFor(sill, head, player);
+      const opening: Opening = { portal: portal.id, kind: portal.kind, t0, t1, sill, head, action };
       run.openings.push(opening);
       run.openings.sort((a, b) => a.t0 - b.t0);
 
       // Mirror the cut back onto the edge records so navigation and the
       // minimap read the same truth as the geometry.
-      const traversable = sill <= 1.25;
       for (const e of st.edges.values()) {
         if (e.run !== run.id) continue;
         const c0 = e.cross * g;
         const c1 = (e.cross + 1) * g;
         const overlap = Math.min(c1, t1) - Math.max(c0, t0);
         if (overlap > g * 0.5) {
-          e.open = traversable;
+          e.open = action !== 'blocked';
           e.sill = sill;
           e.head = head;
+          e.action = action;
           e.portal = portal.id;
         }
       }
+      if (action === 'blocked')
+        warn(
+          'OPENING_NOT_TRAVERSABLE',
+          [portal.id, run.id],
+          `Portal "${portal.id}" has a ${sill.toFixed(2)} m sill and the player can step ` +
+            `${player.step.toFixed(2)} m and vault ${(player.vault ?? 0).toFixed(2)} m, so nothing goes through it.`,
+          {
+            measured: sill,
+            required: Math.max(player.step, player.vault ?? 0),
+            suggestions: [
+              'Lower the sill to within a step',
+              'Give the player a vault height in `player.vault`',
+              'Treat it as a sightline and route the players another way',
+            ],
+          },
+        );
     }
   }
 
@@ -587,7 +628,7 @@ export function compile(spec: LevelSpec): CompiledLevel {
         });
       }
       for (const o of run.openings) {
-        const headAbs = Math.min(o.head === Infinity ? h : o.head, h);
+        const headAbs = Math.min(o.head, h);
         const ot0 = Math.max(o.t0, bodyStart);
         const ot1 = Math.min(o.t1, bodyEnd);
         if (ot1 - ot0 < EPS) continue;
@@ -864,7 +905,6 @@ export function compile(spec: LevelSpec): CompiledLevel {
       const base = rectBox(v.footprint, g, zFrom, zFrom);
       // Treads sit on the lower floor slab, never inside it.
       const bottom = Math.min(zFrom, zTo);
-      const player = spec.player ?? DEFAULTS.player;
       const sideFloorsAt = (cx: number, cy: number): number[] =>
         [from.zAt.get(key(cx, cy)), to.zAt.get(key(cx, cy))].filter(
           (v2): v2 is number => v2 !== undefined,

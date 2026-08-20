@@ -14,8 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 import { compile } from '../src/core/compiler.ts';
 import { compileNaive } from '../src/core/naive.ts';
-import { checkGeometry, validate } from '../src/core/validate.ts';
-import { bakeNavmesh } from '../src/core/navmesh.ts';
+import { checkGeometry, validateForRuntime } from '../src/core/validate.ts';
 import { toQuakeMap } from '../src/export/quake.ts';
 import { toCadQuery, toDXF, toOBJ, toOpenSCAD, toRuntime, toSVGPlan } from '../src/export/formats.ts';
 import type { LevelSpec } from '../src/core/types.ts';
@@ -58,12 +57,17 @@ function main(): void {
   for (const spec of specs) {
     const t0 = performance.now();
     const level = compile(spec);
-    const report = validate(level);
+    // One gate, and it is the one that includes the physical bake. Running
+    // `validate` here and the navmesh separately is how a caller ends up
+    // reporting a pass that its own navmesh report contradicts.
+    const report = validateForRuntime(level, { skipSealed: false });
     const naive = compileNaive(spec);
     const naiveGeom = checkGeometry(naive.solids);
     const brush = toQuakeMap(level);
-    const mesh = bakeNavmesh(level);
-    const sealedMesh = bakeNavmesh(level, { includeDynamic: true });
+    const mesh = report.breached;
+    // Null when the level has nothing dynamic to seal, in which case the two
+    // states are the same bake and there is no point running it twice.
+    const sealedMesh = report.sealed ?? mesh;
     const ms = performance.now() - t0;
 
     writeFileSync(join(OUT, `${spec.id}.map`), brush.text);

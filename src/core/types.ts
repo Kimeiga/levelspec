@@ -192,12 +192,38 @@ export interface LevelSpec {
   /** Set on levels that are meant to fail, to demonstrate the error path. */
   expect_fail?: boolean;
   /** Player capsule used by the clearance validators. */
-  player?: { radius: number; height: number; step: number; crouch?: number };
+  player?: PlayerSpec;
   layers: LayerSpec[];
   vertical_connections?: VerticalConnectionSpec[];
   covers?: CoverSpec[];
   gameplay?: GameplaySpec;
 }
+
+/**
+ * What the body walking this map can do.
+ *
+ * Traversal is an ability, not a height. An opening with a 0.9 m sill is a
+ * route for a player who can vault and a wall for one who cannot, and the
+ * navigation graph has to know which — otherwise the validator proves a map
+ * connected through a window that the game will never let anyone climb.
+ *
+ * `vault` is the highest sill that can be climbed over, and it is zero by
+ * default: nothing is assumed about the controller beyond walking and
+ * stepping, because assuming more is how a route ends up gated on a move
+ * nobody implemented.
+ */
+export interface PlayerSpec {
+  radius: number;
+  height: number;
+  /** Highest lip that can be walked straight up. */
+  step: number;
+  crouch?: number;
+  /** Highest sill that can be climbed over. Zero means no vault. */
+  vault?: number;
+}
+
+/** How an opening is got through, once the player's abilities are known. */
+export type TraversalAction = 'walk' | 'step' | 'crouch' | 'vault' | 'blocked';
 
 // ---------------------------------------------------------------------------
 // Compiled output (owned entirely by the deterministic compiler)
@@ -267,9 +293,11 @@ export interface Opening {
   /** Interval along the run, in meters. */
   t0: number;
   t1: number;
-  /** Vertical extent relative to the layer floor, in meters. */
+  /** Vertical extent relative to the layer floor, in meters. Always finite. */
   sill: number;
   head: number;
+  /** How the player gets through it, given what the player can do. */
+  action: TraversalAction;
 }
 
 export interface NavNode {
@@ -335,7 +363,10 @@ export interface EdgeRecord {
   run?: string;
   open: boolean;
   sill: number;
+  /** Always finite: the layer ceiling stands in for an unbounded opening. */
   head: number;
+  /** How the player gets through, given what the player can do. */
+  action: TraversalAction;
   portal?: string;
 }
 
@@ -361,18 +392,27 @@ export const DEFAULTS = {
   wall_thickness: 0.22,
   floor_thickness: 0.2,
   voxel_pitch: 0.25,
-  player: { radius: 0.35, height: 1.8, step: 0.45, crouch: 1.1 },
+  player: { radius: 0.35, height: 1.8, step: 0.45, crouch: 1.1, vault: 0 },
   move_speed: 4.6,
 } as const;
 
-/** Default sill/head heights per portal kind, in meters above the layer floor. */
-export const PORTAL_PROFILE: Record<PortalKind, { sill: number; head: number }> = {
+/**
+ * Default sill/head heights per portal kind, in meters above the layer floor.
+ *
+ * `head: null` means "as high as the wall goes" and is resolved against the
+ * layer's own ceiling during compilation. It is not `Infinity`: this table and
+ * everything derived from it get serialised — cached builds, worker messages,
+ * saved levels — and `JSON.stringify(Infinity)` is `null` on the way out and
+ * stays `null` on the way back in, which turns an unbounded opening into a
+ * zero-height one somewhere far from here.
+ */
+export const PORTAL_PROFILE: Record<PortalKind, { sill: number; head: number | null }> = {
   door: { sill: 0, head: 2.1 },
-  open: { sill: 0, head: Infinity },
+  open: { sill: 0, head: null },
   arch: { sill: 0, head: 2.4 },
   breach: { sill: 0, head: 2.1 },
   window: { sill: 0.9, head: 2.05 },
   rappel_window: { sill: 0.9, head: 2.05 },
   rappel_door: { sill: 0, head: 2.1 },
-  hatch_frame: { sill: 0, head: Infinity },
+  hatch_frame: { sill: 0, head: null },
 };

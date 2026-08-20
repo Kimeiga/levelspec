@@ -9,6 +9,7 @@
 import { DEFAULTS, type CompiledLevel, type Diagnostic, type Solid } from './types.ts';
 import { boxCenter, boxMesh, brushContains, signedVolume, windingConsistent } from './mesh.ts';
 import { key, lineCells, unkey } from './grid.ts';
+import { bakeNavmesh, type NavmeshOptions, type NavmeshReport } from './navmesh.ts';
 
 export interface GeometryReport {
   solids: number;
@@ -628,6 +629,48 @@ export function validate(level: CompiledLevel): ValidationReport {
       objects: [],
       message: 'At least one solid has inconsistent or inward winding.',
     });
+  /*
+   * The remaining runtime-readiness counters, each as its own hard error.
+   *
+   * These used to be reported and not gated. `checkGeometry` computed
+   * `runtime_ready` from six conditions and `validate` raised errors for
+   * three of them, so a level with a solid of zero thickness, or a NaN in a
+   * corner, or a brush whose planes did not contain their own centre, could
+   * come back `passed: true` while the report next to it said the geometry
+   * was not fit to run. A gate that a build can pass while its own evidence
+   * says otherwise is not a gate.
+   */
+  if (geometry.nonfinite > 0)
+    diagnostics.push({
+      severity: 'error',
+      code: 'NONFINITE_GEOMETRY',
+      objects: geometry.offender_ids.slice(0, 4),
+      message: `${geometry.nonfinite} solid bound(s) are NaN or Infinity.`,
+      measured: geometry.nonfinite,
+      required: 0,
+      suggestions: ['Check for a division by a zero-length run', 'Check for an unresolved height'],
+    });
+  if (geometry.degenerate > 0)
+    diagnostics.push({
+      severity: 'error',
+      code: 'DEGENERATE_SOLID',
+      objects: geometry.offender_ids.slice(0, 4),
+      message: `${geometry.degenerate} solid(s) have no thickness on at least one axis.`,
+      measured: geometry.degenerate,
+      required: 0,
+      suggestions: ['Give the run a non-zero span', 'Drop the solid rather than emitting a sliver'],
+    });
+  if (geometry.brush_tests_passed !== geometry.brush_tests_total)
+    diagnostics.push({
+      severity: 'error',
+      code: 'BRUSH_NOT_CONVEX',
+      objects: geometry.offender_ids.slice(0, 4),
+      message:
+        `${geometry.brush_tests_total - geometry.brush_tests_passed} solid(s) have half-spaces ` +
+        'that do not contain their own centre.',
+      measured: geometry.brush_tests_passed,
+      required: geometry.brush_tests_total,
+    });
   if (navigation.components > 1)
     diagnostics.push({
       severity: 'error',
@@ -709,5 +752,159 @@ export function validate(level: CompiledLevel): ValidationReport {
     });
 
   const passed = !diagnostics.some((d) => d.severity === 'error');
+  /*
+   * Belt and braces, deliberately.
+   *
+   * Every readiness counter above has its own diagnostic, so this should never
+   * fire. It exists because the two ways of deciding whether a level is fit to
+   * ship — the report and the diagnostics — drifted apart once already, and a
+   * disagreement between them should be a loud failure rather than a quiet
+   * pass.
+   */
+  if (passed && !geometry.runtime_ready) {
+    diagnostics.push({
+      severity: 'error',
+      code: 'GEOMETRY_NOT_RUNTIME_READY',
+      objects: geometry.offender_ids.slice(0, 4),
+      message: 'Geometry failed a runtime-readiness gate that raised no diagnostic of its own.',
+    });
+    return { level: level.spec.id, passed: false, geometry, navigation, tactical, diagnostics };
+  }
   return { level: level.spec.id, passed, geometry, navigation, tactical, diagnostics };
+}
+
+// ---------------------------------------------------------------------------
+// The gate a build should actually use
+// ---------------------------------------------------------------------------
+
+export interface RuntimeValidationOptions {
+  /** Passed through to both bakes. */
+  navmesh?: NavmeshOptions;
+  /**
+   * Skip the sealed bake. It doubles the cost and only says something on a
+   * level that has dynamic solids to seal.
+   */
+  skipSealed?: boolean;
+  /** Warn above this many solids. Zero disables the check. */
+  solidBudget?: number;
+}
+
+export interface RuntimeValidationReport extends ValidationReport {
+  /** Barricades down, hatches open: can every space be reached in principle? */
+  breached: NavmeshReport;
+  /** Barricades up: what can be reached before anything is broken. */
+  sealed: NavmeshReport | null;
+}
+
+/**
+ * Structural validation and the physical bake, together, as one answer.
+ *
+ * `validate` checks the geometry and the *spec-derived* navigation graph —
+ * the one the compiler built out of occupancy and portal records. That graph
+ * and the geometry come from the same source and can only ever agree with
+ * each other. `bakeNavmesh` derives reachability from the compiled solids
+ * without looking at the spec at all, which is the only check that can catch
+ * a stair landing inside a wall or a doorway whose lintel is too low.
+ *
+ * Both were available and it was up to each caller to remember to run the
+ * second one, which is not a gate, it is a suggestion. This is the gate: a
+ * function whose name says runtime, that fails when the level is not fit for
+ * one.
+ *
+ * The two dynamic states are separated on purpose. Breached — barricades
+ * down, hatches open — answers "is any space unreachable in principle", and
+ * that is the hard failure. Sealed answers "what can be reached before
+ * anything is broken", which is a design question rather than a defect: a
+ * level where the front door is boarded is a level, and one where a room is
+ * behind a wall nobody can break is not.
+ */
+export function validateForRuntime(
+  level: CompiledLevel,
+  opts: RuntimeValidationOptions = {},
+): RuntimeValidationReport {
+  const base = validate(level);
+  const diagnostics = [...base.diagnostics];
+
+  const breached = bakeNavmesh(level, { ...opts.navmesh, includeDynamic: false });
+  const hasDynamic = level.solids.some((s) => s.dynamic);
+  const sealed =
+    opts.skipSealed || !hasDynamic
+      ? null
+      : bakeNavmesh(level, { ...opts.navmesh, includeDynamic: true });
+
+  if (breached.playable_islands > 0)
+    diagnostics.push({
+      severity: 'error',
+      code: 'NAVMESH_ISLAND',
+      objects: breached.islands.filter((i) => i.kind === 'playable').flatMap((i) => i.spaces).slice(0, 4),
+      message:
+        `${breached.playable_islands} patch(es) of declared floor are cut off from spawn in the ` +
+        'compiled geometry, whatever the spec graph says.',
+      measured: breached.playable_islands,
+      required: 0,
+      suggestions: ['Check the stair lands where the plan says', 'Check the opening is wide enough for the capsule'],
+    });
+  for (const space of breached.unreachable_spaces.slice(0, 6))
+    diagnostics.push({
+      severity: 'error',
+      code: 'NAVMESH_SPACE_UNREACHABLE',
+      objects: [space],
+      message: `Space "${space}" cannot be walked to from any spawn.`,
+    });
+  for (const m of breached.unreachable_markers.slice(0, 6))
+    diagnostics.push({
+      severity: 'error',
+      code: 'NAVMESH_MARKER_UNREACHABLE',
+      objects: [m],
+      message: `Marker "${m}" is not standing on walkable floor.`,
+    });
+  if (breached.void_edges > 0)
+    diagnostics.push({
+      severity: 'error',
+      code: 'NAVMESH_VOID_EDGE',
+      objects: [],
+      message:
+        `${breached.void_edges} reachable place(s) have nothing at all in the next column: ` +
+        'step that way and you leave the world.',
+      measured: breached.void_edges,
+      required: 0,
+      suggestions: ['Seal the face of the elevation change', 'Add a parapet along the open edge'],
+    });
+
+  /*
+   * What breaching buys you.
+   *
+   * Reported rather than failed: a space you can only reach by taking a wall
+   * down is a design, and often the point. What matters is that it is said out
+   * loud, because the alternative — baking with every dynamic solid removed
+   * and never mentioning it — is what lets an enemy path through an intact
+   * panel and appear in a room it has no way into.
+   */
+  if (sealed) {
+    const behind = breached.space_coverage
+      .filter((c) => c.fraction > 0.2)
+      .map((c) => c.space)
+      .filter((space) => sealed.unreachable_spaces.includes(space));
+    if (behind.length)
+      diagnostics.push({
+        severity: 'info',
+        code: 'SEALED_BEHIND_BREACH',
+        objects: behind.slice(0, 6),
+        message: `${behind.length} space(s) can only be reached by breaching: ${behind.slice(0, 4).join(', ')}.`,
+      });
+  }
+
+  const budget = opts.solidBudget ?? 0;
+  if (budget > 0 && level.solids.length > budget)
+    diagnostics.push({
+      severity: 'warning',
+      code: 'SOLID_BUDGET',
+      objects: [],
+      message: `${level.solids.length} solids, over a budget of ${budget}.`,
+      measured: level.solids.length,
+      required: budget,
+    });
+
+  const passed = !diagnostics.some((d) => d.severity === 'error');
+  return { ...base, passed, diagnostics, breached, sealed };
 }

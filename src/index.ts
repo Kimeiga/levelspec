@@ -3,8 +3,10 @@
  *
  * A level is authored (or generated) as semantic intent: rooms, adjacency,
  * portals, wall roles, vertical connections, objectives. `compile` turns that
- * into geometry and owns every coordinate. `validate` and `bakeNavmesh` decide
- * whether the result is fit to ship. Nothing downstream of here writes a
+ * into geometry and owns every coordinate. `validateForRuntime` decides whether
+ * the result is fit to ship: it checks the geometry, the spec-derived
+ * navigation graph, and — separately and independently — what an agent can
+ * actually walk on once the solids exist. Nothing downstream of here writes a
  * vertex, a plane, a winding order or an engine axis.
  */
 
@@ -13,6 +15,7 @@ export { compile } from './core/compiler.ts';
 export { compileNaive } from './core/naive.ts';
 export {
   validate,
+  validateForRuntime,
   checkGeometry,
   checkNavigation,
   checkTactical,
@@ -23,6 +26,8 @@ export {
   type NavReport,
   type TacticalReport,
   type RouteResult,
+  type RuntimeValidationOptions,
+  type RuntimeValidationReport,
 } from './core/validate.ts';
 export {
   bakeNavmesh,

@@ -144,28 +144,59 @@ export function components(cells: Iterable<string>): string[][] {
   return out;
 }
 
-/** Supercover DDA line walk — used by the sightline validator. */
+/**
+ * Every cell a straight line touches, centre to centre.
+ *
+ * A supercover walk, which is not the same as Bresenham: where the line runs
+ * exactly through a lattice corner it touches *both* cells that share that
+ * corner, and a wall standing in either one of them stops the shot. The
+ * previous implementation was labelled supercover and was in fact an ordinary
+ * 8-connected Bresenham with an `else if`, so it picked one of the two and
+ * reported a clear sightline through the other — a false clear, in the one
+ * function whose entire job is to find blockers.
+ *
+ * Amanatides and Woo's grid traversal: step whichever axis reaches its next
+ * boundary first, and when they arrive together take both.
+ */
 export function lineCells(x0: number, y0: number, x1: number, y1: number): Cell[] {
-  const out: Cell[] = [];
+  const out: Cell[] = [[x0, y0]];
+  if (x0 === x1 && y0 === y1) return out;
+
+  const dx = x1 - x0;
+  const dy = y1 - y0;
+  const stepX = Math.sign(dx);
+  const stepY = Math.sign(dy);
+  // Parametric distance along the segment: one whole cell on each axis, and
+  // half of one to reach the first boundary out of the starting centre.
+  const spanX = dx !== 0 ? Math.abs(1 / dx) : Infinity;
+  const spanY = dy !== 0 ? Math.abs(1 / dy) : Infinity;
+  let nextX = spanX / 2;
+  let nextY = spanY / 2;
+
   let x = x0;
   let y = y0;
-  const dx = Math.abs(x1 - x0);
-  const dy = Math.abs(y1 - y0);
-  const sx = x1 > x0 ? 1 : -1;
-  const sy = y1 > y0 ? 1 : -1;
-  let err = dx - dy;
-  out.push([x, y]);
-  while (x !== x1 || y !== y1) {
-    const e2 = 2 * err;
-    if (e2 > -dy) {
-      err -= dy;
-      x += sx;
-    } else if (e2 < dx) {
-      err += dx;
-      y += sy;
+  // Manhattan distance is exactly how many single steps this takes; the
+  // corner case takes two cells at a time and so only ever comes in under it.
+  const limit = Math.abs(dx) + Math.abs(dy) + 2;
+  for (let guard = 0; x !== x1 || y !== y1; guard++) {
+    if (guard > limit) {
+      throw new Error(`lineCells did not terminate walking ${x0},${y0} -> ${x1},${y1}`);
+    }
+    if (stepX !== 0 && stepY !== 0 && Math.abs(nextX - nextY) < 1e-9) {
+      // Straight through the corner. Both cells that share it are touched.
+      out.push([x + stepX, y], [x, y + stepY]);
+      x += stepX;
+      y += stepY;
+      nextX += spanX;
+      nextY += spanY;
+    } else if (nextX < nextY) {
+      x += stepX;
+      nextX += spanX;
+    } else {
+      y += stepY;
+      nextY += spanY;
     }
     out.push([x, y]);
-    if (out.length > 4096) break;
   }
   return out;
 }
