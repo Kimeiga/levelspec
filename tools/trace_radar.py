@@ -53,6 +53,15 @@ def load_floor_mask(path, _white_cut, alpha_cut, bg_tol=26.0):
     ring[:, :band] = ring[:, -band:] = True
 
     opaque = alpha > alpha_cut
+
+    # When an image carries real transparency, that *is* the background and
+    # nothing else needs deciding. Guessing a background colour anyway is how
+    # Dust II lost four fifths of itself: its radar is half transparent, so the
+    # handful of opaque pixels on the border were shadowed map content, and
+    # every pixel of that shade got deleted along with them.
+    if opaque.mean() < 0.92:
+        return im, rgb, opaque
+
     edge = ring & opaque
     if edge.sum() > 0:
         # Mode over a coarse quantisation, so noise and JPEG ringing do not

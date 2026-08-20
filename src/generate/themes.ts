@@ -46,6 +46,26 @@ export interface ThemeDecor {
   crateHeight: [number, number];
 }
 
+/** A single map's look, as produced by tools/build_palettes.ts. */
+export interface MapLook {
+  roles: Record<string, number>;
+  sky: number;
+  fog: number;
+  fogNear: number;
+  fogFar: number;
+  sun: number;
+  sunIntensity: number;
+  hemiSky: number;
+  hemiGround: number;
+  hemiIntensity: number;
+  grid: { line: number; alpha: number; scale: number };
+  surface: { roughness: number; metalness: number };
+  daylight: boolean;
+  /** One line on what the place is made of, for the hand-authored entries. */
+  look?: string;
+  curated?: boolean;
+}
+
 export interface Theme {
   id: string;
   name: string;
@@ -55,6 +75,10 @@ export interface Theme {
   /** Wall thickness and storey height read differently per biome. */
   wallThickness: number;
   ceiling: [number, number];
+  /** How surfaces are finished. Set per map from its own look. */
+  surface?: { roughness: number; metalness: number };
+  /** Size of a masonry unit in metres — what makes stone read unlike panelling. */
+  gridScale?: number;
 }
 
 const base = (over: Partial<ThemePalette>): ThemePalette => ({

@@ -19,6 +19,7 @@ import { archetypeFor, ARCHETYPES, type Archetype } from './archetypes.ts';
 
 export * from './rng.ts';
 export * from './themes.ts';
+export { LOOKS } from './looks.ts';
 export { ARCHETYPES } from './archetypes.ts';
 export { loadAuthored, type AuthoredSource, type AuthoredOptions } from './authored.ts';
 

@@ -185,26 +185,51 @@ export function loadAuthored(src: AuthoredSource, opts: AuthoredOptions = {}): G
   const spawn = attacker ? attacker.pos : pointAt(graph, spawnNode);
   const exit = objective ? objective.pos : pointAt(graph, bi);
 
-  const pickups: Pickup[] = [];
+  /**
+   * Spread the pickups out.
+   *
+   * The obvious scoring — "prefer a spot far from the ones already placed" —
+   * clusters anyway, because it scores forty random candidates and the random
+   * candidates are drawn from wherever the navmesh happens to be dense. So
+   * placement is done the other way round: the whole reachable set is thinned
+   * to points at least a fixed distance apart, that thinned set is shuffled,
+   * and pickups are dealt from it. Spacing becomes a property of the pool
+   * rather than something a score has to keep rediscovering.
+   */
   const plan = planPickups(rng, depth);
-  const taken: [number, number, number][] = [];
-  for (const [i, p] of plan.entries()) {
-    let best: [number, number, number] | null = null;
-    let bestScore = -Infinity;
-    for (let t = 0; t < 40; t++) {
-      const at = pointAt(graph, open[rng.int(0, open.length - 1)]);
-      if (dist(at, spawn) < 12) continue;
-      // Spread them out and keep them off the exit.
-      const near = taken.reduce((m, q) => Math.min(m, dist(at, q)), Infinity);
-      const score = Math.min(near, 30) + Math.min(dist(at, exit), 25) * 0.4;
-      if (score > bestScore) {
-        bestScore = score;
-        best = at;
+  const shuffled = rng.shuffle([...open]);
+
+  const thin = (spacing: number): [number, number, number][] => {
+    const kept: [number, number, number][] = [];
+    for (const i of shuffled) {
+      const at = pointAt(graph, i);
+      if (dist(at, spawn) < Math.min(11, spacing)) continue;
+      let ok = true;
+      for (const q of kept) {
+        if (dist(at, q) < spacing) {
+          ok = false;
+          break;
+        }
       }
+      if (ok) kept.push(at);
+      if (kept.length >= plan.length) break;
     }
-    if (!best) continue;
-    taken.push(best);
-    pickups.push({ id: `pick_${i}`, kind: p.kind, variant: p.variant, at: best });
+    return kept;
+  };
+
+  // Start as spread out as the map might allow and relax until everything
+  // fits. A small map cannot hold ten pickups twenty metres apart, and
+  // dropping the ones that do not fit is worse than placing them closer.
+  let spread = thin(Math.max(9, Math.min(22, Math.sqrt(open.length) * 0.45)));
+  for (let attempt = 0; spread.length < plan.length && attempt < 5; attempt++) {
+    spread = thin(Math.max(2.5, 20 * Math.pow(0.65, attempt + 1)));
+  }
+
+  const pickups: Pickup[] = [];
+  for (const [i, p] of plan.entries()) {
+    const at = spread[i];
+    if (!at) break;
+    pickups.push({ id: `pick_${i}`, kind: p.kind, variant: p.variant, at });
   }
 
   const enemyPosts: [number, number, number][] = [];

@@ -1,0 +1,6526 @@
+{
+ "747": {
+  "daylight": false,
+  "fog": 1249566,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2039586
+  },
+  "hemiGround": 1315864,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1710118,
+  "roles": {
+   "cover": 810262,
+   "exterior_wall": 7763074,
+   "floor": 1907746,
+   "glass": 1643822,
+   "ramp": 9408152,
+   "riser": 2105126,
+   "roof": 1381400,
+   "soft_panel": 882458,
+   "stair": 9868703,
+   "static_hard": 8881810
+  },
+  "sky": 1315362,
+  "sun": 2236459,
+  "sunIntensity": 2.0
+ },
+ "abbey": {
+  "daylight": true,
+  "fog": 6789328,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3419175
+  },
+  "hemiGround": 3289902,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12373731,
+  "roles": {
+   "cover": 6592980,
+   "exterior_wall": 12167582,
+   "floor": 4671810,
+   "glass": 13361142,
+   "ramp": 13945798,
+   "riser": 5263945,
+   "roof": 3355951,
+   "soft_panel": 10469862,
+   "stair": 14472657,
+   "static_hard": 13418938
+  },
+  "sky": 8235741,
+  "sun": 15725302,
+  "sunIntensity": 2.6
+ },
+ "agency": {
+  "daylight": true,
+  "fog": 5794957,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1316118
+  },
+  "hemiGround": 3882046,
+  "hemiIntensity": 2.5,
+  "hemiSky": 8819883,
+  "roles": {
+   "cover": 4744072,
+   "exterior_wall": 4869716,
+   "floor": 5526873,
+   "glass": 9084865,
+   "ramp": 5856612,
+   "riser": 6185060,
+   "roof": 4013632,
+   "soft_panel": 5930154,
+   "stair": 6120040,
+   "static_hard": 5527903
+  },
+  "sky": 6256800,
+  "sun": 11581377,
+  "sunIntensity": 2.6
+ },
+ "airstrip": {
+  "daylight": true,
+  "fog": 7762294,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2763043
+  },
+  "hemiGround": 9800304,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10262684,
+  "roles": {
+   "cover": 9726757,
+   "exterior_wall": 10197639,
+   "floor": 12959663,
+   "glass": 11117737,
+   "ramp": 11842471,
+   "riser": 14275784,
+   "roof": 10129011,
+   "soft_panel": 12355371,
+   "stair": 12303024,
+   "static_hard": 11381917
+  },
+  "sky": 8617347,
+  "sun": 12302779,
+  "sunIntensity": 2.6
+ },
+ "ali": {
+  "daylight": false,
+  "fog": 4078641,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1381393
+  },
+  "hemiGround": 6971732,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5328451,
+  "roles": {
+   "cover": 5521957,
+   "exterior_wall": 5262144,
+   "floor": 9931640,
+   "glass": 6117443,
+   "ramp": 6183245,
+   "riser": 10984330,
+   "roof": 7300181,
+   "soft_panel": 6968109,
+   "stair": 6511953,
+   "static_hard": 5985609
+  },
+  "sky": 4604726,
+  "sun": 6249812,
+  "sunIntensity": 2.0
+ },
+ "alley1": {
+  "daylight": false,
+  "fog": 592390,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 592390
+  },
+  "hemiGround": 1973529,
+  "hemiIntensity": 2.9,
+  "hemiSky": 789769,
+  "roles": {
+   "cover": 724227,
+   "exterior_wall": 592389,
+   "floor": 2828835,
+   "glass": 921608,
+   "ramp": 658183,
+   "riser": 3158055,
+   "roof": 2039322,
+   "soft_panel": 921603,
+   "stair": 723975,
+   "static_hard": 658182
+  },
+  "sky": 658439,
+  "sun": 921356,
+  "sunIntensity": 2.0
+ },
+ "alleyway": {
+  "daylight": false,
+  "fog": 395530,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 460809
+  },
+  "hemiGround": 395273,
+  "hemiIntensity": 2.9,
+  "hemiSky": 395273,
+  "roles": {
+   "cover": 10367276,
+   "exterior_wall": 460809,
+   "floor": 395273,
+   "glass": 329994,
+   "ramp": 460809,
+   "riser": 461066,
+   "roof": 395273,
+   "soft_panel": 13122099,
+   "stair": 461065,
+   "static_hard": 460809
+  },
+  "sky": 197894,
+  "sun": 460809,
+  "sunIntensity": 2.0
+ },
+ "ancient": {
+  "daylight": false,
+  "fog": 4410694,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1843231
+  },
+  "hemiGround": 2172189,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5989726,
+  "roles": {
+   "cover": 5732716,
+   "exterior_wall": 6978420,
+   "floor": 3159338,
+   "glass": 6189669,
+   "ramp": 8491146,
+   "riser": 3488814,
+   "roof": 2237982,
+   "soft_panel": 7182215,
+   "stair": 8951441,
+   "static_hard": 7965572
+  },
+  "sky": 4871758,
+  "sun": 7370867,
+  "sunIntensity": 2.0
+ },
+ "anubis": {
+  "daylight": true,
+  "fog": 7177616,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2300437
+  },
+  "hemiGround": 6507584,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10529970,
+  "roles": {
+   "cover": 6107416,
+   "exterior_wall": 8806988,
+   "floor": 9464921,
+   "glass": 11189188,
+   "ramp": 10188384,
+   "riser": 10713442,
+   "roof": 6835776,
+   "soft_panel": 7748636,
+   "stair": 10583142,
+   "static_hard": 9924440
+  },
+  "sky": 8098718,
+  "sun": 13225424,
+  "sunIntensity": 2.6
+ },
+ "apollo": {
+  "daylight": true,
+  "fog": 6919105,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2834519
+  },
+  "hemiGround": 7499886,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11912921,
+  "roles": {
+   "cover": 406116,
+   "exterior_wall": 13030885,
+   "floor": 10592413,
+   "glass": 12769262,
+   "ramp": 15659766,
+   "riser": 11842481,
+   "roof": 7697264,
+   "soft_panel": 343679,
+   "stair": 15659766,
+   "static_hard": 15659767
+  },
+  "sky": 8234191,
+  "sun": 15659508,
+  "sunIntensity": 2.6
+ },
+ "arabstreets": {
+  "daylight": true,
+  "fog": 8293291,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1644049
+  },
+  "hemiGround": 6246197,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12436176,
+  "roles": {
+   "cover": 6440734,
+   "exterior_wall": 6246975,
+   "floor": 9138504,
+   "glass": 13423330,
+   "ramp": 7233870,
+   "riser": 10518605,
+   "roof": 6574644,
+   "soft_panel": 8214820,
+   "stair": 7562834,
+   "static_hard": 7036233
+  },
+  "sky": 9477307,
+  "sun": 15658993,
+  "sunIntensity": 2.6
+ },
+ "arcticbiolab": {
+  "daylight": false,
+  "fog": 3490124,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 724238
+  },
+  "hemiGround": 3027772,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4872034,
+  "roles": {
+   "cover": 2774596,
+   "exterior_wall": 2699573,
+   "floor": 4213079,
+   "glass": 4677491,
+   "ramp": 3291711,
+   "riser": 4673890,
+   "roof": 3028286,
+   "soft_panel": 3370325,
+   "stair": 3423554,
+   "static_hard": 3094588
+  },
+  "sky": 3754326,
+  "sun": 6187121,
+  "sunIntensity": 2.0
+ },
+ "assault": {
+  "daylight": true,
+  "fog": 10136758,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2500130
+  },
+  "hemiGround": 2959911,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14475748,
+  "roles": {
+   "cover": 3887161,
+   "exterior_wall": 9342847,
+   "floor": 4275254,
+   "glass": 15725557,
+   "ramp": 10856091,
+   "riser": 4866876,
+   "roof": 3091239,
+   "soft_panel": 4810055,
+   "stair": 11382179,
+   "static_hard": 10461074
+  },
+  "sky": 11517895,
+  "sun": 15856627,
+  "sunIntensity": 2.6
+ },
+ "assembly": {
+  "daylight": true,
+  "fog": 7698039,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3289392
+  },
+  "hemiGround": 8946041,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10263966,
+  "roles": {
+   "cover": 2447255,
+   "exterior_wall": 12302775,
+   "floor": 12368051,
+   "glass": 11119275,
+   "ramp": 14539995,
+   "riser": 13749962,
+   "roof": 9209212,
+   "soft_panel": 2846143,
+   "stair": 15198182,
+   "static_hard": 13882065
+  },
+  "sky": 8553348,
+  "sun": 12500670,
+  "sunIntensity": 2.6
+ },
+ "austria": {
+  "daylight": true,
+  "fog": 9609154,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2963803
+  },
+  "hemiGround": 3488843,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14475497,
+  "roles": {
+   "cover": 2964823,
+   "exterior_wall": 12963557,
+   "floor": 4937325,
+   "glass": 15593719,
+   "ramp": 15659254,
+   "riser": 5398396,
+   "roof": 3554895,
+   "soft_panel": 3558511,
+   "stair": 15659254,
+   "static_hard": 15659255
+  },
+  "sky": 11056082,
+  "sun": 15790580,
+  "sunIntensity": 2.6
+ },
+ "autumn_harvest": {
+  "daylight": true,
+  "fog": 6524867,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2309466
+  },
+  "hemiGround": 6774072,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11584217,
+  "roles": {
+   "cover": 8350765,
+   "exterior_wall": 12637418,
+   "floor": 9930572,
+   "glass": 12309230,
+   "ramp": 15594232,
+   "riser": 11442513,
+   "roof": 7168311,
+   "soft_panel": 10651702,
+   "stair": 15594232,
+   "static_hard": 15528696
+  },
+  "sky": 7774161,
+  "sun": 15330801,
+  "sunIntensity": 2.6
+ },
+ "aztec": {
+  "daylight": false,
+  "fog": 1644816,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 657927
+  },
+  "hemiGround": 1052425,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2105367,
+  "roles": {
+   "cover": 2829074,
+   "exterior_wall": 2631707,
+   "floor": 1513228,
+   "glass": 2500117,
+   "ramp": 3092002,
+   "riser": 1710605,
+   "roof": 1052680,
+   "soft_panel": 3618325,
+   "stair": 3223587,
+   "static_hard": 2960671
+  },
+  "sky": 1842194,
+  "sun": 2434334,
+  "sunIntensity": 2.0
+ },
+ "aztec2": {
+  "daylight": true,
+  "fog": 8947847,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2434338
+  },
+  "hemiGround": 7236445,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11908533,
+  "roles": {
+   "cover": 8352844,
+   "exterior_wall": 9210753,
+   "floor": 10196871,
+   "glass": 12895684,
+   "ramp": 10790045,
+   "riser": 11249817,
+   "roof": 7499359,
+   "soft_panel": 10523230,
+   "stair": 11250597,
+   "static_hard": 10329492
+  },
+  "sky": 9934743,
+  "sun": 14408667,
+  "sunIntensity": 2.6
+ },
+ "backalley": {
+  "daylight": false,
+  "fog": 1906964,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 723464
+  },
+  "hemiGround": 4144438,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2498844,
+  "roles": {
+   "cover": 4593677,
+   "exterior_wall": 2827548,
+   "floor": 5920588,
+   "glass": 2958363,
+   "ramp": 3353635,
+   "riser": 6709845,
+   "roof": 4276023,
+   "soft_panel": 5839886,
+   "stair": 3485221,
+   "static_hard": 3222048
+  },
+  "sky": 2169878,
+  "sun": 2893860,
+  "sunIntensity": 2.0
+ },
+ "baggage": {
+  "daylight": false,
+  "fog": 4867645,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2631461
+  },
+  "hemiGround": 4474438,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6380627,
+  "roles": {
+   "cover": 9797156,
+   "exterior_wall": 9802635,
+   "floor": 6382693,
+   "glass": 7300437,
+   "ramp": 11513512,
+   "riser": 7106673,
+   "roof": 4606025,
+   "soft_panel": 12427306,
+   "stair": 12039857,
+   "static_hard": 10987167
+  },
+  "sky": 5524803,
+  "sun": 7565160,
+  "sunIntensity": 2.0
+ },
+ "balkan_map": {
+  "daylight": true,
+  "fog": 11710634,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1579287
+  },
+  "hemiGround": 3487792,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15329767,
+  "roles": {
+   "cover": 4669226,
+   "exterior_wall": 6054228,
+   "floor": 5001284,
+   "glass": 15987697,
+   "ramp": 7172710,
+   "riser": 5593675,
+   "roof": 3619377,
+   "soft_panel": 5918260,
+   "stair": 7501930,
+   "static_hard": 6844000
+  },
+  "sky": 12960702,
+  "sun": 15987442,
+  "sunIntensity": 2.6
+ },
+ "bank": {
+  "daylight": true,
+  "fog": 10396821,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1250065
+  },
+  "hemiGround": 10786179,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13751246,
+  "roles": {
+   "cover": 5393961,
+   "exterior_wall": 4868670,
+   "floor": 14341067,
+   "glass": 14935519,
+   "ramp": 5723979,
+   "riser": 15789288,
+   "roof": 11180422,
+   "soft_panel": 6775346,
+   "stair": 5987151,
+   "static_hard": 5460807
+  },
+  "sky": 11515047,
+  "sun": 15922162,
+  "sunIntensity": 2.6
+ },
+ "basalt": {
+  "daylight": true,
+  "fog": 8558249,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 5129018
+  },
+  "hemiGround": 4935499,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12568527,
+  "roles": {
+   "cover": 6896943,
+   "exterior_wall": 14472654,
+   "floor": 7041387,
+   "glass": 13555937,
+   "ramp": 16052976,
+   "riser": 7896695,
+   "roof": 5067085,
+   "soft_panel": 8735802,
+   "stair": 16052976,
+   "static_hard": 16052976
+  },
+  "sky": 9742264,
+  "sun": 15724786,
+  "sunIntensity": 2.6
+ },
+ "bazaar": {
+  "daylight": true,
+  "fog": 11054764,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1381137
+  },
+  "hemiGround": 13152651,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15001060,
+  "roles": {
+   "cover": 5061420,
+   "exterior_wall": 5195582,
+   "floor": 16249837,
+   "glass": 15922162,
+   "ramp": 6116684,
+   "riser": 16315629,
+   "roof": 13547151,
+   "soft_panel": 6375991,
+   "stair": 6445391,
+   "static_hard": 5919047
+  },
+  "sky": 12370367,
+  "sun": 15921906,
+  "sunIntensity": 2.6
+ },
+ "biome": {
+  "daylight": true,
+  "fog": 8360612,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2829098
+  },
+  "hemiGround": 3553075,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12239562,
+  "roles": {
+   "cover": 5591862,
+   "exterior_wall": 10592927,
+   "floor": 5132105,
+   "glass": 13161180,
+   "ramp": 12632255,
+   "riser": 5724497,
+   "roof": 3684660,
+   "soft_panel": 7039299,
+   "stair": 13224392,
+   "static_hard": 12040373
+  },
+  "sky": 9478835,
+  "sun": 15330028,
+  "sunIntensity": 2.6
+ },
+ "black_gold": {
+  "daylight": true,
+  "fog": 9413308,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 723723
+  },
+  "hemiGround": 6247731,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14081251,
+  "roles": {
+   "cover": 9269281,
+   "exterior_wall": 2763562,
+   "floor": 9141061,
+   "glass": 15396596,
+   "ramp": 3290162,
+   "riser": 10521674,
+   "roof": 6576178,
+   "soft_panel": 11832614,
+   "stair": 3421748,
+   "static_hard": 3092783
+  },
+  "sky": 10794444,
+  "sun": 15856372,
+  "sunIntensity": 2.6
+ },
+ "blacksite": {
+  "daylight": true,
+  "fog": 10140881,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2567471
+  },
+  "hemiGround": 5794159,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15659765,
+  "roles": {
+   "cover": 3362393,
+   "exterior_wall": 10069932,
+   "floor": 8361373,
+   "glass": 15529209,
+   "ramp": 12436936,
+   "riser": 9545389,
+   "roof": 5860724,
+   "soft_panel": 4088432,
+   "stair": 13094608,
+   "static_hard": 11713728
+  },
+  "sky": 11784159,
+  "sun": 15791093,
+  "sunIntensity": 2.6
+ },
+ "blagai": {
+  "daylight": true,
+  "fog": 6324385,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1447443
+  },
+  "hemiGround": 4144699,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10136508,
+  "roles": {
+   "cover": 5800625,
+   "exterior_wall": 5461065,
+   "floor": 5921108,
+   "glass": 10598865,
+   "ramp": 6513496,
+   "riser": 6644830,
+   "roof": 4276284,
+   "soft_panel": 8627400,
+   "stair": 6776924,
+   "static_hard": 6250323
+  },
+  "sky": 7245487,
+  "sun": 13160149,
+  "sunIntensity": 2.6
+ },
+ "boyard": {
+  "daylight": true,
+  "fog": 7899550,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2630688
+  },
+  "hemiGround": 4406324,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11647170,
+  "roles": {
+   "cover": 7159341,
+   "exterior_wall": 9930617,
+   "floor": 6444617,
+   "glass": 12437461,
+   "ramp": 11313560,
+   "riser": 7299152,
+   "roof": 4603444,
+   "soft_panel": 9063735,
+   "stair": 11774369,
+   "static_hard": 10918287
+  },
+  "sky": 9017517,
+  "sun": 14606563,
+  "sunIntensity": 2.6
+ },
+ "breach": {
+  "daylight": true,
+  "fog": 7505352,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1908514
+  },
+  "hemiGround": 4672597,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12765665,
+  "roles": {
+   "cover": 5189146,
+   "exterior_wall": 7172992,
+   "floor": 6581371,
+   "glass": 13884148,
+   "ramp": 8817301,
+   "riser": 7305354,
+   "roof": 4738648,
+   "soft_panel": 6568222,
+   "stair": 9277851,
+   "static_hard": 8291216
+  },
+  "sky": 8952022,
+  "sun": 15725045,
+  "sunIntensity": 2.6
+ },
+ "brewery": {
+  "daylight": false,
+  "fog": 4604479,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2367518
+  },
+  "hemiGround": 5783348,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6117461,
+  "roles": {
+   "cover": 6433302,
+   "exterior_wall": 8944241,
+   "floor": 8411208,
+   "glass": 6774618,
+   "ramp": 10326924,
+   "riser": 9658702,
+   "roof": 6045492,
+   "soft_panel": 8205338,
+   "stair": 10787476,
+   "static_hard": 9997444
+  },
+  "sky": 5196102,
+  "sun": 7236457,
+  "sunIntensity": 2.0
+ },
+ "bridge": {
+  "daylight": false,
+  "fog": 2037779,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1512721
+  },
+  "hemiGround": 1907222,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2629659,
+  "roles": {
+   "cover": 6179373,
+   "exterior_wall": 5852993,
+   "floor": 2762015,
+   "glass": 3154457,
+   "ramp": 6839887,
+   "riser": 3156514,
+   "roof": 1973015,
+   "soft_panel": 7822647,
+   "stair": 7168595,
+   "static_hard": 6576714
+  },
+  "sky": 2300437,
+  "sun": 2959140,
+  "sunIntensity": 2.0
+ },
+ "bunker": {
+  "daylight": false,
+  "fog": 3685465,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 722954
+  },
+  "hemiGround": 3219236,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5264498,
+  "roles": {
+   "cover": 3084580,
+   "exterior_wall": 2759717,
+   "floor": 4729395,
+   "glass": 4804745,
+   "ramp": 3220012,
+   "riser": 5385784,
+   "roof": 3415589,
+   "soft_panel": 3871790,
+   "stair": 3417134,
+   "static_hard": 3153962
+  },
+  "sky": 4014437,
+  "sun": 6843267,
+  "sunIntensity": 2.0
+ },
+ "cache": {
+  "daylight": true,
+  "fog": 10399418,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2764595
+  },
+  "hemiGround": 11512484,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14870249,
+  "roles": {
+   "cover": 6652569,
+   "exterior_wall": 10924215,
+   "floor": 15987441,
+   "glass": 15725557,
+   "ramp": 13423060,
+   "riser": 15987441,
+   "roof": 11841449,
+   "soft_panel": 9085363,
+   "stair": 14146269,
+   "static_hard": 12634060
+  },
+  "sky": 11780555,
+  "sun": 15856371,
+  "sunIntensity": 2.6
+ },
+ "calavera": {
+  "daylight": false,
+  "fog": 2499614,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1052429
+  },
+  "hemiGround": 3483683,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3288874,
+  "roles": {
+   "cover": 6501136,
+   "exterior_wall": 4077617,
+   "floor": 5060912,
+   "glass": 3748906,
+   "ramp": 4801339,
+   "riser": 5717812,
+   "roof": 3615011,
+   "soft_panel": 8273938,
+   "stair": 5064254,
+   "static_hard": 4669240
+  },
+  "sky": 2828321,
+  "sun": 3881012,
+  "sunIntensity": 2.0
+ },
+ "canal": {
+  "daylight": true,
+  "fog": 10596810,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1907995
+  },
+  "hemiGround": 4473661,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15725045,
+  "roles": {
+   "cover": 4406311,
+   "exterior_wall": 7237476,
+   "floor": 6447191,
+   "glass": 15593975,
+   "ramp": 8618872,
+   "riser": 7236705,
+   "roof": 4605247,
+   "soft_panel": 5590064,
+   "stair": 9013630,
+   "static_hard": 8224370
+  },
+  "sky": 12175066,
+  "sun": 15790836,
+  "sunIntensity": 2.6
+ },
+ "canals": {
+  "daylight": true,
+  "fog": 6856646,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4804690
+  },
+  "hemiGround": 7239547,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11980252,
+  "roles": {
+   "cover": 5667516,
+   "exterior_wall": 13817816,
+   "floor": 10594732,
+   "glass": 12902128,
+   "ramp": 15856627,
+   "riser": 11975871,
+   "roof": 7371647,
+   "soft_panel": 8823249,
+   "stair": 15856627,
+   "static_hard": 15856627
+  },
+  "sky": 8171476,
+  "sun": 15725557,
+  "sunIntensity": 2.6
+ },
+ "cascade": {
+  "daylight": true,
+  "fog": 9014419,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1710103
+  },
+  "hemiGround": 4077878,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12303808,
+  "roles": {
+   "cover": 9926474,
+   "exterior_wall": 6445397,
+   "floor": 5919309,
+   "glass": 13290704,
+   "ramp": 7564135,
+   "riser": 6642773,
+   "roof": 4274999,
+   "soft_panel": 11899747,
+   "stair": 7958636,
+   "static_hard": 7234913
+  },
+  "sky": 10067107,
+  "sun": 15001062,
+  "sunIntensity": 2.6
+ },
+ "castle": {
+  "daylight": false,
+  "fog": 4542301,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1448220
+  },
+  "hemiGround": 3290686,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6253176,
+  "roles": {
+   "cover": 10383182,
+   "exterior_wall": 5463404,
+   "floor": 4607578,
+   "glass": 6189708,
+   "ramp": 6647935,
+   "riser": 5068646,
+   "roof": 3291201,
+   "soft_panel": 12160365,
+   "stair": 6976901,
+   "static_hard": 6253178
+  },
+  "sky": 4937833,
+  "sun": 7963019,
+  "sunIntensity": 2.0
+ },
+ "chalice": {
+  "daylight": true,
+  "fog": 6513258,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2433569
+  },
+  "hemiGround": 5722961,
+  "hemiIntensity": 2.5,
+  "hemiSky": 8816012,
+  "roles": {
+   "cover": 7356716,
+   "exterior_wall": 9273724,
+   "floor": 8156788,
+   "glass": 9408154,
+   "ramp": 10787992,
+   "riser": 9143682,
+   "roof": 5854547,
+   "soft_panel": 9261365,
+   "stair": 11248544,
+   "static_hard": 10392720
+  },
+  "sky": 7236983,
+  "sun": 10789799,
+  "sunIntensity": 2.6
+ },
+ "chateau": {
+  "daylight": true,
+  "fog": 9939637,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2039578
+  },
+  "hemiGround": 3157282,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14278370,
+  "roles": {
+   "cover": 4666646,
+   "exterior_wall": 7829089,
+   "floor": 4604208,
+   "glass": 15528435,
+   "ramp": 9210486,
+   "riser": 5196341,
+   "roof": 3288867,
+   "soft_panel": 5915419,
+   "stair": 9539709,
+   "static_hard": 8815983
+  },
+  "sky": 11254982,
+  "sun": 15856627,
+  "sunIntensity": 2.6
+ },
+ "chinatown": {
+  "daylight": false,
+  "fog": 5322278,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1380622
+  },
+  "hemiGround": 7366744,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6703417,
+  "roles": {
+   "cover": 5974032,
+   "exterior_wall": 5390643,
+   "floor": 10392703,
+   "glass": 8407852,
+   "ramp": 6311231,
+   "riser": 11445649,
+   "roof": 7629657,
+   "soft_panel": 7549202,
+   "stair": 6574402,
+   "static_hard": 6113851
+  },
+  "sky": 6109992,
+  "sun": 7428943,
+  "sunIntensity": 2.0
+ },
+ "chlorine": {
+  "daylight": true,
+  "fog": 6974356,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1117452
+  },
+  "hemiGround": 1643799,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10461109,
+  "roles": {
+   "cover": 12805936,
+   "exterior_wall": 4337710,
+   "floor": 2432545,
+   "glass": 11053511,
+   "ramp": 5061176,
+   "riser": 2695461,
+   "roof": 1709336,
+   "soft_panel": 14255958,
+   "stair": 5258555,
+   "static_hard": 4863796
+  },
+  "sky": 7960994,
+  "sun": 13224401,
+  "sunIntensity": 2.6
+ },
+ "city": {
+  "daylight": false,
+  "fog": 726297,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 461063
+  },
+  "hemiGround": 1120793,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1055519,
+  "roles": {
+   "cover": 462346,
+   "exterior_wall": 658699,
+   "floor": 1582628,
+   "glass": 794664,
+   "ramp": 790542,
+   "riser": 1715240,
+   "roof": 1121306,
+   "soft_panel": 594444,
+   "stair": 856334,
+   "static_hard": 790285
+  },
+  "sky": 727069,
+  "sun": 1515299,
+  "sunIntensity": 2.0
+ },
+ "cityofsin": {
+  "daylight": false,
+  "fog": 4208690,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1907740
+  },
+  "hemiGround": 5786175,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5458756,
+  "roles": {
+   "cover": 9117716,
+   "exterior_wall": 7236202,
+   "floor": 8350297,
+   "glass": 6312004,
+   "ramp": 8617855,
+   "riser": 9467489,
+   "roof": 5983296,
+   "soft_panel": 11675158,
+   "stair": 9012613,
+   "static_hard": 8222840
+  },
+  "sky": 4734518,
+  "sun": 6380374,
+  "sunIntensity": 2.0
+ },
+ "climb": {
+  "daylight": true,
+  "fog": 6128313,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1381396
+  },
+  "hemiGround": 4867640,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10728911,
+  "roles": {
+   "cover": 4553149,
+   "exterior_wall": 5261901,
+   "floor": 7038030,
+   "glass": 11322341,
+   "ramp": 6183260,
+   "riser": 8024406,
+   "roof": 5064760,
+   "soft_panel": 7576528,
+   "stair": 6511968,
+   "static_hard": 5919831
+  },
+  "sky": 7246279,
+  "sun": 14278374,
+  "sunIntensity": 2.6
+ },
+ "coast": {
+  "daylight": true,
+  "fog": 7446221,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1721453
+  },
+  "hemiGround": 3355182,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12899556,
+  "roles": {
+   "cover": 7053545,
+   "exterior_wall": 12113650,
+   "floor": 4868162,
+   "glass": 14018038,
+   "ramp": 15463162,
+   "riser": 5460297,
+   "roof": 3486767,
+   "soft_panel": 11849974,
+   "stair": 15463162,
+   "static_hard": 15397627
+  },
+  "sky": 8892635,
+  "sun": 15725301,
+  "sunIntensity": 2.6
+ },
+ "cobblestone": {
+  "daylight": true,
+  "fog": 6592464,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1448218
+  },
+  "hemiGround": 2830387,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12176610,
+  "roles": {
+   "cover": 6791913,
+   "exterior_wall": 5398116,
+   "floor": 3949898,
+   "glass": 13098486,
+   "ramp": 6582133,
+   "riser": 4410707,
+   "roof": 2830645,
+   "soft_panel": 11521781,
+   "stair": 6845819,
+   "static_hard": 6187633
+  },
+  "sky": 7973085,
+  "sun": 15725302,
+  "sunIntensity": 2.6
+ },
+ "cobblestone_halloween": {
+  "daylight": false,
+  "fog": 4477041,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1053464
+  },
+  "hemiGround": 1514275,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6385039,
+  "roles": {
+   "cover": 8276517,
+   "exterior_wall": 3753566,
+   "floor": 2106930,
+   "glass": 5861292,
+   "ramp": 4674669,
+   "riser": 2304570,
+   "roof": 1514276,
+   "soft_panel": 10509611,
+   "stair": 4872306,
+   "static_hard": 4345962
+  },
+  "sky": 4740992,
+  "sun": 8620959,
+  "sunIntensity": 2.0
+ },
+ "coldstorage": {
+  "daylight": false,
+  "fog": 1644050,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 591879
+  },
+  "hemiGround": 1381135,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2104601,
+  "roles": {
+   "cover": 4666908,
+   "exterior_wall": 2039063,
+   "floor": 1973269,
+   "glass": 2433048,
+   "ramp": 2368028,
+   "riser": 2236182,
+   "roof": 1446927,
+   "soft_panel": 5915682,
+   "stair": 2499614,
+   "static_hard": 2301979
+  },
+  "sky": 1841427,
+  "sun": 2433823,
+  "sunIntensity": 2.0
+ },
+ "compound": {
+  "daylight": true,
+  "fog": 8089958,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3551530
+  },
+  "hemiGround": 4209197,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10393487,
+  "roles": {
+   "cover": 5843740,
+   "exterior_wall": 12564138,
+   "floor": 6116415,
+   "glass": 11510935,
+   "ramp": 14473426,
+   "riser": 6971205,
+   "roof": 4406317,
+   "soft_panel": 7419169,
+   "stair": 15065822,
+   "static_hard": 13881030
+  },
+  "sky": 9141872,
+  "sun": 12170930,
+  "sunIntensity": 2.6
+ },
+ "conditionabillion": {
+  "daylight": true,
+  "fog": 11915694,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4150839
+  },
+  "hemiGround": 10264725,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15857136,
+  "roles": {
+   "cover": 11255707,
+   "exterior_wall": 13754571,
+   "floor": 14540506,
+   "glass": 15726574,
+   "ramp": 15857136,
+   "riser": 15987697,
+   "roof": 10593433,
+   "soft_panel": 14148048,
+   "stair": 15857136,
+   "static_hard": 15857135
+  },
+  "sky": 13492936,
+  "sun": 15856880,
+  "sunIntensity": 2.6
+ },
+ "construction": {
+  "daylight": false,
+  "fog": 2367263,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1314832
+  },
+  "hemiGround": 3616558,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3090730,
+  "roles": {
+   "cover": 4531736,
+   "exterior_wall": 4996410,
+   "floor": 5194561,
+   "glass": 3418924,
+   "ramp": 5851719,
+   "riser": 5851720,
+   "roof": 3747887,
+   "soft_panel": 5779229,
+   "stair": 6114634,
+   "static_hard": 5588547
+  },
+  "sky": 2630179,
+  "sun": 3617588,
+  "sunIntensity": 2.0
+ },
+ "corruption": {
+  "daylight": false,
+  "fog": 6053201,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2368288
+  },
+  "hemiGround": 4077619,
+  "hemiIntensity": 2.9,
+  "hemiSky": 7961197,
+  "roles": {
+   "cover": 4673319,
+   "exterior_wall": 9012600,
+   "floor": 5853256,
+   "glass": 8882545,
+   "ramp": 10460564,
+   "riser": 6642256,
+   "roof": 4209204,
+   "soft_panel": 5858351,
+   "stair": 10921115,
+   "static_hard": 10065547
+  },
+  "sky": 6776921,
+  "sun": 9408391,
+  "sunIntensity": 2.0
+ },
+ "counter_terrorist_training": {
+  "daylight": true,
+  "fog": 7569266,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 986895
+  },
+  "hemiGround": 5069395,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10331293,
+  "roles": {
+   "cover": 3159856,
+   "exterior_wall": 3619383,
+   "floor": 7111286,
+   "glass": 11121832,
+   "ramp": 4343106,
+   "riser": 7967364,
+   "roof": 5135957,
+   "soft_panel": 3949883,
+   "stair": 4540741,
+   "static_hard": 4080190
+  },
+  "sky": 8424831,
+  "sun": 12698816,
+  "sunIntensity": 2.6
+ },
+ "counter_terrorist_training_center": {
+  "daylight": false,
+  "fog": 3485993,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1052429
+  },
+  "hemiGround": 2500129,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4538424,
+  "roles": {
+   "cover": 5065745,
+   "exterior_wall": 4012081,
+   "floor": 3553070,
+   "glass": 5261112,
+   "ramp": 4735803,
+   "riser": 4013619,
+   "roof": 2566177,
+   "soft_panel": 6447380,
+   "stair": 4998718,
+   "static_hard": 4538424
+  },
+  "sky": 3946029,
+  "sun": 5328199,
+  "sunIntensity": 2.0
+ },
+ "county": {
+  "daylight": true,
+  "fog": 8762831,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1644310
+  },
+  "hemiGround": 7561800,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14280428,
+  "roles": {
+   "cover": 9134392,
+   "exterior_wall": 6182738,
+   "floor": 10783846,
+   "glass": 15463674,
+   "ramp": 7301219,
+   "riser": 11770744,
+   "roof": 7890248,
+   "soft_panel": 11631171,
+   "stair": 7695719,
+   "static_hard": 7037789
+  },
+  "sky": 10274525,
+  "sun": 15725557,
+  "sunIntensity": 2.6
+ },
+ "cranes": {
+  "daylight": false,
+  "fog": 1908253,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2434340
+  },
+  "hemiGround": 1776411,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2566183,
+  "roles": {
+   "cover": 10376520,
+   "exterior_wall": 9276553,
+   "floor": 2500390,
+   "glass": 2763562,
+   "ramp": 10987173,
+   "riser": 2829355,
+   "roof": 1842204,
+   "soft_panel": 12284260,
+   "stair": 11513517,
+   "static_hard": 10526364
+  },
+  "sky": 2105633,
+  "sun": 3092527,
+  "sunIntensity": 2.0
+ },
+ "crash": {
+  "daylight": true,
+  "fog": 11182455,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1446925
+  },
+  "hemiGround": 9868150,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13420725,
+  "roles": {
+   "cover": 4470036,
+   "exterior_wall": 5589807,
+   "floor": 13223862,
+   "glass": 14670530,
+   "ramp": 6445116,
+   "riser": 14539984,
+   "roof": 10262392,
+   "soft_panel": 5718807,
+   "stair": 6773822,
+   "static_hard": 6313015
+  },
+  "sky": 12169352,
+  "sun": 15461094,
+  "sunIntensity": 2.6
+ },
+ "crashsite": {
+  "daylight": true,
+  "fog": 11904660,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3353639
+  },
+  "hemiGround": 4737351,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14736598,
+  "roles": {
+   "cover": 7557179,
+   "exterior_wall": 12101791,
+   "floor": 6842469,
+   "glass": 15920873,
+   "ramp": 13880262,
+   "riser": 7632241,
+   "roof": 4934473,
+   "soft_panel": 9593672,
+   "stair": 14407121,
+   "static_hard": 13353402
+  },
+  "sky": 12957864,
+  "sun": 15987441,
+  "sunIntensity": 2.6
+ },
+ "crete": {
+  "daylight": true,
+  "fog": 6260670,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1643541
+  },
+  "hemiGround": 3881016,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11057875,
+  "roles": {
+   "cover": 5143743,
+   "exterior_wall": 6179661,
+   "floor": 5525327,
+   "glass": 11651561,
+   "ramp": 7297885,
+   "riser": 6183000,
+   "roof": 3946809,
+   "soft_panel": 8298706,
+   "stair": 7626850,
+   "static_hard": 6968920
+  },
+  "sky": 7378892,
+  "sun": 14738667,
+  "sunIntensity": 2.6
+ },
+ "cruise": {
+  "daylight": true,
+  "fog": 5208488,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1909290
+  },
+  "hemiGround": 4148059,
+  "hemiIntensity": 2.5,
+  "hemiSky": 9216958,
+  "roles": {
+   "cover": 4023716,
+   "exterior_wall": 7242143,
+   "floor": 5729156,
+   "glass": 9351383,
+   "ramp": 9477553,
+   "riser": 6256790,
+   "roof": 4148575,
+   "soft_panel": 5603523,
+   "stair": 10069431,
+   "static_hard": 8754349
+  },
+  "sky": 5932728,
+  "sun": 12437201,
+  "sunIntensity": 2.6
+ },
+ "cultivating_trouble": {
+  "daylight": false,
+  "fog": 856594,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 461065
+  },
+  "hemiGround": 2237991,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1185560,
+  "roles": {
+   "cover": 1057058,
+   "exterior_wall": 1515296,
+   "floor": 3159864,
+   "glass": 1121052,
+   "ramp": 1844517,
+   "riser": 3489343,
+   "roof": 2304040,
+   "soft_panel": 1321259,
+   "stair": 1975847,
+   "static_hard": 1712932
+  },
+  "sky": 922645,
+  "sun": 1514268,
+  "sunIntensity": 2.0
+ },
+ "dahab": {
+  "daylight": true,
+  "fog": 10524069,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2630426
+  },
+  "hemiGround": 5851694,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13881301,
+  "roles": {
+   "cover": 4992274,
+   "exterior_wall": 10257757,
+   "floor": 8612671,
+   "glass": 14999782,
+   "ramp": 11246462,
+   "riser": 9861442,
+   "roof": 6180141,
+   "soft_panel": 6371348,
+   "stair": 11641222,
+   "static_hard": 11048306
+  },
+  "sky": 11642806,
+  "sun": 15921907,
+  "sunIntensity": 2.6
+ },
+ "damage": {
+  "daylight": false,
+  "fog": 5851957,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1512464
+  },
+  "hemiGround": 6443839,
+  "hemiIntensity": 2.9,
+  "hemiSky": 7496268,
+  "roles": {
+   "cover": 8409121,
+   "exterior_wall": 5786426,
+   "floor": 9336919,
+   "glass": 9071939,
+   "ramp": 6773064,
+   "riser": 10651486,
+   "roof": 6706750,
+   "soft_panel": 10642471,
+   "stair": 7102028,
+   "static_hard": 6575427
+  },
+  "sky": 6705976,
+  "sun": 8484196,
+  "sunIntensity": 2.0
+ },
+ "demolition_training": {
+  "daylight": false,
+  "fog": 329738,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1644310
+  },
+  "hemiGround": 591879,
+  "hemiIntensity": 2.9,
+  "hemiSky": 461067,
+  "roles": {
+   "cover": 26867,
+   "exterior_wall": 6116945,
+   "floor": 854794,
+   "glass": 395534,
+   "ramp": 7235426,
+   "riser": 986123,
+   "roof": 657415,
+   "soft_panel": 3246591,
+   "stair": 7629926,
+   "static_hard": 6971996
+  },
+  "sky": 329482,
+  "sun": 592652,
+  "sunIntensity": 2.0
+ },
+ "depot": {
+  "daylight": true,
+  "fog": 10791595,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4409673
+  },
+  "hemiGround": 5394250,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14606560,
+  "roles": {
+   "cover": 6376758,
+   "exterior_wall": 13883351,
+   "floor": 7762025,
+   "glass": 15856370,
+   "ramp": 15922163,
+   "riser": 8748661,
+   "roof": 5591372,
+   "soft_panel": 8020290,
+   "stair": 15922163,
+   "static_hard": 15922163
+  },
+  "sky": 12041405,
+  "sun": 15921906,
+  "sunIntensity": 2.6
+ },
+ "desert": {
+  "daylight": true,
+  "fog": 10585736,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 789517
+  },
+  "hemiGround": 6649209,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13352896,
+  "roles": {
+   "cover": 5256975,
+   "exterior_wall": 3026225,
+   "floor": 9807016,
+   "glass": 14470863,
+   "ramp": 3618362,
+   "riser": 11122618,
+   "roof": 6781310,
+   "soft_panel": 6637073,
+   "stair": 3815485,
+   "static_hard": 3420984
+  },
+  "sky": 11638681,
+  "sun": 15724013,
+  "sunIntensity": 2.6
+ },
+ "desertbunker": {
+  "daylight": true,
+  "fog": 8435689,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3814435
+  },
+  "hemiGround": 6903853,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15331832,
+  "roles": {
+   "cover": 7028999,
+   "exterior_wall": 12958363,
+   "floor": 10125627,
+   "glass": 15135742,
+   "ramp": 14473159,
+   "riser": 11702845,
+   "roof": 7298347,
+   "soft_panel": 8999174,
+   "stair": 14999764,
+   "static_hard": 14077626
+  },
+  "sky": 10406899,
+  "sun": 15659767,
+  "sunIntensity": 2.6
+ },
+ "destown": {
+  "daylight": false,
+  "fog": 3418403,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 5124395
+  },
+  "hemiGround": 5918785,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4405042,
+  "roles": {
+   "cover": 5387795,
+   "exterior_wall": 14929352,
+   "floor": 8549211,
+   "glass": 5191983,
+   "ramp": 16183535,
+   "riser": 9732451,
+   "roof": 6181697,
+   "soft_panel": 6898710,
+   "stair": 16183535,
+   "static_hard": 16183534
+  },
+  "sky": 3878182,
+  "sun": 5063744,
+  "sunIntensity": 2.0
+ },
+ "dizzy": {
+  "daylight": true,
+  "fog": 8691374,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2965322
+  },
+  "hemiGround": 11841695,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12832468,
+  "roles": {
+   "cover": 5001548,
+   "exterior_wall": 13293793,
+   "floor": 16053232,
+   "glass": 13885414,
+   "ramp": 15725557,
+   "riser": 16053232,
+   "roof": 12236195,
+   "soft_panel": 6186591,
+   "stair": 15725557,
+   "static_hard": 15725558
+  },
+  "sky": 9875133,
+  "sun": 15856628,
+  "sunIntensity": 2.6
+ },
+ "docks": {
+  "daylight": false,
+  "fog": 1382466,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 592393
+  },
+  "hemiGround": 462608,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2303313,
+  "roles": {
+   "cover": 1909279,
+   "exterior_wall": 2237475,
+   "floor": 661015,
+   "glass": 1316969,
+   "ramp": 2632489,
+   "riser": 661787,
+   "roof": 462865,
+   "soft_panel": 2370343,
+   "stair": 2764075,
+   "static_hard": 2500903
+  },
+  "sky": 1382476,
+  "sun": 3421784,
+  "sunIntensity": 2.0
+ },
+ "dogtown": {
+  "daylight": false,
+  "fog": 6377312,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2827561
+  },
+  "hemiGround": 5521212,
+  "hemiIntensity": 2.9,
+  "hemiSky": 8350845,
+  "roles": {
+   "cover": 8075552,
+   "exterior_wall": 10522267,
+   "floor": 8083540,
+   "glass": 9530766,
+   "ramp": 12234423,
+   "riser": 9134428,
+   "roof": 5783612,
+   "soft_panel": 10307110,
+   "stair": 12761279,
+   "static_hard": 11773103
+  },
+  "sky": 7165547,
+  "sun": 9734291,
+  "sunIntensity": 2.0
+ },
+ "downed": {
+  "daylight": false,
+  "fog": 4538157,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2170648
+  },
+  "hemiGround": 4344116,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5854016,
+  "roles": {
+   "cover": 3819287,
+   "exterior_wall": 8418648,
+   "floor": 6253128,
+   "glass": 6971196,
+   "ramp": 9800300,
+   "riser": 7043151,
+   "roof": 4541492,
+   "soft_panel": 4872731,
+   "stair": 10129268,
+   "static_hard": 9471077
+  },
+  "sky": 5130033,
+  "sun": 6709587,
+  "sunIntensity": 2.0
+ },
+ "downtown": {
+  "daylight": false,
+  "fog": 3552818,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 921358
+  },
+  "hemiGround": 2697253,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4737091,
+  "roles": {
+   "cover": 10646390,
+   "exterior_wall": 3618611,
+   "floor": 3815989,
+   "glass": 5263431,
+   "ramp": 4276798,
+   "riser": 4276539,
+   "roof": 2763302,
+   "soft_panel": 12557470,
+   "stair": 4474176,
+   "static_hard": 4079418
+  },
+  "sky": 4013367,
+  "sun": 5658194,
+  "sunIntensity": 2.0
+ },
+ "dust": {
+  "daylight": true,
+  "fog": 11397876,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4012076
+  },
+  "hemiGround": 3420973,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15464698,
+  "roles": {
+   "cover": 11441253,
+   "exterior_wall": 13617594,
+   "floor": 4933952,
+   "glass": 15072255,
+   "ramp": 15658216,
+   "riser": 5591623,
+   "roof": 3552302,
+   "soft_panel": 13087889,
+   "stair": 16053232,
+   "static_hard": 15065818
+  },
+  "sky": 13956859,
+  "sun": 15595255,
+  "sunIntensity": 2.6
+ },
+ "dust3": {
+  "daylight": true,
+  "fog": 10605558,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2629912
+  },
+  "hemiGround": 15517543,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15398139,
+  "roles": {
+   "cover": 5125402,
+   "exterior_wall": 10125145,
+   "floor": 16644071,
+   "glass": 15070463,
+   "ramp": 11179384,
+   "riser": 16709862,
+   "roof": 16043369,
+   "soft_panel": 6439711,
+   "stair": 11574400,
+   "static_hard": 11046764
+  },
+  "sky": 13101053,
+  "sun": 15594488,
+  "sunIntensity": 2.6
+ },
+ "dust_ii": {
+  "daylight": true,
+  "fog": 11716303,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3814961
+  },
+  "hemiGround": 4673882,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15791093,
+  "roles": {
+   "cover": 4084067,
+   "exterior_wall": 13552324,
+   "floor": 6583170,
+   "glass": 15660278,
+   "ramp": 15921647,
+   "riser": 7242131,
+   "roof": 4739933,
+   "soft_panel": 5072253,
+   "stair": 15987441,
+   "static_hard": 15197667
+  },
+  "sky": 13359841,
+  "sun": 15856628,
+  "sunIntensity": 2.6
+ },
+ "dust_ii_control": {
+  "daylight": true,
+  "fog": 10529954,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 5132606
+  },
+  "hemiGround": 3815989,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14409692,
+  "roles": {
+   "cover": 9799525,
+   "exterior_wall": 14277839,
+   "floor": 5460811,
+   "glass": 15659503,
+   "ramp": 15987953,
+   "riser": 6118996,
+   "roof": 3947574,
+   "soft_panel": 11576457,
+   "stair": 15987953,
+   "static_hard": 15987952
+  },
+  "sky": 11779765,
+  "sun": 15922162,
+  "sunIntensity": 2.6
+ },
+ "dust_ii_retro": {
+  "daylight": true,
+  "fog": 11317161,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 5651492
+  },
+  "hemiGround": 6245179,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15066853,
+  "roles": {
+   "cover": 4663058,
+   "exterior_wall": 15258818,
+   "floor": 9136722,
+   "glass": 15922162,
+   "ramp": 16249581,
+   "riser": 10450777,
+   "roof": 6573371,
+   "soft_panel": 5976085,
+   "stair": 16249581,
+   "static_hard": 16315117
+  },
+  "sky": 12566973,
+  "sun": 15921906,
+  "sunIntensity": 2.6
+ },
+ "edin": {
+  "daylight": true,
+  "fog": 6643806,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2762791
+  },
+  "hemiGround": 4079171,
+  "hemiIntensity": 2.5,
+  "hemiSky": 8749183,
+  "roles": {
+   "cover": 6904389,
+   "exterior_wall": 10393750,
+   "floor": 5790048,
+   "glass": 9603720,
+   "ramp": 12236725,
+   "riser": 6447980,
+   "roof": 4145221,
+   "soft_panel": 8679766,
+   "stair": 12828863,
+   "static_hard": 11710124
+  },
+  "sky": 7367272,
+  "sun": 10460315,
+  "sunIntensity": 2.6
+ },
+ "elysion": {
+  "daylight": false,
+  "fog": 4670781,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 5329485
+  },
+  "hemiGround": 11251111,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6118227,
+  "roles": {
+   "cover": 4277286,
+   "exterior_wall": 14079955,
+   "floor": 15987698,
+   "glass": 6907478,
+   "ramp": 15922162,
+   "riser": 15987698,
+   "roof": 11580075,
+   "soft_panel": 5396015,
+   "stair": 15922162,
+   "static_hard": 15987698
+  },
+  "sky": 5262659,
+  "sun": 7302503,
+  "sunIntensity": 2.0
+ },
+ "ember": {
+  "daylight": true,
+  "fog": 12110291,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4085088
+  },
+  "hemiGround": 3943722,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15791093,
+  "roles": {
+   "cover": 7541249,
+   "exterior_wall": 13359583,
+   "floor": 5717818,
+   "glass": 15660022,
+   "ramp": 15791093,
+   "riser": 6506048,
+   "roof": 4140586,
+   "soft_panel": 9508352,
+   "stair": 15791093,
+   "static_hard": 15725557
+  },
+  "sky": 13819620,
+  "sun": 15856628,
+  "sunIntensity": 2.6
+ },
+ "empire": {
+  "daylight": true,
+  "fog": 8956858,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2500390
+  },
+  "hemiGround": 9734001,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13556447,
+  "roles": {
+   "cover": 6701866,
+   "exterior_wall": 9408912,
+   "floor": 12959152,
+   "glass": 14806257,
+   "ramp": 11251116,
+   "riser": 14275529,
+   "roof": 10062707,
+   "soft_panel": 8475443,
+   "stair": 11777460,
+   "static_hard": 10724772
+  },
+  "sky": 10271946,
+  "sun": 15856628,
+  "sunIntensity": 2.6
+ },
+ "engage": {
+  "daylight": true,
+  "fog": 7963789,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2567472
+  },
+  "hemiGround": 7437696,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11120564,
+  "roles": {
+   "cover": 4094380,
+   "exterior_wall": 10201006,
+   "floor": 10924210,
+   "glass": 11976388,
+   "ramp": 12568009,
+   "riser": 12371142,
+   "roof": 7569797,
+   "soft_panel": 6133448,
+   "stair": 13225938,
+   "static_hard": 11845057
+  },
+  "sky": 8884891,
+  "sun": 13751253,
+  "sunIntensity": 2.6
+ },
+ "estate": {
+  "daylight": true,
+  "fog": 13736027,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 5715489
+  },
+  "hemiGround": 2761246,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14731440,
+  "roles": {
+   "cover": 3944971,
+   "exterior_wall": 15388864,
+   "floor": 4010282,
+   "glass": 16112060,
+   "ramp": 16314861,
+   "riser": 4535854,
+   "roof": 2892574,
+   "soft_panel": 5062668,
+   "stair": 16314861,
+   "static_hard": 16314860
+  },
+  "sky": 14526575,
+  "sun": 16118253,
+  "sunIntensity": 2.6
+ },
+ "extraction": {
+  "daylight": true,
+  "fog": 8687509,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 789516
+  },
+  "hemiGround": 5065548,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12041407,
+  "roles": {
+   "cover": 2371394,
+   "exterior_wall": 2960429,
+   "floor": 7236717,
+   "glass": 12963024,
+   "ramp": 3552566,
+   "riser": 8157306,
+   "roof": 5197134,
+   "soft_panel": 2898516,
+   "stair": 3684408,
+   "static_hard": 3355187
+  },
+  "sky": 9674660,
+  "sun": 14803683,
+  "sunIntensity": 2.6
+ },
+ "facade": {
+  "daylight": true,
+  "fog": 9029095,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1645343
+  },
+  "hemiGround": 2105376,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15529209,
+  "roles": {
+   "cover": 1779785,
+   "exterior_wall": 6186871,
+   "floor": 3026478,
+   "glass": 15201789,
+   "ramp": 7568268,
+   "riser": 3421236,
+   "roof": 2171169,
+   "soft_panel": 2109788,
+   "stair": 7963281,
+   "static_hard": 7107974
+  },
+  "sky": 11065329,
+  "sun": 15660022,
+  "sunIntensity": 2.6
+ },
+ "facility": {
+  "daylight": false,
+  "fog": 2894892,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 460808
+  },
+  "hemiGround": 3026991,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3881530,
+  "roles": {
+   "cover": 8157239,
+   "exterior_wall": 1448215,
+   "floor": 4277315,
+   "glass": 4210495,
+   "ramp": 1776924,
+   "riser": 4803915,
+   "roof": 3092784,
+   "soft_panel": 10327875,
+   "stair": 1842973,
+   "static_hard": 1645594
+  },
+  "sky": 3223856,
+  "sun": 4671302,
+  "sunIntensity": 2.0
+ },
+ "fang": {
+  "daylight": false,
+  "fog": 1250340,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 789773
+  },
+  "hemiGround": 1119252,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1842477,
+  "roles": {
+   "cover": 2633264,
+   "exterior_wall": 3027506,
+   "floor": 1580317,
+   "glass": 1579319,
+   "ramp": 3685179,
+   "riser": 1712416,
+   "roof": 1119509,
+   "soft_panel": 3291708,
+   "stair": 3817022,
+   "static_hard": 3487801
+  },
+  "sky": 1316137,
+  "sun": 2434611,
+  "sunIntensity": 2.0
+ },
+ "fastline": {
+  "daylight": true,
+  "fog": 6842462,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1052686
+  },
+  "hemiGround": 3091753,
+  "hemiIntensity": 2.5,
+  "hemiSky": 9013631,
+  "roles": {
+   "cover": 5655296,
+   "exterior_wall": 4078901,
+   "floor": 4407610,
+   "glass": 9934727,
+   "ramp": 4802624,
+   "riser": 4933952,
+   "roof": 3157802,
+   "soft_panel": 7101952,
+   "stair": 5000259,
+   "static_hard": 4605244
+  },
+  "sky": 7697512,
+  "sun": 10658461,
+  "sunIntensity": 2.6
+ },
+ "favela": {
+  "daylight": true,
+  "fog": 10467510,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1578257
+  },
+  "hemiGround": 3814696,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14870760,
+  "roles": {
+   "cover": 5128473,
+   "exterior_wall": 5984574,
+   "floor": 5524535,
+   "glass": 15791604,
+   "ramp": 6971469,
+   "riser": 6313276,
+   "roof": 3946024,
+   "soft_panel": 6574622,
+   "stair": 7300432,
+   "static_hard": 6708296
+  },
+  "sky": 11848392,
+  "sun": 15856627,
+  "sunIntensity": 2.6
+ },
+ "foption": {
+  "daylight": false,
+  "fog": 855308,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 657931
+  },
+  "hemiGround": 1446677,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1184016,
+  "roles": {
+   "cover": 1459460,
+   "exterior_wall": 2369067,
+   "floor": 2038558,
+   "glass": 1315345,
+   "ramp": 2895411,
+   "riser": 2301729,
+   "roof": 1446933,
+   "soft_panel": 1726723,
+   "stair": 3026997,
+   "static_hard": 2698288
+  },
+  "sky": 986637,
+  "sun": 1381396,
+  "sunIntensity": 2.0
+ },
+ "forest": {
+  "daylight": false,
+  "fog": 1054988,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1315345
+  },
+  "hemiGround": 3879729,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1449745,
+  "roles": {
+   "cover": 1656836,
+   "exterior_wall": 4932671,
+   "floor": 5589316,
+   "glass": 1386254,
+   "ramp": 5787980,
+   "riser": 6312268,
+   "roof": 4011313,
+   "soft_panel": 1989380,
+   "stair": 6116688,
+   "static_hard": 5590344
+  },
+  "sky": 1121548,
+  "sun": 1778456,
+  "sunIntensity": 2.0
+ },
+ "frantic": {
+  "daylight": false,
+  "fog": 1842719,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 855310
+  },
+  "hemiGround": 4736582,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2500648,
+  "roles": {
+   "cover": 1924639,
+   "exterior_wall": 3158324,
+   "floor": 6775908,
+   "glass": 2632493,
+   "ramp": 3750717,
+   "riser": 7565424,
+   "roof": 4868168,
+   "soft_panel": 2324261,
+   "stair": 3947840,
+   "static_hard": 3553338
+  },
+  "sky": 2040098,
+  "sun": 3092528,
+  "sunIntensity": 2.0
+ },
+ "frostbite": {
+  "daylight": true,
+  "fog": 6785454,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2767435
+  },
+  "hemiGround": 9676225,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11057353,
+  "roles": {
+   "cover": 6786231,
+   "exterior_wall": 13161954,
+   "floor": 15659510,
+   "glass": 11716574,
+   "ramp": 15725302,
+   "riser": 15659510,
+   "roof": 9874119,
+   "soft_panel": 9875663,
+   "stair": 15725302,
+   "static_hard": 15659766
+  },
+  "sky": 7903420,
+  "sun": 14409700,
+  "sunIntensity": 2.6
+ },
+ "genoserv": {
+  "daylight": true,
+  "fog": 13614998,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4931625
+  },
+  "hemiGround": 7368540,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15987178,
+  "roles": {
+   "cover": 5658382,
+   "exterior_wall": 14932680,
+   "floor": 10329478,
+   "glass": 16381420,
+   "ramp": 16184303,
+   "riser": 11447960,
+   "roof": 7631965,
+   "soft_panel": 7171599,
+   "stair": 16184303,
+   "static_hard": 16184558
+  },
+  "sky": 14602415,
+  "sun": 16118768,
+  "sunIntensity": 2.6
+ },
+ "golden": {
+  "daylight": false,
+  "fog": 4938346,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2764082
+  },
+  "hemiGround": 5197136,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6912137,
+  "roles": {
+   "cover": 5457185,
+   "exterior_wall": 10857653,
+   "floor": 7368307,
+   "glass": 6783647,
+   "ramp": 13291218,
+   "riser": 8288897,
+   "roof": 5328723,
+   "soft_panel": 6903592,
+   "stair": 14014683,
+   "static_hard": 12567754
+  },
+  "sky": 5399672,
+  "sun": 9015964,
+  "sunIntensity": 2.0
+ },
+ "grail": {
+  "daylight": true,
+  "fog": 9410216,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1710620
+  },
+  "hemiGround": 12493462,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13356756,
+  "roles": {
+   "cover": 2908843,
+   "exterior_wall": 6578793,
+   "floor": 16183791,
+   "glass": 14475238,
+   "ramp": 7829117,
+   "riser": 16183791,
+   "roof": 12822425,
+   "soft_panel": 3898321,
+   "stair": 8223619,
+   "static_hard": 7434360
+  },
+  "sky": 10660024,
+  "sun": 15856371,
+  "sunIntensity": 2.6
+ },
+ "grind": {
+  "daylight": true,
+  "fog": 7770534,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3162703
+  },
+  "hemiGround": 12628883,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11714504,
+  "roles": {
+   "cover": 10645576,
+   "exterior_wall": 13293537,
+   "floor": 16184559,
+   "glass": 12505051,
+   "ramp": 15725557,
+   "riser": 16184558,
+   "roof": 13023383,
+   "soft_panel": 12488039,
+   "stair": 15725557,
+   "static_hard": 15725558
+  },
+  "sky": 8823221,
+  "sun": 14869991,
+  "sunIntensity": 2.6
+ },
+ "guard": {
+  "daylight": false,
+  "fog": 5720893,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2762015
+  },
+  "hemiGround": 5327687,
+  "hemiIntensity": 2.9,
+  "hemiSky": 7365718,
+  "roles": {
+   "cover": 5708571,
+   "exterior_wall": 10324598,
+   "floor": 7695204,
+   "glass": 8613202,
+   "ramp": 11642263,
+   "riser": 8681583,
+   "roof": 5524808,
+   "soft_panel": 7217440,
+   "stair": 12102816,
+   "static_hard": 11312525
+  },
+  "sky": 6443843,
+  "sun": 8484973,
+  "sunIntensity": 2.0
+ },
+ "gwalior": {
+  "daylight": true,
+  "fog": 12694700,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1511696
+  },
+  "hemiGround": 5060659,
+  "hemiIntensity": 2.5,
+  "hemiSky": 16052977,
+  "roles": {
+   "cover": 5910567,
+   "exterior_wall": 5718076,
+   "floor": 7360327,
+   "glass": 16118512,
+   "ramp": 6639178,
+   "riser": 8410958,
+   "roof": 5323059,
+   "soft_panel": 7486255,
+   "stair": 6967886,
+   "static_hard": 6441541
+  },
+  "sky": 13879746,
+  "sun": 15987441,
+  "sunIntensity": 2.6
+ },
+ "hangar": {
+  "daylight": true,
+  "fog": 12182770,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4010305
+  },
+  "hemiGround": 8877697,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15464185,
+  "roles": {
+   "cover": 5455432,
+   "exterior_wall": 14274524,
+   "floor": 12234678,
+   "glass": 15137022,
+   "ramp": 15987188,
+   "riser": 13616844,
+   "roof": 9205893,
+   "soft_panel": 6835546,
+   "stair": 15987188,
+   "static_hard": 15986932
+  },
+  "sky": 14742779,
+  "sun": 15660279,
+  "sunIntensity": 2.6
+ },
+ "hankagai_bomb_defusal_map": {
+  "daylight": false,
+  "fog": 2302489,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1907475
+  },
+  "hemiGround": 5589036,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2960419,
+  "roles": {
+   "cover": 6437641,
+   "exterior_wall": 7366469,
+   "floor": 8218939,
+   "glass": 3486498,
+   "ramp": 8550486,
+   "riser": 9467711,
+   "roof": 5917483,
+   "soft_panel": 8145416,
+   "stair": 8945242,
+   "static_hard": 8287311
+  },
+  "sky": 2565659,
+  "sun": 3420972,
+  "sunIntensity": 2.0
+ },
+ "havana": {
+  "daylight": true,
+  "fog": 12098934,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 723979
+  },
+  "hemiGround": 1579286,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14076860,
+  "roles": {
+   "cover": 5782043,
+   "exterior_wall": 2763817,
+   "floor": 2237471,
+   "glass": 15392202,
+   "ramp": 3355698,
+   "riser": 2500898,
+   "roof": 1579542,
+   "soft_panel": 7358753,
+   "stair": 3487540,
+   "static_hard": 3158575
+  },
+  "sky": 13020553,
+  "sun": 16053232,
+  "sunIntensity": 2.6
+ },
+ "hideout": {
+  "daylight": true,
+  "fog": 10913667,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 788488
+  },
+  "hemiGround": 5591115,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13484223,
+  "roles": {
+   "cover": 4528910,
+   "exterior_wall": 2956830,
+   "floor": 8090474,
+   "glass": 14667982,
+   "ramp": 3482917,
+   "riser": 9076854,
+   "roof": 5788237,
+   "soft_panel": 5775632,
+   "stair": 3614503,
+   "static_hard": 3351331
+  },
+  "sky": 11901077,
+  "sun": 15855342,
+  "sunIntensity": 2.6
+ },
+ "highrise": {
+  "daylight": false,
+  "fog": 1249051,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 657419
+  },
+  "hemiGround": 2500133,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1709346,
+  "roles": {
+   "cover": 1134363,
+   "exterior_wall": 2563882,
+   "floor": 3552821,
+   "glass": 1774122,
+   "ramp": 3024177,
+   "riser": 3947580,
+   "roof": 2565926,
+   "soft_panel": 1271073,
+   "stair": 3155763,
+   "static_hard": 2892591
+  },
+  "sky": 1380127,
+  "sun": 2104615,
+  "sunIntensity": 2.0
+ },
+ "hive": {
+  "daylight": false,
+  "fog": 1381910,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 526344
+  },
+  "hemiGround": 4406321,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1907998,
+  "roles": {
+   "cover": 6770195,
+   "exterior_wall": 2039068,
+   "floor": 6379077,
+   "glass": 2039585,
+   "ramp": 2433826,
+   "riser": 7233867,
+   "roof": 4603442,
+   "soft_panel": 8676117,
+   "stair": 2499876,
+   "static_hard": 2302240
+  },
+  "sky": 1579033,
+  "sun": 2302756,
+  "sunIntensity": 2.0
+ },
+ "hostage_rescue_training": {
+  "daylight": false,
+  "fog": 723724,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1315859
+  },
+  "hemiGround": 1183759,
+  "hemiIntensity": 2.9,
+  "hemiSky": 986895,
+  "roles": {
+   "cover": 13157959,
+   "exterior_wall": 4868681,
+   "floor": 1709845,
+   "glass": 987153,
+   "ramp": 5855575,
+   "riser": 1907223,
+   "roof": 1249551,
+   "soft_panel": 14342265,
+   "stair": 6118747,
+   "static_hard": 5526867
+  },
+  "sky": 789517,
+  "sun": 1184274,
+  "sunIntensity": 2.0
+ },
+ "inferno": {
+  "daylight": false,
+  "fog": 4468770,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3221794
+  },
+  "hemiGround": 8087384,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5652787,
+  "roles": {
+   "cover": 4532750,
+   "exterior_wall": 11508873,
+   "floor": 11179139,
+   "glass": 7030057,
+   "ramp": 13023919,
+   "riser": 12232599,
+   "roof": 8481368,
+   "soft_panel": 5780752,
+   "stair": 13484985,
+   "static_hard": 12628387
+  },
+  "sky": 5125412,
+  "sun": 6312005,
+  "sunIntensity": 2.0
+ },
+ "insertion": {
+  "daylight": true,
+  "fog": 11773356,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1643540
+  },
+  "hemiGround": 3749430,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15197413,
+  "roles": {
+   "cover": 5973796,
+   "exterior_wall": 6310988,
+   "floor": 5393741,
+   "glass": 16052722,
+   "ramp": 7429213,
+   "riser": 6051414,
+   "roof": 3880760,
+   "soft_panel": 7548716,
+   "stair": 7757921,
+   "static_hard": 7165783
+  },
+  "sky": 12958143,
+  "sun": 15987442,
+  "sunIntensity": 2.6
+ },
+ "insertion_ii": {
+  "daylight": true,
+  "fog": 10068408,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1645083
+  },
+  "hemiGround": 5000011,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14475237,
+  "roles": {
+   "cover": 8491960,
+   "exterior_wall": 6251366,
+   "floor": 7105387,
+   "glass": 15725045,
+   "ramp": 7501433,
+   "riser": 7960696,
+   "roof": 5131597,
+   "soft_panel": 11714005,
+   "stair": 7830399,
+   "static_hard": 7106676
+  },
+  "sky": 11449800,
+  "sun": 15856371,
+  "sunIntensity": 2.6
+ },
+ "iraq": {
+  "daylight": false,
+  "fog": 988480,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 790803
+  },
+  "hemiGround": 4873553,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1778254,
+  "roles": {
+   "cover": 1525075,
+   "exterior_wall": 2835017,
+   "floor": 6915699,
+   "glass": 661096,
+   "ramp": 3558997,
+   "riser": 7706241,
+   "roof": 4939859,
+   "soft_panel": 1791850,
+   "stair": 3756633,
+   "static_hard": 3296083
+  },
+  "sky": 922954,
+  "sun": 2896212,
+  "sunIntensity": 2.0
+ },
+ "iris": {
+  "daylight": true,
+  "fog": 8099769,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1775121
+  },
+  "hemiGround": 7564381,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12766425,
+  "roles": {
+   "cover": 6173208,
+   "exterior_wall": 6968126,
+   "floor": 10590600,
+   "glass": 13819372,
+   "ramp": 8021069,
+   "riser": 11709339,
+   "roof": 7827551,
+   "soft_panel": 7880220,
+   "stair": 8415313,
+   "static_hard": 7823175
+  },
+  "sky": 9414856,
+  "sun": 15790836,
+  "sunIntensity": 2.6
+ },
+ "italy": {
+  "daylight": false,
+  "fog": 6640206,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3090471
+  },
+  "hemiGround": 4932683,
+  "hemiIntensity": 2.9,
+  "hemiSky": 8613995,
+  "roles": {
+   "cover": 9789999,
+   "exterior_wall": 11246744,
+   "floor": 7102828,
+   "glass": 9859948,
+   "ramp": 13024699,
+   "riser": 7957625,
+   "roof": 5129806,
+   "soft_panel": 12417847,
+   "stair": 13617093,
+   "static_hard": 12563377
+  },
+  "sky": 7428693,
+  "sun": 9931657,
+  "sunIntensity": 2.0
+ },
+ "jail": {
+  "daylight": false,
+  "fog": 1118990,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 526343
+  },
+  "hemiGround": 1512465,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1447955,
+  "roles": {
+   "cover": 608771,
+   "exterior_wall": 1578517,
+   "floor": 2169880,
+   "glass": 1580306,
+   "ramp": 1841945,
+   "riser": 2433051,
+   "roof": 1512465,
+   "soft_panel": 679682,
+   "stair": 1973274,
+   "static_hard": 1775895
+  },
+  "sky": 1185039,
+  "sun": 1711128,
+  "sunIntensity": 2.0
+ },
+ "jeepathon2k": {
+  "daylight": true,
+  "fog": 9671415,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1316113
+  },
+  "hemiGround": 4867121,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15395579,
+  "roles": {
+   "cover": 6967325,
+   "exterior_wall": 5066559,
+   "floor": 7037508,
+   "glass": 15132159,
+   "ramp": 5922125,
+   "riser": 8089417,
+   "roof": 5064497,
+   "soft_panel": 8807458,
+   "stair": 6250832,
+   "static_hard": 5724488
+  },
+  "sky": 12105982,
+  "sun": 15592952,
+  "sunIntensity": 2.6
+ },
+ "jungle": {
+  "daylight": false,
+  "fog": 4803682,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2171433
+  },
+  "hemiGround": 2106154,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6645886,
+  "roles": {
+   "cover": 6505764,
+   "exterior_wall": 8225177,
+   "floor": 2961981,
+   "glass": 6515347,
+   "ramp": 10330031,
+   "riser": 3291205,
+   "roof": 2106412,
+   "soft_panel": 8214059,
+   "stair": 10856630,
+   "static_hard": 9672361
+  },
+  "sky": 5198958,
+  "sun": 8487826,
+  "sunIntensity": 2.0
+ },
+ "junglecamp": {
+  "daylight": false,
+  "fog": 3617828,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 920839
+  },
+  "hemiGround": 3093775,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4670259,
+  "roles": {
+   "cover": 3881728,
+   "exterior_wall": 3485723,
+   "floor": 4542226,
+   "glass": 5590319,
+   "ramp": 4012066,
+   "riser": 5200657,
+   "roof": 3291405,
+   "soft_panel": 4868352,
+   "stair": 4209444,
+   "static_hard": 3946015
+  },
+  "sky": 4143655,
+  "sun": 5328450,
+  "sunIntensity": 2.0
+ },
+ "junglecompound": {
+  "daylight": true,
+  "fog": 7433358,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1446423
+  },
+  "hemiGround": 2302493,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10526384,
+  "roles": {
+   "cover": 3089728,
+   "exterior_wall": 5522006,
+   "floor": 3354922,
+   "glass": 11249602,
+   "ramp": 6508645,
+   "riser": 3815214,
+   "roof": 2433822,
+   "soft_panel": 3878225,
+   "stair": 6837354,
+   "static_hard": 6245217
+  },
+  "sky": 8354205,
+  "sun": 13092557,
+  "sunIntensity": 2.6
+ },
+ "jura": {
+  "daylight": true,
+  "fog": 5079726,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2894378
+  },
+  "hemiGround": 8746854,
+  "hemiIntensity": 2.5,
+  "hemiSky": 9284290,
+  "roles": {
+   "cover": 3831474,
+   "exterior_wall": 10723744,
+   "floor": 11905435,
+   "glass": 9419227,
+   "ramp": 12763328,
+   "riser": 13090225,
+   "roof": 9141095,
+   "soft_panel": 5936333,
+   "stair": 13355721,
+   "static_hard": 12171191
+  },
+  "sky": 5935293,
+  "sun": 12635092,
+  "sunIntensity": 2.6
+ },
+ "lake": {
+  "daylight": true,
+  "fog": 6261675,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1711389
+  },
+  "hemiGround": 3292996,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10466500,
+  "roles": {
+   "cover": 6066617,
+   "exterior_wall": 6450799,
+   "floor": 4610915,
+   "glass": 10994906,
+   "ramp": 7766659,
+   "riser": 5072752,
+   "roof": 3293767,
+   "soft_panel": 9155279,
+   "stair": 8095881,
+   "static_hard": 7306621
+  },
+  "sky": 7313849,
+  "sun": 13687005,
+  "sunIntensity": 2.6
+ },
+ "library": {
+  "daylight": false,
+  "fog": 3023130,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1380108
+  },
+  "hemiGround": 5192493,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3812646,
+  "roles": {
+   "cover": 4922897,
+   "exterior_wall": 5322539,
+   "floor": 7557950,
+   "glass": 4599586,
+   "ramp": 6177335,
+   "riser": 8674626,
+   "roof": 5454892,
+   "soft_panel": 6300948,
+   "stair": 6440505,
+   "static_hard": 5979698
+  },
+  "sky": 3417372,
+  "sun": 4339762,
+  "sunIntensity": 2.0
+ },
+ "lite": {
+  "daylight": false,
+  "fog": 1974838,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 658194
+  },
+  "hemiGround": 3551801,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2830404,
+  "roles": {
+   "cover": 6490125,
+   "exterior_wall": 2435653,
+   "floor": 5064274,
+   "glass": 2436691,
+   "ramp": 3028048,
+   "riser": 5656157,
+   "roof": 3617595,
+   "soft_panel": 8259343,
+   "stair": 3225427,
+   "static_hard": 2765134
+  },
+  "sky": 2106685,
+  "sun": 3816781,
+  "sunIntensity": 2.0
+ },
+ "log": {
+  "daylight": false,
+  "fog": 2829860,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 855562
+  },
+  "hemiGround": 6709592,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3750961,
+  "roles": {
+   "cover": 9069608,
+   "exterior_wall": 3356455,
+   "floor": 9603967,
+   "glass": 4146481,
+   "ramp": 3948591,
+   "riser": 10591119,
+   "roof": 6972506,
+   "soft_panel": 11566640,
+   "stair": 4145970,
+   "static_hard": 3817004
+  },
+  "sky": 3159079,
+  "sun": 4474430,
+  "sunIntensity": 2.0
+ },
+ "lunacy": {
+  "daylight": false,
+  "fog": 1712418,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 855823
+  },
+  "hemiGround": 3358790,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2370348,
+  "roles": {
+   "cover": 2440525,
+   "exterior_wall": 3094585,
+   "floor": 4676453,
+   "glass": 2437170,
+   "ramp": 3752515,
+   "riser": 5138291,
+   "roof": 3359305,
+   "soft_panel": 3034466,
+   "stair": 3949894,
+   "static_hard": 3555136
+  },
+  "sky": 1909798,
+  "sun": 3027507,
+  "sunIntensity": 2.0
+ },
+ "mansion": {
+  "daylight": true,
+  "fog": 8944231,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 986636
+  },
+  "hemiGround": 1315595,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11116949,
+  "roles": {
+   "cover": 5780743,
+   "exterior_wall": 3814700,
+   "floor": 1973264,
+   "glass": 12300189,
+   "ramp": 4472629,
+   "riser": 2236433,
+   "roof": 1381387,
+   "soft_panel": 7356935,
+   "stair": 4670008,
+   "static_hard": 4275250
+  },
+  "sky": 9930610,
+  "sun": 12960188,
+  "sunIntensity": 2.6
+ },
+ "marquis": {
+  "daylight": true,
+  "fog": 10199710,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4344389
+  },
+  "hemiGround": 6186853,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13817299,
+  "roles": {
+   "cover": 4883348,
+   "exterior_wall": 13883604,
+   "floor": 8884880,
+   "glass": 15001317,
+   "ramp": 15922162,
+   "riser": 10003360,
+   "roof": 6318696,
+   "soft_panel": 6463667,
+   "stair": 15922162,
+   "static_hard": 15922162
+  },
+  "sky": 11383984,
+  "sun": 15921906,
+  "sunIntensity": 2.6
+ },
+ "memento": {
+  "daylight": true,
+  "fog": 7904966,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1316626
+  },
+  "hemiGround": 2765607,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13030625,
+  "roles": {
+   "cover": 4608531,
+   "exterior_wall": 4872001,
+   "floor": 3950903,
+   "glass": 14214643,
+   "ramp": 5793360,
+   "riser": 4412221,
+   "roof": 2831656,
+   "soft_panel": 5859351,
+   "stair": 6056787,
+   "static_hard": 5530187
+  },
+  "sky": 9285844,
+  "sun": 15790837,
+  "sunIntensity": 2.6
+ },
+ "miami": {
+  "daylight": false,
+  "fog": 3356218,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2697513
+  },
+  "hemiGround": 4802629,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4540492,
+  "roles": {
+   "cover": 7690565,
+   "exterior_wall": 10197916,
+   "floor": 6841955,
+   "glass": 4738645,
+   "ramp": 12171706,
+   "riser": 7697263,
+   "roof": 4934215,
+   "soft_panel": 9727828,
+   "stair": 12763843,
+   "static_hard": 11579569
+  },
+  "sky": 3685441,
+  "sun": 5592922,
+  "sunIntensity": 2.0
+ },
+ "mikla": {
+  "daylight": false,
+  "fog": 4404013,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1183244
+  },
+  "hemiGround": 3352353,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5653823,
+  "roles": {
+   "cover": 6162182,
+   "exterior_wall": 4404011,
+   "floor": 4863789,
+   "glass": 6702908,
+   "ramp": 5127734,
+   "riser": 5520689,
+   "roof": 3483425,
+   "soft_panel": 7865861,
+   "stair": 5390648,
+   "static_hard": 4995634
+  },
+  "sky": 4995121,
+  "sun": 6510161,
+  "sunIntensity": 2.0
+ },
+ "militia": {
+  "daylight": false,
+  "fog": 3486537,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 657933
+  },
+  "hemiGround": 5132902,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4868190,
+  "roles": {
+   "cover": 15359558,
+   "exterior_wall": 2499891,
+   "floor": 7304340,
+   "glass": 4736367,
+   "ramp": 3026235,
+   "riser": 8357027,
+   "roof": 5198955,
+   "soft_panel": 16029831,
+   "stair": 3223358,
+   "static_hard": 2894393
+  },
+  "sky": 3815507,
+  "sun": 6118509,
+  "sunIntensity": 2.0
+ },
+ "militia_winter": {
+  "daylight": false,
+  "fog": 3486537,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 657933
+  },
+  "hemiGround": 5132902,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4868190,
+  "roles": {
+   "cover": 15359558,
+   "exterior_wall": 2499891,
+   "floor": 7304340,
+   "glass": 4736367,
+   "ramp": 3026235,
+   "riser": 8357027,
+   "roof": 5198955,
+   "soft_panel": 16029831,
+   "stair": 3223358,
+   "static_hard": 2894393
+  },
+  "sky": 3815507,
+  "sun": 6118509,
+  "sunIntensity": 2.0
+ },
+ "mills": {
+  "daylight": true,
+  "fog": 8112108,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1471629
+  },
+  "hemiGround": 4145728,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15135480,
+  "roles": {
+   "cover": 7585528,
+   "exterior_wall": 11790839,
+   "floor": 5856859,
+   "glass": 15071231,
+   "ramp": 15333371,
+   "riser": 6580838,
+   "roof": 4211777,
+   "soft_panel": 13166333,
+   "stair": 15333371,
+   "static_hard": 15268092
+  },
+  "sky": 10082550,
+  "sun": 15594743,
+  "sunIntensity": 2.6
+ },
+ "mirage": {
+  "daylight": true,
+  "fog": 12426350,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2827550
+  },
+  "hemiGround": 14595190,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14142135,
+  "roles": {
+   "cover": 9524252,
+   "exterior_wall": 10587508,
+   "floor": 16512234,
+   "glass": 15457220,
+   "ramp": 11839383,
+   "riser": 16577769,
+   "roof": 15055224,
+   "soft_panel": 12151071,
+   "stair": 12300192,
+   "static_hard": 11575436
+  },
+  "sky": 13347969,
+  "sun": 15987182,
+  "sunIntensity": 2.6
+ },
+ "mist": {
+  "daylight": true,
+  "fog": 8428200,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3029310
+  },
+  "hemiGround": 1974818,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12437710,
+  "roles": {
+   "cover": 5263163,
+   "exterior_wall": 12766931,
+   "floor": 2830641,
+   "glass": 13359584,
+   "ramp": 15790835,
+   "riser": 3094327,
+   "roof": 2040611,
+   "soft_panel": 6579017,
+   "stair": 15791092,
+   "static_hard": 14870762
+  },
+  "sky": 9546424,
+  "sun": 15593456,
+  "sunIntensity": 2.6
+ },
+ "mocha": {
+  "daylight": true,
+  "fog": 5671633,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1907220
+  },
+  "hemiGround": 12496277,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11256287,
+  "roles": {
+   "cover": 5919516,
+   "exterior_wall": 7234378,
+   "floor": 16184303,
+   "glass": 11981045,
+   "ramp": 8484187,
+   "riser": 16184302,
+   "roof": 12890777,
+   "soft_panel": 7563553,
+   "stair": 8878944,
+   "static_hard": 8221013
+  },
+  "sky": 6986718,
+  "sun": 15330803,
+  "sunIntensity": 2.6
+ },
+ "monastery": {
+  "daylight": true,
+  "fog": 9084838,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4082250
+  },
+  "hemiGround": 1974301,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12963280,
+  "roles": {
+   "cover": 10910019,
+   "exterior_wall": 13752793,
+   "floor": 2829610,
+   "glass": 14016482,
+   "ramp": 15856627,
+   "riser": 3158831,
+   "roof": 2040094,
+   "soft_panel": 12752482,
+   "stair": 15856627,
+   "static_hard": 15856627
+  },
+  "sky": 10268598,
+  "sun": 15856627,
+  "sunIntensity": 2.6
+ },
+ "motel": {
+  "daylight": true,
+  "fog": 12501156,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1447186
+  },
+  "hemiGround": 3947066,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15724522,
+  "roles": {
+   "cover": 6110496,
+   "exterior_wall": 5656129,
+   "floor": 5591890,
+   "glass": 16119279,
+   "ramp": 6643024,
+   "riser": 6315356,
+   "roof": 4013115,
+   "soft_panel": 7752999,
+   "stair": 6906195,
+   "static_hard": 6379851
+  },
+  "sky": 13619642,
+  "sun": 15987697,
+  "sunIntensity": 2.6
+ },
+ "museum": {
+  "daylight": true,
+  "fog": 8428207,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2763045
+  },
+  "hemiGround": 14334329,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12635091,
+  "roles": {
+   "cover": 5852713,
+   "exterior_wall": 10263180,
+   "floor": 16446954,
+   "glass": 13622501,
+   "ramp": 11908268,
+   "riser": 16512489,
+   "roof": 14794620,
+   "soft_panel": 7365170,
+   "stair": 12434612,
+   "static_hard": 11447714
+  },
+  "sky": 9612222,
+  "sun": 15856372,
+  "sunIntensity": 2.6
+ },
+ "mutiny": {
+  "daylight": true,
+  "fog": 9549006,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2122622
+  },
+  "hemiGround": 2696994,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14937072,
+  "roles": {
+   "cover": 5387804,
+   "exterior_wall": 12247537,
+   "floor": 3815472,
+   "glass": 15528953,
+   "ramp": 15463929,
+   "riser": 4341557,
+   "roof": 2762786,
+   "soft_panel": 6833186,
+   "stair": 15463929,
+   "static_hard": 15398650
+  },
+  "sky": 11126748,
+  "sun": 15791093,
+  "sunIntensity": 2.6
+ },
+ "nuke": {
+  "daylight": true,
+  "fog": 6137052,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2897985
+  },
+  "hemiGround": 10530484,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12244200,
+  "roles": {
+   "cover": 5086426,
+   "exterior_wall": 12766936,
+   "floor": 15856628,
+   "glass": 13297147,
+   "ramp": 15791093,
+   "riser": 15791092,
+   "roof": 10793913,
+   "soft_panel": 8961769,
+   "stair": 15791093,
+   "static_hard": 15002093
+  },
+  "sky": 7648744,
+  "sun": 15660022,
+  "sunIntensity": 2.6
+ },
+ "office": {
+  "daylight": true,
+  "fog": 8763345,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2174004
+  },
+  "hemiGround": 6785443,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14411758,
+  "roles": {
+   "cover": 3833261,
+   "exterior_wall": 8889528,
+   "floor": 11321552,
+   "glass": 15463930,
+   "ramp": 11583948,
+   "riser": 13162466,
+   "roof": 6852009,
+   "soft_panel": 5741258,
+   "stair": 12306899,
+   "static_hard": 10729671
+  },
+  "sky": 10406111,
+  "sun": 15725557,
+  "sunIntensity": 2.6
+ },
+ "oil": {
+  "daylight": false,
+  "fog": 4735814,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1051658
+  },
+  "hemiGround": 2893342,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6249053,
+  "roles": {
+   "cover": 4793105,
+   "exterior_wall": 4140067,
+   "floor": 4208425,
+   "glass": 6971236,
+   "ramp": 4797997,
+   "riser": 4800045,
+   "roof": 3024926,
+   "soft_panel": 6040340,
+   "stair": 4995119,
+   "static_hard": 4666153
+  },
+  "sky": 5327437,
+  "sun": 7499376,
+  "sunIntensity": 2.0
+ },
+ "oilrig": {
+  "daylight": false,
+  "fog": 2501951,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1579551
+  },
+  "hemiGround": 3159105,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3554896,
+  "roles": {
+   "cover": 3159100,
+   "exterior_wall": 5923447,
+   "floor": 4475230,
+   "glass": 3161697,
+   "ramp": 7239307,
+   "riser": 4870507,
+   "roof": 3224900,
+   "soft_panel": 3948876,
+   "stair": 7634065,
+   "static_hard": 6778758
+  },
+  "sky": 2634055,
+  "sun": 4672859,
+  "sunIntensity": 2.0
+ },
+ "otaku": {
+  "daylight": true,
+  "fog": 9545667,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1905166
+  },
+  "hemiGround": 2039579,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14476009,
+  "roles": {
+   "cover": 9399813,
+   "exterior_wall": 7422515,
+   "floor": 2894887,
+   "glass": 15594231,
+   "ramp": 8475202,
+   "riser": 3289387,
+   "roof": 2105372,
+   "soft_panel": 12028930,
+   "stair": 8869189,
+   "static_hard": 8277051
+  },
+  "sky": 10992338,
+  "sun": 15790836,
+  "sunIntensity": 2.6
+ },
+ "overgrown": {
+  "daylight": true,
+  "fog": 10599630,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2906738
+  },
+  "hemiGround": 3421228,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15725557,
+  "roles": {
+   "cover": 5197094,
+   "exterior_wall": 12704746,
+   "floor": 4868926,
+   "glass": 15594488,
+   "ramp": 15594744,
+   "riser": 5526597,
+   "roof": 3487277,
+   "soft_panel": 6578478,
+   "stair": 15594744,
+   "static_hard": 15529208
+  },
+  "sky": 12242910,
+  "sun": 15791092,
+  "sunIntensity": 2.6
+ },
+ "overpass": {
+  "daylight": false,
+  "fog": 2893604,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1250067
+  },
+  "hemiGround": 2697253,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3814706,
+  "roles": {
+   "cover": 6444619,
+   "exterior_wall": 4802376,
+   "floor": 3815733,
+   "glass": 4339763,
+   "ramp": 5723478,
+   "riser": 4341819,
+   "roof": 2763046,
+   "soft_panel": 8088413,
+   "stair": 5986906,
+   "static_hard": 5460305
+  },
+  "sky": 3288104,
+  "sun": 4472894,
+  "sunIntensity": 2.0
+ },
+ "palacio": {
+  "daylight": true,
+  "fog": 4356538,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1842210
+  },
+  "hemiGround": 11639407,
+  "hemiIntensity": 2.5,
+  "hemiSky": 8955592,
+  "roles": {
+   "cover": 3111373,
+   "exterior_wall": 6908288,
+   "floor": 14603197,
+   "glass": 9024228,
+   "ramp": 8487317,
+   "riser": 15722974,
+   "roof": 12099441,
+   "soft_panel": 6200030,
+   "stair": 9013403,
+   "static_hard": 7960976
+  },
+  "sky": 5277641,
+  "sun": 12569304,
+  "sunIntensity": 2.6
+ },
+ "palais": {
+  "daylight": true,
+  "fog": 12245238,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2105375
+  },
+  "hemiGround": 4801856,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15463162,
+  "roles": {
+   "cover": 5783097,
+   "exterior_wall": 7961205,
+   "floor": 6840923,
+   "glass": 15069951,
+   "ramp": 9408652,
+   "riser": 7761509,
+   "roof": 4933441,
+   "soft_panel": 7228742,
+   "stair": 9869203,
+   "static_hard": 9013893
+  },
+  "sky": 14938365,
+  "sun": 15594231,
+  "sunIntensity": 2.6
+ },
+ "penal": {
+  "daylight": true,
+  "fog": 9289208,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1249807
+  },
+  "hemiGround": 1907734,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15331835,
+  "roles": {
+   "cover": 6202879,
+   "exterior_wall": 4801847,
+   "floor": 2828576,
+   "glass": 15069695,
+   "ramp": 5657155,
+   "riser": 3157539,
+   "roof": 2039063,
+   "soft_panel": 11917055,
+   "stair": 5920070,
+   "static_hard": 5459519
+  },
+  "sky": 11719935,
+  "sun": 15594232,
+  "sunIntensity": 2.6
+ },
+ "phoenix_compound": {
+  "daylight": true,
+  "fog": 5265795,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1710881
+  },
+  "hemiGround": 1776161,
+  "hemiIntensity": 2.5,
+  "hemiSky": 7831202,
+  "roles": {
+   "cover": 6582431,
+   "exterior_wall": 6447997,
+   "floor": 2499887,
+   "glass": 7832249,
+   "ramp": 7895442,
+   "riser": 2763062,
+   "roof": 1776418,
+   "soft_panel": 9147577,
+   "stair": 8355991,
+   "static_hard": 7369101
+  },
+  "sky": 5595284,
+  "sun": 10462132,
+  "sunIntensity": 2.6
+ },
+ "phoenix_facility": {
+  "daylight": false,
+  "fog": 858137,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 330251
+  },
+  "hemiGround": 1448213,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1253152,
+  "roles": {
+   "cover": 405041,
+   "exterior_wall": 1255209,
+   "floor": 2040862,
+   "glass": 1058343,
+   "ramp": 1649967,
+   "riser": 2238497,
+   "roof": 1448470,
+   "soft_panel": 408127,
+   "stair": 1716017,
+   "static_hard": 1518638
+  },
+  "sky": 859165,
+  "sun": 1712931,
+  "sunIntensity": 2.0
+ },
+ "pipeline": {
+  "daylight": true,
+  "fog": 6194885,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1578774
+  },
+  "hemiGround": 2038810,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11255256,
+  "roles": {
+   "cover": 6590419,
+   "exterior_wall": 6051666,
+   "floor": 2893861,
+   "glass": 11914478,
+   "ramp": 7170147,
+   "riser": 3288361,
+   "roof": 2104603,
+   "soft_panel": 10468070,
+   "stair": 7499112,
+   "static_hard": 6841182
+  },
+  "sky": 7378898,
+  "sun": 15067631,
+  "sunIntensity": 2.6
+ },
+ "piranesi": {
+  "daylight": false,
+  "fog": 5129783,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 723463
+  },
+  "hemiGround": 10393203,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6577229,
+  "roles": {
+   "cover": 4528399,
+   "exterior_wall": 2762266,
+   "floor": 13618103,
+   "glass": 7759435,
+   "ramp": 3222817,
+   "riser": 14934226,
+   "roof": 10787701,
+   "soft_panel": 5774865,
+   "stair": 3354402,
+   "static_hard": 3091230
+  },
+  "sky": 5787196,
+  "sun": 7630434,
+  "sunIntensity": 2.0
+ },
+ "pitstop": {
+  "daylight": false,
+  "fog": 3614761,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1381139
+  },
+  "hemiGround": 7827050,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4667193,
+  "roles": {
+   "cover": 7014671,
+   "exterior_wall": 5129799,
+   "floor": 10985371,
+   "glass": 5453368,
+   "ramp": 6050901,
+   "riser": 12235439,
+   "roof": 8155500,
+   "soft_panel": 8914960,
+   "stair": 6314073,
+   "static_hard": 5787728
+  },
+  "sky": 4074285,
+  "sun": 5457479,
+  "sunIntensity": 2.0
+ },
+ "pool_day": {
+  "daylight": true,
+  "fog": 6515834,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2828587
+  },
+  "hemiGround": 11510678,
+  "hemiIntensity": 2.5,
+  "hemiSky": 9147036,
+  "roles": {
+   "cover": 4867395,
+   "exterior_wall": 10591650,
+   "floor": 15526117,
+   "glass": 9608621,
+   "ramp": 12565952,
+   "riser": 16052976,
+   "roof": 11904922,
+   "soft_panel": 6117204,
+   "stair": 13158089,
+   "static_hard": 12039351
+  },
+  "sky": 7108745,
+  "sun": 11448758,
+  "sunIntensity": 2.6
+ },
+ "port": {
+  "daylight": true,
+  "fog": 10397881,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4412248
+  },
+  "hemiGround": 1316374,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14869736,
+  "roles": {
+   "cover": 4726295,
+   "exterior_wall": 13621468,
+   "floor": 1843231,
+   "glass": 15725301,
+   "ramp": 15856628,
+   "riser": 2040867,
+   "roof": 1316630,
+   "soft_panel": 5973275,
+   "stair": 15856628,
+   "static_hard": 15791092
+  },
+  "sky": 11779275,
+  "sun": 15856371,
+  "sunIntensity": 2.6
+ },
+ "poseidon": {
+  "daylight": true,
+  "fog": 5537701,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3622738
+  },
+  "hemiGround": 11053483,
+  "hemiIntensity": 2.5,
+  "hemiSky": 9480125,
+  "roles": {
+   "cover": 5210286,
+   "exterior_wall": 13424350,
+   "floor": 15921907,
+   "glass": 9680597,
+   "ramp": 15791093,
+   "riser": 15921907,
+   "roof": 11382448,
+   "soft_panel": 7971012,
+   "stair": 15791093,
+   "static_hard": 15791093
+  },
+  "sky": 6327733,
+  "sun": 12634578,
+  "sunIntensity": 2.6
+ },
+ "prison": {
+  "daylight": false,
+  "fog": 526856,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1579288
+  },
+  "hemiGround": 4144698,
+  "hemiIntensity": 2.9,
+  "hemiSky": 724234,
+  "roles": {
+   "cover": 5331788,
+   "exterior_wall": 5988440,
+   "floor": 5921107,
+   "glass": 724746,
+   "ramp": 7172714,
+   "riser": 6710364,
+   "roof": 4276283,
+   "soft_panel": 6714207,
+   "stair": 7501679,
+   "static_hard": 6778213
+  },
+  "sky": 592648,
+  "sun": 855821,
+  "sunIntensity": 2.0
+ },
+ "prodigy": {
+  "daylight": false,
+  "fog": 3290411,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 592135
+  },
+  "hemiGround": 5330249,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4343098,
+  "roles": {
+   "cover": 5978137,
+   "exterior_wall": 2236954,
+   "floor": 7633767,
+   "glass": 4869947,
+   "ramp": 2631712,
+   "riser": 8555378,
+   "roof": 5462346,
+   "soft_panel": 7554590,
+   "stair": 2763298,
+   "static_hard": 2500382
+  },
+  "sky": 3685167,
+  "sun": 5198153,
+  "sunIntensity": 2.0
+ },
+ "quarry": {
+  "daylight": false,
+  "fog": 4275517,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1117707
+  },
+  "hemiGround": 4075561,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5657170,
+  "roles": {
+   "cover": 4861204,
+   "exterior_wall": 4404520,
+   "floor": 5915704,
+   "glass": 6248535,
+   "ramp": 5062450,
+   "riser": 6704189,
+   "roof": 4272425,
+   "soft_panel": 6174999,
+   "stair": 5325365,
+   "static_hard": 4930606
+  },
+  "sky": 4801603,
+  "sun": 6775908,
+  "sunIntensity": 2.0
+ },
+ "radio_hostage_rescue_map": {
+  "daylight": true,
+  "fog": 6841182,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1775897
+  },
+  "hemiGround": 3750456,
+  "hemiIntensity": 2.5,
+  "hemiSky": 9012352,
+  "roles": {
+   "cover": 5323297,
+   "exterior_wall": 6643804,
+   "floor": 5329744,
+   "glass": 9867144,
+   "ramp": 7828335,
+   "riser": 5987930,
+   "roof": 3816506,
+   "soft_panel": 6768936,
+   "stair": 8222836,
+   "static_hard": 7499113
+  },
+  "sky": 7630440,
+  "sun": 10657950,
+  "sunIntensity": 2.6
+ },
+ "railroad": {
+  "daylight": true,
+  "fog": 10795470,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1381648
+  },
+  "hemiGround": 9473380,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15725301,
+  "roles": {
+   "cover": 6834711,
+   "exterior_wall": 5329210,
+   "floor": 12565919,
+   "glass": 15594231,
+   "ramp": 6250311,
+   "riser": 13750199,
+   "roof": 9933925,
+   "soft_panel": 8740379,
+   "stair": 6579019,
+   "static_hard": 6052675
+  },
+  "sky": 12504798,
+  "sun": 15790836,
+  "sunIntensity": 2.6
+ },
+ "rails": {
+  "daylight": false,
+  "fog": 3093048,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1052946
+  },
+  "hemiGround": 3618357,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4211530,
+  "roles": {
+   "cover": 4345948,
+   "exterior_wall": 3817284,
+   "floor": 5197387,
+   "glass": 4343636,
+   "ramp": 4606800,
+   "riser": 5855060,
+   "roof": 3749942,
+   "soft_panel": 5399668,
+   "stair": 4804180,
+   "static_hard": 4343628
+  },
+  "sky": 3422015,
+  "sun": 5263959,
+  "sunIntensity": 2.0
+ },
+ "range": {
+  "daylight": false,
+  "fog": 787716,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 526343
+  },
+  "hemiGround": 7367528,
+  "hemiIntensity": 2.9,
+  "hemiSky": 985095,
+  "roles": {
+   "cover": 6102784,
+   "exterior_wall": 526343,
+   "floor": 10394007,
+   "glass": 1246724,
+   "ramp": 591879,
+   "riser": 11644073,
+   "roof": 7630443,
+   "soft_panel": 7612160,
+   "stair": 592136,
+   "static_hard": 526343
+  },
+  "sky": 918788,
+  "sun": 1051402,
+  "sunIntensity": 2.0
+ },
+ "ravine": {
+  "daylight": false,
+  "fog": 4013642,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1511953
+  },
+  "hemiGround": 4863534,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5461089,
+  "roles": {
+   "cover": 9063719,
+   "exterior_wall": 5915453,
+   "floor": 7032127,
+   "glass": 5592942,
+   "ramp": 6836812,
+   "riser": 8082756,
+   "roof": 5060398,
+   "soft_panel": 11558702,
+   "stair": 7165519,
+   "static_hard": 6638919
+  },
+  "sky": 4408403,
+  "sun": 6842482,
+  "sunIntensity": 2.0
+ },
+ "resort": {
+  "daylight": true,
+  "fog": 6785464,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1184273
+  },
+  "hemiGround": 3091755,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11386065,
+  "roles": {
+   "cover": 6130377,
+   "exterior_wall": 4605246,
+   "floor": 4473150,
+   "glass": 12110822,
+   "ramp": 5460555,
+   "riser": 4999493,
+   "roof": 3223340,
+   "soft_panel": 9679581,
+   "stair": 5658190,
+   "static_hard": 5197639
+  },
+  "sky": 7969222,
+  "sun": 14870251,
+  "sunIntensity": 2.6
+ },
+ "rialto": {
+  "daylight": true,
+  "fog": 7390450,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1337472
+  },
+  "hemiGround": 5789776,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14675960,
+  "roles": {
+   "cover": 7849727,
+   "exterior_wall": 11790583,
+   "floor": 8289905,
+   "glass": 15070975,
+   "ramp": 15333371,
+   "riser": 9276799,
+   "roof": 5987153,
+   "soft_panel": 14020095,
+   "stair": 15333371,
+   "static_hard": 15268092
+  },
+  "sky": 9360634,
+  "sun": 15594744,
+  "sunIntensity": 2.6
+ },
+ "riverside": {
+  "daylight": true,
+  "fog": 7103852,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 657669
+  },
+  "hemiGround": 2894370,
+  "hemiIntensity": 2.5,
+  "hemiSky": 9341071,
+  "roles": {
+   "cover": 2432771,
+   "exterior_wall": 1973005,
+   "floor": 4144176,
+   "glass": 10195612,
+   "ramp": 2301969,
+   "riser": 4736053,
+   "roof": 3025699,
+   "soft_panel": 3090434,
+   "stair": 2367762,
+   "static_hard": 2236176
+  },
+  "sky": 7892857,
+  "sun": 11184042,
+  "sunIntensity": 2.6
+ },
+ "rockworld": {
+  "daylight": false,
+  "fog": 5788979,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2368022
+  },
+  "hemiGround": 6577983,
+  "hemiIntensity": 2.9,
+  "hemiSky": 7367753,
+  "roles": {
+   "cover": 6317607,
+   "exterior_wall": 9142608,
+   "floor": 9603415,
+   "glass": 8946240,
+   "ramp": 10524263,
+   "riser": 10853215,
+   "roof": 6906686,
+   "soft_panel": 8028719,
+   "stair": 10787694,
+   "static_hard": 10326621
+  },
+  "sky": 6578230,
+  "sun": 8354913,
+  "sunIntensity": 2.0
+ },
+ "rooftop": {
+  "daylight": true,
+  "fog": 10984116,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4996169
+  },
+  "hemiGround": 13077652,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14670818,
+  "roles": {
+   "cover": 5008795,
+   "exterior_wall": 14405849,
+   "floor": 16248303,
+   "glass": 15855604,
+   "ramp": 16052723,
+   "riser": 16313838,
+   "roof": 13471896,
+   "soft_panel": 6851256,
+   "stair": 16052723,
+   "static_hard": 16052723
+  },
+  "sky": 12234437,
+  "sun": 15921651,
+  "sunIntensity": 2.6
+ },
+ "rooftop_control": {
+  "daylight": true,
+  "fog": 11388885,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2515839
+  },
+  "hemiGround": 5859170,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15725557,
+  "roles": {
+   "cover": 3362647,
+   "exterior_wall": 12377838,
+   "floor": 8360844,
+   "glass": 15594744,
+   "ramp": 15529465,
+   "riser": 9479069,
+   "roof": 5925733,
+   "soft_panel": 4154222,
+   "stair": 15529465,
+   "static_hard": 15463930
+  },
+  "sky": 13163493,
+  "sun": 15791092,
+  "sunIntensity": 2.6
+ },
+ "rooftops": {
+  "daylight": true,
+  "fog": 8493462,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2566697
+  },
+  "hemiGround": 5658192,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12042944,
+  "roles": {
+   "cover": 1843007,
+   "exterior_wall": 9739931,
+   "floor": 8158066,
+   "glass": 12964817,
+   "ramp": 11778487,
+   "riser": 9144960,
+   "roof": 5855570,
+   "soft_panel": 2237776,
+   "stair": 12370624,
+   "static_hard": 11186607
+  },
+  "sky": 9611429,
+  "sun": 14869989,
+  "sunIntensity": 2.6
+ },
+ "rotterdam": {
+  "daylight": false,
+  "fog": 1382948,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 526605
+  },
+  "hemiGround": 1514274,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1975342,
+  "roles": {
+   "cover": 1662758,
+   "exterior_wall": 1909298,
+   "floor": 2106929,
+   "glass": 1779000,
+   "ramp": 2435642,
+   "riser": 2304568,
+   "roof": 1514276,
+   "soft_panel": 1931567,
+   "stair": 2501693,
+   "static_hard": 2238264
+  },
+  "sky": 1514793,
+  "sun": 2632757,
+  "sunIntensity": 2.0
+ },
+ "royal": {
+  "daylight": false,
+  "fog": 2829359,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 921359
+  },
+  "hemiGround": 11119530,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3816254,
+  "roles": {
+   "cover": 4144961,
+   "exterior_wall": 3553079,
+   "floor": 15921906,
+   "glass": 4014148,
+   "ramp": 4211266,
+   "riser": 15921906,
+   "roof": 11382703,
+   "soft_panel": 5132114,
+   "stair": 4474181,
+   "static_hard": 4013631
+  },
+  "sky": 3092788,
+  "sun": 4606026,
+  "sunIntensity": 2.0
+ },
+ "rubble": {
+  "daylight": false,
+  "fog": 2040359,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 526343
+  },
+  "hemiGround": 855051,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2764083,
+  "roles": {
+   "cover": 2571097,
+   "exterior_wall": 1578516,
+   "floor": 1249551,
+   "glass": 2830394,
+   "ramp": 1841688,
+   "riser": 1381137,
+   "roof": 920587,
+   "soft_panel": 3099249,
+   "stair": 1973273,
+   "static_hard": 1775894
+  },
+  "sky": 2237740,
+  "sun": 3487547,
+  "sunIntensity": 2.0
+ },
+ "ruins": {
+  "daylight": false,
+  "fog": 3224097,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1250063
+  },
+  "hemiGround": 7039328,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4145198,
+  "roles": {
+   "cover": 5000477,
+   "exterior_wall": 4868662,
+   "floor": 10000010,
+   "glass": 4869163,
+   "ramp": 5658179,
+   "riser": 11118492,
+   "roof": 7302498,
+   "soft_panel": 6382115,
+   "stair": 5986886,
+   "static_hard": 5460798
+  },
+  "sky": 3618851,
+  "sun": 4737340,
+  "sunIntensity": 2.0
+ },
+ "rush": {
+  "daylight": false,
+  "fog": 2961191,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 855306
+  },
+  "hemiGround": 8814427,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3947829,
+  "roles": {
+   "cover": 4932368,
+   "exterior_wall": 3223588,
+   "floor": 11906701,
+   "glass": 4408886,
+   "ramp": 3749932,
+   "riser": 13025443,
+   "roof": 9274460,
+   "soft_panel": 6247954,
+   "stair": 3947310,
+   "static_hard": 3618345
+  },
+  "sky": 3355946,
+  "sun": 4671554,
+  "sunIntensity": 2.0
+ },
+ "safehouse": {
+  "daylight": false,
+  "fog": 4671798,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1118735
+  },
+  "hemiGround": 5526345,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6053451,
+  "roles": {
+   "cover": 5000228,
+   "exterior_wall": 4277050,
+   "floor": 8025959,
+   "glass": 6975049,
+   "ramp": 5132102,
+   "riser": 9012850,
+   "roof": 5789258,
+   "soft_panel": 6316076,
+   "stair": 5329737,
+   "static_hard": 4869186
+  },
+  "sky": 5263931,
+  "sun": 7106143,
+  "sunIntensity": 2.0
+ },
+ "sanctum": {
+  "daylight": true,
+  "fog": 11247524,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1644568
+  },
+  "hemiGround": 4011578,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14605020,
+  "roles": {
+   "cover": 7098171,
+   "exterior_wall": 6183516,
+   "floor": 5786707,
+   "glass": 15789550,
+   "ramp": 7302254,
+   "riser": 6575453,
+   "roof": 4208444,
+   "soft_panel": 8938057,
+   "stair": 7696755,
+   "static_hard": 6973033
+  },
+  "sky": 12432054,
+  "sun": 15987442,
+  "sunIntensity": 2.6
+ },
+ "santorini": {
+  "daylight": true,
+  "fog": 10992844,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3488058
+  },
+  "hemiGround": 11840416,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15791093,
+  "roles": {
+   "cover": 4604703,
+   "exterior_wall": 13619924,
+   "floor": 16052977,
+   "glass": 15660023,
+   "ramp": 15922163,
+   "riser": 16052976,
+   "roof": 12169380,
+   "soft_panel": 5788709,
+   "stair": 15922163,
+   "static_hard": 15593199
+  },
+  "sky": 12636380,
+  "sun": 15856372,
+  "sunIntensity": 2.6
+ },
+ "seaside": {
+  "daylight": true,
+  "fog": 11254724,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4475980
+  },
+  "hemiGround": 3157545,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15856628,
+  "roles": {
+   "cover": 12816992,
+   "exterior_wall": 13883607,
+   "floor": 4538938,
+   "glass": 15725557,
+   "ramp": 15922163,
+   "riser": 5131072,
+   "roof": 3289130,
+   "soft_panel": 14202772,
+   "stair": 15922163,
+   "static_hard": 15922163
+  },
+  "sky": 12767190,
+  "sun": 15856627,
+  "sunIntensity": 2.6
+ },
+ "season": {
+  "daylight": true,
+  "fog": 8359838,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1381909
+  },
+  "hemiGround": 8355968,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12041924,
+  "roles": {
+   "cover": 5660713,
+   "exterior_wall": 5330000,
+   "floor": 11974582,
+   "glass": 12898006,
+   "ramp": 6382688,
+   "riser": 13421772,
+   "roof": 8619139,
+   "soft_panel": 7174449,
+   "stair": 6646117,
+   "static_hard": 6053979
+  },
+  "sky": 9412269,
+  "sun": 14935527,
+  "sunIntensity": 2.6
+ },
+ "ship": {
+  "daylight": true,
+  "fog": 11112851,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4667190
+  },
+  "hemiGround": 1842719,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14011597,
+  "roles": {
+   "cover": 6310173,
+   "exterior_wall": 14405839,
+   "floor": 2632493,
+   "glass": 15195870,
+   "ramp": 16052721,
+   "riser": 2896178,
+   "roof": 1908512,
+   "soft_panel": 8018978,
+   "stair": 16052721,
+   "static_hard": 16052720
+  },
+  "sky": 12166053,
+  "sun": 15987186,
+  "sunIntensity": 2.6
+ },
+ "shipped": {
+  "daylight": true,
+  "fog": 10067867,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1184017
+  },
+  "hemiGround": 4668473,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13619663,
+  "roles": {
+   "cover": 6041889,
+   "exterior_wall": 4472895,
+   "floor": 6772048,
+   "glass": 14738145,
+   "ramp": 5328203,
+   "riser": 7626584,
+   "roof": 4865338,
+   "soft_panel": 7617831,
+   "stair": 5591375,
+   "static_hard": 5130567
+  },
+  "sky": 11251884,
+  "sun": 15921906,
+  "sunIntensity": 2.6
+ },
+ "shoothouse": {
+  "daylight": false,
+  "fog": 6050631,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1775638
+  },
+  "hemiGround": 1776672,
+  "hemiIntensity": 2.9,
+  "hemiSky": 7892578,
+  "roles": {
+   "cover": 5780505,
+   "exterior_wall": 6708308,
+   "floor": 2500398,
+   "glass": 9074786,
+   "ramp": 7892582,
+   "riser": 2763827,
+   "roof": 1776673,
+   "soft_panel": 7356702,
+   "stair": 8221547,
+   "static_hard": 7563360
+  },
+  "sky": 6839374,
+  "sun": 9209212,
+  "sunIntensity": 2.0
+ },
+ "shoots": {
+  "daylight": true,
+  "fog": 9020071,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2566695
+  },
+  "hemiGround": 5790548,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12963537,
+  "roles": {
+   "cover": 4803108,
+   "exterior_wall": 9674387,
+   "floor": 8225655,
+   "glass": 14016739,
+   "ramp": 11778483,
+   "riser": 9212550,
+   "roof": 5922646,
+   "soft_panel": 6118701,
+   "stair": 12370620,
+   "static_hard": 11186858
+  },
+  "sky": 10203831,
+  "sun": 15856627,
+  "sunIntensity": 2.6
+ },
+ "shortdust": {
+  "daylight": true,
+  "fog": 11450814,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 6309937
+  },
+  "hemiGround": 6381921,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15856627,
+  "roles": {
+   "cover": 7232569,
+   "exterior_wall": 14996934,
+   "floor": 9144970,
+   "glass": 15791092,
+   "ramp": 16184046,
+   "riser": 10263451,
+   "roof": 6579044,
+   "soft_panel": 9204806,
+   "stair": 16184046,
+   "static_hard": 16249582
+  },
+  "sky": 12897745,
+  "sun": 15922163,
+  "sunIntensity": 2.6
+ },
+ "shorttrain": {
+  "daylight": false,
+  "fog": 2039841,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 855566
+  },
+  "hemiGround": 2303011,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2698028,
+  "roles": {
+   "cover": 12487739,
+   "exterior_wall": 3355959,
+   "floor": 3224370,
+   "glass": 2895664,
+   "ramp": 4013889,
+   "riser": 3619128,
+   "roof": 2303268,
+   "soft_panel": 13805925,
+   "stair": 4211268,
+   "static_hard": 3816510
+  },
+  "sky": 2237477,
+  "sun": 3355700,
+  "sunIntensity": 2.0
+ },
+ "siege": {
+  "daylight": false,
+  "fog": 1577485,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 657158
+  },
+  "hemiGround": 2959396,
+  "hemiIntensity": 2.9,
+  "hemiSky": 1972243,
+  "roles": {
+   "cover": 6170125,
+   "exterior_wall": 2432021,
+   "floor": 4274739,
+   "glass": 2431249,
+   "ramp": 2826779,
+   "riser": 4800824,
+   "roof": 3090981,
+   "soft_panel": 7876365,
+   "stair": 2958108,
+   "static_hard": 2760729
+  },
+  "sky": 1774350,
+  "sun": 2235674,
+  "sunIntensity": 2.0
+ },
+ "sienna": {
+  "daylight": true,
+  "fog": 8940375,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2630943
+  },
+  "hemiGround": 4538165,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10981763,
+  "roles": {
+   "cover": 5722657,
+   "exterior_wall": 9931382,
+   "floor": 6576715,
+   "glass": 12426374,
+   "ramp": 11248533,
+   "riser": 7431762,
+   "roof": 4735286,
+   "soft_panel": 7301160,
+   "stair": 11709086,
+   "static_hard": 10919052
+  },
+  "sky": 10188382,
+  "sun": 12366508,
+  "sunIntensity": 2.6
+ },
+ "silo": {
+  "daylight": false,
+  "fog": 1513752,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 921358
+  },
+  "hemiGround": 3750458,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2105888,
+  "roles": {
+   "cover": 6306321,
+   "exterior_wall": 3488051,
+   "floor": 5329746,
+   "glass": 2172194,
+   "ramp": 4145981,
+   "riser": 5922396,
+   "roof": 3816507,
+   "soft_panel": 8014098,
+   "stair": 4343360,
+   "static_hard": 3948602
+  },
+  "sky": 1711131,
+  "sun": 2566183,
+  "sunIntensity": 2.0
+ },
+ "sirocco": {
+  "daylight": true,
+  "fog": 8039886,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2642282
+  },
+  "hemiGround": 6189427,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13557480,
+  "roles": {
+   "cover": 4095113,
+   "exterior_wall": 12638954,
+   "floor": 9019297,
+   "glass": 14872824,
+   "ramp": 15594744,
+   "riser": 10268850,
+   "roof": 6255991,
+   "soft_panel": 5020846,
+   "stair": 15594744,
+   "static_hard": 15529208
+  },
+  "sky": 9551580,
+  "sun": 15725557,
+  "sunIntensity": 2.6
+ },
+ "site": {
+  "daylight": false,
+  "fog": 1776411,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 723723
+  },
+  "hemiGround": 11184810,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2368548,
+  "roles": {
+   "cover": 3817020,
+   "exterior_wall": 2631720,
+   "floor": 15921906,
+   "glass": 2565927,
+   "ramp": 3158063,
+   "riser": 15921906,
+   "roof": 11447982,
+   "soft_panel": 4804171,
+   "stair": 3289650,
+   "static_hard": 3026477
+  },
+  "sky": 1973790,
+  "sun": 2894892,
+  "sunIntensity": 2.0
+ },
+ "st_marc": {
+  "daylight": true,
+  "fog": 9348015,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4014658
+  },
+  "hemiGround": 4671811,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13489369,
+  "roles": {
+   "cover": 6245427,
+   "exterior_wall": 13883351,
+   "floor": 6645855,
+   "glass": 14608107,
+   "ramp": 15922163,
+   "riser": 7501162,
+   "roof": 4803397,
+   "soft_panel": 7888702,
+   "stair": 15922163,
+   "static_hard": 15922163
+  },
+  "sky": 10597567,
+  "sun": 15856627,
+  "sunIntensity": 2.6
+ },
+ "stadium": {
+  "daylight": false,
+  "fog": 1974302,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1381650
+  },
+  "hemiGround": 3618612,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2697768,
+  "roles": {
+   "cover": 6440743,
+   "exterior_wall": 5263173,
+   "floor": 5263179,
+   "glass": 2895402,
+   "ramp": 6250067,
+   "riser": 5855571,
+   "roof": 3750198,
+   "soft_panel": 8214830,
+   "stair": 6578775,
+   "static_hard": 5986894
+  },
+  "sky": 2237217,
+  "sun": 3224113,
+  "sunIntensity": 2.0
+ },
+ "station": {
+  "daylight": false,
+  "fog": 6510925,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1512208
+  },
+  "hemiGround": 4868677,
+  "hemiIntensity": 2.9,
+  "hemiSky": 8484713,
+  "roles": {
+   "cover": 5058839,
+   "exterior_wall": 5719609,
+   "floor": 6974306,
+   "glass": 9798249,
+   "ramp": 6640711,
+   "riser": 7895149,
+   "roof": 5066054,
+   "soft_panel": 6438171,
+   "stair": 6969418,
+   "static_hard": 6442818
+  },
+  "sky": 7365716,
+  "sun": 9801606,
+  "sunIntensity": 2.0
+ },
+ "storm": {
+  "daylight": false,
+  "fog": 7365185,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 854792
+  },
+  "hemiGround": 2958361,
+  "hemiIntensity": 2.9,
+  "hemiSky": 9338974,
+  "roles": {
+   "cover": 2579719,
+   "exterior_wall": 3221787,
+   "floor": 4338467,
+   "glass": 11309651,
+   "ramp": 3748131,
+   "riser": 4929829,
+   "roof": 3089689,
+   "soft_panel": 3176199,
+   "stair": 3945252,
+   "static_hard": 3682080
+  },
+  "sky": 8351301,
+  "sun": 10327424,
+  "sunIntensity": 2.0
+ },
+ "stronghold": {
+  "daylight": true,
+  "fog": 6984388,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3423302
+  },
+  "hemiGround": 12494485,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12044251,
+  "roles": {
+   "cover": 4088228,
+   "exterior_wall": 13555164,
+   "floor": 16184047,
+   "glass": 12966127,
+   "ramp": 15790836,
+   "riser": 16184046,
+   "roof": 12888729,
+   "soft_panel": 5799107,
+   "stair": 15790836,
+   "static_hard": 15790836
+  },
+  "sky": 8299474,
+  "sun": 15725301,
+  "sunIntensity": 2.6
+ },
+ "studio": {
+  "daylight": false,
+  "fog": 2498092,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1117972
+  },
+  "hemiGround": 2828343,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3287609,
+  "roles": {
+   "cover": 5776732,
+   "exterior_wall": 4143436,
+   "floor": 3946320,
+   "glass": 3614787,
+   "ramp": 4998745,
+   "riser": 4406619,
+   "roof": 2893882,
+   "soft_panel": 7285877,
+   "stair": 5196125,
+   "static_hard": 4735318
+  },
+  "sky": 2760754,
+  "sun": 3946049,
+  "sunIntensity": 2.0
+ },
+ "subzero": {
+  "daylight": false,
+  "fog": 3888477,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2699572
+  },
+  "hemiGround": 6388104,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5533303,
+  "roles": {
+   "cover": 9429852,
+   "exterior_wall": 10859706,
+   "floor": 9808567,
+   "glass": 5078671,
+   "ramp": 13423831,
+   "riser": 11320776,
+   "roof": 6389134,
+   "soft_panel": 12513439,
+   "stair": 14147040,
+   "static_hard": 12634831
+  },
+  "sky": 4218730,
+  "sun": 7176584,
+  "sunIntensity": 2.0
+ },
+ "sugarcane": {
+  "daylight": false,
+  "fog": 2960942,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1052944
+  },
+  "hemiGround": 2236703,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3947837,
+  "roles": {
+   "cover": 7754291,
+   "exterior_wall": 3948350,
+   "floor": 3223340,
+   "glass": 4211523,
+   "ramp": 4737610,
+   "riser": 3618097,
+   "roof": 2302496,
+   "soft_panel": 9856574,
+   "stair": 5000781,
+   "static_hard": 4540230
+  },
+  "sky": 3289907,
+  "sun": 4803146,
+  "sunIntensity": 2.0
+ },
+ "survivor": {
+  "daylight": true,
+  "fog": 14013674,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2830941
+  },
+  "hemiGround": 9278653,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15724534,
+  "roles": {
+   "cover": 3026775,
+   "exterior_wall": 12896742,
+   "floor": 15132914,
+   "glass": 15592696,
+   "ramp": 15658999,
+   "riser": 15658998,
+   "roof": 9541827,
+   "soft_panel": 3750510,
+   "stair": 15658999,
+   "static_hard": 15593463
+  },
+  "sky": 16119290,
+  "sun": 15790324,
+  "sunIntensity": 2.6
+ },
+ "swamp": {
+  "daylight": true,
+  "fog": 10273745,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1052686
+  },
+  "hemiGround": 6448720,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15725814,
+  "roles": {
+   "cover": 9076800,
+   "exterior_wall": 3947827,
+   "floor": 9212786,
+   "glass": 15529464,
+   "ramp": 4671550,
+   "riser": 10199682,
+   "roof": 6646609,
+   "soft_panel": 11444814,
+   "stair": 4868929,
+   "static_hard": 4474170
+  },
+  "sky": 11982304,
+  "sun": 15791093,
+  "sunIntensity": 2.6
+ },
+ "terminal_map": {
+  "daylight": false,
+  "fog": 4275250,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1907222
+  },
+  "hemiGround": 4077869,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5525317,
+  "roles": {
+   "cover": 9131776,
+   "exterior_wall": 7299665,
+   "floor": 5919039,
+   "glass": 6379332,
+   "ramp": 8549475,
+   "riser": 6708294,
+   "roof": 4274990,
+   "soft_panel": 11430912,
+   "stair": 8944231,
+   "static_hard": 8220508
+  },
+  "sky": 4801334,
+  "sun": 6446678,
+  "sunIntensity": 2.0
+ },
+ "thera": {
+  "daylight": false,
+  "fog": 5915993,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2705265
+  },
+  "hemiGround": 9934239,
+  "hemiIntensity": 2.9,
+  "hemiSky": 7692147,
+  "roles": {
+   "cover": 2126800,
+   "exterior_wall": 12636907,
+   "floor": 14408414,
+   "glass": 8937092,
+   "ramp": 15593976,
+   "riser": 15921651,
+   "roof": 10197412,
+   "soft_panel": 4690662,
+   "stair": 15593976,
+   "static_hard": 15528441
+  },
+  "sky": 6703972,
+  "sun": 9009287,
+  "sunIntensity": 2.0
+ },
+ "thrill": {
+  "daylight": true,
+  "fog": 7898791,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1184271
+  },
+  "hemiGround": 4474419,
+  "hemiIntensity": 2.5,
+  "hemiSky": 11910090,
+  "roles": {
+   "cover": 5514763,
+   "exterior_wall": 4604986,
+   "floor": 6513991,
+   "glass": 12765916,
+   "ramp": 5394502,
+   "riser": 7369550,
+   "roof": 4671795,
+   "soft_panel": 7024396,
+   "stair": 5657673,
+   "static_hard": 5197122
+  },
+  "sky": 9082805,
+  "sun": 15066858,
+  "sunIntensity": 2.6
+ },
+ "thunder": {
+  "daylight": false,
+  "fog": 4670784,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1447444
+  },
+  "hemiGround": 13484934,
+  "hemiIntensity": 2.9,
+  "hemiSky": 6118230,
+  "roles": {
+   "cover": 5852475,
+   "exterior_wall": 5591626,
+   "floor": 16316396,
+   "glass": 6841434,
+   "ramp": 6578521,
+   "riser": 16381932,
+   "roof": 13945225,
+   "soft_panel": 7430217,
+   "stair": 6907486,
+   "static_hard": 6315349
+  },
+  "sky": 5197126,
+  "sun": 7302505,
+  "sunIntensity": 2.0
+ },
+ "tides": {
+  "daylight": true,
+  "fog": 9280933,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 855567
+  },
+  "hemiGround": 6710608,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13094353,
+  "roles": {
+   "cover": 9333557,
+   "exterior_wall": 3159607,
+   "floor": 9671025,
+   "glass": 14213091,
+   "ramp": 3817537,
+   "riser": 10657921,
+   "roof": 7039313,
+   "soft_panel": 11831104,
+   "stair": 3949636,
+   "static_hard": 3554878
+  },
+  "sky": 10464693,
+  "sun": 15856371,
+  "sunIntensity": 2.6
+ },
+ "tire": {
+  "daylight": false,
+  "fog": 7430223,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1774866
+  },
+  "hemiGround": 8546389,
+  "hemiIntensity": 2.9,
+  "hemiSky": 9601391,
+  "roles": {
+   "cover": 6044184,
+   "exterior_wall": 6836032,
+   "floor": 11703938,
+   "glass": 10914672,
+   "ramp": 7954256,
+   "riser": 12757399,
+   "roof": 9005909,
+   "soft_panel": 7686427,
+   "stair": 8348756,
+   "static_hard": 7756362
+  },
+  "sky": 8416086,
+  "sun": 10787730,
+  "sunIntensity": 2.0
+ },
+ "torn": {
+  "daylight": false,
+  "fog": 2762781,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 854793
+  },
+  "hemiGround": 2433307,
+  "hemiIntensity": 2.9,
+  "hemiSky": 3552553,
+  "roles": {
+   "cover": 1004297,
+   "exterior_wall": 3222305,
+   "floor": 3551270,
+   "glass": 4209959,
+   "ramp": 3748393,
+   "riser": 4011562,
+   "roof": 2564635,
+   "soft_panel": 1141257,
+   "stair": 3880235,
+   "static_hard": 3616806
+  },
+  "sky": 3157535,
+  "sun": 4144436,
+  "sunIntensity": 2.0
+ },
+ "trailerpark": {
+  "daylight": true,
+  "fog": 13861715,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3549468
+  },
+  "hemiGround": 3879196,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14663337,
+  "roles": {
+   "cover": 5783301,
+   "exterior_wall": 12426360,
+   "floor": 5719590,
+   "glass": 16174259,
+   "ramp": 13482404,
+   "riser": 6573864,
+   "roof": 4076315,
+   "soft_panel": 7360515,
+   "stair": 13943471,
+   "static_hard": 13283478
+  },
+  "sky": 14718055,
+  "sun": 15920360,
+  "sunIntensity": 2.6
+ },
+ "train": {
+  "daylight": true,
+  "fog": 7175310,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1447704
+  },
+  "hemiGround": 3158582,
+  "hemiIntensity": 2.5,
+  "hemiSky": 10397360,
+  "roles": {
+   "cover": 9530195,
+   "exterior_wall": 5395804,
+   "floor": 4474701,
+   "glass": 11056322,
+   "ramp": 6514285,
+   "riser": 5001047,
+   "roof": 3224376,
+   "soft_panel": 11503470,
+   "stair": 6843250,
+   "static_hard": 6185320
+  },
+  "sky": 8030876,
+  "sun": 13028045,
+  "sunIntensity": 2.6
+ },
+ "transit": {
+  "daylight": false,
+  "fog": 3160385,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1250582
+  },
+  "hemiGround": 3026482,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4410196,
+  "roles": {
+   "cover": 7749679,
+   "exterior_wall": 4738645,
+   "floor": 4276808,
+   "glass": 4346466,
+   "ramp": 5725541,
+   "riser": 4802897,
+   "roof": 3092276,
+   "soft_panel": 9785145,
+   "stair": 5988713,
+   "static_hard": 5396577
+  },
+  "sky": 3424073,
+  "sun": 5528418,
+  "sunIntensity": 2.0
+ },
+ "trinity": {
+  "daylight": false,
+  "fog": 3159341,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1052686
+  },
+  "hemiGround": 6314264,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4277821,
+  "roles": {
+   "cover": 7169536,
+   "exterior_wall": 4013620,
+   "floor": 9405469,
+   "glass": 4607807,
+   "ramp": 4737342,
+   "riser": 10983706,
+   "roof": 6774549,
+   "soft_panel": 8945664,
+   "stair": 4934977,
+   "static_hard": 4539963
+  },
+  "sky": 3554354,
+  "sun": 5198412,
+  "sunIntensity": 2.0
+ },
+ "truth": {
+  "daylight": true,
+  "fog": 13013602,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1512206
+  },
+  "hemiGround": 5590836,
+  "hemiIntensity": 2.5,
+  "hemiSky": 14337200,
+  "roles": {
+   "cover": 5646601,
+   "exterior_wall": 5916722,
+   "floor": 8155976,
+   "glass": 15717563,
+   "ramp": 6837567,
+   "riser": 9339469,
+   "roof": 5854004,
+   "soft_panel": 7156489,
+   "stair": 7166274,
+   "static_hard": 6639929
+  },
+  "sky": 13869685,
+  "sun": 15920874,
+  "sunIntensity": 2.6
+ },
+ "truth_cut": {
+  "daylight": false,
+  "fog": 3353386,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 723716
+  },
+  "hemiGround": 920070,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4405817,
+  "roles": {
+   "cover": 4263424,
+   "exterior_wall": 1907721,
+   "floor": 1379848,
+   "glass": 4996154,
+   "ramp": 2170893,
+   "riser": 1576968,
+   "roof": 985606,
+   "soft_panel": 5378304,
+   "stair": 2236941,
+   "static_hard": 2105355
+  },
+  "sky": 3813166,
+  "sun": 5195847,
+  "sunIntensity": 2.0
+ },
+ "tulip": {
+  "daylight": true,
+  "fog": 5333104,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 789772
+  },
+  "hemiGround": 2105890,
+  "hemiIntensity": 2.5,
+  "hemiSky": 7438481,
+  "roles": {
+   "cover": 4604488,
+   "exterior_wall": 2895918,
+   "floor": 3027248,
+   "glass": 7506853,
+   "ramp": 3488055,
+   "riser": 3356470,
+   "roof": 2171683,
+   "soft_panel": 5788251,
+   "stair": 3619898,
+   "static_hard": 3290933
+  },
+  "sky": 5794687,
+  "sun": 9673636,
+  "sunIntensity": 2.6
+ },
+ "tundra": {
+  "daylight": true,
+  "fog": 8754343,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1054488
+  },
+  "hemiGround": 7712969,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12699598,
+  "roles": {
+   "cover": 1982023,
+   "exterior_wall": 3757917,
+   "floor": 14084593,
+   "glass": 13686752,
+   "ramp": 4679019,
+   "riser": 15463929,
+   "roof": 7911120,
+   "soft_panel": 2444890,
+   "stair": 4876913,
+   "static_hard": 4285032
+  },
+  "sky": 9872822,
+  "sun": 15790578,
+  "sunIntensity": 2.6
+ },
+ "tuscan": {
+  "daylight": true,
+  "fog": 4554149,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2244691
+  },
+  "hemiGround": 4545129,
+  "hemiIntensity": 2.5,
+  "hemiSky": 8233404,
+  "roles": {
+   "cover": 3045302,
+   "exterior_wall": 12770025,
+   "floor": 6259097,
+   "glass": 8106200,
+   "ramp": 15594743,
+   "riser": 7180456,
+   "roof": 4480366,
+   "soft_panel": 4821972,
+   "stair": 15594743,
+   "static_hard": 15594744
+  },
+  "sky": 4885435,
+  "sun": 11517898,
+  "sunIntensity": 2.6
+ },
+ "vegas": {
+  "daylight": false,
+  "fog": 3222828,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1315088
+  },
+  "hemiGround": 2497569,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4209723,
+  "roles": {
+   "cover": 7341568,
+   "exterior_wall": 5062204,
+   "floor": 3614767,
+   "glass": 4735038,
+   "ramp": 5983049,
+   "riser": 4074548,
+   "roof": 2628898,
+   "soft_panel": 9242624,
+   "stair": 6246220,
+   "static_hard": 5719876
+  },
+  "sky": 3551536,
+  "sun": 5065033,
+  "sunIntensity": 2.0
+ },
+ "vertigo": {
+  "daylight": true,
+  "fog": 7251919,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2963010
+  },
+  "hemiGround": 5793666,
+  "hemiIntensity": 2.5,
+  "hemiSky": 12768996,
+  "roles": {
+   "cover": 4239085,
+   "exterior_wall": 13226203,
+   "floor": 8885937,
+   "glass": 13887734,
+   "ramp": 15790837,
+   "riser": 10267073,
+   "roof": 5859976,
+   "soft_panel": 8572150,
+   "stair": 15790837,
+   "static_hard": 15462130
+  },
+  "sky": 8697820,
+  "sun": 15725557,
+  "sunIntensity": 2.6
+ },
+ "vessel": {
+  "daylight": true,
+  "fog": 6317164,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2500392
+  },
+  "hemiGround": 5317655,
+  "hemiIntensity": 2.5,
+  "hemiSky": 8554382,
+  "roles": {
+   "cover": 6232323,
+   "exterior_wall": 9474968,
+   "floor": 7942172,
+   "glass": 9081244,
+   "ramp": 11448499,
+   "riser": 9188123,
+   "roof": 5710612,
+   "soft_panel": 8003073,
+   "stair": 11974843,
+   "static_hard": 10856363
+  },
+  "sky": 6975353,
+  "sun": 10593447,
+  "sunIntensity": 2.6
+ },
+ "vineyard": {
+  "daylight": true,
+  "fog": 8567521,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 4082779
+  },
+  "hemiGround": 3947310,
+  "hemiIntensity": 2.5,
+  "hemiSky": 15003381,
+  "roles": {
+   "cover": 6305051,
+   "exterior_wall": 13489630,
+   "floor": 5723713,
+   "glass": 15267069,
+   "ramp": 15790837,
+   "riser": 6512967,
+   "roof": 4144687,
+   "soft_panel": 8012319,
+   "stair": 15790837,
+   "static_hard": 15790837
+  },
+  "sky": 10407149,
+  "sun": 15660022,
+  "sunIntensity": 2.6
+ },
+ "vostok": {
+  "daylight": true,
+  "fog": 6652046,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2171684
+  },
+  "hemiGround": 10988461,
+  "hemiIntensity": 2.5,
+  "hemiSky": 9873071,
+  "roles": {
+   "cover": 5078685,
+   "exterior_wall": 8226441,
+   "floor": 15922163,
+   "glass": 10401218,
+   "ramp": 10002080,
+   "riser": 15922163,
+   "roof": 11251890,
+   "soft_panel": 7052217,
+   "stair": 10528167,
+   "static_hard": 9475993
+  },
+  "sky": 7442078,
+  "sun": 12568265,
+  "sunIntensity": 2.6
+ },
+ "warden": {
+  "daylight": true,
+  "fog": 9934244,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 3156260
+  },
+  "hemiGround": 7626576,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13618899,
+  "roles": {
+   "cover": 11042886,
+   "exterior_wall": 11378064,
+   "floor": 10783093,
+   "glass": 14737381,
+   "ramp": 13024437,
+   "riser": 11770504,
+   "roof": 7955025,
+   "soft_panel": 12819815,
+   "stair": 13485503,
+   "static_hard": 12563369
+  },
+  "sky": 11118517,
+  "sun": 15921907,
+  "sunIntensity": 2.6
+ },
+ "weapons_course": {
+  "daylight": true,
+  "fog": 9937316,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2895143
+  },
+  "hemiGround": 12103579,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13620180,
+  "roles": {
+   "cover": 10856291,
+   "exterior_wall": 10790552,
+   "floor": 16118768,
+   "glass": 14804454,
+   "ramp": 12698041,
+   "riser": 16118768,
+   "roof": 12432544,
+   "soft_panel": 12501132,
+   "stair": 13224643,
+   "static_hard": 12106415
+  },
+  "sky": 11121333,
+  "sun": 15922163,
+  "sunIntensity": 2.6
+ },
+ "whistle": {
+  "daylight": true,
+  "fog": 8496076,
+  "fogFar": 190,
+  "fogNear": 26,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2760988
+  },
+  "hemiGround": 7364445,
+  "hemiIntensity": 2.5,
+  "hemiSky": 13950441,
+  "roles": {
+   "cover": 12212262,
+   "exterior_wall": 10452072,
+   "floor": 10390151,
+   "glass": 15331577,
+   "ramp": 11507850,
+   "riser": 11508890,
+   "roof": 7692639,
+   "soft_panel": 14381885,
+   "stair": 11903123,
+   "static_hard": 11309183
+  },
+  "sky": 10008282,
+  "sun": 15790837,
+  "sunIntensity": 2.6
+ },
+ "workout": {
+  "daylight": false,
+  "fog": 4015691,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 2501422
+  },
+  "hemiGround": 3159608,
+  "hemiIntensity": 2.9,
+  "hemiSky": 5463394,
+  "roles": {
+   "cover": 3618354,
+   "exterior_wall": 9806506,
+   "floor": 4476497,
+   "glass": 5596784,
+   "ramp": 12107972,
+   "riser": 5003099,
+   "roof": 3225658,
+   "soft_panel": 4539198,
+   "stair": 12765388,
+   "static_hard": 11450301
+  },
+  "sky": 4410965,
+  "sun": 6844276,
+  "sunIntensity": 2.0
+ },
+ "wpndepot": {
+  "daylight": false,
+  "fog": 1906457,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 657161
+  },
+  "hemiGround": 2168600,
+  "hemiIntensity": 2.9,
+  "hemiSky": 2498338,
+  "roles": {
+   "cover": 1101,
+   "exterior_wall": 2628130,
+   "floor": 3153954,
+   "glass": 2891812,
+   "ramp": 3022888,
+   "riser": 3547942,
+   "roof": 2234137,
+   "soft_panel": 1376,
+   "stair": 3220010,
+   "static_hard": 2956838
+  },
+  "sky": 2169116,
+  "sun": 2893609,
+  "sunIntensity": 2.0
+ },
+ "zoo": {
+  "daylight": false,
+  "fog": 3486765,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 1184270
+  },
+  "hemiGround": 4608851,
+  "hemiIntensity": 2.9,
+  "hemiSky": 4604989,
+  "roles": {
+   "cover": 2056577,
+   "exterior_wall": 4539190,
+   "floor": 6518647,
+   "glass": 5196863,
+   "ramp": 5328705,
+   "riser": 7243398,
+   "roof": 4675158,
+   "soft_panel": 2390692,
+   "stair": 5591877,
+   "static_hard": 5131326
+  },
+  "sky": 3947057,
+  "sun": 5394764,
+  "sunIntensity": 2.0
+ },
+ "zoption": {
+  "daylight": false,
+  "fog": 724237,
+  "fogFar": 120,
+  "fogNear": 20,
+  "grid": {
+   "alpha": 0.2,
+   "line": 395017
+  },
+  "hemiGround": 1183766,
+  "hemiIntensity": 2.9,
+  "hemiSky": 987409,
+  "roles": {
+   "cover": 857378,
+   "exterior_wall": 1382687,
+   "floor": 1644319,
+   "glass": 1053203,
+   "ramp": 1711653,
+   "riser": 1841444,
+   "roof": 1183767,
+   "soft_panel": 1055532,
+   "stair": 1777446,
+   "static_hard": 1580067
+  },
+  "sky": 790031,
+  "sun": 1250324,
+  "sunIntensity": 2.0
+ }
+}

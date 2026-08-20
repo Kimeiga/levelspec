@@ -16,7 +16,7 @@
  *   node tools/finalize.ts [filter]
  */
 
-import { readdirSync, readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { planToSpec, PlanError } from '../src/authoring/plan.ts';
 import { compile } from '../src/core/compiler.ts';
@@ -25,8 +25,12 @@ import { bakeNavmesh } from '../src/core/navmesh.ts';
 
 const src = join(import.meta.dirname, '../maps/traced');
 const dst = join(import.meta.dirname, '../maps/cs');
-if (existsSync(dst)) rmSync(dst, { recursive: true });
 mkdirSync(dst, { recursive: true });
+// Clear only what this tool produces. Wiping the directory wholesale is how a
+// build step eats hand-written source that happens to live beside its output —
+// which is a good reason for the two never to share a directory, and a better
+// reason not to reach for rm -rf in a generator.
+for (const f of readdirSync(dst)) if (f.endsWith('.plan')) rmSync(join(dst, f));
 const filter = process.argv[2];
 
 /** Deterministic per-map jitter, so two maps never feel identically built. */
