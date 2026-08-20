@@ -1,4 +1,3 @@
-// 8 cover cells dropped for sitting on a boundary
 id: cs_dust2
 name: Dust II
 description: Dust II. Footprint traced from the published radar, then annotated by hand with the callouts, elevations, ramps and cover the radar cannot carry. A topology reconstruction - proportions are approximate and no assets from the shipped game are used.
@@ -50,16 +49,16 @@ plan
 .WWWWWWWWVVVVVVVVVVVV....JJJJJJJJJJJPPP\\PP..
 .WWWWWWWWVVVVVVVVVVVV....JJJJJJJJJJJPPP\\NN..
 WWWWWWWWWVVVVVVVVVVVVVJJJJJJJJJJJJJJJPP\\NN..
-WWWWWWWWWVVVVVVVVVVVVHHHHHHHHHJQQQQQQPNNNNNNN
-UUUUWWWWWVVVVVVVVVVGGHHHHHHHHHHQQQQQQNNNNNNNN
-.UUUUWWWWV.VV.....GGGGHHHHH.HHHHHQQQNNNNNNNNN
-UUUUUUWWWV........GGGG......HHH.......NNNNNNN
-UUUUUUUUW.........GGGG.....RHHH.......NNNNNNN
-..UU.UUU..........GGGG.....RRRH.......NNNNNN.
-..UU..UU..........GGG......RRRR.......NNNNN..
-..UU...............GGG.GGR.RRRR.......LLLLL..
-..UU.......GGGGGGGGGGGGGGRRRRRR.......LLLLL..
-.UUUUU.....GGGGGGGGGGGGGGGRRRRR.......LLL3L..
+WWWWWWWWWVVVVVVVVVVSSHHHHHHHHHJQQQQQQPNNNNNNN
+UUUUWWWWWVVVVVVVVVSSSHHHHHHHHHHQQQQQQNNNNNNNN
+.UUUUWWWWV.VV.....SSSSHHHHH.HHHHHQQQNNNNNNNNN
+UUUUUUWWWV........SSSS......HHH.......NNNNNNN
+UUUUUUUUW.........SSSS.....RHHH.......NNNNNNN
+..UU.UUU..........SSSS.....RRRH.......NNNNNN.
+..UU..UU..........SSS......RRRR.......NNNNN..
+..UU...............SSG.GGR.RRRR.......LLLLL..
+..UU.......SSSSSSSSSGGGGGRRRRRR.......LLLLL..
+.UUUUU.....SSSSSSSGGGGGGGGRRRRR.......LLL3L..
 UUUUUUU....UGGGGGGGGGGGG..............LLL3L..
 UUUUUUUUUUUUUG.....GGGGG........MM///LLLLLL..
 UUUUUUUUUUUUUG.....GGGGG......MMMMMMMLLLLLL..
@@ -89,6 +88,17 @@ BBBBBBBBBBAAAAAAAA44AAACCCCCCC...............
 BBBBBBBBBBAAAAAAAAAAAAACCCC..................
 .....................AACCCC..................
 end
+
+wall outside_long long_a
+door outside_long long_a 3
+wall ct_mid b_doors
+door ct_mid b_doors 2
+wall b_doors b_site
+arch b_doors b_site 3
+wall catwalk mid
+arch catwalk mid 3
+wall lower_tunnels upper_tunnels
+arch lower_tunnels upper_tunnels 3
 
 mark attacker_spawn t_spawn attack "T Spawn"
 mark defender_spawn ct_spawn defend "CT Spawn"

@@ -87,6 +87,34 @@ def main():
         1 for j in range(h) for i in range(w) if floor[j][i] and owner[j][i] is None
     )
 
+    # A seed that lands on void claims nothing, and the area silently vanishes
+    # — which then surfaces as an incomprehensible error about an unknown area
+    # in some directive that mentions it. Say so here instead.
+    got = {}
+    for j in range(h):
+        for i in range(w):
+            if owner[j][i]:
+                got[owner[j][i]] = got.get(owner[j][i], 0) + 1
+    missing = [a["id"] for a in mod.AREAS if a["id"] not in got]
+    if missing:
+        print(
+            f"seed missed the floor entirely for: {', '.join(missing)}",
+            file=sys.stderr,
+        )
+        for a in mod.AREAS:
+            if a["id"] not in missing:
+                continue
+            for (x, y, rw, rh) in a["seeds"]:
+                near = [
+                    (i, j)
+                    for j in range(max(0, y - 6), min(h, y + rh + 6))
+                    for i in range(max(0, x - 6), min(w, x + rw + 6))
+                    if floor[j][i]
+                ]
+                hint = f"nearest floor around ({x},{y}): {near[:4]}" if near else "no floor within six cells"
+                print(f"  {a['id']} seed ({x},{y},{rw},{rh}) — {hint}", file=sys.stderr)
+        sys.exit(1)
+
     by_id = {a["id"]: a for a in mod.AREAS}
     chars = {}
     pool = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz"
@@ -163,6 +191,38 @@ def main():
         L.append("".join(out[j]).rstrip())
     L.append("end")
     L.append("")
+    # Openings.
+    #
+    # Two areas that touch are open to each other along the whole run where
+    # they touch, which is right for a lane widening into a square and wrong
+    # for a doorway. A portal is two statements: close the boundary, then cut
+    # a hole of a stated width in it. That is what puts a lintel over your head
+    # walking through Long Doors instead of a gap in a slab.
+    # Which pairs of areas actually touch, so a portal can only be asked for
+    # where there is a boundary to cut it in. The flood decides where regions
+    # meet, and it does not always meet where a seed layout implies.
+    touching = set()
+    for j in range(h):
+        for i in range(w):
+            if not floor[j][i]:
+                continue
+            for di, dj in ((1, 0), (0, 1)):
+                x, y = i + di, j + dj
+                if 0 <= x < w and 0 <= y < h and floor[y][x] and owner[y][x] != owner[j][i]:
+                    touching.add(frozenset((owner[j][i], owner[y][x])))
+
+    emitted = 0
+    for pr in getattr(mod, "PORTALS", []):
+        a, b = pr["between"]
+        if frozenset((a, b)) not in touching:
+            print(f"// no boundary between {a} and {b}; portal skipped", file=sys.stderr)
+            continue
+        L.append(f"wall {a} {b}")
+        L.append(f'{pr.get("kind", "door")} {a} {b} {pr.get("width", 2)}')
+        emitted += 1
+    if emitted:
+        L.append("")
+
     for d in getattr(mod, "DIRECTIVES", []):
         L.append(d)
     print("\n".join(L))

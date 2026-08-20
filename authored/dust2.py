@@ -72,7 +72,7 @@ AREAS = [
 
     # --- B, and the way there ------------------------------------------------
     {"id": "mid_to_b", "label": "Mid to B", "role": "corridor", "z": 0.35, "ceiling": 4.2,
-     "seeds": [(13, 20, 3, 2)]},
+     "seeds": [(17, 29, 3, 2)]},
     {"id": "lower_tunnels", "label": "Lower Tunnels", "role": "corridor", "z": 0.0, "ceiling": 4.4,
      "seeds": [(5, 14, 4, 3)]},
     {"id": "upper_tunnels", "label": "Upper Tunnels", "role": "corridor", "z": 0.35, "ceiling": 4.6,
@@ -104,6 +104,20 @@ COVER = [
      "at": [(41, 27, 2, 2)]},
     {"id": "t_crates", "label": "Crates", "height": 1.3, "as": "crate",
      "at": [(12, 4, 2, 2), (18, 2, 2, 2)]},
+]
+
+# The named openings. Dust II is remembered partly through its doorways —
+# you call them out by name — and a doorway is a hole in a wall, not the
+# absence of one.
+PORTALS = [
+    {"between": ("outside_long", "long_a"), "kind": "door", "width": 3},
+    {"between": ("t_mid", "mid"), "kind": "door", "width": 3},
+    {"between": ("mid", "mid_to_b"), "kind": "door", "width": 2},
+    {"between": ("ct_mid", "b_doors"), "kind": "door", "width": 2},
+    {"between": ("b_doors", "b_site"), "kind": "arch", "width": 3},
+    {"between": ("a_short", "a_cross"), "kind": "arch", "width": 3},
+    {"between": ("catwalk", "mid"), "kind": "arch", "width": 3},
+    {"between": ("lower_tunnels", "upper_tunnels"), "kind": "arch", "width": 3},
 ]
 
 DIRECTIVES = [
