@@ -185,3 +185,58 @@ describe('getting through an opening is an ability, not a height', () => {
     assert.equal(traversalFor(0, 0.6, player), 'blocked');
   });
 });
+
+describe('a storey is more than one ceiling', () => {
+  /** A hall twice the height of the corridor beside it, under a roof. */
+  const twoHeights = (): LevelSpec => ({
+    schema_version: '1.1',
+    id: 'ceiling_test',
+    name: 'Ceiling test',
+    grid: 1,
+    layers: [
+      {
+        id: 'g',
+        z: 0,
+        height: 3,
+        roof: true,
+        spaces: [
+          { id: 'hall', rect: [0, 0, 8, 8], height: 7 },
+          { id: 'passage', rect: [8, 0, 4, 8], height: 3 },
+        ],
+        portals: [{ id: 'd', between: ['hall', 'passage'], kind: 'door', width_cells: 2, hint: [8, 3] }],
+      },
+    ],
+    gameplay: {
+      markers: [
+        { id: 'spawn', layer: 'g', cell: [2, 2], kind: 'attacker_spawn' },
+        { id: 'far', layer: 'g', cell: [10, 6], kind: 'site' },
+      ],
+    },
+  });
+
+  it('roofs each room at its own height', () => {
+    const level = compile(twoHeights());
+    const roofs = level.solids.filter((s) => s.role === 'roof');
+    const tops = new Set(roofs.map((s) => s.box.min[2].toFixed(3)));
+    assert.equal(tops.size, 2, `expected two roof elevations, got ${[...tops].join(', ')}`);
+    assert.ok(tops.has('7.000') && tops.has('3.000'));
+  });
+
+  it('does not raise the low room to meet the tall one', () => {
+    const level = compile(twoHeights());
+    // The wall on the far side of the passage — the one with nothing tall
+    // near it — should stop at the passage's own ceiling.
+    const far = level.solids.filter(
+      (s) => s.role === 'exterior_wall' && s.box.min[0] > 11 && s.box.max[2] > 2,
+    );
+    assert.ok(far.length, 'the far wall exists');
+    for (const w of far) assert.ok(w.box.max[2] < 4, `far wall reaches ${w.box.max[2]}`);
+  });
+
+  it('leaves no slab intersecting the wall that passes through it', () => {
+    const report = validate(compile(twoHeights()));
+    assert.equal(report.geometry.intersecting_pairs, 0);
+    assert.equal(report.geometry.zfight_pairs, 0);
+    assert.equal(report.passed, true);
+  });
+});

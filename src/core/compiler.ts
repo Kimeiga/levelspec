@@ -112,6 +112,11 @@ export function compile(spec: LevelSpec): CompiledLevel {
   // -------------------------------------------------------------------------
   // One diagnostic per offending space pair, not one per cell.
   const overlapCells = new Map<string, { a: string; b: string; layer: string; cells: string[] }>();
+  /** Overlaps the author allowed, recorded rather than swallowed. */
+  const absorbed = new Map<
+    string,
+    { owner: string; shadowed: string; layer: string; cells: string[]; conflict: boolean }
+  >();
 
   for (const layer of spec.layers) {
     const occ = new Map<string, string>();
@@ -133,6 +138,7 @@ export function compile(spec: LevelSpec): CompiledLevel {
       }
       const h = space.height ?? layer.height;
       const z = layer.z + (space.z_offset ?? 0);
+      let own = 0;
       for (const k of cells.keys()) {
         const prev = occ.get(k);
         if (prev && prev !== space.id) {
@@ -141,12 +147,61 @@ export function compile(spec: LevelSpec): CompiledLevel {
             let rec = overlapCells.get(pk);
             if (!rec) overlapCells.set(pk, (rec = { a: prev, b: space.id, layer: layer.id, cells: [] }));
             rec.cells.push(k);
+          } else {
+            /*
+             * Allowed overlap still loses something, and used to lose it in
+             * silence.
+             *
+             * The first writer keeps the cell — that is the one-owner rule and
+             * it is why there is never a wall drawn twice — but the second
+             * space's floor height and elevation for that cell go with it. If
+             * the two agree, nothing was lost and the union is exactly what
+             * the author asked for. If they disagree, the compiled level is
+             * wrong whichever way it is resolved, and saying so is the only
+             * honest answer.
+             */
+            const pk = `${layer.id}|${prev}|${space.id}`;
+            let rec = absorbed.get(pk);
+            if (!rec) {
+              absorbed.set(pk, (rec = {
+                owner: prev, shadowed: space.id, layer: layer.id, cells: [], conflict: false,
+              }));
+            }
+            rec.cells.push(k);
+            if (Math.abs((heightAt.get(k) ?? h) - h) > EPS || Math.abs((zAt.get(k) ?? z) - z) > EPS) {
+              rec.conflict = true;
+            }
           }
           continue; // first writer owns the cell
         }
         occ.set(k, space.id);
         heightAt.set(k, h);
         zAt.set(k, z);
+        own++;
+      }
+      /*
+       * A space that is entirely inside another one is not a space.
+       *
+       * It has no cells, so no boundary run names it, so a portal that asks
+       * for it finds nothing and a marker placed in it stands in a room that
+       * does not exist. Better to fail here than three passes later with a
+       * message about a boundary.
+       */
+      if (own === 0 && cells.size > 0) {
+        err(
+          'SPACE_FULLY_ABSORBED',
+          [space.id, layer.id],
+          `Space "${space.id}" is entirely covered by spaces declared before it and owns no cells of its own.`,
+          {
+            measured: 0,
+            required: 1,
+            suggestions: [
+              `Declare "${space.id}" before the space that covers it`,
+              'Move it clear',
+              'Merge the two with "extra" rather than overlapping them',
+            ],
+          },
+        );
       }
     }
     layers.set(layer.id, {
@@ -176,6 +231,33 @@ export function compile(spec: LevelSpec): CompiledLevel {
         ],
       },
     );
+  }
+
+  for (const rec of absorbed.values()) {
+    if (rec.conflict) {
+      err(
+        'OVERLAP_HEIGHT_CONFLICT',
+        [rec.shadowed, rec.owner, rec.layer],
+        `"${rec.shadowed}" overlaps "${rec.owner}" over ${rec.cells.length} cell(s) and the two ` +
+          'disagree about the floor or ceiling there, so one of them is wrong wherever they meet.',
+        {
+          measured: rec.cells.length,
+          required: 0,
+          suggestions: [
+            'Give both spaces the same height and elevation over the overlap',
+            'Split the overlap into a space of its own',
+          ],
+        },
+      );
+    } else {
+      warn(
+        'SPACE_ABSORBED',
+        [rec.shadowed, rec.owner, rec.layer],
+        `"${rec.shadowed}" gives up ${rec.cells.length} cell(s) to "${rec.owner}", which was ` +
+          'declared first. They agree about the floor there, so the union is what was drawn.',
+        { measured: rec.cells.length },
+      );
+    }
   }
 
   for (const layer of spec.layers) {
@@ -573,7 +655,16 @@ export function compile(spec: LevelSpec): CompiledLevel {
       // A balcony or catwalk edge is a railing, not a wall.
       // Under a roof every wall reaches it, so nothing can be seen or shot
       // over. Outdoors a wall is only as tall as the spaces it separates.
-      const ceiling = layer.roof === false ? runTop(run, layer, st, g) : layerTop(st, layer);
+      /*
+       * The ceiling this run reaches: the higher of the two rooms it stands
+       * between.
+       *
+       * Under a roof this used to be `layerTop` — the tallest ceiling anywhere
+       * on the storey — which meant one double-height atrium raised every wall
+       * in the building and flattened the roof over all of it. A storey with
+       * one interesting room in it looked like a storey with none.
+       */
+      const ceiling = runTop(run, layer, st, g);
       const h = run.exterior && railing !== undefined ? railing : ceiling - z;
       const [lo, hi] = wallExtent(run, wt);
       const dyn = isDynamic(run.type);
@@ -818,9 +909,6 @@ export function compile(spec: LevelSpec): CompiledLevel {
     }
 
     if (layer.roof === false) continue;
-    // One roof elevation for the whole storey. Per-cell tops would sit below
-    // the walls wherever two spaces at different floor heights meet, and the
-    // wall would come straight up through the slab.
     const above = layerOrder.filter((l) => l.z > layer.z + EPS).map((l) => layers.get(l.id)!);
     const roofCells = new Set<string>();
     for (const [k] of st.occ) {
@@ -829,17 +917,77 @@ export function compile(spec: LevelSpec): CompiledLevel {
       if (st.holes.has(x, y)) continue;
       roofCells.add(k);
     }
+
+    /*
+     * A roof per ceiling, not one per storey.
+     *
+     * Every space carries its own height, and flattening them to the tallest
+     * one on the floor threw all of that away: a hall, a corridor and a
+     * cupboard came out under the same slab at the height of the hall. So the
+     * cells are grouped by where their ceiling actually is and each group gets
+     * its own slab.
+     *
+     * The catch is the join. A wall between a low room and a high one reaches
+     * the high one's ceiling, so it passes straight through the low one's slab
+     * — and a wall is half a thickness into each cell it separates, so the
+     * overlap is real rather than a rounding error. The low slab gives up that
+     * half-thickness wherever it meets something taller, which is why the
+     * cells along such a join are emitted one at a time: only some of a rect's
+     * edge is against the taller room, and trimming the whole edge would open
+     * a slot in the ceiling everywhere else.
+     */
+    const ceilingOf = (k: string): number | undefined => {
+      const z = st.zAt.get(k);
+      const h = st.heightAt.get(k);
+      return z === undefined || h === undefined ? undefined : z + h;
+    };
+    const byCeiling = new Map<number, Set<string>>();
+    for (const k of roofCells) {
+      const c = ceilingOf(k) ?? layer.z + layer.height;
+      let set = byCeiling.get(c);
+      if (!set) byCeiling.set(c, (set = new Set()));
+      set.add(k);
+    }
+
     let m = 0;
-    const top = layerTop(st, layer);
-    for (const r of decomposeToRects(roofCells)) {
+    const emit = (box: Box): void => {
       solids.push({
         id: `roof_${layer.id}_${m++}`,
         role: 'roof',
-        box: rectBox(r, g, top, top + ft),
+        box,
         layer: layer.id,
         spaces: [],
         dynamic: false,
       });
+    };
+
+    for (const [top, cells] of byCeiling) {
+      const plain = new Set<string>();
+      for (const k of cells) {
+        const [x, y] = unkey(k);
+        // Which sides have something taller on the far side of the wall.
+        const trims: [number, number, number, number] = [0, 0, 0, 0]; // -x, +x, -y, +y
+        const sides: [number, number, number][] = [
+          [x - 1, y, 0], [x + 1, y, 1], [x, y - 1, 2], [x, y + 1, 3],
+        ];
+        let any = false;
+        for (const [nx, ny, i] of sides) {
+          const nc = ceilingOf(key(nx, ny));
+          if (nc !== undefined && nc > top + EPS) {
+            trims[i] = wt / 2;
+            any = true;
+          }
+        }
+        if (!any) {
+          plain.add(k);
+          continue;
+        }
+        emit({
+          min: [x * g + trims[0], y * g + trims[2], top],
+          max: [(x + 1) * g - trims[1], (y + 1) * g - trims[3], top + ft],
+        });
+      }
+      for (const r of decomposeToRects(plain)) emit(rectBox(r, g, top, top + ft));
     }
   }
 
@@ -1219,16 +1367,6 @@ function sideFloors(r: BoundaryRun, layer: LayerSpec, st: LayerState, g: number)
   // An exterior run has occupancy on one side only; the outside matches it.
   const known = minus ?? plus ?? layer.z;
   return [minus ?? known, plus ?? known];
-}
-
-/** The one ceiling elevation for a storey: the highest any space reaches. */
-function layerTop(st: LayerState, layer: LayerSpec): number {
-  let top = layer.z + layer.height;
-  for (const [k, z] of st.zAt) {
-    const h = st.heightAt.get(k);
-    if (h !== undefined) top = Math.max(top, z + h);
-  }
-  return top;
 }
 
 /** Highest ceiling elevation on either side of the run. */
