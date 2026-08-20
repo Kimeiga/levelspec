@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.1",
+  "id": "vertical_stack_tower",
+  "name": "Vertical Stack Tower",
+  "description": "Five stacked levels sharing one footprint, connected by alternating stair flights, a ramp, two ladders and four destructible hatches, with railed balconies on three sides and an open roof deck. Built to stress the vertical half of the compiler: floor holes, storey alignment, step geometry and cross-layer navigation.",
+  "units": "meters",
+  "coordinate_system": "right-handed Z-up",
+  "grid": 1.0,
+  "wall_thickness": 0.22,
+  "floor_thickness": 0.2,
+  "player": { "radius": 0.35, "height": 1.8, "step": 0.45, "crouch": 1.1 },
+
+  "layers": [
+    {
+      "id": "l0",
+      "label": "Level 0 — Lobby",
+      "z": 0.0,
+      "height": 3.2,
+      "roof": false,
+      "spaces": [
+        { "id": "plaza", "label": "Plaza", "rect": [-8, -12, 40, 12], "role": "exterior" },
+        { "id": "l0_main", "label": "Lobby", "rect": [0, 0, 20, 14], "role": "room" },
+        { "id": "l0_stairs", "label": "Stair core 0", "rect": [6, 14, 8, 8], "role": "stairwell" }
+      ],
+      "portals": [
+        { "id": "l0_core", "between": ["l0_main", "l0_stairs"], "kind": "arch", "width_cells": 3, "hint": [9, 14] },
+        { "id": "l0_front", "between": ["l0_main", "plaza"], "kind": "door", "width_cells": 3, "hint": [8, 0] },
+        { "id": "l0_west_window", "between": ["l0_main", "__outside__"], "kind": "window", "width_cells": 3, "side": "W", "hint": [0, 5] },
+        { "id": "l0_east_window", "between": ["l0_main", "__outside__"], "kind": "window", "width_cells": 3, "side": "E", "hint": [20, 8] }
+      ]
+    },
+
+    {
+      "id": "l1",
+      "label": "Level 1 — Offices",
+      "z": 3.4,
+      "height": 3.2,
+      "spaces": [
+        { "id": "l1_west", "label": "West office", "rect": [0, 0, 9, 14], "role": "room" },
+        { "id": "l1_east", "label": "East office", "rect": [9, 0, 11, 14], "role": "room" },
+        { "id": "l1_stairs", "label": "Stair core 1", "rect": [6, 14, 8, 8], "role": "stairwell" },
+        { "id": "l1_balcony", "label": "South balcony", "rect": [0, -3, 20, 3], "role": "balcony", "railing": 1.15 }
+      ],
+      "portals": [
+        { "id": "l1_split", "between": ["l1_west", "l1_east"], "kind": "door", "width_cells": 1, "hint": [9, 4] },
+        { "id": "l1_core_w", "between": ["l1_west", "l1_stairs"], "kind": "arch", "width_cells": 2, "hint": [7, 14] },
+        { "id": "l1_core_e", "between": ["l1_east", "l1_stairs"], "kind": "arch", "width_cells": 2, "hint": [12, 14] },
+        { "id": "l1_bal_w", "between": ["l1_west", "l1_balcony"], "kind": "door", "width_cells": 2, "hint": [3, 0] },
+        { "id": "l1_bal_e", "between": ["l1_east", "l1_balcony"], "kind": "door", "width_cells": 2, "hint": [15, 0] }
+      ],
+      "wall_overrides": [{ "between": ["l1_west", "l1_east"], "type": "soft" }]
+    },
+
+    {
+      "id": "l2",
+      "label": "Level 2 — Atrium",
+      "z": 6.8,
+      "height": 3.2,
+      "spaces": [
+        { "id": "l2_main", "label": "Atrium", "rect": [0, 0, 20, 14], "role": "room" },
+        { "id": "l2_stairs", "label": "Stair core 2", "rect": [6, 14, 8, 8], "role": "stairwell" },
+        { "id": "l2_balcony", "label": "East balcony", "rect": [20, 2, 4, 10], "role": "balcony", "railing": 1.15 }
+      ],
+      "portals": [
+        { "id": "l2_core", "between": ["l2_main", "l2_stairs"], "kind": "arch", "width_cells": 3, "hint": [9, 14] },
+        { "id": "l2_bal", "between": ["l2_main", "l2_balcony"], "kind": "door", "width_cells": 2, "hint": [20, 6] },
+        { "id": "l2_west_window", "between": ["l2_main", "__outside__"], "kind": "rappel_window", "width_cells": 3, "side": "W", "hint": [0, 5], "barricade": true },
+        { "id": "l2_south_window", "between": ["l2_main", "__outside__"], "kind": "rappel_window", "width_cells": 4, "side": "S", "hint": [7, 0], "barricade": true }
+      ]
+    },
+
+    {
+      "id": "l3",
+      "label": "Level 3 — Ramp deck",
+      "z": 10.2,
+      "height": 3.2,
+      "spaces": [
+        { "id": "l3_main", "label": "Ramp deck", "rect": [0, 0, 20, 14], "role": "room" },
+        { "id": "l3_stairs", "label": "Stair core 3", "rect": [6, 14, 8, 8], "role": "stairwell" },
+        { "id": "l3_balcony", "label": "West balcony", "rect": [-4, 2, 4, 10], "role": "balcony", "railing": 1.15 }
+      ],
+      "portals": [
+        { "id": "l3_core", "between": ["l3_main", "l3_stairs"], "kind": "arch", "width_cells": 3, "hint": [9, 14] },
+        { "id": "l3_bal", "between": ["l3_main", "l3_balcony"], "kind": "door", "width_cells": 2, "hint": [0, 6] },
+        { "id": "l3_east_window", "between": ["l3_main", "__outside__"], "kind": "rappel_window", "width_cells": 3, "side": "E", "hint": [20, 8], "barricade": true }
+      ]
+    },
+
+    {
+      "id": "roof",
+      "label": "Roof deck",
+      "z": 13.6,
+      "height": 3.0,
+      "roof": false,
+      "railing": 1.15,
+      "spaces": [
+        { "id": "roof_deck", "label": "Roof deck", "rect": [0, 0, 20, 14], "role": "roof" },
+        { "id": "roof_house", "label": "Stair head", "rect": [6, 14, 8, 8], "role": "stairwell", "height": 3.0 }
+      ],
+      "portals": [
+        { "id": "roof_core", "between": ["roof_deck", "roof_house"], "kind": "arch", "width_cells": 3, "hint": [9, 14] }
+      ]
+    }
+  ],
+
+  "vertical_connections": [
+    {
+      "id": "flight_0",
+      "label": "Flight 0 → 1",
+      "from_layer": "l0",
+      "to_layer": "l1",
+      "from_cell": [8, 15],
+      "to_cell": [8, 20],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    },
+    {
+      "id": "flight_1",
+      "label": "Flight 1 → 2",
+      "from_layer": "l1",
+      "to_layer": "l2",
+      "from_cell": [11, 20],
+      "to_cell": [11, 15],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "S"
+    },
+    {
+      "id": "flight_2",
+      "label": "Flight 2 → 3",
+      "from_layer": "l2",
+      "to_layer": "l3",
+      "from_cell": [8, 15],
+      "to_cell": [8, 20],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    },
+    {
+      "id": "flight_3",
+      "label": "Flight 3 → roof",
+      "from_layer": "l3",
+      "to_layer": "roof",
+      "from_cell": [11, 20],
+      "to_cell": [11, 15],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "S"
+    },
+    {
+      "id": "long_ramp",
+      "label": "Service ramp 2 → 3",
+      "from_layer": "l2",
+      "to_layer": "l3",
+      "from_cell": [2, 2],
+      "to_cell": [17, 2],
+      "kind": "ramp",
+      "width": 3.0,
+      "direction": "E"
+    },
+    {
+      "id": "hatch_l0_l1",
+      "label": "Lobby hatch",
+      "from_layer": "l0",
+      "to_layer": "l1",
+      "from_cell": [3, 10],
+      "to_cell": [3, 10],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "hatch_l1_l2",
+      "label": "Office hatch",
+      "from_layer": "l1",
+      "to_layer": "l2",
+      "from_cell": [16, 10],
+      "to_cell": [16, 10],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "hatch_l2_l3",
+      "label": "Atrium hatch",
+      "from_layer": "l2",
+      "to_layer": "l3",
+      "from_cell": [3, 5],
+      "to_cell": [3, 5],
+      "kind": "hatch",
+      "size_cells": [2, 2],
+      "destructible": true
+    },
+    {
+      "id": "hatch_l3_roof",
+      "label": "Roof hatch",
+      "from_layer": "l3",
+      "to_layer": "roof",
+      "from_cell": [17, 11],
+      "to_cell": [17, 11],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "ladder_l0_l1",
+      "label": "Lobby ladder",
+      "from_layer": "l0",
+      "to_layer": "l1",
+      "from_cell": [5, 12],
+      "to_cell": [5, 12],
+      "kind": "ladder"
+    },
+    {
+      "id": "ladder_l3_roof",
+      "label": "Roof ladder",
+      "from_layer": "l3",
+      "to_layer": "roof",
+      "from_cell": [15, 12],
+      "to_cell": [15, 12],
+      "kind": "ladder"
+    }
+  ],
+
+  "covers": [
+    { "id": "l0_desk", "layer": "l0", "rect": [8, 4, 4, 1], "height": 1.1, "material": "desk", "label": "Reception" },
+    { "id": "l0_crates", "layer": "l0", "rect": [15, 10, 3, 2], "height": 1.3, "material": "crate" },
+    { "id": "l1_desks", "layer": "l1", "rect": [12, 4, 5, 1], "height": 0.9, "material": "desk" },
+    { "id": "l2_planters", "layer": "l2", "rect": [7, 7, 5, 2], "height": 1.0, "material": "planter" },
+    { "id": "l3_crates", "layer": "l3", "rect": [12, 9, 3, 3], "height": 1.35, "material": "crate" },
+    { "id": "roof_units", "layer": "roof", "rect": [3, 3, 4, 3], "height": 2.0, "material": "crate", "label": "Plant room" }
+  ],
+
+  "gameplay": {
+    "mode": "clear",
+    "move_speed": 4.4,
+    "markers": [
+      { "id": "entry", "layer": "l0", "cell": [10, 2], "kind": "attacker_spawn", "team": "attack", "label": "Entrance" },
+      { "id": "hold_l2", "layer": "l2", "cell": [16, 4], "kind": "defender_spawn", "team": "defend", "label": "Atrium hold" },
+      { "id": "roof_pt", "layer": "roof", "cell": [10, 7], "kind": "site", "team": "neutral", "label": "Roof objective" },
+      { "id": "balcony_pt", "layer": "l3", "cell": [-2, 6], "kind": "poi", "team": "neutral", "label": "West balcony" },
+      { "id": "ramp_top", "layer": "l3", "cell": [17, 2], "kind": "poi", "team": "neutral", "label": "Ramp top" }
+    ],
+    "required_routes": [
+      { "id": "entry_to_roof", "from": "entry", "to": "roof_pt", "min_routes": 2, "max_distance": 160 },
+      { "id": "entry_to_balcony", "from": "entry", "to": "balcony_pt", "min_routes": 2 },
+      { "id": "hold_to_roof", "from": "hold_l2", "to": "roof_pt", "min_routes": 2 },
+      { "id": "entry_to_ramp", "from": "entry", "to": "ramp_top", "min_routes": 2 }
+    ]
+  }
+}

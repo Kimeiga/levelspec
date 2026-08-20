@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.1",
+  "id": "original_ring_arena",
+  "name": "Ring Arena (original)",
+  "description": "An original generated layout rather than a study of an existing map: a sealed central room ringed by four connecting halls, two sites hung off opposite corners, and an overwatch balcony reached from the west side. Designed to the same route, timing and verticality constraints as the benchmark studies.",
+  "units": "meters",
+  "coordinate_system": "right-handed Z-up",
+  "grid": 1.0,
+  "wall_thickness": 0.24,
+  "floor_thickness": 0.2,
+  "player": { "radius": 0.35, "height": 1.8, "step": 0.45, "crouch": 1.1 },
+
+  "layers": [
+    {
+      "id": "ground",
+      "label": "Ground",
+      "z": 0.0,
+      "height": 3.4,
+      "spaces": [
+        { "id": "centre_room", "label": "Vault room", "rect": [18, 16, 12, 10], "role": "room" },
+        { "id": "ring_s", "label": "South hall", "rect": [10, 10, 28, 6], "role": "corridor" },
+        { "id": "ring_n", "label": "North hall", "rect": [10, 26, 28, 6], "role": "corridor" },
+        { "id": "ring_w", "label": "West hall", "rect": [10, 16, 8, 10], "role": "corridor" },
+        { "id": "ring_e", "label": "East hall", "rect": [30, 16, 8, 10], "role": "corridor" },
+        { "id": "atk_spawn", "label": "Attacker spawn", "rect": [2, 8, 8, 10], "role": "spawn" },
+        { "id": "def_spawn", "label": "Defender spawn", "rect": [38, 22, 8, 10], "role": "spawn" },
+        { "id": "site_a", "label": "A site", "rect": [10, 32, 14, 10], "role": "site" },
+        { "id": "site_b", "label": "B site", "rect": [30, 2, 12, 8], "role": "site" }
+      ],
+      "portals": [
+        { "id": "ring_sw", "between": ["ring_s", "ring_w"], "kind": "open", "width_cells": 6, "hint": [12, 16] },
+        { "id": "ring_se", "between": ["ring_s", "ring_e"], "kind": "open", "width_cells": 6, "hint": [34, 16] },
+        { "id": "ring_nw", "between": ["ring_n", "ring_w"], "kind": "open", "width_cells": 6, "hint": [12, 26] },
+        { "id": "ring_ne", "between": ["ring_n", "ring_e"], "kind": "open", "width_cells": 6, "hint": [34, 26] },
+        { "id": "centre_w_door", "between": ["centre_room", "ring_w"], "kind": "door", "width_cells": 1, "hint": [18, 20] },
+        { "id": "centre_e_door", "between": ["centre_room", "ring_e"], "kind": "door", "width_cells": 1, "hint": [30, 22] },
+        { "id": "centre_s_window", "between": ["centre_room", "ring_s"], "kind": "window", "width_cells": 2, "hint": [22, 16] },
+        { "id": "centre_n_breach", "between": ["centre_room", "ring_n"], "kind": "breach", "width_cells": 2, "hint": [25, 26] },
+        { "id": "atk_to_ring_s", "between": ["atk_spawn", "ring_s"], "kind": "arch", "width_cells": 4, "hint": [10, 12] },
+        { "id": "atk_to_ring_w", "between": ["atk_spawn", "ring_w"], "kind": "door", "width_cells": 2, "hint": [10, 17] },
+        { "id": "def_to_ring_e", "between": ["def_spawn", "ring_e"], "kind": "arch", "width_cells": 3, "hint": [38, 23] },
+        { "id": "def_to_ring_n", "between": ["def_spawn", "ring_n"], "kind": "arch", "width_cells": 4, "hint": [40, 26] },
+        { "id": "site_a_entry", "between": ["site_a", "ring_n"], "kind": "arch", "width_cells": 5, "hint": [13, 32] },
+        { "id": "site_a_side", "between": ["site_a", "ring_n"], "kind": "door", "width_cells": 2, "hint": [22, 32] },
+        { "id": "site_b_entry", "between": ["site_b", "ring_s"], "kind": "arch", "width_cells": 4, "hint": [32, 10] },
+        { "id": "site_b_side", "between": ["site_b", "ring_s"], "kind": "door", "width_cells": 2, "hint": [37, 10] }
+      ],
+      "wall_overrides": [
+        { "between": ["centre_room", "ring_n"], "type": "soft" },
+        { "between": ["centre_room", "ring_s"], "type": "glass" },
+        { "between": ["centre_room", "ring_w"], "type": "reinforced" },
+        { "between": ["centre_room", "ring_e"], "type": "reinforced" },
+        { "between": ["site_a", "ring_n"], "type": "soft" },
+        { "between": ["atk_spawn", "ring_w"], "type": "soft" }
+      ]
+    },
+
+    {
+      "id": "upper",
+      "label": "Overwatch",
+      "z": 3.6,
+      "height": 3.0,
+      "roof": false,
+      "spaces": [
+        { "id": "west_balcony", "label": "West balcony", "rect": [10, 18, 6, 8], "role": "balcony", "railing": 1.15 },
+        { "id": "balcony_link", "label": "Balcony link", "rect": [12, 26, 4, 2], "role": "balcony", "railing": 1.15 },
+        { "id": "overwatch", "label": "Overwatch", "rect": [12, 28, 24, 4], "role": "balcony", "railing": 1.15 }
+      ],
+      "portals": [
+        { "id": "balcony_link_s", "between": ["west_balcony", "balcony_link"], "kind": "open", "hint": [13, 26] },
+        { "id": "balcony_link_n", "between": ["balcony_link", "overwatch"], "kind": "open", "hint": [13, 28] }
+      ]
+    }
+  ],
+
+  "vertical_connections": [
+    {
+      "id": "balcony_stairs",
+      "label": "Balcony stairs",
+      "from_layer": "ground",
+      "to_layer": "upper",
+      "from_cell": [12, 18],
+      "to_cell": [12, 24],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    }
+  ],
+
+  "covers": [
+    { "id": "site_a_crates", "layer": "ground", "rect": [13, 35, 3, 3], "height": 1.3, "material": "crate" },
+    { "id": "site_a_planter", "layer": "ground", "rect": [19, 38, 4, 2], "height": 1.0, "material": "planter" },
+    { "id": "site_a_pillar", "layer": "ground", "rect": [17, 34, 2, 2], "height": 3.4, "material": "crate", "label": "Pillar" },
+    { "id": "site_b_crates", "layer": "ground", "rect": [33, 4, 3, 3], "height": 1.3, "material": "crate" },
+    { "id": "site_b_pillar", "layer": "ground", "rect": [38, 5, 2, 2], "height": 3.4, "material": "crate", "label": "Pillar" },
+    { "id": "ring_s_boxes", "layer": "ground", "rect": [14, 12, 2, 2], "height": 1.15, "material": "crate" },
+    { "id": "ring_n_boxes", "layer": "ground", "rect": [32, 28, 2, 2], "height": 1.15, "material": "crate" },
+    { "id": "ring_e_barrels", "layer": "ground", "rect": [33, 19, 2, 2], "height": 1.0, "material": "barrel" },
+    { "id": "vault_desk", "layer": "ground", "rect": [22, 20, 4, 2], "height": 0.95, "material": "desk", "label": "Vault desk" },
+    { "id": "overwatch_crate", "layer": "upper", "rect": [22, 29, 2, 2], "height": 1.0, "material": "crate" }
+  ],
+
+  "gameplay": {
+    "mode": "search_and_destroy",
+    "move_speed": 4.6,
+    "markers": [
+      { "id": "atk", "layer": "ground", "cell": [4, 12], "kind": "attacker_spawn", "team": "attack", "label": "Attacker spawn" },
+      { "id": "def", "layer": "ground", "cell": [43, 28], "kind": "defender_spawn", "team": "defend", "label": "Defender spawn" },
+      { "id": "site_a_pt", "layer": "ground", "cell": [16, 37], "kind": "site", "team": "neutral", "label": "A" },
+      { "id": "site_b_pt", "layer": "ground", "cell": [40, 8], "kind": "site", "team": "neutral", "label": "B" },
+      { "id": "vault_pt", "layer": "ground", "cell": [20, 18], "kind": "objective", "team": "neutral", "label": "Vault" },
+      { "id": "overwatch_pt", "layer": "upper", "cell": [30, 30], "kind": "poi", "team": "neutral", "label": "Overwatch" }
+    ],
+    "required_routes": [
+      { "id": "atk_to_a", "from": "atk", "to": "site_a_pt", "min_routes": 2, "min_distance": 25, "max_distance": 90 },
+      { "id": "atk_to_b", "from": "atk", "to": "site_b_pt", "min_routes": 2, "min_distance": 25, "max_distance": 90 },
+      { "id": "def_to_a", "from": "def", "to": "site_a_pt", "min_routes": 2, "max_distance": 70 },
+      { "id": "def_to_b", "from": "def", "to": "site_b_pt", "min_routes": 2, "max_distance": 70 },
+      { "id": "rotate", "from": "site_a_pt", "to": "site_b_pt", "min_routes": 2, "min_distance": 30 },
+      { "id": "atk_to_overwatch", "from": "atk", "to": "overwatch_pt", "min_routes": 1 },
+      { "id": "atk_to_vault", "from": "atk", "to": "vault_pt", "min_routes": 2 }
+    ],
+    "no_spawn_los": [["atk", "def"]]
+  }
+}

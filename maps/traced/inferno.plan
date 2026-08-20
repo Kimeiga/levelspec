@@ -1,0 +1,68 @@
+id: cs_inferno
+name: Inferno
+description: Layout reconstruction of Inferno, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
+source_image: Inferno - Radar.png
+grid: 1.48
+wall_thickness: 0.32
+
+// TRACED DRAFT. The footprint is read from the radar; everything below
+// needs a human: rename the areas, set their elevations, mark the spawns
+// and sites, and delete any band that is really just shading.
+
+layer ground z=0 height=5 roof=no
+
+legend
+  A  area_a  "Area A"  lane   // rgb 29,58,58  value 0.23
+  B  area_b  "Area B"  lane   // rgb 49,58,62  value 0.25
+  C  area_c  "Area C"  lane   // rgb 69,69,69  value 0.27
+end
+
+plan
+......................CCCBB...................
+......................CCCBBBB.................
+......................CCCBBBB.................
+......................CC.CBBBBBB..............
+..................CC..CC.CCBBBBB..............
+..................CCCCCC.CCBBBBB..............
+..................CCCCCCC.....BBB.............
+..................CCCCCCCBB...BBBBBBBBBB.B....
+..................CCCCCCCBBBBBBBBBBBBBBBBB....
+..................CCCCCCCBBBBBBBBBBBBBBBBB....
+..................CCCCCCCBBB.......BBBBBBBB...
+..................CCCCCCCBBB.......CBBBBBBBB..
+..................CCCCCCCBBB.......CBBBBBBBBB.
+.........................BBB.......CBBBBBBBBB.
+.........................BBB.......CCBBBBBBBB.
+......................BBBBBB.......C.....BBBB.
+......................BBBBBB.......C.....BBBB.
+.....................BBBBBBBB......CCCCBBBBBB.
+.....................BBB...BB......CCCCBBBBB..
+....................BBB............CCCCCBBBB..
+...................BBB.............CCCCCCCCC..
+...................BB...............CC...CCCC.
+..................BBB...............CC....CCC.
+.................BBBB...............CC....CCC.
+...................BB...............CC......CC
+...................B...........CCCCCCCCCCCCCCC
+...................B............CCCCCCCCCCCCCC
+...................B............CC....CCCCCC..
+............AAAAABBB............CC.......CCC..
+.AA......AAAAAAAABBB...........CCC.......CC...
+AAA......AAAAA....BBBBBBBBBB....BB...CCCCCC...
+AAAA.AAA.AAAAA....BBBBBBBBBBBBBBBB...CCCCCCC..
+AAAAAAAAAAAAAA....BBBBBBBBBBBBBBBB...CCCCCCCC.
+AAAAAA...AAAAA....BBBB...BBBBBBBBB...CCCCBBCCC
+AAAAAA...AAABCCCCCC......BBB..BBBB...CCCCBBBCC
+AAAAAA.BBBBBBCCCCCC......BBB..BBBB...CCCCBBBCC
+AAAAAA.BBBBBBCCCCCCCCC...BBB..BBBBBBBBBBBBBCCC
+AAA....BBBBBBBCBBCCCCBBBBBBBCCCCBBBBBBBBBBBBCC
+AAAAAB.BBBBBBBBBBBBBBBBBBBBBCCCCCBBBBCCBBBBBBB
+.AAAAB.BBBBBBBBBBBBBBBBBBBBBCCCC.....CCCBBBBBB
+.....B.BBBBBBCCBB....BBBBBBBCCCCCCCCCCCCBBBBBB
+....BBBBBBBB.CCC.....B.....B..CCCCCCCC.BBBBBBB
+......BBBBB..CCCCBBBBB....BB..BB.......BBBBBB.
+.............CCC.....B....BB..BB........BBBB..
+.....................BBBBBBBBBBB..............
+.....................BBBBBBBB.................
+end
+

@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.1",
+  "id": "dust_three_lane_benchmark",
+  "name": "Three-Lane Two-Site Benchmark",
+  "description": "An approximate CS-style topology study: two bomb sites, three lanes, a mid connector, and an elevated catwalk stacked over an open lane. Outdoor layer with open route bands, so the compiler emits walls only where the spec asks for them. Research greybox, not a reproduction of any shipped map.",
+  "units": "meters",
+  "coordinate_system": "right-handed Z-up",
+  "grid": 1.0,
+  "wall_thickness": 0.3,
+  "floor_thickness": 0.25,
+  "player": { "radius": 0.35, "height": 1.8, "step": 0.45, "crouch": 1.1 },
+
+  "layers": [
+    {
+      "id": "ground",
+      "label": "Ground",
+      "z": 0.0,
+      "height": 6.0,
+      "roof": false,
+      "internal_walls": false,
+      "spaces": [
+        { "id": "t_spawn", "label": "Attacker spawn", "rect": [4, 4, 40, 12], "role": "spawn" },
+        { "id": "t_ramp", "label": "Ramp", "rect": [44, 6, 8, 10], "role": "lane" },
+        { "id": "long_a", "label": "Long A", "rect": [52, 6, 12, 30], "role": "lane" },
+        { "id": "long_corner", "label": "Long corner", "rect": [52, 36, 12, 14], "role": "lane" },
+        { "id": "a_short", "label": "Short A", "rect": [40, 36, 12, 14], "role": "lane" },
+        { "id": "a_site", "label": "A site", "rect": [42, 50, 26, 16], "role": "site" },
+        { "id": "cat_link", "label": "Under catwalk", "rect": [40, 22, 12, 14], "role": "lane" },
+        { "id": "mid", "label": "Mid", "rect": [24, 22, 16, 26], "role": "lane" },
+        { "id": "t_mid_ramp", "label": "Mid ramp", "rect": [24, 16, 10, 6], "role": "lane" },
+        { "id": "mid_doors", "label": "Mid doors", "rect": [24, 48, 12, 6], "role": "lane" },
+        { "id": "mid_lower", "label": "Mid to B", "rect": [20, 26, 4, 8], "role": "lane" },
+        { "id": "ct_spawn", "label": "Defender spawn", "rect": [22, 54, 20, 12], "role": "spawn" },
+        { "id": "t_tunnel_mouth", "label": "Tunnel mouth", "rect": [6, 16, 10, 4], "role": "lane" },
+        { "id": "b_tunnels", "label": "B tunnels", "rect": [4, 20, 16, 18], "role": "lane" },
+        { "id": "b_upper", "label": "Upper tunnel", "rect": [4, 38, 14, 12], "role": "lane" },
+        { "id": "b_site", "label": "B site", "rect": [2, 50, 20, 16], "role": "site" }
+      ],
+      "wall_overrides": [
+        { "between": ["long_a", "cat_link"], "type": "hard" },
+        { "between": ["mid", "mid_lower"], "type": "hard" },
+        { "between": ["b_upper", "b_site"], "type": "hard" },
+        { "between": ["mid_doors", "ct_spawn"], "type": "hard" },
+        { "between": ["t_mid_ramp", "mid"], "type": "hard" },
+        { "between": ["long_corner", "a_site"], "type": "hard" },
+        { "between": ["t_spawn", "t_tunnel_mouth"], "type": "hard" },
+        { "between": ["b_tunnels", "b_upper"], "type": "hard" }
+      ],
+      "portals": [
+        { "id": "long_doors", "between": ["long_a", "cat_link"], "kind": "door", "width_cells": 3, "hint": [52, 30] },
+        { "id": "mid_to_b", "between": ["mid", "mid_lower"], "kind": "door", "width_cells": 3, "hint": [24, 29] },
+        { "id": "b_entrance", "between": ["b_upper", "b_site"], "kind": "arch", "width_cells": 5, "hint": [8, 50] },
+        { "id": "ct_to_mid", "between": ["mid_doors", "ct_spawn"], "kind": "arch", "width_cells": 4, "hint": [28, 54] },
+        { "id": "t_to_mid", "between": ["t_mid_ramp", "mid"], "kind": "arch", "width_cells": 5, "hint": [26, 22] },
+        { "id": "long_to_a", "between": ["long_corner", "a_site"], "kind": "arch", "width_cells": 5, "hint": [55, 50] },
+        { "id": "tunnel_entry", "between": ["t_spawn", "t_tunnel_mouth"], "kind": "arch", "width_cells": 5, "hint": [8, 16] },
+        { "id": "upper_tunnel", "between": ["b_tunnels", "b_upper"], "kind": "arch", "width_cells": 5, "hint": [7, 38] }
+      ]
+    },
+
+    {
+      "id": "catwalk",
+      "label": "Catwalk",
+      "z": 3.2,
+      "height": 3.0,
+      "roof": false,
+      "railing": 1.1,
+      "internal_walls": false,
+      "spaces": [
+        { "id": "catwalk", "label": "Catwalk", "rect": [42, 26, 6, 22], "role": "balcony" },
+        { "id": "cat_platform", "label": "Catwalk platform", "rect": [43, 48, 8, 5], "role": "balcony" }
+      ],
+      "portals": [
+        { "id": "cat_south_open", "between": ["catwalk", "__outside__"], "kind": "open", "width_cells": 2, "side": "S", "hint": [43, 26] },
+        { "id": "cat_platform_open", "between": ["cat_platform", "__outside__"], "kind": "open", "width_cells": 2, "side": "E", "hint": [51, 50] }
+      ]
+    }
+  ],
+
+  "vertical_connections": [
+    {
+      "id": "cat_stairs_mid",
+      "label": "Catwalk stairs (mid side)",
+      "from_layer": "ground",
+      "to_layer": "catwalk",
+      "from_cell": [43, 23],
+      "to_cell": [43, 29],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    },
+    {
+      "id": "cat_stairs_a",
+      "label": "Catwalk stairs (A side)",
+      "from_layer": "ground",
+      "to_layer": "catwalk",
+      "from_cell": [49, 44],
+      "to_cell": [49, 50],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    }
+  ],
+
+  "covers": [
+    { "id": "a_site_platform", "layer": "ground", "rect": [54, 54, 6, 4], "height": 1.1, "material": "crate", "label": "A platform" },
+    { "id": "a_site_stack", "layer": "ground", "rect": [62, 58, 3, 3], "height": 1.35, "material": "crate", "label": "A stack" },
+    { "id": "a_barrels", "layer": "ground", "rect": [48, 60, 2, 2], "height": 1.0, "material": "barrel" },
+    { "id": "b_site_platform", "layer": "ground", "rect": [6, 54, 6, 4], "height": 1.1, "material": "crate", "label": "B platform" },
+    { "id": "b_site_stack", "layer": "ground", "rect": [16, 58, 3, 3], "height": 1.35, "material": "crate", "label": "B stack" },
+    { "id": "b_barrels", "layer": "ground", "rect": [4, 62, 2, 2], "height": 1.0, "material": "barrel" },
+    { "id": "mid_car", "layer": "ground", "rect": [30, 32, 4, 2], "height": 1.45, "material": "vehicle", "label": "Mid car" },
+    { "id": "mid_boxes", "layer": "ground", "rect": [26, 42, 2, 2], "height": 1.2, "material": "crate" },
+    { "id": "mid_wall_stack", "layer": "ground", "rect": [36, 26, 2, 6], "height": 3.6, "material": "crate", "label": "Mid block" },
+    { "id": "long_boxes", "layer": "ground", "rect": [56, 20, 3, 2], "height": 1.3, "material": "crate" },
+    { "id": "long_block", "layer": "ground", "rect": [60, 30, 3, 8], "height": 4.2, "material": "crate", "label": "Long blocker" },
+    { "id": "tunnel_boxes", "layer": "ground", "rect": [10, 28, 3, 3], "height": 1.25, "material": "crate" },
+    { "id": "tunnel_block", "layer": "ground", "rect": [16, 22, 3, 8], "height": 4.2, "material": "crate", "label": "Tunnel blocker" },
+    { "id": "t_spawn_block", "layer": "ground", "rect": [20, 6, 6, 6], "height": 5.0, "material": "crate", "label": "Spawn blocker" },
+    { "id": "ct_block", "layer": "ground", "rect": [34, 58, 6, 5], "height": 5.0, "material": "crate", "label": "CT blocker" },
+    { "id": "cat_crate", "layer": "catwalk", "rect": [44, 34, 2, 2], "height": 1.0, "material": "crate" }
+  ],
+
+  "gameplay": {
+    "mode": "bomb_defuse",
+    "move_speed": 4.6,
+    "markers": [
+      { "id": "t_spawn_pt", "layer": "ground", "cell": [10, 9], "kind": "attacker_spawn", "team": "attack", "label": "Attacker spawn" },
+      { "id": "ct_spawn_pt", "layer": "ground", "cell": [40, 62], "kind": "defender_spawn", "team": "defend", "label": "Defender spawn" },
+      { "id": "site_a", "layer": "ground", "cell": [58, 60], "kind": "site", "team": "neutral", "label": "A site" },
+      { "id": "site_b", "layer": "ground", "cell": [10, 60], "kind": "site", "team": "neutral", "label": "B site" },
+      { "id": "cat_pt", "layer": "catwalk", "cell": [45, 40], "kind": "poi", "team": "neutral", "label": "Catwalk" }
+    ],
+    "required_routes": [
+      { "id": "t_to_a", "from": "t_spawn_pt", "to": "site_a", "min_routes": 2, "min_distance": 60, "max_distance": 160 },
+      { "id": "t_to_b", "from": "t_spawn_pt", "to": "site_b", "min_routes": 2, "min_distance": 40, "max_distance": 140 },
+      { "id": "ct_to_a", "from": "ct_spawn_pt", "to": "site_a", "min_routes": 2, "max_distance": 70 },
+      { "id": "ct_to_b", "from": "ct_spawn_pt", "to": "site_b", "min_routes": 2, "max_distance": 70 },
+      { "id": "rotate_a_b", "from": "site_a", "to": "site_b", "min_routes": 2, "min_distance": 40 },
+      { "id": "t_to_cat", "from": "t_spawn_pt", "to": "cat_pt", "min_routes": 1 }
+    ],
+    "no_spawn_los": [["t_spawn_pt", "ct_spawn_pt"]]
+  }
+}

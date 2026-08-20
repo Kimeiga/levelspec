@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.1",
+  "id": "r6_clubhouse_reconstruction",
+  "name": "Clubhouse (approximate reconstruction)",
+  "description": "A greybox reconstruction of the Clubhouse layout: three stacked storeys on an aligned footprint plus the surrounding yard, with the real room names — Church, Arsenal Room, Blue Bar, Basement Stairs, Garage, Bar, Stock Room, Kitchen, Construction, Cash Register, Central Stairs, Main Entrance, Gym, Bedroom, CCTV Room, Master Bedroom, Logistics Office — and the four bomb sites they pair into. Soft walls, reinforcement slots, destructible hatches between all three floors, barricadable windows and rappel entries are placed as semantic roles. It is a TOPOLOGY reconstruction, not a measured copy: it was authored from public knowledge of the layout, so room proportions and the exact set of soft walls and hatches are approximate. Making it accurate needs an authoritative source — the official blueprint or the shipped level data — as the LevelSpec input. No textures, props, models or map files from the shipped game are used or reproduced.",
+  "units": "meters",
+  "coordinate_system": "right-handed Z-up",
+  "grid": 1.0,
+  "wall_thickness": 0.24,
+  "floor_thickness": 0.2,
+  "player": { "radius": 0.35, "height": 1.8, "step": 0.45, "crouch": 1.1 },
+
+  "layers": [
+    {
+      "id": "basement",
+      "label": "Basement",
+      "z": -3.6,
+      "height": 3.4,
+      "spaces": [
+        { "id": "church", "label": "Church", "rect": [4, 4, 14, 12], "role": "site" },
+        { "id": "arsenal", "label": "Arsenal Room", "rect": [18, 4, 16, 12], "role": "site" },
+        { "id": "blue_bar", "label": "Blue Bar", "rect": [4, 16, 12, 8], "role": "room" },
+        { "id": "basement_stairs", "label": "Basement Stairs", "rect": [16, 16, 8, 14], "role": "stairwell" },
+        { "id": "b_garage", "label": "Basement Garage", "rect": [24, 16, 10, 14], "role": "room" },
+        { "id": "blue_hall", "label": "Blue Hall", "rect": [4, 24, 12, 6], "role": "corridor" }
+      ],
+      "wall_overrides": [
+        { "between": ["church", "arsenal"], "type": "soft" },
+        { "between": ["church", "blue_bar"], "type": "soft" },
+        { "between": ["arsenal", "basement_stairs"], "type": "reinforced" },
+        { "between": ["church", "basement_stairs"], "type": "reinforced" },
+        { "between": ["arsenal", "b_garage"], "type": "soft" },
+        { "between": ["blue_bar", "blue_hall"], "type": "soft" }
+      ],
+      "portals": [
+        { "id": "church_arsenal", "between": ["church", "arsenal"], "kind": "arch", "width_cells": 2, "hint": [18, 7] },
+        { "id": "church_blue", "between": ["church", "blue_bar"], "kind": "door", "width_cells": 1, "hint": [7, 16] },
+        { "id": "arsenal_stairs", "between": ["arsenal", "basement_stairs"], "kind": "door", "width_cells": 1, "hint": [20, 16] },
+        { "id": "arsenal_garage", "between": ["arsenal", "b_garage"], "kind": "door", "width_cells": 1, "hint": [30, 16] },
+        { "id": "blue_stairs_open", "between": ["blue_bar", "basement_stairs"], "kind": "arch", "width_cells": 2, "hint": [16, 19] },
+        { "id": "blue_hall_door", "between": ["blue_bar", "blue_hall"], "kind": "arch", "width_cells": 3, "hint": [8, 24] },
+        { "id": "hall_stairs", "between": ["blue_hall", "basement_stairs"], "kind": "arch", "width_cells": 2, "hint": [16, 26] },
+        { "id": "garage_stairs_door", "between": ["basement_stairs", "b_garage"], "kind": "door", "width_cells": 1, "hint": [24, 28] }
+      ]
+    },
+
+    {
+      "id": "ground",
+      "label": "1F",
+      "z": 0.0,
+      "height": 3.4,
+      "roof": false,
+      "spaces": [
+        { "id": "yard", "label": "Yard", "rect": [-10, -10, 58, 54], "role": "exterior", "subtract": [[4, 4, 30, 26]] },
+        { "id": "bar", "label": "Bar", "rect": [4, 4, 14, 12], "role": "site" },
+        { "id": "stock", "label": "Stock Room", "rect": [18, 4, 10, 12], "role": "site" },
+        { "id": "kitchen", "label": "Kitchen", "rect": [28, 4, 6, 12], "role": "room" },
+        { "id": "construction", "label": "Construction", "rect": [4, 16, 12, 8], "role": "room" },
+        { "id": "central_stairs", "label": "Central Stairs", "rect": [16, 16, 8, 14], "role": "stairwell" },
+        { "id": "garage", "label": "Garage", "rect": [24, 16, 10, 14], "role": "room" },
+        { "id": "main_entrance", "label": "Main Entrance", "rect": [4, 24, 12, 6], "role": "corridor" }
+      ],
+      "wall_overrides": [
+        { "between": ["bar", "stock"], "type": "soft" },
+        { "between": ["stock", "kitchen"], "type": "soft" },
+        { "between": ["bar", "construction"], "type": "soft" },
+        { "between": ["bar", "central_stairs"], "type": "reinforced" },
+        { "between": ["stock", "central_stairs"], "type": "reinforced" },
+        { "between": ["stock", "garage"], "type": "soft" },
+        { "between": ["construction", "main_entrance"], "type": "soft" },
+        { "between": ["kitchen", "garage"], "type": "soft" }
+      ],
+      "portals": [
+        { "id": "bar_stock", "between": ["bar", "stock"], "kind": "arch", "width_cells": 2, "hint": [18, 7] },
+        { "id": "stock_kitchen", "between": ["stock", "kitchen"], "kind": "door", "width_cells": 1, "hint": [28, 7] },
+        { "id": "bar_construction", "between": ["bar", "construction"], "kind": "door", "width_cells": 1, "hint": [7, 16] },
+        { "id": "stock_stairs", "between": ["stock", "central_stairs"], "kind": "door", "width_cells": 1, "hint": [20, 16] },
+        { "id": "stock_garage", "between": ["stock", "garage"], "kind": "door", "width_cells": 1, "hint": [26, 16] },
+        { "id": "kitchen_garage", "between": ["kitchen", "garage"], "kind": "arch", "width_cells": 2, "hint": [30, 16] },
+        { "id": "construction_stairs", "between": ["construction", "central_stairs"], "kind": "arch", "width_cells": 2, "hint": [16, 19] },
+        { "id": "construction_entrance", "between": ["construction", "main_entrance"], "kind": "arch", "width_cells": 3, "hint": [8, 24] },
+        { "id": "entrance_stairs", "between": ["main_entrance", "central_stairs"], "kind": "arch", "width_cells": 2, "hint": [16, 26] },
+        { "id": "stairs_garage", "between": ["central_stairs", "garage"], "kind": "door", "width_cells": 1, "hint": [24, 28] },
+
+        { "id": "front_door", "between": ["main_entrance", "yard"], "kind": "door", "width_cells": 2, "hint": [4, 26], "barricade": true },
+        { "id": "garage_door", "between": ["garage", "yard"], "kind": "arch", "width_cells": 5, "hint": [28, 30] },
+        { "id": "bar_window_w", "between": ["bar", "yard"], "kind": "window", "width_cells": 2, "hint": [4, 7], "barricade": true },
+        { "id": "bar_window_s", "between": ["bar", "yard"], "kind": "window", "width_cells": 2, "hint": [8, 4], "barricade": true },
+        { "id": "stock_window_s", "between": ["stock", "yard"], "kind": "window", "width_cells": 2, "hint": [20, 4], "barricade": true },
+        { "id": "kitchen_window_e", "between": ["kitchen", "yard"], "kind": "window", "width_cells": 2, "hint": [34, 7], "barricade": true },
+        { "id": "kitchen_door_s", "between": ["kitchen", "yard"], "kind": "door", "width_cells": 1, "hint": [30, 4], "barricade": true },
+        { "id": "construction_window_w", "between": ["construction", "yard"], "kind": "window", "width_cells": 2, "hint": [4, 19], "barricade": true },
+        { "id": "entrance_window_n", "between": ["main_entrance", "yard"], "kind": "window", "width_cells": 2, "hint": [8, 30], "barricade": true },
+        { "id": "garage_window_e", "between": ["garage", "yard"], "kind": "window", "width_cells": 2, "hint": [34, 22], "barricade": true }
+      ]
+    },
+
+    {
+      "id": "upper",
+      "label": "2F",
+      "z": 3.6,
+      "height": 3.2,
+      "spaces": [
+        { "id": "gym", "label": "Gym", "rect": [4, 4, 12, 12], "role": "site" },
+        { "id": "bedroom", "label": "Bedroom", "rect": [16, 4, 10, 12], "role": "site" },
+        { "id": "cctv", "label": "CCTV Room", "rect": [26, 4, 8, 12], "role": "site" },
+        { "id": "logistics", "label": "Logistics Office", "rect": [4, 16, 12, 8], "role": "room" },
+        { "id": "landing", "label": "Landing", "rect": [16, 16, 8, 14], "role": "stairwell" },
+        { "id": "master_bed", "label": "Master Bedroom", "rect": [24, 16, 10, 14], "role": "site" },
+        { "id": "hallway", "label": "Hallway", "rect": [4, 24, 12, 6], "role": "corridor" }
+      ],
+      "wall_overrides": [
+        { "between": ["gym", "bedroom"], "type": "soft" },
+        { "between": ["bedroom", "cctv"], "type": "soft" },
+        { "between": ["gym", "logistics"], "type": "soft" },
+        { "between": ["bedroom", "landing"], "type": "reinforced" },
+        { "between": ["master_bed", "landing"], "type": "reinforced" },
+        { "between": ["cctv", "master_bed"], "type": "reinforced" },
+        { "between": ["logistics", "hallway"], "type": "soft" },
+        { "between": ["bedroom", "master_bed"], "type": "soft" }
+      ],
+      "portals": [
+        { "id": "gym_bedroom", "between": ["gym", "bedroom"], "kind": "arch", "width_cells": 2, "hint": [16, 7] },
+        { "id": "bedroom_cctv", "between": ["bedroom", "cctv"], "kind": "door", "width_cells": 1, "hint": [26, 7] },
+        { "id": "gym_logistics", "between": ["gym", "logistics"], "kind": "door", "width_cells": 1, "hint": [7, 16] },
+        { "id": "bedroom_landing", "between": ["bedroom", "landing"], "kind": "door", "width_cells": 1, "hint": [20, 16] },
+        { "id": "bedroom_master", "between": ["bedroom", "master_bed"], "kind": "door", "width_cells": 1, "hint": [25, 16] },
+        { "id": "cctv_master", "between": ["cctv", "master_bed"], "kind": "door", "width_cells": 1, "hint": [30, 16] },
+        { "id": "logistics_landing", "between": ["logistics", "landing"], "kind": "arch", "width_cells": 2, "hint": [16, 19] },
+        { "id": "logistics_hallway", "between": ["logistics", "hallway"], "kind": "arch", "width_cells": 3, "hint": [8, 24] },
+        { "id": "hallway_landing", "between": ["hallway", "landing"], "kind": "arch", "width_cells": 2, "hint": [16, 26] },
+        { "id": "landing_master", "between": ["landing", "master_bed"], "kind": "door", "width_cells": 1, "hint": [24, 28] },
+
+        { "id": "gym_rappel_w", "between": ["gym", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "W", "hint": [4, 7], "barricade": true },
+        { "id": "gym_rappel_s", "between": ["gym", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "S", "hint": [8, 4], "barricade": true },
+        { "id": "bedroom_rappel_s", "between": ["bedroom", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "S", "hint": [20, 4], "barricade": true },
+        { "id": "cctv_rappel_s", "between": ["cctv", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "S", "hint": [30, 4], "barricade": true },
+        { "id": "cctv_rappel_e", "between": ["cctv", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "E", "hint": [34, 7], "barricade": true },
+        { "id": "master_rappel_e", "between": ["master_bed", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "E", "hint": [34, 22], "barricade": true },
+        { "id": "master_rappel_n", "between": ["master_bed", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "N", "hint": [28, 30], "barricade": true },
+        { "id": "hallway_rappel_n", "between": ["hallway", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "N", "hint": [8, 30], "barricade": true },
+        { "id": "logistics_rappel_w", "between": ["logistics", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "W", "hint": [4, 19], "barricade": true }
+      ]
+    }
+  ],
+
+  "vertical_connections": [
+    {
+      "id": "blue_stairs_run",
+      "label": "Blue Stairs (B → 1F)",
+      "from_layer": "basement",
+      "to_layer": "ground",
+      "from_cell": [18, 18],
+      "to_cell": [18, 24],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    },
+    {
+      "id": "central_stairs_run",
+      "label": "Central Stairs (1F → 2F)",
+      "from_layer": "ground",
+      "to_layer": "upper",
+      "from_cell": [21, 25],
+      "to_cell": [21, 19],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "S"
+    },
+    {
+      "id": "garage_ramp",
+      "label": "Garage ramp (B → 1F)",
+      "from_layer": "basement",
+      "to_layer": "ground",
+      "from_cell": [30, 20],
+      "to_cell": [30, 26],
+      "kind": "ramp",
+      "width": 3.0,
+      "direction": "N"
+    },
+    {
+      "id": "church_hatch",
+      "label": "Church hatch",
+      "from_layer": "basement",
+      "to_layer": "ground",
+      "from_cell": [10, 10],
+      "to_cell": [10, 10],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "arsenal_hatch",
+      "label": "Arsenal hatch",
+      "from_layer": "basement",
+      "to_layer": "ground",
+      "from_cell": [22, 10],
+      "to_cell": [22, 10],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "bar_hatch",
+      "label": "Bar hatch",
+      "from_layer": "ground",
+      "to_layer": "upper",
+      "from_cell": [8, 8],
+      "to_cell": [8, 8],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "stock_hatch",
+      "label": "Stock Room hatch",
+      "from_layer": "ground",
+      "to_layer": "upper",
+      "from_cell": [20, 8],
+      "to_cell": [20, 8],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "master_hatch",
+      "label": "Master Bedroom hatch",
+      "from_layer": "ground",
+      "to_layer": "upper",
+      "from_cell": [26, 26],
+      "to_cell": [26, 26],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "blue_ladder",
+      "label": "Blue Bar ladder",
+      "from_layer": "basement",
+      "to_layer": "ground",
+      "from_cell": [6, 21],
+      "to_cell": [6, 21],
+      "kind": "ladder"
+    }
+  ],
+
+  "covers": [
+    { "id": "church_pews_a", "layer": "basement", "rect": [7, 7, 7, 1], "height": 1.0, "material": "desk", "label": "Pews" },
+    { "id": "church_pews_b", "layer": "basement", "rect": [7, 11, 7, 1], "height": 1.0, "material": "desk", "label": "Pews" },
+    { "id": "church_altar", "layer": "basement", "rect": [15, 8, 2, 3], "height": 1.2, "material": "crate", "label": "Altar" },
+    { "id": "arsenal_racks", "layer": "basement", "rect": [20, 6, 2, 6], "height": 1.9, "material": "crate", "label": "Weapon racks" },
+    { "id": "arsenal_crates", "layer": "basement", "rect": [28, 6, 3, 3], "height": 1.3, "material": "crate" },
+    { "id": "blue_counter", "layer": "basement", "rect": [8, 18, 5, 1], "height": 1.1, "material": "desk", "label": "Blue bar counter" },
+    { "id": "b_garage_van", "layer": "basement", "rect": [26, 20, 2, 5], "height": 1.5, "material": "vehicle", "label": "Van" },
+
+    { "id": "bar_counter", "layer": "ground", "rect": [7, 6, 6, 1], "height": 1.1, "material": "desk", "label": "Bar counter" },
+    { "id": "bar_tables", "layer": "ground", "rect": [12, 12, 3, 2], "height": 0.9, "material": "desk" },
+    { "id": "stock_shelves", "layer": "ground", "rect": [22, 6, 2, 6], "height": 1.9, "material": "crate", "label": "Shelving" },
+    { "id": "stock_crates", "layer": "ground", "rect": [19, 13, 3, 2], "height": 1.2, "material": "crate" },
+    { "id": "kitchen_island", "layer": "ground", "rect": [30, 8, 2, 4], "height": 0.95, "material": "desk", "label": "Island" },
+    { "id": "construction_scaffold", "layer": "ground", "rect": [6, 18, 4, 3], "height": 2.2, "material": "crate", "label": "Scaffold" },
+    { "id": "garage_bike", "layer": "ground", "rect": [26, 18, 2, 3], "height": 1.1, "material": "vehicle", "label": "Bikes" },
+    { "id": "entrance_desk", "layer": "ground", "rect": [10, 26, 4, 1], "height": 1.0, "material": "desk", "label": "Cash register" },
+    { "id": "yard_containers", "layer": "ground", "rect": [38, 10, 5, 10], "height": 2.8, "material": "crate", "label": "Containers" },
+    { "id": "yard_junk", "layer": "ground", "rect": [-6, 12, 6, 8], "height": 2.4, "material": "crate", "label": "Junkyard" },
+    { "id": "yard_cars", "layer": "ground", "rect": [12, 34, 8, 3], "height": 1.5, "material": "vehicle", "label": "Parked cars" },
+    { "id": "yard_wall_s", "layer": "ground", "rect": [-2, -4, 26, 2], "height": 2.6, "material": "crate", "label": "Yard wall" },
+
+    { "id": "gym_equipment", "layer": "upper", "rect": [6, 6, 5, 2], "height": 1.3, "material": "crate", "label": "Gym equipment" },
+    { "id": "gym_mats", "layer": "upper", "rect": [10, 12, 4, 2], "height": 0.7, "material": "crate", "label": "Mats" },
+    { "id": "bedroom_beds", "layer": "upper", "rect": [18, 6, 3, 2], "height": 0.7, "material": "desk", "label": "Beds" },
+    { "id": "cctv_desks", "layer": "upper", "rect": [28, 6, 4, 1], "height": 1.0, "material": "desk", "label": "Monitors" },
+    { "id": "master_bed_bed", "layer": "upper", "rect": [27, 20, 3, 2], "height": 0.7, "material": "desk", "label": "Bed" },
+    { "id": "logistics_desks", "layer": "upper", "rect": [7, 18, 5, 1], "height": 1.0, "material": "desk", "label": "Desks" }
+  ],
+
+  "gameplay": {
+    "mode": "bomb",
+    "move_speed": 4.2,
+    "markers": [
+      { "id": "atk_south", "layer": "ground", "cell": [18, -6], "kind": "attacker_spawn", "team": "attack", "label": "South approach" },
+      { "id": "atk_east", "layer": "ground", "cell": [44, 16], "kind": "attacker_spawn", "team": "attack", "label": "East approach" },
+      { "id": "atk_north", "layer": "ground", "cell": [18, 40], "kind": "attacker_spawn", "team": "attack", "label": "North approach" },
+      { "id": "def_church", "layer": "basement", "cell": [10, 13], "kind": "defender_spawn", "team": "defend", "label": "Church anchor" },
+      { "id": "site_church", "layer": "basement", "cell": [12, 9], "kind": "site", "team": "neutral", "label": "Church / Arsenal" },
+      { "id": "site_bar", "layer": "ground", "cell": [9, 10], "kind": "site", "team": "neutral", "label": "Bar / Stock Room" },
+      { "id": "site_gym", "layer": "upper", "cell": [8, 10], "kind": "site", "team": "neutral", "label": "Gym / Bedroom" },
+      { "id": "site_cctv", "layer": "upper", "cell": [30, 10], "kind": "site", "team": "neutral", "label": "CCTV / Master Bedroom" }
+    ],
+    "required_routes": [
+      { "id": "south_to_church", "from": "atk_south", "to": "site_church", "min_routes": 2, "max_distance": 130 },
+      { "id": "east_to_bar", "from": "atk_east", "to": "site_bar", "min_routes": 2, "max_distance": 130 },
+      { "id": "north_to_gym", "from": "atk_north", "to": "site_gym", "min_routes": 2, "max_distance": 140 },
+      { "id": "east_to_cctv", "from": "atk_east", "to": "site_cctv", "min_routes": 2, "max_distance": 140 },
+      { "id": "church_to_cctv", "from": "site_church", "to": "site_cctv", "min_routes": 2 },
+      { "id": "bar_to_gym", "from": "site_bar", "to": "site_gym", "min_routes": 2 }
+    ]
+  }
+}

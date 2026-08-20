@@ -1,0 +1,64 @@
+id: cs_train_lower
+name: Train
+description: Layout reconstruction of Train, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
+source_image: Train - Lower Radar.png
+grid: 1.48
+wall_thickness: 0.32
+
+// TRACED DRAFT. The footprint is read from the radar; everything below
+// needs a human: rename the areas, set their elevations, mark the spawns
+// and sites, and delete any band that is really just shading.
+
+layer ground z=0 height=5 roof=no
+
+legend
+  A  area_a  "Area A"  lane   // rgb 87,73,58  value 0.34
+  B  area_b  "Area B"  lane   // rgb 100,96,82  value 0.39
+  C  area_c  "Area C"  lane   // rgb 91,112,117  value 0.46
+end
+
+plan
+....................CCCCC.......CCC.CCCC......
+....................CCCCCCCCCCCCCCCCCCCC......
+..................CCCCCCCCCCCCCCCCCCCCCC......
+CCCCCCCCCC....CCCCCCCCCCCCCCC.CCC.CCCCCC......
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCC..CC..CCCCC......
+CCCCCCCCCCCCCCCCCCCCC....CCC.........CC.......
+CCCCCCCC...CCCCCCCCCC....CCC.........BB.......
+...CCCC......CCCCCC..................BB.......
+.............CCCCCC..................BB.......
+.............CCCCCC..................BB.......
+.............BBBCCC..................BB.......
+.............BBBBBB..................BB.......
+.............BBBBBB...........BBB....BBB......
+.............BBBBBBBBBBBBBBBBBBBB....BBB......
+.............AABBBBBBBBBBBBBBBBBBBBBBBBBBBBB..
+..............ABBBBBBBBBBBBBBBBBBBBBBBBBBBBB..
+..............ABBBBBBBBBBBBBBBBBBBBBBBBBBBBB..
+..............ABBBBBBBBBBBBBBBBBBB.BB.....BB..
+..............A.A.A.BBBBBBBBBBBBBBBBB.....BB..
+..............A.AAAABBBBBBBBBBBBBBBBB.....BB..
+..............A.AAABBBBBBBBBBBBBBB.BB....BBB..
+..............A.A.ABBBBBBBBBBBBBBBBBBBBBBBBBB.
+..............A.AAABBBBBBBBBBBBBBBBBBBBBBBBBB.
+..............AAAAABBBBBBBBBBBBBBBBBBBBBBBBBB.
+..........BBBBBBBBBBBBBBB..BBB.BBB..........BB
+..........BBBBBBBBBBBB.....BBB..BB..........BB
+..........BB.BB..BB........BBB..............BB
+..........BBBBBBBBB........BBBBBBB..........BB
+...........BBBB............BBBBBBB..........BB
+............BBB.............BBBBBB..........BB
+............BBBAAAAAAAAAAAAAABBBBBBBBAAAAA..AA
+............BBBAAAAAAAAAAAAAAABBBBBBAAAAAA..AA
+............BBB....AAAAACAAAAABBBBBAAA.AAAAAAA
+............BBB....AAAAACCAAAABBBBAAAA.AAAAAAA
+............BBB....AAAAAAAAAAAAAAAAAAA.AAAAA..
+............BBB....AAAAABBBAAAAAAAAAAA.AAAAA..
+............BBB....AAAAABBBBAAAAAAAAAA.AAAAAAA
+............BBB....AAAAAAABBAAAAAAAAAA.AAAAAAA
+............BBB....AAAAAAAABBAAAAAAAAA.AAAAAAA
+............BBB....BBBAAAAABBBAAAAAAAA.AAAAAAA
+.............BBBBBBBBBBB....BBBBAAAAAAAAAAAAAA
+.............BBBBBBBBBBB....BBBBBAAAAAAAAAAAAA
+end
+

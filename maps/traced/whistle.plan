@@ -1,0 +1,68 @@
+id: cs_whistle
+name: Whistle
+description: Layout reconstruction of Whistle, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
+source_image: Whistle - Radar.png
+grid: 1.48
+wall_thickness: 0.32
+
+// TRACED DRAFT. The footprint is read from the radar; everything below
+// needs a human: rename the areas, set their elevations, mark the spawns
+// and sites, and delete any band that is really just shading.
+
+layer ground z=0 height=5 roof=no
+
+legend
+  A  area_a  "Area A"  lane   // rgb 66,94,90  value 0.37
+  B  area_b  "Area B"  lane   // rgb 98,88,65  value 0.39
+  C  area_c  "Area C"  lane   // rgb 128,136,131  value 0.53
+end
+
+plan
+.......................AA.........
+.......................AAAA.......
+......................AAAAA.......
+....................AAAAAAA.......
+....................AAAAAA........
+....................AAAAAA........
+....................AAAAAA........
+...................AAAAAAA........
+.............A.....AAAAAA.........
+.............AAAAA.AAAAAA.........
+............AAAAAAAAAAAAA.........
+............AAAAAAAAAAAAA.........
+............AAAAAAAAAAAAAAABBB....
+.........AAAAAAAAAAAAAAAAAABBB....
+.........AAAAAAAAAAAAAAABBBBBB....
+.........AAAAAAAAAAAAAAABBBBBB....
+.........AAAAAAAAAAAAAACBBBBBB....
+.........AAAAAAAAAAAAAAABBBBBBBBA.
+.........AAA.....AAAAAAAAABBBBBBAA
+.........AAA......AAAAAAAABBBBBBAA
+........AAAA......AAAAAA..BBBBBBAA
+.....AAAAAAAAA..AAAAAAAA..BBBBBBAA
+....AAAAAAAAAAAAAAAAAAAA..BBBBBBAA
+..AAAAAAAAAAAAAAAAAAAAAA..BBBBBBAA
+..AAAAAAAAAAAAAAAAAAAAAA..BBBBBCAA
+..AAAAAAAAAAAAAAAAAAAAAA..BBBBCCAA
+.AAAAAA...........AAAAAA..BBBBCCAA
+.AAAAAAA..........AAAAAA..BBBBCCAA
+.AAAAAAA.........AAAAAAAAABBBBBCAA
+.AAAAAAAA........AAAAAAAAABBBBBBAA
+.AAAAAAAA....AAAAAAAAAAAAABBBBBBAA
+AAAAAAAAA....AAAAAAAAAAA..BBBBBBAA
+AAAAAAAAA....AAAAAAAAAAA..BBBBBBAA
+AAAAAAAAAAAAAAAAAAAAAAAB..BBBBBBAA
+AAAAAAAAAAAAAAAAAAAAAAAB..BBBBBBB.
+AAAAAAAAAAAAAAAAAAAAAAAA..BBBBBBB.
+AAAAAAAAAAAAAAAAAAAAAAAC..BBBBBBB.
+AAAAAAAAAAAAAAAA.AAAAAAC..BBBBBBB.
+AAAAAAAAAAAAAAAA.AAAAAAAAABBBBBBB.
+AAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBB.
+AAAAAAAAA....AAAAAAAAAAAAABBBBBBB.
+AAAAAAAA.....AAAAAAAAAAAAABBBBBBB.
+AAAAAAAA.....AAAAAAAAAAAAAABBBBBB.
+AAAAAAA......AAAAAAAAAAAAAABBBBBB.
+AAA..............AAACCAAAAABBBBB..
+AAA...............................
+end
+

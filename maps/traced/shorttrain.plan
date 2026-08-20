@@ -1,0 +1,63 @@
+id: cs_shorttrain
+name: Shorttrain
+description: Layout reconstruction of Shorttrain, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
+source_image: Shorttrain - Radar.png
+grid: 1.48
+wall_thickness: 0.32
+
+// TRACED DRAFT. The footprint is read from the radar; everything below
+// needs a human: rename the areas, set their elevations, mark the spawns
+// and sites, and delete any band that is really just shading.
+
+layer ground z=0 height=5 roof=no
+
+legend
+  A  area_a  "Area A"  lane   // rgb 48,49,48  value 0.19
+  B  area_b  "Area B"  lane   // rgb 106,108,104  value 0.43
+  C  area_c  "Area C"  lane   // rgb 129,139,128  value 0.55
+end
+
+plan
+..............................................
+..............................................
+..............................................
+...................................AAAA.......
+.................AAAAAAAAAAA.AAAAAAAACCC......
+.....AA.AAAAAAAAACCAAAAAACCCBBBBCCCCCCCC......
+....AAAAAAAAAAACCCCCAAAACCCCBBBBCCCCCCCC......
+.ABBBBBBBBBCCCCCCCCCCAAACCCCBBBBAACCCCC.......
+AACCCCCCBBBCCCCCCCCCCAAAAAAA......ABBBB.......
+AAACCCCCCBBBBBBCCCCBB...AAA.........BB........
+.AAACCCCABB..BBBCCC................BBBB.......
+..AAAAAAA....AABCC.................BBBB.......
+....AAAAA....AABCCC................ABBA.......
+.............AABCCB...............AABBAA......
+.............AACCCBBB.......ABBBBAAACCCC......
+.............AACCCBBBBBB..AABBBCCCCCCCCCC.....
+.............AACCCCBBBBBBCCCBBCCCCCCCCCCCCCB..
+..............CCCCCCBBBBBCCCBBCCCCCCCCCCCCCBB.
+.............CCCCCCCCCCBBCCCCCCCCCCCCC...CCB..
+...............CCACCCCCCCCCCCCCCCC.......BBB..
+.................ACCCCCCCCCCCCBCCC......ABBB..
+..................CCCCCCCCCCCBBBCCCCA...ACCB..
+..................BBCCCCCCCCCBCCCCCCCBBBCCCB..
+..................BBCCCCCCCCCCCCCCCCBBBBBCCBB.
+..................BBBCCCCCCCCCCCCCCCBBBBBBBBB.
+................................CC......BBBB..
+.........................................BBBB.
+.........................................ABBB.
+..........................................BBB.
+..........................................CCB.
+.........................................CCCB.
+......................................BCCCCBB.
+......................................CCCCCBB.
+......................................CCCCCAA.
+......................................CCCCCAA.
+......................................CCCCCCA.
+......................................CCCCCBB.
+......................................CCCCCBB.
+......................................BBBBBBB.
+...........................................B..
+..............................................
+end
+

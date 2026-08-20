@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.1",
+  "id": "cs_cache_reconstruction",
+  "name": "Cache (approximate reconstruction)",
+  "description": "A greybox reconstruction of the Cache layout: two sites, a central mid spine with vents through to the B half, and the named areas around them — T Spawn, A Main, Squeaky, Garage, Quad, Highway, Mid, White Box, Checkers, Vents, Z, Sunroom, Toxic, Connector, Heaven, CT Spawn. It is a TOPOLOGY reconstruction, not a measured copy, and Cache is the least precisely reconstructed of the three: the area set and their adjacencies are right, the proportions and some of the finer connections are approximate. Making it accurate needs an authoritative source — the CS2 Workshop Tools / Hammer source or a validated decompile — as the LevelSpec input. No textures, props, models or map files from the shipped game are used or reproduced.",
+  "units": "meters",
+  "coordinate_system": "right-handed Z-up",
+  "grid": 1.0,
+  "wall_thickness": 0.34,
+  "floor_thickness": 0.25,
+  "player": { "radius": 0.35, "height": 1.8, "step": 0.45, "crouch": 1.1 },
+
+  "layers": [
+    {
+      "id": "ground",
+      "label": "Ground",
+      "z": 0.0,
+      "height": 5.5,
+      "roof": false,
+      "internal_walls": false,
+      "spaces": [
+        { "id": "t_spawn", "label": "T Spawn", "rect": [24, 4, 34, 12], "role": "spawn" },
+        { "id": "a_main", "label": "A Main", "rect": [10, 8, 14, 20], "role": "lane" },
+        { "id": "squeaky", "label": "Squeaky", "rect": [14, 28, 8, 4], "role": "lane", "z_offset": 0.4 },
+        { "id": "garage", "label": "Garage", "rect": [24, 20, 10, 12], "role": "lane" },
+        { "id": "t_mid", "label": "T Mid", "rect": [34, 16, 12, 12], "role": "lane", "z_offset": 0.2 },
+        { "id": "mid", "label": "Mid", "rect": [34, 28, 12, 12], "role": "lane", "z_offset": 0.4 },
+        { "id": "white_box", "label": "White Box", "rect": [46, 28, 8, 10], "role": "lane", "z_offset": 0.4 },
+        { "id": "vents", "label": "Vents", "rect": [54, 30, 4, 8], "role": "lane", "z_offset": 0.6 },
+        { "id": "checkers", "label": "Checkers", "rect": [46, 38, 10, 8], "role": "lane", "z_offset": 0.6 },
+        { "id": "mid_link", "label": "Mid to CT", "rect": [34, 40, 8, 4], "role": "lane", "z_offset": 0.8 },
+        { "id": "connector", "label": "Connector", "rect": [30, 44, 12, 12], "role": "lane", "z_offset": 1.0 },
+        { "id": "z_hall", "label": "Z", "rect": [58, 6, 10, 24], "role": "lane" },
+        { "id": "z_upper", "label": "Upper Z", "rect": [58, 30, 10, 16], "role": "lane", "z_offset": 0.4 },
+        { "id": "sunroom", "label": "Sunroom", "rect": [68, 34, 10, 12], "role": "lane", "z_offset": 0.8 },
+        { "id": "toxic", "label": "Toxic", "rect": [46, 46, 10, 10], "role": "lane", "z_offset": 1.0 },
+        { "id": "a_site", "label": "A Site", "rect": [8, 32, 20, 18], "role": "site", "z_offset": 0.4 },
+        { "id": "quad", "label": "Quad", "rect": [8, 50, 14, 10], "role": "site", "z_offset": 0.8 },
+        { "id": "highway", "label": "Highway", "rect": [22, 50, 8, 10], "role": "lane", "z_offset": 1.2 },
+        { "id": "b_site", "label": "B Site", "rect": [56, 46, 22, 16], "role": "site", "z_offset": 0.6 },
+        { "id": "ct_spawn", "label": "CT Spawn", "rect": [30, 56, 26, 12], "role": "spawn", "z_offset": 1.0 }
+      ],
+
+      "wall_overrides": [
+        { "between": ["a_main", "squeaky"], "type": "hard" },
+        { "between": ["a_main", "garage"], "type": "hard" },
+        { "between": ["garage", "a_site"], "type": "hard" },
+        { "between": ["garage", "t_mid"], "type": "hard" },
+        { "between": ["t_spawn", "t_mid"], "type": "hard" },
+        { "between": ["t_spawn", "z_hall"], "type": "hard" },
+        { "between": ["mid", "white_box"], "type": "hard" },
+        { "between": ["white_box", "vents"], "type": "hard" },
+        { "between": ["vents", "z_upper"], "type": "hard" },
+        { "between": ["checkers", "toxic"], "type": "hard" },
+        { "between": ["mid", "mid_link"], "type": "hard" },
+        { "between": ["mid_link", "connector"], "type": "hard" },
+        { "between": ["z_hall", "z_upper"], "type": "hard" },
+        { "between": ["z_upper", "sunroom"], "type": "hard" },
+        { "between": ["toxic", "ct_spawn"], "type": "hard" },
+        { "between": ["highway", "ct_spawn"], "type": "hard" },
+        { "between": ["squeaky", "a_site"], "type": "hard" },
+        { "between": ["connector", "ct_spawn"], "type": "hard" }
+      ],
+
+      "portals": [
+        { "id": "a_main_squeaky", "between": ["a_main", "squeaky"], "kind": "door", "width_cells": 2, "hint": [17, 28] },
+        { "id": "squeaky_door", "between": ["squeaky", "a_site"], "kind": "door", "width_cells": 2, "hint": [17, 32] },
+        { "id": "main_garage", "between": ["a_main", "garage"], "kind": "arch", "width_cells": 3, "hint": [24, 24] },
+        { "id": "garage_a", "between": ["garage", "a_site"], "kind": "arch", "width_cells": 3, "hint": [26, 32] },
+        { "id": "garage_mid", "between": ["garage", "t_mid"], "kind": "arch", "width_cells": 3, "hint": [34, 24] },
+        { "id": "t_to_mid", "between": ["t_spawn", "t_mid"], "kind": "arch", "width_cells": 5, "hint": [37, 16] },
+        { "id": "t_to_z", "between": ["t_spawn", "z_hall"], "kind": "arch", "width_cells": 5, "hint": [58, 9] },
+        { "id": "mid_whitebox", "between": ["mid", "white_box"], "kind": "arch", "width_cells": 4, "hint": [46, 31] },
+        { "id": "vents_west", "between": ["white_box", "vents"], "kind": "arch", "width_cells": 2, "hint": [54, 33], "head": 1.6 },
+        { "id": "vents_east", "between": ["vents", "z_upper"], "kind": "arch", "width_cells": 2, "hint": [58, 33], "head": 1.6 },
+        { "id": "checkers_toxic", "between": ["checkers", "toxic"], "kind": "arch", "width_cells": 4, "hint": [50, 46] },
+        { "id": "mid_to_ct", "between": ["mid", "mid_link"], "kind": "arch", "width_cells": 4, "hint": [37, 40] },
+        { "id": "link_connector", "between": ["mid_link", "connector"], "kind": "arch", "width_cells": 4, "hint": [37, 44] },
+        { "id": "z_stairs", "between": ["z_hall", "z_upper"], "kind": "arch", "width_cells": 6, "hint": [61, 30] },
+        { "id": "sunroom_door", "between": ["z_upper", "sunroom"], "kind": "door", "width_cells": 2, "hint": [68, 40] },
+        { "id": "toxic_ct", "between": ["toxic", "ct_spawn"], "kind": "arch", "width_cells": 4, "hint": [49, 56] },
+        { "id": "highway_ct", "between": ["highway", "ct_spawn"], "kind": "arch", "width_cells": 3, "hint": [30, 57] },
+        { "id": "connector_ct", "between": ["connector", "ct_spawn"], "kind": "arch", "width_cells": 5, "hint": [33, 56] }
+      ]
+    },
+
+    {
+      "id": "heaven",
+      "label": "Heaven",
+      "z": 3.6,
+      "height": 3.0,
+      "roof": false,
+      "railing": 1.15,
+      "internal_walls": false,
+      "spaces": [{ "id": "heaven", "label": "Heaven", "rect": [66, 50, 10, 8], "role": "balcony" }],
+      "portals": [
+        { "id": "heaven_open", "between": ["heaven", "__outside__"], "kind": "open", "width_cells": 3, "side": "S", "hint": [70, 50] }
+      ]
+    }
+  ],
+
+  "vertical_connections": [
+    {
+      "id": "heaven_stairs",
+      "label": "Stairs to Heaven",
+      "from_layer": "ground",
+      "to_layer": "heaven",
+      "from_cell": [70, 47],
+      "to_cell": [70, 53],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    },
+    {
+      "id": "highway_ramp",
+      "label": "Highway ramp",
+      "from_layer": "ground",
+      "to_layer": "ground",
+      "from_cell": [25, 48],
+      "to_cell": [25, 54],
+      "kind": "ramp",
+      "width": 3.0,
+      "direction": "N"
+    }
+  ],
+
+  "covers": [
+    { "id": "a_truck", "layer": "ground", "rect": [12, 36, 6, 3], "height": 2.4, "material": "vehicle", "label": "Truck" },
+    { "id": "a_forklift", "layer": "ground", "rect": [22, 40, 3, 2], "height": 1.5, "material": "vehicle", "label": "Forklift" },
+    { "id": "a_boxes", "layer": "ground", "rect": [10, 44, 3, 3], "height": 1.3, "material": "crate", "label": "A boxes" },
+    { "id": "a_default", "layer": "ground", "rect": [17, 44, 4, 2], "height": 1.0, "material": "crate", "label": "Default plant" },
+    { "id": "a_sandbags", "layer": "ground", "rect": [24, 34, 3, 2], "height": 1.1, "material": "crate", "label": "Sandbags" },
+    { "id": "quad_crates", "layer": "ground", "rect": [11, 53, 4, 3], "height": 1.35, "material": "crate", "label": "Quad crates" },
+    { "id": "highway_barrier", "layer": "ground", "rect": [27, 53, 2, 5], "height": 1.2, "material": "crate", "label": "Highway barrier" },
+    { "id": "garage_stack", "layer": "ground", "rect": [30, 22, 3, 3], "height": 2.0, "material": "crate", "label": "Garage stack" },
+    { "id": "main_barrels", "layer": "ground", "rect": [12, 14, 2, 2], "height": 1.05, "material": "barrel" },
+    { "id": "mid_boost", "layer": "ground", "rect": [36, 32, 2, 2], "height": 1.25, "material": "crate", "label": "Boost box" },
+    { "id": "white_box_prop", "layer": "ground", "rect": [48, 31, 3, 3], "height": 1.4, "material": "crate", "label": "White box" },
+    { "id": "checkers_crate", "layer": "ground", "rect": [52, 41, 2, 2], "height": 1.15, "material": "crate" },
+    { "id": "toxic_barrels", "layer": "ground", "rect": [48, 50, 3, 2], "height": 1.1, "material": "barrel", "label": "Toxic barrels" },
+    { "id": "z_crates", "layer": "ground", "rect": [60, 14, 3, 3], "height": 1.3, "material": "crate" },
+    { "id": "z_upper_stack", "layer": "ground", "rect": [64, 36, 2, 4], "height": 2.2, "material": "crate" },
+    { "id": "sunroom_crates", "layer": "ground", "rect": [70, 38, 3, 3], "height": 1.25, "material": "crate", "label": "Sunroom crates" },
+    { "id": "b_default", "layer": "ground", "rect": [62, 52, 4, 3], "height": 1.1, "material": "crate", "label": "B default" },
+    { "id": "b_boxes", "layer": "ground", "rect": [70, 58, 4, 3], "height": 1.4, "material": "crate", "label": "B boxes" },
+    { "id": "b_headshot", "layer": "ground", "rect": [58, 58, 3, 2], "height": 1.15, "material": "crate", "label": "Headshot box" },
+    { "id": "ct_block", "layer": "ground", "rect": [42, 62, 6, 4], "height": 4.5, "material": "crate", "label": "CT blocker" },
+    { "id": "t_block", "layer": "ground", "rect": [40, 6, 8, 6], "height": 4.5, "material": "crate", "label": "T blocker" },
+    { "id": "heaven_crate", "layer": "heaven", "rect": [72, 53, 2, 2], "height": 1.0, "material": "crate" }
+  ],
+
+  "gameplay": {
+    "mode": "bomb_defuse",
+    "move_speed": 4.6,
+    "markers": [
+      { "id": "t_spawn_pt", "layer": "ground", "cell": [32, 9], "kind": "attacker_spawn", "team": "attack", "label": "T Spawn" },
+      { "id": "ct_spawn_pt", "layer": "ground", "cell": [35, 66], "kind": "defender_spawn", "team": "defend", "label": "CT Spawn" },
+      { "id": "site_a", "layer": "ground", "cell": [15, 41], "kind": "site", "team": "neutral", "label": "A Site" },
+      { "id": "site_b", "layer": "ground", "cell": [66, 49], "kind": "site", "team": "neutral", "label": "B Site" },
+      { "id": "mid_pt", "layer": "ground", "cell": [40, 35], "kind": "poi", "team": "neutral", "label": "Mid" },
+      { "id": "vents_pt", "layer": "ground", "cell": [56, 34], "kind": "poi", "team": "neutral", "label": "Vents" },
+      { "id": "quad_pt", "layer": "ground", "cell": [17, 57], "kind": "poi", "team": "neutral", "label": "Quad" },
+      { "id": "heaven_pt", "layer": "heaven", "cell": [69, 55], "kind": "poi", "team": "neutral", "label": "Heaven" },
+      { "id": "sunroom_pt", "layer": "ground", "cell": [74, 42], "kind": "poi", "team": "neutral", "label": "Sunroom" }
+    ],
+    "required_routes": [
+      { "id": "t_to_a", "from": "t_spawn_pt", "to": "site_a", "min_routes": 2, "min_distance": 40, "max_distance": 170 },
+      { "id": "t_to_b", "from": "t_spawn_pt", "to": "site_b", "min_routes": 2, "min_distance": 40, "max_distance": 170 },
+      { "id": "t_to_mid", "from": "t_spawn_pt", "to": "mid_pt", "min_routes": 2, "max_distance": 90 },
+      { "id": "ct_to_a", "from": "ct_spawn_pt", "to": "site_a", "min_routes": 2, "max_distance": 90 },
+      { "id": "ct_to_b", "from": "ct_spawn_pt", "to": "site_b", "min_routes": 2, "max_distance": 90 },
+      { "id": "rotate_a_b", "from": "site_a", "to": "site_b", "min_routes": 2, "min_distance": 45 },
+      { "id": "mid_to_vents", "from": "mid_pt", "to": "vents_pt", "min_routes": 1, "max_distance": 50 },
+      { "id": "b_to_heaven", "from": "site_b", "to": "heaven_pt", "min_routes": 1, "max_distance": 45 },
+      { "id": "a_to_quad", "from": "site_a", "to": "quad_pt", "min_routes": 1, "max_distance": 40 },
+      { "id": "z_to_sunroom", "from": "t_spawn_pt", "to": "sunroom_pt", "min_routes": 1 }
+    ],
+    "no_spawn_los": [["t_spawn_pt", "ct_spawn_pt"]]
+  }
+}

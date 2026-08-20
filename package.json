@@ -1,0 +1,15 @@
+{
+  "name": "levelspec",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Semantic level specs compiled to validated, playable geometry.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./generate": "./src/generate/index.ts"
+  },
+  "scripts": {
+    "compile": "node tools/build.ts",
+    "gen": "node tools/generate.ts",
+    "test": "node --test 'tests/*.test.ts'"
+  }
+}

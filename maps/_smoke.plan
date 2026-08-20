@@ -1,0 +1,30 @@
+id: smoke_test
+name: Plan Format Smoke Test
+description: Exercises every feature of the plan format on one small map.
+grid: 2.0
+wall_thickness: 0.32
+
+layer ground z=0 height=5 roof=no
+
+legend
+  A  west_room    "West Room"     room
+  B  east_room    "East Room"     room   +1.6
+  C  corridor     "Corridor"      corridor
+  /  slope        "Ramp"          ramp
+  x  crates       "Crates"        cover=1.1 as=crate
+  S  spawn_pad    "Spawn"         spawn  mark=attacker_spawn team=attack
+  G  goal_pad     "Goal"          site   +1.6  mark=objective
+end
+
+plan
+######################
+#AAAAAA#####BBBBBBBB##
+#AAAAAA#####BBBBBBBB##
+#AAAxAA#####BBBBBGGG##
+#AAAAAA#####BBBBBGGG##
+#AAAAAACCC///BBBBBBB##
+#SSAAAA#####BBBBBBBB##
+######################
+end
+
+route spawn_pad goal_pad 1

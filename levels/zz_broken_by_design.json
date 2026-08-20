@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.1",
+  "id": "zz_broken_by_design",
+  "name": "Broken By Design",
+  "description": "A LevelSpec written to fail every gate at once. Nothing here is a compiler bug: it is the error channel working. Each defect is one an unconstrained generator produces routinely — a door between rooms that never touch, a room with no way in, a marker floating outside every space, a staircase with no room to run, a route that cannot meet its budget, cover buried in a wall, and two rooms claiming the same cells. Open the Report panel to read what comes back.",
+  "units": "meters",
+  "coordinate_system": "right-handed Z-up",
+  "grid": 1.0,
+  "wall_thickness": 0.22,
+  "floor_thickness": 0.2,
+  "expect_fail": true,
+  "player": { "radius": 0.35, "height": 1.8, "step": 0.45, "crouch": 1.1 },
+
+  "layers": [
+    {
+      "id": "ground",
+      "label": "Ground floor",
+      "z": 0.0,
+      "height": 3.2,
+      "spaces": [
+        { "id": "hall", "label": "Hall", "rect": [0, 0, 10, 8], "role": "room" },
+        { "id": "annex", "label": "Annex", "rect": [12, 0, 8, 8], "role": "room" },
+        { "id": "sealed_room", "label": "Sealed room", "rect": [0, 8, 10, 6], "role": "room" },
+        { "id": "overlapping_a", "label": "Overlap A", "rect": [22, 0, 8, 8], "role": "room" },
+        { "id": "overlapping_b", "label": "Overlap B", "rect": [26, 2, 8, 8], "role": "room" },
+        { "id": "stair_closet", "label": "Stair closet", "rect": [12, 8, 4, 6], "role": "stairwell" }
+      ],
+      "portals": [
+        { "id": "impossible_door", "between": ["hall", "annex"], "kind": "door", "width_cells": 1, "hint": [11, 4] },
+        { "id": "closet_door", "between": ["stair_closet", "annex"], "kind": "door", "width_cells": 1, "hint": [14, 8] },
+        { "id": "front_door", "between": ["hall", "__outside__"], "kind": "door", "width_cells": 2, "side": "S", "hint": [3, 0] }
+      ]
+    },
+    {
+      "id": "upper",
+      "label": "First floor",
+      "z": 3.4,
+      "height": 3.0,
+      "spaces": [{ "id": "attic", "label": "Attic", "rect": [12, 8, 4, 6], "role": "room" }],
+      "portals": []
+    }
+  ],
+
+  "vertical_connections": [
+    {
+      "id": "impossible_stairs",
+      "label": "Stairs with no run",
+      "from_layer": "ground",
+      "to_layer": "upper",
+      "from_cell": [13, 10],
+      "to_cell": [13, 10],
+      "kind": "stairs",
+      "width": 1.0,
+      "direction": "N"
+    }
+  ],
+
+  "covers": [
+    { "id": "cover_in_wall", "layer": "ground", "rect": [9, 2, 2, 3], "height": 1.2, "material": "crate", "label": "Cover buried in the east wall" }
+  ],
+
+  "gameplay": {
+    "mode": "bomb_defuse",
+    "move_speed": 4.6,
+    "markers": [
+      { "id": "spawn", "layer": "ground", "cell": [2, 2], "kind": "attacker_spawn", "team": "attack" },
+      { "id": "floating_marker", "layer": "ground", "cell": [60, 60], "kind": "defender_spawn", "team": "defend" },
+      { "id": "objective", "layer": "ground", "cell": [17, 4], "kind": "site", "team": "neutral" },
+      { "id": "sealed_marker", "layer": "ground", "cell": [4, 11], "kind": "poi", "team": "neutral" }
+    ],
+    "required_routes": [
+      { "id": "spawn_to_objective", "from": "spawn", "to": "objective", "min_routes": 2, "max_distance": 12 },
+      { "id": "spawn_to_sealed", "from": "spawn", "to": "sealed_marker", "min_routes": 1 },
+      { "id": "spawn_to_floating", "from": "spawn", "to": "floating_marker", "min_routes": 1 }
+    ]
+  }
+}

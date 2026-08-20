@@ -1,0 +1,68 @@
+id: cs_italy
+name: Italy
+description: Layout reconstruction of Italy, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
+source_image: Italy - Radar.png
+grid: 1.48
+wall_thickness: 0.32
+
+// TRACED DRAFT. The footprint is read from the radar; everything below
+// needs a human: rename the areas, set their elevations, mark the spawns
+// and sites, and delete any band that is really just shading.
+
+layer ground z=0 height=5 roof=no
+
+legend
+  A  area_a  "Area A"  lane   // rgb 80,58,32  value 0.32
+  B  area_b  "Area B"  lane   // rgb 83,72,37  value 0.33
+  C  area_c  "Area C"  lane   // rgb 91,85,63  value 0.36
+end
+
+plan
+............BBBBBBBBCCCCC.
+............BBBBBBBBCCCCC.
+............BBBBBBBBCCCCC.
+............BBBBBBBBCCCCC.
+............BBBBBBBBBBBCC.
+......BBBBBBBBBBBBBBBBBBC.
+......BBBBBBBBBBBBBBBBBBC.
+......BBBBBBAAA......BB...
+......BB...AAAA......BBB..
+......BB..AAAAA......BBB..
+......BBBBAAAAAAAAAABBBB..
+......BBBBAAAAAAAAAABBBB..
+BBBBBBBB.BBA.AA.......BB..
+BBBB..BBBBBB.AA.......AA..
+BBBA..BB.....AA.......AA..
+BBAAAABBAAAAAAA.......AA..
+BBAAAAAAAAAAAAA.......AA..
+BBAA...BB....AAAAAAA..AA..
+AAAA...BBB...AAAAAAA..AA..
+AAAA...BBB........AA..AA..
+AAAA....BB........AA..A...
+AAAA....BBBBBAAAAAAAAAAAA.
+AAAA....BBB......AAAAAAAA.
+AAAA....BBB......AA.....A.
+AAAAAAA..B.......AA.....A.
+.AAAAAA..A.......AA.....A.
+.....AA..AAAA...AAAAAAAAAA
+....AAA....AA...AAAAAAAA..
+....AAA....AA...AAAAAAAA..
+....AAA....AAAAAAAAAAAAA..
+....AAA....AAAA.AAAAAAAA..
+....AAA....AA...AAAAAAAAA.
+....AAA....AA...AAAAAAAAAA
+....AAA...AAA.............
+....AAA...AAA.............
+....AAAA..AAA.............
+.....AAA.AAAA.............
+.....AAAAAAAA.............
+.......AAAA...............
+......AAAAA...............
+....AAAAAAA...............
+....AAAAAAA...............
+....AAAAAAA...............
+....BAAAAAA...............
+....BAAAAAA...............
+........AA................
+end
+

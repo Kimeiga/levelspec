@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.1",
+  "id": "compiler_demo_hall",
+  "name": "Compiler Demo Hall",
+  "description": "A small three-storey building that exercises every compiler feature in one walk: shared-boundary walls, cut openings, soft and reinforced panels, a glass partition, barricadable windows, a rappel entry, stairs both up and down, a destructible hatch, and cover. Start here.",
+  "units": "meters",
+  "coordinate_system": "right-handed Z-up",
+  "grid": 1.0,
+  "wall_thickness": 0.22,
+  "floor_thickness": 0.2,
+  "player": { "radius": 0.35, "height": 1.8, "step": 0.45, "crouch": 1.1 },
+
+  "layers": [
+    {
+      "id": "basement",
+      "label": "Basement",
+      "z": -3.2,
+      "height": 3.0,
+      "spaces": [
+        { "id": "cellar", "label": "Cellar", "rect": [8, 0, 10, 12], "role": "room" },
+        { "id": "vault", "label": "Vault", "rect": [18, 0, 8, 6], "role": "site" }
+      ],
+      "portals": [
+        { "id": "cellar_vault_door", "between": ["cellar", "vault"], "kind": "door", "width_cells": 1, "hint": [18, 3] }
+      ],
+      "wall_overrides": [{ "between": ["cellar", "vault"], "type": "reinforced" }]
+    },
+
+    {
+      "id": "ground",
+      "label": "Ground floor",
+      "z": 0.0,
+      "height": 3.2,
+      "roof": false,
+      "spaces": [
+        { "id": "forecourt", "label": "Forecourt", "rect": [-8, -8, 42, 8], "role": "exterior", "extra": [[-8, 0, 8, 32], [-8, 15, 16, 8]] },
+        { "id": "foyer", "label": "Foyer", "rect": [0, 0, 8, 6], "role": "room" },
+        { "id": "atrium", "label": "Atrium", "rect": [8, 0, 10, 12], "role": "room" },
+        { "id": "office", "label": "Office", "rect": [18, 0, 8, 6], "role": "room" },
+        { "id": "garage", "label": "Garage", "rect": [18, 6, 8, 6], "role": "room" },
+        { "id": "store", "label": "Storage", "rect": [0, 6, 8, 6], "role": "room" },
+        { "id": "corridor", "label": "Back corridor", "rect": [0, 12, 26, 3], "role": "corridor" },
+        { "id": "stairwell", "label": "Stairwell", "rect": [8, 15, 6, 8], "role": "stairwell" }
+      ],
+      "portals": [
+        { "id": "front_door", "between": ["foyer", "forecourt"], "kind": "door", "width_cells": 2, "hint": [3, 0] },
+        { "id": "foyer_atrium", "between": ["foyer", "atrium"], "kind": "arch", "width_cells": 2, "hint": [8, 2] },
+        { "id": "foyer_store", "between": ["foyer", "store"], "kind": "door", "width_cells": 1, "hint": [2, 6] },
+        { "id": "store_atrium", "between": ["store", "atrium"], "kind": "open", "hint": [8, 9] },
+        { "id": "atrium_office", "between": ["atrium", "office"], "kind": "door", "width_cells": 1, "hint": [18, 2] },
+        { "id": "atrium_garage", "between": ["atrium", "garage"], "kind": "door", "width_cells": 1, "hint": [18, 9] },
+        { "id": "corridor_store", "between": ["corridor", "store"], "kind": "door", "width_cells": 1, "hint": [3, 12] },
+        { "id": "corridor_atrium", "between": ["corridor", "atrium"], "kind": "arch", "width_cells": 3, "hint": [12, 12] },
+        { "id": "corridor_garage", "between": ["corridor", "garage"], "kind": "door", "width_cells": 1, "hint": [22, 12] },
+        { "id": "corridor_stairs", "between": ["corridor", "stairwell"], "kind": "open", "hint": [10, 15] },
+        { "id": "office_window", "between": ["office", "__outside__"], "kind": "window", "width_cells": 2, "side": "E", "barricade": true },
+        { "id": "garage_rappel", "between": ["garage", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "E", "barricade": true },
+        { "id": "atrium_south_window", "between": ["atrium", "forecourt"], "kind": "window", "width_cells": 3, "hint": [12, 0] },
+        { "id": "stairwell_back_door", "between": ["stairwell", "forecourt"], "kind": "door", "width_cells": 1, "hint": [8, 19] }
+      ],
+      "wall_overrides": [
+        { "between": ["atrium", "garage"], "type": "soft" },
+        { "between": ["atrium", "office"], "type": "reinforced" },
+        { "between": ["store", "atrium"], "type": "glass" },
+        { "between": ["corridor", "atrium"], "type": "soft" }
+      ]
+    },
+
+    {
+      "id": "upper",
+      "label": "First floor",
+      "z": 3.4,
+      "height": 3.0,
+      "spaces": [
+        { "id": "bedroom", "label": "Bedroom", "rect": [0, 0, 10, 12], "role": "room" },
+        { "id": "lounge", "label": "Lounge", "rect": [10, 0, 16, 12], "role": "room" },
+        { "id": "upper_hall", "label": "Upper hall", "rect": [0, 12, 26, 3], "role": "corridor" },
+        { "id": "landing", "label": "Landing", "rect": [8, 15, 6, 8], "role": "stairwell" }
+      ],
+      "portals": [
+        { "id": "bed_lounge", "between": ["bedroom", "lounge"], "kind": "door", "width_cells": 1, "hint": [10, 4] },
+        { "id": "hall_bed", "between": ["upper_hall", "bedroom"], "kind": "door", "width_cells": 1, "hint": [4, 12] },
+        { "id": "hall_lounge", "between": ["upper_hall", "lounge"], "kind": "arch", "width_cells": 2, "hint": [18, 12] },
+        { "id": "hall_landing", "between": ["upper_hall", "landing"], "kind": "open", "hint": [10, 15] },
+        { "id": "lounge_window_e", "between": ["lounge", "__outside__"], "kind": "rappel_window", "width_cells": 2, "side": "E", "barricade": true },
+        { "id": "bedroom_window_w", "between": ["bedroom", "__outside__"], "kind": "window", "width_cells": 2, "side": "W", "barricade": true },
+        { "id": "lounge_window_s", "between": ["lounge", "__outside__"], "kind": "window", "width_cells": 3, "side": "S" }
+      ],
+      "wall_overrides": [
+        { "between": ["bedroom", "lounge"], "type": "soft" },
+        { "between": ["upper_hall", "lounge"], "type": "soft" }
+      ]
+    }
+  ],
+
+  "vertical_connections": [
+    {
+      "id": "cellar_stairs",
+      "label": "Cellar stairs",
+      "from_layer": "basement",
+      "to_layer": "ground",
+      "from_cell": [9, 6],
+      "to_cell": [9, 10],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    },
+    {
+      "id": "main_stairs",
+      "label": "Main stairs",
+      "from_layer": "ground",
+      "to_layer": "upper",
+      "from_cell": [9, 16],
+      "to_cell": [9, 21],
+      "kind": "stairs",
+      "width": 2.0,
+      "direction": "N"
+    },
+    {
+      "id": "lounge_hatch",
+      "label": "Lounge hatch",
+      "from_layer": "ground",
+      "to_layer": "upper",
+      "from_cell": [15, 4],
+      "to_cell": [15, 4],
+      "kind": "hatch",
+      "size_cells": [1, 1],
+      "destructible": true
+    },
+    {
+      "id": "vault_ladder",
+      "label": "Vault ladder",
+      "from_layer": "basement",
+      "to_layer": "ground",
+      "from_cell": [22, 3],
+      "to_cell": [22, 3],
+      "kind": "ladder"
+    }
+  ],
+
+  "covers": [
+    { "id": "atrium_crates", "layer": "ground", "rect": [11, 4, 2, 2], "height": 1.2, "material": "crate", "label": "Crates" },
+    { "id": "garage_barrels", "layer": "ground", "rect": [20, 8, 2, 1], "height": 1.0, "material": "barrel", "label": "Barrels" },
+    { "id": "office_desk", "layer": "ground", "rect": [20, 1, 3, 1], "height": 0.85, "material": "desk", "label": "Desk" },
+    { "id": "lounge_sofa", "layer": "upper", "rect": [13, 3, 3, 1], "height": 0.9, "material": "desk", "label": "Sofa" },
+    { "id": "cellar_shelf", "layer": "basement", "rect": [13, 9, 3, 1], "height": 1.9, "material": "crate", "label": "Shelving" }
+  ],
+
+  "gameplay": {
+    "mode": "bomb_defuse",
+    "move_speed": 4.6,
+    "markers": [
+      { "id": "attacker_front", "layer": "ground", "cell": [2, 2], "kind": "attacker_spawn", "team": "attack", "label": "Front entry" },
+      { "id": "attacker_back", "layer": "ground", "cell": [11, 21], "kind": "attacker_spawn", "team": "attack", "label": "Stairwell entry" },
+      { "id": "defender_vault", "layer": "basement", "cell": [22, 3], "kind": "defender_spawn", "team": "defend", "label": "Vault anchor" },
+      { "id": "site_vault", "layer": "basement", "cell": [21, 2], "kind": "site", "team": "neutral", "label": "Objective" },
+      { "id": "site_lounge", "layer": "upper", "cell": [20, 5], "kind": "site", "team": "neutral", "label": "Upper objective" }
+    ],
+    "required_routes": [
+      { "id": "front_to_vault", "from": "attacker_front", "to": "site_vault", "min_routes": 2, "max_distance": 70 },
+      { "id": "back_to_lounge", "from": "attacker_back", "to": "site_lounge", "min_routes": 2, "max_distance": 70 },
+      { "id": "front_to_lounge", "from": "attacker_front", "to": "site_lounge", "min_routes": 2 }
+    ],
+    "no_spawn_los": [["attacker_front", "site_lounge"]]
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+generated/
+*.log
+.DS_Store
+
+# Scratch tools written during a session, never part of the library.
+tools/_*.ts
