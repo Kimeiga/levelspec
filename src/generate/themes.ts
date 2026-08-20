@@ -63,6 +63,38 @@ export interface MapLook {
   daylight: boolean;
   /** One line on what the place is made of, for the hand-authored entries. */
   look?: string;
+  /**
+   * What stands on this map's horizon, by name.
+   *
+   * The one part of the surroundings the floorplan cannot imply: no
+   * arrangement of the space around Nuke will ever produce a cooling tower.
+   * See LANDMARKS in the game's scenery for the names that build something.
+   */
+  skyline?: string[];
+  /**
+   * How the surrounding buildings are fenestrated.
+   *
+   * `punched` is small dark openings in a solid wall — an old town. `banded`
+   * is continuous glazing — offices, control rooms, anything post-war.
+   * `industrial` is ribbed cladding with hardly any openings at all. It is the
+   * single cheapest thing that stops two maps of the same colour reading as
+   * the same place.
+   */
+  facade?: 'punched' | 'banded' | 'industrial';
+  /** Whether the surrounding roofs are flat or tiled and pitched. */
+  roofs?: 'flat' | 'pitched';
+  /**
+   * Which building types the surrounding town is made of.
+   *
+   * Names from the game's building vocabulary — `setback`, `tower`, `drum`,
+   * `chamfer`, `curved`, `pagoda`, `sawtooth`, `barrel`, `signboard`,
+   * `helipad`, `gable`, `arcade`. A hill town and a rail yard and a Tokyo
+   * street corner are different lists, which is most of what stops them
+   * reading as the same place in different colours.
+   */
+  blocks?: string[];
+  /** The colour signage, glazing bands and roof tiles are picked out in. */
+  accent?: number;
   curated?: boolean;
 }
 
@@ -79,6 +111,18 @@ export interface Theme {
   surface?: { roughness: number; metalness: number };
   /** Size of a masonry unit in metres — what makes stone read unlike panelling. */
   gridScale?: number;
+  /** What stands on the horizon; see MapLook.skyline. */
+  skyline?: string[];
+  /** How the surrounding buildings are fenestrated; see MapLook.facade. */
+  facade?: 'punched' | 'banded' | 'industrial';
+  /** Whether the surrounding roofs are flat or tiled and pitched. */
+  roofs?: 'flat' | 'pitched';
+  /** Which building types the surrounding town is made of; see MapLook.blocks. */
+  blocks?: string[];
+  /** The colour signage, glazing bands and roof tiles are picked out in. */
+  accent?: number;
+  /** Whether this map is lit by the sun; signage only glows when it is not. */
+  daylight?: boolean;
 }
 
 const base = (over: Partial<ThemePalette>): ThemePalette => ({

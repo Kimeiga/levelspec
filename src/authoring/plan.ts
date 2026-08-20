@@ -759,6 +759,7 @@ function applyDirectives(
         break;
       }
       case 'stairs':
+      case 'ramp':
       case 'ladder':
       case 'hatch': {
         // `stairs <fromLayer> <x>,<y> -> <toLayer> <x>,<y> [width]`

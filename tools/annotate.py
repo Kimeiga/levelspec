@@ -75,28 +75,59 @@ def main():
                     help="comma-separated indices of PORTALS to leave out")
     args = ap.parse_args()
 
-    grid, w, h, header = read_plan(args.traced)
-    # The plan is written north-first; the spec places seeds with y counting up
-    # from the south, matching how a radar is read.
-    floor = [[grid[h - 1 - j][i] != "." for i in range(w)] for j in range(h)]
-
     spec = importlib.util.spec_from_file_location("mapspec", args.spec)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
 
-    owner = assign(floor, w, h, [(a["id"], a["seeds"]) for a in mod.AREAS])
+    # A map is one layer unless it says otherwise. A multi-storey spec lists
+    # its layers, each naming the traced plan that supplies its footprint —
+    # Nuke's two radars are two separate traces of the same building.
+    layers = getattr(mod, "LAYERS", None) or [
+        {"id": "ground", "traced": None, "z": 0,
+         "height": getattr(mod, "LAYER_HEIGHT", 6.0), "roof": False}
+    ]
+    base_dir = os.path.dirname(os.path.abspath(args.traced))
+
+    def traced_for(spec_layer):
+        if not spec_layer.get("traced"):
+            return args.traced
+        return os.path.join(base_dir, spec_layer["traced"] + ".plan")
+
+    grid, w, h, header = read_plan(traced_for(layers[0]))
+
+    # Everything below is done once per layer. `state` carries what each layer
+    # produced so the legend, the plan block and the portal checks can all be
+    # written out together at the end.
+    state = []
+    for spec_layer in layers:
+        lgrid, lw, lh, lheader = read_plan(traced_for(spec_layer))
+        # The plan is written north-first; the spec places seeds with y counting
+        # up from the south, matching how a radar is read.
+        lfloor = [[lgrid[lh - 1 - j][i] != "." for i in range(lw)] for j in range(lh)]
+        mine = [a for a in mod.AREAS if a.get("layer", layers[0]["id"]) == spec_layer["id"]]
+        lowner = assign(lfloor, lw, lh, [(a["id"], a["seeds"]) for a in mine])
+        state.append({
+            "spec": spec_layer, "grid": lgrid, "w": lw, "h": lh,
+            "floor": lfloor, "owner": lowner, "areas": mine,
+        })
+
+    floor, owner = state[0]["floor"], state[0]["owner"]
+    w, h = state[0]["w"], state[0]["h"]
     unassigned = sum(
-        1 for j in range(h) for i in range(w) if floor[j][i] and owner[j][i] is None
+        1 for st in state
+        for j in range(st["h"]) for i in range(st["w"])
+        if st["floor"][j][i] and st["owner"][j][i] is None
     )
 
     # A seed that lands on void claims nothing, and the area silently vanishes
     # — which then surfaces as an incomprehensible error about an unknown area
     # in some directive that mentions it. Say so here instead.
     got = {}
-    for j in range(h):
-        for i in range(w):
-            if owner[j][i]:
-                got[owner[j][i]] = got.get(owner[j][i], 0) + 1
+    for st in state:
+        for j in range(st["h"]):
+            for i in range(st["w"]):
+                if st["owner"][j][i]:
+                    got[st["owner"][j][i]] = got.get(st["owner"][j][i], 0) + 1
     missing = [a["id"] for a in mod.AREAS if a["id"] not in got]
     if missing:
         print(
@@ -106,24 +137,29 @@ def main():
         for a in mod.AREAS:
             if a["id"] not in missing:
                 continue
+            st = next(
+                (t for t in state
+                 if a.get("layer", layers[0]["id"]) == t["spec"]["id"]),
+                state[0],
+            )
             for (x, y, rw, rh) in a["seeds"]:
                 near = [
                     (i, j)
-                    for j in range(max(0, y - 6), min(h, y + rh + 6))
-                    for i in range(max(0, x - 6), min(w, x + rw + 6))
-                    if floor[j][i]
+                    for j in range(max(0, y - 6), min(st["h"], y + rh + 6))
+                    for i in range(max(0, x - 6), min(st["w"], x + rw + 6))
+                    if st["floor"][j][i]
                 ]
                 hint = f"nearest floor around ({x},{y}): {near[:4]}" if near else "no floor within six cells"
                 print(f"  {a['id']} seed ({x},{y},{rw},{rh}) — {hint}", file=sys.stderr)
         sys.exit(1)
 
-    by_id = {a["id"]: a for a in mod.AREAS}
-    chars = {}
     pool = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz"
-    for n, a in enumerate(mod.AREAS):
-        chars[a["id"]] = pool[n]
+    chars = {}
+    for st in state:
+        for n, a in enumerate(st["areas"]):
+            chars[a["id"]] = pool[n]
 
-    def interior(i, j, own):
+    def interior(i, j, own, floor=None, owner=None, w=None, h=None):
         """
         True when a cell and all eight of its neighbours belong to one area.
 
@@ -148,26 +184,36 @@ def main():
     for n, r in enumerate(getattr(mod, "RAMPS", [])):
         extra[r["id"]] = "/\\~^|:;,"[n]
 
-    out = [[("." if not floor[j][i] else chars[owner[j][i]]) for i in range(w)] for j in range(h)]
-    # Ramps are meant to cross a boundary, so they are painted as written.
-    for item in getattr(mod, "RAMPS", []):
-        for (x, y, rw, rh) in item["at"]:
-            for j in range(y, y + rh):
-                for i in range(x, x + rw):
-                    if 0 <= i < w and 0 <= j < h and floor[j][i]:
-                        out[j][i] = extra[item["id"]]
-
     dropped = 0
-    for item in getattr(mod, "COVER", []):
-        for (x, y, rw, rh) in item["at"]:
-            for j in range(y, y + rh):
-                for i in range(x, x + rw):
-                    if not (0 <= i < w and 0 <= j < h) or not floor[j][i]:
-                        continue
-                    if interior(i, j, owner[j][i]):
-                        out[j][i] = extra[item["id"]]
-                    else:
-                        dropped += 1
+    for st in state:
+        lw, lh, lfloor, lowner = st["w"], st["h"], st["floor"], st["owner"]
+        lid = st["spec"]["id"]
+        out = [
+            [("." if not lfloor[j][i] else chars[lowner[j][i]]) for i in range(lw)]
+            for j in range(lh)
+        ]
+        # Ramps are meant to cross a boundary, so they are painted as written.
+        for item in getattr(mod, "RAMPS", []):
+            if item.get("layer", layers[0]["id"]) != lid:
+                continue
+            for (x, y, rw, rh) in item["at"]:
+                for j in range(y, y + rh):
+                    for i in range(x, x + rw):
+                        if 0 <= i < lw and 0 <= j < lh and lfloor[j][i]:
+                            out[j][i] = extra[item["id"]]
+        for item in getattr(mod, "COVER", []):
+            if item.get("layer", layers[0]["id"]) != lid:
+                continue
+            for (x, y, rw, rh) in item["at"]:
+                for j in range(y, y + rh):
+                    for i in range(x, x + rw):
+                        if not (0 <= i < lw and 0 <= j < lh) or not lfloor[j][i]:
+                            continue
+                        if interior(i, j, lowner[j][i], lfloor, lowner, lw, lh):
+                            out[j][i] = extra[item["id"]]
+                        else:
+                            dropped += 1
+        st["out"] = out
 
     L = []
     L.append(f"id: {mod.ID}")
@@ -176,23 +222,39 @@ def main():
     L.append(f"grid: {header.get('grid', '2.0')}")
     L.append(f"wall_thickness: {getattr(mod, 'WALL_THICKNESS', 0.34)}")
     L.append("")
-    L.append(f"layer ground z=0 height={getattr(mod, 'LAYER_HEIGHT', 6.0)} roof=no")
-    L.append("")
-    L.append("legend")
-    for a in mod.AREAS:
-        z = f'  {a["z"]:+.2f}' if a.get("z") else ""
-        L.append(f'  {chars[a["id"]]}  {a["id"]:<17} "{a["label"]}"  {a.get("role","lane")}{z}  h={a["ceiling"]}')
-    for r in getattr(mod, "RAMPS", []):
-        L.append(f'  {extra[r["id"]]}  {r["id"]:<17} "{r["label"]}"  ramp')
-    for c in getattr(mod, "COVER", []):
-        L.append(f'  {extra[c["id"]]}  {c["id"]:<17} "{c["label"]}"  cover={c["height"]} as={c.get("as","crate")}')
-    L.append("end")
-    L.append("")
-    L.append("plan")
-    for j in range(h - 1, -1, -1):
-        L.append("".join(out[j]).rstrip())
-    L.append("end")
-    L.append("")
+
+    for st in state:
+        sl = st["spec"]
+        roof = "yes" if sl.get("roof") else "no"
+        height = sl.get("height", getattr(mod, "LAYER_HEIGHT", 6.0))
+        L.append(f'layer {sl["id"]} z={sl.get("z", 0)} height={height} roof={roof}')
+        L.append("")
+        L.append("legend")
+        for a in st["areas"]:
+            z = f'  {a["z"]:+.2f}' if a.get("z") else ""
+            L.append(
+                f'  {chars[a["id"]]}  {a["id"]:<17} "{a["label"]}"  '
+                f'{a.get("role","lane")}{z}  h={a["ceiling"]}'
+            )
+        for r in getattr(mod, "RAMPS", []):
+            if r.get("layer", layers[0]["id"]) != sl["id"]:
+                continue
+            L.append(f'  {extra[r["id"]]}  {r["id"]:<17} "{r["label"]}"  ramp')
+        for c in getattr(mod, "COVER", []):
+            if c.get("layer", layers[0]["id"]) != sl["id"]:
+                continue
+            L.append(
+                f'  {extra[c["id"]]}  {c["id"]:<17} "{c["label"]}"  '
+                f'cover={c["height"]} as={c.get("as","crate")}'
+            )
+        L.append("end")
+        L.append("")
+        L.append("plan")
+        for j in range(st["h"] - 1, -1, -1):
+            L.append("".join(st["out"][j]).rstrip())
+        L.append("end")
+        L.append("")
+
     # Openings.
     #
     # Two areas that touch are open to each other along the whole run where
@@ -209,14 +271,21 @@ def main():
     # flood decides where regions meet, and it does not always meet where a
     # seed layout implies.
     edges = {}
-    for j in range(h):
-        for i in range(w):
-            if not floor[j][i]:
-                continue
-            for di, dj in ((1, 0), (0, 1)):
-                x, y = i + di, j + dj
-                if 0 <= x < w and 0 <= y < h and floor[y][x] and owner[y][x] != owner[j][i]:
-                    edges.setdefault(frozenset((owner[j][i], owner[y][x])), set()).add((i, j))
+    for st in state:
+        lw, lh, lfloor, lowner = st["w"], st["h"], st["floor"], st["owner"]
+        for j in range(lh):
+            for i in range(lw):
+                if not lfloor[j][i]:
+                    continue
+                for di, dj in ((1, 0), (0, 1)):
+                    x, y = i + di, j + dj
+                    if (
+                        0 <= x < lw and 0 <= y < lh and lfloor[y][x]
+                        and lowner[y][x] != lowner[j][i]
+                    ):
+                        edges.setdefault(
+                            frozenset((lowner[j][i], lowner[y][x])), set()
+                        ).add((i, j))
 
     def runs(cells):
         """How many connected pieces a boundary is made of."""
@@ -268,6 +337,17 @@ def main():
         L.append(f'{pr.get("kind", "door")} {a} {b} {width}')
         emitted += 1
     if emitted:
+        L.append("")
+
+    for v in getattr(mod, "STAIRS", []):
+        fx, fy = v["from_at"]
+        tx, ty = v["to_at"]
+        w_ = f' {v["width"]}' if v.get("width") else ""
+        L.append(
+            f'{v.get("kind", "stairs")} {v["from"]} {fx},{fy} -> '
+            f'{v["to"]} {tx},{ty}{w_}'
+        )
+    if getattr(mod, "STAIRS", []):
         L.append("")
 
     for d in getattr(mod, "DIRECTIVES", []):

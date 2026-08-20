@@ -1,0 +1,101 @@
+id: cs_train
+name: Train
+description: Train. Footprint traced from the published radar, then annotated by hand with the callouts, elevations and rolling stock the radar cannot carry. A topology reconstruction - proportions are approximate and no assets from the shipped game are used.
+grid: 1.5
+wall_thickness: 0.34
+
+layer ground z=0 height=6.6 roof=no
+
+legend
+  A  t_spawn           "T Spawn"  spawn  +1.40  h=7.4
+  B  upper_yard        "Upper"  lane  +1.40  h=8.6
+  C  t_con             "T Connector"  corridor  +1.05  h=4.6
+  D  ivy               "Ivy"  lane  +1.05  h=6.4
+  E  popdog            "Popdog"  corridor  +0.70  h=4.2
+  F  ladder            "Ladder Room"  stairwell  +0.35  h=5.0
+  G  b_site            "B Site"  site  +0.70  h=8.6
+  H  b_halls           "Halls"  lane  +0.70  h=6.4
+  J  z                 "Z"  corridor  +1.05  h=4.4
+  K  connector         "Connector"  corridor  +1.05  h=4.8
+  L  ct_spawn          "CT Spawn"  spawn  +1.05  h=7.4
+  M  ct_ramp           "Ramp"  lane  +0.70  h=5.6
+  N  a_site            "A Site"  site  h=9.2
+  P  a_main            "Main Hall"  lane  h=8.2
+  Q  electrical        "Electrical"  room  +0.35  h=5.2
+  R  a_ramp            "A Ramp"  lane  +0.35  h=5.4
+  S  alley             "Alley"  corridor  +0.35  h=4.6
+  0  blue_train        "Blue Train"  cover=1.9 as=vehicle
+  1  red_train         "Red Train"  cover=1.9 as=vehicle
+  2  yellow_train      "Yellow Train"  cover=1.9 as=vehicle
+  3  orange_train      "Orange Train"  cover=1.9 as=vehicle
+  4  bomb_train        "Bomb Train"  cover=1.9 as=vehicle
+  5  b_wagon           "Wagon"  cover=1.9 as=vehicle
+  6  b_flat            "Flatbed"  cover=1.3 as=crate
+  7  green_boxes       "Green Boxes"  cover=1.4 as=crate
+end
+
+plan
+.....................BBBBB........CCC.JJJJ......
+.....................BBBBBBCCCCCCCCCCCJJJJ......
+...................BBBBBBBBCCCCCCCCCCCJJJJ......
+................BBBBBBBBBBCCCC.CCCCCCJJJJJ......
+AAAAAAAAAAAAADDDDBBBBBBBBCCCCC..CC..JJJJJJ......
+AAAAAAAAAAAADDDDDDDBBB....CCCC........JJ........
+AAAAAAAAAAADDDDDDDDDBB....CCCC........JJJ.......
+...AAAAA......DDDDDD.......CC.........JJJ.......
+..............DDDDDD..................JJJ.......
+..............DDDDDD..................JJ........
+..............DDDDDD..................JJ........
+..............DDDDDD..................JJ........
+..............DDDDDD..................JJ........
+..............DDDDDDDDGGGG.....GGGK....JJJ......
+..............DDDEEEEEGGGGGGGGGGGGK.KKKJJJJJJJ..
+..............EEEEEEEEGGGGGGGGGGGGKKKKKKKJJJJL..
+..............EEEEEEEEGG4444GGGGGGKKKKKKKKKKLL..
+..............EEEEEEEEEGGGGGGGGGGGK.KKKKKKKKLL..
+..............EEEEEEEEEGGGGGGGGGGGG.KK......LL..
+..............EE.EEEEEEGGGGGG5555GKKKK......LL..
+..............EE.EEEEHHHHGGGGGGGGGKKKK......LL..
+..............FE.EEEHHHHHHGGGGGGGGK.KKK....LLL..
+..............FF.EEHHHHHHHHHGGGGGGKKKKLLLLLLLLL.
+..............FFEEHHHHHHHHHHHGGGGGKKKKLLLLLLLLM.
+..............FFFEHHHHHHHHHHHGGGGGKKKKLLLLLLMMM.
+..........FFF.FFFFFHHHHHHH..HGG..GK..........MMM
+..........FFFFFFFFFFHHH.....HNN..GK...........MM
+..........FF..F....F........NNN...............MM
+..........FFFFFFFFFF........NNN...............MM
+...........FFFFFFFFF........NNNNNNNN..........MM
+............RRFR............NNNNNNNN..........MM
+............RRRR.....PPPPPPPNNNNNNNNNNN..QQ...QQ
+............RRRRRRRPPPPPPPPPNNNNNNNNNNNNQQQQ..QQ
+............RRRR....PPPPPPPNNNNNNNNNNNNN.QQQ.QQQ
+............RRRR....PPP00PPN0N111111NNNN.QQQQQQQ
+............RRRR....PPPPPPNNNNNNNNNNNNNN.QQ77QQQ
+............RRRR....PPPPPNNNNNNNNNNNNNNN.QQ77Q..
+............RRRR....SPP2PN222NNNNNNNNNNN.QQQQQQQ
+............RRRR....SSPPPNNNNNNNNNNNNNNN.QQQQQQQ
+............RRRR....SSSPPNNNNNNNNNNNNNNN.QQQQQQQ
+............RRRS....SSSSPNN33333NNNNNNNN.QQQQQQQ
+............RSSS....SSSSSSNNNNNNNNNNNNNQ.QQQQQQQ
+..............SSSSSSSSSSS....NNNNNNNNNQQQQQQQQQQ
+..............SSSSSSSSSSS....NNNNNNNNNQQQQQQQQQQ
+end
+
+wall popdog ivy
+door popdog ivy 2
+wall ladder popdog
+door ladder popdog 2
+wall connector z
+arch connector z 3
+wall alley a_ramp
+arch alley a_ramp full
+wall t_con upper_yard
+arch t_con upper_yard 3
+
+mark attacker_spawn t_spawn attack "T Spawn"
+mark defender_spawn ct_spawn defend "CT Spawn"
+mark site a_site neutral "A"
+mark site b_site neutral "B"
+
+route t_spawn a_site 2
+route t_spawn b_site 2

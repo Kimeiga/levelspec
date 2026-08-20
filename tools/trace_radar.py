@@ -254,6 +254,13 @@ def main():
     ap.add_argument("--bg-tol", type=float, default=26.0, help="colour distance that still counts as background")
     ap.add_argument("--alpha-cut", type=float, default=40.0)
     ap.add_argument("--smooth", type=int, default=3)
+    ap.add_argument(
+        "--no-crop",
+        action="store_true",
+        help="keep the whole canvas instead of cropping to the floor. Two radars "
+        "of the same map — Nuke's upper and lower — only line up cell for cell "
+        "if they are cut from the same box, and the canvas is the box they share.",
+    )
     ap.add_argument("--min-band", type=float, default=0.03,
                     help="smallest connected piece of a band, as a fraction of the map")
     args = ap.parse_args()
@@ -263,7 +270,8 @@ def main():
     map_id = args.id or "cs_" + map_name.lower().replace(" ", "_").replace("-", "_")
 
     _, rgb, mask = load_floor_mask(args.image, args.white_cut, args.alpha_cut, args.bg_tol)
-    rgb, mask = crop_to_content(rgb, mask)
+    if not args.no_crop:
+        rgb, mask = crop_to_content(rgb, mask)
     occ, col = downsample(rgb, mask, args.cells, args.fill)
     occ = largest_component(occ)
     band, centres = band_colours(col, occ, args.bands)

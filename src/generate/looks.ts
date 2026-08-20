@@ -11,15 +11,15 @@ export const LOOKS: Record<string, MapLook> = {
  "747": {
   "roles": {
    "cover": 34064,
-   "exterior_wall": 7697028,
-   "floor": 4406865,
+   "exterior_wall": 7762564,
+   "floor": 5327970,
    "glass": 1511985,
    "ramp": 9342361,
-   "riser": 4210257,
-   "roof": 2564910,
+   "riser": 5262178,
+   "roof": 2433838,
    "soft_panel": 34064,
-   "stair": 9802912,
-   "static_hard": 8816020
+   "stair": 9868448,
+   "static_hard": 8881556
   },
   "sky": 1315362,
   "fog": 1249566,
@@ -39,20 +39,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "helipad",
+   "sawtooth",
+   "drum"
+  ],
+  "accent": 42004
  },
  "abbey": {
   "roles": {
    "cover": 4757488,
-   "exterior_wall": 12363931,
+   "exterior_wall": 12363675,
    "floor": 4803651,
    "glass": 13033467,
    "ramp": 13483959,
    "riser": 5329736,
    "roof": 3356206,
    "soft_panel": 6662902,
-   "stair": 13418680,
-   "static_hard": 13549752
+   "stair": 13418424,
+   "static_hard": 13549496
   },
   "sky": 8235741,
   "fog": 6789328,
@@ -72,20 +84,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "agency": {
   "roles": {
    "cover": 3695000,
-   "exterior_wall": 6186093,
+   "exterior_wall": 6186349,
    "floor": 4605513,
    "glass": 8625608,
    "ramp": 7239295,
    "riser": 5329237,
    "roof": 4013632,
    "soft_panel": 4618686,
-   "stair": 7568261,
-   "static_hard": 6910330
+   "stair": 7568517,
+   "static_hard": 6910586
   },
   "sky": 6256800,
   "fog": 5794957,
@@ -105,20 +131,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "airstrip": {
   "roles": {
    "cover": 11563529,
-   "exterior_wall": 9802877,
+   "exterior_wall": 9802621,
    "floor": 12498333,
    "glass": 11183018,
    "ramp": 10921361,
-   "riser": 13551798,
-   "roof": 10457198,
+   "riser": 13551542,
+   "roof": 10458478,
    "soft_panel": 14717191,
-   "stair": 11184534,
-   "static_hard": 10592395
+   "stair": 11184278,
+   "static_hard": 10592139
   },
   "sky": 8617347,
   "fog": 7762294,
@@ -138,20 +179,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "ali": {
   "roles": {
    "cover": 6900763,
-   "exterior_wall": 5722434,
+   "exterior_wall": 6906447,
    "floor": 10194036,
    "glass": 6314560,
-   "ramp": 6314571,
-   "riser": 11246726,
-   "roof": 7496786,
+   "ramp": 6380364,
+   "riser": 11246982,
+   "roof": 7496274,
    "soft_panel": 7952158,
-   "stair": 6643279,
-   "static_hard": 6445899
+   "stair": 6643535,
+   "static_hard": 7629912
   },
   "sky": 4604726,
   "fog": 4078641,
@@ -171,20 +227,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "alley1": {
   "roles": {
    "cover": 6717445,
-   "exterior_wall": 6187567,
-   "floor": 5263167,
+   "exterior_wall": 7962424,
+   "floor": 6381644,
    "glass": 987655,
-   "ramp": 5595182,
-   "riser": 5328958,
-   "roof": 3025700,
+   "ramp": 6780216,
+   "riser": 6446667,
+   "roof": 3026212,
    "soft_panel": 7374080,
-   "stair": 5727019,
-   "static_hard": 7043125
+   "stair": 7436597,
+   "static_hard": 8883519
   },
   "sky": 658439,
   "fog": 592390,
@@ -204,20 +274,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.06
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "alleyway": {
   "roles": {
    "cover": 12261136,
-   "exterior_wall": 4148058,
-   "floor": 3625560,
+   "exterior_wall": 5004651,
+   "floor": 4416619,
    "glass": 462866,
-   "ramp": 3950419,
-   "riser": 3494746,
-   "roof": 2042930,
+   "ramp": 4806500,
+   "riser": 4221549,
+   "roof": 2041906,
    "soft_panel": 15538190,
-   "stair": 4015953,
-   "static_hard": 4872036
+   "stair": 4938339,
+   "static_hard": 5728629
   },
   "sky": 197894,
   "fog": 395530,
@@ -237,7 +321,21 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.06
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "ancient": {
   "roles": {
@@ -272,6 +370,18 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": false,
   "look": "A Mayan temple swallowed by jungle. Mossy stone, deep green canopy, gold inlay.",
+  "skyline": [
+   "ziggurat",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466,
   "curated": true
  },
  "anubis": {
@@ -307,20 +417,32 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "An Egyptian temple on the Nile. Ochre sandstone, gold, painted blue, hard sun.",
+  "skyline": [
+   "obelisk",
+   "ziggurat"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 13805111,
   "curated": true
  },
  "apollo": {
   "roles": {
    "cover": 16261,
-   "exterior_wall": 10403036,
+   "exterior_wall": 10401244,
    "floor": 10657949,
    "glass": 12376052,
    "ramp": 11191001,
    "riser": 11842481,
-   "roof": 7762799,
+   "roof": 7762287,
    "soft_panel": 16005,
-   "stair": 11191001,
-   "static_hard": 11453920
+   "stair": 11189721,
+   "static_hard": 11452640
   },
   "sky": 8234191,
   "fog": 6919105,
@@ -340,20 +462,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668
  },
  "arabstreets": {
   "roles": {
    "cover": 7818509,
-   "exterior_wall": 6180667,
+   "exterior_wall": 6181435,
    "floor": 11306570,
    "glass": 13226469,
    "ramp": 6312251,
-   "riser": 12360291,
-   "roof": 6968366,
+   "riser": 12362083,
+   "roof": 6965806,
    "soft_panel": 9657614,
-   "stair": 6707007,
-   "static_hard": 6970179
+   "stair": 6707775,
+   "static_hard": 6970947
   },
   "sky": 9477307,
   "fog": 8293291,
@@ -373,20 +510,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "arcticbiolab": {
   "roles": {
    "cover": 2122825,
-   "exterior_wall": 4215129,
+   "exterior_wall": 5005163,
    "floor": 4806251,
    "glass": 4349817,
-   "ramp": 3951443,
-   "riser": 5859972,
-   "roof": 2897216,
+   "ramp": 4807524,
+   "riser": 5859460,
+   "roof": 2897728,
    "soft_panel": 2456664,
-   "stair": 3886164,
-   "static_hard": 4808036
+   "stair": 4741990,
+   "static_hard": 5663862
   },
   "sky": 3754326,
   "fog": 3490124,
@@ -406,7 +557,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "assault": {
   "roles": {
@@ -441,6 +607,20 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": false,
   "look": "A warehouse at night. Sodium lamps, oily concrete, corrugated steel, deep shadow.",
+  "skyline": [
+   "silo",
+   "chimney",
+   "crane"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 12872224,
   "curated": true
  },
  "assembly": {
@@ -450,8 +630,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 11709605,
    "glass": 11119275,
    "ramp": 12829121,
-   "riser": 12959931,
-   "roof": 9340282,
+   "riser": 12960187,
+   "roof": 9339514,
    "soft_panel": 420324,
    "stair": 12828864,
    "static_hard": 13158086
@@ -474,20 +654,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad"
+  ],
+  "accent": 24539
  },
  "austria": {
   "roles": {
    "cover": 2308962,
-   "exterior_wall": 10333916,
+   "exterior_wall": 10334428,
    "floor": 4674929,
    "glass": 15527928,
    "ramp": 11187417,
-   "riser": 5070209,
-   "roof": 3358034,
+   "riser": 5070465,
+   "roof": 3357522,
    "soft_panel": 2640253,
-   "stair": 11187417,
-   "static_hard": 11450336
+   "stair": 11187673,
+   "static_hard": 11450592
   },
   "sky": 11056082,
   "fog": 9609154,
@@ -507,20 +699,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "autumn_harvest": {
   "roles": {
    "cover": 9729816,
-   "exterior_wall": 9747430,
+   "exterior_wall": 9746918,
    "floor": 10521667,
    "glass": 11915764,
    "ramp": 10601187,
-   "riser": 12230469,
-   "roof": 7628080,
+   "riser": 12231237,
+   "roof": 7627056,
    "soft_panel": 12424731,
-   "stair": 10601187,
-   "static_hard": 11126757
+   "stair": 10600675,
+   "static_hard": 11126245
   },
   "sky": 7774161,
   "fog": 6524867,
@@ -540,7 +745,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "aztec": {
   "roles": {
@@ -575,17 +793,29 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A jungle ruin over running water. Wet grey stone, dense green, shafts of light.",
+  "skyline": [
+   "ziggurat",
+   "obelisk"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 3836500,
   "curated": true
  },
  "aztec2": {
   "roles": {
    "cover": 9206591,
-   "exterior_wall": 10987421,
+   "exterior_wall": 10921885,
    "floor": 9012333,
    "glass": 12895684,
    "ramp": 12105903,
-   "riser": 10197123,
-   "roof": 7630685,
+   "riser": 10197379,
+   "roof": 7629917,
    "soft_panel": 11639630,
    "stair": 12434869,
    "static_hard": 11776938
@@ -608,20 +838,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "backalley": {
   "roles": {
    "cover": 8722944,
-   "exterior_wall": 6377528,
-   "floor": 6051914,
+   "exterior_wall": 7626819,
+   "floor": 6315085,
    "glass": 3089433,
-   "ramp": 5785911,
+   "ramp": 7035203,
    "riser": 6841171,
    "roof": 4341814,
    "soft_panel": 8722432,
-   "stair": 5720376,
-   "static_hard": 7166528
+   "stair": 6969667,
+   "static_hard": 8415820
   },
   "sky": 2169878,
   "fog": 1906964,
@@ -641,7 +884,21 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "baggage": {
   "roles": {
@@ -674,20 +931,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "tower",
+   "chamfer"
+  ],
+  "accent": 14199808
  },
  "balkan_map": {
   "roles": {
    "cover": 6049065,
-   "exterior_wall": 6712924,
+   "exterior_wall": 6647388,
    "floor": 4935233,
    "glass": 15987697,
    "ramp": 7897453,
-   "riser": 5725259,
-   "roof": 3619632,
+   "riser": 5659723,
+   "roof": 3685168,
    "soft_panel": 6574634,
-   "stair": 8226673,
-   "static_hard": 7568488
+   "stair": 8161137,
+   "static_hard": 7502952
   },
   "sky": 12960702,
   "fog": 11710634,
@@ -707,7 +976,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "bank": {
   "roles": {
@@ -716,8 +998,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 12562076,
    "glass": 14935774,
    "ramp": 5855562,
-   "riser": 13812402,
-   "roof": 10849651,
+   "riser": 13812658,
+   "roof": 10848883,
    "soft_panel": 7630117,
    "stair": 6118734,
    "static_hard": 6250318
@@ -740,20 +1022,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "basalt": {
   "roles": {
    "cover": 7812641,
-   "exterior_wall": 13352366,
+   "exterior_wall": 13351598,
    "floor": 6976106,
    "glass": 13424867,
    "ramp": 13353656,
-   "riser": 7831414,
-   "roof": 5067341,
+   "riser": 7896950,
+   "roof": 5067342,
    "soft_panel": 9978407,
-   "stair": 13353656,
-   "static_hard": 13682622
+   "stair": 13353144,
+   "static_hard": 13682110
   },
   "sky": 9742264,
   "fog": 8558249,
@@ -773,20 +1070,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "bazaar": {
   "roles": {
    "cover": 6111271,
-   "exterior_wall": 5786945,
+   "exterior_wall": 5786433,
    "floor": 13874312,
    "glass": 15922162,
    "ramp": 6247754,
-   "riser": 14928801,
-   "roof": 12950100,
+   "riser": 14927521,
+   "roof": 12954708,
    "soft_panel": 7096621,
-   "stair": 6576461,
-   "static_hard": 6510410
+   "stair": 6575949,
+   "static_hard": 6509898
   },
   "sky": 12370367,
   "fog": 11054764,
@@ -806,7 +1118,21 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "biome": {
   "roles": {
@@ -815,8 +1141,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 5197896,
    "glass": 13030110,
    "ramp": 12632255,
-   "riser": 5790288,
-   "roof": 3684915,
+   "riser": 5724752,
+   "roof": 3815987,
    "soft_panel": 7696953,
    "stair": 12763841,
    "static_hard": 12040373
@@ -839,7 +1165,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "black_gold": {
   "roles": {
@@ -848,8 +1187,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 9732156,
    "glass": 15331061,
    "ramp": 4606278,
-   "riser": 11244095,
-   "roof": 6970156,
+   "riser": 11246399,
+   "roof": 6967596,
    "soft_panel": 14195970,
    "stair": 4606278,
    "static_hard": 5593429
@@ -872,20 +1211,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "gable",
+   "barrel",
+   "arcade"
+  ],
+  "accent": 13473280
  },
  "blacksite": {
   "roles": {
    "cover": 2773603,
-   "exterior_wall": 9939118,
+   "exterior_wall": 9939630,
    "floor": 8099745,
    "glass": 15398139,
    "ramp": 12305864,
-   "riser": 9349297,
-   "roof": 5664631,
+   "riser": 9350065,
+   "roof": 5663351,
    "soft_panel": 3303549,
-   "stair": 12306120,
-   "static_hard": 11582914
+   "stair": 12306376,
+   "static_hard": 11583170
   },
   "sky": 11784159,
   "fog": 10140881,
@@ -905,20 +1256,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "blagai": {
   "roles": {
    "cover": 4358599,
-   "exterior_wall": 7171420,
+   "exterior_wall": 7040348,
    "floor": 4933955,
    "glass": 10205655,
    "ramp": 8421485,
-   "riser": 5723727,
-   "roof": 4341819,
+   "riser": 5723983,
+   "roof": 4341307,
    "soft_panel": 7513049,
-   "stair": 8816242,
-   "static_hard": 8092520
+   "stair": 8685170,
+   "static_hard": 7961448
   },
   "sky": 7245487,
   "fog": 6324385,
@@ -938,20 +1304,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "boyard": {
   "roles": {
    "cover": 8205853,
-   "exterior_wall": 10192757,
+   "exterior_wall": 10193781,
    "floor": 6641222,
    "glass": 12240856,
    "ramp": 11510165,
-   "riser": 7561292,
-   "roof": 4734514,
+   "riser": 7562316,
+   "roof": 4733234,
    "soft_panel": 10437410,
-   "stair": 11905439,
-   "static_hard": 11114892
+   "stair": 11905951,
+   "static_hard": 11115660
   },
   "sky": 9017517,
   "fog": 7899550,
@@ -971,20 +1351,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "breach": {
   "roles": {
    "cover": 7616016,
-   "exterior_wall": 8225683,
+   "exterior_wall": 8225939,
    "floor": 5594735,
    "glass": 13621496,
    "ramp": 9475492,
-   "riser": 6779525,
-   "roof": 4607578,
+   "riser": 6780037,
+   "roof": 4607066,
    "soft_panel": 7878156,
-   "stair": 9870248,
-   "static_hard": 9146527
+   "stair": 9870504,
+   "static_hard": 9146783
   },
   "sky": 8952022,
   "fog": 7505352,
@@ -1004,20 +1397,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "brewery": {
   "roles": {
    "cover": 8463363,
-   "exterior_wall": 9140590,
+   "exterior_wall": 9141102,
    "floor": 8869185,
    "glass": 6905688,
    "ramp": 10457994,
-   "riser": 10247493,
-   "roof": 6372655,
+   "riser": 10248773,
+   "roof": 6371375,
    "soft_panel": 9840641,
-   "stair": 10918546,
-   "static_hard": 10194050
+   "stair": 10918802,
+   "static_hard": 10194306
   },
   "sky": 5196102,
   "fog": 4604479,
@@ -1037,20 +1445,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "bridge": {
   "roles": {
    "cover": 6966305,
-   "exterior_wall": 6049854,
-   "floor": 5523515,
+   "exterior_wall": 7233098,
+   "floor": 6707271,
    "glass": 3350806,
    "ramp": 7036748,
-   "riser": 5720376,
-   "roof": 3156514,
+   "riser": 6969412,
+   "roof": 3156770,
    "soft_panel": 8871975,
-   "stair": 7365456,
-   "static_hard": 6773575
+   "stair": 7365200,
+   "static_hard": 7957075
   },
   "sky": 2300437,
   "fog": 2037779,
@@ -1070,20 +1493,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "bunker": {
   "roles": {
    "cover": 7345230,
-   "exterior_wall": 6567245,
-   "floor": 6435392,
+   "exterior_wall": 7880798,
+   "floor": 7551819,
    "glass": 4278929,
-   "ramp": 5846602,
-   "riser": 8208465,
-   "roof": 3611428,
+   "ramp": 7094618,
+   "riser": 8208467,
+   "roof": 3611426,
    "soft_panel": 7606610,
-   "stair": 5977164,
-   "static_hard": 7159898
+   "stair": 7225181,
+   "static_hard": 8473451
   },
   "sky": 4014437,
   "fog": 3685465,
@@ -1103,7 +1541,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.06
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668
  },
  "cache": {
   "roles": {
@@ -1138,20 +1591,34 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A Chernobyl service yard. Grey slab, rust, weeds coming through the concrete.",
+  "skyline": [
+   "cooling_tower",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "drum",
+   "barrel",
+   "helipad"
+  ],
+  "accent": 13148202,
   "curated": true
  },
  "calavera": {
   "roles": {
    "cover": 8730368,
-   "exterior_wall": 5786433,
-   "floor": 5979955,
+   "exterior_wall": 6904399,
+   "floor": 7294014,
    "glass": 3880232,
    "ramp": 7101775,
-   "riser": 5979956,
-   "roof": 3811361,
+   "riser": 7293247,
+   "roof": 3812129,
    "soft_panel": 9452800,
-   "stair": 7430740,
-   "static_hard": 6707275
+   "stair": 7430228,
+   "static_hard": 7758678
   },
   "sky": 2828321,
   "fog": 2499614,
@@ -1171,7 +1638,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 12739642
  },
  "canal": {
   "roles": {
@@ -1204,7 +1684,19 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "chimney"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "tower",
+   "chamfer"
+  ],
+  "accent": 8612641
  },
  "canals": {
   "roles": {
@@ -1239,6 +1731,19 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "Venetian waterways. Damp brick, green water, weathered plaster, soft light.",
+  "skyline": [
+   "campanile",
+   "dome"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "curved",
+   "chamfer"
+  ],
+  "accent": 12080684,
   "curated": true
  },
  "cascade": {
@@ -1249,9 +1754,9 @@ export const LOOKS: Record<string, MapLook> = {
    "glass": 13225169,
    "ramp": 8747123,
    "riser": 6379344,
-   "roof": 4340534,
+   "roof": 4340278,
    "soft_panel": 13276751,
-   "stair": 9141624,
+   "stair": 9141880,
    "static_hard": 8418158
   },
   "sky": 10067107,
@@ -1272,20 +1777,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "castle": {
   "roles": {
    "cover": 11693114,
-   "exterior_wall": 5990524,
-   "floor": 3950162,
+   "exterior_wall": 5989756,
+   "floor": 4805988,
    "glass": 5796242,
    "ramp": 6912401,
-   "riser": 4937319,
-   "roof": 3160131,
+   "riser": 4936807,
+   "roof": 3160899,
    "soft_panel": 13404762,
-   "stair": 7306902,
-   "static_hard": 6648971
+   "stair": 7306134,
+   "static_hard": 6648203
   },
   "sky": 4937833,
   "fog": 4542301,
@@ -1305,20 +1824,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.04
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "chalice": {
   "roles": {
    "cover": 8469275,
-   "exterior_wall": 10326155,
+   "exterior_wall": 10326411,
    "floor": 7564393,
    "glass": 9342107,
    "ramp": 11444895,
-   "riser": 8945533,
-   "roof": 5920082,
+   "riser": 8945789,
+   "roof": 5919826,
    "soft_panel": 10701087,
-   "stair": 11708581,
-   "static_hard": 11115930
+   "stair": 11708837,
+   "static_hard": 11116186
   },
   "sky": 7236983,
   "fog": 6513258,
@@ -1338,7 +1871,21 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "chateau": {
   "roles": {
@@ -1373,20 +1920,32 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A French country house in winter. Pale stone, slate roofs, bare trees, flat light.",
+  "skyline": [
+   "spire",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 6057866,
   "curated": true
  },
  "chinatown": {
   "roles": {
    "cover": 8727040,
-   "exterior_wall": 6507318,
+   "exterior_wall": 7822913,
    "floor": 10655099,
    "glass": 9127969,
-   "ramp": 6573115,
-   "riser": 11708045,
-   "roof": 7826518,
+   "ramp": 7164736,
+   "riser": 11708813,
+   "roof": 7825238,
    "soft_panel": 8727296,
-   "stair": 6836542,
-   "static_hard": 7296063
+   "stair": 7166273,
+   "static_hard": 8546378
   },
   "sky": 6109992,
   "fog": 5322278,
@@ -1406,20 +1965,36 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "chlorine": {
   "roles": {
    "cover": 15228427,
-   "exterior_wall": 6176827,
+   "exterior_wall": 6176571,
    "floor": 5454918,
    "glass": 10790347,
    "ramp": 6373693,
-   "riser": 5324102,
-   "roof": 3089194,
+   "riser": 5324103,
+   "roof": 3089193,
    "soft_panel": 16416565,
-   "stair": 6768193,
-   "static_hard": 6900036
+   "stair": 6767937,
+   "static_hard": 6899780
   },
   "sky": 7960994,
   "fog": 6974356,
@@ -1439,20 +2014,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "city": {
   "roles": {
    "cover": 2123072,
-   "exterior_wall": 4282439,
-   "floor": 3365973,
+   "exterior_wall": 5139028,
+   "floor": 4026471,
    "glass": 598571,
-   "ramp": 3757637,
-   "riser": 3365971,
-   "roof": 1914161,
+   "ramp": 4548692,
+   "riser": 4091748,
+   "roof": 1914162,
    "soft_panel": 2253366,
-   "stair": 3953478,
-   "static_hard": 4809808
+   "stair": 4809812,
+   "static_hard": 5666397
   },
   "sky": 727069,
   "fog": 726297,
@@ -1472,20 +2062,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "cityofsin": {
   "roles": {
    "cover": 10424320,
-   "exterior_wall": 8682620,
+   "exterior_wall": 8682876,
    "floor": 7231558,
    "glass": 6508353,
    "ramp": 9801358,
-   "riser": 8874838,
-   "roof": 6179901,
+   "riser": 8875862,
+   "roof": 6178621,
    "soft_panel": 13112576,
-   "stair": 10130323,
-   "static_hard": 9472393
+   "stair": 10130579,
+   "static_hard": 9472649
   },
   "sky": 4734518,
   "fog": 4208690,
@@ -1505,7 +2110,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "climb": {
   "roles": {
@@ -1514,8 +2134,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 9076573,
    "glass": 10863340,
    "ramp": 4867399,
-   "riser": 10458480,
-   "roof": 5261621,
+   "riser": 10458736,
+   "roof": 5261365,
    "soft_panel": 6068455,
    "stair": 5130058,
    "static_hard": 5985111
@@ -1538,20 +2158,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 2261759
  },
  "coast": {
   "roles": {
    "cover": 5611007,
-   "exterior_wall": 8699638,
+   "exterior_wall": 8702710,
    "floor": 5065282,
    "glass": 13755898,
    "ramp": 9682928,
-   "riser": 5526088,
-   "roof": 3552558,
+   "riser": 5525832,
+   "roof": 3487278,
    "soft_panel": 6071039,
-   "stair": 9682928,
-   "static_hard": 9947126
+   "stair": 9685488,
+   "static_hard": 9949686
   },
   "sky": 8892635,
   "fog": 7446221,
@@ -1571,7 +2203,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 12739642
  },
  "cobblestone": {
   "roles": {
@@ -1606,20 +2251,32 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "An English castle in the rain. Wet grey stone, dark timber, green lawn.",
+  "skyline": [
+   "spire",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 7162412,
   "curated": true
  },
  "cobblestone_halloween": {
   "roles": {
    "cover": 9717263,
-   "exterior_wall": 3491428,
-   "floor": 3424347,
+   "exterior_wall": 4151928,
+   "floor": 4148846,
    "glass": 5204662,
    "ramp": 4346482,
-   "riser": 3227486,
-   "roof": 1909813,
+   "riser": 3953266,
+   "roof": 1908533,
    "soft_panel": 12409102,
-   "stair": 4544119,
-   "static_hard": 4018032
+   "stair": 4545399,
+   "static_hard": 4744324
   },
   "sky": 4740992,
   "fog": 4477041,
@@ -1639,20 +2296,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "coldstorage": {
   "roles": {
    "cover": 7228183,
-   "exterior_wall": 5786945,
-   "floor": 5589562,
+   "exterior_wall": 6970701,
+   "floor": 6773319,
    "glass": 2564118,
-   "ramp": 5523771,
-   "riser": 5590842,
+   "ramp": 6641736,
+   "riser": 6840390,
    "roof": 3353631,
    "soft_panel": 7293973,
-   "stair": 5457980,
-   "static_hard": 6641736
+   "stair": 6641481,
+   "static_hard": 7825493
   },
   "sky": 1841427,
   "fog": 1644050,
@@ -1672,20 +2342,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "compound": {
   "roles": {
    "cover": 7743503,
-   "exterior_wall": 12760743,
+   "exterior_wall": 12761255,
    "floor": 6379067,
    "glass": 11707540,
    "ramp": 13353913,
-   "riser": 7299392,
-   "roof": 4603178,
+   "riser": 7300416,
+   "roof": 4601898,
    "soft_panel": 8727309,
-   "stair": 13353912,
-   "static_hard": 13683133
+   "stair": 13354424,
+   "static_hard": 13683645
   },
   "sky": 9141872,
   "fog": 8089958,
@@ -1705,20 +2390,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "conditionabillion": {
   "roles": {
    "cover": 11192466,
-   "exterior_wall": 12111787,
+   "exterior_wall": 11849643,
    "floor": 11580328,
    "glass": 15661293,
    "ramp": 12441007,
-   "riser": 12961215,
-   "roof": 9475205,
+   "riser": 12895679,
+   "roof": 9671813,
    "soft_panel": 11061395,
-   "stair": 12441007,
-   "static_hard": 12834998
+   "stair": 12178863,
+   "static_hard": 12572854
   },
   "sky": 13492936,
   "fog": 11915694,
@@ -1738,20 +2438,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "barrel",
+   "arcade"
+  ],
+  "accent": 12180891
  },
  "construction": {
   "roles": {
    "cover": 7483411,
-   "exterior_wall": 6573642,
-   "floor": 5194047,
+   "exterior_wall": 6967374,
+   "floor": 6377293,
    "glass": 3484203,
    "ramp": 7888730,
-   "riser": 5194048,
-   "roof": 3813166,
+   "riser": 6311501,
+   "roof": 3813422,
    "soft_panel": 7679504,
-   "stair": 8217438,
-   "static_hard": 7494229
+   "stair": 8216926,
+   "static_hard": 7690839
   },
   "sky": 2630179,
   "fog": 2367263,
@@ -1771,20 +2483,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "corruption": {
   "roles": {
    "cover": 5727265,
-   "exterior_wall": 9143926,
-   "floor": 5984326,
+   "exterior_wall": 9143670,
+   "floor": 6444619,
    "glass": 9079918,
    "ramp": 10526355,
-   "riser": 6838861,
-   "roof": 4340274,
+   "riser": 6838605,
+   "roof": 4340786,
    "soft_panel": 6385954,
-   "stair": 10986906,
-   "static_hard": 10196873
+   "stair": 10986650,
+   "static_hard": 10196617
   },
   "sky": 6776921,
   "fog": 6053201,
@@ -1804,7 +2531,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668
  },
  "counter_terrorist_training": {
   "roles": {
@@ -1813,8 +2555,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 6915446,
    "glass": 11056806,
    "ramp": 4606278,
-   "riser": 7771524,
-   "roof": 5005397,
+   "riser": 7771522,
+   "roof": 5005399,
    "soft_panel": 3951163,
    "stair": 4540997,
    "static_hard": 5462867
@@ -1837,20 +2579,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "water_tank",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad"
+  ],
+  "accent": 4480580
  },
  "counter_terrorist_training_center": {
   "roles": {
    "cover": 8552195,
-   "exterior_wall": 5721666,
-   "floor": 5132606,
+   "exterior_wall": 6839887,
+   "floor": 6251084,
    "glass": 5457973,
    "ramp": 6510924,
-   "riser": 5132351,
+   "riser": 6250829,
    "roof": 2960932,
    "soft_panel": 8749568,
    "stair": 6905680,
-   "static_hard": 6445643
+   "static_hard": 7629400
   },
   "sky": 3946029,
   "fog": 3485993,
@@ -1870,20 +2624,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "chamfer",
+   "curved",
+   "setback"
+  ],
+  "accent": 10788864
  },
  "county": {
   "roles": {
    "cover": 10510627,
-   "exterior_wall": 5524808,
+   "exterior_wall": 5525064,
    "floor": 11703914,
    "glass": 15332604,
    "ramp": 6840153,
-   "riser": 12626053,
-   "roof": 8283714,
+   "riser": 12627333,
+   "roof": 8281154,
    "soft_panel": 13400616,
-   "stair": 7234653,
-   "static_hard": 6445652
+   "stair": 7234909,
+   "static_hard": 6445908
   },
   "sky": 10274525,
   "fog": 8762831,
@@ -1903,16 +2669,29 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "cranes": {
   "roles": {
    "cover": 11814450,
    "exterior_wall": 9342089,
-   "floor": 4606022,
+   "floor": 5658710,
    "glass": 2763562,
    "ramp": 10987173,
-   "riser": 4671559,
+   "riser": 5658710,
    "roof": 2697513,
    "soft_panel": 13722190,
    "stair": 11513517,
@@ -1936,20 +2715,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.04
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "crash": {
   "roles": {
    "cover": 7952140,
-   "exterior_wall": 6838577,
+   "exterior_wall": 6839345,
    "floor": 12368543,
    "glass": 14933182,
    "ramp": 6773303,
-   "riser": 13618357,
-   "roof": 10590836,
+   "riser": 13618613,
+   "roof": 10589556,
    "soft_panel": 8149000,
-   "stair": 7102009,
-   "static_hard": 7627577
+   "stair": 7102777,
+   "static_hard": 7628345
   },
   "sky": 12169352,
   "fog": 11182455,
@@ -1969,20 +2763,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "crashsite": {
   "roles": {
    "cover": 8473901,
-   "exterior_wall": 12298140,
+   "exterior_wall": 12298908,
    "floor": 6842469,
    "glass": 15986408,
    "ramp": 13418679,
    "riser": 7632496,
    "roof": 4934473,
    "soft_panel": 10772022,
-   "stair": 13353145,
-   "static_hard": 13484472
+   "stair": 13353401,
+   "static_hard": 13484984
   },
   "sky": 12957864,
   "fog": 11904660,
@@ -2002,7 +2811,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "crete": {
   "roles": {
@@ -2035,20 +2859,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "chimney"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "tower",
+   "curved",
+   "signboard"
+  ],
+  "accent": 2982911
  },
  "cruise": {
   "roles": {
    "cover": 2318270,
-   "exterior_wall": 6848677,
+   "exterior_wall": 6847909,
    "floor": 5335690,
    "glass": 8761312,
    "ramp": 9215157,
-   "riser": 5797789,
-   "roof": 3886435,
+   "riser": 5796765,
+   "roof": 3887459,
    "soft_panel": 3767007,
-   "stair": 9807035,
-   "static_hard": 8426418
+   "stair": 9806523,
+   "static_hard": 8425650
   },
   "sky": 5932728,
   "fog": 5208488,
@@ -2068,20 +2904,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 12739642
  },
  "cultivating_trouble": {
   "roles": {
    "cover": 2056293,
-   "exterior_wall": 3889246,
-   "floor": 4279630,
+   "exterior_wall": 4679537,
+   "floor": 5201246,
    "glass": 1055773,
-   "ramp": 3560792,
-   "riser": 5201504,
-   "roof": 2436397,
+   "ramp": 4351851,
+   "riser": 5201248,
+   "roof": 2436396,
    "soft_panel": 1925479,
-   "stair": 3625560,
-   "static_hard": 4285036
+   "stair": 4415851,
+   "static_hard": 5074816
   },
   "sky": 922645,
   "fog": 856594,
@@ -2101,20 +2950,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "chamfer",
+   "curved",
+   "setback"
+  ],
+  "accent": 1149330
  },
  "dahab": {
   "roles": {
    "cover": 8338694,
-   "exterior_wall": 10782549,
+   "exterior_wall": 10781013,
    "floor": 9137719,
    "glass": 14999527,
    "ramp": 11640184,
-   "riser": 10583096,
-   "roof": 6573863,
+   "riser": 10580792,
+   "roof": 6576423,
    "soft_panel": 8601089,
-   "stair": 11969153,
-   "static_hard": 11507563
+   "stair": 11968129,
+   "static_hard": 11506027
   },
   "sky": 11642806,
   "fog": 10524069,
@@ -2134,20 +2995,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "damage": {
   "roles": {
    "cover": 9981961,
-   "exterior_wall": 6245946,
+   "exterior_wall": 7496261,
    "floor": 10584920,
    "glass": 9662266,
-   "ramp": 6443067,
-   "riser": 11704177,
-   "roof": 7034681,
+   "ramp": 7100481,
+   "riser": 11705969,
+   "roof": 7031865,
    "soft_panel": 12674056,
-   "stair": 6837567,
-   "static_hard": 7166017
+   "stair": 7101761,
+   "static_hard": 8416844
   },
   "sky": 6705976,
   "fog": 5851957,
@@ -2167,20 +3042,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "chimney",
+   "silo"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad"
+  ],
+  "accent": 12607232
  },
  "demolition_training": {
   "roles": {
    "cover": 26867,
-   "exterior_wall": 6248016,
-   "floor": 5390908,
+   "exterior_wall": 6576724,
+   "floor": 6574153,
    "glass": 396051,
    "ramp": 7366497,
-   "riser": 5586746,
-   "roof": 3286559,
+   "riser": 6770247,
+   "roof": 3286303,
    "soft_panel": 3246591,
    "stair": 7760996,
-   "static_hard": 7103066
+   "static_hard": 7300445
   },
   "sky": 329482,
   "fog": 329738,
@@ -2200,19 +3087,31 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.04
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 1276159
  },
  "depot": {
   "roles": {
    "cover": 7097899,
-   "exterior_wall": 12108225,
+   "exterior_wall": 12108224,
    "floor": 7893095,
    "glass": 15856370,
    "ramp": 12567748,
-   "riser": 8879731,
-   "roof": 5656907,
+   "riser": 8879219,
+   "roof": 5657419,
    "soft_panel": 8938036,
-   "stair": 12567748,
+   "stair": 12567747,
    "static_hard": 12962249
   },
   "sky": 12041405,
@@ -2233,20 +3132,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "desert": {
   "roles": {
    "cover": 8737024,
-   "exterior_wall": 4868177,
+   "exterior_wall": 4802641,
    "floor": 9676202,
    "glass": 14601422,
    "ramp": 4605003,
-   "riser": 10991804,
-   "roof": 6585217,
+   "riser": 10992316,
+   "roof": 6583681,
    "soft_panel": 8737536,
-   "stair": 4670284,
-   "static_hard": 5525852
+   "stair": 4604748,
+   "static_hard": 5460316
   },
   "sky": 11638681,
   "fog": 10585736,
@@ -2266,20 +3180,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "desertbunker": {
   "roles": {
    "cover": 8736000,
-   "exterior_wall": 13286550,
+   "exterior_wall": 13287318,
    "floor": 10913583,
    "glass": 15070207,
    "ramp": 13945776,
-   "riser": 12687662,
-   "roof": 7889187,
+   "riser": 12689710,
+   "roof": 7886883,
    "soft_panel": 9392640,
-   "stair": 13880240,
-   "static_hard": 14274485
+   "stair": 13880752,
+   "static_hard": 14274997
   },
   "sky": 10406899,
   "fog": 8435689,
@@ -2299,20 +3227,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "destown": {
   "roles": {
    "cover": 8473092,
-   "exterior_wall": 14134434,
+   "exterior_wall": 14135458,
    "floor": 8877142,
    "glass": 5453867,
    "ramp": 14201260,
-   "riser": 10125917,
-   "roof": 6444093,
+   "riser": 10127197,
+   "roof": 6442557,
    "soft_panel": 8669441,
-   "stair": 14201260,
-   "static_hard": 14465713
+   "stair": 14202284,
+   "static_hard": 14466737
   },
   "sky": 3878182,
   "fog": 3418403,
@@ -2332,20 +3274,36 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "dizzy": {
   "roles": {
    "cover": 4936267,
-   "exterior_wall": 10862549,
+   "exterior_wall": 10861781,
    "floor": 12498333,
    "glass": 13754600,
    "ramp": 11322584,
-   "riser": 13551542,
-   "roof": 10590328,
+   "riser": 13551798,
+   "roof": 10589304,
    "soft_panel": 6056030,
-   "stair": 11322584,
-   "static_hard": 11782619
+   "stair": 11322072,
+   "static_hard": 11782107
   },
   "sky": 9875133,
   "fog": 8691374,
@@ -2365,20 +3323,36 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "docks": {
   "roles": {
    "cover": 3885633,
-   "exterior_wall": 4739402,
-   "floor": 2515816,
+   "exterior_wall": 5661016,
+   "floor": 3111039,
    "glass": 593524,
-   "ramp": 4410439,
-   "riser": 2516072,
+   "ramp": 5397590,
+   "riser": 3111551,
    "roof": 1325886,
    "soft_panel": 3755073,
-   "stair": 4410438,
-   "static_hard": 5332054
+   "stair": 5332053,
+   "static_hard": 6253925
   },
   "sky": 1382476,
   "fog": 1382466,
@@ -2398,20 +3372,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.04
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "dogtown": {
   "roles": {
    "cover": 9580297,
-   "exterior_wall": 10652828,
+   "exterior_wall": 10652829,
    "floor": 8410191,
    "glass": 9791890,
    "ramp": 12299704,
-   "riser": 9526358,
-   "roof": 5979449,
+   "riser": 9525590,
+   "roof": 5980473,
    "soft_panel": 12269576,
-   "stair": 12826560,
-   "static_hard": 11903664
+   "stair": 12826561,
+   "static_hard": 11903665
   },
   "sky": 7165547,
   "fog": 6377312,
@@ -2431,20 +3420,36 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "downed": {
   "roles": {
    "cover": 5928208,
-   "exterior_wall": 9470557,
-   "floor": 5727293,
+   "exterior_wall": 9469021,
+   "floor": 6188098,
    "glass": 7365174,
    "ramp": 10654831,
-   "riser": 7241036,
-   "roof": 4607793,
+   "riser": 7568716,
+   "roof": 4149041,
    "soft_panel": 6125580,
-   "stair": 10918005,
-   "static_hard": 10391401
+   "stair": 10916725,
+   "static_hard": 10389865
   },
   "sky": 5130033,
   "fog": 4538157,
@@ -2464,20 +3469,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668
  },
  "downtown": {
   "roles": {
    "cover": 11429740,
-   "exterior_wall": 5263688,
-   "floor": 4934468,
+   "exterior_wall": 6250839,
+   "floor": 5987155,
    "glass": 5329222,
    "ramp": 6053204,
-   "riser": 5000259,
-   "roof": 2829094,
+   "riser": 5987409,
+   "roof": 2828838,
    "soft_panel": 13144982,
-   "stair": 6447961,
-   "static_hard": 5921618
+   "stair": 6382425,
+   "static_hard": 6908769
   },
   "sky": 4013367,
   "fog": 3552818,
@@ -2497,7 +3517,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "dust": {
   "roles": {
@@ -2532,20 +3567,32 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "The original. Smaller, sandier and even more washed out than its sequel.",
+  "skyline": [
+   "minaret",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable"
+  ],
+  "accent": 13208636,
   "curated": true
  },
  "dust3": {
   "roles": {
    "cover": 7619857,
-   "exterior_wall": 10649681,
+   "exterior_wall": 10650193,
    "floor": 16765788,
    "glass": 15070463,
    "ramp": 11572850,
-   "riser": 16769925,
-   "roof": 16760602,
+   "riser": 16770693,
+   "roof": 16757530,
    "soft_panel": 7751182,
-   "stair": 11967866,
-   "static_hard": 11571300
+   "stair": 11968378,
+   "static_hard": 11571812
   },
   "sky": 13101053,
   "fog": 10605558,
@@ -2565,7 +3612,21 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "dust_ii": {
   "roles": {
@@ -2600,20 +3661,34 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "Sandstone fort under a hard desert sun. Everything is warm; the shade is warm too.",
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636,
   "curated": true
  },
  "dust_ii_control": {
   "roles": {
    "cover": 10587225,
-   "exterior_wall": 12896943,
+   "exterior_wall": 12831407,
    "floor": 5526602,
    "glass": 15659503,
    "ramp": 13093816,
-   "riser": 6184787,
-   "roof": 4013365,
+   "riser": 6119251,
+   "roof": 4013109,
    "soft_panel": 12232831,
-   "stair": 13093816,
-   "static_hard": 13357246
+   "stair": 13028280,
+   "static_hard": 13291710
   },
   "sky": 11779765,
   "fog": 10529954,
@@ -2633,20 +3708,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "dust_ii_retro": {
   "roles": {
    "cover": 8205831,
-   "exterior_wall": 14924695,
+   "exterior_wall": 14923671,
    "floor": 9595211,
    "glass": 15922162,
    "ramp": 14598822,
-   "riser": 11040336,
-   "roof": 6900790,
+   "riser": 11039056,
+   "roof": 6902326,
    "soft_panel": 8467460,
-   "stair": 14598822,
-   "static_hard": 15058857
+   "stair": 14598054,
+   "static_hard": 15058089
   },
   "sky": 12566973,
   "fog": 11317161,
@@ -2666,20 +3755,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "edin": {
   "roles": {
    "cover": 7494716,
-   "exterior_wall": 10459285,
+   "exterior_wall": 10459541,
    "floor": 5724257,
    "glass": 9668999,
    "ramp": 12302260,
-   "riser": 6382189,
-   "roof": 4079430,
+   "riser": 6381933,
+   "roof": 4079686,
    "soft_panel": 9466699,
    "stair": 12828863,
-   "static_hard": 11775659
+   "static_hard": 11775915
   },
   "sky": 7367272,
   "fog": 6643806,
@@ -2699,19 +3802,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "elysion": {
   "roles": {
    "cover": 5857062,
-   "exterior_wall": 12566458,
+   "exterior_wall": 12566202,
    "floor": 11711145,
    "glass": 7039060,
    "ramp": 12895423,
-   "riser": 12961214,
-   "roof": 9343878,
+   "riser": 12960958,
+   "roof": 9147270,
    "soft_panel": 5922853,
-   "stair": 12895423,
+   "stair": 12895167,
    "static_hard": 13224389
   },
   "sky": 5262659,
@@ -2732,20 +3848,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.04
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "chimney",
+   "silo"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad"
+  ],
+  "accent": 8095261
  },
  "ember": {
   "roles": {
    "cover": 8721152,
-   "exterior_wall": 11191760,
+   "exterior_wall": 11191504,
    "floor": 5979446,
    "glass": 15594487,
    "ramp": 11847632,
-   "riser": 6767420,
-   "roof": 4336679,
+   "riser": 6767676,
+   "roof": 4336423,
    "soft_panel": 9508352,
-   "stair": 11847632,
-   "static_hard": 11979736
+   "stair": 11847376,
+   "static_hard": 11979480
   },
   "sky": 13819620,
   "fog": 12110291,
@@ -2765,7 +3893,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "empire": {
   "roles": {
@@ -2774,8 +3917,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 12432286,
    "glass": 14675443,
    "ramp": 10132635,
-   "riser": 13485239,
-   "roof": 10390638,
+   "riser": 13484983,
+   "roof": 10391918,
    "soft_panel": 9719840,
    "stair": 10461600,
    "static_hard": 9803670
@@ -2798,20 +3941,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "engage": {
   "roles": {
    "cover": 2325448,
-   "exterior_wall": 11845830,
+   "exterior_wall": 11845318,
    "floor": 9478307,
    "glass": 11845318,
    "ramp": 12240073,
-   "riser": 10924982,
-   "roof": 7438983,
+   "riser": 10924470,
+   "roof": 7440263,
    "soft_panel": 4364515,
-   "stair": 12240585,
-   "static_hard": 12634830
+   "stair": 12240073,
+   "static_hard": 12634318
   },
   "sky": 8884891,
   "fog": 7963789,
@@ -2831,20 +3989,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "tower",
+   "chamfer"
+  ],
+  "accent": 757247
  },
  "estate": {
   "roles": {
    "cover": 8743424,
-   "exterior_wall": 15119252,
+   "exterior_wall": 15118740,
    "floor": 5718839,
    "glass": 16570805,
    "ramp": 14923937,
-   "riser": 5849653,
-   "roof": 3352351,
+   "riser": 5849397,
+   "roof": 3352607,
    "soft_panel": 8743424,
-   "stair": 14923937,
-   "static_hard": 15057833
+   "stair": 14923425,
+   "static_hard": 15057321
   },
   "sky": 14526575,
   "fog": 13736027,
@@ -2864,7 +4034,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "extraction": {
   "roles": {
@@ -2897,20 +4082,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668
  },
  "facade": {
   "roles": {
    "cover": 1388144,
-   "exterior_wall": 5990010,
+   "exterior_wall": 5990266,
    "floor": 4671303,
    "glass": 15070975,
    "ramp": 7371407,
    "riser": 4671303,
    "roof": 2697513,
    "soft_panel": 1191282,
-   "stair": 7766420,
-   "static_hard": 6911113
+   "stair": 7766676,
+   "static_hard": 6911369
   },
   "sky": 11065329,
   "fog": 9029095,
@@ -2930,20 +4130,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "industrial",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 11684
  },
  "facility": {
   "roles": {
    "cover": 9275174,
-   "exterior_wall": 4804688,
-   "floor": 4606793,
+   "exterior_wall": 5791582,
+   "floor": 5528151,
    "glass": 4210495,
-   "ramp": 4540999,
-   "riser": 5857374,
+   "ramp": 5462615,
+   "riser": 5857373,
    "roof": 3092784,
    "soft_panel": 11774509,
-   "stair": 4475718,
-   "static_hard": 5462871
+   "stair": 5462868,
+   "static_hard": 6384485
   },
   "sky": 3223856,
   "fog": 2894892,
@@ -2963,20 +4175,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.04
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "fang": {
   "roles": {
    "cover": 3753803,
-   "exterior_wall": 4803664,
-   "floor": 4214350,
+   "exterior_wall": 5790560,
+   "floor": 5136223,
    "glass": 1316155,
-   "ramp": 4474955,
-   "riser": 4083792,
+   "ramp": 5396315,
+   "riser": 5005666,
    "roof": 2436397,
    "soft_panel": 3754059,
-   "stair": 4803921,
-   "static_hard": 5396315
+   "stair": 5396315,
+   "static_hard": 6383467
   },
   "sky": 1316137,
   "fog": 1250340,
@@ -2996,20 +4223,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "pitched",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad"
+  ],
+  "accent": 4283234
  },
  "fastline": {
   "roles": {
    "cover": 8745984,
-   "exterior_wall": 5526085,
+   "exterior_wall": 5525829,
    "floor": 5197120,
    "glass": 10066309,
    "ramp": 6841685,
-   "riser": 5131329,
-   "roof": 3223337,
+   "riser": 5131073,
+   "roof": 3223593,
    "soft_panel": 8745728,
-   "stair": 7171161,
-   "static_hard": 6447440
+   "stair": 7170649,
+   "static_hard": 6447184
   },
   "sky": 7697512,
   "fog": 6842462,
@@ -3029,20 +4268,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "favela": {
   "roles": {
    "cover": 7691535,
-   "exterior_wall": 7299911,
+   "exterior_wall": 7300935,
    "floor": 5918517,
    "glass": 15726068,
    "ramp": 8746325,
-   "riser": 6115894,
-   "roof": 4142886,
+   "riser": 6116918,
+   "roof": 4141606,
    "soft_panel": 7888140,
-   "stair": 9141081,
-   "static_hard": 8286290
+   "stair": 9142361,
+   "static_hard": 8287570
   },
   "sky": 11848392,
   "fog": 10467510,
@@ -3062,20 +4316,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 12739642
  },
  "foption": {
   "roles": {
    "cover": 2393344,
-   "exterior_wall": 4541780,
-   "floor": 5063239,
+   "exterior_wall": 5397349,
+   "floor": 6115415,
    "glass": 1315345,
-   "ramp": 4278094,
-   "riser": 5193798,
+   "ramp": 5133919,
+   "riser": 6311508,
    "roof": 2828073,
    "soft_panel": 2393344,
-   "stair": 4278352,
-   "static_hard": 5134175
+   "stair": 5133664,
+   "static_hard": 6055280
   },
   "sky": 986637,
   "fog": 855308,
@@ -3095,20 +4362,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "forest": {
   "roles": {
    "cover": 2655488,
-   "exterior_wall": 6576208,
-   "floor": 5326142,
+   "exterior_wall": 6708306,
+   "floor": 6443851,
    "glass": 1321483,
    "ramp": 7891297,
-   "riser": 5457214,
-   "roof": 4142384,
+   "riser": 6509898,
+   "roof": 4141872,
    "soft_panel": 2589952,
-   "stair": 8285796,
-   "static_hard": 7497052
+   "stair": 8286308,
+   "static_hard": 7497564
   },
   "sky": 1121548,
   "fog": 1054988,
@@ -3128,20 +4410,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "frantic": {
   "roles": {
    "cover": 947985,
-   "exterior_wall": 4737873,
+   "exterior_wall": 5658977,
    "floor": 6775908,
    "glass": 2566958,
-   "ramp": 4540234,
+   "ramp": 5527386,
    "riser": 7565424,
    "roof": 4868168,
    "soft_panel": 953361,
-   "stair": 4539978,
-   "static_hard": 5396315
+   "stair": 5461082,
+   "static_hard": 6382955
   },
   "sky": 2040098,
   "fog": 1842719,
@@ -3161,20 +4456,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "barrel",
+   "arcade"
+  ],
+  "accent": 41989
  },
  "frostbite": {
   "roles": {
    "cover": 5475275,
-   "exterior_wall": 10730966,
+   "exterior_wall": 10730710,
    "floor": 9414348,
    "glass": 11388899,
    "ramp": 11191001,
-   "riser": 11321559,
-   "roof": 6390968,
+   "riser": 11321303,
+   "roof": 6392248,
    "soft_panel": 8432347,
-   "stair": 11191001,
-   "static_hard": 11651036
+   "stair": 11190745,
+   "static_hard": 11650780
   },
   "sky": 7903420,
   "fog": 6785454,
@@ -3194,20 +4501,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "genoserv": {
   "roles": {
    "cover": 8619264,
-   "exterior_wall": 14140834,
+   "exterior_wall": 14141858,
    "floor": 10526851,
    "glass": 16512490,
    "ramp": 14206124,
-   "riser": 11645333,
-   "roof": 7829338,
+   "riser": 11514261,
+   "roof": 7828058,
    "soft_panel": 8684800,
-   "stair": 14206124,
-   "static_hard": 14472369
+   "stair": 14207148,
+   "static_hard": 14473393
   },
   "sky": 14602415,
   "fog": 13614998,
@@ -3227,7 +4547,21 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "golden": {
   "roles": {
@@ -3260,7 +4594,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "grail": {
   "roles": {
@@ -3269,11 +4618,11 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 13344144,
    "glass": 14409703,
    "ramp": 7763326,
-   "riser": 14202540,
-   "roof": 11632743,
+   "riser": 14202028,
+   "roof": 11634791,
    "soft_panel": 1472246,
-   "stair": 8223364,
-   "static_hard": 7368569
+   "stair": 8157828,
+   "static_hard": 7303033
   },
   "sky": 10660024,
   "fog": 9410216,
@@ -3293,20 +4642,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "grind": {
   "roles": {
    "cover": 12152369,
-   "exterior_wall": 10862549,
+   "exterior_wall": 10861781,
    "floor": 13351567,
    "glass": 12243167,
    "ramp": 11322584,
-   "riser": 14077869,
-   "roof": 11967842,
+   "riser": 14078381,
+   "roof": 11965538,
    "soft_panel": 13929041,
-   "stair": 11322584,
-   "static_hard": 11782619
+   "stair": 11322072,
+   "static_hard": 11782107
   },
   "sky": 8823221,
   "fog": 7770534,
@@ -3326,20 +4688,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "guard": {
   "roles": {
    "cover": 7802382,
-   "exterior_wall": 10652273,
+   "exterior_wall": 10650993,
    "floor": 7826274,
    "glass": 9006668,
    "ramp": 11838868,
-   "riser": 8878188,
-   "roof": 5655879,
+   "riser": 8877420,
+   "roof": 5656647,
    "soft_panel": 8523277,
-   "stair": 12299421,
-   "static_hard": 11574665
+   "stair": 12298653,
+   "static_hard": 11573641
   },
   "sky": 6443843,
   "fog": 5720893,
@@ -3359,20 +4736,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "gwalior": {
   "roles": {
    "cover": 6957339,
-   "exterior_wall": 6111804,
+   "exterior_wall": 6111292,
    "floor": 9461330,
    "glass": 16118511,
    "ramp": 5717559,
-   "riser": 10973539,
-   "roof": 5584687,
+   "riser": 10972515,
+   "roof": 5585711,
    "soft_panel": 8597534,
-   "stair": 5783096,
-   "static_hard": 6965827
+   "stair": 5782584,
+   "static_hard": 6965315
   },
   "sky": 13879746,
   "fog": 12694700,
@@ -3392,20 +4784,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "hangar": {
   "roles": {
    "cover": 5781832,
-   "exterior_wall": 12890058,
+   "exterior_wall": 12955594,
    "floor": 11904687,
    "glass": 15071487,
    "ramp": 13088971,
-   "riser": 13155268,
-   "roof": 9401734,
+   "riser": 13155267,
+   "roof": 9401737,
    "soft_panel": 7292506,
-   "stair": 13088971,
-   "static_hard": 13352656
+   "stair": 13154507,
+   "static_hard": 13418192
   },
   "sky": 14742779,
   "fog": 12182770,
@@ -3425,20 +4831,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "hankagai_bomb_defusal_map": {
   "roles": {
    "cover": 8735232,
-   "exterior_wall": 9273679,
-   "floor": 6772008,
+   "exterior_wall": 9275471,
+   "floor": 8218417,
    "glass": 3618080,
    "ramp": 10786140,
-   "riser": 8743987,
-   "roof": 6311205,
+   "riser": 8746291,
+   "roof": 6307877,
    "soft_panel": 8735488,
-   "stair": 11049314,
-   "static_hard": 10391384
+   "stair": 11051362,
+   "static_hard": 10393432
   },
   "sky": 2565659,
   "fog": 2302489,
@@ -3458,7 +4879,23 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "havana": {
   "roles": {
@@ -3493,20 +4930,33 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "Faded Caribbean colour. Peeling pastel plaster, sun-bleached, deep shade.",
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "curved",
+   "chamfer"
+  ],
+  "accent": 4169896,
   "curated": true
  },
  "hideout": {
   "roles": {
    "cover": 8724480,
-   "exterior_wall": 6306105,
+   "exterior_wall": 6306109,
    "floor": 8221544,
    "glass": 14798540,
    "ramp": 5716024,
-   "riser": 9207924,
-   "roof": 5853772,
+   "riser": 9207156,
+   "roof": 5854540,
    "soft_panel": 8724480,
-   "stair": 5716024,
-   "static_hard": 7029571
+   "stair": 5716027,
+   "static_hard": 7029575
   },
   "sky": 11901077,
   "fog": 10913667,
@@ -3526,20 +4976,36 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "highrise": {
   "roles": {
    "cover": 99094,
-   "exterior_wall": 4997464,
-   "floor": 4802888,
+   "exterior_wall": 5918314,
+   "floor": 5723990,
    "glass": 1707821,
-   "ramp": 4864597,
+   "ramp": 5916519,
    "riser": 6184540,
    "roof": 2697512,
    "soft_panel": 34070,
-   "stair": 4930387,
-   "static_hard": 5982054
+   "stair": 5851237,
+   "static_hard": 6902649
   },
   "sky": 1380127,
   "fog": 1249051,
@@ -3559,20 +5025,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "hive": {
   "roles": {
    "cover": 8740096,
-   "exterior_wall": 5262153,
-   "floor": 6575938,
+   "exterior_wall": 6314583,
+   "floor": 6839109,
    "glass": 2039585,
-   "ramp": 4867652,
+   "ramp": 5920083,
    "riser": 7496263,
    "roof": 4800303,
    "soft_panel": 10054656,
-   "stair": 4802373,
-   "static_hard": 5985619
+   "stair": 5855060,
+   "static_hard": 7038049
   },
   "sky": 1579033,
   "fog": 1381910,
@@ -3592,20 +5073,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.06
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "hostage_rescue_training": {
   "roles": {
    "cover": 15263015,
-   "exterior_wall": 5066060,
-   "floor": 5391933,
+   "exterior_wall": 6052955,
+   "floor": 6575434,
    "glass": 987153,
    "ramp": 5855575,
-   "riser": 5392188,
-   "roof": 3025188,
+   "riser": 6576201,
+   "roof": 3024932,
    "soft_panel": 15920993,
    "stair": 6118747,
-   "static_hard": 5724246
+   "static_hard": 6711141
   },
   "sky": 789517,
   "fog": 723724,
@@ -3625,29 +5119,41 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 16776239
  },
  "inferno": {
   "roles": {
-   "floor": 10193526,
-   "roof": 11026216,
-   "static_hard": 14535080,
-   "exterior_wall": 13218449,
-   "riser": 11903364,
-   "stair": 13087892,
-   "ramp": 12758670,
-   "cover": 7162410,
-   "soft_panel": 11887151,
+   "floor": 10322792,
+   "roof": 9257766,
+   "static_hard": 12819053,
+   "exterior_wall": 11568983,
+   "riser": 11439979,
+   "stair": 12096607,
+   "ramp": 11242083,
+   "cover": 8215098,
+   "soft_panel": 9398853,
    "glass": 12115176
   },
-  "sky": 10470622,
-  "fog": 13482908,
+  "sky": 7315140,
+  "fog": 12165508,
   "fogNear": 40,
   "fogFar": 190,
   "sun": 16773848,
   "sunIntensity": 3,
   "hemiSky": 13624048,
-  "hemiGround": 7167818,
+  "hemiGround": 7033916,
   "hemiIntensity": 2.4,
   "grid": {
    "line": 6179892,
@@ -3660,6 +5166,20 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "An Italian village at midday. Cream stucco, red tile roofs, cobbles, dark green shutters.",
+  "skyline": [
+   "campanile",
+   "chimney",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 10239780,
   "curated": true
  },
  "insertion": {
@@ -3693,7 +5213,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668
  },
  "insertion_ii": {
   "roles": {
@@ -3726,20 +5261,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668
  },
  "iraq": {
   "roles": {
    "cover": 680059,
-   "exterior_wall": 3365478,
+   "exterior_wall": 4090490,
    "floor": 6654578,
    "glass": 3954,
-   "ramp": 3363419,
-   "riser": 7445120,
-   "roof": 4744018,
+   "ramp": 4088943,
+   "riser": 7445121,
+   "roof": 4744017,
    "soft_panel": 483710,
-   "stair": 3495005,
-   "static_hard": 3957873
+   "stair": 4154222,
+   "static_hard": 4682885
   },
   "sky": 922954,
   "fog": 988480,
@@ -3759,20 +5309,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "iris": {
   "roles": {
    "cover": 8205064,
-   "exterior_wall": 7361336,
+   "exterior_wall": 7362104,
    "floor": 10787461,
    "glass": 13622767,
    "ramp": 8414279,
-   "riser": 11906200,
-   "roof": 8024412,
+   "riser": 11906712,
+   "roof": 8023644,
    "soft_panel": 9385989,
-   "stair": 8808523,
-   "static_hard": 8216385
+   "stair": 8809291,
+   "static_hard": 8217153
   },
   "sky": 9414856,
   "fog": 8099769,
@@ -3792,7 +5356,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "italy": {
   "roles": {
@@ -3827,20 +5406,33 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A Tuscan market street. Terracotta, cream plaster, striped awnings, warm light.",
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028010,
   "curated": true
  },
  "jail": {
   "roles": {
    "cover": 820480,
-   "exterior_wall": 5393735,
-   "floor": 5653817,
+   "exterior_wall": 6511701,
+   "floor": 6837317,
    "glass": 1580561,
-   "ramp": 4933443,
-   "riser": 5785402,
-   "roof": 3221793,
+   "ramp": 6051666,
+   "riser": 6902597,
+   "roof": 3222049,
    "soft_panel": 754944,
-   "stair": 5326654,
-   "static_hard": 6117200
+   "stair": 6444619,
+   "static_hard": 7235166
   },
   "sky": 1185039,
   "fog": 1118990,
@@ -3860,20 +5452,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "jeepathon2k": {
   "roles": {
    "cover": 8214026,
-   "exterior_wall": 5461571,
+   "exterior_wall": 5330499,
    "floor": 9207375,
    "glass": 15132159,
    "ramp": 5067069,
-   "riser": 10851679,
-   "roof": 5327150,
+   "riser": 10853727,
+   "roof": 5325102,
    "soft_panel": 10447881,
-   "stair": 5132605,
-   "static_hard": 6251338
+   "stair": 5001533,
+   "static_hard": 6054730
   },
   "sky": 12105982,
   "fog": 9671415,
@@ -3893,20 +5500,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "gable",
+   "barrel",
+   "arcade"
+  ],
+  "accent": 10906880
  },
  "jungle": {
   "roles": {
    "cover": 7554580,
-   "exterior_wall": 8027804,
-   "floor": 3818069,
+   "exterior_wall": 8028060,
+   "floor": 4608103,
    "glass": 6121113,
    "ramp": 10198449,
-   "riser": 3818069,
-   "roof": 2107185,
+   "riser": 4608359,
+   "roof": 2106929,
    "soft_panel": 9590551,
-   "stair": 10725304,
-   "static_hard": 9475244
+   "stair": 10725560,
+   "static_hard": 9475500
   },
   "sky": 5198958,
   "fog": 4803682,
@@ -3926,20 +5545,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.06
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "junglecamp": {
   "roles": {
    "cover": 8750336,
-   "exterior_wall": 6970927,
-   "floor": 7307536,
+   "exterior_wall": 8353592,
+   "floor": 8755731,
    "glass": 5918762,
-   "ramp": 6444845,
-   "riser": 9348629,
-   "roof": 4081673,
+   "ramp": 7825975,
+   "riser": 8562197,
+   "roof": 4737033,
    "soft_panel": 8749824,
-   "stair": 6380333,
-   "static_hard": 7957812
+   "stair": 7762743,
+   "static_hard": 9340734
   },
   "sky": 4143655,
   "fog": 3617828,
@@ -3959,20 +5591,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "junglecompound": {
   "roles": {
    "cover": 3876701,
-   "exterior_wall": 5849948,
+   "exterior_wall": 5653340,
    "floor": 5262655,
    "glass": 11117765,
    "ramp": 7229808,
-   "riser": 5327934,
-   "roof": 3025699,
+   "riser": 5327422,
+   "roof": 3026211,
    "soft_panel": 3941983,
-   "stair": 7558773,
-   "static_hard": 6770026
+   "stair": 7362165,
+   "static_hard": 6573418
   },
   "sky": 8354205,
   "fog": 7433358,
@@ -3992,7 +5637,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "jura": {
   "roles": {
@@ -4001,8 +5659,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 11180163,
    "glass": 8764132,
    "ramp": 12763585,
-   "riser": 12233883,
-   "roof": 9469026,
+   "riser": 12233115,
+   "roof": 9471586,
    "soft_panel": 4035818,
    "stair": 12829121,
    "static_hard": 13092550
@@ -4025,20 +5683,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "lake": {
   "roles": {
    "cover": 4560080,
-   "exterior_wall": 6912634,
+   "exterior_wall": 6912378,
    "floor": 3953500,
    "glass": 10601952,
    "ramp": 8031629,
-   "riser": 5007989,
-   "roof": 3097418,
+   "riser": 5007221,
+   "roof": 3098442,
    "soft_panel": 8041696,
-   "stair": 8426130,
-   "static_hard": 7702664
+   "stair": 8425874,
+   "static_hard": 7702152
   },
   "sky": 7313849,
   "fog": 6261675,
@@ -4058,20 +5729,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "library": {
   "roles": {
    "cover": 8396548,
-   "exterior_wall": 6832433,
+   "exterior_wall": 8213050,
    "floor": 9461826,
    "glass": 4927005,
-   "ramp": 6372142,
-   "riser": 11236175,
-   "roof": 5782311,
+   "ramp": 7751479,
+   "riser": 11237455,
+   "roof": 5781031,
    "soft_panel": 8593153,
-   "stair": 6437933,
-   "static_hard": 7817271
+   "stair": 7818550,
+   "static_hard": 9197888
   },
   "sky": 3417372,
   "fog": 3023130,
@@ -4091,20 +5775,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "lite": {
   "roles": {
    "cover": 8716295,
-   "exterior_wall": 3161449,
+   "exterior_wall": 3820413,
    "floor": 6247527,
    "glass": 2042457,
-   "ramp": 2963298,
-   "riser": 7694205,
-   "roof": 3617340,
+   "ramp": 3556215,
+   "riser": 7628669,
+   "roof": 3682876,
    "soft_panel": 8716297,
-   "stair": 2963554,
-   "static_hard": 3621750
+   "stair": 3556983,
+   "static_hard": 4280715
   },
   "sky": 2106685,
   "fog": 1974838,
@@ -4124,20 +5823,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "gable",
+   "barrel",
+   "arcade"
+  ],
+  "accent": 10747913
  },
  "log": {
   "roles": {
    "cover": 10709520,
-   "exterior_wall": 5594428,
+   "exterior_wall": 6516552,
    "floor": 9735293,
    "glass": 4212783,
-   "ramp": 5133626,
-   "riser": 10722445,
-   "roof": 7103832,
+   "ramp": 6252358,
+   "riser": 10722957,
+   "roof": 7103064,
    "soft_panel": 13665552,
-   "stair": 5133371,
-   "static_hard": 6383941
+   "stair": 6055495,
+   "static_hard": 7306065
   },
   "sky": 3159079,
   "fog": 2829860,
@@ -4157,20 +5868,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "lunacy": {
   "roles": {
    "cover": 2050405,
-   "exterior_wall": 4477782,
+   "exterior_wall": 5333863,
    "floor": 5073271,
    "glass": 2306356,
-   "ramp": 4213839,
-   "riser": 6127760,
-   "roof": 3162956,
+   "ramp": 5135456,
+   "riser": 6126992,
+   "roof": 3163724,
    "soft_panel": 2183023,
-   "stair": 4214351,
-   "static_hard": 5070432
+   "stair": 5135712,
+   "static_hard": 5992049
   },
   "sky": 1909798,
   "fog": 1712418,
@@ -4190,20 +5914,36 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "mansion": {
   "roles": {
    "cover": 8735488,
-   "exterior_wall": 5853760,
+   "exterior_wall": 5854016,
    "floor": 6446636,
    "glass": 12562585,
    "ramp": 5459004,
-   "riser": 6577195,
-   "roof": 3683866,
+   "riser": 6577707,
+   "roof": 3683354,
    "soft_panel": 8735488,
-   "stair": 5853504,
-   "static_hard": 6643017
+   "stair": 5853760,
+   "static_hard": 6643273
   },
   "sky": 9930610,
   "fog": 8944231,
@@ -4223,7 +5963,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "marquis": {
   "roles": {
@@ -4233,7 +5988,7 @@ export const LOOKS: Record<string, MapLook> = {
    "glass": 15001317,
    "ramp": 12567743,
    "riser": 9938081,
-   "roof": 6253417,
+   "roof": 6253418,
    "soft_panel": 5155783,
    "stair": 12567743,
    "static_hard": 12962245
@@ -4256,20 +6011,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "memento": {
   "roles": {
    "cover": 6914308,
-   "exterior_wall": 5662537,
+   "exterior_wall": 5793609,
    "floor": 4346939,
    "glass": 14018038,
    "ramp": 6716503,
-   "riser": 4346684,
-   "roof": 2766630,
+   "riser": 4477756,
+   "roof": 2570022,
    "soft_panel": 6979843,
-   "stair": 7045724,
-   "static_hard": 6387028
+   "stair": 7242332,
+   "static_hard": 6583636
   },
   "sky": 9285844,
   "fog": 7904966,
@@ -4289,7 +6058,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "miami": {
   "roles": {
@@ -4298,8 +6080,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 6907490,
    "glass": 4607575,
    "ramp": 12171706,
-   "riser": 7762798,
-   "roof": 4934215,
+   "riser": 7762542,
+   "roof": 4934471,
    "soft_panel": 10775876,
    "stair": 12698050,
    "static_hard": 11579569
@@ -4322,7 +6104,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "mikla": {
   "roles": {
@@ -4357,6 +6154,19 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A Scandinavian street in the cold. Dark timber, pale render, snow light.",
+  "skyline": [
+   "minaret",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11561520,
   "curated": true
  },
  "militia": {
@@ -4392,20 +6202,32 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A backwoods farmhouse. Timber siding, damp earth, moss, overcast.",
+  "skyline": [
+   "water_tank",
+   "silo"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "barrel",
+   "arcade"
+  ],
+  "accent": 9067060,
   "curated": true
  },
  "militia_winter": {
   "roles": {
    "cover": 16731953,
-   "exterior_wall": 4210012,
+   "exterior_wall": 4933999,
    "floor": 6975897,
    "glass": 4407412,
-   "ramp": 3947348,
-   "riser": 8028584,
-   "roof": 5001839,
+   "ramp": 4802662,
+   "riser": 8029352,
+   "roof": 5000815,
    "soft_panel": 16741724,
-   "stair": 4143956,
-   "static_hard": 4933223
+   "stair": 4868198,
+   "static_hard": 5722746
   },
   "sky": 3815507,
   "fog": 3486537,
@@ -4425,20 +6247,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "mills": {
   "roles": {
    "cover": 6076671,
-   "exterior_wall": 8054015,
+   "exterior_wall": 8050175,
    "floor": 5791579,
    "glass": 15071231,
    "ramp": 9363190,
-   "riser": 6515558,
-   "roof": 4211777,
+   "riser": 6515559,
+   "roof": 4211776,
    "soft_panel": 6076415,
-   "stair": 9363190,
-   "static_hard": 9692667
+   "stair": 9360374,
+   "static_hard": 9689851
   },
   "sky": 10082550,
   "fog": 8112108,
@@ -4458,7 +6293,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "mirage": {
   "roles": {
@@ -4493,20 +6343,34 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "Moroccan rooftops. Whitewashed plaster, terracotta trim, sand underfoot, a very bright sky.",
+  "skyline": [
+   "minaret",
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "curved",
+   "gable"
+  ],
+  "accent": 12739642,
   "curated": true
  },
  "mist": {
   "roles": {
    "cover": 5592118,
-   "exterior_wall": 11518666,
+   "exterior_wall": 11518410,
    "floor": 4279886,
    "glass": 13163235,
    "ramp": 12305609,
-   "riser": 4214350,
-   "roof": 2436397,
+   "riser": 4214094,
+   "roof": 2436396,
    "soft_panel": 7039298,
-   "stair": 12109771,
-   "static_hard": 12372946
+   "stair": 12109515,
+   "static_hard": 12372690
   },
   "sky": 9546424,
   "fog": 8428200,
@@ -4526,20 +6390,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "mocha": {
   "roles": {
    "cover": 7826189,
-   "exterior_wall": 7562566,
+   "exterior_wall": 7562310,
    "floor": 13349264,
    "glass": 11456509,
    "ramp": 8812374,
-   "riser": 14272426,
-   "roof": 11703142,
+   "riser": 14272170,
+   "roof": 11704166,
    "soft_panel": 8943885,
-   "stair": 9207131,
-   "static_hard": 8549200
+   "stair": 9206875,
+   "static_hard": 8548944
   },
   "sky": 6986718,
   "fog": 5671633,
@@ -4559,20 +6436,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "monastery": {
   "roles": {
    "cover": 12548906,
-   "exterior_wall": 11912645,
+   "exterior_wall": 11912389,
    "floor": 4672069,
    "glass": 13885668,
    "ramp": 12437447,
-   "riser": 4541252,
-   "roof": 2632487,
+   "riser": 4475716,
+   "roof": 2698023,
    "soft_panel": 14325834,
-   "stair": 12437447,
-   "static_hard": 12831691
+   "stair": 12437191,
+   "static_hard": 12831435
   },
   "sky": 10268598,
   "fog": 9084838,
@@ -4592,20 +6483,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "motel": {
   "roles": {
    "cover": 7553042,
-   "exterior_wall": 7431762,
+   "exterior_wall": 7430994,
    "floor": 4802374,
    "glass": 16185070,
    "ramp": 8812640,
    "riser": 5328718,
    "roof": 4013115,
    "soft_panel": 9063443,
-   "stair": 9141861,
-   "static_hard": 8418140
+   "stair": 9141093,
+   "static_hard": 8417372
   },
   "sky": 13619642,
   "fog": 12501156,
@@ -4625,20 +6530,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 12739642
  },
  "museum": {
   "roles": {
    "cover": 6772510,
-   "exterior_wall": 10394506,
+   "exterior_wall": 10394250,
    "floor": 15517551,
    "glass": 13426152,
    "ramp": 11974059,
-   "riser": 16176526,
-   "roof": 15182130,
+   "riser": 16174990,
+   "roof": 15187250,
    "soft_panel": 8416034,
-   "stair": 12500403,
-   "static_hard": 11579041
+   "stair": 12500147,
+   "static_hard": 11578785
   },
   "sky": 9612222,
   "fog": 8428207,
@@ -4658,20 +6576,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "mutiny": {
   "roles": {
    "cover": 7552786,
-   "exterior_wall": 8836340,
+   "exterior_wall": 8839412,
    "floor": 5197119,
    "glass": 15397883,
    "ramp": 9950700,
-   "riser": 5393725,
-   "roof": 3025955,
+   "riser": 5393213,
+   "roof": 3026467,
    "soft_panel": 8012560,
-   "stair": 9950700,
-   "static_hard": 10280178
+   "stair": 9953004,
+   "static_hard": 10282482
   },
   "sky": 11126748,
   "fog": 9549006,
@@ -4691,7 +6624,23 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "nuke": {
   "roles": {
@@ -4726,6 +6675,20 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A nuclear plant. Poured concrete, cold fluorescent light, yellow hazard paint, steel.",
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668,
   "curated": true
  },
  "office": {
@@ -4761,20 +6724,35 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A snowbound office park. Flat carpet, beige partitions, fluorescent light, snow glare outside.",
+  "skyline": [
+   "water_tank",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772,
   "curated": true
  },
  "oil": {
   "roles": {
    "cover": 8399876,
-   "exterior_wall": 6702131,
-   "floor": 6114098,
+   "exterior_wall": 8017725,
+   "floor": 7428925,
    "glass": 7036516,
-   "ramp": 7425080,
-   "riser": 6048819,
-   "roof": 3419166,
+   "ramp": 7622201,
+   "riser": 7299134,
+   "roof": 3418142,
    "soft_panel": 8530946,
-   "stair": 7884859,
-   "static_hard": 7621946
+   "stair": 7886139,
+   "static_hard": 8937796
   },
   "sky": 5327437,
   "fog": 4735814,
@@ -4794,20 +6772,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "oilrig": {
   "roles": {
    "cover": 3620685,
-   "exterior_wall": 6186884,
-   "floor": 3883353,
+   "exterior_wall": 6187396,
+   "floor": 4541544,
    "glass": 2767719,
    "ramp": 7239831,
-   "riser": 4936562,
-   "roof": 3093574,
+   "riser": 4937074,
+   "roof": 3092806,
    "soft_panel": 3686224,
-   "stair": 7634587,
-   "static_hard": 6910866
+   "stair": 7635099,
+   "static_hard": 6911378
   },
   "sky": 2634055,
   "fog": 2501951,
@@ -4827,20 +6820,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.04
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "otaku": {
   "roles": {
    "cover": 9728256,
-   "exterior_wall": 7945771,
+   "exterior_wall": 7947307,
    "floor": 5066049,
    "glass": 15528696,
    "ramp": 8998458,
-   "riser": 5131584,
-   "roof": 2894885,
+   "riser": 5131840,
+   "roof": 2894629,
    "soft_panel": 12160256,
-   "stair": 9392445,
-   "static_hard": 8800307
+   "stair": 9394237,
+   "static_hard": 8802099
   },
   "sky": 10992338,
   "fog": 9545667,
@@ -4860,20 +6868,36 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "overgrown": {
   "roles": {
    "cover": 6644000,
-   "exterior_wall": 9750501,
+   "exterior_wall": 9749989,
    "floor": 5132351,
    "glass": 15463417,
    "ramp": 10603491,
-   "riser": 5658179,
-   "roof": 3553068,
+   "riser": 5592643,
+   "roof": 3618604,
    "soft_panel": 7499041,
-   "stair": 10603491,
-   "static_hard": 11129061
+   "stair": 10602979,
+   "static_hard": 11128549
   },
   "sky": 12242910,
   "fog": 10599630,
@@ -4893,7 +6917,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "overpass": {
   "roles": {
@@ -4928,20 +6965,35 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A German park under a motorway. Wet concrete, clipped grass, canal water.",
+  "skyline": [
+   "campanile",
+   "crane",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "curved",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 4161471,
   "curated": true
  },
  "palacio": {
   "roles": {
    "cover": 554741,
-   "exterior_wall": 6710915,
+   "exterior_wall": 6711427,
    "floor": 13613196,
    "glass": 8303087,
    "ramp": 8355736,
-   "riser": 14470056,
-   "roof": 12360540,
+   "riser": 14469288,
+   "roof": 12363100,
    "soft_panel": 4102398,
-   "stair": 8881821,
-   "static_hard": 7763603
+   "stair": 8816285,
+   "static_hard": 7764115
   },
   "sky": 5277641,
   "fog": 4356538,
@@ -4961,7 +7013,21 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "palais": {
   "roles": {
@@ -4970,8 +7036,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 6445908,
    "glass": 15069951,
    "ramp": 9737872,
-   "riser": 7958374,
-   "roof": 4998976,
+   "riser": 7958118,
+   "roof": 4999232,
    "soft_panel": 7882300,
    "stair": 10066838,
    "static_hard": 9408908
@@ -4994,20 +7060,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "penal": {
   "roles": {
    "cover": 6071551,
-   "exterior_wall": 5853760,
+   "exterior_wall": 5853248,
    "floor": 5591610,
    "glass": 15069695,
    "ramp": 6642759,
-   "riser": 5657401,
-   "roof": 3157281,
+   "riser": 5656889,
+   "roof": 3157793,
    "soft_panel": 6071807,
-   "stair": 7037516,
-   "static_hard": 6708552
+   "stair": 7036748,
+   "static_hard": 6708040
   },
   "sky": 11719935,
   "fog": 9289208,
@@ -5027,20 +7107,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "phoenix_compound": {
   "roles": {
    "cover": 5597102,
-   "exterior_wall": 6250624,
+   "exterior_wall": 6315904,
    "floor": 4144466,
    "glass": 7306433,
    "ramp": 7698069,
-   "riser": 4078420,
-   "roof": 2302767,
+   "riser": 4143956,
+   "roof": 2303023,
    "soft_panel": 8359365,
-   "stair": 8158618,
-   "static_hard": 7106193
+   "stair": 8223898,
+   "static_hard": 7105681
   },
   "sky": 5595284,
   "fog": 5265795,
@@ -5060,20 +7155,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "phoenix_facility": {
   "roles": {
    "cover": 31621,
-   "exterior_wall": 2910317,
-   "floor": 4345154,
+   "exterior_wall": 3505282,
+   "floor": 5266768,
    "glass": 862506,
-   "ramp": 2711910,
-   "riser": 4214592,
+   "ramp": 3307132,
+   "riser": 5136462,
    "roof": 2371108,
    "soft_panel": 31109,
-   "stair": 2711910,
-   "static_hard": 3307131
+   "stair": 3306876,
+   "static_hard": 3902097
   },
   "sky": 859165,
   "fog": 858137,
@@ -5093,20 +7203,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "pipeline": {
   "roles": {
    "cover": 4753903,
-   "exterior_wall": 6117201,
+   "exterior_wall": 6117457,
    "floor": 5195583,
    "glass": 11455477,
    "ramp": 7235682,
-   "riser": 5261119,
-   "roof": 3024932,
+   "riser": 5261375,
+   "roof": 3024420,
    "soft_panel": 6659574,
-   "stair": 7564647,
-   "static_hard": 6906717
+   "stair": 7564903,
+   "static_hard": 6906973
   },
   "sky": 7378898,
   "fog": 6194885,
@@ -5126,7 +7251,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "piranesi": {
   "roles": {
@@ -5161,20 +7301,33 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "Baroque stonework and statuary. Cool marble, verdigris bronze, grey sky.",
+  "skyline": [
+   "obelisk",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "setback"
+  ],
+  "accent": 10250812,
   "curated": true
  },
  "pitstop": {
   "roles": {
    "cover": 8716296,
-   "exterior_wall": 5392200,
+   "exterior_wall": 6444632,
    "floor": 11116442,
    "glass": 5714485,
    "ramp": 6116180,
-   "riser": 12300718,
-   "roof": 8286314,
+   "riser": 12300462,
+   "roof": 8287338,
    "soft_panel": 9437193,
-   "stair": 6379352,
-   "static_hard": 6050386
+   "stair": 6379353,
+   "static_hard": 7102561
   },
   "sky": 4074285,
   "fog": 3614761,
@@ -5194,17 +7347,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "pool_day": {
   "roles": {
    "cover": 4998209,
-   "exterior_wall": 10591395,
+   "exterior_wall": 10525859,
    "floor": 12496029,
    "glass": 9411760,
    "ramp": 12565952,
-   "riser": 13353656,
-   "roof": 10652791,
+   "riser": 13353144,
+   "roof": 10655095,
    "soft_panel": 6248018,
    "stair": 12763331,
    "static_hard": 12039351
@@ -5227,20 +7395,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "helipad",
+   "sawtooth",
+   "drum"
+  ],
+  "accent": 6312268
  },
  "port": {
   "roles": {
    "cover": 7675151,
-   "exterior_wall": 11518666,
+   "exterior_wall": 11518410,
    "floor": 4345161,
    "glass": 15659766,
    "ramp": 12109771,
-   "riser": 4214603,
-   "roof": 2501674,
+   "riser": 4214604,
+   "roof": 2501673,
    "soft_panel": 7871756,
-   "stair": 12109771,
-   "static_hard": 12504016
+   "stair": 12109515,
+   "static_hard": 12503760
   },
   "sky": 11779275,
   "fog": 10397881,
@@ -5260,20 +7440,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "poseidon": {
   "roles": {
    "cover": 3637702,
-   "exterior_wall": 11386829,
+   "exterior_wall": 11386061,
    "floor": 11119026,
    "glass": 9156317,
    "ramp": 11847632,
-   "riser": 12500677,
-   "roof": 9079950,
+   "riser": 12566213,
+   "roof": 9080206,
    "soft_panel": 6726103,
-   "stair": 11847632,
-   "static_hard": 12241876
+   "stair": 11846864,
+   "static_hard": 12241108
   },
   "sky": 6327733,
   "fog": 5537701,
@@ -5293,13 +7488,26 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "prison": {
   "roles": {
    "cover": 5267272,
    "exterior_wall": 7041640,
-   "floor": 4934211,
+   "floor": 6052434,
    "glass": 725002,
    "ramp": 8094841,
    "riser": 6250070,
@@ -5326,7 +7534,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "prodigy": {
   "roles": {
@@ -5361,20 +7584,34 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A concrete research bunker. Institutional grey-green, strip lighting, sealed doors.",
+  "skyline": [
+   "chimney",
+   "silo",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "drum",
+   "helipad"
+  ],
+  "accent": 13205804,
   "curated": true
  },
  "quarry": {
   "roles": {
    "cover": 8142344,
-   "exterior_wall": 6638644,
+   "exterior_wall": 7952958,
    "floor": 7820354,
    "glass": 6313814,
-   "ramp": 6113074,
-   "riser": 9594705,
-   "roof": 4468774,
+   "ramp": 7427900,
+   "riser": 9594193,
+   "roof": 4469286,
    "soft_panel": 8339206,
-   "stair": 6113074,
-   "static_hard": 7493435
+   "stair": 7427389,
+   "static_hard": 8807494
   },
   "sky": 4801603,
   "fog": 4275517,
@@ -5394,20 +7631,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "radio_hostage_rescue_map": {
   "roles": {
    "cover": 7095576,
-   "exterior_wall": 7498599,
+   "exterior_wall": 7498343,
    "floor": 4671558,
    "glass": 9998214,
    "ramp": 8682872,
    "riser": 5921881,
    "roof": 3816506,
    "soft_panel": 7817752,
-   "stair": 9011837,
-   "static_hard": 8353907
+   "stair": 9011581,
+   "static_hard": 8353651
   },
   "sky": 7630440,
   "fog": 6841182,
@@ -5427,20 +7679,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "railroad": {
   "roles": {
    "cover": 8475139,
-   "exterior_wall": 6052925,
+   "exterior_wall": 6052157,
    "floor": 12763289,
    "glass": 15528696,
    "ramp": 6447684,
-   "riser": 13815985,
-   "roof": 10328671,
+   "riser": 13815217,
+   "roof": 9870687,
    "soft_panel": 10511616,
-   "stair": 6776392,
-   "static_hard": 6842182
+   "stair": 6775624,
+   "static_hard": 6841414
   },
   "sky": 12504798,
   "fog": 10795470,
@@ -5460,20 +7725,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "rails": {
   "roles": {
    "cover": 3952739,
-   "exterior_wall": 4542036,
+   "exterior_wall": 5463141,
    "floor": 6776160,
    "glass": 4212310,
-   "ramp": 4278349,
+   "ramp": 5199966,
    "riser": 8158068,
    "roof": 3749942,
    "soft_panel": 4875389,
-   "stair": 4278350,
-   "static_hard": 5199967
+   "stair": 5199455,
+   "static_hard": 6121071
   },
   "sky": 3422015,
   "fog": 3093048,
@@ -5493,20 +7773,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "range": {
   "roles": {
    "cover": 8727552,
-   "exterior_wall": 5395015,
+   "exterior_wall": 6447957,
    "floor": 10459542,
    "glass": 1508610,
-   "ramp": 5392188,
-   "riser": 11709608,
-   "roof": 7695978,
+   "ramp": 6575945,
+   "riser": 11709864,
+   "roof": 7695466,
    "soft_panel": 8727808,
-   "stair": 5066050,
-   "static_hard": 6118736
+   "stair": 6053200,
+   "static_hard": 7171678
   },
   "sky": 918788,
   "fog": 787716,
@@ -5526,20 +7821,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "chimney",
+   "silo"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "barrel",
+   "arcade"
+  ],
+  "accent": 10761728
  },
  "ravine": {
   "roles": {
    "cover": 10700558,
-   "exterior_wall": 7820877,
-   "floor": 6242096,
+   "exterior_wall": 7821389,
+   "floor": 7621946,
    "glass": 5395569,
    "ramp": 9266523,
-   "riser": 7030326,
-   "roof": 5322026,
+   "riser": 7556666,
+   "roof": 5321002,
    "soft_panel": 13719310,
-   "stair": 9660767,
-   "static_hard": 8872023
+   "stair": 9661535,
+   "static_hard": 8872791
   },
   "sky": 4408403,
   "fog": 4013642,
@@ -5559,20 +7866,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "resort": {
   "roles": {
    "cover": 4359652,
-   "exterior_wall": 5855565,
+   "exterior_wall": 5790029,
    "floor": 5064770,
    "glass": 11717356,
    "ramp": 7039838,
-   "riser": 5064770,
-   "roof": 3288875,
+   "riser": 5065026,
+   "roof": 3288363,
    "soft_panel": 7185390,
-   "stair": 7434595,
-   "static_hard": 6710873
+   "stair": 7303523,
+   "static_hard": 6645337
   },
   "sky": 7969222,
   "fog": 6785464,
@@ -5592,20 +7912,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "rialto": {
   "roles": {
    "cover": 6077439,
-   "exterior_wall": 8053247,
+   "exterior_wall": 8052223,
    "floor": 8421487,
    "glass": 15070975,
    "ramp": 9363190,
    "riser": 9408381,
-   "roof": 6052944,
+   "roof": 6052688,
    "soft_panel": 6076927,
-   "stair": 9363190,
-   "static_hard": 9692667
+   "stair": 9362422,
+   "static_hard": 9691899
   },
   "sky": 9360634,
   "fog": 7390450,
@@ -5625,20 +7960,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "riverside": {
   "roles": {
    "cover": 8744192,
-   "exterior_wall": 7365673,
+   "exterior_wall": 7367721,
    "floor": 5459516,
    "glass": 10260893,
    "ramp": 6970405,
-   "riser": 6643528,
-   "roof": 3091490,
+   "riser": 6644296,
+   "roof": 3090722,
    "soft_panel": 8744704,
-   "stair": 6905894,
-   "static_hard": 8286768
+   "stair": 6907686,
+   "static_hard": 8289072
   },
   "sky": 7892857,
   "fog": 7103852,
@@ -5658,20 +8007,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 12739642
  },
  "rockworld": {
   "roles": {
    "cover": 7173655,
-   "exterior_wall": 11378526,
+   "exterior_wall": 11379038,
    "floor": 8221761,
    "glass": 9537847,
    "ramp": 12168821,
-   "riser": 9997647,
-   "roof": 7235385,
+   "riser": 9998159,
+   "roof": 7234617,
    "soft_panel": 9148186,
-   "stair": 12366205,
-   "static_hard": 11905647
+   "stair": 12366717,
+   "static_hard": 11906159
   },
   "sky": 6578230,
   "fog": 5788979,
@@ -5691,20 +8053,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "rooftop": {
   "roles": {
    "cover": 3697327,
-   "exterior_wall": 13087423,
+   "exterior_wall": 13087422,
    "floor": 13993623,
    "glass": 15855349,
    "ramp": 13351111,
-   "riser": 14721969,
-   "roof": 12801380,
+   "riser": 14721966,
+   "roof": 12801392,
    "soft_panel": 5539788,
-   "stair": 13351111,
-   "static_hard": 13680331
+   "stair": 13351110,
+   "static_hard": 13680330
   },
   "sky": 12234437,
   "fog": 10984116,
@@ -5724,20 +8101,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "rooftop_control": {
   "roles": {
    "cover": 2774112,
-   "exterior_wall": 9228014,
+   "exterior_wall": 9230062,
    "floor": 8230285,
    "glass": 15463673,
    "ramp": 10014443,
-   "riser": 9348510,
-   "roof": 5795174,
+   "riser": 9348508,
+   "roof": 5795177,
    "soft_panel": 3369338,
-   "stair": 10014443,
-   "static_hard": 10277618
+   "stair": 10016235,
+   "static_hard": 10279410
   },
   "sky": 13163493,
   "fog": 11388885,
@@ -5757,17 +8149,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "rooftops": {
   "roles": {
    "cover": 1844073,
-   "exterior_wall": 9674652,
+   "exterior_wall": 9674653,
    "floor": 8223857,
    "glass": 12834258,
    "ramp": 11713207,
-   "riser": 9210751,
-   "roof": 5921361,
+   "riser": 9211007,
+   "roof": 5921105,
    "soft_panel": 1711979,
    "stair": 12305344,
    "static_hard": 11121327
@@ -5790,20 +8197,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "rotterdam": {
   "roles": {
    "cover": 621598,
-   "exterior_wall": 3555171,
-   "floor": 3490138,
+   "exterior_wall": 4277879,
+   "floor": 4214637,
    "glass": 1516604,
-   "ramp": 3423327,
-   "riser": 3490137,
-   "roof": 1909813,
+   "ramp": 4015984,
+   "riser": 4278893,
+   "roof": 1911093,
    "soft_panel": 430113,
-   "stair": 3621223,
-   "static_hard": 4016241
+   "stair": 3948913,
+   "static_hard": 4673157
   },
   "sky": 1514793,
   "fog": 1382948,
@@ -5823,20 +8245,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "royal": {
   "roles": {
    "cover": 4276548,
-   "exterior_wall": 5000525,
+   "exterior_wall": 5987677,
    "floor": 11382189,
    "glass": 3948613,
-   "ramp": 4606024,
+   "ramp": 5593176,
    "riser": 12763842,
    "roof": 9145998,
    "soft_panel": 5066323,
-   "stair": 4671560,
-   "static_hard": 5592920
+   "stair": 5658455,
+   "static_hard": 6579816
   },
   "sky": 3092788,
   "fog": 2829359,
@@ -5856,20 +8291,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "rubble": {
   "roles": {
    "cover": 1850217,
-   "exterior_wall": 5721666,
-   "floor": 5392188,
+   "exterior_wall": 6839119,
+   "floor": 6575945,
    "glass": 2699068,
-   "ramp": 5261119,
-   "riser": 5392957,
-   "roof": 3089955,
+   "ramp": 6379341,
+   "riser": 6575946,
+   "roof": 3090467,
    "soft_panel": 2049922,
-   "stair": 5261375,
-   "static_hard": 6379596
+   "stair": 6378829,
+   "static_hard": 7497050
   },
   "sky": 2237740,
   "fog": 2040359,
@@ -5889,20 +8338,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "ruins": {
   "roles": {
    "cover": 7171861,
-   "exterior_wall": 5921598,
+   "exterior_wall": 6909514,
    "floor": 10131336,
    "glass": 5132327,
-   "ramp": 5789761,
-   "riser": 11249818,
-   "roof": 7433824,
+   "ramp": 6579274,
+   "riser": 11250074,
+   "roof": 7433056,
    "soft_panel": 7369235,
-   "stair": 6184003,
-   "static_hard": 6776647
+   "stair": 6645064,
+   "static_hard": 7764307
   },
   "sky": 3618851,
   "fog": 3224097,
@@ -5922,20 +8385,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "chimney",
+   "silo"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "tower",
+   "chamfer"
+  ],
+  "accent": 10461952
  },
  "rush": {
   "roles": {
    "cover": 8614401,
-   "exterior_wall": 6051901,
+   "exterior_wall": 7237193,
    "floor": 12235144,
    "glass": 4474932,
-   "ramp": 5460283,
-   "riser": 13288351,
-   "roof": 9668694,
+   "ramp": 6644296,
+   "riser": 13289631,
+   "roof": 9665366,
    "soft_panel": 8746240,
-   "stair": 5526075,
-   "static_hard": 6776134
+   "stair": 6513992,
+   "static_hard": 7829843
   },
   "sky": 3355946,
   "fog": 2961191,
@@ -5955,20 +8430,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "water_tank",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "pitched",
+  "blocks": [
+   "helipad",
+   "sawtooth",
+   "drum"
+  ],
+  "accent": 10718464
  },
  "safehouse": {
   "roles": {
    "cover": 6710815,
-   "exterior_wall": 5329734,
+   "exterior_wall": 6382676,
    "floor": 8157541,
    "glass": 7238468,
-   "ramp": 5197893,
-   "riser": 9209967,
-   "roof": 5920584,
+   "ramp": 6053200,
+   "riser": 9210223,
+   "roof": 5920328,
    "soft_panel": 7171359,
-   "stair": 5395528,
-   "static_hard": 6053455
+   "stair": 5987664,
+   "static_hard": 7106397
   },
   "sky": 5263931,
   "fog": 4671798,
@@ -5988,7 +8475,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "sanctum": {
   "roles": {
@@ -5997,8 +8499,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 5063240,
    "glass": 15789550,
    "ramp": 8353917,
-   "riser": 6312281,
-   "roof": 4273724,
+   "riser": 6312280,
+   "roof": 4273725,
    "soft_panel": 9985849,
    "stair": 8682882,
    "static_hard": 8024952
@@ -6021,7 +8523,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "obelisk",
+   "ziggurat",
+   "minaret"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 13805111
  },
  "santorini": {
   "roles": {
@@ -6030,8 +8545,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 12234145,
    "glass": 15594488,
    "ramp": 12370888,
-   "riser": 13353656,
-   "roof": 10456697,
+   "riser": 13353400,
+   "roof": 10457209,
    "soft_panel": 7038233,
    "stair": 12501702,
    "static_hard": 12765388
@@ -6054,17 +8569,31 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "seaside": {
   "roles": {
    "cover": 14455367,
-   "exterior_wall": 12042943,
+   "exterior_wall": 12042944,
    "floor": 5196608,
    "glass": 15660022,
    "ramp": 12567748,
-   "riser": 5262398,
-   "roof": 3354921,
+   "riser": 5262654,
+   "roof": 3354409,
    "soft_panel": 15118452,
    "stair": 12567748,
    "static_hard": 12962249
@@ -6087,30 +8616,43 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 12739642
  },
  "season": {
   "roles": {
-   "floor": 6185574,
-   "roof": 3948612,
-   "static_hard": 7764608,
-   "exterior_wall": 5922404,
-   "riser": 6975092,
-   "stair": 7238264,
-   "ramp": 6975092,
-   "cover": 12071980,
-   "soft_panel": 2914970,
-   "glass": 9097448
+   "floor": 5792367,
+   "roof": 3752527,
+   "static_hard": 7239813,
+   "exterior_wall": 6516090,
+   "riser": 7897743,
+   "stair": 8095122,
+   "ramp": 7437192,
+   "cover": 12881716,
+   "soft_panel": 11042607,
+   "glass": 4842224
   },
-  "sky": 3820124,
-  "fog": 4478058,
-  "fogNear": 20,
-  "fogFar": 115,
-  "sun": 16767152,
-  "sunIntensity": 2.1,
-  "hemiSky": 10138832,
-  "hemiGround": 3422268,
-  "hemiIntensity": 2.8,
+  "sky": 1581107,
+  "fog": 2502719,
+  "fogNear": 34,
+  "fogFar": 190,
+  "sun": 12112639,
+  "sunIntensity": 1.8,
+  "hemiSky": 5206426,
+  "hemiGround": 2370618,
+  "hemiIntensity": 3.2,
   "grid": {
    "line": 2500908,
    "alpha": 0.24,
@@ -6122,6 +8664,21 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": false,
   "look": "A rain-slick Asian street at dusk. Wet asphalt, neon signage, concrete.",
+  "skyline": [
+   "water_tank",
+   "chimney",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "glassbox"
+  ],
+  "accent": 16727406,
   "curated": true
  },
  "ship": {
@@ -6155,7 +8712,19 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.03
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "water_tank",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "chamfer",
+   "curved",
+   "setback"
+  ],
+  "accent": 10775296
  },
  "shipped": {
   "roles": {
@@ -6164,8 +8733,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 8217436,
    "glass": 14738145,
    "ramp": 4933187,
-   "riser": 9795181,
-   "roof": 4996152,
+   "riser": 9794925,
+   "roof": 4996408,
    "soft_panel": 8860948,
    "stair": 4998467,
    "static_hard": 6050897
@@ -6188,20 +8757,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "shoothouse": {
   "roles": {
    "cover": 8010507,
-   "exterior_wall": 6839378,
-   "floor": 4145488,
+   "exterior_wall": 6839634,
+   "floor": 5000801,
    "glass": 9402717,
    "ramp": 8023652,
-   "riser": 4145744,
-   "roof": 2303278,
+   "riser": 5001057,
+   "roof": 2303534,
    "soft_panel": 8732169,
-   "stair": 8352617,
-   "static_hard": 7694430
+   "stair": 8352873,
+   "static_hard": 7694686
   },
   "sky": 6839374,
   "fog": 6050631,
@@ -6221,20 +8805,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad"
+  ],
+  "accent": 10766080
  },
  "shoots": {
   "roles": {
    "cover": 6513951,
-   "exterior_wall": 9609106,
+   "exterior_wall": 9609107,
    "floor": 8225910,
    "glass": 13885925,
    "ramp": 11713202,
-   "riser": 9213061,
-   "roof": 5922901,
+   "riser": 9147525,
+   "roof": 5988437,
    "soft_panel": 6908193,
    "stair": 12305339,
-   "static_hard": 11121577
+   "static_hard": 11121578
   },
   "sky": 10203831,
   "fog": 9020071,
@@ -6254,20 +8850,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "water_tank",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad"
+  ],
+  "accent": 9343505
  },
  "shortdust": {
   "roles": {
    "cover": 8085548,
-   "exterior_wall": 14400927,
+   "exterior_wall": 14400159,
    "floor": 9144970,
    "glass": 15791092,
    "ramp": 14271146,
    "riser": 10263451,
    "roof": 6579044,
    "soft_panel": 10385973,
-   "stair": 14271146,
-   "static_hard": 14730670
+   "stair": 14270378,
+   "static_hard": 14729902
   },
   "sky": 12897745,
   "fog": 11450814,
@@ -6287,20 +8895,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "shorttrain": {
   "roles": {
    "cover": 14652442,
-   "exterior_wall": 4869199,
-   "floor": 4606278,
+   "exterior_wall": 5790559,
+   "floor": 5593173,
    "glass": 2895665,
-   "ramp": 5396057,
-   "riser": 4606278,
+   "ramp": 5461850,
+   "riser": 5593173,
    "roof": 2632233,
    "soft_panel": 15577162,
    "stair": 5725023,
-   "static_hard": 5461850
+   "static_hard": 6449002
   },
   "sky": 2237477,
   "fog": 2039841,
@@ -6320,20 +8942,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "siege": {
   "roles": {
    "cover": 8726784,
-   "exterior_wall": 6571829,
-   "floor": 5392189,
+   "exterior_wall": 7885632,
+   "floor": 6510154,
    "glass": 2627598,
-   "ramp": 6046514,
-   "riser": 6970190,
-   "roof": 3156516,
+   "ramp": 7361085,
+   "riser": 6969934,
+   "roof": 3156772,
    "soft_panel": 8727040,
-   "stair": 6177841,
-   "static_hard": 7426621
+   "stair": 7491900,
+   "static_hard": 8740679
   },
   "sky": 1774350,
   "fog": 1577485,
@@ -6353,20 +8990,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "sienna": {
   "roles": {
    "cover": 7300630,
-   "exterior_wall": 10193778,
+   "exterior_wall": 10193010,
    "floor": 6773576,
    "glass": 12884863,
    "ramp": 11445394,
-   "riser": 7694158,
-   "roof": 4866612,
+   "riser": 7693390,
+   "roof": 4867636,
    "soft_panel": 8484374,
-   "stair": 11840412,
-   "static_hard": 11115913
+   "stair": 11839900,
+   "static_hard": 11115145
   },
   "sky": 10188382,
   "fog": 8940375,
@@ -6386,20 +9037,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.08
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "silo": {
   "roles": {
    "cover": 8733952,
-   "exterior_wall": 4935753,
+   "exterior_wall": 5857368,
    "floor": 6316641,
    "glass": 2172450,
-   "ramp": 4541252,
+   "ramp": 5528402,
    "riser": 7632757,
    "roof": 3816507,
    "soft_panel": 9193984,
-   "stair": 4607043,
-   "static_hard": 5528402
+   "stair": 5463121,
+   "static_hard": 6450017
   },
   "sky": 1711131,
   "fog": 1513752,
@@ -6419,20 +9084,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "sirocco": {
   "roles": {
    "cover": 2853020,
-   "exterior_wall": 9750246,
+   "exterior_wall": 9748454,
    "floor": 8823460,
    "glass": 14676475,
    "ramp": 10603491,
-   "riser": 10072757,
-   "roof": 6059898,
+   "riser": 10072245,
+   "roof": 6060664,
    "soft_panel": 3386311,
-   "stair": 10603491,
-   "static_hard": 11129061
+   "stair": 10602211,
+   "static_hard": 11127781
   },
   "sky": 9551580,
   "fog": 8039886,
@@ -6452,20 +9132,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "site": {
   "roles": {
    "cover": 4146754,
-   "exterior_wall": 5066061,
+   "exterior_wall": 6052956,
    "floor": 11382189,
    "glass": 2565927,
-   "ramp": 4737095,
+   "ramp": 5789782,
    "riser": 12763842,
    "roof": 9211020,
    "soft_panel": 4738891,
-   "stair": 4671303,
-   "static_hard": 5789782
+   "stair": 5723991,
+   "static_hard": 6776677
   },
   "sky": 1973790,
   "fog": 1776411,
@@ -6485,7 +9179,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668
  },
  "st_marc": {
   "roles": {
@@ -6518,20 +9227,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.05
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "stadium": {
   "roles": {
    "cover": 7424024,
-   "exterior_wall": 6775892,
-   "floor": 4802885,
+   "exterior_wall": 6776404,
+   "floor": 5855572,
    "glass": 2895657,
    "ramp": 8091749,
-   "riser": 5197642,
-   "roof": 3750198,
+   "riser": 5855828,
+   "roof": 3749942,
    "soft_panel": 9526042,
-   "stair": 8420969,
-   "static_hard": 7697248
+   "stair": 8355945,
+   "static_hard": 7697760
   },
   "sky": 2237217,
   "fog": 1974302,
@@ -6551,20 +9274,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "station": {
   "roles": {
    "cover": 7815437,
-   "exterior_wall": 6244410,
+   "exterior_wall": 7558725,
    "floor": 8092784,
    "glass": 10191715,
-   "ramp": 5915702,
+   "ramp": 7098945,
    "riser": 9408644,
    "roof": 5131845,
    "soft_panel": 8077322,
-   "stair": 6310202,
-   "static_hard": 7033410
+   "stair": 7098945,
+   "static_hard": 8282190
   },
   "sky": 7365716,
   "fog": 6510925,
@@ -6584,20 +9322,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "storm": {
   "roles": {
    "cover": 3245312,
-   "exterior_wall": 6836273,
-   "floor": 6637868,
+   "exterior_wall": 8217659,
+   "floor": 7952181,
    "glass": 12031816,
-   "ramp": 6244912,
-   "riser": 8478265,
-   "roof": 3746329,
+   "ramp": 7625274,
+   "riser": 8479801,
+   "roof": 3745049,
    "soft_panel": 3179776,
-   "stair": 6311471,
-   "static_hard": 7494459
+   "stair": 7693369,
+   "static_hard": 8810566
   },
   "sky": 8351301,
   "fog": 7365185,
@@ -6617,20 +9370,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "stronghold": {
   "roles": {
    "cover": 2447806,
-   "exterior_wall": 11582922,
+   "exterior_wall": 11582154,
    "floor": 13347472,
    "glass": 12638452,
    "ramp": 12042957,
-   "riser": 14204844,
-   "roof": 11699302,
+   "riser": 14206124,
+   "roof": 11694950,
    "soft_panel": 4027358,
-   "stair": 11977166,
-   "static_hard": 12371666
+   "stair": 11976398,
+   "static_hard": 12371154
   },
   "sky": 8299474,
   "fog": 6984388,
@@ -6650,20 +9418,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.02
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "studio": {
   "roles": {
    "cover": 6756461,
-   "exterior_wall": 5260899,
-   "floor": 4077144,
+   "exterior_wall": 5590124,
+   "floor": 4932203,
    "glass": 3614022,
    "ramp": 6378872,
-   "riser": 4077145,
-   "roof": 2827836,
+   "riser": 4801132,
+   "roof": 2958908,
    "soft_panel": 8264327,
-   "stair": 6707582,
-   "static_hard": 6050161
+   "stair": 6576510,
+   "static_hard": 6247799
   },
   "sky": 2760754,
   "fog": 2498092,
@@ -6683,20 +9464,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "subzero": {
   "roles": {
    "cover": 8978240,
-   "exterior_wall": 11649480,
+   "exterior_wall": 11649224,
    "floor": 8823733,
    "glass": 4555415,
    "ramp": 12109003,
-   "riser": 10467013,
-   "roof": 5996180,
+   "riser": 10466757,
+   "roof": 5996948,
    "soft_panel": 10157916,
-   "stair": 12109004,
-   "static_hard": 12437969
+   "stair": 12108748,
+   "static_hard": 12437713
   },
   "sky": 4218730,
   "fog": 3888477,
@@ -6716,20 +9512,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "sugarcane": {
   "roles": {
    "cover": 8868130,
-   "exterior_wall": 4935245,
-   "floor": 5130049,
+   "exterior_wall": 5987676,
+   "floor": 6248271,
    "glass": 4211523,
    "ramp": 5790297,
-   "riser": 5064513,
+   "riser": 6182479,
    "roof": 2828583,
    "soft_panel": 11297832,
    "stair": 6119262,
-   "static_hard": 5658711
+   "static_hard": 6645606
   },
   "sky": 3289907,
   "fog": 2960942,
@@ -6749,20 +9560,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636
  },
  "survivor": {
   "roles": {
    "cover": 2368865,
-   "exterior_wall": 10266846,
+   "exterior_wall": 10268638,
    "floor": 9279950,
    "glass": 15526905,
    "ramp": 10923998,
-   "riser": 11056092,
-   "roof": 6450614,
+   "riser": 11057628,
+   "roof": 6906550,
    "soft_panel": 2895227,
-   "stair": 10923998,
-   "static_hard": 11384545
+   "stair": 10925534,
+   "static_hard": 11386081
   },
   "sky": 16119290,
   "fog": 14013674,
@@ -6782,20 +9607,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "swamp": {
   "roles": {
    "cover": 10325549,
-   "exterior_wall": 5461316,
+   "exterior_wall": 5526852,
    "floor": 9344878,
    "glass": 15464185,
    "ramp": 5066305,
-   "riser": 10331774,
-   "roof": 6778446,
+   "riser": 10462846,
+   "roof": 6581838,
    "soft_panel": 13022262,
-   "stair": 5066305,
-   "static_hard": 6185038
+   "stair": 5131841,
+   "static_hard": 6250574
   },
   "sky": 11982304,
   "fog": 10273745,
@@ -6815,20 +9653,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "terminal_map": {
   "roles": {
    "cover": 9131776,
-   "exterior_wall": 8219989,
-   "floor": 5721399,
+   "exterior_wall": 8220245,
+   "floor": 6970691,
    "glass": 6641728,
    "ramp": 9666403,
-   "riser": 7036484,
-   "roof": 4406316,
+   "riser": 7036740,
+   "roof": 4406060,
    "soft_panel": 11430912,
-   "stair": 10060904,
-   "static_hard": 9271904
+   "stair": 10061160,
+   "static_hard": 9272160
   },
   "sky": 4801334,
   "fog": 4275250,
@@ -6848,20 +9699,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "thera": {
   "roles": {
    "cover": 29168,
-   "exterior_wall": 9614055,
+   "exterior_wall": 9612775,
    "floor": 11184052,
    "glass": 9263496,
    "ramp": 10008299,
    "riser": 12566469,
-   "roof": 8881556,
+   "roof": 8750484,
    "soft_panel": 3052031,
-   "stair": 10008299,
-   "static_hard": 10599661
+   "stair": 10007019,
+   "static_hard": 10598637
   },
   "sky": 6703972,
   "fog": 5915993,
@@ -6881,7 +9747,21 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "thrill": {
   "roles": {
@@ -6914,12 +9794,28 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": 16727406
  },
  "thunder": {
   "roles": {
    "cover": 6311476,
-   "exterior_wall": 5657417,
+   "exterior_wall": 6512724,
    "floor": 14275457,
    "glass": 6972760,
    "ramp": 6644312,
@@ -6927,7 +9823,7 @@ export const LOOKS: Record<string, MapLook> = {
    "roof": 13614154,
    "soft_panel": 8086079,
    "stair": 6973277,
-   "static_hard": 6381140
+   "static_hard": 7170655
   },
   "sky": 5197126,
   "fog": 4670784,
@@ -6947,7 +9843,20 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "tides": {
   "roles": {
@@ -6980,20 +9889,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": 4165466
  },
  "tire": {
   "roles": {
    "cover": 8208904,
-   "exterior_wall": 7163451,
+   "exterior_wall": 7821632,
    "floor": 12096892,
    "glass": 11373417,
    "ramp": 8281675,
-   "riser": 13084818,
-   "roof": 9464399,
+   "riser": 13085842,
+   "roof": 9461583,
    "soft_panel": 9128453,
-   "stair": 8676175,
-   "static_hard": 8083781
+   "stair": 8677199,
+   "static_hard": 8610889
   },
   "sky": 8416086,
   "fog": 7430223,
@@ -7013,20 +9935,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.08
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "torn": {
   "roles": {
    "cover": 689408,
-   "exterior_wall": 6180411,
-   "floor": 5721400,
+   "exterior_wall": 7430983,
+   "floor": 6970692,
    "glass": 4407076,
-   "ramp": 6246460,
-   "riser": 5721656,
-   "roof": 3287328,
+   "ramp": 6969667,
+   "riser": 6972228,
+   "roof": 3286304,
    "soft_panel": 689408,
-   "stair": 6640703,
-   "static_hard": 6969923
+   "stair": 7036227,
+   "static_hard": 8220495
   },
   "sky": 3157535,
   "fog": 2762781,
@@ -7046,20 +9983,32 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.02
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "chimney"
+  ],
+  "facade": "banded",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 828416
  },
  "trailerpark": {
   "roles": {
    "cover": 8740096,
-   "exterior_wall": 13016175,
+   "exterior_wall": 13017967,
    "floor": 6967845,
    "glass": 16698027,
    "ramp": 13810079,
-   "riser": 7164449,
-   "roof": 4338967,
+   "riser": 7165985,
+   "roof": 4337175,
    "soft_panel": 8740096,
-   "stair": 14271146,
-   "static_hard": 13742224
+   "stair": 14272170,
+   "static_hard": 13743504
   },
   "sky": 14718055,
   "fog": 13861715,
@@ -7079,7 +10028,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.88,
    "metalness": 0.06
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "train": {
   "roles": {
@@ -7114,20 +10078,34 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A Russian rail depot. Cold concrete, green rolling stock, rust, a flat overcast sky.",
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "gable",
+   "helipad"
+  ],
+  "accent": 12079903,
   "curated": true
  },
  "transit": {
   "roles": {
    "cover": 8927005,
-   "exterior_wall": 5397093,
-   "floor": 4408652,
+   "exterior_wall": 5396581,
+   "floor": 5330012,
    "glass": 4084326,
    "ramp": 6515833,
-   "riser": 4540494,
-   "roof": 3026485,
+   "riser": 5330012,
+   "roof": 3026741,
    "soft_panel": 11289378,
-   "stair": 6779262,
-   "static_hard": 6186867
+   "stair": 6778750,
+   "static_hard": 6186355
   },
   "sky": 3424073,
   "fog": 3160385,
@@ -7147,20 +10125,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.96,
    "metalness": 0.06
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "trinity": {
   "roles": {
    "cover": 8748032,
-   "exterior_wall": 5461316,
+   "exterior_wall": 6383186,
    "floor": 12167441,
    "glass": 4608317,
-   "ramp": 5000768,
-   "riser": 14600725,
-   "roof": 7431947,
+   "ramp": 6053710,
+   "riser": 14604821,
+   "roof": 7427595,
    "soft_panel": 8945664,
-   "stair": 5066560,
-   "static_hard": 6184782
+   "stair": 6119246,
+   "static_hard": 7106652
   },
   "sky": 3554354,
   "fog": 3159341,
@@ -7180,20 +10173,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.05
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "truth": {
   "roles": {
    "cover": 8730112,
-   "exterior_wall": 6901552,
+   "exterior_wall": 6900272,
    "floor": 9997132,
    "glass": 16176308,
    "ramp": 6375726,
-   "riser": 11444575,
-   "roof": 6182447,
+   "riser": 11443039,
+   "roof": 6184495,
    "soft_panel": 8730624,
-   "stair": 6507823,
-   "static_hard": 7690808
+   "stair": 6506799,
+   "static_hard": 7689528
   },
   "sky": 13869685,
   "fog": 13013602,
@@ -7213,20 +10220,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "truth_cut": {
   "roles": {
    "cover": 8723712,
-   "exterior_wall": 8092446,
-   "floor": 7225889,
+   "exterior_wall": 9734180,
+   "floor": 8736808,
    "glass": 5126712,
-   "ramp": 7566108,
-   "riser": 7357983,
-   "roof": 4138515,
+   "ramp": 9210914,
+   "riser": 8931877,
+   "roof": 4141075,
    "soft_panel": 8723200,
-   "stair": 7631899,
-   "static_hard": 9210914
+   "stair": 9273632,
+   "static_hard": 10786344
   },
   "sky": 3813166,
   "fog": 3353386,
@@ -7246,20 +10268,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "tulip": {
   "roles": {
    "cover": 4669770,
-   "exterior_wall": 4739405,
+   "exterior_wall": 4739406,
    "floor": 4606281,
    "glass": 7113643,
    "ramp": 5002577,
    "riser": 4606281,
    "roof": 2632234,
    "soft_panel": 5853277,
-   "stair": 5331798,
-   "static_hard": 5397591
+   "stair": 5331799,
+   "static_hard": 5397592
   },
   "sky": 5794687,
   "fog": 5333104,
@@ -7279,20 +10316,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.89,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "obelisk",
+   "ziggurat",
+   "minaret"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 13805111
  },
  "tundra": {
   "roles": {
    "cover": 1726826,
-   "exterior_wall": 3562339,
+   "exterior_wall": 3562851,
    "floor": 8176094,
    "glass": 13555682,
    "ramp": 4352112,
-   "riser": 9950700,
-   "roof": 4696530,
+   "riser": 9951980,
+   "roof": 4692690,
    "soft_panel": 1661292,
-   "stair": 4550006,
-   "static_hard": 4089968
+   "stair": 4550774,
+   "static_hard": 4090736
   },
   "sky": 9872822,
   "fog": 8754343,
@@ -7312,7 +10362,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "tuscan": {
   "roles": {
@@ -7347,20 +10412,32 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "A hill town in hard light. Bleached plaster, ochre, olive green shutters.",
+  "skyline": [
+   "campanile",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 11028780,
   "curated": true
  },
  "vegas": {
   "roles": {
    "cover": 8718080,
-   "exterior_wall": 5784641,
-   "floor": 5650758,
+   "exterior_wall": 6967374,
+   "floor": 6833494,
    "glass": 4800317,
    "ramp": 7099470,
-   "riser": 5650759,
-   "roof": 3154216,
+   "riser": 6833495,
+   "roof": 3154215,
    "soft_panel": 9242624,
-   "stair": 7428179,
-   "static_hard": 6704970
+   "stair": 7427923,
+   "static_hard": 7756630
   },
   "sky": 3551536,
   "fog": 3222828,
@@ -7380,7 +10457,22 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.95,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "vertigo": {
   "roles": {
@@ -7415,6 +10507,20 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "An unfinished skyscraper. Bare concrete, exposed steel, scaffolding, sky on every side.",
+  "skyline": [
+   "crane",
+   "water_tank"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "terrace",
+   "tower",
+   "setback",
+   "helipad"
+  ],
+  "accent": 14705706,
   "curated": true
  },
  "vessel": {
@@ -7424,8 +10530,8 @@ export const LOOKS: Record<string, MapLook> = {
    "floor": 8726800,
    "glass": 8949918,
    "ramp": 11382964,
-   "riser": 10103565,
-   "roof": 6233612,
+   "riser": 10104589,
+   "roof": 6232332,
    "soft_panel": 8724224,
    "stair": 11909308,
    "static_hard": 10790828
@@ -7448,20 +10554,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.04
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "vineyard": {
   "roles": {
    "cover": 8008971,
-   "exterior_wall": 11320525,
+   "exterior_wall": 11321037,
    "floor": 5921086,
    "glass": 15070463,
    "ramp": 11846352,
-   "riser": 6775876,
-   "roof": 4276269,
+   "riser": 6775364,
+   "roof": 4210989,
    "soft_panel": 9518344,
-   "stair": 11846352,
-   "static_hard": 12240852
+   "stair": 11846864,
+   "static_hard": 12241108
   },
   "sky": 10407149,
   "fog": 8567521,
@@ -7481,20 +10602,34 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.91,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": 11028780
  },
  "vostok": {
   "roles": {
    "cover": 3769265,
-   "exterior_wall": 8095627,
+   "exterior_wall": 8095371,
    "floor": 11186609,
    "glass": 10139335,
    "ramp": 9936801,
    "riser": 12567748,
-   "roof": 8818323,
+   "roof": 8818835,
    "soft_panel": 5742541,
-   "stair": 10462632,
-   "static_hard": 9410714
+   "stair": 10462376,
+   "static_hard": 9410458
   },
   "sky": 7442078,
   "fog": 6652046,
@@ -7514,20 +10649,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9299999999999999,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "warden": {
   "roles": {
    "cover": 12682286,
-   "exterior_wall": 12364958,
+   "exterior_wall": 12364446,
    "floor": 10846824,
    "glass": 14671590,
    "ramp": 13287092,
-   "riser": 11835266,
-   "roof": 8282444,
+   "riser": 11834242,
+   "roof": 8284492,
    "soft_panel": 14328144,
-   "stair": 13484215,
-   "static_hard": 13089198
+   "stair": 13483703,
+   "static_hard": 13088686
   },
   "sky": 11118517,
   "fog": 9934244,
@@ -7547,20 +10697,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.01
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "weapons_course": {
   "roles": {
    "cover": 11909202,
-   "exterior_wall": 10856598,
+   "exterior_wall": 10987670,
    "floor": 12629147,
    "glass": 14738919,
    "ramp": 12763832,
-   "riser": 13682612,
-   "roof": 10983026,
+   "riser": 13681844,
+   "roof": 10986098,
    "soft_panel": 13290879,
-   "stair": 13027261,
-   "static_hard": 12172206
+   "stair": 13092797,
+   "static_hard": 12237742
   },
   "sky": 11121333,
   "fog": 9937316,
@@ -7580,7 +10745,19 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.94,
    "metalness": 0
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "silo",
+   "crane"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "tower",
+   "curved",
+   "signboard"
+  ],
+  "accent": 13883217
  },
  "whistle": {
   "roles": {
@@ -7613,20 +10790,33 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.87,
    "metalness": 0.07
   },
-  "daylight": true
+  "daylight": true,
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 9067060
  },
  "workout": {
   "roles": {
    "cover": 4670782,
-   "exterior_wall": 9610157,
-   "floor": 4345683,
+   "exterior_wall": 9610669,
+   "floor": 5069921,
    "glass": 5400435,
    "ramp": 11977158,
-   "riser": 4872285,
-   "roof": 3160379,
+   "riser": 5070177,
+   "roof": 3159867,
    "soft_panel": 4736317,
-   "stair": 12305352,
-   "static_hard": 11319231
+   "stair": 12305608,
+   "static_hard": 11319743
   },
   "sky": 4410965,
   "fog": 4015691,
@@ -7646,20 +10836,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.01
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "wpndepot": {
   "roles": {
    "cover": 1925,
-   "exterior_wall": 6175559,
-   "floor": 5846587,
+   "exterior_wall": 7423834,
+   "floor": 7094600,
    "glass": 3022371,
-   "ramp": 5846597,
-   "riser": 6963014,
-   "roof": 3284770,
+   "ramp": 7094868,
+   "riser": 7160141,
+   "roof": 3285023,
    "soft_panel": 1925,
-   "stair": 5781318,
-   "static_hard": 7159891
+   "stair": 7029337,
+   "static_hard": 8408168
   },
   "sky": 2169116,
   "fog": 1906457,
@@ -7679,20 +10884,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.86,
    "metalness": 0.07
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 13205804
  },
  "zoo": {
   "roles": {
    "cover": 486042,
-   "exterior_wall": 5657411,
+   "exterior_wall": 6776144,
    "floor": 6652289,
    "glass": 5328189,
-   "ramp": 5328190,
-   "riser": 7968406,
-   "roof": 4544600,
+   "ramp": 6512203,
+   "riser": 7968150,
+   "roof": 4544599,
    "soft_panel": 296388,
-   "stair": 5526080,
-   "static_hard": 6512459
+   "stair": 6447435,
+   "static_hard": 7631192
   },
   "sky": 3947057,
   "fog": 3486765,
@@ -7712,20 +10932,35 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.97,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": 5080772
  },
  "zoption": {
   "roles": {
    "cover": 1521774,
-   "exterior_wall": 3884638,
-   "floor": 4143701,
+   "exterior_wall": 4674673,
+   "floor": 5064551,
    "glass": 1053203,
-   "ramp": 3556184,
-   "riser": 4209237,
+   "ramp": 4346219,
+   "riser": 5129832,
    "roof": 2498354,
    "soft_panel": 1324913,
-   "stair": 3621720,
-   "static_hard": 4411498
+   "stair": 4346219,
+   "static_hard": 5201533
   },
   "sky": 790031,
   "fog": 724237,
@@ -7745,7 +10980,19 @@ export const LOOKS: Record<string, MapLook> = {
    "roughness": 0.9199999999999999,
    "metalness": 0.03
   },
-  "daylight": false
+  "daylight": false,
+  "skyline": [
+   "chimney",
+   "silo"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "helipad",
+   "sawtooth",
+   "drum"
+  ],
+  "accent": 147106
  },
  "nuke_lower": {
   "roles": {
@@ -7780,6 +11027,20 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": false,
   "look": "Under the reactor. No daylight at all, strip lights, painted concrete, pipework.",
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": 14266668,
   "curated": true
  },
  "train_lower": {
@@ -7815,6 +11076,20 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": false,
   "look": "The tunnels below the yard. Sodium light on wet concrete, cable trays, no sky.",
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "gable",
+   "helipad"
+  ],
+  "accent": 12079903,
   "curated": true
  },
  "vertigo_lower": {
@@ -7850,6 +11125,20 @@ export const LOOKS: Record<string, MapLook> = {
   },
   "daylight": true,
   "look": "The floor below the top. Same concrete, less sky, more shuttering and rebar.",
+  "skyline": [
+   "crane",
+   "water_tank"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "terrace",
+   "tower",
+   "setback",
+   "helipad"
+  ],
+  "accent": 14705706,
   "curated": true
  }
 };

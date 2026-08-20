@@ -1,0 +1,3271 @@
+{
+ "_note": "Architecture only. Merged over the derived or curated palette by tools/build_palettes.ts; colours are not touched here.",
+ "dust": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "dust_ii": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "dust3": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "shortdust": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "dust_ii_retro": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "dust_ii_control": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "dahab": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "sirocco": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "iraq": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "bazaar": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "arabstreets": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "desert": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "desertbunker": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "gwalior": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "mocha": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "ali": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "blagai": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "alleyway": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "backalley": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "alley1": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "rubble": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "sugarcane": {
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "italy": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "tuscan": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "piranesi": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "st_marc": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "santorini": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "rialto": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "sienna": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "thera": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "monastery": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "abbey": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "castle": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "chateau": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "palacio": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "palais": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "marquis": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "royal": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "canals": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "vineyard": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "cascade": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "genoserv": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "siege": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "chalice": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "trinity": {
+  "skyline": [
+   "campanile",
+   "spire",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8492c"
+ },
+ "havana": {
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c2643a"
+ },
+ "favela": {
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c2643a"
+ },
+ "calavera": {
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c2643a"
+ },
+ "motel": {
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c2643a"
+ },
+ "cruise": {
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c2643a"
+ },
+ "seaside": {
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c2643a"
+ },
+ "coast": {
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c2643a"
+ },
+ "riverside": {
+  "skyline": [
+   "campanile",
+   "water_tank",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c2643a"
+ },
+ "ancient": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "aztec": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "aztec2": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "jungle": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "junglecamp": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "junglecompound": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "grail": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "memento": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "tides": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "poseidon": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "lake": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "swamp": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "forest": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "overgrown": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "biome": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "hive": {
+  "skyline": [
+   "ziggurat",
+   "obelisk",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "anubis": {
+  "skyline": [
+   "obelisk",
+   "ziggurat",
+   "minaret"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "d2a637"
+ },
+ "sanctum": {
+  "skyline": [
+   "obelisk",
+   "ziggurat",
+   "minaret"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "d2a637"
+ },
+ "tulip": {
+  "skyline": [
+   "obelisk",
+   "ziggurat",
+   "minaret"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "d2a637"
+ },
+ "train": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "shorttrain": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "railroad": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "rails": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "depot": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "wpndepot": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "pipeline": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "oil": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "assault": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "prodigy": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "coldstorage": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "brewery": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "quarry": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "silo": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "cranes": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "docks": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "port": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "shipped": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "vessel": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "oilrig": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "chlorine": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "facility": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "phoenix_facility": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "phoenix_compound": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "compound": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "construction": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "hangar": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "airstrip": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "terminal_map": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "station": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "transit": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "subzero": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "tundra": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "vostok": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "arcticbiolab": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "blacksite": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "breach": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "mills": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "basalt": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "foption": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "grind": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "pitstop": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "rockworld": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "tire": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "trailerpark": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "workout": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "storm": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "iris": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "ember": {
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c9812c"
+ },
+ "nuke": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "cache": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "apollo": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "bunker": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "site": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "insertion": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "insertion_ii": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "extraction": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "corruption": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "downed": {
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "office": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "overpass": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "vertigo": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "highrise": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "rooftop": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "rooftops": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "rooftop_control": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "downtown": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "city": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "cityofsin": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "miami": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "vegas": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "bank": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "agency": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "museum": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "studio": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "mansion": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "estate": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "resort": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "stadium": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "zoo": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "library": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "crash": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "crashsite": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "fastline": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "empire": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "golden": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "truth": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "truth_cut": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "warden": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "penal": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "jail": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "prison": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "safehouse": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "guard": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "bridge": {
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "season": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "otaku": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "hankagai_bomb_defusal_map": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "chinatown": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "dogtown": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "destown": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "hideout": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "lunacy": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "dizzy": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "thrill": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "mutiny": {
+  "skyline": [
+   "water_tank",
+   "pylon",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "pagoda",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "mikla": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "balkan_map": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "rotterdam": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "austria": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "county": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "edin": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "jura": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "thunder": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "militia": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "militia_winter": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "cobblestone": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "cobblestone_halloween": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "autumn_harvest": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "boyard": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "mist": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "ravine": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "log": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "frostbite": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "radio_hostage_rescue_map": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "stronghold": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "survivor": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ },
+ "whistle": {
+  "skyline": [
+   "spire",
+   "campanile",
+   "chimney"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "8a5a34"
+ }
+}

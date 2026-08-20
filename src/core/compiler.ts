@@ -805,6 +805,49 @@ export function compile(spec: LevelSpec): CompiledLevel {
   // -------------------------------------------------------------------------
   // Pass 8b — stairs, ramps, ladders, hatches
   // -------------------------------------------------------------------------
+
+  /*
+   * Everything already standing on a boundary, so a flight can ask.
+   *
+   * A flight beside a wall has two decisions to make on each side — whether to
+   * give up half a wall thickness, and whether to raise a parapet — and both
+   * were being made by looking for floor in the neighbouring cell. On a single
+   * storey that reads correctly. Between storeys it does not: the cell beside a
+   * flight out of a basement holds the floor of the room *above*, so the flight
+   * concluded the boundary was open, kept its full width and raised a parapet —
+   * straight through the basement's own wall.
+   *
+   * Asking the geometry instead of the floor map settles it, and settles it the
+   * same way the wall passes do: one owner per boundary. Where a wall, skirt or
+   * riser already stands there, the flight is the guest.
+   */
+  const OWNED = new Set<SolidRole>([
+    'static_hard',
+    'exterior_wall',
+    'riser',
+    'sill',
+    'lintel',
+    'door_panel',
+    'window_barricade',
+  ]);
+  const standing = solids.filter((s) => OWNED.has(s.role));
+  /** How high the geometry already on this strip of boundary reaches. */
+  const ownedTo = (b: Box): number => {
+    let top = -Infinity;
+    for (const s of standing) {
+      if (
+        s.box.min[0] < b.max[0] - EPS &&
+        s.box.max[0] > b.min[0] + EPS &&
+        s.box.min[1] < b.max[1] - EPS &&
+        s.box.max[1] > b.min[1] + EPS &&
+        s.box.min[2] < b.max[2] - EPS &&
+        s.box.max[2] > b.min[2] + EPS
+      )
+        top = Math.max(top, s.box.max[2]);
+    }
+    return top;
+  };
+
   for (const v of verticals) {
     const vc = v.spec;
     const from = layers.get(vc.from_layer)!;
@@ -867,6 +910,8 @@ export function compile(spec: LevelSpec): CompiledLevel {
         const midAlong = (lo + hi) / 2;
         const inset: boolean[] = [false, false];
         const guard: boolean[] = [false, false];
+        /** Where each parapet starts: on top of whatever is already there. */
+        const guardFrom: number[] = [bottom, bottom];
         for (let sideIdx = 0; sideIdx < 2; sideIdx++) {
           const cellPerp = sideCells[sideIdx];
           const [nx, ny] =
@@ -875,8 +920,22 @@ export function compile(spec: LevelSpec): CompiledLevel {
               : [cellPerp, Math.floor(midAlong / g)];
           const neighbour = nearestFloor(nx, ny, top);
           const walkable = neighbour !== undefined && Math.abs(neighbour - top) <= player.step;
-          inset[sideIdx] = !walkable;
-          guard[sideIdx] = !walkable && neighbour !== undefined;
+          // The strip this side would occupy at full width, tested against
+          // what is already there.
+          const edge = sideIdx === 0 ? base.min[perp] : base.max[perp] - wt / 2;
+          const strip: Box =
+            perp === 1
+              ? { min: [lo, edge, bottom], max: [hi, edge + wt / 2, top] }
+              : { min: [edge, lo, bottom], max: [edge + wt / 2, hi, top] };
+          //
+          // A wall beside a flight owns its own height and no more. Climbing
+          // out of a basement the flight passes the top of that wall a third of
+          // the way up and carries on into open air, so the parapet is not
+          // cancelled by the wall — it starts on top of it.
+          const owned = ownedTo(strip);
+          inset[sideIdx] = !walkable || owned > bottom + EPS;
+          guardFrom[sideIdx] = Math.max(bottom, owned === -Infinity ? bottom : owned);
+          guard[sideIdx] = !walkable;
         }
 
         const p0 = base.min[perp] + (inset[0] ? wt / 2 : 0);
@@ -920,14 +979,15 @@ export function compile(spec: LevelSpec): CompiledLevel {
           // whatever that storey already has along the same line.
           const ceilingAbove = floorAbove(nx2, ny2, top);
           const guardTop = Math.min(top + 1.0, Math.max(zFrom, zTo), ceilingAbove ?? Infinity);
-          if (guardTop - bottom < 0.05) continue;
+          const guardBase = guardFrom[sideIdx];
+          if (guardTop - guardBase < 0.05) continue;
           solids.push({
             id: `${vc.id}_stringer_${i}_${sideIdx}`,
             role: 'riser',
             box:
               perp === 1
-                ? { min: [lo, s0, bottom], max: [hi, s1, guardTop] }
-                : { min: [s0, lo, bottom], max: [s1, hi, guardTop] },
+                ? { min: [lo, s0, guardBase], max: [hi, s1, guardTop] }
+                : { min: [s0, lo, guardBase], max: [s1, hi, guardTop] },
             layer: vc.from_layer,
             spaces: [],
             dynamic: false,

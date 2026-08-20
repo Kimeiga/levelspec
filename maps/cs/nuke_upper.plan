@@ -3,7 +3,7 @@ name: Nuke
 description: Layout reconstruction of Nuke, traced from the public radar image and then hand-corrected. Topology and proportions only - no assets from the original game are used.
 source_image: Nuke - Upper Radar.png
 grid: 1.42
-wall_thickness: 0.37
+wall_thickness: 0.32
 
 // TRACED DRAFT. The footprint is read from the radar; everything below
 // needs a human: rename the areas, set their elevations, mark the spawns
@@ -12,10 +12,10 @@ wall_thickness: 0.37
 layer ground z=0 height=5 roof=no
 
 legend
-  A  area_a  "Area A"  lane  h=6.9  // rgb 109,132,122  value 0.52
-  B  area_b  "Area B"  lane  h=5.6  // rgb 129,134,137  value 0.54
-  D  area_d  "Area D"  lane  h=4.4  // rgb 135,152,151  value 0.60
-  E  area_e  "Area E"  lane  +0.40  h=3.2  // rgb 174,163,139  value 0.68
+  A  area_a  "Area A"  lane   // rgb 109,133,122  value 0.52
+  B  area_b  "Area B"  lane   // rgb 129,135,138  value 0.54
+  D  area_d  "Area D"  lane   // rgb 137,153,152  value 0.60
+  E  area_e  "Area E"  lane   // rgb 174,163,139  value 0.68
 end
 
 plan
@@ -37,9 +37,9 @@ plan
 .........................AAAAA..................
 .........................DDDDD..................
 .........................DDDDD..................
-........................DDDDDDD.................
-........................DDDDDDD.................
-........................DDDDDDD.................
+........................EDDDDDD.................
+........................EDDDDDD.................
+........................EDDDDDD.................
 ....................BBEEEEEEEEEEBBDDDDDDDDDDDDD.
 ....................BBEEEEEEEEEEBBDDDDDDDDDDDDD.
 ...BBB.............BBBEEEEEEEEEEBBDDD....DDDDDD.

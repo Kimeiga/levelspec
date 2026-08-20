@@ -1,228 +1,1301 @@
 {
-  "_note": "Hand-authored looks for the maps people recognise. Merged over the palettes derived from screenshots, which get an unfamiliar map plausibly close but reliably miss a famous one — a k-means over a photograph of Dust II returns the sky and the shadows, not the sand. `surface` is how a material is finished; `grid.scale` is the size of a masonry unit in metres, which is most of what makes stone read differently from panelling. This file is source, not output: it lives apart from maps/cs so no generator can delete it.",
-
-  "dust_ii": {
-    "look": "Sandstone fort under a hard desert sun. Everything is warm; the shade is warm too.",
-    "roles": { "floor": "d8c39a", "roof": "9c8558", "static_hard": "c9ac7c", "exterior_wall": "b89a6c", "riser": "e0cdaa", "stair": "d0b78d", "ramp": "cdb388", "cover": "9a6b3a", "soft_panel": "b8823f", "glass": "cfe6ff" },
-    "sky": "8fb8d8", "fog": "d9c9a6", "fogNear": 48, "fogFar": 230,
-    "sun": "fff3d4", "sunIntensity": 3.1, "hemiSky": "cfe0f2", "hemiGround": "8a7550", "hemiIntensity": 2.4,
-    "grid": { "line": "6b5433", "alpha": 0.14, "scale": 1.6 },
-    "surface": { "roughness": 0.96, "metalness": 0.0 }
+ "_note": "Hand-authored looks for the maps people recognise. Merged over the palettes derived from screenshots, which get an unfamiliar map plausibly close but reliably miss a famous one \u2014 a k-means over a photograph of Dust II returns the sky and the shadows, not the sand. `surface` is how a material is finished; `grid.scale` is the size of a masonry unit in metres, which is most of what makes stone read differently from panelling. This file is source, not output: it lives apart from maps/cs so no generator can delete it.",
+ "dust_ii": {
+  "look": "Sandstone fort under a hard desert sun. Everything is warm; the shade is warm too.",
+  "roles": {
+   "floor": "d8c39a",
+   "roof": "9c8558",
+   "static_hard": "c9ac7c",
+   "exterior_wall": "b89a6c",
+   "riser": "e0cdaa",
+   "stair": "d0b78d",
+   "ramp": "cdb388",
+   "cover": "9a6b3a",
+   "soft_panel": "b8823f",
+   "glass": "cfe6ff"
   },
-  "dust": {
-    "look": "The original. Smaller, sandier and even more washed out than its sequel.",
-    "roles": { "floor": "dcc9a2", "roof": "a08c60", "static_hard": "cdb283", "exterior_wall": "bc9f70", "riser": "e4d2ae", "stair": "d4bb92", "ramp": "d0b78e", "cover": "9a6b3a", "soft_panel": "bc8843", "glass": "cfe6ff" },
-    "sky": "95bede", "fog": "ddcdaa", "fogNear": 46, "fogFar": 220,
-    "sun": "fff5d8", "sunIntensity": 3.2, "hemiSky": "d2e2f2", "hemiGround": "8e7954", "hemiIntensity": 2.4,
-    "grid": { "line": "6e5735", "alpha": 0.13, "scale": 1.6 },
-    "surface": { "roughness": 0.96, "metalness": 0.0 }
+  "sky": "8fb8d8",
+  "fog": "d9c9a6",
+  "fogNear": 48,
+  "fogFar": 230,
+  "sun": "fff3d4",
+  "sunIntensity": 3.1,
+  "hemiSky": "cfe0f2",
+  "hemiGround": "8a7550",
+  "hemiIntensity": 2.4,
+  "grid": {
+   "line": "6b5433",
+   "alpha": 0.14,
+   "scale": 1.6
   },
-  "mirage": {
-    "look": "Moroccan rooftops. Whitewashed plaster, terracotta trim, sand underfoot, a very bright sky.",
-    "roles": { "floor": "e4d6bd", "roof": "b06a3c", "static_hard": "efe6d6", "exterior_wall": "ddcfb8", "riser": "efe4cd", "stair": "e8dcc4", "ramp": "e4d8c0", "cover": "a9683a", "soft_panel": "c98a4e", "glass": "9fd4e8" },
-    "sky": "b9d3e8", "fog": "e6d9bf", "fogNear": 46, "fogFar": 220,
-    "sun": "fff6e0", "sunIntensity": 3.2, "hemiSky": "d8e8f5", "hemiGround": "9c8a68", "hemiIntensity": 2.5,
-    "grid": { "line": "7a6647", "alpha": 0.12, "scale": 1.4 },
-    "surface": { "roughness": 0.92, "metalness": 0.0 }
+  "surface": {
+   "roughness": 0.96,
+   "metalness": 0.0
   },
-  "inferno": {
-    "look": "An Italian village at midday. Cream stucco, red tile roofs, cobbles, dark green shutters.",
-    "roles": { "floor": "9b8a76", "roof": "a83f28", "static_hard": "ddc9a8", "exterior_wall": "c9b291", "riser": "b5a184", "stair": "c7b494", "ramp": "c2ae8e", "cover": "6d4a2a", "soft_panel": "b5622f", "glass": "b8dce8" },
-    "sky": "9fc4de", "fog": "cdbb9c", "fogNear": 40, "fogFar": 190,
-    "sun": "fff2d8", "sunIntensity": 3.0, "hemiSky": "cfe2f0", "hemiGround": "6d5f4a", "hemiIntensity": 2.4,
-    "grid": { "line": "5e4c34", "alpha": 0.16, "scale": 1.2 },
-    "surface": { "roughness": 0.94, "metalness": 0.0 }
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
+ },
+ "dust": {
+  "look": "The original. Smaller, sandier and even more washed out than its sequel.",
+  "roles": {
+   "floor": "dcc9a2",
+   "roof": "a08c60",
+   "static_hard": "cdb283",
+   "exterior_wall": "bc9f70",
+   "riser": "e4d2ae",
+   "stair": "d4bb92",
+   "ramp": "d0b78e",
+   "cover": "9a6b3a",
+   "soft_panel": "bc8843",
+   "glass": "cfe6ff"
   },
-  "nuke": {
-    "look": "A nuclear plant. Poured concrete, cold fluorescent light, yellow hazard paint, steel.",
-    "roles": { "floor": "9aa0a4", "roof": "6d7478", "static_hard": "b3b9bd", "exterior_wall": "8f9599", "riser": "a8aeb2", "stair": "9ea5a9", "ramp": "9aa1a5", "cover": "c8a72c", "soft_panel": "d4b53a", "glass": "b8d8e8" },
-    "sky": "8ea8bd", "fog": "9fadb8", "fogNear": 34, "fogFar": 170,
-    "sun": "eef4fa", "sunIntensity": 2.7, "hemiSky": "cdddea", "hemiGround": "5a6165", "hemiIntensity": 2.8,
-    "grid": { "line": "3d4348", "alpha": 0.2, "scale": 2.4 },
-    "surface": { "roughness": 0.88, "metalness": 0.08 }
+  "sky": "95bede",
+  "fog": "ddcdaa",
+  "fogNear": 46,
+  "fogFar": 220,
+  "sun": "fff5d8",
+  "sunIntensity": 3.2,
+  "hemiSky": "d2e2f2",
+  "hemiGround": "8e7954",
+  "hemiIntensity": 2.4,
+  "grid": {
+   "line": "6e5735",
+   "alpha": 0.13,
+   "scale": 1.6
   },
-  "nuke_lower": {
-    "look": "Under the reactor. No daylight at all, strip lights, painted concrete, pipework.",
-    "roles": { "floor": "6e7478", "roof": "44494c", "static_hard": "838a8e", "exterior_wall": "676d70", "riser": "767c80", "stair": "7b8286", "ramp": "777e82", "cover": "b8981f", "soft_panel": "c4a62e", "glass": "8ab8cc" },
-    "sky": "1e2428", "fog": "252b2f", "fogNear": 14, "fogFar": 85,
-    "sun": "dbe8f0", "sunIntensity": 1.9, "hemiSky": "9ab4c4", "hemiGround": "2a2e30", "hemiIntensity": 3.0,
-    "grid": { "line": "2a2e31", "alpha": 0.24, "scale": 2.4 },
-    "surface": { "roughness": 0.88, "metalness": 0.1 }
+  "surface": {
+   "roughness": 0.96,
+   "metalness": 0.0
   },
-  "train": {
-    "look": "A Russian rail depot. Cold concrete, green rolling stock, rust, a flat overcast sky.",
-    "roles": { "floor": "8d9295", "roof": "5f6568", "static_hard": "a6abae", "exterior_wall": "878c8f", "riser": "9aa0a3", "stair": "959b9e", "ramp": "919799", "cover": "44653f", "soft_panel": "8a4b28", "glass": "aecad6" },
-    "sky": "a8b4bc", "fog": "a2aeb6", "fogNear": 30, "fogFar": 160,
-    "sun": "e8eef2", "sunIntensity": 2.4, "hemiSky": "c4d2dc", "hemiGround": "555b5e", "hemiIntensity": 2.9,
-    "grid": { "line": "3a3f42", "alpha": 0.2, "scale": 2.0 },
-    "surface": { "roughness": 0.9, "metalness": 0.1 }
+  "skyline": [
+   "minaret",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable"
+  ],
+  "accent": "c98c3c"
+ },
+ "mirage": {
+  "look": "Moroccan rooftops. Whitewashed plaster, terracotta trim, sand underfoot, a very bright sky.",
+  "roles": {
+   "floor": "e4d6bd",
+   "roof": "b06a3c",
+   "static_hard": "efe6d6",
+   "exterior_wall": "ddcfb8",
+   "riser": "efe4cd",
+   "stair": "e8dcc4",
+   "ramp": "e4d8c0",
+   "cover": "a9683a",
+   "soft_panel": "c98a4e",
+   "glass": "9fd4e8"
   },
-  "train_lower": {
-    "look": "The tunnels below the yard. Sodium light on wet concrete, cable trays, no sky.",
-    "roles": { "floor": "6a6d6c", "roof": "424544", "static_hard": "7d8180", "exterior_wall": "636665", "riser": "727675", "stair": "767a79", "ramp": "727675", "cover": "3a5a36", "soft_panel": "7a4522", "glass": "9ab4bc" },
-    "sky": "1b2022", "fog": "222729", "fogNear": 14, "fogFar": 85,
-    "sun": "ffd18a", "sunIntensity": 1.8, "hemiSky": "93a8b2", "hemiGround": "26292a", "hemiIntensity": 3.0,
-    "grid": { "line": "272a29", "alpha": 0.24, "scale": 2.0 },
-    "surface": { "roughness": 0.9, "metalness": 0.1 }
+  "sky": "b9d3e8",
+  "fog": "e6d9bf",
+  "fogNear": 46,
+  "fogFar": 220,
+  "sun": "fff6e0",
+  "sunIntensity": 3.2,
+  "hemiSky": "d8e8f5",
+  "hemiGround": "9c8a68",
+  "hemiIntensity": 2.5,
+  "grid": {
+   "line": "7a6647",
+   "alpha": 0.12,
+   "scale": 1.4
   },
-  "cache": {
-    "look": "A Chernobyl service yard. Grey slab, rust, weeds coming through the concrete.",
-    "roles": { "floor": "8f8f88", "roof": "63635e", "static_hard": "a5a59c", "exterior_wall": "8a8a82", "riser": "9b9b93", "stair": "97978f", "ramp": "93938b", "cover": "8a5228", "soft_panel": "a86234", "glass": "b4cbc8" },
-    "sky": "9aa8ab", "fog": "97a3a6", "fogNear": 30, "fogFar": 160,
-    "sun": "eaf0ee", "sunIntensity": 2.4, "hemiSky": "c2d0d2", "hemiGround": "56564f", "hemiIntensity": 2.8,
-    "grid": { "line": "3c3c37", "alpha": 0.19, "scale": 2.2 },
-    "surface": { "roughness": 0.93, "metalness": 0.05 }
+  "surface": {
+   "roughness": 0.92,
+   "metalness": 0.0
   },
-  "overpass": {
-    "look": "A German park under a motorway. Wet concrete, clipped grass, canal water.",
-    "roles": { "floor": "9c9e98", "roof": "6e706b", "static_hard": "b0b2ac", "exterior_wall": "94968f", "riser": "a6a8a2", "stair": "a2a49e", "ramp": "9ea099", "cover": "4c6b3a", "soft_panel": "6f8f4c", "glass": "9fc8d8" },
-    "sky": "b0c0cc", "fog": "a8b6c0", "fogNear": 34, "fogFar": 180,
-    "sun": "f0f5f8", "sunIntensity": 2.5, "hemiSky": "cbdae4", "hemiGround": "5c5f58", "hemiIntensity": 2.7,
-    "grid": { "line": "44463f", "alpha": 0.17, "scale": 2.0 },
-    "surface": { "roughness": 0.9, "metalness": 0.03 }
+  "skyline": [
+   "minaret",
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "curved",
+   "gable"
+  ],
+  "accent": "c2643a"
+ },
+ "inferno": {
+  "look": "An Italian village at midday. Cream stucco, red tile roofs, cobbles, dark green shutters.",
+  "roles": {
+   "floor": "9d8368",
+   "roof": "8d4326",
+   "static_hard": "c39a6d",
+   "exterior_wall": "b08757",
+   "riser": "ae8f6b",
+   "stair": "b8945f",
+   "ramp": "ab8a63",
+   "cover": "7d5a3a",
+   "soft_panel": "8f6a45",
+   "glass": "b8dce8"
   },
-  "vertigo": {
-    "look": "An unfinished skyscraper. Bare concrete, exposed steel, scaffolding, sky on every side.",
-    "roles": { "floor": "a3a5a8", "roof": "74767a", "static_hard": "b6b8bc", "exterior_wall": "9a9ca0", "riser": "aeb0b4", "stair": "a8aaae", "ramp": "a4a6aa", "cover": "c2801f", "soft_panel": "d09232", "glass": "a8d0e8" },
-    "sky": "7fb0d8", "fog": "a9c2d6", "fogNear": 40, "fogFar": 220,
-    "sun": "fff8ea", "sunIntensity": 3.0, "hemiSky": "cfe4f4", "hemiGround": "62646a", "hemiIntensity": 2.6,
-    "grid": { "line": "43454a", "alpha": 0.18, "scale": 2.6 },
-    "surface": { "roughness": 0.85, "metalness": 0.12 }
+  "sky": "6f9ec4",
+  "fog": "b9a184",
+  "fogNear": 40,
+  "fogFar": 190,
+  "sun": "fff2d8",
+  "sunIntensity": 3.0,
+  "hemiSky": "cfe2f0",
+  "hemiGround": "6b543c",
+  "hemiIntensity": 2.4,
+  "grid": {
+   "line": "5e4c34",
+   "alpha": 0.16,
+   "scale": 1.2
   },
-  "vertigo_lower": {
-    "look": "The floor below the top. Same concrete, less sky, more shuttering and rebar.",
-    "roles": { "floor": "8e9093", "roof": "5f6165", "static_hard": "a1a3a7", "exterior_wall": "85878b", "riser": "999b9f", "stair": "9d9fa3", "ramp": "999b9f", "cover": "b0731c", "soft_panel": "bd852c", "glass": "9ac4dc" },
-    "sky": "5f88ac", "fog": "8ba4b8", "fogNear": 28, "fogFar": 160,
-    "sun": "f4efe2", "sunIntensity": 2.5, "hemiSky": "bcd4e6", "hemiGround": "54565a", "hemiIntensity": 2.7,
-    "grid": { "line": "3a3c40", "alpha": 0.2, "scale": 2.6 },
-    "surface": { "roughness": 0.87, "metalness": 0.12 }
+  "surface": {
+   "roughness": 0.94,
+   "metalness": 0.0
   },
-  "ancient": {
-    "look": "A Mayan temple swallowed by jungle. Mossy stone, deep green canopy, gold inlay.",
-    "roles": { "floor": "6e7560", "roof": "424a3a", "static_hard": "8b9179", "exterior_wall": "747a63", "riser": "7d8469", "stair": "868d72", "ramp": "82896e", "cover": "b08a34", "soft_panel": "3f6b3a", "glass": "a8d8c0" },
-    "sky": "5f7a58", "fog": "5a7052", "fogNear": 24, "fogFar": 130,
-    "sun": "e6f4c8", "sunIntensity": 2.6, "hemiSky": "bfe0a8", "hemiGround": "39402f", "hemiIntensity": 2.6,
-    "grid": { "line": "2f3527", "alpha": 0.22, "scale": 1.5 },
-    "surface": { "roughness": 0.97, "metalness": 0.0 }
+  "skyline": [
+   "campanile",
+   "chimney",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "9c3f24"
+ },
+ "nuke": {
+  "look": "A nuclear plant. Poured concrete, cold fluorescent light, yellow hazard paint, steel.",
+  "roles": {
+   "floor": "9aa0a4",
+   "roof": "6d7478",
+   "static_hard": "b3b9bd",
+   "exterior_wall": "8f9599",
+   "riser": "a8aeb2",
+   "stair": "9ea5a9",
+   "ramp": "9aa1a5",
+   "cover": "c8a72c",
+   "soft_panel": "d4b53a",
+   "glass": "b8d8e8"
   },
-  "anubis": {
-    "look": "An Egyptian temple on the Nile. Ochre sandstone, gold, painted blue, hard sun.",
-    "roles": { "floor": "d2b477", "roof": "9a7c46", "static_hard": "c9a869", "exterior_wall": "b8975a", "riser": "dcc089", "stair": "d0b071", "ramp": "ccac6d", "cover": "1f6b8a", "soft_panel": "c9962c", "glass": "6fc0d8" },
-    "sky": "86bcd8", "fog": "d4bc90", "fogNear": 46, "fogFar": 230,
-    "sun": "fff4d0", "sunIntensity": 3.2, "hemiSky": "cde6f6", "hemiGround": "8a6f40", "hemiIntensity": 2.4,
-    "grid": { "line": "6a5227", "alpha": 0.15, "scale": 1.8 },
-    "surface": { "roughness": 0.95, "metalness": 0.0 }
+  "sky": "8ea8bd",
+  "fog": "9fadb8",
+  "fogNear": 34,
+  "fogFar": 170,
+  "sun": "eef4fa",
+  "sunIntensity": 2.7,
+  "hemiSky": "cdddea",
+  "hemiGround": "5a6165",
+  "hemiIntensity": 2.8,
+  "grid": {
+   "line": "3d4348",
+   "alpha": 0.2,
+   "scale": 2.4
   },
-  "cobblestone": {
-    "look": "An English castle in the rain. Wet grey stone, dark timber, green lawn.",
-    "roles": { "floor": "8b8d86", "roof": "5a5c56", "static_hard": "9ea099", "exterior_wall": "86887f", "riser": "94968f", "stair": "919390", "ramp": "8d8f88", "cover": "5a4128", "soft_panel": "3f6030", "glass": "b0c8d0" },
-    "sky": "9fadb6", "fog": "97a5ae", "fogNear": 30, "fogFar": 165,
-    "sun": "eaf0f4", "sunIntensity": 2.4, "hemiSky": "c4d4de", "hemiGround": "51534d", "hemiIntensity": 2.8,
-    "grid": { "line": "383a35", "alpha": 0.21, "scale": 1.1 },
-    "surface": { "roughness": 0.96, "metalness": 0.0 }
+  "surface": {
+   "roughness": 0.88,
+   "metalness": 0.08
   },
-  "office": {
-    "look": "A snowbound office park. Flat carpet, beige partitions, fluorescent light, snow glare outside.",
-    "roles": { "floor": "9aa3ac", "roof": "6f767d", "static_hard": "cdc6b8", "exterior_wall": "b4ada0", "riser": "a8b0b8", "stair": "b8b2a6", "ramp": "b4aea2", "cover": "8a3a34", "soft_panel": "c2a878", "glass": "cfe4f2" },
-    "sky": "d8e6ef", "fog": "c8d6e0", "fogNear": 26, "fogFar": 140,
-    "sun": "ffffff", "sunIntensity": 2.6, "hemiSky": "e2eef6", "hemiGround": "6a6f74", "hemiIntensity": 3.0,
-    "grid": { "line": "4a4f54", "alpha": 0.14, "scale": 1.0 },
-    "surface": { "roughness": 0.82, "metalness": 0.02 }
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "nuke_lower": {
+  "look": "Under the reactor. No daylight at all, strip lights, painted concrete, pipework.",
+  "roles": {
+   "floor": "6e7478",
+   "roof": "44494c",
+   "static_hard": "838a8e",
+   "exterior_wall": "676d70",
+   "riser": "767c80",
+   "stair": "7b8286",
+   "ramp": "777e82",
+   "cover": "b8981f",
+   "soft_panel": "c4a62e",
+   "glass": "8ab8cc"
   },
-  "italy": {
-    "look": "A Tuscan market street. Terracotta, cream plaster, striped awnings, warm light.",
-    "roles": { "floor": "b09878", "roof": "9c4a2c", "static_hard": "dcc6a4", "exterior_wall": "c4ac8a", "riser": "c8b492", "stair": "d2be9c", "ramp": "cdb997", "cover": "7a4a26", "soft_panel": "b8482f", "glass": "bcdce8" },
-    "sky": "a8c8de", "fog": "cdb99a", "fogNear": 38, "fogFar": 185,
-    "sun": "fff0cf", "sunIntensity": 3.0, "hemiSky": "d4e4f0", "hemiGround": "78654a", "hemiIntensity": 2.4,
-    "grid": { "line": "614c33", "alpha": 0.16, "scale": 1.3 },
-    "surface": { "roughness": 0.93, "metalness": 0.0 }
+  "sky": "1e2428",
+  "fog": "252b2f",
+  "fogNear": 14,
+  "fogFar": 85,
+  "sun": "dbe8f0",
+  "sunIntensity": 1.9,
+  "hemiSky": "9ab4c4",
+  "hemiGround": "2a2e30",
+  "hemiIntensity": 3.0,
+  "grid": {
+   "line": "2a2e31",
+   "alpha": 0.24,
+   "scale": 2.4
   },
-  "assault": {
-    "look": "A warehouse at night. Sodium lamps, oily concrete, corrugated steel, deep shadow.",
-    "roles": { "floor": "50524f", "roof": "343633", "static_hard": "62655f", "exterior_wall": "4b4e49", "riser": "5a5d57", "stair": "5e615b", "ramp": "5a5d57", "cover": "8a5a1e", "soft_panel": "6a4a20", "glass": "7a94a0" },
-    "sky": "1c2228", "fog": "22282e", "fogNear": 16, "fogFar": 95,
-    "sun": "ffcf82", "sunIntensity": 2.0, "hemiSky": "8aa0b4", "hemiGround": "26282a", "hemiIntensity": 2.6,
-    "grid": { "line": "1a1c1a", "alpha": 0.26, "scale": 2.2 },
-    "surface": { "roughness": 0.86, "metalness": 0.14 }
+  "surface": {
+   "roughness": 0.88,
+   "metalness": 0.1
   },
-  "aztec": {
-    "look": "A jungle ruin over running water. Wet grey stone, dense green, shafts of light.",
-    "roles": { "floor": "787a6a", "roof": "4c4e42", "static_hard": "8e9080", "exterior_wall": "77796a", "riser": "848675", "stair": "8a8c7b", "ramp": "868877", "cover": "3f6030", "soft_panel": "5a7a3c", "glass": "8ac8c0" },
-    "sky": "6b8a68", "fog": "62805f", "fogNear": 24, "fogFar": 135,
-    "sun": "e8f6c8", "sunIntensity": 2.7, "hemiSky": "c2e4ac", "hemiGround": "3a4232", "hemiIntensity": 2.6,
-    "grid": { "line": "31352b", "alpha": 0.22, "scale": 1.5 },
-    "surface": { "roughness": 0.97, "metalness": 0.0 }
+  "skyline": [
+   "cooling_tower",
+   "dome",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "d9b12c"
+ },
+ "train": {
+  "look": "A Russian rail depot. Cold concrete, green rolling stock, rust, a flat overcast sky.",
+  "roles": {
+   "floor": "8d9295",
+   "roof": "5f6568",
+   "static_hard": "a6abae",
+   "exterior_wall": "878c8f",
+   "riser": "9aa0a3",
+   "stair": "959b9e",
+   "ramp": "919799",
+   "cover": "44653f",
+   "soft_panel": "8a4b28",
+   "glass": "aecad6"
   },
-  "militia": {
-    "look": "A backwoods farmhouse. Timber siding, damp earth, moss, overcast.",
-    "roles": { "floor": "7a7060", "roof": "4e463a", "static_hard": "9a8b74", "exterior_wall": "83765f", "riser": "8a7f6b", "stair": "91836c", "ramp": "8c7f68", "cover": "5a4326", "soft_panel": "4c6135", "glass": "b4c8cc" },
-    "sky": "9aa89c", "fog": "8c9a90", "fogNear": 26, "fogFar": 145,
-    "sun": "f2f4e0", "sunIntensity": 2.4, "hemiSky": "c8d8c4", "hemiGround": "4a443a", "hemiIntensity": 2.7,
-    "grid": { "line": "3a352b", "alpha": 0.2, "scale": 1.2 },
-    "surface": { "roughness": 0.95, "metalness": 0.0 }
+  "sky": "a8b4bc",
+  "fog": "a2aeb6",
+  "fogNear": 30,
+  "fogFar": 160,
+  "sun": "e8eef2",
+  "sunIntensity": 2.4,
+  "hemiSky": "c4d2dc",
+  "hemiGround": "555b5e",
+  "hemiIntensity": 2.9,
+  "grid": {
+   "line": "3a3f42",
+   "alpha": 0.2,
+   "scale": 2.0
   },
-  "prodigy": {
-    "look": "A concrete research bunker. Institutional grey-green, strip lighting, sealed doors.",
-    "roles": { "floor": "868d86", "roof": "5b615b", "static_hard": "9aa199", "exterior_wall": "808780", "riser": "8f968e", "stair": "939a92", "ramp": "8f968e", "cover": "3f5f6b", "soft_panel": "58707a", "glass": "a8d0d8" },
-    "sky": "7e8c90", "fog": "78868a", "fogNear": 24, "fogFar": 130,
-    "sun": "e4eef0", "sunIntensity": 2.3, "hemiSky": "bcd0d4", "hemiGround": "4c524c", "hemiIntensity": 2.9,
-    "grid": { "line": "343a34", "alpha": 0.22, "scale": 2.0 },
-    "surface": { "roughness": 0.88, "metalness": 0.06 }
+  "surface": {
+   "roughness": 0.9,
+   "metalness": 0.1
   },
-  "tuscan": {
-    "look": "A hill town in hard light. Bleached plaster, ochre, olive green shutters.",
-    "roles": { "floor": "c4b294", "roof": "a8602f", "static_hard": "e0d2b6", "exterior_wall": "cabb9d", "riser": "d4c6a8", "stair": "d8caac", "ramp": "d3c5a7", "cover": "6a5a2e", "soft_panel": "b07a3a", "glass": "c0dce8" },
-    "sky": "aecde2", "fog": "d2c3a4", "fogNear": 42, "fogFar": 205,
-    "sun": "fff4da", "sunIntensity": 3.1, "hemiSky": "d8e8f4", "hemiGround": "7e6f52", "hemiIntensity": 2.4,
-    "grid": { "line": "6b5a3c", "alpha": 0.14, "scale": 1.4 },
-    "surface": { "roughness": 0.94, "metalness": 0.0 }
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "gable",
+   "helipad"
+  ],
+  "accent": "b8531f"
+ },
+ "train_lower": {
+  "look": "The tunnels below the yard. Sodium light on wet concrete, cable trays, no sky.",
+  "roles": {
+   "floor": "6a6d6c",
+   "roof": "424544",
+   "static_hard": "7d8180",
+   "exterior_wall": "636665",
+   "riser": "727675",
+   "stair": "767a79",
+   "ramp": "727675",
+   "cover": "3a5a36",
+   "soft_panel": "7a4522",
+   "glass": "9ab4bc"
   },
-  "havana": {
-    "look": "Faded Caribbean colour. Peeling pastel plaster, sun-bleached, deep shade.",
-    "roles": { "floor": "b4a894", "roof": "8a6a48", "static_hard": "d8c8ae", "exterior_wall": "b8a68c", "riser": "c4b49c", "stair": "cabba2", "ramp": "c2b298", "cover": "3f7a80", "soft_panel": "c46a52", "glass": "9fd0d8" },
-    "sky": "9fc8dc", "fog": "c6b69c", "fogNear": 38, "fogFar": 190,
-    "sun": "fff2d6", "sunIntensity": 3.0, "hemiSky": "d0e4f0", "hemiGround": "6e6250", "hemiIntensity": 2.4,
-    "grid": { "line": "5e5240", "alpha": 0.16, "scale": 1.3 },
-    "surface": { "roughness": 0.93, "metalness": 0.0 }
+  "sky": "1b2022",
+  "fog": "222729",
+  "fogNear": 14,
+  "fogFar": 85,
+  "sun": "ffd18a",
+  "sunIntensity": 1.8,
+  "hemiSky": "93a8b2",
+  "hemiGround": "26292a",
+  "hemiIntensity": 3.0,
+  "grid": {
+   "line": "272a29",
+   "alpha": 0.24,
+   "scale": 2.0
   },
-  "piranesi": {
-    "look": "Baroque stonework and statuary. Cool marble, verdigris bronze, grey sky.",
-    "roles": { "floor": "a2a49c", "roof": "6e706a", "static_hard": "bcbeb4", "exterior_wall": "a0a298", "riser": "aeb0a6", "stair": "b2b4aa", "ramp": "adafa5", "cover": "4a7a6a", "soft_panel": "8a8f80", "glass": "c0d4dc" },
-    "sky": "aeb8bc", "fog": "a6b0b4", "fogNear": 32, "fogFar": 175,
-    "sun": "f4f6f2", "sunIntensity": 2.5, "hemiSky": "cddade", "hemiGround": "5e605a", "hemiIntensity": 2.7,
-    "grid": { "line": "3f413c", "alpha": 0.18, "scale": 1.6 },
-    "surface": { "roughness": 0.86, "metalness": 0.02 }
+  "surface": {
+   "roughness": 0.9,
+   "metalness": 0.1
   },
-  "chateau": {
-    "look": "A French country house in winter. Pale stone, slate roofs, bare trees, flat light.",
-    "roles": { "floor": "a8a49c", "roof": "4e5257", "static_hard": "c2beb4", "exterior_wall": "a8a49a", "riser": "b4b0a6", "stair": "b8b4aa", "ramp": "b3afa5", "cover": "5a4a34", "soft_panel": "7a6a50", "glass": "c4d8e4" },
-    "sky": "bcc8d0", "fog": "b2bec6", "fogNear": 30, "fogFar": 165,
-    "sun": "f6f8fa", "sunIntensity": 2.5, "hemiSky": "d4e0e8", "hemiGround": "62605a", "hemiIntensity": 2.8,
-    "grid": { "line": "44423c", "alpha": 0.17, "scale": 1.4 },
-    "surface": { "roughness": 0.9, "metalness": 0.0 }
+  "skyline": [
+   "silo",
+   "crane",
+   "chimney"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "gable",
+   "helipad"
+  ],
+  "accent": "b8531f"
+ },
+ "cache": {
+  "look": "A Chernobyl service yard. Grey slab, rust, weeds coming through the concrete.",
+  "roles": {
+   "floor": "8f8f88",
+   "roof": "63635e",
+   "static_hard": "a5a59c",
+   "exterior_wall": "8a8a82",
+   "riser": "9b9b93",
+   "stair": "97978f",
+   "ramp": "93938b",
+   "cover": "8a5228",
+   "soft_panel": "a86234",
+   "glass": "b4cbc8"
   },
-  "canals": {
-    "look": "Venetian waterways. Damp brick, green water, weathered plaster, soft light.",
-    "roles": { "floor": "a08a72", "roof": "7a4a34", "static_hard": "c0a888", "exterior_wall": "a89072", "riser": "b09878", "stair": "b49c7e", "ramp": "af9779", "cover": "3f6a5a", "soft_panel": "9a6a3c", "glass": "8fc4c0" },
-    "sky": "b0c4cc", "fog": "b8a68c", "fogNear": 32, "fogFar": 170,
-    "sun": "fff4e2", "sunIntensity": 2.7, "hemiSky": "cfe0e6", "hemiGround": "645640", "hemiIntensity": 2.5,
-    "grid": { "line": "554634", "alpha": 0.18, "scale": 1.2 },
-    "surface": { "roughness": 0.93, "metalness": 0.0 }
+  "sky": "9aa8ab",
+  "fog": "97a3a6",
+  "fogNear": 30,
+  "fogFar": 160,
+  "sun": "eaf0ee",
+  "sunIntensity": 2.4,
+  "hemiSky": "c2d0d2",
+  "hemiGround": "56564f",
+  "hemiIntensity": 2.8,
+  "grid": {
+   "line": "3c3c37",
+   "alpha": 0.19,
+   "scale": 2.2
   },
-  "mikla": {
-    "look": "A Scandinavian street in the cold. Dark timber, pale render, snow light.",
-    "roles": { "floor": "b4bcc2", "roof": "4a4e52", "static_hard": "c8ccd0", "exterior_wall": "aab0b6", "riser": "c0c6cc", "stair": "c4cad0", "ramp": "bfc5cb", "cover": "5a3f2c", "soft_panel": "7a5238", "glass": "d0e6f4" },
-    "sky": "cdd8e2", "fog": "c2ced8", "fogNear": 28, "fogFar": 155,
-    "sun": "ffffff", "sunIntensity": 2.7, "hemiSky": "dfeaf4", "hemiGround": "666c72", "hemiIntensity": 2.9,
-    "grid": { "line": "44484c", "alpha": 0.15, "scale": 1.3 },
-    "surface": { "roughness": 0.88, "metalness": 0.02 }
+  "surface": {
+   "roughness": 0.93,
+   "metalness": 0.05
   },
-  "season": {
-    "look": "A rain-slick Asian street at dusk. Wet asphalt, neon signage, concrete.",
-    "roles": { "floor": "5e6266", "roof": "3c4044", "static_hard": "767a80", "exterior_wall": "5a5e64", "riser": "6a6e74", "stair": "6e7278", "ramp": "6a6e74", "cover": "b8342c", "soft_panel": "2c7a9a", "glass": "8ad0e8" },
-    "sky": "3a4a5c", "fog": "44546a", "fogNear": 20, "fogFar": 115,
-    "sun": "ffd8b0", "sunIntensity": 2.1, "hemiSky": "9ab4d0", "hemiGround": "34383c", "hemiIntensity": 2.8,
-    "grid": { "line": "26292c", "alpha": 0.24, "scale": 1.8 },
-    "surface": { "roughness": 0.7, "metalness": 0.12 }
-  }
+  "skyline": [
+   "cooling_tower",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "drum",
+   "barrel",
+   "helipad"
+  ],
+  "accent": "c8a02a"
+ },
+ "overpass": {
+  "look": "A German park under a motorway. Wet concrete, clipped grass, canal water.",
+  "roles": {
+   "floor": "9c9e98",
+   "roof": "6e706b",
+   "static_hard": "b0b2ac",
+   "exterior_wall": "94968f",
+   "riser": "a6a8a2",
+   "stair": "a2a49e",
+   "ramp": "9ea099",
+   "cover": "4c6b3a",
+   "soft_panel": "6f8f4c",
+   "glass": "9fc8d8"
+  },
+  "sky": "b0c0cc",
+  "fog": "a8b6c0",
+  "fogNear": 34,
+  "fogFar": 180,
+  "sun": "f0f5f8",
+  "sunIntensity": 2.5,
+  "hemiSky": "cbdae4",
+  "hemiGround": "5c5f58",
+  "hemiIntensity": 2.7,
+  "grid": {
+   "line": "44463f",
+   "alpha": 0.17,
+   "scale": 2.0
+  },
+  "surface": {
+   "roughness": 0.9,
+   "metalness": 0.03
+  },
+  "skyline": [
+   "campanile",
+   "crane",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "curved",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "3f7fbf"
+ },
+ "vertigo": {
+  "look": "An unfinished skyscraper. Bare concrete, exposed steel, scaffolding, sky on every side.",
+  "roles": {
+   "floor": "a3a5a8",
+   "roof": "74767a",
+   "static_hard": "b6b8bc",
+   "exterior_wall": "9a9ca0",
+   "riser": "aeb0b4",
+   "stair": "a8aaae",
+   "ramp": "a4a6aa",
+   "cover": "c2801f",
+   "soft_panel": "d09232",
+   "glass": "a8d0e8"
+  },
+  "sky": "7fb0d8",
+  "fog": "a9c2d6",
+  "fogNear": 40,
+  "fogFar": 220,
+  "sun": "fff8ea",
+  "sunIntensity": 3.0,
+  "hemiSky": "cfe4f4",
+  "hemiGround": "62646a",
+  "hemiIntensity": 2.6,
+  "grid": {
+   "line": "43454a",
+   "alpha": 0.18,
+   "scale": 2.6
+  },
+  "surface": {
+   "roughness": 0.85,
+   "metalness": 0.12
+  },
+  "skyline": [
+   "crane",
+   "water_tank"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "terrace",
+   "tower",
+   "setback",
+   "helipad"
+  ],
+  "accent": "e0642a"
+ },
+ "vertigo_lower": {
+  "look": "The floor below the top. Same concrete, less sky, more shuttering and rebar.",
+  "roles": {
+   "floor": "8e9093",
+   "roof": "5f6165",
+   "static_hard": "a1a3a7",
+   "exterior_wall": "85878b",
+   "riser": "999b9f",
+   "stair": "9d9fa3",
+   "ramp": "999b9f",
+   "cover": "b0731c",
+   "soft_panel": "bd852c",
+   "glass": "9ac4dc"
+  },
+  "sky": "5f88ac",
+  "fog": "8ba4b8",
+  "fogNear": 28,
+  "fogFar": 160,
+  "sun": "f4efe2",
+  "sunIntensity": 2.5,
+  "hemiSky": "bcd4e6",
+  "hemiGround": "54565a",
+  "hemiIntensity": 2.7,
+  "grid": {
+   "line": "3a3c40",
+   "alpha": 0.2,
+   "scale": 2.6
+  },
+  "surface": {
+   "roughness": 0.87,
+   "metalness": 0.12
+  },
+  "skyline": [
+   "crane",
+   "water_tank"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "terrace",
+   "tower",
+   "setback",
+   "helipad"
+  ],
+  "accent": "e0642a"
+ },
+ "ancient": {
+  "look": "A Mayan temple swallowed by jungle. Mossy stone, deep green canopy, gold inlay.",
+  "roles": {
+   "floor": "6e7560",
+   "roof": "424a3a",
+   "static_hard": "8b9179",
+   "exterior_wall": "747a63",
+   "riser": "7d8469",
+   "stair": "868d72",
+   "ramp": "82896e",
+   "cover": "b08a34",
+   "soft_panel": "3f6b3a",
+   "glass": "a8d8c0"
+  },
+  "sky": "5f7a58",
+  "fog": "5a7052",
+  "fogNear": 24,
+  "fogFar": 130,
+  "sun": "e6f4c8",
+  "sunIntensity": 2.6,
+  "hemiSky": "bfe0a8",
+  "hemiGround": "39402f",
+  "hemiIntensity": 2.6,
+  "grid": {
+   "line": "2f3527",
+   "alpha": 0.22,
+   "scale": 1.5
+  },
+  "surface": {
+   "roughness": 0.97,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "ziggurat",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3f8f5a"
+ },
+ "anubis": {
+  "look": "An Egyptian temple on the Nile. Ochre sandstone, gold, painted blue, hard sun.",
+  "roles": {
+   "floor": "d2b477",
+   "roof": "9a7c46",
+   "static_hard": "c9a869",
+   "exterior_wall": "b8975a",
+   "riser": "dcc089",
+   "stair": "d0b071",
+   "ramp": "ccac6d",
+   "cover": "1f6b8a",
+   "soft_panel": "c9962c",
+   "glass": "6fc0d8"
+  },
+  "sky": "86bcd8",
+  "fog": "d4bc90",
+  "fogNear": 46,
+  "fogFar": 230,
+  "sun": "fff4d0",
+  "sunIntensity": 3.2,
+  "hemiSky": "cde6f6",
+  "hemiGround": "8a6f40",
+  "hemiIntensity": 2.4,
+  "grid": {
+   "line": "6a5227",
+   "alpha": 0.15,
+   "scale": 1.8
+  },
+  "surface": {
+   "roughness": 0.95,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "obelisk",
+   "ziggurat"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "d2a637"
+ },
+ "cobblestone": {
+  "look": "An English castle in the rain. Wet grey stone, dark timber, green lawn.",
+  "roles": {
+   "floor": "8b8d86",
+   "roof": "5a5c56",
+   "static_hard": "9ea099",
+   "exterior_wall": "86887f",
+   "riser": "94968f",
+   "stair": "919390",
+   "ramp": "8d8f88",
+   "cover": "5a4128",
+   "soft_panel": "3f6030",
+   "glass": "b0c8d0"
+  },
+  "sky": "9fadb6",
+  "fog": "97a5ae",
+  "fogNear": 30,
+  "fogFar": 165,
+  "sun": "eaf0f4",
+  "sunIntensity": 2.4,
+  "hemiSky": "c4d4de",
+  "hemiGround": "51534d",
+  "hemiIntensity": 2.8,
+  "grid": {
+   "line": "383a35",
+   "alpha": 0.21,
+   "scale": 1.1
+  },
+  "surface": {
+   "roughness": 0.96,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "spire",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "6d4a2c"
+ },
+ "office": {
+  "look": "A snowbound office park. Flat carpet, beige partitions, fluorescent light, snow glare outside.",
+  "roles": {
+   "floor": "9aa3ac",
+   "roof": "6f767d",
+   "static_hard": "cdc6b8",
+   "exterior_wall": "b4ada0",
+   "riser": "a8b0b8",
+   "stair": "b8b2a6",
+   "ramp": "b4aea2",
+   "cover": "8a3a34",
+   "soft_panel": "c2a878",
+   "glass": "cfe4f2"
+  },
+  "sky": "d8e6ef",
+  "fog": "c8d6e0",
+  "fogNear": 26,
+  "fogFar": 140,
+  "sun": "ffffff",
+  "sunIntensity": 2.6,
+  "hemiSky": "e2eef6",
+  "hemiGround": "6a6f74",
+  "hemiIntensity": 3.0,
+  "grid": {
+   "line": "4a4f54",
+   "alpha": 0.14,
+   "scale": 1.0
+  },
+  "surface": {
+   "roughness": 0.82,
+   "metalness": 0.02
+  },
+  "skyline": [
+   "water_tank",
+   "chimney",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "setback",
+   "tower",
+   "terrace",
+   "helipad"
+  ],
+  "accent": "4d86c4"
+ },
+ "italy": {
+  "look": "A Tuscan market street. Terracotta, cream plaster, striped awnings, warm light.",
+  "roles": {
+   "floor": "b09878",
+   "roof": "9c4a2c",
+   "static_hard": "dcc6a4",
+   "exterior_wall": "c4ac8a",
+   "riser": "c8b492",
+   "stair": "d2be9c",
+   "ramp": "cdb997",
+   "cover": "7a4a26",
+   "soft_panel": "b8482f",
+   "glass": "bcdce8"
+  },
+  "sky": "a8c8de",
+  "fog": "cdb99a",
+  "fogNear": 38,
+  "fogFar": 185,
+  "sun": "fff0cf",
+  "sunIntensity": 3.0,
+  "hemiSky": "d4e4f0",
+  "hemiGround": "78654a",
+  "hemiIntensity": 2.4,
+  "grid": {
+   "line": "614c33",
+   "alpha": 0.16,
+   "scale": 1.3
+  },
+  "surface": {
+   "roughness": 0.93,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "a8462a"
+ },
+ "assault": {
+  "look": "A warehouse at night. Sodium lamps, oily concrete, corrugated steel, deep shadow.",
+  "roles": {
+   "floor": "50524f",
+   "roof": "343633",
+   "static_hard": "62655f",
+   "exterior_wall": "4b4e49",
+   "riser": "5a5d57",
+   "stair": "5e615b",
+   "ramp": "5a5d57",
+   "cover": "8a5a1e",
+   "soft_panel": "6a4a20",
+   "glass": "7a94a0"
+  },
+  "sky": "1c2228",
+  "fog": "22282e",
+  "fogNear": 16,
+  "fogFar": 95,
+  "sun": "ffcf82",
+  "sunIntensity": 2.0,
+  "hemiSky": "8aa0b4",
+  "hemiGround": "26282a",
+  "hemiIntensity": 2.6,
+  "grid": {
+   "line": "1a1c1a",
+   "alpha": 0.26,
+   "scale": 2.2
+  },
+  "surface": {
+   "roughness": 0.86,
+   "metalness": 0.14
+  },
+  "skyline": [
+   "silo",
+   "chimney",
+   "crane"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "helipad",
+   "drum"
+  ],
+  "accent": "c46a20"
+ },
+ "aztec": {
+  "look": "A jungle ruin over running water. Wet grey stone, dense green, shafts of light.",
+  "roles": {
+   "floor": "787a6a",
+   "roof": "4c4e42",
+   "static_hard": "8e9080",
+   "exterior_wall": "77796a",
+   "riser": "848675",
+   "stair": "8a8c7b",
+   "ramp": "868877",
+   "cover": "3f6030",
+   "soft_panel": "5a7a3c",
+   "glass": "8ac8c0"
+  },
+  "sky": "6b8a68",
+  "fog": "62805f",
+  "fogNear": 24,
+  "fogFar": 135,
+  "sun": "e8f6c8",
+  "sunIntensity": 2.7,
+  "hemiSky": "c2e4ac",
+  "hemiGround": "3a4232",
+  "hemiIntensity": 2.6,
+  "grid": {
+   "line": "31352b",
+   "alpha": 0.22,
+   "scale": 1.5
+  },
+  "surface": {
+   "roughness": 0.97,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "ziggurat",
+   "obelisk"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "setback",
+   "arcade",
+   "gable"
+  ],
+  "accent": "3a8a54"
+ },
+ "militia": {
+  "look": "A backwoods farmhouse. Timber siding, damp earth, moss, overcast.",
+  "roles": {
+   "floor": "7a7060",
+   "roof": "4e463a",
+   "static_hard": "9a8b74",
+   "exterior_wall": "83765f",
+   "riser": "8a7f6b",
+   "stair": "91836c",
+   "ramp": "8c7f68",
+   "cover": "5a4326",
+   "soft_panel": "4c6135",
+   "glass": "b4c8cc"
+  },
+  "sky": "9aa89c",
+  "fog": "8c9a90",
+  "fogNear": 26,
+  "fogFar": 145,
+  "sun": "f2f4e0",
+  "sunIntensity": 2.4,
+  "hemiSky": "c8d8c4",
+  "hemiGround": "4a443a",
+  "hemiIntensity": 2.7,
+  "grid": {
+   "line": "3a352b",
+   "alpha": 0.2,
+   "scale": 1.2
+  },
+  "surface": {
+   "roughness": 0.95,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "water_tank",
+   "silo"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "barrel",
+   "arcade"
+  ],
+  "accent": "8a5a34"
+ },
+ "prodigy": {
+  "look": "A concrete research bunker. Institutional grey-green, strip lighting, sealed doors.",
+  "roles": {
+   "floor": "868d86",
+   "roof": "5b615b",
+   "static_hard": "9aa199",
+   "exterior_wall": "808780",
+   "riser": "8f968e",
+   "stair": "939a92",
+   "ramp": "8f968e",
+   "cover": "3f5f6b",
+   "soft_panel": "58707a",
+   "glass": "a8d0d8"
+  },
+  "sky": "7e8c90",
+  "fog": "78868a",
+  "fogNear": 24,
+  "fogFar": 130,
+  "sun": "e4eef0",
+  "sunIntensity": 2.3,
+  "hemiSky": "bcd0d4",
+  "hemiGround": "4c524c",
+  "hemiIntensity": 2.9,
+  "grid": {
+   "line": "343a34",
+   "alpha": 0.22,
+   "scale": 2.0
+  },
+  "surface": {
+   "roughness": 0.88,
+   "metalness": 0.06
+  },
+  "skyline": [
+   "chimney",
+   "silo",
+   "pylon"
+  ],
+  "facade": "industrial",
+  "roofs": "flat",
+  "blocks": [
+   "sawtooth",
+   "barrel",
+   "drum",
+   "helipad"
+  ],
+  "accent": "c9812c"
+ },
+ "tuscan": {
+  "look": "A hill town in hard light. Bleached plaster, ochre, olive green shutters.",
+  "roles": {
+   "floor": "c4b294",
+   "roof": "a8602f",
+   "static_hard": "e0d2b6",
+   "exterior_wall": "cabb9d",
+   "riser": "d4c6a8",
+   "stair": "d8caac",
+   "ramp": "d3c5a7",
+   "cover": "6a5a2e",
+   "soft_panel": "b07a3a",
+   "glass": "c0dce8"
+  },
+  "sky": "aecde2",
+  "fog": "d2c3a4",
+  "fogNear": 42,
+  "fogFar": 205,
+  "sun": "fff4da",
+  "sunIntensity": 3.1,
+  "hemiSky": "d8e8f4",
+  "hemiGround": "7e6f52",
+  "hemiIntensity": 2.4,
+  "grid": {
+   "line": "6b5a3c",
+   "alpha": 0.14,
+   "scale": 1.4
+  },
+  "surface": {
+   "roughness": 0.94,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "campanile",
+   "spire"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "a8492c"
+ },
+ "havana": {
+  "look": "Faded Caribbean colour. Peeling pastel plaster, sun-bleached, deep shade.",
+  "roles": {
+   "floor": "b4a894",
+   "roof": "8a6a48",
+   "static_hard": "d8c8ae",
+   "exterior_wall": "b8a68c",
+   "riser": "c4b49c",
+   "stair": "cabba2",
+   "ramp": "c2b298",
+   "cover": "3f7a80",
+   "soft_panel": "c46a52",
+   "glass": "9fd0d8"
+  },
+  "sky": "9fc8dc",
+  "fog": "c6b69c",
+  "fogNear": 38,
+  "fogFar": 190,
+  "sun": "fff2d6",
+  "sunIntensity": 3.0,
+  "hemiSky": "d0e4f0",
+  "hemiGround": "6e6250",
+  "hemiIntensity": 2.4,
+  "grid": {
+   "line": "5e5240",
+   "alpha": 0.16,
+   "scale": 1.3
+  },
+  "surface": {
+   "roughness": 0.93,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "campanile",
+   "water_tank"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "curved",
+   "chamfer"
+  ],
+  "accent": "3fa0a8"
+ },
+ "piranesi": {
+  "look": "Baroque stonework and statuary. Cool marble, verdigris bronze, grey sky.",
+  "roles": {
+   "floor": "a2a49c",
+   "roof": "6e706a",
+   "static_hard": "bcbeb4",
+   "exterior_wall": "a0a298",
+   "riser": "aeb0a6",
+   "stair": "b2b4aa",
+   "ramp": "adafa5",
+   "cover": "4a7a6a",
+   "soft_panel": "8a8f80",
+   "glass": "c0d4dc"
+  },
+  "sky": "aeb8bc",
+  "fog": "a6b0b4",
+  "fogNear": 32,
+  "fogFar": 175,
+  "sun": "f4f6f2",
+  "sunIntensity": 2.5,
+  "hemiSky": "cddade",
+  "hemiGround": "5e605a",
+  "hemiIntensity": 2.7,
+  "grid": {
+   "line": "3f413c",
+   "alpha": 0.18,
+   "scale": 1.6
+  },
+  "surface": {
+   "roughness": 0.86,
+   "metalness": 0.02
+  },
+  "skyline": [
+   "obelisk",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "setback"
+  ],
+  "accent": "9c6a3c"
+ },
+ "chateau": {
+  "look": "A French country house in winter. Pale stone, slate roofs, bare trees, flat light.",
+  "roles": {
+   "floor": "a8a49c",
+   "roof": "4e5257",
+   "static_hard": "c2beb4",
+   "exterior_wall": "a8a49a",
+   "riser": "b4b0a6",
+   "stair": "b8b4aa",
+   "ramp": "b3afa5",
+   "cover": "5a4a34",
+   "soft_panel": "7a6a50",
+   "glass": "c4d8e4"
+  },
+  "sky": "bcc8d0",
+  "fog": "b2bec6",
+  "fogNear": 30,
+  "fogFar": 165,
+  "sun": "f6f8fa",
+  "sunIntensity": 2.5,
+  "hemiSky": "d4e0e8",
+  "hemiGround": "62605a",
+  "hemiIntensity": 2.8,
+  "grid": {
+   "line": "44423c",
+   "alpha": 0.17,
+   "scale": 1.4
+  },
+  "surface": {
+   "roughness": 0.9,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "spire",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "5c6f8a"
+ },
+ "canals": {
+  "look": "Venetian waterways. Damp brick, green water, weathered plaster, soft light.",
+  "roles": {
+   "floor": "a08a72",
+   "roof": "7a4a34",
+   "static_hard": "c0a888",
+   "exterior_wall": "a89072",
+   "riser": "b09878",
+   "stair": "b49c7e",
+   "ramp": "af9779",
+   "cover": "3f6a5a",
+   "soft_panel": "9a6a3c",
+   "glass": "8fc4c0"
+  },
+  "sky": "b0c4cc",
+  "fog": "b8a68c",
+  "fogNear": 32,
+  "fogFar": 170,
+  "sun": "fff4e2",
+  "sunIntensity": 2.7,
+  "hemiSky": "cfe0e6",
+  "hemiGround": "645640",
+  "hemiIntensity": 2.5,
+  "grid": {
+   "line": "554634",
+   "alpha": 0.18,
+   "scale": 1.2
+  },
+  "surface": {
+   "roughness": 0.93,
+   "metalness": 0.0
+  },
+  "skyline": [
+   "campanile",
+   "dome"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "curved",
+   "chamfer"
+  ],
+  "accent": "b8562c"
+ },
+ "mikla": {
+  "look": "A Scandinavian street in the cold. Dark timber, pale render, snow light.",
+  "roles": {
+   "floor": "b4bcc2",
+   "roof": "4a4e52",
+   "static_hard": "c8ccd0",
+   "exterior_wall": "aab0b6",
+   "riser": "c0c6cc",
+   "stair": "c4cad0",
+   "ramp": "bfc5cb",
+   "cover": "5a3f2c",
+   "soft_panel": "7a5238",
+   "glass": "d0e6f4"
+  },
+  "sky": "cdd8e2",
+  "fog": "c2ced8",
+  "fogNear": 28,
+  "fogFar": 155,
+  "sun": "ffffff",
+  "sunIntensity": 2.7,
+  "hemiSky": "dfeaf4",
+  "hemiGround": "666c72",
+  "hemiIntensity": 2.9,
+  "grid": {
+   "line": "44484c",
+   "alpha": 0.15,
+   "scale": 1.3
+  },
+  "surface": {
+   "roughness": 0.88,
+   "metalness": 0.02
+  },
+  "skyline": [
+   "minaret",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "pitched",
+  "blocks": [
+   "gable",
+   "arcade",
+   "chamfer",
+   "barrel"
+  ],
+  "accent": "b06a30"
+ },
+ "season": {
+  "look": "A rain-slick Asian street at dusk. Wet asphalt, neon signage, concrete.",
+  "roles": {
+   "floor": "58626f",
+   "roof": "39424f",
+   "static_hard": "6e7885",
+   "exterior_wall": "636d7a",
+   "riser": "78828f",
+   "stair": "7b8592",
+   "ramp": "717b88",
+   "cover": "c48f34",
+   "soft_panel": "a87f2f",
+   "glass": "49e2f0"
+  },
+  "sky": "182033",
+  "fog": "26303f",
+  "fogNear": 34,
+  "fogFar": 190,
+  "sun": "b8d2ff",
+  "sunIntensity": 1.8,
+  "hemiSky": "4f719a",
+  "hemiGround": "242c3a",
+  "hemiIntensity": 3.2,
+  "grid": {
+   "line": "26292c",
+   "alpha": 0.24,
+   "scale": 1.8
+  },
+  "surface": {
+   "roughness": 0.7,
+   "metalness": 0.12
+  },
+  "skyline": [
+   "water_tank",
+   "chimney",
+   "crane"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ }
 }

@@ -1,7 +1,9 @@
-node_modules/
-generated/
-*.log
-.DS_Store
 
 # Scratch tools written during a session, never part of the library.
+*.log
+*.pyc
+.DS_Store
+__pycache__/
+generated/
+node_modules/
 tools/_*.ts
