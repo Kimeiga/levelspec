@@ -92,13 +92,13 @@ end
 wall outside_long long_a
 door outside_long long_a 3
 wall ct_mid b_doors
-door ct_mid b_doors 2
+door ct_mid b_doors full
 wall b_doors b_site
 arch b_doors b_site 3
 wall catwalk mid
-arch catwalk mid 3
+arch catwalk mid full
 wall lower_tunnels upper_tunnels
-arch lower_tunnels upper_tunnels 3
+arch lower_tunnels upper_tunnels full
 
 mark attacker_spawn t_spawn attack "T Spawn"
 mark defender_spawn ct_spawn defend "CT Spawn"

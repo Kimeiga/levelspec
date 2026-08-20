@@ -695,7 +695,10 @@ function applyDirectives(
           id: `${cmd}_${a}_${b}`,
           between: [a, b],
           kind: cmd === 'arch' ? 'arch' : cmd === 'window' ? 'window' : 'door',
-          width_cells: w ? Number(w) : 2,
+          // `full` opens the whole shared run, which is what you want when the
+          // boundary is too short to cut a narrower hole in without stranding
+          // the floor either side of it.
+          width_cells: !w ? 2 : w === 'full' ? 'full' : Number(w),
         });
         break;
       }

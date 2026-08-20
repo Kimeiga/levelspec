@@ -71,6 +71,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("traced", help="the traced plan supplying the footprint")
     ap.add_argument("spec", help="python file describing the areas")
+    ap.add_argument("--skip-portals", default="",
+                    help="comma-separated indices of PORTALS to leave out")
     args = ap.parse_args()
 
     grid, w, h, header = read_plan(args.traced)
@@ -198,10 +200,15 @@ def main():
     # for a doorway. A portal is two statements: close the boundary, then cut
     # a hole of a stated width in it. That is what puts a lintel over your head
     # walking through Long Doors instead of a gap in a slab.
-    # Which pairs of areas actually touch, so a portal can only be asked for
-    # where there is a boundary to cut it in. The flood decides where regions
-    # meet, and it does not always meet where a seed layout implies.
-    touching = set()
+    # Where pairs of areas touch, and in how many separate runs.
+    #
+    # A portal is "close this boundary, then cut one hole in it", which is only
+    # safe when the boundary is a single run. Two areas that meet in two places
+    # — around a pillar, either side of a block — get one hole and one sealed
+    # pocket, which turns up as a three-cell island in the navmesh bake. The
+    # flood decides where regions meet, and it does not always meet where a
+    # seed layout implies.
+    edges = {}
     for j in range(h):
         for i in range(w):
             if not floor[j][i]:
@@ -209,16 +216,56 @@ def main():
             for di, dj in ((1, 0), (0, 1)):
                 x, y = i + di, j + dj
                 if 0 <= x < w and 0 <= y < h and floor[y][x] and owner[y][x] != owner[j][i]:
-                    touching.add(frozenset((owner[j][i], owner[y][x])))
+                    edges.setdefault(frozenset((owner[j][i], owner[y][x])), set()).add((i, j))
 
+    def runs(cells):
+        """How many connected pieces a boundary is made of."""
+        seen, n = set(), 0
+        for c in cells:
+            if c in seen:
+                continue
+            n += 1
+            stack = [c]
+            seen.add(c)
+            while stack:
+                cx, cy = stack.pop()
+                for dx in (-1, 0, 1):
+                    for dy in (-1, 0, 1):
+                        nb = (cx + dx, cy + dy)
+                        if nb in cells and nb not in seen:
+                            seen.add(nb)
+                            stack.append(nb)
+        return n
+
+    touching = set(edges)
+
+    skip = {int(x) for x in args.skip_portals.split(",") if x.strip()}
     emitted = 0
-    for pr in getattr(mod, "PORTALS", []):
+    for n, pr in enumerate(getattr(mod, "PORTALS", [])):
+        if n in skip:
+            continue
         a, b = pr["between"]
-        if frozenset((a, b)) not in touching:
+        pair = frozenset((a, b))
+        if pair not in touching:
             print(f"// no boundary between {a} and {b}; portal skipped", file=sys.stderr)
             continue
+        pieces = runs(edges[pair])
+        if pieces > 1:
+            print(
+                f"// {a}/{b} meet in {pieces} places; portal skipped so the "
+                f"others are not sealed off",
+                file=sys.stderr,
+            )
+            continue
+        # A cut narrower than the boundary leaves a strip of floor either side
+        # of it, walled off behind the rest of the closure — three cells of
+        # unreachable map, which the navmesh bake correctly refuses. When there
+        # is not enough boundary to spare, the opening takes all of it.
+        span = len(edges[pair])
+        want = pr.get("width", 2)
+        width = want if span - want >= 3 else "full"
         L.append(f"wall {a} {b}")
-        L.append(f'{pr.get("kind", "door")} {a} {b} {pr.get("width", 2)}')
+        L.append(f'{pr.get("kind", "door")} {a} {b} {width}')
         emitted += 1
     if emitted:
         L.append("")
