@@ -1,0 +1,83 @@
+id: og_interchange
+name: Interchange
+description: Interchange. An original station composed for this game: two platforms facing each other across a track bed you can cross at a price, a concourse at one end, a ticket hall at the other, and a blind service run behind the south platform that is the long way round.
+grid: 1.6
+wall_thickness: 0.28
+
+layer ground z=0 height=6.2 roof=no
+
+legend
+  A  concourse         "Concourse"  site  +0.80  h=7.6
+  B  ticket_hall       "Ticket Hall"  site  +0.80  h=6.4
+  C  north_platform    "North Platform"  lane  +0.80  h=6.2
+  D  south_platform    "South Platform"  lane  +0.80  h=6.2
+  E  track_bed         "Track Bed"  lane  h=9.0
+  F  north_steps_w     "North Steps"  corridor  +0.40  h=6.0
+  G  north_steps_e     "North Steps East"  corridor  +0.40  h=6.0
+  H  south_steps_w     "South Steps"  corridor  +0.40  h=6.0
+  J  south_steps_e     "South Steps East"  corridor  +0.40  h=6.0
+  K  service           "Service Run"  corridor  +0.80  h=3.2
+  L  substation        "Substation"  room  +0.80  h=4.4
+  M  east_link         "East Link"  corridor  +0.80  h=3.6
+  0  north_benches     "Benches"  cover=1.0 as=crate
+  1  south_benches     "Benches"  cover=1.0 as=crate
+  2  sleepers          "Sleepers"  cover=1.2 as=crate
+  3  gates             "Ticket Gates"  cover=1.15 as=crate
+  4  kiosk             "Kiosk"  cover=1.6 as=crate
+  5  transformers      "Transformers"  cover=1.8 as=barrel
+  6  pallets           "Pallets"  cover=1.1 as=crate
+end
+
+plan
+..............................................
+..............................................
+..AAAAAAAAAAAAAAAA............BBBBBBBBBBBBBB..
+..AAAAAAAAAAAAAAAA............BBBBBBBBBBBBBB..
+..AAAAAAAAAAAAAAAA............BBB3BB3BBBBBBB..
+..AAA4A4AAAAAAAAAA............BBBBBBBBBBBBBB..
+..AAAAAAAAAAAAAAAA............BBB3BB3BBBBBBB..
+..AAAAAAAAAAAAAAAA............BBBBBBBBBBBBBB..
+..AAAAAAAAAAAAAAAA............BBBBBBBBBBBBBB..
+..CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCMMMM..
+..CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCMMMM..
+..CCCCC0C0CCCCCCCCCC0C0CCCCCCCC0C0CCCCCCMMMM..
+..CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCMMMM..
+...FFFFF..........................GGGGG.MMMM..
+..EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEMMMM..
+..EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE2EEEEEEMMMM..
+..EEEEEEEEEE2EEEEEEEEEEE2EEEEEEEEEEEEEEEMMMM..
+..EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEMMMM..
+...HHHHH..........................JJJJJ.MMMM..
+..DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDMMMM..
+..DDDDDDDD1D1DDDDDDDDDDDDD1D1DDDDDDDDDDDMMMM..
+..DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDMMMM..
+......KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKLLLLLLLL..
+......KKKKKKKK6KKKKKKKKKKKKK6KKKKKKKLLLLLLLL..
+......KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKLLLLLLLL..
+....................................LL5LL5LL..
+....................................LLLLLLLL..
+....................................LLLLLLLL..
+..............................................
+..............................................
+end
+
+wall concourse north_platform
+arch concourse north_platform 5
+wall ticket_hall north_platform
+arch ticket_hall north_platform 4
+wall south_platform service
+door south_platform service 2
+wall service substation
+door service substation 2
+wall east_link ticket_hall
+door east_link ticket_hall 2
+wall east_link south_platform
+arch east_link south_platform 3
+
+mark attacker_spawn concourse attack "Concourse"
+mark defender_spawn ticket_hall defend "Ticket Hall"
+mark site track_bed neutral "Tracks"
+mark site substation neutral "Substation"
+
+route concourse ticket_hall 2
+route concourse track_bed 2

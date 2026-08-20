@@ -11288,5 +11288,55 @@ export const LOOKS: Record<string, MapLook> = {
   ],
   "accent": 13208636,
   "curated": true
+ },
+ "interchange": {
+  "roles": {
+   "floor": 9276292,
+   "static_hard": 11052187,
+   "exterior_wall": 10196620,
+   "riser": 11841444,
+   "stair": 11578272,
+   "ramp": 10854550,
+   "cover": 9071176,
+   "soft_panel": 9400138,
+   "roof": 7031356,
+   "glass": 10471119
+  },
+  "sky": 12175053,
+  "fog": 11713987,
+  "fogNear": 40,
+  "fogFar": 220,
+  "sun": 16774108,
+  "sunIntensity": 2.3,
+  "hemiSky": 12833498,
+  "hemiGround": 7236194,
+  "hemiIntensity": 3,
+  "grid": {
+   "line": 6249299,
+   "alpha": 0.2,
+   "scale": 2.4
+  },
+  "surface": {
+   "roughness": 0.93,
+   "metalness": 0.04
+  },
+  "daylight": true,
+  "look": "A suburban interchange in flat afternoon light. Board-marked concrete, a rust-red canopy, enamel signage, weeds in the ballast.",
+  "skyline": [
+   "pylon",
+   "water_tank",
+   "chimney"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "shed",
+   "sawtooth",
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": 12862510,
+  "curated": true
  }
 };

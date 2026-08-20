@@ -1439,5 +1439,53 @@
    "barrel"
   ],
   "accent": "c98c3c"
+ },
+ "interchange": {
+  "look": "A suburban interchange in flat afternoon light. Board-marked concrete, a rust-red canopy, enamel signage, weeds in the ballast.",
+  "roles": {
+   "floor": "8d8b84",
+   "static_hard": "a8a49b",
+   "exterior_wall": "9b968c",
+   "riser": "b4afa4",
+   "stair": "b0aba0",
+   "ramp": "a5a096",
+   "cover": "8a6a48",
+   "soft_panel": "8f6f4a",
+   "roof": "6b4a3c",
+   "glass": "9fc6cf"
+  },
+  "sky": "b9c6cd",
+  "fog": "b2bdc3",
+  "fogNear": 40,
+  "fogFar": 220,
+  "sun": "fff3dc",
+  "sunIntensity": 2.3,
+  "hemiSky": "c3d2da",
+  "hemiGround": "6e6a62",
+  "hemiIntensity": 3.0,
+  "grid": {
+   "line": "5f5b53",
+   "alpha": 0.2,
+   "scale": 2.4
+  },
+  "surface": {
+   "roughness": 0.93,
+   "metalness": 0.04
+  },
+  "skyline": [
+   "pylon",
+   "water_tank",
+   "chimney"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "shed",
+   "sawtooth",
+   "gable",
+   "arcade",
+   "chamfer"
+  ],
+  "accent": "c4442e"
  }
 }
