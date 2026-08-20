@@ -34,6 +34,7 @@ import {
   type NavNode,
   type Opening,
   type PlayerSpec,
+  type PortalKind,
   type TraversalAction,
   type Rect,
   type Solid,
@@ -71,9 +72,19 @@ interface LayerState {
  * it here, once, is what stops the navigation graph proving a map connected
  * through a window nobody can climb.
  */
-export function traversalFor(sill: number, head: number, player: PlayerSpec): TraversalAction {
+export function traversalFor(
+  sill: number,
+  head: number,
+  player: PlayerSpec,
+  kind?: PortalKind,
+): TraversalAction {
   const clear = head - sill;
   if (clear < (player.crouch ?? DEFAULTS.player.crouch) - 0.05) return 'blocked';
+  // A rappel opening is reached from a rope on the outside of the building
+  // rather than from the floor, so its sill says nothing about who can use it.
+  if (kind === 'rappel_window' || kind === 'rappel_door') {
+    return player.rappel ? 'rappel' : 'blocked';
+  }
   if (sill <= 1e-6) return clear >= player.height - 0.05 ? 'walk' : 'crouch';
   if (sill <= player.step + 1e-6) return 'step';
   if (sill <= (player.vault ?? 0) + 1e-6) return 'vault';
@@ -521,7 +532,7 @@ export function compile(spec: LevelSpec): CompiledLevel {
         }
       }
 
-      const action = traversalFor(sill, head, player);
+      const action = traversalFor(sill, head, player, portal.kind);
       const opening: Opening = { portal: portal.id, kind: portal.kind, t0, t1, sill, head, action };
       run.openings.push(opening);
       run.openings.sort((a, b) => a.t0 - b.t0);
@@ -541,22 +552,28 @@ export function compile(spec: LevelSpec): CompiledLevel {
           e.portal = portal.id;
         }
       }
-      if (action === 'blocked')
+      if (action === 'blocked') {
+        const roped = portal.kind === 'rappel_window' || portal.kind === 'rappel_door';
         warn(
           'OPENING_NOT_TRAVERSABLE',
           [portal.id, run.id],
-          `Portal "${portal.id}" has a ${sill.toFixed(2)} m sill and the player can step ` +
-            `${player.step.toFixed(2)} m and vault ${(player.vault ?? 0).toFixed(2)} m, so nothing goes through it.`,
+          roped
+            ? `Portal "${portal.id}" is reached by rope and nothing in this level can rappel, so nothing goes through it.`
+            : `Portal "${portal.id}" has a ${sill.toFixed(2)} m sill and the player can step ` +
+              `${player.step.toFixed(2)} m and vault ${(player.vault ?? 0).toFixed(2)} m, so nothing goes through it.`,
           {
             measured: sill,
             required: Math.max(player.step, player.vault ?? 0),
-            suggestions: [
-              'Lower the sill to within a step',
-              'Give the player a vault height in `player.vault`',
-              'Treat it as a sightline and route the players another way',
-            ],
+            suggestions: roped
+              ? ['Set `player.rappel` if this body has a rope', 'Use a plain window if it is only for shooting through']
+              : [
+                  'Lower the sill to within a step',
+                  'Give the player a vault height in `player.vault`',
+                  'Treat it as a sightline and route the players another way',
+                ],
           },
         );
+      }
     }
   }
 

@@ -240,3 +240,23 @@ describe('a storey is more than one ceiling', () => {
     assert.equal(report.passed, true);
   });
 });
+
+describe('a rope is an ability too', () => {
+  const player = { ...DEFAULTS.player };
+
+  it('refuses a rappel window to a body with no rope', () => {
+    assert.equal(traversalFor(0.9, 2.05, player, 'rappel_window'), 'blocked');
+  });
+
+  it('opens it for one that has', () => {
+    assert.equal(traversalFor(0.9, 2.05, { ...player, rappel: true }, 'rappel_window'), 'rappel');
+  });
+
+  it('does not let a vault stand in for a rope', () => {
+    assert.equal(traversalFor(0.9, 2.05, { ...player, vault: 1.25 }, 'rappel_window'), 'blocked');
+  });
+
+  it('still lets a plain window be vaulted', () => {
+    assert.equal(traversalFor(0.9, 2.05, { ...player, vault: 1.25 }, 'window'), 'vault');
+  });
+});

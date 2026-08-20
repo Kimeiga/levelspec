@@ -220,10 +220,18 @@ export interface PlayerSpec {
   crouch?: number;
   /** Highest sill that can be climbed over. Zero means no vault. */
   vault?: number;
+  /**
+   * Whether this body can come down a rope through an exterior opening.
+   *
+   * A separate ability from vaulting, and false by default: a rappel window is
+   * a way in for an attacker with a rope and a wall for everybody else, and
+   * the navigation graph should only carry the route when someone can use it.
+   */
+  rappel?: boolean;
 }
 
 /** How an opening is got through, once the player's abilities are known. */
-export type TraversalAction = 'walk' | 'step' | 'crouch' | 'vault' | 'blocked';
+export type TraversalAction = 'walk' | 'step' | 'crouch' | 'vault' | 'rappel' | 'blocked';
 
 // ---------------------------------------------------------------------------
 // Compiled output (owned entirely by the deterministic compiler)
