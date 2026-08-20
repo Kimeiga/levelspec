@@ -55,20 +55,30 @@ into maximal rectangles on the way out, so an L-shaped site costs nothing.
 ## The map library
 
 `maps/cs/` holds 110 real competitive layouts. Their footprints are traced
-from published radar images (`reference/radars/`), their elevation comes from
-the radar's own shading, and every one of them passes the same gates as a
-hand-authored level.
+from published radar images, their elevation comes from the radar's own
+shading, and every one of them passes the same gates as a hand-authored level.
 
 ```bash
-node tools/trace_radar.py "reference/radars/Mirage/Mirage - Radar.png" \
-    --cells 46 --bands 3 --out maps/traced/mirage.plan   # footprint
+python3 tools/trace_radar.py "reference/cs-maps/Mirage/Mirage - Radar.png" \
+    --cells 48 --bands 5 --out maps/traced/mirage.plan   # footprint
 node tools/finalize.ts                                    # elevation + gates
 node tools/plans.ts                                       # compile + report
 ```
 
+`reference/cs-maps/` is the complete source archive the traces came from — 475
+images across 234 map pages, covering CS 1.6 through CS2, official and
+community, including cut and unreleased maps. 140 of those are radars (122
+single, plus 9 upper/lower pairs for the two-storey maps); the rest are
+screenshots and logos kept as provenance rather than as inputs. `index.tsv`
+records which map each file belongs to and where it came from.
+
+Not every radar becomes a map. 17 are Danger Zone or open-terrain layouts whose
+radars have no distinguishable background, so a trace of them is one solid
+rectangle — they are excluded rather than shipped as a filled square.
+
 These are **topology reconstructions, not measured copies** — proportions are
 approximate, and no assets, textures, models or map files from any shipped game
-are used or reproduced. The radar images are kept as provenance for the traces.
+are used or reproduced.
 
 ## Commands
 

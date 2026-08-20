@@ -1,0 +1,1400 @@
+[
+ {
+  "map": "Sanctum",
+  "page": "https://counterstrike.fandom.com/wiki/Sanctum",
+  "categories": [
+   "Counter-Strike 2 Community Wingman maps"
+  ],
+  "files": [
+   {
+    "file": "Sanctum/Sanctum - Image.png",
+    "label": "Image",
+    "source": "de_sanctum.png",
+    "width": 2560,
+    "height": 1440,
+    "bytes": 7775329
+   },
+   {
+    "file": "Sanctum/Sanctum - Radar.png",
+    "label": "Radar",
+    "source": "de_sanctum_overview.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 244050
+   },
+   {
+    "file": "Sanctum/Sanctum - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_sanctum.png",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 161890
+   }
+  ]
+ },
+ {
+  "map": "Santorini",
+  "page": "https://counterstrike.fandom.com/wiki/Santorini",
+  "categories": [
+   "Community Bomb maps",
+   "Operation Wildfire maps"
+  ],
+  "files": [
+   {
+    "file": "Santorini/Santorini - Image.jpg",
+    "label": "Image",
+    "source": "csgo-santorini-workshop.jpg",
+    "width": 1536,
+    "height": 864,
+    "bytes": 1048318
+   },
+   {
+    "file": "Santorini/Santorini - Radar.jpg",
+    "label": "Radar",
+    "source": "Csgo de santorini-overlay.jpg",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 1404107
+   }
+  ]
+ },
+ {
+  "map": "Seaside",
+  "page": "https://counterstrike.fandom.com/wiki/Seaside",
+  "categories": [
+   "Community Bomb maps",
+   "Operation Bravo maps",
+   "Operation Payback maps",
+   "Operation Phoenix maps",
+   "Counter-Strike: Global Offensive removed maps"
+  ],
+  "files": [
+   {
+    "file": "Seaside/Seaside - Image.png",
+    "label": "Image",
+    "source": "De seaside.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2566267
+   },
+   {
+    "file": "Seaside/Seaside - Radar.png",
+    "label": "Radar",
+    "source": "de_seaside_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 316103
+   },
+   {
+    "file": "Seaside/Seaside - Logo.svg",
+    "label": "Logo",
+    "source": "Map_icon_de_seaside.svg",
+    "width": 512,
+    "height": 512,
+    "bytes": 218881
+   }
+  ]
+ },
+ {
+  "map": "Season",
+  "page": "https://counterstrike.fandom.com/wiki/Season",
+  "categories": [
+   "Community Bomb maps",
+   "Operation Bloodhound maps",
+   "Operation Vanguard maps"
+  ],
+  "files": [
+   {
+    "file": "Season/Season - Image.png",
+    "label": "Image",
+    "source": "Csgo_de_season-promo.png",
+    "width": 940,
+    "height": 529,
+    "bytes": 714264
+   },
+   {
+    "file": "Season/Season - Radar.png",
+    "label": "Radar",
+    "source": "de_season_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 456170
+   }
+  ]
+ },
+ {
+  "map": "Ship",
+  "page": "https://counterstrike.fandom.com/wiki/Ship",
+  "categories": [
+   "Counter-Strike cut maps"
+  ],
+  "files": [
+   {
+    "file": "Ship/Ship - Image.png",
+    "label": "Image",
+    "source": "cs_ship.png",
+    "width": 1024,
+    "height": 768,
+    "bytes": 197428
+   }
+  ]
+ },
+ {
+  "map": "Shipped",
+  "page": "https://counterstrike.fandom.com/wiki/Shipped",
+  "categories": [
+   "Community Bomb maps",
+   "Operation Hydra maps",
+   "Counter-Strike: Global Offensive removed maps"
+  ],
+  "files": [
+   {
+    "file": "Shipped/Shipped - Image.jpg",
+    "label": "Image",
+    "source": "De shipped thumbnail.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 1563298
+   },
+   {
+    "file": "Shipped/Shipped - Radar.png",
+    "label": "Radar",
+    "source": "de_shipped_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 1162504
+   },
+   {
+    "file": "Shipped/Shipped - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_shipped.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 29312
+   }
+  ]
+ },
+ {
+  "map": "Shoothouse",
+  "page": "https://counterstrike.fandom.com/wiki/Shoothouse",
+  "categories": [
+   "Counter-Strike: Condition Zero cut maps"
+  ],
+  "files": [
+   {
+    "file": "Shoothouse/Shoothouse - Image.jpg",
+    "label": "Image",
+    "source": "cscz_screen002.jpg",
+    "width": 1024,
+    "height": 768,
+    "bytes": 84584
+   }
+  ]
+ },
+ {
+  "map": "Shoots",
+  "page": "https://counterstrike.fandom.com/wiki/Shoots",
+  "categories": [
+   "Counter-Strike: Global Offensive Arms Race maps",
+   "Arms Race Group",
+   "Flying Scoutsman Group"
+  ],
+  "files": [
+   {
+    "file": "Shoots/Shoots - Image.png",
+    "label": "Image",
+    "source": "Ar_shoots_png.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 4046133
+   },
+   {
+    "file": "Shoots/Shoots - Radar.png",
+    "label": "Radar",
+    "source": "ShootsMapcs2.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 297572
+   },
+   {
+    "file": "Shoots/Shoots - Logo.png",
+    "label": "Logo",
+    "source": "Shoots-icon cs2.png",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 477520
+   }
+  ]
+ },
+ {
+  "map": "Shortdust",
+  "page": "https://counterstrike.fandom.com/wiki/Shortdust",
+  "categories": [
+   "Demolition Group"
+  ],
+  "files": [
+   {
+    "file": "Shortdust/Shortdust - Image.jpg",
+    "label": "Image",
+    "source": "de_shortdust_cs2.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 281765
+   },
+   {
+    "file": "Shortdust/Shortdust - Radar.jpg",
+    "label": "Radar",
+    "source": "Csgo-de_shortdust_radar.jpg",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 373566
+   },
+   {
+    "file": "Shortdust/Shortdust - Logo.png",
+    "label": "Logo",
+    "source": "csgo_map_icon_de_shortdust.png",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 353418
+   }
+  ]
+ },
+ {
+  "map": "Shorttrain",
+  "page": "https://counterstrike.fandom.com/wiki/Shorttrain",
+  "categories": [
+   "Counter-Strike: Global Offensive removed maps"
+  ],
+  "files": [
+   {
+    "file": "Shorttrain/Shorttrain - Image.jpg",
+    "label": "Image",
+    "source": "De shorttrain thumbnail.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 387682
+   },
+   {
+    "file": "Shorttrain/Shorttrain - Radar.png",
+    "label": "Radar",
+    "source": "ShorttrainMapcsgo.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 351072
+   },
+   {
+    "file": "Shorttrain/Shorttrain - Logo.png",
+    "label": "Logo",
+    "source": "Set train.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 26421
+   }
+  ]
+ },
+ {
+  "map": "Siege",
+  "page": "https://counterstrike.fandom.com/wiki/Siege",
+  "categories": [
+   "Community Hostage maps",
+   "Operation Bravo maps",
+   "Counter-Strike Hostage maps"
+  ],
+  "files": [
+   {
+    "file": "Siege/Siege - Image.jpg",
+    "label": "Image",
+    "source": "csgo_siege_big.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 350533
+   },
+   {
+    "file": "Siege/Siege - Radar.png",
+    "label": "Radar",
+    "source": "cs_siege_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 253867
+   }
+  ]
+ },
+ {
+  "map": "Sienna",
+  "page": "https://counterstrike.fandom.com/wiki/Sienna",
+  "categories": [
+   "Counter-Strike: Condition Zero Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Sienna/Sienna - Image.jpg",
+    "label": "Image",
+    "source": "de_sienna_cz.jpg",
+    "width": 1600,
+    "height": 900,
+    "bytes": 1063635
+   }
+  ]
+ },
+ {
+  "map": "Silo",
+  "page": "https://counterstrike.fandom.com/wiki/Silo",
+  "categories": [
+   "Counter-Strike (Xbox) cut maps",
+   "Counter-Strike: Condition Zero cut maps"
+  ],
+  "files": [
+   {
+    "file": "Silo/Silo - Image.jpg",
+    "label": "Image",
+    "source": "Cscz_gs09_1.jpg",
+    "width": 640,
+    "height": 480,
+    "bytes": 66174
+   }
+  ]
+ },
+ {
+  "map": "Sirocco",
+  "page": "https://counterstrike.fandom.com/wiki/Sirocco",
+  "categories": [
+   "Danger Zone maps",
+   "Danger Zone Group"
+  ],
+  "files": [
+   {
+    "file": "Sirocco/Sirocco - Image.png",
+    "label": "Image",
+    "source": "Sirocco-center.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2763054
+   },
+   {
+    "file": "Sirocco/Sirocco - Radar.png",
+    "label": "Radar",
+    "source": "map_dz_sirocco.png",
+    "width": 1536,
+    "height": 1536,
+    "bytes": 4462708
+   },
+   {
+    "file": "Sirocco/Sirocco - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_dz_sirocco_png.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 63493
+   }
+  ]
+ },
+ {
+  "map": "Site",
+  "page": "https://counterstrike.fandom.com/wiki/Site",
+  "categories": [
+   "Counter-Strike: Source cut maps"
+  ],
+  "files": [
+   {
+    "file": "Site/Site - Image.jpg",
+    "label": "Image",
+    "source": "Cs site.jpg",
+    "width": 1682,
+    "height": 917,
+    "bytes": 147112
+   }
+  ]
+ },
+ {
+  "map": "St. Marc",
+  "page": "https://counterstrike.fandom.com/wiki/St._Marc",
+  "categories": [
+   "Counter-Strike: Global Offensive Arms Race maps",
+   "Demolition Group"
+  ],
+  "files": [
+   {
+    "file": "St. Marc/St. Marc - Image.png",
+    "label": "Image",
+    "source": "De_stmarc.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2473340
+   },
+   {
+    "file": "St. Marc/St. Marc - Radar.png",
+    "label": "Radar",
+    "source": "StMarcMapcsgo.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 519282
+   },
+   {
+    "file": "St. Marc/St. Marc - Logo.png",
+    "label": "Logo",
+    "source": "Map icon de stmarc.PNG",
+    "width": 512,
+    "height": 512,
+    "bytes": 37098
+   }
+  ]
+ },
+ {
+  "map": "Stadium",
+  "page": "https://counterstrike.fandom.com/wiki/Stadium",
+  "categories": [
+   "Counter-Strike (Xbox) Bomb maps",
+   "Counter-Strike: Condition Zero Bomb maps",
+   "Counter-Strike: Source cut maps"
+  ],
+  "files": [
+   {
+    "file": "Stadium/Stadium - Image.jpg",
+    "label": "Image",
+    "source": "de_stadium_cz.jpg",
+    "width": 1600,
+    "height": 900,
+    "bytes": 768739
+   }
+  ]
+ },
+ {
+  "map": "Station",
+  "page": "https://counterstrike.fandom.com/wiki/Station",
+  "categories": [
+   "Counter-Strike cut maps"
+  ],
+  "files": [
+   {
+    "file": "Station/Station - Image.png",
+    "label": "Image",
+    "source": "station.png",
+    "width": 1024,
+    "height": 768,
+    "bytes": 444446
+   }
+  ]
+ },
+ {
+  "map": "Storm",
+  "page": "https://counterstrike.fandom.com/wiki/Storm",
+  "categories": [
+   "Counter-Strike Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Storm/Storm - Image.jpg",
+    "label": "Image",
+    "source": "de_storm.jpg",
+    "width": 1600,
+    "height": 900,
+    "bytes": 825716
+   }
+  ]
+ },
+ {
+  "map": "Stronghold",
+  "page": "https://counterstrike.fandom.com/wiki/Stronghold",
+  "categories": [
+   "Counter-Strike 2 Community Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Stronghold/Stronghold - Image.png",
+    "label": "Image",
+    "source": "de_stronghold.png",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 4195834
+   },
+   {
+    "file": "Stronghold/Stronghold - Radar.png",
+    "label": "Radar",
+    "source": "de_stronghold_overview.png",
+    "width": 2048,
+    "height": 2048,
+    "bytes": 1376719
+   },
+   {
+    "file": "Stronghold/Stronghold - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_stronghold.png",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 152781
+   }
+  ]
+ },
+ {
+  "map": "Studio",
+  "page": "https://counterstrike.fandom.com/wiki/Studio",
+  "categories": [
+   "Community Bomb maps",
+   "Operation Shattered Web maps"
+  ],
+  "files": [
+   {
+    "file": "Studio/Studio - Image.png",
+    "label": "Image",
+    "source": "De_studio.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 1657539
+   },
+   {
+    "file": "Studio/Studio - Radar.png",
+    "label": "Radar",
+    "source": "De_studio_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 308382
+   },
+   {
+    "file": "Studio/Studio - Logo.png",
+    "label": "Logo",
+    "source": "Map_icon_de_studio.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 73369
+   }
+  ]
+ },
+ {
+  "map": "Subzero",
+  "page": "https://counterstrike.fandom.com/wiki/Subzero",
+  "categories": [
+   "Community Bomb maps",
+   "Counter-Strike: Global Offensive removed maps"
+  ],
+  "files": [
+   {
+    "file": "Subzero/Subzero - Image.png",
+    "label": "Image",
+    "source": "De subzero.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2013442
+   },
+   {
+    "file": "Subzero/Subzero - Radar.png",
+    "label": "Radar",
+    "source": "De_subzero_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 173929
+   },
+   {
+    "file": "Subzero/Subzero - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_subzero.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 32454
+   }
+  ]
+ },
+ {
+  "map": "Sugarcane",
+  "page": "https://counterstrike.fandom.com/wiki/Sugarcane",
+  "categories": [
+   "Demolition Group"
+  ],
+  "files": [
+   {
+    "file": "Sugarcane/Sugarcane - Image.png",
+    "label": "Image",
+    "source": "Csgo-de-sugarcane.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2577461
+   },
+   {
+    "file": "Sugarcane/Sugarcane - Radar.png",
+    "label": "Radar",
+    "source": "SugarcaneMapcsgo.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 546935
+   },
+   {
+    "file": "Sugarcane/Sugarcane - Logo.png",
+    "label": "Logo",
+    "source": "Map icon de sugarcane.PNG",
+    "width": 512,
+    "height": 512,
+    "bytes": 62355
+   }
+  ]
+ },
+ {
+  "map": "Survivor",
+  "page": "https://counterstrike.fandom.com/wiki/Survivor",
+  "categories": [
+   "Counter-Strike Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Survivor/Survivor - Image.jpg",
+    "label": "Image",
+    "source": "de_survivor.jpg",
+    "width": 1600,
+    "height": 900,
+    "bytes": 641164
+   }
+  ]
+ },
+ {
+  "map": "Swamp",
+  "page": "https://counterstrike.fandom.com/wiki/Swamp",
+  "categories": [
+   "Community Bomb maps",
+   "Counter-Strike: Global Offensive removed maps"
+  ],
+  "files": [
+   {
+    "file": "Swamp/Swamp - Image.png",
+    "label": "Image",
+    "source": "de_swamp.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2689998
+   },
+   {
+    "file": "Swamp/Swamp - Radar.png",
+    "label": "Radar",
+    "source": "de_swamp_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 437174
+   },
+   {
+    "file": "Swamp/Swamp - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_swamp.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 74261
+   }
+  ]
+ },
+ {
+  "map": "Terminal (map)",
+  "page": "https://counterstrike.fandom.com/wiki/Terminal_(map)",
+  "categories": [
+   "Counter-Strike: Condition Zero cut maps"
+  ],
+  "files": [
+   {
+    "file": "Terminal (map)/Terminal (map) - Image.jpg",
+    "label": "Image",
+    "source": "Condition02.jpg",
+    "width": 926,
+    "height": 680,
+    "bytes": 844749
+   }
+  ]
+ },
+ {
+  "map": "Thera",
+  "page": "https://counterstrike.fandom.com/wiki/Thera",
+  "categories": [
+   "Counter-Strike 2 Community Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Thera/Thera - Image.png",
+    "label": "Image",
+    "source": "de_thera.png",
+    "width": 1820,
+    "height": 1024,
+    "bytes": 2927329
+   },
+   {
+    "file": "Thera/Thera - Upper Radar.png",
+    "label": "Upper Radar",
+    "source": "de_thera_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 328952
+   },
+   {
+    "file": "Thera/Thera - Lower Radar.png",
+    "label": "Lower Radar",
+    "source": "de_thera_lower_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 298085
+   },
+   {
+    "file": "Thera/Thera - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_thera.png",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 119248
+   }
+  ]
+ },
+ {
+  "map": "Thrill",
+  "page": "https://counterstrike.fandom.com/wiki/Thrill",
+  "categories": [
+   "Community Bomb maps",
+   "Operation Hydra maps"
+  ],
+  "files": [
+   {
+    "file": "Thrill/Thrill - Image.png",
+    "label": "Image",
+    "source": "Map-thrill-overall.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 3150319
+   },
+   {
+    "file": "Thrill/Thrill - Radar.png",
+    "label": "Radar",
+    "source": "De thrill radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 347571
+   },
+   {
+    "file": "Thrill/Thrill - Logo.png",
+    "label": "Logo",
+    "source": "Map icon de thrill.png",
+    "width": 80,
+    "height": 80,
+    "bytes": 9250
+   }
+  ]
+ },
+ {
+  "map": "Thunder",
+  "page": "https://counterstrike.fandom.com/wiki/Thunder",
+  "categories": [
+   "Community Hostage maps",
+   "Operation Payback maps",
+   "Operation Phoenix maps",
+   "Counter-Strike cut maps"
+  ],
+  "files": [
+   {
+    "file": "Thunder/Thunder - Image.png",
+    "label": "Image",
+    "source": "Csgo-cs-thunder.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2919047
+   },
+   {
+    "file": "Thunder/Thunder - Radar.jpg",
+    "label": "Radar",
+    "source": "CSGO cs thuder map overview.jpg",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 290835
+   }
+  ]
+ },
+ {
+  "map": "Tides",
+  "page": "https://counterstrike.fandom.com/wiki/Tides",
+  "categories": [
+   "Counter-Strike (Xbox) Bomb maps",
+   "Counter-Strike: Condition Zero Bomb maps",
+   "Counter-Strike: Source Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Tides/Tides - Image.jpg",
+    "label": "Image",
+    "source": "css_tides_big.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 793885
+   }
+  ]
+ },
+ {
+  "map": "Tire",
+  "page": "https://counterstrike.fandom.com/wiki/Tire",
+  "categories": [
+   "Counter-Strike cut maps"
+  ],
+  "files": [
+   {
+    "file": "Tire/Tire - Image.png",
+    "label": "Image",
+    "source": "Cs_tire_final.png",
+    "width": 1024,
+    "height": 768,
+    "bytes": 842876
+   }
+  ]
+ },
+ {
+  "map": "Torn",
+  "page": "https://counterstrike.fandom.com/wiki/Torn",
+  "categories": [
+   "Counter-Strike Bomb maps",
+   "Counter-Strike: Condition Zero Bomb maps",
+   "Counter-Strike (Xbox) cut maps"
+  ],
+  "files": [
+   {
+    "file": "Torn/Torn - Image.jpg",
+    "label": "Image",
+    "source": "de_torn_cz.jpg",
+    "width": 1600,
+    "height": 900,
+    "bytes": 645953
+   }
+  ]
+ },
+ {
+  "map": "Trailerpark",
+  "page": "https://counterstrike.fandom.com/wiki/Trailerpark",
+  "categories": [
+   "Counter-Strike: Condition Zero cut maps"
+  ],
+  "files": [
+   {
+    "file": "Trailerpark/Trailerpark - Image.png",
+    "label": "Image",
+    "source": "Pcg 0402scan trailerpark.png",
+    "width": 508,
+    "height": 272,
+    "bytes": 221444
+   }
+  ]
+ },
+ {
+  "map": "Train",
+  "page": "https://counterstrike.fandom.com/wiki/Train",
+  "categories": [
+   "Counter-Strike 2 Bomb maps",
+   "Counter-Strike Bomb maps",
+   "Counter-Strike: Global Offensive Bomb maps",
+   "Counter-Strike: Source Bomb maps",
+   "Operation Vanguard maps",
+   "Defusal Group Sigma",
+   "Reserves Group",
+   "Retakes Group"
+  ],
+  "files": [
+   {
+    "file": "Train/Train - Image.png",
+    "label": "Image",
+    "source": "De_train_cs2_new.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2683326
+   },
+   {
+    "file": "Train/Train - Upper Radar.png",
+    "label": "Upper Radar",
+    "source": "CS2_Train_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 146404
+   },
+   {
+    "file": "Train/Train - Lower Radar.png",
+    "label": "Lower Radar",
+    "source": "CS2_Train_lower_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 135051
+   },
+   {
+    "file": "Train/Train - Logo.png",
+    "label": "Logo",
+    "source": "CS2_Train_logo.png",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 208228
+   }
+  ]
+ },
+ {
+  "map": "Transit",
+  "page": "https://counterstrike.fandom.com/wiki/Transit",
+  "categories": [
+   "Counter-Strike 2 Community Wingman maps"
+  ],
+  "files": [
+   {
+    "file": "Transit/Transit - Image.jpg",
+    "label": "Image",
+    "source": "de_transit.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 358133
+   },
+   {
+    "file": "Transit/Transit - Radar.jpg",
+    "label": "Radar",
+    "source": "de_transit_overview.jpg",
+    "width": 2048,
+    "height": 2048,
+    "bytes": 136600
+   }
+  ]
+ },
+ {
+  "map": "Trinity",
+  "page": "https://counterstrike.fandom.com/wiki/Trinity",
+  "categories": [
+   "Counter-Strike cut maps",
+   "Escape maps"
+  ],
+  "files": [
+   {
+    "file": "Trinity/Trinity - Image.jpg",
+    "label": "Image",
+    "source": "es_trinity.jpg",
+    "width": 1280,
+    "height": 1024,
+    "bytes": 239928
+   }
+  ]
+ },
+ {
+  "map": "Truth",
+  "page": "https://counterstrike.fandom.com/wiki/Truth",
+  "categories": [
+   "Counter-Strike (Xbox) Bomb maps",
+   "Counter-Strike: Condition Zero Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Truth/Truth - Image.jpg",
+    "label": "Image",
+    "source": "de_truth_cz.jpg",
+    "width": 1600,
+    "height": 900,
+    "bytes": 1348733
+   }
+  ]
+ },
+ {
+  "map": "Truth (cut)",
+  "page": "https://counterstrike.fandom.com/wiki/Truth_(cut)",
+  "categories": [
+   "Counter-Strike: Condition Zero cut maps"
+  ],
+  "files": [
+   {
+    "file": "Truth (cut)/Truth (cut) - Image.png",
+    "label": "Image",
+    "source": "Cs_truth_cz0004.png",
+    "width": 1024,
+    "height": 768,
+    "bytes": 498071
+   }
+  ]
+ },
+ {
+  "map": "Tulip",
+  "page": "https://counterstrike.fandom.com/wiki/Tulip",
+  "categories": [
+   "Community Bomb maps",
+   "Operation Wildfire maps"
+  ],
+  "files": [
+   {
+    "file": "Tulip/Tulip - Image.jpg",
+    "label": "Image",
+    "source": "Csgo-tulip-workshop.jpg",
+    "width": 1920,
+    "height": 1200,
+    "bytes": 552096
+   },
+   {
+    "file": "Tulip/Tulip - Radar.png",
+    "label": "Radar",
+    "source": "de_tulip_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 991844
+   }
+  ]
+ },
+ {
+  "map": "Tundra",
+  "page": "https://counterstrike.fandom.com/wiki/Tundra",
+  "categories": [
+   "Assassination maps",
+   "Counter-Strike cut maps"
+  ],
+  "files": [
+   {
+    "file": "Tundra/Tundra - Image.png",
+    "label": "Image",
+    "source": "as_tundra.png",
+    "width": 590,
+    "height": 400,
+    "bytes": 228471
+   }
+  ]
+ },
+ {
+  "map": "Tuscan",
+  "page": "https://counterstrike.fandom.com/wiki/Tuscan",
+  "categories": [
+   "Community Bomb maps",
+   "Counter-Strike Community maps"
+  ],
+  "files": [
+   {
+    "file": "Tuscan/Tuscan - Image.png",
+    "label": "Image",
+    "source": "de_tuscan.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2702148
+   },
+   {
+    "file": "Tuscan/Tuscan - Radar.png",
+    "label": "Radar",
+    "source": "csgo_radar_de_tuscan.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 235373
+   },
+   {
+    "file": "Tuscan/Tuscan - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_tuscan.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 32166
+   }
+  ]
+ },
+ {
+  "map": "Vegas",
+  "page": "https://counterstrike.fandom.com/wiki/Vegas",
+  "categories": [
+   "Counter-Strike cut maps",
+   "Counter-Strike: Source cut maps"
+  ],
+  "files": [
+   {
+    "file": "Vegas/Vegas - Image.jpg",
+    "label": "Image",
+    "source": "De_vegas_02.jpg",
+    "width": 800,
+    "height": 600,
+    "bytes": 59542
+   }
+  ]
+ },
+ {
+  "map": "Vertigo",
+  "page": "https://counterstrike.fandom.com/wiki/Vertigo",
+  "categories": [
+   "Counter-Strike 2 Bomb maps",
+   "Counter-Strike Bomb maps",
+   "Counter-Strike: Condition Zero Bomb maps",
+   "Counter-Strike: Global Offensive Bomb maps",
+   "Defusal Group Sigma",
+   "Reserves Group",
+   "Retakes Group",
+   "Wingman Group"
+  ],
+  "files": [
+   {
+    "file": "Vertigo/Vertigo - Image.jpg",
+    "label": "Image",
+    "source": "De vertigo cs2.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 422874
+   },
+   {
+    "file": "Vertigo/Vertigo - Upper Radar.png",
+    "label": "Upper Radar",
+    "source": "De vertigo radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 77792
+   },
+   {
+    "file": "Vertigo/Vertigo - Lower Radar.png",
+    "label": "Lower Radar",
+    "source": "De vertigo lower radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 184469
+   },
+   {
+    "file": "Vertigo/Vertigo - Logo.png",
+    "label": "Logo",
+    "source": "Vertigo-logo-new.png",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 186873
+   }
+  ]
+ },
+ {
+  "map": "Vessel",
+  "page": "https://counterstrike.fandom.com/wiki/Vessel",
+  "categories": [
+   "Counter-Strike (Xbox) cut maps",
+   "Counter-Strike: Condition Zero cut maps"
+  ],
+  "files": [
+   {
+    "file": "Vessel/Vessel - Image.jpg",
+    "label": "Image",
+    "source": "Cscz_gs12_3.jpg",
+    "width": 640,
+    "height": 480,
+    "bytes": 60233
+   }
+  ]
+ },
+ {
+  "map": "Vineyard",
+  "page": "https://counterstrike.fandom.com/wiki/Vineyard",
+  "categories": [
+   "Community Danger Zone maps",
+   "Danger Zone maps",
+   "Danger Zone Group"
+  ],
+  "files": [
+   {
+    "file": "Vineyard/Vineyard - Image.png",
+    "label": "Image",
+    "source": "dz_vineyard.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 2691543
+   },
+   {
+    "file": "Vineyard/Vineyard - Radar.png",
+    "label": "Radar",
+    "source": "csgo_radar_dz_vineyard.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 1670488
+   },
+   {
+    "file": "Vineyard/Vineyard - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_dz_vineyard.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 32209
+   }
+  ]
+ },
+ {
+  "map": "Vostok",
+  "page": "https://counterstrike.fandom.com/wiki/Vostok",
+  "categories": [
+   "Counter-Strike (Xbox) Bomb maps",
+   "Counter-Strike: Condition Zero Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Vostok/Vostok - Image.jpg",
+    "label": "Image",
+    "source": "de_vostok_cz.jpg",
+    "width": 1600,
+    "height": 900,
+    "bytes": 998983
+   }
+  ]
+ },
+ {
+  "map": "Warden",
+  "page": "https://counterstrike.fandom.com/wiki/Warden",
+  "categories": [
+   "Counter-Strike 2 Community Bomb maps"
+  ],
+  "files": [
+   {
+    "file": "Warden/Warden - Image.png",
+    "label": "Image",
+    "source": "de_warden.png",
+    "width": 2560,
+    "height": 1440,
+    "bytes": 6629927
+   },
+   {
+    "file": "Warden/Warden - Radar.png",
+    "label": "Radar",
+    "source": "de_warden_overview.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 201605
+   },
+   {
+    "file": "Warden/Warden - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_warden.png",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 192043
+   }
+  ]
+ },
+ {
+  "map": "Weapons Course",
+  "page": "https://counterstrike.fandom.com/wiki/Weapons_Course",
+  "categories": [
+   "Training maps"
+  ],
+  "files": [
+   {
+    "file": "Weapons Course/Weapons Course - Image.png",
+    "label": "Image",
+    "source": "Training.png",
+    "width": 1920,
+    "height": 1200,
+    "bytes": 2682839
+   }
+  ]
+ },
+ {
+  "map": "Whistle",
+  "page": "https://counterstrike.fandom.com/wiki/Whistle",
+  "categories": [
+   "Counter-Strike 2 Community Wingman maps"
+  ],
+  "files": [
+   {
+    "file": "Whistle/Whistle - Image.png",
+    "label": "Image",
+    "source": "de whistle.png",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 3092185
+   },
+   {
+    "file": "Whistle/Whistle - Radar.png",
+    "label": "Radar",
+    "source": "de whistle radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 104420
+   },
+   {
+    "file": "Whistle/Whistle - Logo.svg",
+    "label": "Logo",
+    "source": "map icon de whistle.svg",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 23554
+   }
+  ]
+ },
+ {
+  "map": "Workout",
+  "page": "https://counterstrike.fandom.com/wiki/Workout",
+  "categories": [
+   "Community Hostage maps",
+   "Operation Vanguard maps",
+   "Counter-Strike: Global Offensive removed maps"
+  ],
+  "files": [
+   {
+    "file": "Workout/Workout - Image.png",
+    "label": "Image",
+    "source": "Csgo-cs-workout.png",
+    "width": 940,
+    "height": 529,
+    "bytes": 704477
+   },
+   {
+    "file": "Workout/Workout - Radar.png",
+    "label": "Radar",
+    "source": "cs_workout_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 120870
+   },
+   {
+    "file": "Workout/Workout - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_cs_workout.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 30836
+   }
+  ]
+ },
+ {
+  "map": "Wpndepot",
+  "page": "https://counterstrike.fandom.com/wiki/Wpndepot",
+  "categories": [
+   "Counter-Strike cut maps"
+  ],
+  "files": [
+   {
+    "file": "Wpndepot/Wpndepot - Image.png",
+    "label": "Image",
+    "source": "wpndepot.png",
+    "width": 1024,
+    "height": 768,
+    "bytes": 324687
+   }
+  ]
+ },
+ {
+  "map": "Zoo",
+  "page": "https://counterstrike.fandom.com/wiki/Zoo",
+  "categories": [
+   "Community Bomb maps",
+   "Operation Bloodhound maps",
+   "Counter-Strike: Global Offensive removed maps"
+  ],
+  "files": [
+   {
+    "file": "Zoo/Zoo - Image.jpg",
+    "label": "Image",
+    "source": "De zoo.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 360012
+   },
+   {
+    "file": "Zoo/Zoo - Radar.png",
+    "label": "Radar",
+    "source": "de_zoo_radar.png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 562552
+   },
+   {
+    "file": "Zoo/Zoo - Logo.png",
+    "label": "Logo",
+    "source": "map_icon_de_zoo.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 28658
+   }
+  ]
+ },
+ {
+  "map": "Zoption",
+  "page": "https://counterstrike.fandom.com/wiki/Zoption",
+  "categories": [
+   "Counter-Strike cut maps"
+  ],
+  "files": [
+   {
+    "file": "Zoption/Zoption - Image.jpg",
+    "label": "Image",
+    "source": "cs_zoption.jpg",
+    "width": 1280,
+    "height": 1024,
+    "bytes": 149410
+   }
+  ]
+ }
+]
