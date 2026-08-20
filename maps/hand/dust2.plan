@@ -1,0 +1,96 @@
+id: cs_dust2_hand
+name: Dust II
+description: Dust II, authored by hand rather than traced. Every area carries the callout it is known by, at the elevation it has in the original, with ramps where the ramps are. A topology reconstruction from public knowledge of the layout - proportions are approximate and no assets from the shipped game are used.
+grid: 2.2
+wall_thickness: 0.36
+
+layer ground z=0 height=6.5 roof=no
+
+legend
+  T  t_spawn           "T Spawn"  spawn  h=7.0
+  N  outside_tunnels   "Outside Tunnels"  lane  h=6.4
+  m  t_mid             "T Mid"  lane  h=7.2
+  R  t_ramp            "T Ramp"  lane  +0.40  h=6.6
+  O  outside_long      "Outside Long"  lane  +0.80  h=7.4
+  D  long_doors        "Long Doors"  corridor  +0.80  h=4.2
+  L  long_a            "Long A"  lane  +0.80  h=7.0
+  P  pit               "Pit"  lane  -0.90  h=5.2
+  C  long_corner       "Long Corner"  lane  +0.80  h=6.0
+  A  a_site            "A Site"  site  +1.70  h=8.0
+  X  a_cross           "A Cross"  lane  +1.30  h=6.4
+  S  a_short           "A Short"  corridor  +1.30  h=4.6
+  K  catwalk           "Catwalk"  balcony  +0.90  h=5.4
+  d  mid_doors         "Mid Doors"  corridor  +0.40  h=3.8
+  M  mid               "Mid"  lane  +0.40  h=7.6
+  p  top_mid           "Top Mid"  lane  +0.80  h=6.8
+  E  ct_mid            "CT Mid"  lane  +1.30  h=6.4
+  Z  ct_spawn          "CT Spawn"  spawn  +1.70  h=7.4
+  W  mid_to_b          "Mid to B"  corridor  +0.40  h=4.4
+  u  lower_tunnels     "Lower Tunnels"  corridor  h=4.6
+  U  upper_tunnels     "Upper Tunnels"  corridor  +0.40  h=4.8
+  B  b_doors           "B Doors"  corridor  +1.20  h=4.0
+  b  b_site            "B Site"  site  +0.85  h=7.2
+  G  b_plat            "Back Plat"  site  +1.20  h=5.6
+  /  pit_ramp          "Pit Ramp"  ramp
+  \  a_ramp            "Ramp to A"  ramp
+  x  a_boxes           "Boxes"  cover=1.5 as=crate
+  o  b_barrels         "Barrels"  cover=1.2 as=crate
+  c  mid_car           "Car"  cover=1.3 as=crate
+  k  long_crate        "Long Crate"  cover=1.4 as=crate
+  t  t_crates          "Crates"  cover=1.3 as=crate
+end
+
+plan
+........................................
+........................................
+..............ZZZZZZZZZZZZ..............
+...GGGGGG.....ZZZZZZZZZZZZAAAAAAAAAAAA..
+...GGGGGG.....ZZZZZZZZZZZZAAAAAAAAAAAA..
+...GGGGGG.....ZZZZZZZZZZZZAAAAAAAAxxAA..
+...bbbbbbbbbBBBZZZZZZZZZZZAAAAAAAAAAAA..
+...bbbbbbobbBBBZZZZZZZZZZZAAAxxAAAAAAA..
+...bbbbbbbbbBBBEEEEEEEXXXXAAAxxAAAAAAA..
+...bbboobbbbBBBEEEEEEEXXXXAAAAAAA\\AAA..
+...bbboobbbb...EEEEEEEXXXXAAAAAAA\\AAA..
+...bbbbbbbbb...EEEEEEEXXXX......C\\CCC..
+...bbbbbbbbb...EEEEEEESSS.......C\\CCC..
+...bbbbbbbbb....pppppSSSS.......CCCCCC..
+......UUUUUUU...pppppSSSS.......CCCCCC..
+......UUUUUUU...pppppSSSS.......LLLLLL..
+......UUUUUUU...pppppSSSS.......LLLLLL..
+......UUUUUUU...pppppSSSS.PPPPPPLLkkLL..
+......UUUUUUU...MMMMMKKK..PPPPPPLLkkLL..
+......UUUUUUU...MMMMMKKK..PPPPPP///LLL..
+......uuuuuuuWWWMMMMMKKK..PPPPPP///LLL..
+......uuuuuuuWWWMccMMKKK..PPPPPPLLLLLL..
+......uuuuuuuWWWMccMM.....PPPPPPLLLLLL..
+......uuuuuuuWWWMccMM.....PPPPPPLLLLLL..
+......uuuuuuu...MMMMM...........LLLLLL..
+......uuuuuuu...MMMMM...........DDDDDD..
+......uuuuuuu...MMMMM...........DDDDDD..
+......uuuuuuu...ddddd...........DDDDDD..
+......uuuuuuu...ddddd.........OOOOOOOO..
+......uuuuuuu...ddddd.........OOOOOOOO..
+...............mmmmmmm........OOOOOOOO..
+...............mmmmmmm........OOOOOOOO..
+.......NNNNNNNNmmmmmmm........OOOOOOOO..
+.......NNNNNNNNmmmmmmm........OOOOOOOO..
+.......NNNNNNNNmmmmmmm......RRRRRRR.....
+.......NNNNNNNNmmmmmmm......RRRRRRR.....
+.......NNNNNNNNN............RRRRRRR.....
+............TTTTTTTTTTTTTTTTRRRRRRR.....
+............TTTTTTTTTTTttTTT............
+............TTTTttTTTTTttTTT............
+............TTTTttTTTTTTTTTT............
+............TTTTTTTTTTTTTTTT............
+............TTTTTTTTTTTTTTTT............
+........................................
+end
+
+mark attacker_spawn t_spawn attack "T Spawn"
+mark defender_spawn ct_spawn defend "CT Spawn"
+mark site a_site neutral "A"
+mark site b_site neutral "B"
+
+route t_spawn a_site 2
+route t_spawn b_site 2

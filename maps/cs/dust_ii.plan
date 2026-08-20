@@ -12,10 +12,10 @@ wall_thickness: 0.40
 layer ground z=0 height=5 roof=no
 
 legend
-  A  area_a  "Area A"  lane  // rgb 49,79,85  value 0.34
-  B  area_b  "Area B"  lane  // rgb 67,85,89  value 0.35
-  C  area_c  "Area C"  lane  // rgb 82,93,81  value 0.37
-  E  area_e  "Area E"  lane  +0.40  // rgb 102,105,82  value 0.41
+  A  area_a  "Area A"  lane  h=7.5  // rgb 49,79,85  value 0.34
+  B  area_b  "Area B"  lane  h=6.2  // rgb 67,85,89  value 0.35
+  C  area_c  "Area C"  lane  h=4.9  // rgb 82,93,81  value 0.37
+  E  area_e  "Area E"  lane  +0.40  h=3.6  // rgb 102,105,82  value 0.41
 end
 
 plan

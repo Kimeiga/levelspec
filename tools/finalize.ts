@@ -78,8 +78,37 @@ interface Result {
   reason?: string;
 }
 
+/**
+ * Ceiling height per area.
+ *
+ * Without this every wall in a map is the same slab from floor to ceiling,
+ * because one layer with one height is all a trace produces — and a hundred
+ * maps of identically tall boxes read as one map recoloured. The hand-authored
+ * levels never looked like that: they had storeys of different heights, low
+ * corridors opening into tall halls, and that variation is most of what makes
+ * a space feel built rather than extruded.
+ *
+ * The shape comes off the same colour bands as the elevation. Darker, lower
+ * ground reads as open yard and gets height; the brighter, raised bands read
+ * as interior and get less of it. Each map also has its own overall scale, so
+ * one is cramped throughout and the next is cavernous.
+ */
+function ceilingFor(i: number, n: number, scale: number): number {
+  if (n <= 1) return 5.0 * scale;
+  // Lowest band tallest, top band lowest, with the middle interpolated.
+  const t = i / (n - 1);
+  const base = 7.6 - t * 4.0;
+  return Math.round(base * scale * 10) / 10;
+}
+
 /** Rewrite the legend's z values for a given profile. */
-function withProfile(text: string, letters: string[], z: (i: number) => number, extra: Record<string, string>): string {
+function withProfile(
+  text: string,
+  letters: string[],
+  z: (i: number) => number,
+  extra: Record<string, string>,
+  ceiling?: (i: number) => number,
+): string {
   const lines = text.split('\n');
   const out: string[] = [];
   let inLegend = false;
@@ -100,9 +129,10 @@ function withProfile(text: string, letters: string[], z: (i: number) => number, 
       const idx = letters.indexOf(ch);
       if (idx >= 0) {
         const h = z(idx);
-        const body = line.split('//')[0].replace(/\s[+-][\d.]+(?=\s|$)/g, '').trimEnd();
+        const body = line.split('//')[0].replace(/\s[+-][\d.]+(?=\s|$)/g, '').replace(/\sh=[\d.]+/g, '').trimEnd();
         const comment = line.includes('//') ? '  //' + line.split('//')[1] : '';
-        out.push(`${body}${h ? `  ${h > 0 ? '+' : ''}${h.toFixed(2)}` : ''}${comment}`);
+        const ceil = ceiling ? `  h=${ceiling(idx).toFixed(1)}` : '';
+        out.push(`${body}${h ? `  ${h > 0 ? '+' : ''}${h.toFixed(2)}` : ''}${ceil}${comment}`);
         continue;
       }
     }
@@ -143,9 +173,18 @@ for (const file of files) {
     wall_thickness: (0.26 + h * 0.16).toFixed(2),
   };
 
+  // How tall this map builds, overall. Some are cramped, some are cavernous.
+  const scale = 0.78 + hash(`${id}:ceiling`) * 0.5;
+
   let shipped: { text: string; result: Result } | null = null;
   for (const p of PROFILES) {
-    const text = withProfile(raw, letters, (i) => p.step(i, letters.length), { ...extra });
+    const text = withProfile(
+      raw,
+      letters,
+      (i) => p.step(i, letters.length),
+      { ...extra },
+      (i) => ceilingFor(i, letters.length, scale),
+    );
     try {
       const spec = planToSpec(text);
       if (process.env.WHY && p.name !== 'flat') {

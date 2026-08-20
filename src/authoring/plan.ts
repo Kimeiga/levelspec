@@ -329,6 +329,8 @@ export function planToSpec(text: string, opts: PlanCompileOptions = {}): LevelSp
     // Cover characters are furniture standing inside whatever area surrounds
     // them, not areas of their own — so their cells are handed to that area
     // and re-emitted as blocks on top of it.
+    /** Cells occupied by furniture, which a marker must never be placed on. */
+    const covered = new Set<string>();
     const coverEntries = [...p.legend.values()].filter((e) => e.cover !== undefined);
     for (const e of coverEntries) {
       const own = cells.get(e.id);
@@ -339,7 +341,10 @@ export function planToSpec(text: string, opts: PlanCompileOptions = {}): LevelSp
         issues.push({ line: e.line, message: `cover '${e.char}' does not touch any area, so there is nothing to stand it on` });
         continue;
       }
-      for (const k of own) cells.get(host)!.add(k);
+      for (const k of own) {
+        cells.get(host)!.add(k);
+        covered.add(k);
+      }
       for (const [i, rect] of decomposeToRects(own).entries()) {
         covers.push({
           id: `${e.id}_${i}`,
@@ -391,7 +396,11 @@ export function planToSpec(text: string, opts: PlanCompileOptions = {}): LevelSp
         railing: e?.railing,
       });
       if (e?.mark) {
-        const c = centroid(set);
+        // Cover is merged into its host area, so the centroid of a site can
+        // land squarely on a crate — where there is no navmesh node, and the
+        // marker is unreachable by definition.
+        const free = new Set([...set].filter((k) => !covered.has(k)));
+        const c = centroid(free.size ? free : set);
         markers.push({ id: `mark_${id}`, layer: p.id, cell: c, kind: e.mark, team: e.team, label: e.label });
       }
     }
@@ -624,6 +633,12 @@ function applyDirectives(
   grid: number,
 ): void {
   const issues: PlanIssue[] = [];
+  const coverCells = new Set<string>();
+  for (const c of spec.covers ?? []) {
+    const [x, y, w, h] = c.rect;
+    for (let j = y; j < y + h; j++) for (let i = x; i < x + w; i++) coverCells.add(key(i, j));
+  }
+
   const findSpace = (id: string): SpaceSpec | undefined => {
     for (const l of spec.layers) {
       const s = l.spaces.find((x) => x.id === id);
@@ -690,8 +705,13 @@ function applyDirectives(
         // the marker standing in it.
         const [from, to, min] = args;
         const markers = spec.gameplay?.markers ?? [];
+        // An area may have got its marker from its legend entry (`mark_<area>`)
+        // or from a `mark` directive (`mark_<kind>_<area>`), and a route should
+        // not care which.
         const resolve = (name: string): string | undefined =>
-          markers.find((m) => m.id === name)?.id ?? markers.find((m) => m.id === `mark_${name}`)?.id;
+          markers.find((m) => m.id === name)?.id ??
+          markers.find((m) => m.id === `mark_${name}`)?.id ??
+          markers.find((m) => m.id.endsWith(`_${name}`))?.id;
         const a = resolve(from);
         const b = resolve(to);
         if (!a || !b) {
@@ -718,11 +738,12 @@ function applyDirectives(
           issues.push({ line, message: `mark on unknown area '${area}'` });
           break;
         }
+        const free = new Set([...cells].filter((k) => !coverCells.has(k)));
         const g = (spec.gameplay ??= {});
         (g.markers ??= []).push({
           id: `mark_${kind}_${area}`,
           layer: layerOf(area)!,
-          cell: centroid(cells),
+          cell: centroid(free.size ? free : cells),
           kind: kind as MarkerSpec['kind'],
           team: team as MarkerSpec['team'],
           label,
