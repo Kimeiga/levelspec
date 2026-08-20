@@ -11140,5 +11140,153 @@ export const LOOKS: Record<string, MapLook> = {
   ],
   "accent": 14705706,
   "curated": true
+ },
+ "okujou": {
+  "roles": {
+   "floor": 5989746,
+   "static_hard": 7831950,
+   "exterior_wall": 6976641,
+   "riser": 8621466,
+   "stair": 8358294,
+   "ramp": 7634571,
+   "cover": 13144378,
+   "soft_panel": 11042612,
+   "roof": 3949906,
+   "glass": 4644074
+  },
+  "sky": 1449520,
+  "fog": 2371133,
+  "fogNear": 30,
+  "fogFar": 170,
+  "sun": 12375807,
+  "sunIntensity": 1.7,
+  "hemiSky": 5469599,
+  "hemiGround": 2370618,
+  "hemiIntensity": 3.2,
+  "grid": {
+   "line": 2765632,
+   "alpha": 0.24,
+   "scale": 1.9
+  },
+  "surface": {
+   "roughness": 0.72,
+   "metalness": 0.14
+  },
+  "daylight": false,
+  "look": "A Tokyo roof after midnight. Wet concrete, cyan glazing, magenta signage, the city glowing under it.",
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "glassbox"
+  ],
+  "accent": 16727406,
+  "curated": true
+ },
+ "atrium": {
+  "roles": {
+   "floor": 14080217,
+   "static_hard": 15658991,
+   "exterior_wall": 14869733,
+   "riser": 13225165,
+   "stair": 15132905,
+   "ramp": 14474975,
+   "cover": 12858412,
+   "soft_panel": 13911610,
+   "roof": 10133668,
+   "glass": 10474722
+  },
+  "sky": 8369376,
+  "fog": 13622246,
+  "fogNear": 40,
+  "fogFar": 220,
+  "sun": 16776692,
+  "sunIntensity": 3.1,
+  "hemiSky": 14674678,
+  "hemiGround": 10134443,
+  "hemiIntensity": 3,
+  "grid": {
+   "line": 11186358,
+   "alpha": 0.16,
+   "scale": 2.6
+  },
+  "surface": {
+   "roughness": 0.42,
+   "metalness": 0.06
+  },
+  "daylight": true,
+  "look": "A corporate campus at noon. White stone, clear glass, planting, and one red line through all of it.",
+  "skyline": [
+   "crane",
+   "water_tank"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "terrace",
+   "setback",
+   "tower",
+   "helipad"
+  ],
+  "accent": 12858412,
+  "curated": true
+ },
+ "kasbah": {
+  "roles": {
+   "floor": 12755574,
+   "static_hard": 11043162,
+   "exterior_wall": 9859404,
+   "riser": 11702118,
+   "stair": 11899498,
+   "ramp": 11373154,
+   "cover": 7293484,
+   "soft_panel": 8214324,
+   "roof": 8014380,
+   "glass": 4168360
+  },
+  "sky": 10274014,
+  "fog": 13349260,
+  "fogNear": 30,
+  "fogFar": 170,
+  "sun": 16773586,
+  "sunIntensity": 2.9,
+  "hemiSky": 14214383,
+  "hemiGround": 8019778,
+  "hemiIntensity": 2.7,
+  "grid": {
+   "line": 7032630,
+   "alpha": 0.22,
+   "scale": 1.4
+  },
+  "surface": {
+   "roughness": 0.94,
+   "metalness": 0.02
+  },
+  "daylight": true,
+  "look": "A desert market in the afternoon. Mudbrick, timber awnings, glazed tile, dust in the light.",
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": 13208636,
+  "curated": true
  }
 };

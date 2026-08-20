@@ -1297,5 +1297,147 @@
    "glassbox"
   ],
   "accent": "ff3d6e"
+ },
+ "okujou": {
+  "look": "A Tokyo roof after midnight. Wet concrete, cyan glazing, magenta signage, the city glowing under it.",
+  "roles": {
+   "floor": "5b6572",
+   "static_hard": "77818e",
+   "exterior_wall": "6a7481",
+   "riser": "838d9a",
+   "stair": "7f8996",
+   "ramp": "747e8b",
+   "cover": "c8913a",
+   "soft_panel": "a87f34",
+   "roof": "3c4552",
+   "glass": "46dcea"
+  },
+  "sky": "161e30",
+  "fog": "242e3d",
+  "fogNear": 30,
+  "fogFar": 170,
+  "sun": "bcd6ff",
+  "sunIntensity": 1.7,
+  "hemiSky": "53759f",
+  "hemiGround": "242c3a",
+  "hemiIntensity": 3.2,
+  "grid": {
+   "line": "2a3340",
+   "alpha": 0.24,
+   "scale": 1.9
+  },
+  "surface": {
+   "roughness": 0.72,
+   "metalness": 0.14
+  },
+  "skyline": [
+   "crane",
+   "water_tank",
+   "pylon"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "signboard",
+   "drum",
+   "curved",
+   "tower",
+   "glassbox"
+  ],
+  "accent": "ff3d6e"
+ },
+ "atrium": {
+  "look": "A corporate campus at noon. White stone, clear glass, planting, and one red line through all of it.",
+  "roles": {
+   "floor": "d6d8d9",
+   "static_hard": "eeefef",
+   "exterior_wall": "e2e4e5",
+   "riser": "c9cccd",
+   "stair": "e6e8e9",
+   "ramp": "dcdedf",
+   "cover": "c4342c",
+   "soft_panel": "d4463a",
+   "roof": "9aa0a4",
+   "glass": "9fd4e2"
+  },
+  "sky": "7fb4e0",
+  "fog": "cfdbe6",
+  "fogNear": 40,
+  "fogFar": 220,
+  "sun": "fffdf4",
+  "sunIntensity": 3.1,
+  "hemiSky": "dfeaf6",
+  "hemiGround": "9aa3ab",
+  "hemiIntensity": 3.0,
+  "grid": {
+   "line": "aab0b6",
+   "alpha": 0.16,
+   "scale": 2.6
+  },
+  "surface": {
+   "roughness": 0.42,
+   "metalness": 0.06
+  },
+  "skyline": [
+   "crane",
+   "water_tank"
+  ],
+  "facade": "banded",
+  "roofs": "flat",
+  "blocks": [
+   "glassbox",
+   "terrace",
+   "setback",
+   "tower",
+   "helipad"
+  ],
+  "accent": "c4342c"
+ },
+ "kasbah": {
+  "look": "A desert market in the afternoon. Mudbrick, timber awnings, glazed tile, dust in the light.",
+  "roles": {
+   "floor": "c2a276",
+   "static_hard": "a8815a",
+   "exterior_wall": "96714c",
+   "riser": "b28f66",
+   "stair": "b5926a",
+   "ramp": "ad8a62",
+   "cover": "6f4a2c",
+   "soft_panel": "7d5734",
+   "roof": "7a4a2c",
+   "glass": "3f9aa8"
+  },
+  "sky": "9cc4de",
+  "fog": "cbb18c",
+  "fogNear": 30,
+  "fogFar": 170,
+  "sun": "fff1d2",
+  "sunIntensity": 2.9,
+  "hemiSky": "d8e4ef",
+  "hemiGround": "7a5f42",
+  "hemiIntensity": 2.7,
+  "grid": {
+   "line": "6b4f36",
+   "alpha": 0.22,
+   "scale": 1.4
+  },
+  "surface": {
+   "roughness": 0.94,
+   "metalness": 0.02
+  },
+  "skyline": [
+   "minaret",
+   "water_tank",
+   "campanile"
+  ],
+  "facade": "punched",
+  "roofs": "flat",
+  "blocks": [
+   "arcade",
+   "chamfer",
+   "gable",
+   "barrel"
+  ],
+  "accent": "c98c3c"
  }
 }

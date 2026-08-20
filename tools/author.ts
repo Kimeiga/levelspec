@@ -33,9 +33,21 @@ const specPath = join(here, `../authored/${name}.py`);
 const tracedPath = join(here, `../maps/cs/${traced}.plan`);
 const outPath = join(here, `../maps/hand/${name}.plan`);
 
+/*
+ * Which authoring tool this spec is for.
+ *
+ * A spec that lists rectangles is a composition and has no traced footprint to
+ * lay meaning over; a spec that lists seeds is an annotation of one. Both emit
+ * the same plan and go through the same greedy portal search below, so the
+ * only thing that differs is which script draws the grid.
+ */
+const composed = /^\s*"rects"|\brects\b\s*:/m.test(readFileSync(specPath, 'utf8'));
+
 /** Run the annotate step, optionally with some portals suppressed. */
 function annotate(skip: number[]): { text: string; notes: string } {
-  const args = [join(here, 'annotate.py'), tracedPath, specPath];
+  const args = composed
+    ? [join(here, 'compose.py'), specPath]
+    : [join(here, 'annotate.py'), tracedPath, specPath];
   if (skip.length) args.push('--skip-portals', skip.join(','));
   let notes = '';
   const text = execFileSync('python3', args, {
