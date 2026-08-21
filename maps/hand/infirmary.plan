@@ -5,7 +5,7 @@ description: Infirmary. Ward wings arranged round a light court you can see acro
 grid: 1.6
 wall_thickness: 0.26
 
-layer services z=-4 height=3.20 roof=no
+layer services z=-4 height=3.20 roof=yes
 
 legend
   A  plant             "Plant"  room  h=3.0

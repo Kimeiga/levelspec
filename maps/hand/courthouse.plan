@@ -5,7 +5,7 @@ description: Courthouse. A courtroom built to be looked at, over cells built so 
 grid: 1.7
 wall_thickness: 0.32
 
-layer custody z=-4.6 height=3.40 roof=no
+layer custody z=-4.6 height=3.40 roof=yes
 
 legend
   A  cell_run          "Cell Run"  corridor  h=2.8

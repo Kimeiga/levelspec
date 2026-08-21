@@ -5,7 +5,7 @@ description: Data Hall. Aisles between cabinets that are all exactly the same wi
 grid: 1.6
 wall_thickness: 0.26
 
-layer battery z=-3.8 height=3.20 roof=no
+layer battery z=-3.8 height=3.20 roof=yes
 
 legend
   A  switch_room       "Switch Room"  corridor  h=3.0
@@ -44,7 +44,7 @@ plan
 ........................................
 end
 
-layer halls z=0 height=4.40 roof=no
+layer halls z=0 height=4.40 roof=yes
 
 legend
   A  meet_me           "Meet-me Room"  spawn  h=4.4

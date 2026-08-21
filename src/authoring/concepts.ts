@@ -642,7 +642,7 @@ const SCAFFOLD: SpatialConcept = {
   wall: 0.28,
   bands: [
     {
-      id: 'ground_slab', z: 0, height: 4.4,
+      id: 'ground_slab', z: 0, height: 4.4, roofed: false,
       purpose: 'the level with the hoardings round it',
       extent: [4, 3, 32, 24],
       zones: [
@@ -654,7 +654,7 @@ const SCAFFOLD: SpatialConcept = {
       ],
     },
     {
-      id: 'mid_slab', z: 4.8, height: 4.0,
+      id: 'mid_slab', z: 4.8, height: 4.0, roofed: false,
       purpose: 'a slab with kerbs where the walls will go',
       extent: [5, 4, 30, 22],
       zones: [
@@ -705,7 +705,7 @@ const QUARRY: SpatialConcept = {
   wall: 0.34,
   bands: [
     {
-      id: 'pit', z: -8.0, height: 4.2,
+      id: 'pit', z: -8.0, height: 4.2, roofed: false,
       purpose: 'the floor of the pit, and an adit into the wall of it',
       extent: [4, 3, 30, 22],
       zones: [
@@ -716,7 +716,7 @@ const QUARRY: SpatialConcept = {
       ],
     },
     {
-      id: 'bench', z: -3.6, height: 4.0,
+      id: 'bench', z: -3.6, height: 4.0, roofed: false,
       purpose: 'the middle bench and the haul road along it',
       extent: [5, 4, 26, 18],
       zones: [
@@ -832,7 +832,7 @@ const DRYDOCK: SpatialConcept = {
       ],
     },
     {
-      id: 'dock_floor', z: -3.4, height: 3.6,
+      id: 'dock_floor', z: -3.4, height: 3.6, roofed: false,
       purpose: 'the floor of the dock itself, walled on every side',
       extent: [6, 5, 26, 16],
       zones: [
@@ -1481,7 +1481,7 @@ const BRICKWORKS: SpatialConcept = {
   verb: 'descend', contrast: ['open clay pit', 'sealed kilns'],
   grid: 1.8, size: [40, 28], wall: 0.32,
   bands: [
-    { id: 'clay', z: -5.0, height: 6.0, purpose: 'the pit, and the tramway out of it',
+    { id: 'clay', z: -5.0, height: 6.0, roofed: false, purpose: 'the pit, and the tramway out of it',
       extent: [4, 3, 30, 20], zones: [
         { id: 'clay_pit', label: 'Clay Pit', role: 'site', weight: 4, height: 6.0,
           cover: { label: 'Spoil', height: 1.7, as: 'crate', count: 5 } },
@@ -1517,7 +1517,7 @@ const GASWORKS: SpatialConcept = {
   verb: 'cross', contrast: ['open holder pit', 'closed retort house'],
   grid: 1.8, size: [42, 30], wall: 0.32,
   bands: [
-    { id: 'pit_level', z: -4.6, height: 5.2, purpose: 'the bottom of the holder pit',
+    { id: 'pit_level', z: -4.6, height: 5.2, roofed: false, purpose: 'the bottom of the holder pit',
       extent: [4, 3, 30, 22], zones: [
         { id: 'holder_pit', label: 'Holder Pit', role: 'site', weight: 5, height: 5.2,
           cover: { label: 'Guides', height: 1.8, as: 'barrel', count: 5 } },
@@ -1630,7 +1630,7 @@ const CONTAINERS: SpatialConcept = {
   verb: 'thread', contrast: ['stacked boxes', 'the one lit shed'],
   grid: 1.8, size: [44, 28], wall: 0.3,
   bands: [
-    { id: 'yard_c', z: 0, height: 6.0, purpose: 'the yard, and everything standing on it',
+    { id: 'yard_c', z: 0, height: 6.0, roofed: false, purpose: 'the yard, and everything standing on it',
       extent: [4, 3, 36, 22], zones: [
         { id: 'gate_lane', label: 'Gate Lane', role: 'spawn', weight: 2, height: 6.0,
           cover: { label: 'Boxes', height: 2.4, as: 'crate', count: 4 } },
@@ -1703,7 +1703,7 @@ const LOCK: SpatialConcept = {
   verb: 'cross', contrast: ['upper pound', 'drained chamber'],
   grid: 1.7, size: [44, 26], wall: 0.28,
   bands: [
-    { id: 'lower_pound', z: -4.0, height: 4.2, purpose: 'the lower level and the chamber floor',
+    { id: 'lower_pound', z: -4.0, height: 4.2, roofed: false, purpose: 'the lower level and the chamber floor',
       extent: [4, 3, 34, 18], zones: [
         { id: 'chamber_floor_lock', label: 'Lock Chamber', role: 'site', weight: 4, height: 4.2,
           cover: { label: 'Baulks', height: 1.2, as: 'crate', count: 5 } },
@@ -2148,13 +2148,13 @@ const TERRACES: SpatialConcept = {
   routes: 1,
   grid: 1.8, size: [42, 30], wall: 0.28,
   bands: [
-    { id: 'lower_terrace', z: -5.2, height: 5.0, purpose: 'the bottom terrace, and the widest',
+    { id: 'lower_terrace', z: -5.2, height: 5.0, roofed: false, purpose: 'the bottom terrace, and the widest',
       extent: [4, 3, 34, 24], zones: [
         { id: 'paddy', label: 'Lower Terrace', role: 'site', weight: 5, height: 5.0,
           cover: { label: 'Bunds', height: 1.2, as: 'crate', count: 6 } },
         { id: 'channel_gallery', label: 'Channel Gallery', role: 'corridor', weight: 2, height: 2.8, seal: { paddy: 'door' } },
       ] },
-    { id: 'mid_terrace', z: -0.2, height: 4.6, purpose: 'the middle terrace and the track along it',
+    { id: 'mid_terrace', z: -0.2, height: 4.6, roofed: false, purpose: 'the middle terrace and the track along it',
       extent: [6, 5, 28, 20], zones: [
         { id: 'mid_beds', label: 'Middle Terrace', role: 'lane', weight: 4, height: 4.6,
           cover: { label: 'Frames', height: 1.3, as: 'crate', count: 5 } },

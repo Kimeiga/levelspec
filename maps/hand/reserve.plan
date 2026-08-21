@@ -5,7 +5,7 @@ description: Reserve Collection. A lit gallery over the crated store the gallery
 grid: 1.7
 wall_thickness: 0.3
 
-layer store z=-4.4 height=4.00 roof=no
+layer store z=-4.4 height=4.00 roof=yes
 
 legend
   A  conservation      "Conservation"  room  h=3.6

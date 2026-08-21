@@ -5,7 +5,7 @@ description: Blockhouse. Everything you can see is a wall with a slit in it, eve
 grid: 1.7
 wall_thickness: 0.4
 
-layer command z=-5.2 height=3.60 roof=no
+layer command z=-5.2 height=3.60 roof=yes
 
 legend
   A  blast_lobby       "Blast Lobby"  corridor  h=3.0

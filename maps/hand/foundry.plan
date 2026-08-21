@@ -5,7 +5,7 @@ description: Foundry. A production line you fight along in the order the work we
 grid: 1.7
 wall_thickness: 0.32
 
-layer works z=0 height=5.00 roof=no
+layer works z=0 height=5.00 roof=yes
 
 legend
   A  shipping          "Shipping"  lane  h=5.0

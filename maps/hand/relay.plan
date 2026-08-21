@@ -5,7 +5,7 @@ description: Relay. A shielded equipment hall with no windows at all, under an a
 grid: 1.7
 wall_thickness: 0.32
 
-layer hall z=0 height=5.00 roof=no
+layer hall z=0 height=5.00 roof=yes
 
 legend
   A  entry             "Entry"  spawn  h=5.0

@@ -5,7 +5,7 @@ description: Stacks. Three floors of shelving that are the same floor three time
 grid: 1.6
 wall_thickness: 0.26
 
-layer level_one z=0 height=4.00 roof=no
+layer level_one z=0 height=4.00 roof=yes
 
 legend
   A  stair_one         "Stair"  stairwell  h=4.0
@@ -45,7 +45,7 @@ plan
 ......................................
 end
 
-layer level_two z=4.4 height=4.00 roof=no
+layer level_two z=4.4 height=4.00 roof=yes
 
 legend
   A  stair_two         "Stair"  stairwell  h=4.0

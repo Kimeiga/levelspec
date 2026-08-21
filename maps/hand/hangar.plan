@@ -5,7 +5,7 @@ description: Hangar. A maintenance hangar big enough to lose an argument in, wra
 grid: 1.8
 wall_thickness: 0.34
 
-layer apron z=0 height=8.40 roof=no
+layer apron z=0 height=8.40 roof=yes
 
 legend
   A  crew_wing         "Crew Wing"  room  h=3.4

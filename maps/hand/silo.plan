@@ -5,7 +5,7 @@ description: Silo. One tube going down further than anything else in this librar
 grid: 1.6
 wall_thickness: 0.4
 
-layer silo_floor z=-10.4 height=4.20 roof=no
+layer silo_floor z=-10.4 height=4.20 roof=yes
 
 legend
   A  cable_way_silo    "Cable Way"  corridor  h=2.8
@@ -42,7 +42,7 @@ plan
 ....................................
 end
 
-layer crew_level z=-5.6 height=4.00 roof=no
+layer crew_level z=-5.6 height=4.00 roof=yes
 
 legend
   A  tunnel_junction   "Junction"  lane  h=4.0

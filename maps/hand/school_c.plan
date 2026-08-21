@@ -5,7 +5,7 @@ description: School. Two wings of rooms that are all the same shape, one hall th
 grid: 1.6
 wall_thickness: 0.26
 
-layer undercroft_school z=-3.6 height=3.00 roof=no
+layer undercroft_school z=-3.6 height=3.00 roof=yes
 
 legend
   A  covered_way       "Covered Way"  corridor  h=2.7

@@ -5,7 +5,7 @@ description: Roundhouse. Engine stalls all facing one turntable, so the middle o
 grid: 1.8
 wall_thickness: 0.32
 
-layer pits z=-3.4 height=2.80 roof=no
+layer pits z=-3.4 height=2.80 roof=yes
 
 legend
   A  pit_store         "Pit Store"  room  h=2.8

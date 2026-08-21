@@ -86,6 +86,24 @@ export interface BandPlan {
   /** What this band is for, in the concept's own words. */
   purpose: string;
   /**
+   * Whether this band has a ceiling where nothing is standing on it.
+   *
+   * Defaults to true for every band except the topmost, which is the honest
+   * answer for a building: a promenade under an inspection gantry is indoors
+   * where the gantry is and indoors where it is not, because a building has a
+   * roof. It was false everywhere, and the consequence is that a *covered*
+   * reservoir was open to the sky across three fifths of itself — which the
+   * frame metric noticed the day it learned to ask.
+   *
+   * The exception is a place that genuinely has no lid: a quarry bench, a
+   * terrace, a clay pit, a dock. Those say so.
+   *
+   * The compiler only emits roof where no band above already covers the cell,
+   * so this never doubles a slab; it fills in the part of a storey that has
+   * nothing over it.
+   */
+  roofed?: boolean;
+  /**
    * The part of the grid this band occupies, in cells.
    *
    * Bands need not be the same size: a plant deck smaller than the floor below
@@ -542,7 +560,11 @@ export function draw(concept: SpatialConcept, seed: string, variant = 0): Drawn 
      * twenty coplanar faces and twenty shared volumes, with nothing in the
      * message to say which of five bands was the tall one.
      */
-    parts.push(`layer ${band.id} z=${band.z} height=${Math.min(band.height, room).toFixed(2)} roof=no`);
+    const topmost = !concept.bands.some((b) => b.z > band.z);
+    const roofed = band.roofed ?? !topmost;
+    parts.push(
+      `layer ${band.id} z=${band.z} height=${Math.min(band.height, room).toFixed(2)} roof=${roofed ? 'yes' : 'no'}`,
+    );
     parts.push('');
     parts.push('legend');
     parts.push(...legend, ...covers);

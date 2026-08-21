@@ -5,7 +5,7 @@ description: Committal. A chapel built for twenty people, directly over a furnac
 grid: 1.6
 wall_thickness: 0.3
 
-layer plant_hall z=-4.2 height=3.80 roof=no
+layer plant_hall z=-4.2 height=3.80 roof=yes
 
 legend
   A  ash_store         "Ash Store"  room  h=3.2

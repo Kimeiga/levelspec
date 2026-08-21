@@ -5,7 +5,7 @@ description: Terminus. A freight terminus whose overhead concourse watches the p
 grid: 1.7
 wall_thickness: 0.3
 
-layer under z=-4.4 height=3.60 roof=no
+layer under z=-4.4 height=3.60 roof=yes
 
 legend
   A  undertrack        "Undertrack"  corridor  h=2.8
@@ -48,7 +48,7 @@ plan
 ............................................
 end
 
-layer platforms z=0 height=5.20 roof=no
+layer platforms z=0 height=5.20 roof=yes
 
 legend
   A  north_platform    "North Platform"  lane  h=5.2

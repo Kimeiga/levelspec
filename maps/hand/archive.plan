@@ -5,7 +5,7 @@ description: Archive. A reading room over closed stacks over a sealed vault, wit
 grid: 1.7
 wall_thickness: 0.32
 
-layer vault z=-8.8 height=4.00 roof=no
+layer vault z=-8.8 height=4.00 roof=yes
 
 legend
   A  airlock           "Airlock"  corridor  h=3.0
@@ -46,7 +46,7 @@ plan
 ..........................................
 end
 
-layer stacks z=-4.4 height=4.00 roof=no
+layer stacks z=-4.4 height=4.00 roof=yes
 
 legend
   A  sorting_desk      "Sorting"  room  h=4.0

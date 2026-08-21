@@ -5,7 +5,7 @@ description: Broadcast House. Studios that are sealed from one another and from 
 grid: 1.6
 wall_thickness: 0.28
 
-layer studios z=0 height=5.60 roof=no
+layer studios z=0 height=5.60 roof=yes
 
 legend
   A  foyer_bc          "Foyer"  spawn  h=4.4

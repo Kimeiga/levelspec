@@ -5,7 +5,7 @@ description: Arcology. A residential block whose shopping deck, terrace and serv
 grid: 1.6
 wall_thickness: 0.26
 
-layer undercroft z=-3.8 height=3.20 roof=no
+layer undercroft z=-3.8 height=3.20 roof=yes
 
 legend
   A  service_alley     "Service Alley"  corridor  h=2.9
@@ -46,7 +46,7 @@ plan
 ..........................................
 end
 
-layer deck z=0 height=4.40 roof=no
+layer deck z=0 height=4.40 roof=yes
 
 legend
   A  concourse         "Deck"  spawn  h=4.4

@@ -5,7 +5,7 @@ description: Mint. A press hall loud enough that nothing can be heard in it, ove
 grid: 1.7
 wall_thickness: 0.34
 
-layer bullion z=-4.8 height=3.60 roof=no
+layer bullion z=-4.8 height=3.60 roof=yes
 
 legend
   A  strongroom_mint   "Strongroom"  site  h=3.4

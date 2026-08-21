@@ -5,7 +5,7 @@ description: Cold Store. A refrigerated store under a loading level, where every
 grid: 1.7
 wall_thickness: 0.3
 
-layer cold z=-4.6 height=4.00 roof=no
+layer cold z=-4.6 height=4.00 roof=yes
 
 legend
   A  compressors       "Compressors"  room  h=3.6

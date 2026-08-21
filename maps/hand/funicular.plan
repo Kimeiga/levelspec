@@ -5,7 +5,7 @@ description: Funicular. A bottom station, a top station, and a slope between the
 grid: 1.8
 wall_thickness: 0.3
 
-layer lower_station z=0 height=5.40 roof=no
+layer lower_station z=0 height=5.40 roof=yes
 
 legend
   A  booking           "Booking Hall"  spawn  h=5.4

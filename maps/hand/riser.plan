@@ -5,7 +5,7 @@ description: Riser. An original tower composed for this game, drawn as a section
 grid: 1.6
 wall_thickness: 0.28
 
-layer one z=0 height=4.4 roof=no
+layer one z=0 height=4.4 roof=yes
 
 legend
   L  lobby             "Lobby"  spawn  h=4.4

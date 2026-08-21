@@ -462,17 +462,55 @@ export function bakeNavmesh(level: CompiledLevel, opts: NavmeshOptions = {}): Na
   // ---- islands ------------------------------------------------------------
   const repr = new Map<number, number>();
   for (let s = 0; s < n; s++) if (!repr.has(comp[s])) repr.set(comp[s], s);
+  const members = new Map<number, number[]>();
+  for (let t = 0; t < n; t++) {
+    if (reachableComp.has(comp[t])) continue;
+    let list = members.get(comp[t]);
+    if (!list) members.set(comp[t], (list = []));
+    list.push(t);
+  }
+
+  /*
+   * Whether a body fits, rather than whether the area adds up.
+   *
+   * `POCKET` excuses an island too small to stand in, and it measures that by
+   * counting samples — which is the right question asked in a way that a long
+   * thin island answers wrongly. A floor slab runs half a wall thickness past
+   * the wall standing on it, so the far side of every parapet carries a ledge
+   * one sample wide and as long as the wall: a hundred samples, no width, and
+   * nowhere a person could be. Those went unnoticed while nothing supported
+   * them from outside and appeared the moment the storey below grew a roof for
+   * the ledge to look across at.
+   *
+   * So the island has to be wide enough to hold the agent somewhere, not big
+   * enough in total. A sample with all eight of its neighbours in the same
+   * island has a clear cell on every side of it — half a metre across at this
+   * resolution, which is the agent's own diameter. A strip never has one.
+   */
+  const roomy = (list: number[]): boolean => {
+    const cells = new Set(list.map((t) => sampleCol[t]));
+    for (const ci of cells) {
+      const i = ci % nx;
+      if (i === 0 || i === nx - 1) continue;
+      let all = true;
+      for (const d of [-nx - 1, -nx, -nx + 1, -1, 1, nx - 1, nx, nx + 1]) {
+        if (!cells.has(ci + d)) { all = false; break; }
+      }
+      if (all) return true;
+    }
+    return false;
+  };
+
   const islands: NavmeshIsland[] = [];
   for (const [c, s] of repr) {
     if (reachableComp.has(c)) continue;
-    // Playable only if the island stands on a declared space's own floor. A
-    // crate top inside a room is a ledge, not an unreachable room — and in a
-    // sunken lane that floor is not the layer elevation.
+    // Playable only if the island stands on a declared space's own floor and
+    // is wide enough to stand in. A crate top inside a room is a ledge, not an
+    // unreachable room — and in a sunken lane that floor is not the layer
+    // elevation.
+    const list = members.get(c) ?? [];
     const inSpaces: string[] = [];
-    let members = 0;
-    for (let t = 0; t < n && members < 40; t++) {
-      if (comp[t] !== c) continue;
-      members++;
+    for (const t of list.slice(0, 40)) {
       const where = spaceAt(t);
       if (where && !inSpaces.includes(where.space)) inSpaces.push(where.space);
     }
@@ -480,7 +518,7 @@ export function bakeNavmesh(level: CompiledLevel, opts: NavmeshOptions = {}): Na
       size: sizes[c],
       at: [sampleX[s], sampleY[s], sampleZ[s]],
       spaces: inSpaces,
-      kind: inSpaces.length ? 'playable' : 'offmesh',
+      kind: inSpaces.length && roomy(list) ? 'playable' : 'offmesh',
     });
   }
   islands.sort((a, b) => b.size - a.size);

@@ -5,7 +5,7 @@ description: Dry Dock. A drained dock with a quay all the way round it, where cr
 grid: 1.7
 wall_thickness: 0.34
 
-layer gallery z=-7.6 height=3.40 roof=no
+layer gallery z=-7.6 height=3.40 roof=yes
 
 legend
   A  caisson_room      "Caisson Room"  room  h=3.4

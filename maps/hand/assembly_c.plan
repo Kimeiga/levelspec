@@ -5,7 +5,7 @@ description: Assembly. A debating chamber with lobbies all the way round it and 
 grid: 1.7
 wall_thickness: 0.3
 
-layer chamber_floor z=0 height=7.00 roof=no
+layer chamber_floor z=0 height=7.00 roof=yes
 
 legend
   A  members_entrance  "Members Entrance"  spawn  h=5.0

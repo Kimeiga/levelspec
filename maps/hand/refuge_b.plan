@@ -5,7 +5,7 @@ description: Refuge. A building small enough that nothing in it is more than fif
 grid: 1.5
 wall_thickness: 0.26
 
-layer cellar z=-3.4 height=2.80 roof=no
+layer cellar z=-3.4 height=2.80 roof=yes
 
 legend
   A  wood_store        "Wood Store"  room  h=2.6

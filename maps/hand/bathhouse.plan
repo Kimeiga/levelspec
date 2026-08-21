@@ -5,7 +5,7 @@ description: Bathhouse. Pools stepping down one after another over the furnace t
 grid: 1.6
 wall_thickness: 0.28
 
-layer hypocaust z=-3.8 height=3.00 roof=no
+layer hypocaust z=-3.8 height=3.00 roof=yes
 
 legend
   A  flue_run          "Flues"  corridor  h=2.5

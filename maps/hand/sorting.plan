@@ -5,7 +5,7 @@ description: Sorting Hall. One enormous sorting floor with a mezzanine running r
 grid: 1.7
 wall_thickness: 0.3
 
-layer floor z=0 height=5.00 roof=no
+layer floor z=0 height=5.00 roof=yes
 
 legend
   A  outbound          "Outbound"  lane  h=5.0

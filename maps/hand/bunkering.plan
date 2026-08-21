@@ -5,7 +5,7 @@ description: Bunkering Wharf. Lanes between tanks nobody would want to shoot, a 
 grid: 1.8
 wall_thickness: 0.32
 
-layer gallery_fuel z=-3.8 height=3.00 roof=no
+layer gallery_fuel z=-3.8 height=3.00 roof=yes
 
 legend
   A  foam_house        "Foam House"  room  h=3.0

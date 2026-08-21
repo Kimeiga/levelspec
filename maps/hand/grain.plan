@@ -5,7 +5,7 @@ description: Grain Terminal. Most of the building is silo you cannot go inside, 
 grid: 1.8
 wall_thickness: 0.34
 
-layer tunnel z=-4 height=3.20 roof=no
+layer tunnel z=-4 height=3.20 roof=yes
 
 legend
   A  belt_tunnel       "Belt Tunnel"  corridor  h=2.8
@@ -44,7 +44,7 @@ plan
 ............................................
 end
 
-layer quay_level z=0 height=8.60 roof=no
+layer quay_level z=0 height=8.60 roof=yes
 
 legend
   A  weighbridge_grain "Weighbridge"  spawn  h=6.0

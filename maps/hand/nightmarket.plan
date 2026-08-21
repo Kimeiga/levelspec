@@ -5,7 +5,7 @@ description: Night Market. A covered market street where every route is twelve m
 grid: 1.5
 wall_thickness: 0.24
 
-layer street z=0 height=4.60 roof=no
+layer street z=0 height=4.60 roof=yes
 
 legend
   A  food_court        "Food Court"  site  h=4.6

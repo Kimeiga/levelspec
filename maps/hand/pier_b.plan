@@ -5,7 +5,7 @@ description: Pier. A pavilion on legs with a level underneath that has no walls 
 grid: 1.7
 wall_thickness: 0.26
 
-layer underdeck z=-3.6 height=3.20 roof=no
+layer underdeck z=-3.6 height=3.20 roof=yes
 
 legend
   A  pile_field        "Pile Field"  lane  h=3.2

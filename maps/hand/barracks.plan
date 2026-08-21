@@ -5,7 +5,7 @@ description: Barracks. Four identical blocks round a parade square, joined by a 
 grid: 1.7
 wall_thickness: 0.28
 
-layer tunnel_barracks z=-3.6 height=3.00 roof=no
+layer tunnel_barracks z=-3.6 height=3.00 roof=yes
 
 legend
   A  armoury           "Armoury"  room  h=3.0

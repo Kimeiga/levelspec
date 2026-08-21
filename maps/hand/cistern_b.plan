@@ -5,7 +5,7 @@ description: Cistern. A covered reservoir four storeys under an unremarkable pum
 grid: 1.8
 wall_thickness: 0.34
 
-layer deep z=-8.2 height=4.00 roof=no
+layer deep z=-8.2 height=4.00 roof=yes
 
 legend
   A  reservoir         "Reservoir"  site  h=4.0
@@ -48,7 +48,7 @@ plan
 ........................................
 end
 
-layer mezz z=-3.8 height=3.40 roof=no
+layer mezz z=-3.8 height=3.40 roof=yes
 
 legend
   A  gallery           "Gallery"  balcony  h=3.4

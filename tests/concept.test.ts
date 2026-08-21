@@ -129,3 +129,42 @@ describe('a concept says what kind of place it is', () => {
     }
   });
 });
+
+describe('a storey has a ceiling unless it is outdoors', () => {
+  /*
+   * The default, and the reason it is the default.
+   *
+   * Every band used to draw `roof=no`, which meant a lower storey was only
+   * covered where an upper storey physically sat on top of it — so a *covered*
+   * reservoir was open to the sky across three fifths of itself. That is not
+   * how buildings work, and the frame metric found it the day it learned to
+   * ask how enclosed a shot was.
+   */
+  it('so a band with one above it is roofed by default', () => {
+    const c = CONCEPTS.find((x) => x.id === 'cistern')!;
+    const text = draw(c, 'v0').text;
+    const layers = [...text.matchAll(/^layer (\S+) z=(\S+) .*roof=(\S+)/gm)]
+      .map((m) => ({ id: m[1], z: Number(m[2]), roof: m[3] }));
+    const top = Math.max(...layers.map((l) => l.z));
+    for (const l of layers) {
+      assert.equal(l.roof, l.z === top ? 'no' : 'yes', `${l.id} at z=${l.z}`);
+    }
+  });
+
+  it('and a quarry bench, which is a hole in the ground, is not', () => {
+    const c = CONCEPTS.find((x) => x.id === 'quarry')!;
+    const text = draw(c, 'v0').text;
+    for (const [, id, roof] of text.matchAll(/^layer (\S+) .*roof=(\S+)/gm)) {
+      assert.equal(roof, 'no', `${id} is under a lid it should not have`);
+    }
+  });
+
+  it('and the concepts that say they are outdoors are the ones that are', () => {
+    const open = CONCEPTS.flatMap((c) => c.bands.filter((b) => b.roofed === false).map((b) => `${c.id}/${b.id}`));
+    assert.deepEqual(open.sort(), [
+      'brickworks/clay', 'containers/yard_c', 'drydock/dock_floor', 'gasworks/pit_level',
+      'lock/lower_pound', 'quarry/bench', 'quarry/pit', 'scaffold/ground_slab',
+      'scaffold/mid_slab', 'terraces/lower_terrace', 'terraces/mid_terrace',
+    ]);
+  });
+});
