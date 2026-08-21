@@ -484,7 +484,26 @@ export function bakeNavmesh(level: CompiledLevel, opts: NavmeshOptions = {}): Na
     });
   }
   islands.sort((a, b) => b.size - a.size);
-  const playable_islands = islands.filter((i) => i.kind === 'playable').length;
+  /*
+   * A pocket smaller than a person is not a place.
+   *
+   * An island is a piece of walkable floor that cannot be reached from the
+   * spawn, and one of those is a real defect: either somewhere the player is
+   * meant to go and cannot, or somewhere they can fall into and not get out
+   * of. Neither is true of a single quarter-metre sample cut off in the corner
+   * of a room by the way the bake rounds against a wall — a body does not fit
+   * in it and nothing can stand there.
+   *
+   * It was fatal, though, and on a library that is turning generated: nine
+   * layouts in ten of a data hall and twenty in twenty-one of a broadcast
+   * centre were being thrown away for one cell of rounding. The threshold is
+   * four samples, which is a quarter of a square metre — comfortably smaller
+   * than the agent's own footprint, so nothing that could hold a player is
+   * ever excused.
+   */
+  const POCKET = 4;
+  const stranded = islands.filter((i) => i.kind === 'playable' && i.size > POCKET);
+  const playable_islands = stranded.length;
 
   // ---- void edges ---------------------------------------------------------
   const VOID_DEPTH = 40;

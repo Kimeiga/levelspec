@@ -23,7 +23,7 @@ import { fileURLToPath } from 'node:url';
 import { compile } from '../src/core/compiler.ts';
 import { checkGeometry } from '../src/core/validate.ts';
 import { planToSpec } from '../src/authoring/plan.ts';
-import { draw } from '../src/authoring/concept.ts';
+import { apart, draw } from '../src/authoring/concept.ts';
 import { score, type Score } from '../src/authoring/score.ts';
 import { CONCEPTS } from '../src/authoring/concepts.ts';
 import type { SpatialConcept } from '../src/authoring/concept.ts';
@@ -35,6 +35,8 @@ const flag = (k: string, d: number): number => {
   return i >= 0 ? Number(args[i + 1]) : d;
 };
 const ATTEMPTS = flag('attempts', 24);
+/** How many genuinely different layouts of one concept to keep. */
+const VARIANTS = flag('variants', 3);
 const write = args.includes('--write');
 const showPlan = args.includes('--plan');
 const WHY = args.includes('--why');
@@ -44,29 +46,45 @@ interface Attempt {
   seed: string;
   text: string;
   score: Score;
+  signature: string[];
 }
+
+/**
+ * How far apart two layouts have to be to count as two maps.
+ *
+ * Half the zones somewhere else. Below that they are the same building with a
+ * wall moved, and shipping both is padding the library rather than filling it.
+ */
+const APART = 0.5;
+
+const dead = (why: string): Score => ({
+  compiles: false, reachable: false, problems: [why],
+  verticality: 0, spread: 0, journey: 0, rhythm: 0, mystery: 0, cost: 1, total: -1,
+});
 
 function realise(concept: SpatialConcept): Attempt[] {
   const out: Attempt[] = [];
   for (let i = 0; i < ATTEMPTS; i++) {
     const seed = `v${i}`;
     let text: string;
+    let signature: string[] = [];
     try {
       const made = draw(concept, seed);
       text = made.text;
+      signature = made.signature;
       if (made.missing.length) {
-        out.push({ seed, text, score: { compiles: false, reachable: false, problems: [`layout: no room for ${made.missing.join(', ')}`], verticality: 0, spread: 0, journey: 0, rhythm: 0, mystery: 0, cost: 1, total: -1 } });
+        out.push({ seed, text, signature, score: dead(`layout: no room for ${made.missing.join(', ')}`) });
         continue;
       }
     } catch (e) {
-      out.push({ seed, text: '', score: { compiles: false, reachable: false, problems: [`draw: ${String(e).slice(0, 80)}`], verticality: 0, spread: 0, journey: 0, rhythm: 0, mystery: 0, cost: 1, total: -1 } });
+      out.push({ seed, text: '', signature: [], score: dead(`draw: ${String(e).slice(0, 80)}`) });
       continue;
     }
     try {
       const level = compile(planToSpec(text));
-      out.push({ seed, text, score: score(concept, level) });
+      out.push({ seed, text, signature, score: score(concept, level) });
     } catch (e) {
-      out.push({ seed, text, score: { compiles: false, reachable: false, problems: [`compile: ${String(e).slice(0, 110)}`], verticality: 0, spread: 0, journey: 0, rhythm: 0, mystery: 0, cost: 1, total: -1 } });
+      out.push({ seed, text, signature, score: dead(`compile: ${String(e).slice(0, 110)}`) });
     }
   }
   return out;
@@ -144,14 +162,38 @@ for (const concept of CONCEPTS) {
     }
   }
 
-  const best = good[0];
-  if (!best) continue;
-  if (showPlan) console.log(`\n${best.text}`);
+  /*
+   * The best layout, and then the best ones that are not it.
+   *
+   * A concept is a place, and a place can have more than one map — the traced
+   * half of this library has two cuts of Dust and three of Nuke. What makes a
+   * second layout worth shipping is that it is genuinely a different building:
+   * different rooms adjacent to different rooms, so different routes, different
+   * sightlines and a different room to arrive in. Half the zones somewhere
+   * else is the line, and it is measured rather than hoped for.
+   */
+  const keep: Attempt[] = [];
+  for (const candidate of good) {
+    if (keep.length >= VARIANTS) break;
+    if (keep.some((k) => apart(k.signature, candidate.signature) < APART)) continue;
+    keep.push(candidate);
+  }
+
+  if (!keep.length) continue;
+  if (showPlan) console.log(`\n${keep[0].text}`);
   if (write) {
-    const path = join(ROOT, 'maps', 'hand', `${concept.id}.plan`);
-    writeFileSync(path, best.text);
-    wrote++;
-    console.log(`    written: maps/hand/${concept.id}.plan (seed ${best.seed})`);
+    keep.forEach((k, i) => {
+      const suffix = i ? `_${'bcde'[i - 1]}` : '';
+      // Redrawn with its variant number so its id and its name plate differ
+      // from the first one's; the library files by name and keeps one of any
+      // two that share it.
+      const text = draw(concept, k.seed, i).text;
+      writeFileSync(join(ROOT, 'maps', 'hand', `${concept.id}${suffix}.plan`), text);
+      wrote++;
+      console.log(`    written: maps/hand/${concept.id}${suffix}.plan (seed ${k.seed}, score ${k.score.total.toFixed(2)})`);
+    });
+  } else {
+    console.log(`    would keep ${keep.length}: ${keep.map((k) => `${k.seed}@${k.score.total.toFixed(2)}`).join(' ')}`);
   }
 }
 

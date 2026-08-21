@@ -387,6 +387,16 @@ interface Drawn {
   text: string;
   placed: PlacedZone[];
   /**
+   * Which zone ended up in which rectangle, as one string.
+   *
+   * Two layouts of one concept are the same map if every zone is in the same
+   * place and a different map if they are not — and "different" has to be
+   * measured rather than assumed, because a slicer given twenty seeds will
+   * produce the same tiling under most of them with the split points a cell
+   * either way. This is what that comparison is made against.
+   */
+  signature: string[];
+  /**
    * Links the layout had no room for.
    *
    * A concept declares where the stairs go; a slicer can put the two ends of
@@ -398,7 +408,10 @@ interface Drawn {
   missing: string[];
 }
 
-export function draw(concept: SpatialConcept, seed: string): Drawn {
+/** How a variant is written on the map's own name plate. */
+const NUMERAL: Record<number, string> = { 1: 'II', 2: 'III', 3: 'IV', 4: 'V' };
+
+export function draw(concept: SpatialConcept, seed: string, variant = 0): Drawn {
   const placed = layout(concept, seed);
   const roll = rng(`${concept.id}:${seed}:cover`);
   const [W, H] = concept.size;
@@ -445,8 +458,19 @@ export function draw(concept: SpatialConcept, seed: string): Drawn {
   }
 
   const parts: string[] = [];
-  parts.push(`id: og_${concept.id}`);
-  parts.push(`name: ${concept.name}`);
+  // The same letter the file is named with, so the id the runtime reads and
+  // the name the library files it under agree about which variant this is.
+  parts.push(`id: og_${concept.id}${variant ? `_${'bcde'[variant - 1]}` : ''}`);
+  /*
+   * A variant is a different map of the same place, and is named like one.
+   *
+   * The library files maps by display name and keeps the largest of any two
+   * that share one, so two layouts of Terminus called Terminus are one map.
+   * The numeral is how the traced half of this library already distinguishes
+   * two cuts of one place, and it is honest about what a variant is: not
+   * somewhere else, the same somewhere laid out differently.
+   */
+  parts.push(`name: ${concept.name}${variant ? ` ${NUMERAL[variant] ?? variant}` : ''}`);
   parts.push(`description: ${concept.name}. ${concept.thesis} Built as ${concept.built}; ${concept.incident}.`);
   parts.push('');
   parts.push(`grid: ${concept.grid}`);
@@ -550,7 +574,28 @@ export function draw(concept: SpatialConcept, seed: string): Drawn {
   parts.push(`route ${concept.spawn} ${concept.objective} ${concept.routes ?? 2}`);
   parts.push('');
 
-  return { text: parts.join('\n'), placed, missing };
+  return {
+    text: parts.join('\n'),
+    placed,
+    missing,
+    signature: placed.map((z) => `${z.id}@${z.at.join(',')}`),
+  };
+}
+
+/**
+ * How much two layouts of one concept disagree, 0 to 1.
+ *
+ * The fraction of zones that ended up somewhere else. Nought is the same map
+ * twice; a half means half the building has moved, which is enough that the
+ * routes through it, the sightlines across it and which room you arrive in
+ * are all different — and those are the only things a player experiences.
+ */
+export function apart(a: string[], b: string[]): number {
+  if (!a.length) return 0;
+  const other = new Set(b);
+  let moved = 0;
+  for (const one of a) if (!other.has(one)) moved++;
+  return moved / a.length;
 }
 
 /** Do two cell rectangles share a whole edge? */
