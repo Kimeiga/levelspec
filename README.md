@@ -5,7 +5,7 @@ what is next to what, where the walls and doors and stairs go — and a
 deterministic compiler owns every coordinate that comes out of it.
 
 The point is that the compiler can then be held to a standard no hand-built
-geometry meets. Across the 9 authored levels and 381 floor plans in this repo,
+geometry meets. Across the 9 authored levels and 380 floor plans in this repo,
 the compiled output has **0 coplanar-same-normal face pairs and 0 intersecting
 volumes**, and its navmesh is **100% reachable with 0 playable islands**. A
 naive build of the identical specs — each box individually watertight, correctly
@@ -54,7 +54,7 @@ into maximal rectangles on the way out, so an L-shaped site costs nothing.
 
 ## The map library
 
-381 floor plans in three sets. `maps/cs/` holds 111 real competitive layouts
+380 floor plans in three sets. `maps/cs/` holds 111 real competitive layouts
 and `maps/traced/` another 110: their footprints are traced from published
 radar images and their elevation comes from the radar's own shading.
 `maps/hand/` holds 159 originals authored directly in the DSL. Every one of
