@@ -5,7 +5,7 @@ what is next to what, where the walls and doors and stairs go — and a
 deterministic compiler owns every coordinate that comes out of it.
 
 The point is that the compiler can then be held to a standard no hand-built
-geometry meets. Across the 9 authored levels and 110 traced maps in this repo,
+geometry meets. Across the 9 authored levels and 381 floor plans in this repo,
 the compiled output has **0 coplanar-same-normal face pairs and 0 intersecting
 volumes**, and its navmesh is **100% reachable with 0 playable islands**. A
 naive build of the identical specs — each box individually watertight, correctly
@@ -54,9 +54,12 @@ into maximal rectangles on the way out, so an L-shaped site costs nothing.
 
 ## The map library
 
-`maps/cs/` holds 110 real competitive layouts. Their footprints are traced
-from published radar images, their elevation comes from the radar's own
-shading, and every one of them passes the same gates as a hand-authored level.
+381 floor plans in three sets. `maps/cs/` holds 111 real competitive layouts
+and `maps/traced/` another 110: their footprints are traced from published
+radar images and their elevation comes from the radar's own shading.
+`maps/hand/` holds 159 originals authored directly in the DSL. Every one of
+them passes the same gates as a hand-authored level, because that is what they
+are.
 
 ```bash
 python3 tools/trace_radar.py "reference/cs-maps/Mirage/Mirage - Radar.png" \
@@ -85,7 +88,7 @@ are used or reproduced.
 ```bash
 npm run compile   # build + validate every authored level, write artifacts
 npm run gen       # the procedural generator, still used as a fallback
-npm test          # 114 assertions
+npm test          # 244 assertions
 ```
 
 ## Why it holds together
