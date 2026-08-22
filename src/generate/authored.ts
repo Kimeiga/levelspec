@@ -85,14 +85,33 @@ const pointAt = (g: NavmeshGraph, i: number): [number, number, number] => [
   g.points[i * 3 + 2],
 ];
 
-function planPickups(rng: Rng, depth: number): { kind: PickupKind; variant?: string }[] {
+/**
+ * What is lying about on a floor.
+ *
+ * Everything here scaled with how deep the floor was and nothing scaled with
+ * how big it was, which is defensible for health and ammo — those track how
+ * hard the fight is — and indefensible for guns. The library runs from a
+ * fourteen-hundred-node map to a hundred-thousand-node one, a seventy-three
+ * fold spread, and every one of them got exactly one gun.
+ *
+ * What that did to a run is easy to state: a bot playing twenty runs to floor
+ * ten picked up a weapon every fifth floor and spent three-quarters of its
+ * life on the pistol it started with, and the arsenal behind that pistol is
+ * three hundred and eighty-one guns nobody was ever going to see. Crossing a
+ * big map has to be worth more than crossing a small one, and this is the
+ * cheapest thing on the floor to pay it with.
+ */
+function planPickups(rng: Rng, depth: number, room: number): { kind: PickupKind; variant?: string }[] {
   const out: { kind: PickupKind; variant?: string }[] = [];
   const health = 2 + Math.min(4, Math.floor(depth / 2));
   for (let i = 0; i < health; i++) out.push({ kind: 'health' });
   for (let i = 0; i < 3 + Math.floor(depth / 3); i++) out.push({ kind: 'ammo' });
   if (depth >= 2) out.push({ kind: 'armor' });
-  out.push({ kind: 'weapon' });
-  if (depth >= 4) out.push({ kind: 'weapon' });
+  // Two on anything, a third by the median map, five on the largest — and the
+  // floor-four bonus it already had, still capped so a deep run on a big map
+  // is a place with guns in it rather than a rack.
+  const guns = Math.min(5, 2 + Math.floor(room / 25000) + (depth >= 4 ? 1 : 0));
+  for (let i = 0; i < guns; i++) out.push({ kind: 'weapon' });
   return rng.shuffle(out);
 }
 
@@ -196,7 +215,7 @@ export function loadAuthored(src: AuthoredSource, opts: AuthoredOptions = {}): G
    * and pickups are dealt from it. Spacing becomes a property of the pool
    * rather than something a score has to keep rediscovering.
    */
-  const plan = planPickups(rng, depth);
+  const plan = planPickups(rng, depth, open.length);
   const shuffled = rng.shuffle([...open]);
 
   const thin = (spacing: number): [number, number, number][] => {
