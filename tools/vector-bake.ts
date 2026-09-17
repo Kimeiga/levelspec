@@ -1,0 +1,16 @@
+import { readFile } from "node:fs/promises";
+import { parseLevelSvgx, compile } from "../src/vector/index.ts";
+import { bakeLighting } from "../src/lighting/bake.ts";
+const [
+  file = "examples/showcase.level.svgx",
+  output = "generated/lighting/showcase",
+  samples = "32",
+] = process.argv.slice(2);
+const level = await compile(parseLevelSvgx(await readFile(file, "utf8")), {
+  uvs: true,
+});
+await bakeLighting(level, {
+  output,
+  samples: Number(samples),
+  onProgress: (s) => process.stdout.write(s),
+});

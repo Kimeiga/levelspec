@@ -5,11 +5,42 @@
   "description": "Semantic level specs compiled to validated, playable geometry.",
   "exports": {
     ".": "./src/index.ts",
-    "./generate": "./src/generate/index.ts"
+    "./generate": "./src/generate/index.ts",
+    "./vector": "./src/vector/index.ts",
+    "./lighting": "./src/lighting/bake.ts",
+    "./export": "./src/export/vector/index.ts"
   },
   "scripts": {
     "compile": "node tools/build.ts",
     "gen": "node tools/generate.ts",
-    "test": "node --test 'tests/*.test.ts'"
+    "test": "node --test 'tests/*.test.ts'",
+    "dev": "vite",
+    "build:viewer": "vite build",
+    "compile:vector": "node tools/vector-build.ts",
+    "check": "tsc --noEmit",
+    "test:vector": "node --test 'tests/vector*.test.ts'",
+    "bake:vector": "node tools/vector-bake.ts",
+    "migrate:vector": "node tools/vector-migrate.ts",
+    "test:export": "node --test tests/vector-export.test.ts"
+  },
+  "dependencies": {
+    "cdt2d": "^1.0.0",
+    "fflate": "^0.8.3",
+    "jpeg-js": "^0.4.4",
+    "manifold-3d": "^3.5.3",
+    "pngjs": "^7.0.0",
+    "recast-navigation": "^0.43.1",
+    "saxes": "^6.0.0",
+    "three": "^0.186.0",
+    "xatlas-wasm": "^0.1.3"
+  },
+  "devDependencies": {
+    "@types/jpeg-js": "^0.3.0",
+    "@types/node": "^22.20.3",
+    "@types/pngjs": "^6.0.5",
+    "@types/three": "^0.186.0",
+    "gltf-validator": "^2.0.0-dev.3.10",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
   }
 }

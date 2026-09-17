@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LevelSpec / Map workbench</title>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">LevelSpec <span>2</span></a>
+      <div class="map-title">
+        <h1 id="map-name">Map workbench</h1>
+        <span id="stats"></span>
+      </div>
+      <div class="file-actions">
+        <button id="open">Open map</button
+        ><button id="download">Save SVGX</button
+        ><button id="export" disabled>Export…</button>
+        <input id="file" type="file" accept=".svgx" hidden />
+      </div>
+    </header>
+    <main class="workspace">
+      <div class="toolbar">
+        <div class="view-actions">
+          <label
+            >Layer
+            <select id="layer">
+              <option value="">All layers</option>
+            </select></label
+          >
+          <label
+            >View
+            <select id="mode">
+              <option value="material">Materials</option>
+              <option value="checker">Metre checker</option>
+              <option value="charts">UV charts</option>
+              <option value="density">Texel density</option>
+              <option value="navigation">Navigation</option>
+              <option value="lighting">Baked lighting</option>
+            </select></label
+          >
+          <label><input id="roofs" type="checkbox" /> Roofs</label>
+          <label
+            >Cutaway
+            <input id="cut" type="range" min="-1" max="1" value="1" step=".01"
+          /></label>
+          <button id="fit">Fit both</button>
+        </div>
+        <div class="compile-actions">
+          <label><input type="checkbox" id="uvs" /> Lightmap UVs</label>
+          <button id="compile" class="primary">Compile</button
+          ><button id="cancel">Cancel</button>
+        </div>
+      </div>
+      <div class="tool-tabs" aria-label="Workbench panels">
+        <span id="selection-summary">Select a floor or wall to inspect</span>
+        <button
+          data-panel="source"
+          aria-controls="source-panel"
+          aria-expanded="false"
+        >
+          Source
+        </button>
+        <button
+          data-panel="inspect"
+          aria-controls="inspect-panel"
+          aria-expanded="false"
+        >
+          Inspect
+        </button>
+        <button
+          data-panel="atlas"
+          aria-controls="atlas-panel"
+          aria-expanded="false"
+        >
+          Atlas
+        </button>
+        <button
+          data-panel="validation"
+          aria-controls="validation-panel"
+          aria-expanded="false"
+        >
+          Validation <span id="diagnostic-count">0</span>
+        </button>
+      </div>
+      <div class="stage">
+        <div class="views">
+          <section class="plan-pane" aria-label="Floor plan view">
+            <div class="view-label">
+              <h2>Floor plan</h2>
+              <div>
+                <label><input id="heights" type="checkbox" /> Heights</label
+                ><button id="fit-plan">Fit plan</button>
+              </div>
+            </div>
+            <div
+              id="plan"
+              tabindex="0"
+              aria-label="Floor plan. Drag to pan, scroll to zoom, click to select."
+            ></div>
+            <div class="view-help">
+              Drag to pan · Scroll to zoom · Click to select
+            </div>
+            <div id="navigation-legend" class="view-help" hidden></div>
+          </section>
+          <section class="three-pane" aria-label="3D view">
+            <div class="view-label">
+              <h2>Perspective</h2>
+              <div>
+                <button id="fly">Free-fly</button
+                ><button id="fit-three">Fit 3D</button>
+              </div>
+            </div>
+            <div id="three"></div>
+            <div class="view-help" id="help">
+              Drag to orbit · Right-drag or Space+drag to pan · Scroll to zoom
+            </div>
+          </section>
+        </div>
+        <aside id="utility-panel" hidden aria-label="Workbench tools">
+          <div class="pane-heading">
+            <h2 id="panel-title">Source</h2>
+            <button id="close-panel" aria-label="Close tools panel">
+              Close
+            </button>
+          </div>
+          <section id="source-panel" class="utility-content source" hidden>
+            <span id="filename">showcase.level.svgx</span>
+            <textarea
+              id="source"
+              spellcheck="false"
+              aria-label="SVGX map source"
+            ></textarea>
+          </section>
+          <section id="inspect-panel" class="utility-content inspector" hidden>
+            <button id="reveal-source" disabled>Reveal source</button>
+            <pre id="selection">
+Select an edge, floor, or atlas chart to inspect its source.</pre
+            >
+          </section>
+          <section id="atlas-panel" class="utility-content atlas-pane" hidden>
+            <label
+              >Atlas page
+              <select id="atlas-page" aria-label="Atlas page"></select
+            ></label>
+            <div id="atlas">
+              <p>Enable lightmap UVs to inspect the packed mesh.</p>
+            </div>
+            <p class="panel-hint">
+              Select a chart to highlight its surfaces in the map.
+            </p>
+          </section>
+          <section
+            id="validation-panel"
+            class="utility-content diagnostics"
+            hidden
+          >
+            <p id="validation-status">Waiting for compilation</p>
+            <section
+              id="coverage-summary"
+              aria-label="Navigation floor coverage"
+            ></section>
+            <div id="diagnostics" role="log"></div>
+          </section>
+        </aside>
+      </div>
+      <footer>
+        <p id="status" role="status" aria-live="polite">Loading map…</p>
+        <span class="footer-hint">Distances in metres</span>
+      </footer>
+    </main>
+    <input id="lighting-file" type="file" accept=".json,.exr" multiple hidden />
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>
