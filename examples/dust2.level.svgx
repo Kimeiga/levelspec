@@ -1,0 +1,943 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<level version="2" id="dust2_vector" name="Dust II · CS2 blockout" description="Authored CS2 approximation registered at 0.1 m/pixel. Curved tunnel stairs, distinct entrance flights, estimated elevations; see reference/dust2/README.md." wall-height="4.5" wall-thickness="0.24" floor-thickness="0.2">
+  <player radius=".25" height="2" step=".4" slope="42" />
+  <sky color="#e6efff" intensity=".55" />
+  <material id="mat.ground" color="#bda982" roughness=".92" repeat="1" metalness="0" />
+  <material id="mat.stone" color="#c6b992" roughness=".92" repeat="1" metalness="0" />
+  <material id="mat.site" color="#d6bd88" roughness=".92" repeat="1" metalness="0" />
+  <material id="mat.spawn" color="#aeaa80" roughness=".92" repeat="1" metalness="0" />
+  <material id="mat.tunnel" color="#948a72" roughness=".92" repeat="1" metalness="0" />
+  <material id="mat.wall" color="#dbc89d" roughness=".92" repeat="1" metalness="0" />
+  <material id="mat.crate" color="#88714e" roughness=".92" repeat="1" metalness="0" />
+  <layer id="ground" label="Main routes">
+    <vertex id="v0" x="74.2" y="89.5" z="4.54" />
+    <vertex id="v1" x="74.2" y="87.3" z="4.0" />
+    <edge id="e0" from="v0" to="v1" kind="open" material="mat.wall" />
+    <vertex id="v2" x="79.8" y="87.3" z="4.0" />
+    <edge id="e1" from="v1" to="v2" kind="open" material="mat.wall" />
+    <vertex id="v3" x="79.8" y="89.5" z="4.54" />
+    <edge id="e2" from="v2" to="v3" kind="open" material="mat.wall" />
+    <edge id="e3" from="v3" to="v0" kind="open" material="mat.wall" />
+    <region id="a_north_stairs" label="Goose to A · shallow descending steps" area="a_north_stairs" boundary="e0 e1 e2 e3" material="mat.stone" fill="stairs" lower="e1" upper="e3" rise="0.18" />
+    <vertex id="v4" x="88.2" y="90.3" z="4.54" />
+    <vertex id="v5" x="87.5" y="90.3" z="4.54" />
+    <edge id="e4" from="v4" to="v5" kind="wall" material="mat.wall" />
+    <vertex id="v6" x="87.5" y="97.0" z="4.54" />
+    <edge id="e5" from="v5" to="v6" kind="wall" material="mat.wall" />
+    <vertex id="v7" x="74.2" y="97.0" z="4.54" />
+    <edge id="e6" from="v6" to="v7" kind="wall" material="mat.wall" />
+    <vertex id="v8" x="74.2" y="90.3" z="4.54" />
+    <edge id="e7" from="v7" to="v8" kind="wall" material="mat.wall" />
+    <edge id="e8" from="v8" to="v0" kind="open" material="mat.wall" />
+    <vertex id="v9" x="88.2" y="89.5" z="4.54" />
+    <edge id="e9" from="v3" to="v9" kind="open" material="mat.wall" />
+    <edge id="e10" from="v9" to="v4" kind="wall" material="mat.wall" />
+    <region id="a_back_platform" label="Goose · upper landing" area="a_back_platform" boundary="e4 e5 e6 e7 e8 -e3 e9 e10" material="mat.site" />
+    <vertex id="v10" x="91.8" y="79.0" z="2.115" />
+    <vertex id="v11" x="88.2" y="79.0" z="2.115" />
+    <edge id="e11" from="v10" to="v11" kind="wall" material="mat.wall" />
+    <edge id="e12" from="v11" to="v9" kind="wall" material="mat.wall" />
+    <vertex id="v12" x="79.8" y="87.3" z="4.032" />
+    <edge id="e13" from="v3" to="v12" kind="open" material="mat.wall" />
+    <vertex id="v13" x="79.8" y="87.161" z="4.0" />
+    <edge id="e14" from="v12" to="v13" kind="open" material="mat.wall" />
+    <vertex id="v14" x="79.8" y="79.7" z="2.277" />
+    <edge id="e15" from="v13" to="v14" kind="open" material="mat.wall" />
+    <vertex id="v15" x="79.8" y="78.5" z="2.0" />
+    <edge id="e16" from="v14" to="v15" kind="open" material="mat.wall" />
+    <vertex id="v16" x="91.846" y="78.5" z="2.0" />
+    <edge id="e17" from="v15" to="v16" kind="open" material="mat.wall" />
+    <edge id="e18" from="v16" to="v10" kind="wall" material="mat.wall" />
+    <region id="a_goose_side" label="Long A · upper road to Goose" area="a_goose_side" boundary="e11 e12 -e9 e13 e14 e15 e16 e17 e18" material="mat.ground" />
+    <vertex id="v22" x="74.2" y="89.5" z="4" />
+    <edge id="e24" from="v1" to="v22" kind="open" material="mat.wall" />
+    <vertex id="v23" x="74.2" y="90.3" z="4" />
+    <edge id="e25" from="v22" to="v23" kind="open" material="mat.wall" />
+    <vertex id="v24" x="63.1" y="90.3" z="4" />
+    <edge id="e26" from="v23" to="v24" kind="wall" material="mat.wall" />
+    <vertex id="v25" x="63.1" y="85.1" z="4" />
+    <edge id="e27" from="v24" to="v25" kind="open" material="mat.wall" />
+    <vertex id="v26" x="63.1" y="81.8" z="4" />
+    <edge id="e28" from="v25" to="v26" kind="open" material="mat.wall" />
+    <vertex id="v27" x="71.2" y="81.8" z="4" />
+    <edge id="e29" from="v26" to="v27" kind="open" material="mat.wall" />
+    <vertex id="v28" x="73.0" y="81.8" z="4" />
+    <edge id="e30" from="v27" to="v28" kind="open" material="mat.wall" />
+    <vertex id="v29" x="74.7" y="81.8" z="4" />
+    <edge id="e31" from="v28" to="v29" kind="open" material="mat.wall" />
+    <vertex id="v30" x="74.7" y="79.7" z="4" />
+    <edge id="e32" from="v29" to="v30" kind="open" material="mat.wall" />
+    <vertex id="v31" x="79.5" y="79.7" z="4" />
+    <edge id="e33" from="v30" to="v31" kind="open" material="mat.wall" />
+    <vertex id="v32" x="79.8" y="79.7" z="4" />
+    <edge id="e34" from="v31" to="v32" kind="open" material="mat.wall" />
+    <edge id="e35" from="v32" to="v13" kind="open" material="mat.wall" />
+    <edge id="e36" from="v13" to="v2" kind="open" material="mat.wall" />
+    <region id="a_site" label="Bombsite A" area="a_site" boundary="-e1 e24 e25 e26 e27 e28 e29 e30 e31 e32 e33 e34 e35 e36" material="mat.site" />
+    <vertex id="v67" x="63.1" y="73.1" z="0" />
+    <vertex id="v68" x="71.2" y="73.1" z="2" />
+    <edge id="e75" from="v67" to="v68" kind="wall" material="mat.wall" />
+    <vertex id="v69" x="71.2" y="74.5" z="2" />
+    <edge id="e76" from="v68" to="v69" kind="open" material="mat.wall" />
+    <vertex id="v70" x="63.1" y="74.5" z="0" />
+    <edge id="e77" from="v69" to="v70" kind="open" material="mat.wall" />
+    <edge id="e78" from="v70" to="v67" kind="open" material="mat.wall" />
+    <region id="ct_a_stairs" label="CT to Cross · eastbound side stairs" area="ct_a_stairs" boundary="e75 e76 e77 e78" material="mat.stone" fill="stairs" lower="e78" upper="e76" rise="0.18" />
+    <vertex id="v71" x="63.1" y="81.8" z="0" />
+    <edge id="e79" from="v71" to="v70" kind="open" material="mat.wall" />
+    <vertex id="v72" x="71.2" y="81.8" z="2" />
+    <edge id="e80" from="v69" to="v72" kind="open" material="mat.wall" />
+    <edge id="e81" from="v72" to="v71" kind="open" material="mat.wall" />
+    <region id="ct_a_ramp" label="CT to Cross · eastbound ramp" area="ct_a_ramp" boundary="e79 -e77 e80 e81" material="mat.stone" />
+    <vertex id="v73" x="71.2" y="72.3" z="2" />
+    <edge id="e82" from="v68" to="v73" kind="wall" material="mat.wall" />
+    <vertex id="v74" x="73.0" y="72.3" z="2" />
+    <edge id="e83" from="v73" to="v74" kind="wall" material="mat.wall" />
+    <vertex id="v75" x="73.0" y="81.8" z="2" />
+    <edge id="e84" from="v74" to="v75" kind="open" material="mat.wall" />
+    <edge id="e85" from="v75" to="v72" kind="open" material="mat.wall" />
+    <region id="ct_a_landing" label="CT to Cross · level landing" area="ct_a_landing" boundary="-e80 -e76 e82 e83 e84 e85" material="mat.stone" />
+    <vertex id="v76" x="79.5" y="79.7" z="2.265" />
+    <edge id="e86" from="v14" to="v76" kind="open" material="mat.wall" />
+    <vertex id="v77" x="74.7" y="79.7" z="2.069" />
+    <edge id="e87" from="v76" to="v77" kind="open" material="mat.wall" />
+    <vertex id="v78" x="74.7" y="81.8" z="2.191" />
+    <edge id="e88" from="v77" to="v78" kind="open" material="mat.wall" />
+    <edge id="e89" from="v78" to="v75" kind="open" material="mat.wall" />
+    <vertex id="v79" x="79.1" y="72.3" z="2.0" />
+    <edge id="e90" from="v74" to="v79" kind="wall" material="mat.wall" />
+    <vertex id="v80" x="79.8" y="72.3" z="2.0" />
+    <edge id="e91" from="v79" to="v80" kind="open" material="mat.wall" />
+    <edge id="e92" from="v80" to="v15" kind="open" material="mat.wall" />
+    <region id="ct_cross_transition" label="Cross · merge with Long A" area="ct_cross_transition" boundary="e86 e87 e88 e89 -e84 e90 e91 e92 -e16" material="mat.ground" />
+    <vertex id="v81" x="87.8" y="64.9" z="2.0" />
+    <vertex id="v82" x="89.2" y="67.6" z="2.0" />
+    <edge id="e93" from="v81" to="v82" kind="wall" material="mat.wall" />
+    <vertex id="v83" x="90.3" y="67.6" z="2.0" />
+    <edge id="e94" from="v82" to="v83" kind="wall" material="mat.wall" />
+    <vertex id="v84" x="90.3" y="68.7" z="2.0" />
+    <edge id="e95" from="v83" to="v84" kind="wall" material="mat.wall" />
+    <vertex id="v85" x="92.3" y="68.7" z="2.0" />
+    <edge id="e96" from="v84" to="v85" kind="wall" material="mat.wall" />
+    <vertex id="v86" x="92.3" y="73.5" z="2.0" />
+    <edge id="e97" from="v85" to="v86" kind="wall" material="mat.wall" />
+    <edge id="e98" from="v86" to="v16" kind="wall" material="mat.wall" />
+    <vertex id="v87" x="79.1" y="64.0" z="2.0" />
+    <edge id="e99" from="v79" to="v87" kind="wall" material="mat.wall" />
+    <vertex id="v88" x="87.781" y="64.0" z="2.0" />
+    <edge id="e100" from="v87" to="v88" kind="open" material="mat.wall" />
+    <edge id="e101" from="v88" to="v81" kind="wall" material="mat.wall" />
+    <region id="a_ramp" label="Long A · Cross approach" area="a_ramp" boundary="e93 e94 e95 e96 e97 e98 -e17 -e92 -e91 e99 e100 e101" material="mat.ground" />
+    <vertex id="v89" x="91.8" y="44.5" z="2.0" />
+    <vertex id="v90" x="87.7" y="44.5" z="2.0" />
+    <edge id="e102" from="v89" to="v90" kind="open" material="mat.wall" />
+    <vertex id="v91" x="87.7" y="41.3" z="3.2" />
+    <edge id="e103" from="v90" to="v91" kind="open" material="mat.wall" />
+    <vertex id="v92" x="91.8" y="41.3" z="3.2" />
+    <edge id="e104" from="v91" to="v92" kind="open" material="mat.wall" />
+    <edge id="e105" from="v92" to="v89" kind="wall" material="mat.wall" />
+    <region id="pit_stairs" label="Pit Plat · ascending south steps" area="pit_stairs" boundary="e102 e103 e104 e105" material="mat.stone" fill="stairs" lower="e102" upper="e104" rise="0.15" />
+    <vertex id="v93" x="91.8" y="33.6" z="3.2" />
+    <edge id="e106" from="v93" to="v92" kind="wall" material="mat.wall" />
+    <vertex id="v94" x="87.7" y="35.5" z="3.2" />
+    <edge id="e107" from="v91" to="v94" kind="open" material="mat.wall" />
+    <vertex id="v95" x="87.7" y="33.6" z="3.2" />
+    <edge id="e108" from="v94" to="v95" kind="open" material="mat.wall" />
+    <edge id="e109" from="v95" to="v93" kind="wall" material="mat.wall" />
+    <region id="pit_platform" label="Pit Plat · raised side platform" area="pit_platform" boundary="e106 -e104 e107 e108 e109" material="mat.stone" />
+    <vertex id="v96" x="79.8" y="30.7" z="0.2" />
+    <vertex id="v97" x="87.7" y="30.7" z="0.2" />
+    <edge id="e110" from="v96" to="v97" kind="wall" material="mat.wall" />
+    <vertex id="v98" x="87.7" y="33.6" z="0.2" />
+    <edge id="e111" from="v97" to="v98" kind="wall" material="mat.wall" />
+    <vertex id="v99" x="87.7" y="35.5" z="0.2" />
+    <edge id="e112" from="v98" to="v99" kind="open" material="mat.wall" />
+    <vertex id="v100" x="79.8" y="35.5" z="0.2" />
+    <edge id="e113" from="v99" to="v100" kind="open" material="mat.wall" />
+    <vertex id="v101" x="79.8" y="31.4" z="0.2" />
+    <edge id="e114" from="v100" to="v101" kind="open" material="mat.wall" />
+    <edge id="e115" from="v101" to="v96" kind="wall" material="mat.wall" />
+    <region id="pit" label="Pit · central depression" area="pit" boundary="e110 e111 e112 e113 e114 e115" material="mat.stone" />
+    <vertex id="v102" x="87.7" y="41.3" z="1.36" />
+    <edge id="e116" from="v99" to="v102" kind="open" material="mat.wall" />
+    <edge id="e117" from="v102" to="v90" kind="open" material="mat.wall" />
+    <vertex id="v103" x="79.8" y="44.5" z="2.0" />
+    <edge id="e118" from="v90" to="v103" kind="open" material="mat.wall" />
+    <edge id="e119" from="v103" to="v100" kind="open" material="mat.wall" />
+    <region id="pit_ramp" label="Pit · descending approach" area="pit_ramp" boundary="e116 e117 e118 e119 -e113" material="mat.ground" />
+    <vertex id="v104" x="71.2" y="44.5" z="2" />
+    <vertex id="v105" x="79.6" y="44.5" z="2" />
+    <edge id="e120" from="v104" to="v105" kind="open" material="mat.wall" />
+    <edge id="e121" from="v105" to="v103" kind="open" material="mat.wall" />
+    <vertex id="v106" x="91.8" y="50.5" z="2" />
+    <edge id="e122" from="v89" to="v106" kind="wall" material="mat.wall" />
+    <vertex id="v107" x="87.5" y="50.9" z="2" />
+    <edge id="e123" from="v106" to="v107" kind="wall" material="mat.wall" />
+    <edge id="e124" from="v107" to="v88" kind="wall" material="mat.wall" />
+    <vertex id="v108" x="79.1" y="54.9" z="2" />
+    <edge id="e125" from="v87" to="v108" kind="wall" material="mat.wall" />
+    <vertex id="v109" x="67.3" y="54.9" z="2" />
+    <edge id="e126" from="v108" to="v109" kind="wall" material="mat.wall" />
+    <vertex id="v110" x="62.2" y="53.8" z="2" />
+    <edge id="e127" from="v109" to="v110" kind="wall" material="mat.wall" />
+    <vertex id="v111" x="62.2" y="44.9" z="2" />
+    <edge id="e128" from="v110" to="v111" kind="wall" material="mat.wall" />
+    <vertex id="v112" x="63.0" y="44.5" z="2" />
+    <edge id="e129" from="v111" to="v112" kind="wall" material="mat.wall" />
+    <vertex id="v113" x="68.0" y="44.5" z="2" />
+    <edge id="e130" from="v112" to="v113" kind="open" material="mat.wall" />
+    <edge id="e131" from="v113" to="v104" kind="wall" material="mat.wall" />
+    <region id="long_a" label="Long A" area="long_a" boundary="e120 e121 -e118 -e102 e122 e123 e124 -e100 e125 e126 e127 e128 e129 e130 e131" material="mat.ground" />
+    <vertex id="v114" x="72.6" y="31.4" z="2" />
+    <vertex id="v115" x="79.8" y="31.4" z="2" />
+    <edge id="e132" from="v114" to="v115" kind="wall" material="mat.wall" />
+    <vertex id="v116" x="79.8" y="35.5" z="2" />
+    <edge id="e133" from="v115" to="v116" kind="open" material="mat.wall" />
+    <edge id="e134" from="v116" to="v103" kind="open" material="mat.wall" />
+    <vertex id="v117" x="72.6" y="43.2" z="2" />
+    <edge id="e135" from="v104" to="v117" kind="wall" material="mat.wall" />
+    <edge id="e136" from="v117" to="v114" kind="wall" material="mat.wall" />
+    <region id="long_corner" label="Long doors · corner" area="long_corner" boundary="e132 e133 e134 -e121 -e120 e135 e136" material="mat.ground" />
+    <vertex id="v118" x="68.8" y="43.7" z="2" />
+    <vertex id="v119" x="68.0" y="43.7" z="2" />
+    <edge id="e137" from="v118" to="v119" kind="wall" material="mat.wall" />
+    <edge id="e138" from="v119" to="v113" kind="wall" material="mat.wall" />
+    <vertex id="v120" x="63.8" y="44.1" z="2" />
+    <edge id="e139" from="v112" to="v120" kind="wall" material="mat.wall" />
+    <vertex id="v121" x="62.9" y="43.5" z="2" />
+    <edge id="e140" from="v120" to="v121" kind="wall" material="mat.wall" />
+    <vertex id="v122" x="62.9" y="34.1" z="2" />
+    <edge id="e141" from="v121" to="v122" kind="wall" material="mat.wall" />
+    <vertex id="v123" x="63.8" y="33.7" z="2" />
+    <edge id="e142" from="v122" to="v123" kind="wall" material="mat.wall" />
+    <vertex id="v124" x="63.8" y="33.1" z="2" />
+    <edge id="e143" from="v123" to="v124" kind="wall" material="mat.wall" />
+    <vertex id="v125" x="62.5" y="33.1" z="2" />
+    <edge id="e144" from="v124" to="v125" kind="wall" material="mat.wall" />
+    <vertex id="v126" x="62.5" y="31.5" z="2" />
+    <edge id="e145" from="v125" to="v126" kind="open" material="mat.wall" />
+    <vertex id="v127" x="68.8" y="31.5" z="2" />
+    <edge id="e146" from="v126" to="v127" kind="open" material="mat.wall" />
+    <edge id="e147" from="v127" to="v118" kind="wall" material="mat.wall" />
+    <region id="long_doors" label="Long doors" area="long_doors" boundary="e137 e138 -e130 e139 e140 e141 e142 e143 e144 e145 e146 e147" material="mat.stone" />
+    <vertex id="v128" x="60.0" y="18.1" z="2" />
+    <vertex id="v129" x="63.5" y="18.1" z="2" />
+    <edge id="e148" from="v128" to="v129" kind="wall" material="mat.wall" />
+    <vertex id="v130" x="63.5" y="17.6" z="2" />
+    <edge id="e149" from="v129" to="v130" kind="wall" material="mat.wall" />
+    <vertex id="v131" x="68.8" y="17.6" z="2" />
+    <edge id="e150" from="v130" to="v131" kind="wall" material="mat.wall" />
+    <vertex id="v132" x="68.8" y="28.5" z="2" />
+    <edge id="e151" from="v131" to="v132" kind="wall" material="mat.wall" />
+    <edge id="e152" from="v132" to="v127" kind="wall" material="mat.wall" />
+    <vertex id="v133" x="53.9" y="31.5" z="2" />
+    <edge id="e153" from="v126" to="v133" kind="open" material="mat.wall" />
+    <vertex id="v134" x="53.9" y="21.5" z="2" />
+    <edge id="e154" from="v133" to="v134" kind="wall" material="mat.wall" />
+    <vertex id="v135" x="53.2" y="21.5" z="2" />
+    <edge id="e155" from="v134" to="v135" kind="wall" material="mat.wall" />
+    <vertex id="v136" x="53.2" y="17.8" z="2" />
+    <edge id="e156" from="v135" to="v136" kind="wall" material="mat.wall" />
+    <vertex id="v137" x="53.0" y="17.614" z="2" />
+    <edge id="e157" from="v136" to="v137" kind="wall" material="mat.wall" />
+    <vertex id="v138" x="53.0" y="17.0" z="2" />
+    <edge id="e158" from="v137" to="v138" kind="open" material="mat.wall" />
+    <vertex id="v139" x="60.0" y="17.0" z="2" />
+    <edge id="e159" from="v138" to="v139" kind="open" material="mat.wall" />
+    <edge id="e160" from="v139" to="v128" kind="wall" material="mat.wall" />
+    <region id="outside_long" label="Outside Long" area="outside_long" boundary="e148 e149 e150 e151 e152 -e146 e153 e154 e155 e156 e157 e158 e159 e160" material="mat.ground" />
+    <vertex id="v140" x="53.0" y="12.9" z="2" />
+    <edge id="e161" from="v138" to="v140" kind="open" material="mat.wall" />
+    <vertex id="v141" x="55.7" y="12.9" z="2" />
+    <edge id="e162" from="v140" to="v141" kind="open" material="mat.wall" />
+    <vertex id="v142" x="60.0" y="12.9" z="2" />
+    <edge id="e163" from="v141" to="v142" kind="open" material="mat.wall" />
+    <edge id="e164" from="v142" to="v139" kind="wall" material="mat.wall" />
+    <region id="t_long_ramp" label="T side · level Long approach" area="t_long_ramp" boundary="-e159 e161 e162 e163 e164" material="mat.ground" />
+    <vertex id="v143" x="44.0" y="0.2" z="3" />
+    <vertex id="v144" x="44.0" y="11.5" z="3" />
+    <edge id="e165" from="v143" to="v144" kind="open" material="mat.wall" />
+    <vertex id="v145" x="44.0" y="12.9" z="3" />
+    <edge id="e166" from="v144" to="v145" kind="open" material="mat.wall" />
+    <vertex id="v146" x="39.7" y="12.9" z="3" />
+    <edge id="e167" from="v145" to="v146" kind="open" material="mat.wall" />
+    <vertex id="v147" x="39.5" y="12.9" z="3" />
+    <edge id="e168" from="v146" to="v147" kind="open" material="mat.wall" />
+    <vertex id="v148" x="30.0" y="12.9" z="3" />
+    <edge id="e169" from="v147" to="v148" kind="wall" material="mat.wall" />
+    <vertex id="v149" x="30.0" y="11.5" z="3" />
+    <edge id="e170" from="v148" to="v149" kind="open" material="mat.wall" />
+    <vertex id="v150" x="10.9" y="11.5" z="3" />
+    <edge id="e171" from="v149" to="v150" kind="open" material="mat.wall" />
+    <vertex id="v151" x="0.6" y="11.5" z="3" />
+    <edge id="e172" from="v150" to="v151" kind="open" material="mat.wall" />
+    <vertex id="v152" x="0.6" y="3.1" z="3" />
+    <edge id="e173" from="v151" to="v152" kind="wall" material="mat.wall" />
+    <vertex id="v153" x="10.0" y="3.1" z="3" />
+    <edge id="e174" from="v152" to="v153" kind="wall" material="mat.wall" />
+    <vertex id="v154" x="10.2" y="2.5" z="3" />
+    <edge id="e175" from="v153" to="v154" kind="wall" material="mat.wall" />
+    <vertex id="v155" x="43.7" y="2.5" z="3" />
+    <edge id="e176" from="v154" to="v155" kind="wall" material="mat.wall" />
+    <vertex id="v156" x="43.9" y="0.2" z="3" />
+    <edge id="e177" from="v155" to="v156" kind="wall" material="mat.wall" />
+    <edge id="e178" from="v156" to="v143" kind="wall" material="mat.wall" />
+    <region id="t_spawn" label="T spawn · upper western landing" area="t_spawn" boundary="e165 e166 e167 e168 e169 e170 e171 e172 e173 e174 e175 e176 e177 e178" material="mat.spawn" />
+    <vertex id="v157" x="55.7" y="4.0" z="2" />
+    <edge id="e179" from="v157" to="v141" kind="open" material="mat.wall" />
+    <vertex id="v158" x="53.0" y="12.9" z="2.231" />
+    <edge id="e180" from="v141" to="v158" kind="open" material="mat.wall" />
+    <vertex id="v159" x="51.2" y="12.9" z="2.385" />
+    <edge id="e181" from="v158" to="v159" kind="open" material="mat.wall" />
+    <edge id="e182" from="v159" to="v145" kind="open" material="mat.wall" />
+    <vertex id="v160" x="55.7" y="0.2" z="2" />
+    <edge id="e183" from="v143" to="v160" kind="wall" material="mat.wall" />
+    <edge id="e184" from="v160" to="v157" kind="wall" material="mat.wall" />
+    <region id="t_spawn_ramp" label="T spawn · east-descending ramp" area="t_spawn_ramp" boundary="e179 e180 e181 e182 -e166 -e165 e183 e184" material="mat.spawn" />
+    <vertex id="v161" x="61.7" y="12.8" z="2" />
+    <vertex id="v162" x="60.0" y="12.8" z="2" />
+    <edge id="e185" from="v161" to="v162" kind="wall" material="mat.wall" />
+    <edge id="e186" from="v162" to="v142" kind="wall" material="mat.wall" />
+    <vertex id="v163" x="61.7" y="4.0" z="2" />
+    <edge id="e187" from="v157" to="v163" kind="wall" material="mat.wall" />
+    <edge id="e188" from="v163" to="v161" kind="wall" material="mat.wall" />
+    <region id="t_spawn_low" label="T spawn · lower eastern landing" area="t_spawn_low" boundary="e185 e186 -e163 -e179 e187 e188" material="mat.spawn" />
+    <vertex id="v164" x="29.8" y="12.9" z="3" />
+    <edge id="e189" from="v148" to="v164" kind="wall" material="mat.wall" />
+    <vertex id="v165" x="29.8" y="23.5" z="3" />
+    <edge id="e190" from="v164" to="v165" kind="wall" material="mat.wall" />
+    <vertex id="v166" x="25.0" y="23.5" z="3" />
+    <edge id="e191" from="v165" to="v166" kind="wall" material="mat.wall" />
+    <vertex id="v167" x="25.0" y="21.5" z="3" />
+    <edge id="e192" from="v166" to="v167" kind="wall" material="mat.wall" />
+    <vertex id="v168" x="21.0" y="21.5" z="3" />
+    <edge id="e193" from="v167" to="v168" kind="wall" material="mat.wall" />
+    <vertex id="v169" x="19.5" y="23.0" z="3" />
+    <edge id="e194" from="v168" to="v169" kind="wall" material="mat.wall" />
+    <vertex id="v170" x="19.5" y="24.0" z="3" />
+    <edge id="e195" from="v169" to="v170" kind="wall" material="mat.wall" />
+    <vertex id="v171" x="10.9" y="24.0" z="3" />
+    <edge id="e196" from="v170" to="v171" kind="open" material="mat.wall" />
+    <vertex id="v172" x="10.9" y="12.9" z="3" />
+    <edge id="e197" from="v171" to="v172" kind="open" material="mat.wall" />
+    <edge id="e198" from="v172" to="v150" kind="open" material="mat.wall" />
+    <region id="t_platform" label="T Plat" area="t_platform" boundary="-e170 e189 e190 e191 e192 e193 e194 e195 e196 e197 e198 -e171" material="mat.spawn" />
+    <vertex id="v173" x="4.0" y="15.9" z="2.545" />
+    <vertex id="v174" x="0.6" y="12.5" z="3.0" />
+    <edge id="e199" from="v173" to="v174" kind="wall" material="mat.wall" />
+    <edge id="e200" from="v174" to="v151" kind="wall" material="mat.wall" />
+    <vertex id="v175" x="10.9" y="12.9" z="2.946" />
+    <edge id="e201" from="v150" to="v175" kind="open" material="mat.wall" />
+    <vertex id="v176" x="10.9" y="24.0" z="1.46" />
+    <edge id="e202" from="v175" to="v176" kind="open" material="mat.wall" />
+    <vertex id="v177" x="4.0" y="24.0" z="1.46" />
+    <edge id="e203" from="v176" to="v177" kind="open" material="mat.wall" />
+    <edge id="e204" from="v177" to="v173" kind="wall" material="mat.wall" />
+    <region id="outside_tunnels_ramp" label="T ramp · down to Outside Tunnels" area="outside_tunnels_ramp" boundary="e199 e200 -e172 e201 e202 e203 e204" material="mat.spawn" />
+    <vertex id="v178" x="4.4" y="25.0" z="1.46" />
+    <vertex id="v179" x="4.0" y="25.0" z="1.46" />
+    <edge id="e205" from="v178" to="v179" kind="wall" material="mat.wall" />
+    <edge id="e206" from="v179" to="v177" kind="wall" material="mat.wall" />
+    <vertex id="v180" x="19.5" y="24.0" z="1.46" />
+    <edge id="e207" from="v176" to="v180" kind="open" material="mat.wall" />
+    <vertex id="v181" x="19.5" y="26.3" z="1.46" />
+    <edge id="e208" from="v180" to="v181" kind="wall" material="mat.wall" />
+    <vertex id="v182" x="20.7" y="27.5" z="1.46" />
+    <edge id="e209" from="v181" to="v182" kind="wall" material="mat.wall" />
+    <vertex id="v183" x="23.0" y="27.5" z="1.46" />
+    <edge id="e210" from="v182" to="v183" kind="wall" material="mat.wall" />
+    <vertex id="v184" x="22.104" y="38.5" z="1.46" />
+    <edge id="e211" from="v183" to="v184" kind="wall" material="mat.wall" />
+    <vertex id="v185" x="4.4" y="38.5" z="1.46" />
+    <edge id="e212" from="v184" to="v185" kind="open" material="mat.wall" />
+    <edge id="e213" from="v185" to="v178" kind="wall" material="mat.wall" />
+    <region id="outside_tunnels" label="Outside Tunnels · lower approach" area="outside_tunnels" boundary="e205 e206 -e203 e207 e208 e209 e210 e211 e212 e213" material="mat.ground" />
+    <vertex id="v186" x="22.063" y="39.0" z="1.61" />
+    <edge id="e214" from="v184" to="v186" kind="wall" material="mat.wall" />
+    <vertex id="v187" x="21.957" y="40.3" z="2.0" />
+    <edge id="e215" from="v186" to="v187" kind="wall" material="mat.wall" />
+    <vertex id="v188" x="4.4" y="40.3" z="2.0" />
+    <edge id="e216" from="v187" to="v188" kind="open" material="mat.wall" />
+    <vertex id="v189" x="4.4" y="39.0" z="1.61" />
+    <edge id="e217" from="v188" to="v189" kind="wall" material="mat.wall" />
+    <edge id="e218" from="v189" to="v185" kind="wall" material="mat.wall" />
+    <region id="tunnel_entry_stairs" label="T-side tunnel entrance steps" area="tunnel_entry_stairs" boundary="-e212 e214 e215 e216 e217 e218" material="mat.stone" ceiling="6.5" fill="stairs" lower="e212" upper="e216" rise="0.18" />
+    <vertex id="v190" x="29.2" y="56.5" z="0" />
+    <vertex id="v191" x="26.2" y="56.5" z="0" />
+    <edge id="e219" from="v190" to="v191" kind="open" material="mat.wall" />
+    <vertex id="v192" x="23.2" y="53.5" z="2" />
+    <edge id="e220" from="v191" to="v192" kind="open" material="mat.wall" control="26.2 54.843; 24.857 53.5" />
+    <vertex id="v193" x="23.2" y="50.5" z="2" />
+    <edge id="e221" from="v192" to="v193" kind="open" material="mat.wall" />
+    <edge id="e222" from="v193" to="v190" kind="wall" material="mat.wall" control="26.514 50.5; 29.2 53.186" />
+    <region id="lower_tunnels_stairs" label="Tunnel stairs · curved bend" area="lower_tunnels_stairs" boundary="e219 e220 e221 e222" material="mat.tunnel" ceiling="6.5" fill="stairs" lower="e219" upper="e221" rise="0.18" />
+    <vertex id="v194" x="23.2" y="56.1" z="2" />
+    <vertex id="v195" x="23.2" y="56.5" z="2" />
+    <edge id="e223" from="v194" to="v195" kind="wall" material="mat.wall" />
+    <vertex id="v196" x="26.2" y="56.5" z="2" />
+    <edge id="e224" from="v195" to="v196" kind="open" material="mat.wall" />
+    <edge id="e225" from="v196" to="v192" kind="open" material="mat.wall" control="26.2 54.843; 24.857 53.5" />
+    <edge id="e226" from="v192" to="v194" kind="open" material="mat.wall" />
+    <region id="tunnel_center_platform" label="Tunnel bend · flat central platform" area="tunnel_center_platform" boundary="e223 e224 e225 e226" material="mat.tunnel" ceiling="6.5" />
+    <vertex id="v197" x="1.6" y="59.1" z="2" />
+    <vertex id="v198" x="1.6" y="50.1" z="2" />
+    <edge id="e227" from="v197" to="v198" kind="wall" material="mat.wall" />
+    <vertex id="v199" x="9.1" y="50.1" z="2" />
+    <edge id="e228" from="v198" to="v199" kind="wall" material="mat.wall" />
+    <vertex id="v200" x="9.1" y="48.7" z="2" />
+    <edge id="e229" from="v199" to="v200" kind="wall" material="mat.wall" />
+    <vertex id="v201" x="11.9" y="48.7" z="2" />
+    <edge id="e230" from="v200" to="v201" kind="wall" material="mat.wall" />
+    <vertex id="v202" x="11.9" y="43.0" z="2" />
+    <edge id="e231" from="v201" to="v202" kind="wall" material="mat.wall" />
+    <vertex id="v203" x="7.4" y="43.0" z="2" />
+    <edge id="e232" from="v202" to="v203" kind="wall" material="mat.wall" />
+    <vertex id="v204" x="7.4" y="41.0" z="2" />
+    <edge id="e233" from="v203" to="v204" kind="wall" material="mat.wall" />
+    <vertex id="v205" x="4.4" y="41.0" z="2" />
+    <edge id="e234" from="v204" to="v205" kind="wall" material="mat.wall" />
+    <edge id="e235" from="v205" to="v188" kind="wall" material="mat.wall" />
+    <vertex id="v206" x="21.9" y="41.0" z="2" />
+    <edge id="e236" from="v187" to="v206" kind="wall" material="mat.wall" />
+    <vertex id="v207" x="19.6" y="41.0" z="2" />
+    <edge id="e237" from="v206" to="v207" kind="wall" material="mat.wall" />
+    <vertex id="v208" x="19.6" y="43.0" z="2" />
+    <edge id="e238" from="v207" to="v208" kind="wall" material="mat.wall" />
+    <vertex id="v209" x="15.1" y="43.0" z="2" />
+    <edge id="e239" from="v208" to="v209" kind="wall" material="mat.wall" />
+    <vertex id="v210" x="15.1" y="48.7" z="2" />
+    <edge id="e240" from="v209" to="v210" kind="wall" material="mat.wall" />
+    <vertex id="v211" x="16.3" y="48.7" z="2" />
+    <edge id="e241" from="v210" to="v211" kind="wall" material="mat.wall" />
+    <vertex id="v212" x="16.3" y="50.2" z="2" />
+    <edge id="e242" from="v211" to="v212" kind="wall" material="mat.wall" />
+    <edge id="e243" from="v212" to="v193" kind="wall" material="mat.wall" />
+    <vertex id="v213" x="16.2" y="56.1" z="2" />
+    <edge id="e244" from="v194" to="v213" kind="wall" material="mat.wall" />
+    <vertex id="v214" x="13.5" y="56.3" z="2" />
+    <edge id="e245" from="v213" to="v214" kind="wall" material="mat.wall" />
+    <vertex id="v215" x="13.5" y="59.1" z="2" />
+    <edge id="e246" from="v214" to="v215" kind="wall" material="mat.wall" />
+    <vertex id="v216" x="8.0" y="59.1" z="2" />
+    <edge id="e247" from="v215" to="v216" kind="wall" material="mat.wall" />
+    <vertex id="v217" x="4.7" y="59.1" z="2" />
+    <edge id="e248" from="v216" to="v217" kind="open" material="mat.wall" />
+    <edge id="e249" from="v217" to="v197" kind="wall" material="mat.wall" />
+    <region id="upper_tunnels" label="Upper tunnels" area="upper_tunnels" boundary="e227 e228 e229 e230 e231 e232 e233 e234 e235 -e216 e236 e237 e238 e239 e240 e241 e242 e243 -e221 e226 e244 e245 e246 e247 e248 e249" material="mat.tunnel" ceiling="6.5" />
+    <vertex id="v218" x="38.8" y="60.9" z="0" />
+    <vertex id="v219" x="38.8" y="62.0" z="0" />
+    <edge id="e250" from="v218" to="v219" kind="wall" material="mat.wall" />
+    <vertex id="v220" x="23.2" y="62.0" z="0" />
+    <edge id="e251" from="v219" to="v220" kind="wall" material="mat.wall" />
+    <vertex id="v221" x="23.2" y="59.1" z="0" />
+    <edge id="e252" from="v220" to="v221" kind="wall" material="mat.wall" />
+    <vertex id="v222" x="23.2" y="56.5" z="0" />
+    <edge id="e253" from="v221" to="v222" kind="wall" material="mat.wall" />
+    <edge id="e254" from="v222" to="v191" kind="open" material="mat.wall" />
+    <vertex id="v223" x="39.0" y="56.5" z="0" />
+    <edge id="e255" from="v190" to="v223" kind="wall" material="mat.wall" />
+    <vertex id="v224" x="39.6" y="56.5" z="0" />
+    <edge id="e256" from="v223" to="v224" kind="open" material="mat.wall" />
+    <vertex id="v225" x="39.6" y="60.9" z="0" />
+    <edge id="e257" from="v224" to="v225" kind="open" material="mat.wall" />
+    <edge id="e258" from="v225" to="v218" kind="wall" material="mat.wall" />
+    <region id="lower_tunnels" label="Lower tunnels · level hall to Mid" area="lower_tunnels" boundary="e250 e251 e252 e253 e254 -e219 e255 e256 e257 e258" material="mat.tunnel" ceiling="4.2" />
+    <vertex id="v226" x="4.7" y="65.9" z="2.0" />
+    <vertex id="v227" x="8.0" y="65.9" z="2.0" />
+    <edge id="e259" from="v226" to="v227" kind="open" material="mat.wall" />
+    <vertex id="v228" x="8.0" y="67.7" z="1.46" />
+    <edge id="e260" from="v227" to="v228" kind="wall" material="mat.wall" />
+    <vertex id="v229" x="4.7" y="67.7" z="1.46" />
+    <edge id="e261" from="v228" to="v229" kind="open" material="mat.wall" />
+    <edge id="e262" from="v229" to="v226" kind="wall" material="mat.wall" />
+    <region id="b_exit_stairs" label="B courtyard to tunnel · ascending doorway steps" area="b_exit_stairs" boundary="e259 e260 e261 e262" material="mat.stone" ceiling="6.5" fill="stairs" lower="e261" upper="e259" rise="0.18" />
+    <edge id="e263" from="v216" to="v227" kind="wall" material="mat.wall" />
+    <edge id="e264" from="v226" to="v217" kind="wall" material="mat.wall" />
+    <region id="b_tunnel" label="B tunnel entrance" area="b_tunnel" boundary="e263 -e259 e264 -e248" material="mat.tunnel" ceiling="6.5" />
+    <vertex id="v230" x="20.6" y="88.7" z="1.46" />
+    <vertex id="v231" x="20.6" y="90.4" z="1.46" />
+    <edge id="e265" from="v230" to="v231" kind="wall" material="mat.wall" />
+    <vertex id="v232" x="16.8" y="92.5" z="1.46" />
+    <edge id="e266" from="v231" to="v232" kind="wall" material="mat.wall" />
+    <vertex id="v233" x="8.5" y="92.5" z="1.46" />
+    <edge id="e267" from="v232" to="v233" kind="wall" material="mat.wall" />
+    <vertex id="v234" x="8.5" y="98.9" z="1.46" />
+    <edge id="e268" from="v233" to="v234" kind="wall" material="mat.wall" />
+    <vertex id="v235" x="2.8" y="98.9" z="1.46" />
+    <edge id="e269" from="v234" to="v235" kind="wall" material="mat.wall" />
+    <vertex id="v236" x="2.8" y="82.2" z="1.46" />
+    <edge id="e270" from="v235" to="v236" kind="wall" material="mat.wall" />
+    <vertex id="v237" x="1.6" y="82.2" z="1.46" />
+    <edge id="e271" from="v236" to="v237" kind="wall" material="mat.wall" />
+    <vertex id="v238" x="1.6" y="67.7" z="1.46" />
+    <edge id="e272" from="v237" to="v238" kind="wall" material="mat.wall" />
+    <edge id="e273" from="v238" to="v229" kind="wall" material="mat.wall" />
+    <vertex id="v239" x="12.0" y="67.7" z="1.46" />
+    <edge id="e274" from="v228" to="v239" kind="wall" material="mat.wall" />
+    <vertex id="v240" x="18.151" y="67.7" z="1.46" />
+    <edge id="e275" from="v239" to="v240" kind="open" material="mat.wall" />
+    <vertex id="v241" x="20.4" y="70.0" z="1.46" />
+    <edge id="e276" from="v240" to="v241" kind="wall" material="mat.wall" />
+    <vertex id="v242" x="20.4" y="73.9" z="1.46" />
+    <edge id="e277" from="v241" to="v242" kind="wall" material="mat.wall" />
+    <vertex id="v243" x="21.7" y="75.0" z="1.46" />
+    <edge id="e278" from="v242" to="v243" kind="wall" material="mat.wall" />
+    <vertex id="v244" x="21.7" y="88.7" z="1.46" />
+    <edge id="e279" from="v243" to="v244" kind="open" material="mat.wall" />
+    <edge id="e280" from="v244" to="v230" kind="wall" material="mat.wall" />
+    <region id="b_site" label="Bombsite B" area="b_site" boundary="e265 e266 e267 e268 e269 e270 e271 e272 e273 -e261 e274 e275 e276 e277 e278 e279 e280" material="mat.site" />
+    <vertex id="v245" x="27.2" y="85.5" z="1.006" />
+    <vertex id="v246" x="27.2" y="88.7" z="1.006" />
+    <edge id="e281" from="v245" to="v246" kind="wall" material="mat.wall" />
+    <edge id="e282" from="v246" to="v244" kind="wall" material="mat.wall" />
+    <vertex id="v247" x="23.0" y="74.0" z="1.353" />
+    <edge id="e283" from="v243" to="v247" kind="wall" material="mat.wall" />
+    <vertex id="v248" x="27.7" y="74.0" z="0.965" />
+    <edge id="e284" from="v247" to="v248" kind="wall" material="mat.wall" />
+    <vertex id="v249" x="27.7" y="73.3" z="0.965" />
+    <edge id="e285" from="v248" to="v249" kind="wall" material="mat.wall" />
+    <vertex id="v250" x="34.4" y="73.3" z="0.412" />
+    <edge id="e286" from="v249" to="v250" kind="wall" material="mat.wall" />
+    <vertex id="v251" x="34.4" y="74.0" z="0.412" />
+    <edge id="e287" from="v250" to="v251" kind="wall" material="mat.wall" />
+    <vertex id="v252" x="37.7" y="74.0" z="0.14" />
+    <edge id="e288" from="v251" to="v252" kind="wall" material="mat.wall" />
+    <vertex id="v253" x="37.7" y="67.7" z="0.14" />
+    <edge id="e289" from="v252" to="v253" kind="wall" material="mat.wall" />
+    <vertex id="v254" x="39.4" y="67.7" z="0.0" />
+    <edge id="e290" from="v253" to="v254" kind="open" material="mat.wall" />
+    <vertex id="v255" x="39.4" y="85.5" z="0.0" />
+    <edge id="e291" from="v254" to="v255" kind="open" material="mat.wall" />
+    <edge id="e292" from="v255" to="v245" kind="wall" material="mat.wall" />
+    <region id="b_approach" label="Mid to B" area="b_approach" boundary="e281 e282 -e279 e283 e284 e285 e286 e287 e288 e289 e290 e291 e292" material="mat.ground" />
+    <vertex id="v256" x="45.4" y="62.1" z="0" />
+    <vertex id="v257" x="44.0" y="62.1" z="0" />
+    <edge id="e293" from="v256" to="v257" kind="wall" material="mat.wall" />
+    <vertex id="v258" x="44.0" y="71.9" z="0" />
+    <edge id="e294" from="v257" to="v258" kind="wall" material="mat.wall" />
+    <vertex id="v259" x="51.3" y="71.9" z="0" />
+    <edge id="e295" from="v258" to="v259" kind="wall" material="mat.wall" />
+    <vertex id="v260" x="53.4" y="73.1" z="0" />
+    <edge id="e296" from="v259" to="v260" kind="wall" material="mat.wall" />
+    <vertex id="v261" x="56.8" y="73.1" z="0" />
+    <edge id="e297" from="v260" to="v261" kind="wall" material="mat.wall" />
+    <vertex id="v262" x="56.8" y="63.0" z="0" />
+    <edge id="e298" from="v261" to="v262" kind="wall" material="mat.wall" thickness=".2" />
+    <vertex id="v263" x="56.9" y="63.0" z="0" />
+    <edge id="e299" from="v262" to="v263" kind="open" material="mat.wall" />
+    <vertex id="v264" x="56.9" y="67.0" z="0" />
+    <edge id="e300" from="v263" to="v264" kind="open" material="mat.wall" />
+    <vertex id="v265" x="56.9" y="73.1" z="0" />
+    <edge id="e301" from="v264" to="v265" kind="open" material="mat.wall" />
+    <vertex id="v266" x="56.9" y="85.1" z="0" />
+    <edge id="e302" from="v265" to="v266" kind="open" material="mat.wall" />
+    <vertex id="v267" x="56.8" y="85.1" z="0" />
+    <edge id="e303" from="v266" to="v267" kind="open" material="mat.wall" />
+    <vertex id="v268" x="52.4" y="85.1" z="0" />
+    <edge id="e304" from="v267" to="v268" kind="wall" material="mat.wall" />
+    <vertex id="v269" x="52.4" y="81.3" z="0" />
+    <edge id="e305" from="v268" to="v269" kind="wall" material="mat.wall" />
+    <vertex id="v270" x="50.5" y="79.4" z="0" />
+    <edge id="e306" from="v269" to="v270" kind="wall" material="mat.wall" />
+    <vertex id="v271" x="44.0" y="79.4" z="0" />
+    <edge id="e307" from="v270" to="v271" kind="wall" material="mat.wall" />
+    <vertex id="v272" x="44.0" y="85.5" z="0" />
+    <edge id="e308" from="v271" to="v272" kind="wall" material="mat.wall" />
+    <edge id="e309" from="v272" to="v255" kind="wall" material="mat.wall" />
+    <vertex id="v273" x="39.4" y="64.321" z="0" />
+    <edge id="e310" from="v254" to="v273" kind="open" material="mat.wall" />
+    <vertex id="v274" x="39.6" y="64.3" z="0" />
+    <edge id="e311" from="v273" to="v274" kind="wall" material="mat.wall" />
+    <vertex id="v275" x="39.6" y="62.5" z="0" />
+    <edge id="e312" from="v274" to="v275" kind="wall" material="mat.wall" />
+    <vertex id="v276" x="39.6" y="62.0" z="0" />
+    <edge id="e313" from="v275" to="v276" kind="wall" material="mat.wall" />
+    <vertex id="v277" x="45.4" y="62.0" z="0" />
+    <edge id="e314" from="v276" to="v277" kind="open" material="mat.wall" />
+    <edge id="e315" from="v277" to="v256" kind="open" material="mat.wall" />
+    <region id="ct_mid" label="CT mid" area="ct_mid" boundary="e293 e294 e295 e296 e297 e298 e299 e300 e301 e302 e303 e304 e305 e306 e307 e308 e309 -e291 e310 e311 e312 e313 e314 e315" material="mat.ground" />
+    <vertex id="v278" x="48.2" y="63.0" z="0" />
+    <vertex id="v279" x="53.0" y="63.0" z="0" />
+    <edge id="e316" from="v278" to="v279" kind="open" material="mat.wall" />
+    <vertex id="v280" x="53.0" y="63.3" z="0" />
+    <edge id="e317" from="v279" to="v280" kind="wall" material="mat.wall" />
+    <vertex id="v281" x="48.2" y="63.3" z="0" />
+    <edge id="e318" from="v280" to="v281" kind="wall" material="mat.wall" />
+    <edge id="e319" from="v281" to="v278" kind="wall" material="mat.wall" />
+    <region id="ct_mid.1" label="CT mid" area="ct_mid" boundary="e316 e317 e318 e319" material="mat.ground" />
+    <vertex id="v282" x="45.4" y="57.2" z="0" />
+    <edge id="e320" from="v282" to="v277" kind="open" material="mat.wall" />
+    <edge id="e321" from="v276" to="v225" kind="wall" material="mat.wall" />
+    <vertex id="v283" x="39.0" y="56.0" z="0" />
+    <edge id="e322" from="v223" to="v283" kind="wall" material="mat.wall" />
+    <vertex id="v284" x="45.4" y="56.0" z="0" />
+    <edge id="e323" from="v283" to="v284" kind="open" material="mat.wall" />
+    <edge id="e324" from="v284" to="v282" kind="open" material="mat.wall" />
+    <region id="lower_mid" label="Lower Mid · level tunnel exit" area="lower_mid" boundary="e320 -e314 e321 -e257 -e256 e322 e323 e324" material="mat.ground" />
+    <vertex id="v285" x="39.0" y="52.8" z="0" />
+    <edge id="e325" from="v283" to="v285" kind="wall" material="mat.wall" />
+    <vertex id="v286" x="38.8" y="52.8" z="0" />
+    <edge id="e326" from="v285" to="v286" kind="wall" material="mat.wall" />
+    <vertex id="v287" x="38.8" y="52.0" z="0" />
+    <edge id="e327" from="v286" to="v287" kind="wall" material="mat.wall" />
+    <vertex id="v288" x="44.0" y="52.0" z="0" />
+    <edge id="e328" from="v287" to="v288" kind="open" material="mat.wall" />
+    <vertex id="v289" x="45.4" y="52.0" z="0" />
+    <edge id="e329" from="v288" to="v289" kind="open" material="mat.wall" />
+    <edge id="e330" from="v289" to="v284" kind="open" material="mat.wall" />
+    <region id="mid_low_landing" label="Lower Mid · ramp landing" area="mid_low_landing" boundary="-e323 e325 e326 e327 e328 e329 e330" material="mat.ground" />
+    <vertex id="v290" x="44.0" y="46.0" z="2" />
+    <edge id="e331" from="v288" to="v290" kind="open" material="mat.wall" />
+    <vertex id="v291" x="45.4" y="46.0" z="2" />
+    <edge id="e332" from="v290" to="v291" kind="open" material="mat.wall" />
+    <edge id="e333" from="v291" to="v289" kind="open" material="mat.wall" />
+    <region id="mid_stairs" label="Mid · Catwalk-side stair strip" area="mid_stairs" boundary="-e329 e331 e332 e333" material="mat.stone" fill="stairs" lower="e329" upper="e332" rise="0.125" />
+    <vertex id="v292" x="38.8" y="46.9" z="1.7" />
+    <edge id="e334" from="v287" to="v292" kind="wall" material="mat.wall" />
+    <vertex id="v293" x="39.6" y="46.9" z="1.7" />
+    <edge id="e335" from="v292" to="v293" kind="wall" material="mat.wall" />
+    <vertex id="v294" x="39.6" y="46.0" z="2" />
+    <edge id="e336" from="v293" to="v294" kind="wall" material="mat.wall" />
+    <edge id="e337" from="v294" to="v290" kind="open" material="mat.wall" />
+    <region id="mid" label="Middle · central incline" area="mid" boundary="-e328 e334 e335 e336 e337 -e331" material="mat.ground" />
+    <vertex id="v295" x="39.6" y="43.7" z="2" />
+    <edge id="e338" from="v294" to="v295" kind="wall" material="mat.wall" />
+    <vertex id="v296" x="37.0" y="43.7" z="2" />
+    <edge id="e339" from="v295" to="v296" kind="wall" material="mat.wall" />
+    <vertex id="v297" x="37.0" y="38.1" z="2" />
+    <edge id="e340" from="v296" to="v297" kind="open" material="mat.wall" />
+    <vertex id="v298" x="45.4" y="38.1" z="2" />
+    <edge id="e341" from="v297" to="v298" kind="open" material="mat.wall" />
+    <edge id="e342" from="v298" to="v291" kind="open" material="mat.wall" />
+    <region id="mid_upper_landing" label="Top Mid · ramp landing" area="mid_upper_landing" boundary="-e332 -e337 e338 e339 e340 e341 e342" material="mat.ground" />
+    <vertex id="v299" x="35.5" y="31.3" z="2" />
+    <vertex id="v300" x="39.5" y="31.3" z="2" />
+    <edge id="e343" from="v299" to="v300" kind="wall" material="mat.wall" />
+    <vertex id="v301" x="39.5" y="17.0" z="2" />
+    <edge id="e344" from="v300" to="v301" kind="wall" material="mat.wall" />
+    <vertex id="v302" x="50.0" y="17.0" z="2" />
+    <edge id="e345" from="v301" to="v302" kind="open" material="mat.wall" />
+    <vertex id="v303" x="50.0" y="17.2" z="2" />
+    <edge id="e346" from="v302" to="v303" kind="wall" material="mat.wall" />
+    <vertex id="v304" x="44.1" y="17.2" z="2" />
+    <edge id="e347" from="v303" to="v304" kind="wall" material="mat.wall" />
+    <vertex id="v305" x="43.1" y="18.5" z="2" />
+    <edge id="e348" from="v304" to="v305" kind="wall" material="mat.wall" />
+    <vertex id="v306" x="42.9" y="32.1" z="2" />
+    <edge id="e349" from="v305" to="v306" kind="wall" material="mat.wall" />
+    <vertex id="v307" x="44.1" y="33.3" z="2" />
+    <edge id="e350" from="v306" to="v307" kind="wall" material="mat.wall" />
+    <vertex id="v308" x="52.5" y="33.3" z="2" />
+    <edge id="e351" from="v307" to="v308" kind="wall" material="mat.wall" />
+    <vertex id="v309" x="53.0" y="32.8" z="2" />
+    <edge id="e352" from="v308" to="v309" kind="wall" material="mat.wall" />
+    <vertex id="v310" x="53.0" y="38.1" z="2" />
+    <edge id="e353" from="v309" to="v310" kind="open" material="mat.wall" />
+    <edge id="e354" from="v310" to="v298" kind="open" material="mat.wall" />
+    <vertex id="v311" x="34.412" y="38.1" z="2" />
+    <edge id="e355" from="v297" to="v311" kind="open" material="mat.wall" />
+    <edge id="e356" from="v311" to="v299" kind="wall" material="mat.wall" />
+    <region id="top_mid" label="Top mid" area="top_mid" boundary="e343 e344 e345 e346 e347 e348 e349 e350 e351 e352 e353 e354 -e341 e355 e356" material="mat.ground" />
+    <vertex id="v312" x="52.339" y="17.0" z="2" />
+    <edge id="e357" from="v137" to="v312" kind="wall" material="mat.wall" />
+    <edge id="e358" from="v312" to="v138" kind="open" material="mat.wall" />
+    <region id="top_mid.1" label="Top mid" area="top_mid" boundary="e357 e358 -e158" material="mat.ground" />
+    <vertex id="v313" x="44.0" y="12.9" z="2" />
+    <vertex id="v314" x="51.2" y="12.9" z="2" />
+    <edge id="e359" from="v313" to="v314" kind="open" material="mat.wall" />
+    <edge id="e360" from="v314" to="v140" kind="open" material="mat.wall" />
+    <vertex id="v315" x="51.8" y="16.5" z="2" />
+    <edge id="e361" from="v312" to="v315" kind="wall" material="mat.wall" />
+    <vertex id="v316" x="50.0" y="16.5" z="2" />
+    <edge id="e362" from="v315" to="v316" kind="wall" material="mat.wall" />
+    <edge id="e363" from="v316" to="v302" kind="wall" material="mat.wall" />
+    <vertex id="v317" x="39.5" y="12.9" z="2" />
+    <edge id="e364" from="v301" to="v317" kind="wall" material="mat.wall" />
+    <vertex id="v318" x="39.7" y="12.9" z="2" />
+    <edge id="e365" from="v317" to="v318" kind="open" material="mat.wall" />
+    <edge id="e366" from="v318" to="v313" kind="open" material="mat.wall" />
+    <region id="t_mid_ramp" label="T side · level Mid approach" area="t_mid_ramp" boundary="e359 e360 -e161 -e358 e361 e362 e363 -e345 e364 e365 e366" material="mat.ground" />
+    <vertex id="v319" x="34.3" y="38.8" z="2" />
+    <edge id="e367" from="v319" to="v311" kind="wall" material="mat.wall" />
+    <vertex id="v320" x="36.6" y="43.7" z="2" />
+    <edge id="e368" from="v296" to="v320" kind="wall" material="mat.wall" />
+    <vertex id="v321" x="36.6" y="38.8" z="2" />
+    <edge id="e369" from="v320" to="v321" kind="wall" material="mat.wall" />
+    <edge id="e370" from="v321" to="v319" kind="wall" material="mat.wall" />
+    <region id="connector.0" label="Top Mid · ramp landing · boundary extension" area="mid_upper_landing" boundary="e367 -e355 -e340 e368 e369 e370" material="mat.ground" />
+    <vertex id="v322" x="62.0" y="33.1" z="2" />
+    <edge id="e371" from="v125" to="v322" kind="wall" material="mat.wall" />
+    <vertex id="v323" x="62.0" y="38.2" z="2" />
+    <edge id="e372" from="v322" to="v323" kind="wall" material="mat.wall" />
+    <vertex id="v324" x="56.9" y="38.2" z="2" />
+    <edge id="e373" from="v323" to="v324" kind="wall" material="mat.wall" />
+    <vertex id="v325" x="56.9" y="38.1" z="2" />
+    <edge id="e374" from="v324" to="v325" kind="open" material="mat.wall" />
+    <edge id="e375" from="v325" to="v310" kind="open" material="mat.wall" />
+    <vertex id="v326" x="53.9" y="31.9" z="2" />
+    <edge id="e376" from="v309" to="v326" kind="wall" material="mat.wall" />
+    <edge id="e377" from="v326" to="v133" kind="wall" material="mat.wall" />
+    <region id="connector.1" label="Catwalk · approach · boundary extension" area="catwalk_approach" boundary="-e153 -e145 e371 e372 e373 e374 e375 -e353 e376 e377" material="mat.ground" />
+    <vertex id="v327" x="37.7" y="67.7" z="0" />
+    <edge id="e378" from="v254" to="v327" kind="open" material="mat.wall" />
+    <vertex id="v328" x="37.7" y="64.5" z="0" />
+    <edge id="e379" from="v327" to="v328" kind="wall" material="mat.wall" />
+    <edge id="e380" from="v328" to="v273" kind="wall" material="mat.wall" />
+    <region id="connector.2" label="CT mid · boundary extension" area="ct_mid" boundary="e378 e379 e380 -e310" material="mat.ground" />
+    <vertex id="v329" x="12.0" y="63.3" z="1.46" />
+    <edge id="e381" from="v239" to="v329" kind="wall" material="mat.wall" />
+    <vertex id="v330" x="14.8" y="63.3" z="1.46" />
+    <edge id="e382" from="v329" to="v330" kind="wall" material="mat.wall" />
+    <vertex id="v331" x="16.0" y="65.5" z="1.46" />
+    <edge id="e383" from="v330" to="v331" kind="wall" material="mat.wall" />
+    <edge id="e384" from="v331" to="v240" kind="wall" material="mat.wall" />
+    <region id="connector.3" label="Bombsite B · boundary extension" area="b_site" boundary="e381 e382 e383 e384 -e275" material="mat.ground" />
+    <vertex id="v339" x="26.7" y="88.65" z="1.048" />
+    <vertex id="v340" x="26.7" y="85.9" z="1.048" />
+    <edge id="wall.b_back.0" label="B back partition" from="v339" to="v340" kind="wall" thickness="1.0" height="4.5" material="mat.wall" base-floor="b_approach" />
+    <vertex id="v341" x="63.1" y="73.1" z="4" />
+    <vertex id="v342" x="63.1" y="74.5" z="4" />
+    <edge id="wall.a_platform.0" label="A platform retaining wall" from="v341" to="v342" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_short" />
+    <edge id="wall.a_platform.1" label="A platform retaining wall" from="v342" to="v26" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_short" />
+    <edge id="wall.a_platform.2" label="A platform retaining wall" from="v26" to="v27" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_site" />
+    <edge id="wall.a_platform.3" label="A platform retaining wall" from="v27" to="v28" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_site" />
+    <edge id="wall.a_platform.4" label="A platform retaining wall" from="v28" to="v29" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_site" />
+    <edge id="wall.a_platform.5" label="A platform retaining wall" from="v29" to="v30" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_site" />
+    <edge id="wall.a_platform.6" label="A platform retaining wall" from="v30" to="v31" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_site" />
+    <vertex id="v343" x="79.5" y="87.3" z="4.0" />
+    <edge id="wall.a_platform.7" label="A platform retaining wall" from="v31" to="v343" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_site" />
+    <vertex id="v344" x="79.5" y="89.5" z="4.54" />
+    <edge id="wall.a_platform.8" label="A platform retaining wall" from="v343" to="v344" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" />
+    <vertex id="v345" x="79.5" y="90.8" z="4.54" />
+    <edge id="wall.a_platform.9" label="A platform retaining wall" from="v344" to="v345" kind="wall" thickness="0.6400000000000001" height="0.8" material="mat.wall" base-floor="a_back_platform" />
+    <vertex id="v346" x="63.1" y="85.1" z="0" />
+    <edge id="wall.a_short_abutment.0" label="A platform support north of CT exit" from="v346" to="v71" kind="wall" thickness="0.6000000000000001" height="3.8" material="mat.wall" base-floor="ct_underpass" />
+    <vertex id="v348" x="4.35" y="39.0" z="1.61" />
+    <edge id="wall.upper_tunnel_west.0" label="Upper tunnel west partition" from="v348" to="v189" kind="wall" thickness="0.6000000000000001" height="4.5" material="mat.wall" />
+    <vertex id="v349" x="10.6" y="39.0" z="1.61" />
+    <edge id="wall.upper_tunnel_west.1" label="Upper tunnel west partition" from="v189" to="v349" kind="wall" thickness="0.6000000000000001" height="4.5" material="mat.wall" />
+    <vertex id="v350" x="16.5" y="39.0" z="1.61" />
+    <edge id="wall.upper_tunnel_east.0" label="Upper tunnel east partition" from="v350" to="v186" kind="wall" thickness="0.6000000000000001" height="4.5" material="mat.wall" />
+    <vertex id="v351" x="22.1" y="39.0" z="1.61" />
+    <edge id="wall.upper_tunnel_east.1" label="Upper tunnel east partition" from="v186" to="v351" kind="wall" thickness="0.6000000000000001" height="4.5" material="mat.wall" />
+    <edge id="wall.tunnel_entry.0" label="Tunnel entry L wall" from="v175" to="v176" kind="wall" thickness="0.7000000000000001" height="2.4" material="mat.wall" base-floor="outside_tunnels_ramp" />
+    <edge id="wall.tunnel_entry.1" label="Tunnel entry L wall" from="v176" to="v180" kind="wall" thickness="0.7000000000000001" height="2.4" material="mat.wall" base-floor="outside_tunnels" />
+    <edge id="wall.t_spawn.0" label="T spawn divider" from="v146" to="v145" kind="wall" thickness="0.6000000000000001" height="0.8" material="mat.wall" base-floor="t_spawn" />
+    <edge id="wall.t_spawn.1" label="T spawn divider" from="v145" to="v159" kind="wall" thickness="0.6000000000000001" height="0.8" material="mat.wall" base-floor="t_spawn_ramp" />
+    <vertex id="v352" x="79.6" y="44.6" z="2" />
+    <edge id="wall.long_pit.0" label="Long pit divider" from="v352" to="v105" kind="wall" thickness="0.5" height="1.4" material="mat.wall" base-floor="long_a" />
+    <vertex id="v353" x="79.6" y="34.2" z="2" />
+    <edge id="wall.long_pit.1" label="Long pit divider" from="v105" to="v353" kind="wall" thickness="0.5" height="1.4" material="mat.wall" base-floor="long_corner" />
+    <vertex id="v354" x="87.98" y="44.6" z="2" />
+    <vertex id="v355" x="87.98" y="44.5" z="2.0" />
+    <edge id="wall.pit_stairs.0" label="Pit stair side wall" from="v354" to="v355" kind="wall" thickness="0.6000000000000001" height="0.9" material="mat.wall" base-floor="long_a" />
+    <vertex id="v356" x="87.98" y="41.3" z="3.2" />
+    <edge id="wall.pit_stairs.1" label="Pit stair side wall" from="v355" to="v356" kind="wall" thickness="0.6000000000000001" height="0.9" material="mat.wall" />
+    <vertex id="v357" x="87.98" y="34.3" z="3.2" />
+    <edge id="wall.pit_stairs.2" label="Pit stair side wall" from="v356" to="v357" kind="wall" thickness="0.6000000000000001" height="0.9" material="mat.wall" base-floor="pit_platform" />
+    <edge id="wall.b_divider.0" label="B Doors and raised Window divider" from="v244" to="v243" kind="wall" thickness="0.5" height="4.5" material="mat.wall" base-floor="b_site">
+      <opening id="wall.b_divider.window.0" kind="window" start="0.8" end="3.0" sill="0.9" head="3" />
+      <opening id="wall.b_divider.doors.0" kind="door" start="9.6" end="13.4" sill="0" head="3.2" />
+    </edge>
+  </layer>
+  <layer id="short" label="A Short bridge">
+    <vertex id="v17" x="56.8" y="90.3" z="4" />
+    <vertex id="v18" x="56.8" y="85.1" z="4" />
+    <edge id="e19" from="v17" to="v18" kind="wall" material="mat.wall" />
+    <vertex id="v19" x="56.9" y="85.1" z="4" />
+    <edge id="e20" from="v18" to="v19" kind="open" material="mat.wall" />
+    <vertex id="v20" x="63.1" y="85.1" z="4" />
+    <edge id="e21" from="v19" to="v20" kind="open" material="mat.wall" />
+    <vertex id="v21" x="63.1" y="90.3" z="4" />
+    <edge id="e22" from="v20" to="v21" kind="open" material="mat.wall" />
+    <edge id="e23" from="v21" to="v17" kind="wall" material="mat.wall" />
+    <region id="a_short_site_connection" label="A Short · level site connection" area="a_short_site_connection" boundary="e19 e20 e21 e22 e23" material="mat.stone" />
+    <vertex id="v33" x="56.9" y="73.1" z="4" />
+    <edge id="e37" from="v19" to="v33" kind="open" material="mat.wall" />
+    <vertex id="v34" x="56.9" y="67.0" z="4" />
+    <edge id="e38" from="v33" to="v34" kind="open" material="mat.wall" />
+    <vertex id="v35" x="63.0" y="67.0" z="4" />
+    <edge id="e39" from="v34" to="v35" kind="open" material="mat.wall" />
+    <vertex id="v36" x="63.0" y="73.1" z="4" />
+    <edge id="e40" from="v35" to="v36" kind="wall" material="mat.wall" />
+    <vertex id="v37" x="63.1" y="73.1" z="4" />
+    <edge id="e41" from="v36" to="v37" kind="wall" material="mat.wall" />
+    <vertex id="v38" x="63.1" y="74.5" z="4" />
+    <edge id="e42" from="v37" to="v38" kind="open" material="mat.wall" />
+    <vertex id="v39" x="63.1" y="81.8" z="4" />
+    <edge id="e43" from="v38" to="v39" kind="open" material="mat.wall" />
+    <edge id="e44" from="v39" to="v20" kind="open" material="mat.wall" />
+    <region id="a_short" label="A Short · bridge" area="a_short" boundary="-e21 e37 e38 e39 e40 e41 e42 e43 e44" material="mat.stone" />
+    <vertex id="v40" x="56.9" y="63.0" z="2" />
+    <edge id="e45" from="v34" to="v40" kind="open" material="mat.wall" />
+    <vertex id="v41" x="63.0" y="63.0" z="2" />
+    <edge id="e46" from="v40" to="v41" kind="open" material="mat.wall" />
+    <edge id="e47" from="v41" to="v35" kind="wall" material="mat.wall" />
+    <region id="a_short_stairs" label="A Short stairs" area="a_short_stairs" boundary="-e39 e45 e46 e47" material="mat.stone" fill="stairs" lower="e46" upper="e39" rise="0.18" />
+    <vertex id="v42" x="49.8" y="38.2" z="2" />
+    <vertex id="v43" x="48.5" y="39.5" z="2" />
+    <edge id="e48" from="v42" to="v43" kind="wall" material="mat.wall" />
+    <vertex id="v44" x="48.5" y="55.7" z="2" />
+    <edge id="e49" from="v43" to="v44" kind="wall" material="mat.wall" />
+    <vertex id="v45" x="49.8" y="57.0" z="2" />
+    <edge id="e50" from="v44" to="v45" kind="wall" material="mat.wall" />
+    <vertex id="v46" x="56.9" y="57.0" z="2" />
+    <edge id="e51" from="v45" to="v46" kind="wall" material="mat.wall" />
+    <vertex id="v47" x="56.9" y="57.2" z="2" />
+    <edge id="e52" from="v46" to="v47" kind="open" material="mat.wall" />
+    <vertex id="v48" x="45.7" y="57.2" z="2" />
+    <edge id="e53" from="v47" to="v48" kind="open" material="mat.wall" />
+    <vertex id="v49" x="45.4" y="57.2" z="2" />
+    <edge id="e54" from="v48" to="v49" kind="open" material="mat.wall" />
+    <vertex id="v50" x="45.4" y="56.0" z="2" />
+    <edge id="e55" from="v49" to="v50" kind="open" material="mat.wall" />
+    <vertex id="v51" x="45.4" y="52.0" z="2" />
+    <edge id="e56" from="v50" to="v51" kind="open" material="mat.wall" />
+    <vertex id="v52" x="45.4" y="46.0" z="2" />
+    <edge id="e57" from="v51" to="v52" kind="open" material="mat.wall" />
+    <vertex id="v53" x="45.4" y="38.1" z="2" />
+    <edge id="e58" from="v52" to="v53" kind="open" material="mat.wall" />
+    <vertex id="v54" x="53.0" y="38.1" z="2" />
+    <edge id="e59" from="v53" to="v54" kind="open" material="mat.wall" />
+    <vertex id="v55" x="56.9" y="38.1" z="2" />
+    <edge id="e60" from="v54" to="v55" kind="open" material="mat.wall" />
+    <vertex id="v56" x="56.9" y="38.2" z="2" />
+    <edge id="e61" from="v55" to="v56" kind="open" material="mat.wall" />
+    <edge id="e62" from="v56" to="v42" kind="wall" material="mat.wall" />
+    <region id="catwalk_approach" label="Catwalk · approach" area="catwalk_approach" boundary="e48 e49 e50 e51 e52 e53 e54 e55 e56 e57 e58 e59 e60 e61 e62" material="mat.stone" />
+    <vertex id="v57" x="63.0" y="57.0" z="2" />
+    <edge id="e63" from="v46" to="v57" kind="wall" material="mat.wall" />
+    <edge id="e64" from="v57" to="v41" kind="wall" material="mat.wall" />
+    <vertex id="v58" x="56.8" y="63.0" z="2" />
+    <edge id="e65" from="v40" to="v58" kind="open" material="mat.wall" />
+    <vertex id="v59" x="56.8" y="62.1" z="2" />
+    <edge id="e66" from="v58" to="v59" kind="wall" material="mat.wall" thickness=".2" />
+    <vertex id="v60" x="53.0" y="62.1" z="2" />
+    <edge id="e67" from="v59" to="v60" kind="wall" material="mat.wall" />
+    <vertex id="v61" x="53.0" y="63.0" z="2" />
+    <edge id="e68" from="v60" to="v61" kind="wall" material="mat.wall" />
+    <vertex id="v62" x="48.2" y="63.0" z="2" />
+    <edge id="e69" from="v61" to="v62" kind="open" material="mat.wall" />
+    <vertex id="v63" x="48.2" y="62.1" z="2" />
+    <edge id="e70" from="v62" to="v63" kind="wall" material="mat.wall" />
+    <vertex id="v64" x="45.7" y="62.1" z="2" />
+    <edge id="e71" from="v63" to="v64" kind="wall" material="mat.wall" />
+    <vertex id="v65" x="45.4" y="62.1" z="2" />
+    <edge id="e72" from="v64" to="v65" kind="wall" material="mat.wall" />
+    <vertex id="v66" x="45.4" y="62.0" z="2" />
+    <edge id="e73" from="v65" to="v66" kind="open" material="mat.wall" />
+    <edge id="e74" from="v66" to="v49" kind="open" material="mat.wall" />
+    <region id="catwalk" label="Catwalk" area="catwalk" boundary="-e52 e63 e64 -e46 e65 e66 e67 e68 e69 e70 e71 e72 e73 e74 -e54 -e53" material="mat.stone" />
+    <edge id="wall.catwalk.0" label="Catwalk divider" from="v64" to="v48" kind="wall" thickness="0.6000000000000001" height="0.8" material="mat.wall" base-floor="catwalk" />
+    <vertex id="v347" x="45.7" y="44.7" z="2" />
+    <edge id="wall.catwalk.1" label="Catwalk divider" from="v48" to="v347" kind="wall" thickness="0.6000000000000001" height="0.8" material="mat.wall" base-floor="catwalk_approach" />
+  </layer>
+  <layer id="underpass" label="CT underpass">
+    <vertex id="v332" x="63.1" y="85.1" z="0" />
+    <vertex id="v333" x="56.9" y="85.1" z="0" />
+    <edge id="e385" from="v332" to="v333" kind="open" material="mat.wall" />
+    <vertex id="v334" x="56.9" y="73.1" z="0" />
+    <edge id="e386" from="v333" to="v334" kind="open" material="mat.wall" />
+    <vertex id="v335" x="63.0" y="73.1" z="0" />
+    <edge id="e387" from="v334" to="v335" kind="open" material="mat.wall" />
+    <vertex id="v336" x="63.1" y="73.1" z="0" />
+    <edge id="e388" from="v335" to="v336" kind="wall" material="mat.wall" />
+    <vertex id="v337" x="63.1" y="74.5" z="0" />
+    <edge id="e389" from="v336" to="v337" kind="open" material="mat.wall" />
+    <vertex id="v338" x="63.1" y="81.8" z="0" />
+    <edge id="e390" from="v337" to="v338" kind="open" material="mat.wall" />
+    <edge id="e391" from="v338" to="v332" kind="open" material="mat.wall" />
+    <region id="ct_underpass" label="CT spawn · under A Short" area="ct_underpass" boundary="e385 e386 e387 e388 e389 e390 e391" material="mat.ground" />
+  </layer>
+  <seam id="seam0" edges="e0 e24" kind="open" material="mat.wall" />
+  <seam id="seam1" edges="e2 e13" kind="open" material="mat.wall" />
+  <seam id="seam2" edges="e8 e25" kind="open" material="mat.wall" />
+  <seam id="seam3" edges="e14 e36" kind="open" material="mat.wall" />
+  <seam id="seam4" edges="e15 e35" kind="open" material="mat.wall" />
+  <seam id="seam5" edges="e20 e303" kind="open" material="mat.wall" />
+  <seam id="seam6" edges="e21 e385" kind="open" material="mat.wall" />
+  <seam id="seam7" edges="e22 e27" kind="open" material="mat.wall" />
+  <seam id="seam8" edges="e28 e44" kind="open" material="mat.wall" />
+  <seam id="seam9" edges="e29 e81" kind="open" material="mat.wall" />
+  <seam id="seam10" edges="e30 e85" kind="open" material="mat.wall" />
+  <seam id="seam11" edges="e31 e89" kind="open" material="mat.wall" />
+  <seam id="seam12" edges="e32 e88" kind="open" material="mat.wall" />
+  <seam id="seam13" edges="e33 e87" kind="open" material="mat.wall" />
+  <seam id="seam14" edges="e34 e86" kind="open" material="mat.wall" />
+  <seam id="seam15" edges="e302 e386" kind="open" material="mat.wall" />
+  <seam id="seam16" edges="e38 e301" kind="open" material="mat.wall" />
+  <seam id="seam17" edges="e78 e389" kind="open" material="mat.wall" />
+  <seam id="seam18" edges="e79 e390" kind="open" material="mat.wall" />
+  <seam id="seam19" edges="e45 e300" kind="open" material="mat.wall" />
+  <seam id="seam20" edges="e55 e324" kind="open" material="mat.wall" />
+  <seam id="seam21" edges="e56 e330" kind="open" material="mat.wall" />
+  <seam id="seam22" edges="e57 e333" kind="open" material="mat.wall" />
+  <seam id="seam23" edges="e58 e342" kind="open" material="mat.wall" />
+  <seam id="seam24" edges="e59 e354" kind="open" material="mat.wall" />
+  <seam id="seam25" edges="e60 e375" kind="open" material="mat.wall" />
+  <seam id="seam26" edges="e61 e374" kind="open" material="mat.wall" />
+  <seam id="seam27" edges="e65 e299" kind="open" material="mat.wall" />
+  <seam id="seam28" edges="e69 e316" kind="open" material="mat.wall" />
+  <seam id="seam29" edges="e73 e315" kind="open" material="mat.wall" />
+  <seam id="seam30" edges="e74 e320" kind="open" material="mat.wall" />
+  <seam id="seam31" edges="e103 e117" kind="open" material="mat.wall" />
+  <seam id="seam32" edges="e107 e116" kind="open" material="mat.wall" />
+  <seam id="seam33" edges="e108 e112" kind="open" material="mat.wall" />
+  <seam id="seam34" edges="e114 e133" kind="open" material="mat.wall" />
+  <seam id="seam35" edges="e119 e134" kind="open" material="mat.wall" />
+  <seam id="seam36" edges="e162 e180" kind="open" material="mat.wall" />
+  <seam id="seam37" edges="e167 e366" kind="open" material="mat.wall" />
+  <seam id="seam38" edges="e168 e365" kind="open" material="mat.wall" />
+  <seam id="seam39" edges="e181 e360" kind="open" material="mat.wall" />
+  <seam id="seam40" edges="e182 e359" kind="open" material="mat.wall" />
+  <seam id="seam41" edges="e196 e207" kind="open" material="mat.wall" />
+  <seam id="seam42" edges="e197 e202" kind="open" material="mat.wall" />
+  <seam id="seam43" edges="e198 e201" kind="open" material="mat.wall" />
+  <seam id="seam44" edges="e220 e225" kind="open" material="mat.wall" />
+  <seam id="seam45" edges="e224 e254" kind="open" material="mat.wall" />
+  <seam id="seam46" edges="e290 e378" kind="open" material="mat.wall" />
+  <marker id="t_spawn_mark" label="T spawn" layer="ground" region="t_spawn" position="32.0 7.0 3" kind="attacker_spawn" team="attack" />
+  <marker id="ct_spawn_mark" label="CT spawn" layer="ground" region="ct_mid" position="54.0 77.0 0" kind="defender_spawn" team="defend" />
+  <marker id="site_a" label="Bombsite A" layer="ground" region="a_site" position="76.1 83.5 4" kind="objective" team="neutral" />
+  <marker id="site_b" label="Bombsite B" layer="ground" region="b_site" position="15.7 88.1 1.46" kind="objective" team="neutral" />
+  <marker id="a_back_mark" label="Goose · upper landing" layer="ground" region="a_back_platform" position="82.5 93.5 4.54" kind="poi" team="neutral" />
+  <marker id="pit_mark" label="Pit" layer="ground" region="pit" position="83.5 33.0 0.2" kind="poi" team="neutral" />
+  <marker id="pit_platform_mark" label="Pit Plat" layer="ground" region="pit_platform" position="89.9 36.1 3.2" kind="poi" team="neutral" />
+  <marker id="tunnel_upper_mark" label="Upper tunnel landing" layer="ground" region="upper_tunnels" position="22.2 53.0 2" kind="poi" team="neutral" />
+  <marker id="tunnel_lower_mark" label="Lower tunnel landing" layer="ground" region="lower_tunnels" position="26.0 58.6 0" kind="poi" team="neutral" />
+  <marker id="short_mark" label="A Short" layer="short" region="a_short" position="60.0 71.0 4" kind="poi" team="neutral" />
+  <marker id="ct_cross_mark" label="CT ramp · Cross landing" layer="ground" region="ct_a_landing" position="72.0 76.5 2" kind="poi" team="neutral" />
+  <marker id="long_mark" label="Long A · direct site approach" layer="ground" region="long_a" position="83.5 53.5 2" kind="poi" team="neutral" />
+  <marker id="goose_mark" label="Goose · upper stair landing" layer="ground" region="a_back_platform" position="77.0 90.4 4.54" kind="poi" team="neutral" />
+  <marker id="b_doors_route.from" label="B Doors · near landing" layer="ground" region="b_site" position="20.0 77.3 1.46" kind="poi" team="neutral" />
+  <marker id="b_doors_route.to" label="B Doors · far landing" layer="ground" region="b_approach" position="23.5 77.3 1.312" kind="poi" team="neutral" />
+  <route id="b_doors_route" from="b_doors_route.from" to="b_doors_route.to" min-routes="1" max-distance="10" />
+  <marker id="b_tunnel_threshold_route.from" label="B tunnel threshold · near landing" layer="ground" region="b_site" position="6.3 68.7 1.46" kind="poi" team="neutral" />
+  <marker id="b_tunnel_threshold_route.to" label="B tunnel threshold · far landing" layer="ground" region="b_tunnel" position="6.3 65.0 2" kind="poi" team="neutral" />
+  <route id="b_tunnel_threshold_route" from="b_tunnel_threshold_route.from" to="b_tunnel_threshold_route.to" min-routes="1" max-distance="10" />
+  <marker id="short_stair_route.from" label="Short stairs · near landing" layer="short" region="catwalk" position="60.0 62.3 2" kind="poi" team="neutral" />
+  <marker id="short_stair_route.to" label="Short stairs · far landing" layer="short" region="a_short" position="60.0 67.7 4" kind="poi" team="neutral" />
+  <route id="short_stair_route" from="short_stair_route.from" to="short_stair_route.to" min-routes="1" max-distance="12" />
+  <marker id="mid_stair_route.from" label="Mid side stairs · near landing" layer="ground" region="mid_low_landing" position="44.7 52.7 0" kind="poi" team="neutral" />
+  <marker id="mid_stair_route.to" label="Mid side stairs · far landing" layer="ground" region="mid_upper_landing" position="44.7 45.3 2" kind="poi" team="neutral" />
+  <route id="mid_stair_route" from="mid_stair_route.from" to="mid_stair_route.to" min-routes="1" max-distance="12" />
+  <marker id="pit_platform_route.from" label="Pit Plat stairs · near landing" layer="ground" region="long_a" position="89.9 45.3 2" kind="poi" team="neutral" />
+  <marker id="pit_platform_route.to" label="Pit Plat stairs · far landing" layer="ground" region="pit_platform" position="89.9 40.0 3.2" kind="poi" team="neutral" />
+  <route id="pit_platform_route" from="pit_platform_route.from" to="pit_platform_route.to" min-routes="1" max-distance="10" />
+  <route id="t_to_site_a" from="t_spawn_mark" to="site_a" min-routes="1" max-distance="250" />
+  <route id="t_to_site_b" from="t_spawn_mark" to="site_b" min-routes="1" max-distance="250" />
+  <route id="t_to_a_back_mark" from="t_spawn_mark" to="a_back_mark" min-routes="1" max-distance="250" />
+  <route id="t_to_pit_mark" from="t_spawn_mark" to="pit_mark" min-routes="1" max-distance="250" />
+  <route id="t_to_short_mark" from="t_spawn_mark" to="short_mark" min-routes="1" max-distance="250" />
+  <light id="sun" kind="directional" position="-30 -15 90" target="40 50 0" color="#fff1d5" intensity="2.2" />
+  <route id="tunnel_bend_route" from="tunnel_upper_mark" to="tunnel_lower_mark" min-routes="1" max-distance="15" />
+  <route id="ct_to_cross" from="ct_spawn_mark" to="ct_cross_mark" min-routes="1" max-distance="28" />
+  <route id="short_to_site" from="short_mark" to="site_a" min-routes="1" max-distance="32" />
+  <route id="long_to_site" from="long_mark" to="site_a" min-routes="1" max-distance="55" />
+  <route id="long_to_goose" from="long_mark" to="goose_mark" min-routes="1" max-distance="48" />
+  <route id="goose_to_site" from="goose_mark" to="site_a" min-routes="1" max-distance="12" />
+  <light id="tunnel_light0" kind="point" position="12.0 35.5 4.8" color="#ffe5b9" intensity="12" />
+  <light id="tunnel_light1" kind="point" position="12.6 54.8 4.8" color="#ffe5b9" intensity="12" />
+  <light id="tunnel_light2" kind="point" position="6.0 63.6 4.8" color="#ffe5b9" intensity="12" />
+  <light id="tunnel_light3" kind="point" position="59.4 76.8 2.2" color="#ffe5b9" intensity="12" />
+</level>

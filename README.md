@@ -1,5 +1,12 @@
 # LevelSpec
 
+The **LevelSpec 2 vector preview** adds `.level.svgx` authoring, a local 2D/3D
+inspector (`npm run dev`), separate wall/floor/stair meshes, automatic UVs and an
+optional Blender bake. See [the SVGX guide](docs/SVGX.md) and [release gates](docs/IMPLEMENTATION.md).
+The v1 interfaces described below remain available until migration parity passes.
+LevelSpec 2 exports **GLB, glTF, FBX and Quake BSP2** from the CLI and workbench;
+see [export formats and tool setup](docs/EXPORTS.md).
+
 A level is a **program**, not a mesh. You write down what a place *is* — rooms,
 what is next to what, where the walls and doors and stairs go — and a
 deterministic compiler owns every coordinate that comes out of it.

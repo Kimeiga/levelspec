@@ -1,0 +1,248 @@
+{
+  "description": "Authored CS2 blockout interior wall centrelines in registered radar coordinates. Endpoints snap to adjoining architecture to avoid unplayable slits; heights are explicit estimates. The radar is an approximate guide.",
+  "walls": [
+    {
+      "id": "wall.b_back",
+      "label": "B back partition",
+      "points": [
+        [
+          317,
+          118.5
+        ],
+        [
+          317,
+          146
+        ]
+      ],
+      "width": 10,
+      "height": 4.5
+    },
+    {
+      "id": "wall.a_platform",
+      "label": "A platform retaining wall",
+      "baseFloors": [
+        "a_short",
+        "a_site",
+        "a_back_platform",
+        "a_north_stairs"
+      ],
+      "points": [
+        [
+          681,
+          274
+        ],
+        [
+          681,
+          187
+        ],
+        [
+          797,
+          187
+        ],
+        [
+          797,
+          208
+        ],
+        [
+          845,
+          208
+        ],
+        [
+          845,
+          132
+        ],
+        [
+          845,
+          110
+        ],
+        [
+          845,
+          97
+        ]
+      ],
+      "width": 6.4,
+      "height": 0.8
+    },
+    {
+      "id": "wall.a_short_abutment",
+      "label": "A platform support north of CT exit",
+      "baseFloors": [
+        "ct_underpass"
+      ],
+      "points": [
+        [
+          681,
+          154
+        ],
+        [
+          681,
+          187
+        ]
+      ],
+      "width": 6,
+      "height": 3.8
+    },
+    {
+      "id": "wall.catwalk",
+      "label": "Catwalk divider",
+      "points": [
+        [
+          507,
+          384
+        ],
+        [
+          507,
+          558
+        ]
+      ],
+      "width": 6,
+      "layer": "short",
+      "height": 0.8
+    },
+    {
+      "id": "wall.upper_tunnel_west",
+      "label": "Upper tunnel west partition",
+      "points": [
+        [
+          93.5,
+          615
+        ],
+        [
+          156,
+          615
+        ]
+      ],
+      "width": 6,
+      "height": 4.5
+    },
+    {
+      "id": "wall.upper_tunnel_east",
+      "label": "Upper tunnel east partition",
+      "points": [
+        [
+          215,
+          615
+        ],
+        [
+          271,
+          615
+        ]
+      ],
+      "width": 6,
+      "height": 4.5
+    },
+    {
+      "id": "wall.tunnel_entry",
+      "label": "Tunnel entry L wall",
+      "points": [
+        [
+          159,
+          876
+        ],
+        [
+          159,
+          765
+        ],
+        [
+          245,
+          765
+        ]
+      ],
+      "width": 7,
+      "height": 2.4
+    },
+    {
+      "id": "wall.t_spawn",
+      "label": "T spawn divider",
+      "baseFloors": [
+        "t_spawn",
+        "t_spawn_ramp"
+      ],
+      "points": [
+        [
+          447,
+          876
+        ],
+        [
+          562,
+          876
+        ]
+      ],
+      "width": 6,
+      "height": 0.8
+    },
+    {
+      "id": "wall.long_pit",
+      "label": "Long pit divider",
+      "points": [
+        [
+          846,
+          559
+        ],
+        [
+          846,
+          663
+        ]
+      ],
+      "width": 5,
+      "height": 1.4
+    },
+    {
+      "id": "wall.pit_stairs",
+      "label": "Pit stair side wall",
+      "points": [
+        [
+          929.8,
+          559
+        ],
+        [
+          929.8,
+          662
+        ]
+      ],
+      "width": 6,
+      "height": 0.9,
+      "baseFloors": [
+        "pit_stairs",
+        "pit_platform"
+      ]
+    },
+    {
+      "id": "wall.b_divider",
+      "label": "B Doors and raised Window divider",
+      "points": [
+        [
+          267,
+          118
+        ],
+        [
+          267,
+          255
+        ]
+      ],
+      "width": 5,
+      "height": 4.5,
+      "baseFloors": [
+        "b_site"
+      ],
+      "openings": [
+        {
+          "id": "window",
+          "kind": "window",
+          "start": 0.8,
+          "end": 3,
+          "sill": 0.9,
+          "head": 3
+        },
+        {
+          "id": "doors",
+          "kind": "door",
+          "start": 9.6,
+          "end": 13.4,
+          "sill": 0,
+          "head": 3.2
+        }
+      ]
+    }
+  ]
+}
