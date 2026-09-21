@@ -278,6 +278,7 @@ function renderModel(fit = false) {
     groups = new Map<string, number[]>();
   for (let t = 0; t < m.surfaces.length; t++) {
     const s = level.surfaces[m.surfaces[t]];
+    if (s.visible === false) continue;
     if (layers.value && s.layer !== layers.value) continue;
     if (!$<HTMLInputElement>("roofs").checked && s.role === "roof") continue;
     const key = JSON.stringify([

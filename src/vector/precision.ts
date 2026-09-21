@@ -28,6 +28,7 @@ export function normalizeCoordinates(document:LevelDocument):LevelDocument {
  for(const l of d.lights){l.position=vector(l.position);l.target=vector(l.target);}
  for(const l of d.links){l.from=vector(l.from);l.to=vector(l.to);}
  for(const c of d.covers){c.min=vector(c.min);c.max=vector(c.max);}
+ for(const p of d.props??[])p.position=vector(p.position);
  for(const r of d.routes)optional(r,['minDistance','maxDistance']);
  return d;
 }

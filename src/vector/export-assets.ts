@@ -9,6 +9,8 @@ export interface ExportAsset {
   file: string;
 }
 export interface ExportOptions {
+  /** Collision exports include proxies and omit visual-only detail. */
+  purpose?: "visual" | "collision";
   assets?: Record<string, ExportAsset>;
 }
 export type ExportFiles = Record<string, string | Uint8Array>;
@@ -96,6 +98,9 @@ export function exportMetadata(level: CompiledLevel, formats: ExportFormat[]) {
     surfaces: level.surfaces,
     materials: level.document.materials,
     markers: level.document.markers,
+    props: level.document.props,
+    assets: level.document.assets,
+    references: level.document.references,
     routes: level.document.routes,
     links: level.document.links,
     lights: level.document.lights,

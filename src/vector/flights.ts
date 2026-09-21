@@ -52,6 +52,9 @@ export function buildFlight(
     )
       throw new Error(`${name} landing must be a straight, horizontal edge.`);
   }
+  if (region.underside !== undefined &&
+      (region.fill !== "stairs" || !["filled", "sloped"].includes(region.underside)))
+    throw new Error("underside is only supported on stairs, with filled or sloped values.");
   const bottom = low[0][2],
     rise = high[0][2] - bottom;
   if (rise <= EPS)
@@ -156,7 +159,7 @@ export function buildFlight(
         [
           p[0],
           p[1],
-          (region.fill === "stairs" ? bottom : p[2]) - thickness,
+          (region.fill === "stairs" && region.underside !== "sloped" ? bottom : p[2]) - thickness,
         ] as V3,
     );
     top.face(roof, diagonal);

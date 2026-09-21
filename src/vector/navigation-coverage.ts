@@ -115,7 +115,7 @@ export function auditNavigationCoverage(
     obstacleMeshes = new Set<string>();
   for (let i = 0; i < level.mesh.indices.length; i += 3) {
     const surface = level.surfaces[level.mesh.surfaces[i / 3]];
-    if (surface.dynamic && !options.sealed) continue;
+    if (surface.collidable === false || (surface.dynamic && !options.sealed)) continue;
     if (surface.kind === "wall" || surface.kind === "prop")
       obstacleMeshes.add(surface.mesh);
     const [a, b, c] = level.mesh.indices

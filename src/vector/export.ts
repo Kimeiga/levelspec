@@ -1,3 +1,4 @@
+import { collisionMesh } from "./collision.ts";
 import type { CompiledLevel, V3 } from "./types.ts";
 import { escapeXML } from "./format.ts";
 import {
@@ -21,6 +22,9 @@ export function toRuntime(level: CompiledLevel) {
     materials: level.document.materials,
     layers: level.document.layers.map((l) => ({ id: l.id, label: l.label })),
     markers: level.document.markers,
+    props: level.document.props,
+    assets: level.document.assets,
+    references: level.document.references,
     lights: level.document.lights,
     sky: level.document.sky,
     atlas: level.atlas,
@@ -43,6 +47,7 @@ export function toOBJ(level: CompiledLevel): string {
     lines.push(`vn ${m.normals.slice(i, i + 3).join(" ")}`);
   let owner = -1;
   for (let t = 0; t < m.surfaces.length; t++) {
+    if (level.surfaces[m.surfaces[t]].visible === false) continue;
     if (owner !== m.surfaces[t]) {
       owner = m.surfaces[t];
       lines.push(
@@ -129,7 +134,7 @@ function buildGLTF(
   embedded: boolean,
 ) {
   assertExportable(level, options);
-  const m = level.mesh,
+  const m = options.purpose === "collision" ? collisionMesh(level, true) : level.mesh,
     views: any[] = [],
     accessors: any[] = [],
     chunks: Uint8Array[] = [];
@@ -189,8 +194,9 @@ function buildGLTF(
     );
   const groups = new Map<string, number[]>();
   for (let t = 0; t < m.surfaces.length; t++) {
-    const s = level.surfaces[m.surfaces[t]],
-      key = JSON.stringify([
+    const s = level.surfaces[m.surfaces[t]];
+    if (options.purpose === "collision" ? s.collidable === false : s.visible === false) continue;
+    const key = JSON.stringify([
         s.mesh,
         s.object,
         s.material,
@@ -292,6 +298,7 @@ function buildGLTF(
         layer: surface.layer,
         role: surface.role,
         dynamic: surface.dynamic,
+        collidable: surface.collidable ?? true,
         atlasPage: page,
       },
     });

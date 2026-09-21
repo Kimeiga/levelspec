@@ -1,3 +1,5 @@
+import { validateProps, prepareProps } from "./props.ts";
+import { validateReference } from "./reference.ts";
 import { normalizeCoordinates } from "./precision.ts";
 import { auditFloorGaps } from "./floor-gaps.ts";
 import { auditSurfaceContacts } from "./surface-contacts.ts";
@@ -92,6 +94,9 @@ export async function compile(
     ]),
     ...d.seams,
     ...d.covers,
+    ...(d.props ?? []),
+    ...(d.assets ?? []),
+    ...(d.references ?? []).flatMap((r) => [r, ...r.landmarks, ...r.masks]),
     ...d.materials,
     ...d.markers,
     ...d.links,
@@ -101,6 +106,7 @@ export async function compile(
     if (allIds.has(o.id)) err(o, `Duplicate id ${o.id}.`, "DUPLICATE_ID");
     allIds.add(o.id);
   }
+  diagnostics.push(...validateProps(d), ...(d.references ?? []).flatMap(validateReference));
   const materials = new Set(d.materials.map((m) => m.id));
   for (const m of d.materials) {
     if (
@@ -141,6 +147,8 @@ export async function compile(
     }
     for (const r of l.regions) {
       try {
+        if (r.underside !== undefined && (r.fill !== "stairs" || !["filled", "sloped"].includes(r.underside)))
+          throw new Error("underside is only supported on stairs, with filled or sloped values.");
         if (r.material && !materials.has(r.material))
           throw new Error(`Unknown material ${r.material}.`);
         if ((r.thickness ?? d.floorThickness) <= 0)
@@ -307,6 +315,13 @@ export async function compile(
     ...(options.retainExportSolids ? { exportSolids: [] } : {}),
   };
   if (diagnostics.some((e) => e.severity === "error")) return level;
+  let props: Awaited<ReturnType<typeof prepareProps>>;
+  try { props = await prepareProps(d, options.resolveAsset, options.signal); }
+  catch (error) {
+    if ((error as Error).name === "AbortError") throw error;
+    err(((error as Error).cause as Named) ?? d, (error as Error).message, "ASSET");
+    return level;
+  }
   options.onProgress?.("Constructing mesh");
   const K = await geometryKernel();
   aborted(options.signal);
@@ -314,6 +329,7 @@ export async function compile(
     dynamicSolids: Manifold[] = [],
     allocated: Manifold[] = [],
     originals = new Map<number, number>();
+  const visualMeshes: ReturnType<Manifold["getMesh"]>[] = [];
   const keep = (m: Manifold) => {
     allocated.push(m);
     return m;
@@ -352,7 +368,7 @@ export async function compile(
     exportPieces?: ExportSolid[],
   ) => {
     if (!triangles.length) return;
-    if (level.exportSolids)
+    if (level.exportSolids && surface.collidable !== false)
       level.exportSolids.push(
         ...(exportPieces ?? [
           {
@@ -373,6 +389,10 @@ export async function compile(
       runIndex: new Uint32Array([0, triangles.length * 3]),
       runOriginalID: new Uint32Array([id]),
     });
+    if (surface.collidable === false) {
+      visualMeshes.push(raw);
+      return;
+    }
     raw.merge();
     const solid = keep(new K.Manifold(raw));
     if (solid.status() !== "NoError")
@@ -495,7 +515,15 @@ export async function compile(
                   (p) => [
                     p[0],
                     p[1],
-                    r.fill === "stairs" ? bottom : p[2] - thickness,
+                    r.fill === "stairs"
+                      ? r.underside === "sloped"
+                        ? (() => {
+                            const guide = heightAt(flight.guide, p[0], p[1]);
+                            if (guide === undefined) throw new Error(`${r.id}: missing underside guide height.`);
+                            return guide - thickness;
+                          })()
+                        : bottom
+                      : p[2] - thickness,
                   ],
                   surface,
                 )
@@ -1110,6 +1138,18 @@ export async function compile(
         surf(c.id, c.layer, c.role ?? "cover", c.material, c.dynamic),
       );
     }
+    for (const { prop, geometry, proxy } of props) {
+      aborted(options.signal);
+      const surface = surf(prop.id, prop.layer, "prop", prop.material);
+      if (prop.collision !== "solid") surface.collidable = false;
+      add(geometry.positions, geometry.triangles, surface);
+      if (proxy) {
+        const collision = surf(prop.id, prop.layer, "collision", prop.material);
+        collision.visible = false;
+        collision.mesh += ":collision";
+        add(proxy.positions, proxy.triangles, collision);
+      }
+    }
     const areaFor = (p: V3) =>
       floors.find((f) => {
         const h = heightAt(f, p[0], p[1]);
@@ -1137,8 +1177,7 @@ export async function compile(
         ).simplify(0.0001),
       ),
     );
-    for (const solid of [...shells, ...dynamicSolids]) {
-      const m = solid.getMesh();
+    for (const m of [...shells, ...dynamicSolids].map((s) => s.getMesh()).concat(visualMeshes)) {
       let run = 0;
       for (let i = 0; i < m.triVerts.length; i += 3) {
         while (run + 1 < m.runOriginalID.length && i >= m.runIndex[run + 1])
@@ -1238,6 +1277,8 @@ export async function compile(
       s.material,
       s.dynamic,
       s.mesh,
+      ...(s.collidable === false ? ["non-collidable"] : []),
+      ...(s.visible === false ? ["invisible"] : []),
     ]),
   });
   level.parts = meshParts(mesh, surfaces);
@@ -1299,6 +1340,8 @@ export function meshParts(mesh: MeshData, surfaces: Surface[]) {
       layer: string;
       layers: string[];
       dynamic: boolean;
+      collidable?: boolean;
+      visible?: boolean;
       triangles: number[];
     }
   >();
@@ -1310,6 +1353,8 @@ export function meshParts(mesh: MeshData, surfaces: Surface[]) {
         layer: s.layer,
         layers: [],
         dynamic: s.dynamic,
+        ...(s.collidable === false ? { collidable: false } : {}),
+        ...(s.visible === false ? { visible: false } : {}),
         triangles: [],
       };
     part.triangles.push(t);

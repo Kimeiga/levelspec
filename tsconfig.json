@@ -15,7 +15,8 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "erasableSyntaxOnly": true
   },
   "include": [
     "src/vector/**/*.ts",

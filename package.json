@@ -8,7 +8,8 @@
     "./generate": "./src/generate/index.ts",
     "./vector": "./src/vector/index.ts",
     "./lighting": "./src/lighting/bake.ts",
-    "./export": "./src/export/vector/index.ts"
+    "./export": "./src/export/vector/index.ts",
+    "./authoring": "./src/vector/authoring.ts"
   },
   "scripts": {
     "compile": "node tools/build.ts",
