@@ -114,3 +114,11 @@ joins so the compiler can read their real heights.
 The validators are not warnings. `generateLevel` and `loadAuthored` both throw
 rather than hand back a level that fails one, so a broken floor cannot reach a
 player.
+
+## License
+
+LevelSpec source code and original documentation are licensed under the
+[MIT License](LICENSE). Third-party dependencies and any retained third-party
+notices remain subject to their own licenses. Reference photographs, game
+radars, screenshots, logos, and other third-party assets are not relicensed
+by this license; their inclusion as references does not grant reuse rights.
