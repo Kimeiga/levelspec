@@ -36,11 +36,14 @@ describe("reference views",()=>{
       assert.ok(Math.abs(actual[0]-(expected.x+1)/2)<1e-12);assert.ok(Math.abs(actual[1]-(1-expected.y)/2)<1e-12);
     }
   });
-  it("does not report a zero-error fit with no observations or behind-camera points",()=>{
+  it("does not report a zero-error fit with no observations or clipped points",()=>{
     const r=reference();assert.equal(compareReference(r).rmsPixels,null);
     r.landmarks=[{id:"behind",position:[0,-20,3],image:[0.5,0.5]}];
-    const report=compareReference(r);assert.equal(report.clipped,1);assert.equal(report.rmsPixels,null);
+    const behind=compareReference(r);assert.equal(behind.clipped,1);assert.equal(behind.rmsPixels,null);
     assert.equal(projectReference(r,[0,-10,3]).image,null);
+    r.landmarks=[{id:"offscreen",position:[50,0,3],image:[0.5,0.5]}];
+    const offscreen=compareReference(r);assert.equal(offscreen.clipped,1);assert.equal(offscreen.compared,0);
+    assert.equal(offscreen.rmsPixels,null);assert.equal(projectReference(r,[50,0,3]).inFrame,false);
   });
   it("measures pixel alignment and excludes explicitly masked observations",()=>{
     const r=reference();r.landmarks=[{id:"a",position:[0,0,3],image:[0.6,0.5]},{id:"b",position:[0,0,3],image:[0.5,0.8]}];
@@ -74,6 +77,7 @@ describe("scene props and physics",()=>{
     assert.throws(()=>parseLevelSvgx(xml.replace(' collision="box"','')),/Missing collision/);
     assert.throws(()=>parseLevelSvgx(xml.replace('segments="12"','segments="1000000"')),/segments/);
     assert.throws(()=>parseLevelSvgx(xml.replace('layer="architecture" shape=','layer="missing" shape=')),/Unknown prop layer/);
+    assert.throws(()=>parseLevelSvgx(xml.replace('scale="1 1 2"','scale="0.0004 1 2"')),/strictly positive scale/);
   });
   it("emits outward-wound closed boxes and rotated cylinders",async()=>{
     const {document,group}=fixture();group.box("box",{position:[3,3,0],size:[2,1,1],rotation:[0,0,25],material:"default",collision:"solid"});
@@ -81,6 +85,18 @@ describe("scene props and physics",()=>{
     const level=await compile(document,{navigation:false});assert.deepEqual(level.diagnostics,[]);
     assert.ok(level.mesh.indices.length>0);assert.deepEqual(document.props![0].rotation,[0,0,25]);
     const q=rotateXYZ([0,0,1],[0,90,90]);assert.ok(Math.abs(q[1]-1)<1e-12);
+  });
+  it("snaps primitive dimensions but preserves dimensionless imported-asset scale",async()=>{
+    const {document,group}=fixture();
+    group.box("primitive",{position:[1.23456,2.34567,0],size:[1.23456,2.34567,3.45678],material:"default",collision:"none"});
+    document.assets=[{id:"mesh",src:"mesh.glb"}];
+    group.asset("asset","mesh",{position:[4.44444,4.55555,0],size:[1.23456,2.34567,3.45678],material:"default",collision:"none"});
+    const level=await compile(document,{navigation:false,resolveAsset:async()=>boxGeometry()});
+    assert.deepEqual(level.diagnostics,[]);
+    const primitive=level.document.props!.find((p)=>p.id==="foreground/primitive")!;
+    const asset=level.document.props!.find((p)=>p.id==="foreground/asset")!;
+    assert.deepEqual(primitive.position,[1.235,2.346,0]);assert.deepEqual(primitive.scale,[1.235,2.346,3.457]);
+    assert.deepEqual(asset.position,[4.444,4.556,0]);assert.deepEqual(asset.scale,[1.23456,2.34567,3.45678]);
   });
   it("keeps distant scenery out of navigation bounds and gameplay line of sight",async()=>{
     const {document,group}=fixture();group.box("skyline",{position:[10000,10000,0],size:[200,200,200],material:"default",collision:"none"});
@@ -99,10 +115,27 @@ describe("scene props and physics",()=>{
     const visual=glbJSON(toGLB(level)),collision=glbJSON(toGLB(level,{purpose:"collision"}));
     assert.ok(!visual.nodes.some((n:any)=>n.extras?.role==="collision"));assert.ok(collision.nodes.some((n:any)=>n.extras?.role==="collision"));
     assert.ok(!collision.nodes.some((n:any)=>n.extras?.role==="prop"));
+    const visualPosition=visual.accessors[visual.meshes[0].primitives[0].attributes.POSITION];
+    assert.ok(visualPosition.count<level.mesh.positions.length/3);
     assert.ok(!toOBJ(level).includes(':collision'));
+    assert.ok(toOBJ(level).split("\n").filter((line)=>line.startsWith("v ")).length<level.mesh.positions.length/3);
     await generateUVs(level,{density:4,resolution:128,padding:2});
     for(let t=0;t<level.mesh.surfaces.length;t++)if(level.surfaces[level.mesh.surfaces[t]].visible===false)
       assert.equal(level.mesh.atlasPages![t],-1);
+  });
+  it("exports collision GLBs without visual textures and rejects empty collision output",async()=>{
+    const {scene,document,group}=fixture();scene.material("textured",{texture:"missing.png"});
+    group.box("crate",{position:[4,4,0],size:[1,1,1],material:"textured",collision:"box"});
+    const level=await compile(document,{navigation:false});assert.deepEqual(level.diagnostics,[]);
+    assert.throws(()=>toGLB(level),/unresolved texture/);
+    const collision=glbJSON(toGLB(level,{purpose:"collision"}));
+    assert.equal(collision.images,undefined);assert.equal(collision.extras.levelspec.purpose,"collision");
+    assert.ok(collision.extras.levelspec.includedSurfaceIndices.length>0);
+    assert.ok(collision.extras.levelspec.includedSurfaceIndices.every((i:number)=>level.surfaces[i].collidable!==false));
+    const emptyScene=new SceneBuilder("visual-only"),emptyGroup=emptyScene.group("scene");
+    emptyGroup.box("ghost",{position:[0,0,0],size:[1,1,1],material:"default",collision:"none"});
+    const empty=await compile(emptyScene.document,{navigation:false});
+    assert.ok(empty.mesh.indices.length>0);assert.throws(()=>toGLB(empty,{purpose:"collision"}),/empty collision model/);
   });
   it("invalidates geometry and navigation identity when collision intent changes",async()=>{
     const {document,group}=fixture();const p=group.box("box",{position:[4,4,0],size:[1,1,1],material:"default",collision:"none"});
@@ -153,6 +186,18 @@ describe("architectural authoring",()=>{
     const level=await compile(s.document,{floorGaps:"error",surfaceContacts:"error"}),report=await validateForRuntime(level,{sealed:true});
     assert.equal(report.passed,true,JSON.stringify(report.diagnostics));assert.equal(level.navigation!.coverage.uncoveredCount,0);
     assert.equal(level.floors.length,9);assert.ok(report.navigation!.routes[0].reachable);
+  });
+  it("uses sloped stair undersides for solid-overlap validation",async()=>{
+    const s=new SceneBuilder("stairs"),g=s.group("escape");
+    g.staircase("assembly",{floors:1,usage:"playable",material:"default"});
+    g.platform("underpass",{origin:[0.2,4,0.5],width:0.9,depth:0.5,material:"default"});
+    const options={navigation:false as const,floorGaps:false as const,surfaceContacts:false as const};
+    const open=await compile(s.document,options);
+    assert.ok(!open.diagnostics.some((d)=>d.code==="SPACE_OVERLAP"),JSON.stringify(open.diagnostics));
+    const flight=s.document.layers[0].regions.find((r)=>r.id==="escape/assembly/flight0")!;
+    flight.underside="filled";
+    const filled=await compile(s.document,options);
+    assert.ok(filled.diagnostics.some((d)=>d.code==="SPACE_OVERLAP"));
   });
   it("keeps scenery stairs out of declared playable floors",async()=>{
     const {document,group}=fixture();group.group("background",{origin:[30,20,0]}).staircase("escape",{floors:3,usage:"scenery",material:"default",railingMaterial:"default"});

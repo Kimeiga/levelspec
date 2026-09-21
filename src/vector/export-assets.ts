@@ -71,18 +71,34 @@ export function assertExportable(
     throw new Error(
       "Cannot export invalid geometry. Resolve compilation errors first.",
     );
-  if (!level.mesh.indices.length)
+  if (options.purpose !== "collision" && !level.mesh.indices.length)
     throw new Error("Cannot export an empty model.");
   for (const m of level.document.materials)
-    if (m.texture && !options.assets?.[m.texture])
+    if (
+      options.purpose !== "collision" &&
+      m.texture &&
+      !options.assets?.[m.texture]
+    )
       throw new Error(
         `Material ${m.id}: unresolved texture "${m.texture}". Supply resolved export assets.`,
       );
 }
 
-export function exportMetadata(level: CompiledLevel, formats: ExportFormat[]) {
+export function exportMetadata(
+  level: CompiledLevel,
+  formats: ExportFormat[],
+  purpose: "visual" | "collision" = "visual",
+  includedSurfaceIndices = [...new Set(level.mesh.surfaces)],
+) {
   return {
     version: 1,
+    purpose,
+    includedSurfaceIndices,
+    includedParts: [
+      ...new Set(
+        includedSurfaceIndices.map((index) => level.surfaces[index]?.mesh).filter(Boolean),
+      ),
+    ],
     id: level.document.id,
     name: level.document.name,
     geometryHash: level.geometryHash,

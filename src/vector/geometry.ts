@@ -312,8 +312,8 @@ export function triangleIntersection(a: V3[], b: V3[]): V2[] {
 export function floorVolumeOverlap(
   a: V3[],
   b: V3[],
-  A: { thickness: number; base?: number },
-  B: { thickness: number; base?: number },
+  A: { thickness: number; base?: number; bottom?: (point: V2) => number },
+  B: { thickness: number; base?: number; bottom?: (point: V2) => number },
 ): number {
   let polygon = triangleIntersection(a, b);
   const z = (t: V3[], p: V2) => {
@@ -325,11 +325,16 @@ export function floorVolumeOverlap(
       denominator
     );
   };
+  const bottom = (
+    triangle: V3[],
+    span: { thickness: number; base?: number; bottom?: (point: V2) => number },
+    point: V2,
+  ) => span.bottom?.(point) ?? span.base ?? z(triangle, point) - span.thickness;
   // Clip by both affine inequalities; testing polygon vertices alone misses
   // crossing ramps whose solids intersect only inside the polygon.
   for (const gap of [
-    (p: V2) => z(a, p) - (B.base ?? z(b, p) - B.thickness) - EPS,
-    (p: V2) => z(b, p) - (A.base ?? z(a, p) - A.thickness) - EPS,
+    (p: V2) => z(a, p) - bottom(b, B, p) - EPS,
+    (p: V2) => z(b, p) - bottom(a, A, p) - EPS,
   ]) {
     const out: V2[] = [];
     for (let i = 0; i < polygon.length; i++) {

@@ -9,9 +9,11 @@ The existing LevelSpec 2 migration and runtime acceptance gates remain in force.
 
 Import `SceneBuilder` from `levelspec/authoring`, or the local source during
 repository development. All lengths are metres; world coordinates are Z-up.
-Generated IDs identify their parent group and operation. Regenerating an assembly
-with new dimensions retains its IDs. Each builder operation generates ordinary
-source objects, not an opaque final mesh.
+User-named operation and generated object IDs identify their parent group and
+operation, and remain stable when dimensions change. Deduplicated vertex and edge
+IDs are topology implementation details: they may change when edits cause formerly
+shared boundaries to connect or disconnect. Each builder operation generates
+ordinary source objects, not an opaque final mesh.
 
 ```ts
 import { SceneBuilder } from "../src/vector/authoring.ts";
@@ -89,10 +91,17 @@ Visual-only vertices are compacted out before navigation, so a distant skyline
 does not enlarge Recast's build bounds. Collision proxies are excluded from the
 viewer, visual GLB/OBJ output, lightmap atlas receivers and Blender bake geometry.
 `collisionMesh(level, sealed)` returns a compact physics mesh;
-`toGLB(level, { purpose: "collision" })` exports collision geometry separately.
-Runtime data and export metadata retain the surface visibility/collision flags.
+`toGLB(level, { purpose: "collision" })` exports collision geometry separately,
+without requiring or embedding visual textures. It rejects levels with no collision
+geometry rather than producing an invalid empty GLB. Runtime data and export
+metadata retain the surface visibility/collision flags and identify the surfaces
+actually included in each GLB.
 Destination engines must consume the separate collision output or those flags;
-visual GLB metadata alone does not configure engine physics automatically.
+visual GLB metadata alone does not configure engine physics automatically. BSP2
+maps closed visual-only solids to `func_detail_illusionary` and invisible
+collision proxies to solid `skip` brushes. A visual-only imported mesh that is
+not a closed brush-convertible solid is rejected by BSP export rather than being
+silently omitted.
 
 ## Record the reference camera and evidence
 

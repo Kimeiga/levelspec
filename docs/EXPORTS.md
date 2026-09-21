@@ -123,8 +123,12 @@ At least one authored spawn is required. Spawn kinds ending in `spawn`, plus
 `info_player_start` and `info_player_deathmatch`, are recognized. They must lie
 on the declared floor and clear Quake's 1 × 1 × 1.75 metre player hull. The first
 becomes `info_player_start`; subsequent markers become deathmatch starts. A
-single spawn also receives a coincident deathmatch start. Dynamic surfaces become
-identified `func_wall` entities, without doors, destruction or custom game code.
+single spawn also receives a coincident deathmatch start. Dynamic collidable surfaces become identified `func_wall` entities, without
+doors, destruction or custom game code. Closed visual-only solids become
+`func_detail_illusionary`, while invisible collision-only solids use the
+special `skip` texture so they remain solid without drawing. BSP export rejects
+visual-only imported meshes that cannot be converted to closed brushes instead of
+silently dropping them.
 
 Textures are converted into WAD2 miptex images, quantized against the supplied
 palette without fullbright colors, resized to multiples of 16 up to 512 pixels,

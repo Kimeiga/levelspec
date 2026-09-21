@@ -474,7 +474,13 @@ export function parseLevelSvgx(text: string): LevelDocument {
     }
   issues.push(...validateProps(doc), ...(doc.references ?? []).flatMap(validateReference));
   if (issues.length) throw new SvgxError(issues);
-  return normalizeCoordinates(doc);
+  const normalized = normalizeCoordinates(doc),
+    normalizedIssues = [
+      ...validateProps(normalized),
+      ...(normalized.references ?? []).flatMap(validateReference),
+    ];
+  if (normalizedIssues.length) throw new SvgxError(normalizedIssues);
+  return normalized;
 }
 export const escapeXML = (s: unknown) =>
   String(s)

@@ -123,7 +123,7 @@ export function compareReference(reference: ReferenceView) {
   const landmarks = reference.landmarks.map((landmark) => {
     const projection = project(reference, landmark.position);
     const masked = reference.masks.some((mask) => pointInMask(landmark.image, mask.points));
-    const clipped = !projection.image || projection.depth < reference.camera.near || projection.depth > reference.camera.far;
+    const clipped = !projection.image || !projection.inFrame;
     const errorPixels = masked || clipped ? null : Math.hypot(
       (projection.image![0] - landmark.image[0]) * reference.width,
       (projection.image![1] - landmark.image[1]) * reference.height,

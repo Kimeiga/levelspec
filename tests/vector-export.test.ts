@@ -433,6 +433,70 @@ describe("Quake brush export", () => {
       );
     }
   });
+  it("preserves visual-only and collision-only prop semantics in BSP source", async () => {
+    const d = fixture();
+    d.props = [
+      {
+        id: "crate",
+        layer: "ground",
+        shape: "box",
+        position: [5, 3, 1],
+        rotation: [0, 0, 0],
+        scale: [0.6, 0.6, 0.8],
+        material: "paint",
+        collision: "box",
+      },
+      {
+        id: "ghost",
+        layer: "ground",
+        shape: "box",
+        position: [4, 3, 1],
+        rotation: [0, 0, 0],
+        scale: [0.5, 0.5, 0.5],
+        material: "paint",
+        collision: "none",
+      },
+    ];
+    const level = await compile(d, { navigation: false, retainExportSolids: true }),
+      wad = quakeWad(level, {}, palette),
+      map = await buildQuakeMap(level, wad.mappings, "props");
+    assert.deepEqual(level.diagnostics, []);
+    assert.match(map.text, /"classname" "func_detail_illusionary"/);
+    assert.match(map.text, /\sskip\s/);
+    assert.match(map.text, /"targetname" "crate"/);
+    assert.match(map.text, /"targetname" "ghost"/);
+  });
+
+  it("fails BSP export instead of dropping an open visual-only imported mesh", async () => {
+    const d = fixture();
+    d.assets = [{ id: "open-mesh", src: "open.glb" }];
+    d.props = [{
+      id: "open-visual",
+      layer: "ground",
+      shape: "asset",
+      asset: "open-mesh",
+      position: [4, 2, 1],
+      rotation: [0, 0, 0],
+      scale: [1, 1, 1],
+      material: "paint",
+      collision: "none",
+    }];
+    const level = await compile(d, {
+      navigation: false,
+      retainExportSolids: true,
+      resolveAsset: async () => ({
+        positions: [[0, 0, 0], [1, 0, 0], [0, 1, 0]],
+        triangles: [[0, 1, 2]],
+      }),
+    });
+    assert.deepEqual(level.diagnostics, []);
+    const { mappings } = quakeWad(level, {}, palette);
+    await assert.rejects(
+      buildQuakeMap(level, mappings, "open"),
+      /open-visual: invalid export solid/,
+    );
+  });
+
   it("rejects missing spawns, blocked Quake hulls, missing solids and invalid palettes", async () => {
     const d = fixture(),
       level = await compile(d, { navigation: false, retainExportSolids: true });

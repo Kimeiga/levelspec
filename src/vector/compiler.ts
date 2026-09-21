@@ -13,6 +13,7 @@ import {
   type CompiledLevel,
   type CompileOptions,
   type ExportSolid,
+  type V2,
   type V3,
   type Diagnostic,
   type Surface,
@@ -239,14 +240,27 @@ export async function compile(
           .flatMap((l) => l.regions)
           .find((r) => r.id === a.region)!,
         rb = d.layers.flatMap((l) => l.regions).find((r) => r.id === b.region)!;
-      const span = (region: typeof ra) => ({
-        thickness: region.thickness ?? d.floorThickness,
-        base:
-          region.fill === "stairs"
-            ? curves[region.lower!][0][2] -
-              (region.thickness ?? d.floorThickness)
-            : undefined,
-      });
+      const span = (
+        region: typeof ra,
+      ): {
+        thickness: number;
+        base?: number;
+        bottom?: (point: V2) => number;
+      } => {
+        const thickness = region.thickness ?? d.floorThickness,
+          flight = flights.get(region.id);
+        return {
+          thickness,
+          ...(region.fill === "stairs"
+            ? region.underside === "sloped" && flight
+              ? {
+                  bottom: (point: V2) =>
+                    heightAt(flight.guide, point[0], point[1])! - thickness,
+                }
+              : { base: curves[region.lower!][0][2] - thickness }
+            : {}),
+        };
+      };
       const aSpan = span(ra),
         bSpan = span(rb);
       const minZA =
@@ -368,7 +382,7 @@ export async function compile(
     exportPieces?: ExportSolid[],
   ) => {
     if (!triangles.length) return;
-    if (level.exportSolids && surface.collidable !== false)
+    if (level.exportSolids)
       level.exportSolids.push(
         ...(exportPieces ?? [
           {
@@ -899,8 +913,10 @@ export async function compile(
           seam.kind === "open" && upperRegion
             ? (upperRegion.thickness ?? d.floorThickness)
             : 0,
-        stairUnderside =
-          seam.kind === "open" && upperRegion?.fill === "stairs"
+        filledStairUnderside =
+          seam.kind === "open" &&
+          upperRegion?.fill === "stairs" &&
+          upperRegion.underside !== "sloped"
             ? curves[upperRegion.lower!][0][2] - capInset
             : undefined;
       const layer = d.layers.find((l) =>
@@ -947,10 +963,10 @@ export async function compile(
         )
           throw new Error(`${seam.id}: seam XY positions differ.`);
         let top0 =
-            stairUnderside ??
+            filledStairUnderside ??
             h0[2] + (seam.kind === "wall" ? d.wallHeight : -capInset),
           top1 =
-            stairUnderside ??
+            filledStairUnderside ??
             h1[2] + (seam.kind === "wall" ? d.wallHeight : -capInset);
         if (seam.kind === "open") {
           // The upper slab itself seals shallow steps. A retaining riser fills

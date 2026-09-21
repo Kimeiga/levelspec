@@ -180,7 +180,9 @@ export async function buildQuakeMap(
   );
   if (!spawnMarkers.length)
     throw new Error("BSP requires an authored spawn marker.");
-  const sourceSolids = level.exportSolids.map((s) => solidManifold(K, s));
+  const sourceSolids = level.exportSolids
+    .filter((s) => s.surface.collidable !== false)
+    .map((s) => solidManifold(K, s));
   const spawns: { id: string; position: V3 }[] = [];
   try {
     for (const marker of spawnMarkers) {
@@ -224,8 +226,12 @@ export async function buildQuakeMap(
   } finally {
     for (const solid of sourceSolids) solid.delete();
   }
+  const skipTexture: QuakeTexture = { name: "skip", width: 16, height: 16 };
   const emit = (b: Brush) => {
-    const texture = mappings[b.surface.material] ?? mappings.default;
+    const texture =
+      b.surface.visible === false
+        ? skipTexture
+        : mappings[b.surface.material] ?? mappings.default;
     const repeat =
       level.document.materials.find((m) => m.id === b.surface.material)
         ?.repeat ?? 1;
@@ -238,19 +244,37 @@ export async function buildQuakeMap(
     `"message" ${quoted(level.document.name)}`,
     `"wad" "${name}.wad"`,
     '"_minlight" "80"',
-    ...brushes.filter((b) => !b.surface.dynamic).map(emit),
+    ...brushes
+      .filter((b) => !b.surface.dynamic && b.surface.collidable !== false)
+      .map(emit),
     "}",
   ];
-  const dynamics = new Map<string, Brush[]>();
-  for (const b of brushes.filter((b) => b.surface.dynamic))
-    dynamics.set(b.surface.object, [
-      ...(dynamics.get(b.surface.object) ?? []),
-      b,
-    ]);
+  const dynamics = new Map<string, Brush[]>(),
+    illusionary = new Map<string, Brush[]>();
+  for (const b of brushes) {
+    if (b.surface.collidable === false && b.surface.visible !== false)
+      illusionary.set(b.surface.object, [
+        ...(illusionary.get(b.surface.object) ?? []),
+        b,
+      ]);
+    else if (b.surface.dynamic)
+      dynamics.set(b.surface.object, [
+        ...(dynamics.get(b.surface.object) ?? []),
+        b,
+      ]);
+  }
   for (const [id, group] of dynamics)
     text.push(
       "{",
       '"classname" "func_wall"',
+      `"targetname" ${quoted(id)}`,
+      ...group.map(emit),
+      "}",
+    );
+  for (const [id, group] of illusionary)
+    text.push(
+      "{",
+      '"classname" "func_detail_illusionary"',
       `"targetname" ${quoted(id)}`,
       ...group.map(emit),
       "}",
@@ -285,6 +309,7 @@ export async function buildQuakeMap(
         "BSP2 uses Quake collision hulls, palette colors, and neutral minlight; PBR and LevelSpec baked lighting are not transferred.",
         "BSP texture projection follows physical surface scale; unfolded ramp UVs and lightmap UVs are not preserved.",
         "Dynamic parts become static func_wall entities; gameplay semantics remain in the sidecar.",
+        "Visual-only closed solids become func_detail_illusionary; collision-only solids use Quake's invisible solid skip texture.",
         "Textures are quantized to the supplied palette, capped at 512 pixels, and transparency is flattened.",
       ],
     },

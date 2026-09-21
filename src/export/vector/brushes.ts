@@ -20,7 +20,15 @@ export function solidManifold(K: ManifoldToplevel, solid: ExportSolid) {
     tolerance: 0.000001,
   });
   mesh.merge();
-  const result = new K.Manifold(mesh);
+  let result: Manifold;
+  try {
+    result = new K.Manifold(mesh);
+  } catch (error) {
+    throw new Error(
+      `${solid.surface.object}: invalid export solid (${(error as Error).message}).`,
+      { cause: error },
+    );
+  }
   if (result.status() !== "NoError") {
     const status = result.status();
     result.delete();

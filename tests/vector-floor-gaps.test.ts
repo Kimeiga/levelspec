@@ -142,6 +142,27 @@ describe("unsealed adjacent floor boundaries", () => {
     assert.deepEqual(await inspect(d), []);
   });
 
+  it("uses a sloped stair's real underside when auditing an adjacent boundary", async () => {
+    const d = adjacent();
+    const stairs = d.layers[1];
+    stairs.vertices.forEach((vertex) => {
+      vertex.z = vertex.y / 2;
+    });
+    Object.assign(stairs.regions[0], {
+      fill: "stairs",
+      lower: "high.e0",
+      upper: "high.e2",
+      underside: "sloped",
+    });
+    const gaps = await inspect(d);
+    assert.equal(gaps.length, 1);
+    assertPair(gaps[0].objects);
+    const height = Number(gaps[0].message.match(/about ([\d.]+) m high/)?.[1]);
+    assert.ok(height > 1.7 && height < 1.9);
+    stairs.regions[0].underside = "filled";
+    assert.deepEqual(await inspect(d), []);
+  });
+
   it("recognizes a first stair riser stepping down onto a continuous underpass floor", async () => {
     const d = adjacent(3);
     const stairs = d.layers[0];
