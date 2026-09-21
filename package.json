@@ -21,7 +21,12 @@
     "test:vector": "node --test 'tests/vector*.test.ts'",
     "bake:vector": "node tools/vector-bake.ts",
     "migrate:vector": "node tools/vector-migrate.ts",
-    "test:export": "node --test tests/vector-export.test.ts"
+    "test:export": "node --test tests/vector-export.test.ts",
+    "dev:site": "vite --config vite.website.config.ts",
+    "build:site": "vite build --config vite.website.config.ts",
+    "preview:site": "vite preview --config vite.website.config.ts",
+    "test:site": "node --test website/tests/*.test.ts",
+    "test:site:browser": "node website/tests/browser.mjs"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",
@@ -39,7 +44,9 @@
     "@types/node": "^22.20.3",
     "@types/pngjs": "^6.0.5",
     "@types/three": "^0.186.0",
+    "axe-core": "^4.13.0",
     "gltf-validator": "^2.0.0-dev.3.10",
+    "playwright": "^1.63.0",
     "typescript": "^7.0.2",
     "vite": "^8.3.0"
   }
