@@ -26,6 +26,8 @@
     "src/vendor.d.ts",
     "src/export/vector/**/*.ts",
     "tools/export/**/*.ts",
-    "vite.config.ts"
+    "vite.config.ts",
+    "website/**/*.ts",
+    "vite.website.config.ts"
   ]
 }
