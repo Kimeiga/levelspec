@@ -1,10 +1,12 @@
 import "./styles.css";
 import template from "./demo.level.svgx?raw";
 import { LevelScene } from "./scene.ts";
+import { NavigationSurface } from "./navigation.ts";
 import {
   normalizeCurve,
   readState,
-  sourceForCurve,
+  sourceForState,
+  normalizeHeight,
   writeState,
 } from "./state.ts";
 import type { DemoState } from "./state.ts";
@@ -34,7 +36,7 @@ let timeout: ReturnType<typeof setTimeout> | undefined;
 let toastTimer: ReturnType<typeof setTimeout> | undefined;
 let exporting = false,
   disposed = false;
-const fullSource = () => sourceForCurve(template, state.curve);
+const fullSource = () => sourceForState(template, state);
 function notify(message: string) {
   clearTimeout(toastTimer);
   element("toast").textContent = message;
@@ -60,11 +62,48 @@ function updateExports() {
   const valid = ready && !exporting && compiledSource === fullSource();
   element<HTMLButtonElement>("download-glb").disabled = !valid;
   element<HTMLButtonElement>("download-gltf").disabled = !valid;
+  element<HTMLButtonElement>("enter").disabled = !valid || !scene;
+  element<HTMLButtonElement>("tour").disabled = !valid || !scene;
+  element("export-warning").hidden = !report || ready;
 }
 function updateSource() {
+  const presets = {
+    clay: { height: 3, curve: 3 },
+    chalk: { height: 5, curve: 6 },
+    night: { height: 2, curve: 0 },
+  };
+  for (const button of document.querySelectorAll<HTMLButtonElement>(
+    "[data-preset]",
+  )) {
+    const name = button.dataset.preset as DemoState["look"],
+      preset = presets[name];
+    button.setAttribute(
+      "aria-pressed",
+      String(
+        name === state.look &&
+          state.height === preset.height &&
+          state.curve === preset.curve &&
+          !state.blocked,
+      ),
+    );
+  }
+
   const value = normalizeCurve(state.curve),
     coordinate = value === 0 ? "0" : `-${value}`;
   range.value = String(value);
+  element<HTMLInputElement>("terrace-height").value = String(state.height);
+  element("height-value").textContent = `${state.height} m`;
+  element("height-code").textContent = `"${state.height}"`;
+  element("block-route").hidden = state.blocked;
+  element("repair-route").hidden = !state.blocked;
+  element("low-terrace").setAttribute(
+    "aria-pressed",
+    String(state.height === 3),
+  );
+  element("raise-terrace").setAttribute(
+    "aria-pressed",
+    String(state.height === 5),
+  );
   range.setAttribute(
     "aria-valuetext",
     value === 0 ? "Straight" : `Curve control offset ${value} metres`,
@@ -108,23 +147,26 @@ function drawPlan() {
   }
   const nav = report?.navigation ?? level.navigation;
   if (state.step === 2 && nav) {
-    const overlay = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "path",
-    );
-    let d = "";
-    for (let i = 0; i < nav.indices.length; i += 3) {
-      for (let corner = 0; corner < 3; corner++) {
-        const offset = nav.indices[i + corner] * 3;
-        d += `${corner === 0 ? "M" : "L"}${nav.positions[offset]},${-nav.positions[offset + 1]} `;
-      }
-      d += "Z ";
+    const surface = new NavigationSurface(nav, [2, 2, 0]);
+    for (const connected of [true, false]) {
+      const overlay = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path",
+      );
+      let d = "";
+      surface.triangles.forEach((triangle, index) => {
+        if (surface.reachable.has(index) !== connected) return;
+        triangle.p.forEach((p, k) => {
+          d += `${k ? "L" : "M"}${p[0]},${-p[1]} `;
+        });
+        d += "Z ";
+      });
+      overlay.setAttribute("d", d);
+      overlay.setAttribute("fill", connected ? "#16816e" : "#b93f36");
+      overlay.setAttribute("opacity", "0.65");
+      overlay.setAttribute("pointer-events", "none");
+      svg.append(overlay);
     }
-    overlay.setAttribute("d", d);
-    overlay.setAttribute("fill", "#16816e");
-    overlay.setAttribute("opacity", "0.55");
-    overlay.setAttribute("pointer-events", "none");
-    svg.append(overlay);
   }
 }
 function updateValidation() {
@@ -148,6 +190,33 @@ function updateValidation() {
   element("coverage-result").textContent = nav
     ? String(nav.coverage.uncoveredCount)
     : "—";
+  const route = nav?.routes.find((r) => r.id === "climb");
+  element("route-result").textContent = route
+    ? route.reachable
+      ? "Reachable"
+      : "Unreachable"
+    : "Checking…";
+  element("route-result").className = route
+    ? route.reachable
+      ? "passed"
+      : "failed"
+    : "";
+  element("route-story").textContent =
+    report && !ready
+      ? "Both approaches are closed. The upper terrace is disconnected from the spawn. Restore access to make it reachable again."
+      : "The terrace has two approaches. Close both and see what the validator catches.";
+  const list = element("diagnostic-list");
+  list.replaceChildren();
+  for (const diagnostic of report?.diagnostics ?? []) {
+    const li = document.createElement("li");
+    li.textContent = `${diagnostic.code}: ${diagnostic.message}`;
+    list.append(li);
+  }
+  if (report && !report.diagnostics.length) {
+    const li = document.createElement("li");
+    li.textContent = "No errors or warnings in this compiled example.";
+    list.append(li);
+  }
 }
 function applyStep(step: number, interactive = false) {
   const previous = state.step;
@@ -161,7 +230,7 @@ function applyStep(step: number, interactive = false) {
   });
   element<HTMLButtonElement>("previous").disabled = state.step === 0;
   element("next").innerHTML = [
-    'Make one edit <span aria-hidden="true">→</span>',
+    'Reshape the space <span aria-hidden="true">→</span>',
     'Check the space <span aria-hidden="true">→</span>',
     'Take it with you <span aria-hidden="true">→</span>',
     'Start again <span aria-hidden="true">↺</span>',
@@ -172,6 +241,8 @@ function applyStep(step: number, interactive = false) {
     state.step === 2 ? "Computed navigation" : "The edge you can change";
   element("plan-key-swatch").classList.toggle("navigation", state.step === 2);
   scene?.setNavigation(state.step === 2);
+  if (scene && !scene.isWalking())
+    scene.view(state.step === 0 ? "courtyard" : "overview");
   drawPlan();
   // First advance performs the promised edit. Other chapters preserve the input.
   if (interactive && previous === 0 && state.step === 1 && state.curve === 3)
@@ -208,6 +279,7 @@ function requestBuild(delay = 0) {
   revision += 1;
   ready = false;
   report = undefined;
+  scene?.setBusy(true);
   element("retry").hidden = true;
   element("compile-status").title = "";
   setStatus(
@@ -257,6 +329,9 @@ function requestBuild(delay = 0) {
         playground.dataset.curve = String(state.curve);
         playground.dataset.geometryHash = level.geometryHash;
         playground.dataset.revision = String(id);
+        playground.dataset.height = String(state.height);
+        playground.dataset.blocked = String(state.blocked);
+        scene?.setBusy(false);
         scene?.setLevel(level);
         scene?.setNavigation(state.step === 2);
         drawPlan();
@@ -304,11 +379,19 @@ function changeCurve(value: number) {
   requestBuild(120);
 }
 function reset() {
-  const mustBuild = state.curve !== 3 || !ready;
+  const mustBuild =
+    state.curve !== 3 ||
+    state.height !== 3 ||
+    state.blocked ||
+    state.look !== "clay" ||
+    !ready;
   state.curve = 3;
+  state.height = 3;
+  state.blocked = false;
+  state.look = "clay";
   updateSource();
   applyStep(0);
-  scene?.reset();
+  scene?.view("courtyard");
   if (mustBuild) requestBuild();
 }
 function presentation(value: boolean) {
@@ -321,7 +404,7 @@ function presentation(value: boolean) {
   element("present").setAttribute("aria-pressed", String(value));
   syncUrl();
   window.scrollTo({ top: 0, behavior: "instant" });
-  scene?.reset();
+  scene?.view(state.step === 0 ? "courtyard" : "overview");
 }
 function save(bytes: Uint8Array | string, name: string, mime: string) {
   const data = typeof bytes === "string" ? bytes : new Uint8Array(bytes);
@@ -398,7 +481,9 @@ async function share() {
   url.hash = "playground";
   try {
     await navigator.clipboard.writeText(url.href);
-    notify("Link copied, including your curve and chapter.");
+    notify(
+      "Link copied, including the shape, material, access state, and chapter.",
+    );
   } catch {
     element("share-fallback").hidden = false;
     const input = element<HTMLInputElement>("share-url");
@@ -408,13 +493,18 @@ async function share() {
   }
 }
 function noWebGL() {
+  updateMode("overview");
   scene?.dispose();
   scene = undefined;
   element("webgl-fallback").hidden = false;
+  element("webgl-fallback").classList.add("inline-fallback");
+  document.querySelector(".visual-panel")!.append(element("webgl-fallback"));
   element("loading").hidden = true;
   document.querySelector<HTMLElement>(".camera-tools")!.hidden = true;
-  element("model-hint").textContent = "Use the adjacent floor plan";
+  element("model-hint").textContent = "Use the floor plan";
   element("model").hidden = true;
+  setPreview("plan");
+  updateExports();
 }
 async function prepareOffline() {
   if (import.meta.env.DEV) {
@@ -512,3 +602,121 @@ applyStep(state.step);
 if (state.present) presentation(true);
 requestBuild();
 void prepareOffline();
+
+function changeHeight(value: number) {
+  const height = normalizeHeight(value);
+  if (height === state.height && ready) return;
+  state.height = height;
+  updateSource();
+  syncUrl();
+  requestBuild(120);
+}
+function setBlocked(blocked: boolean) {
+  state.blocked = blocked;
+  updateSource();
+  syncUrl();
+  requestBuild();
+}
+function setPreview(view: "space" | "plan") {
+  if (view === "plan" && scene?.isWalking()) scene.exitWalk();
+  document.querySelector<HTMLElement>(".visual-panel")!.dataset.view = view;
+  element("show-space").setAttribute("aria-pressed", String(view === "space"));
+  element("show-plan").setAttribute("aria-pressed", String(view === "plan"));
+}
+function updateMode(mode: string) {
+  const walk = mode === "walk";
+  document.body.classList.toggle("walking", walk);
+  document.querySelector<HTMLElement>(".walk-hud")!.hidden = !walk;
+  element("view-mode").textContent =
+    mode === "courtyard"
+      ? "Courtyard · eye level"
+      : mode === "terrace"
+        ? "Upper terrace · eye level"
+        : mode === "walk"
+          ? "Inside the level"
+          : "Architectural overview";
+  element("model-hint").textContent = walk
+    ? "WASD / buttons to move · Drag to look · Esc to leave"
+    : "Drag to orbit · Choose a viewpoint";
+  for (const [id, value] of [
+    ["view-courtyard", "courtyard"],
+    ["view-terrace", "terrace"],
+    ["reset-camera", "overview"],
+  ])
+    element(id).setAttribute("aria-pressed", String(mode === value));
+}
+element("model").addEventListener("scene-mode", (event) =>
+  updateMode((event as CustomEvent<string>).detail),
+);
+element("model").addEventListener("tour-change", (event) => {
+  const playing = (event as CustomEvent<boolean>).detail;
+  element("tour").textContent = playing
+    ? "Stop tour ■"
+    : "Take a 12-second tour ▶";
+  element("tour").setAttribute("aria-pressed", String(playing));
+});
+element<HTMLInputElement>("terrace-height").oninput = (event) =>
+  changeHeight(Number((event.target as HTMLInputElement).value));
+element("raise-terrace").onclick = () => changeHeight(5);
+element("low-terrace").onclick = () => changeHeight(3);
+element("block-route").onclick = () => setBlocked(true);
+element("repair-route").onclick = () => setBlocked(false);
+element("enter").onclick = () => {
+  setPreview("space");
+  if (scene?.enterWalk()) window.scrollTo({ top: 0, behavior: "instant" });
+};
+element("exit-walk").onclick = () => scene?.exitWalk();
+element("view-courtyard").onclick = () => scene?.view("courtyard");
+element("view-terrace").onclick = () => scene?.view("terrace");
+element("tour").onclick = () => scene?.tour();
+element("show-plan").onclick = () => setPreview("plan");
+element("show-space").onclick = () => setPreview("space");
+for (const button of document.querySelectorAll<HTMLButtonElement>(
+  "[data-move]",
+)) {
+  const values: Record<string, [number, number]> = {
+    forward: [1, 0],
+    back: [-1, 0],
+    left: [0, -1],
+    right: [0, 1],
+  };
+  const [f, s] = values[button.dataset.move!];
+  button.onpointerdown = (e) => {
+    e.preventDefault();
+    button.setPointerCapture(e.pointerId);
+    scene?.moveInput(f, s);
+  };
+  for (const type of ["pointerup", "pointercancel", "lostpointercapture"])
+    button.addEventListener(type, () => scene?.moveInput(0, 0));
+  button.onkeydown = (e) => {
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      scene?.moveInput(f, s);
+    }
+  };
+  button.onkeyup = () => scene?.moveInput(0, 0);
+  button.onblur = () => scene?.moveInput(0, 0);
+}
+for (const button of document.querySelectorAll<HTMLButtonElement>(
+  "[data-preset]",
+))
+  button.onclick = () => {
+    const look = button.dataset.preset as DemoState["look"];
+    Object.assign(state, {
+      look,
+      curve: look === "chalk" ? 6 : look === "night" ? 0 : 3,
+      height: look === "chalk" ? 5 : look === "night" ? 2 : 3,
+      blocked: false,
+    });
+    document
+      .querySelectorAll("[data-preset]")
+      .forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+    updateSource();
+    applyStep(0);
+    setPreview("space");
+    requestBuild();
+    element("playground").scrollIntoView({
+      behavior: "instant",
+      block: "start",
+    });
+  };

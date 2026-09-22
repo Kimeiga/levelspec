@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level version="2" id="showcase" name="The courtyard" description="A curved courtyard, a branching partition, a ramp, stairs and an upper bridge." units="meters" wall-thickness="0.22" wall-height="3" floor-thickness="0.2" curve-tolerance="0.01">
+<level version="2" id="showcase" name="Terrace pavilion" description="A curved courtyard, a branching partition, a ramp, stairs and an upper bridge." units="meters" wall-thickness="0.22" wall-height="3" floor-thickness="0.2" curve-tolerance="0.01">
   <player radius="0.35" height="1.8" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
   <sky color="#dce8f5" intensity="0.5"/>
-  <material id="default" color="#e1e3df" roughness="0.85" metalness="0"/>
-  <material id="concrete" color="#c6cdc8" repeat="1" roughness="0.85" metalness="0"/>
-  <material id="blue" color="#72968e" repeat="1" roughness="0.65" metalness="0"/>
-  <material id="sand" color="#d5aa8d" repeat="1" roughness="0.8" metalness="0"/>
+  <material id="default" color="#b77c59" roughness="0.85" metalness="0"/>
+  <material id="concrete" color="#dfceb0" repeat="1" roughness="0.85" metalness="0"/>
+  <material id="blue" color="#427b72" repeat="1" roughness="0.65" metalness="0"/>
+  <material id="sand" color="#c0aa86" repeat="1" roughness="0.8" metalness="0"/>
   <layer id="ground" label="Ground and approaches">
     <vertex id="courtyard.v0" x="0" y="0" z="0"/>
     <vertex id="courtyard.v1" x="14" y="0" z="0"/>
@@ -27,24 +27,33 @@
     <vertex id="stairs.v1" x="23" y="6" z="3"/>
     <vertex id="stairs.v2" x="23" y="9" z="3"/>
     <vertex id="stairs.v3" x="14" y="9" z="0"/>
-    <edge id="courtyard.e0" from="courtyard.v0" to="courtyard.v1" kind="wall" control="4 -3; 10 -3"/>
-    <edge id="courtyard.e2" from="courtyard.v2" to="courtyard.v3" kind="wall"/>
-    <edge id="courtyard.e3" from="courtyard.v3" to="courtyard.v0" kind="wall"/>
+    <edge id="courtyard.e0" from="courtyard.v0" to="courtyard.v1" kind="wall" height="1.1" control="4 -3; 10 -3"/>
+    <edge id="courtyard.e2" from="courtyard.v2" to="courtyard.v3" kind="wall" height="4.1">
+      <opening id="courtyard.e2.window0" kind="arch" start="1" end="3" sill="1.1" head="3.5"/>
+      <opening id="courtyard.e2.window1" kind="arch" start="4" end="6" sill="1.1" head="3.5"/>
+      <opening id="courtyard.e2.window2" kind="arch" start="7" end="9" sill="1.1" head="3.5"/>
+      <opening id="courtyard.e2.window3" kind="arch" start="10" end="12" sill="1.1" head="3.5"/>
+    </edge>
+    <edge id="courtyard.e3" from="courtyard.v3" to="courtyard.v0" kind="wall" height="4.1">
+      <opening id="courtyard.e3.window0" kind="arch" start="1" end="3" sill="1.1" head="3.5"/>
+      <opening id="courtyard.e3.window1" kind="arch" start="4" end="6" sill="1.1" head="3.5"/>
+      <opening id="courtyard.e3.window2" kind="arch" start="7" end="9" sill="1.1" head="3.5"/>
+    </edge>
     <edge id="partition" from="courtyard.v3" to="partition.end" kind="wall" height="1.4" material="blue"/>
-    <edge id="well.e0" from="well.v0" to="well.v1" kind="railing" height="0.7"/>
-    <edge id="well.e1" from="well.v1" to="well.v2" kind="railing" height="0.7"/>
-    <edge id="well.e2" from="well.v2" to="well.v3" kind="railing" height="0.7"/>
-    <edge id="well.e3" from="well.v3" to="well.v0" kind="railing" height="0.7"/>
+    <edge id="well.e0" from="well.v0" to="well.v1" kind="railing" height="1.05"/>
+    <edge id="well.e1" from="well.v1" to="well.v2" kind="railing" height="1.05"/>
+    <edge id="well.e2" from="well.v2" to="well.v3" kind="railing" height="1.05"/>
+    <edge id="well.e3" from="well.v3" to="well.v0" kind="railing" height="1.05"/>
     <edge id="east.door" from="courtyard.v1" to="east.a" kind="door"/>
     <edge id="east.wall" from="east.a" to="east.b" kind="wall"/>
     <edge id="east.stairs" from="east.b" to="east.c" kind="open"/>
     <edge id="east.top" from="east.c" to="courtyard.v2" kind="wall"/>
-    <edge id="ramp.e0" from="courtyard.v1" to="ramp.v1" kind="wall"/>
+    <edge id="ramp.e0" from="courtyard.v1" to="ramp.v1" kind="wall" height="1.05"/>
     <edge id="ramp.e1" from="ramp.v1" to="ramp.v2" kind="open"/>
-    <edge id="ramp.e2" from="ramp.v2" to="east.a" kind="wall"/>
-    <edge id="stairs.e0" from="east.b" to="stairs.v1" kind="wall"/>
+    <edge id="ramp.e2" from="ramp.v2" to="east.a" kind="wall" height="1.05"/>
+    <edge id="stairs.e0" from="east.b" to="stairs.v1" kind="wall" height="1.05"/>
     <edge id="stairs.e1" from="stairs.v1" to="stairs.v2" kind="open"/>
-    <edge id="stairs.e2" from="stairs.v2" to="east.c" kind="wall"/>
+    <edge id="stairs.e2" from="stairs.v2" to="east.c" kind="wall" height="1.05"/>
     <region id="courtyard" boundary="courtyard.e0 east.door east.wall east.stairs east.top courtyard.e2 courtyard.e3" fill="floor" material="concrete">
       <hole boundary="well.e0 well.e1 well.e2 well.e3"/>
     </region>
@@ -58,11 +67,14 @@
     <vertex id="bridge.v3" x="23" y="9" z="3"/>
     <vertex id="bridge.v4" x="23" y="6" z="3"/>
     <vertex id="bridge.v5" x="23" y="3" z="3"/>
-    <edge id="bridge.e0" from="bridge.v0" to="bridge.v1" kind="wall"/>
-    <edge id="bridge.e1" from="bridge.v1" to="bridge.v2" kind="wall"/>
-    <edge id="bridge.e2" from="bridge.v2" to="bridge.v3" kind="wall"/>
+    <edge id="bridge.e0" from="bridge.v0" to="bridge.v1" kind="wall" height="1.05"/>
+    <edge id="bridge.e1" from="bridge.v1" to="bridge.v2" kind="wall" height="4.1">
+      <opening id="bridge.e1.window0" kind="arch" start="1" end="3" sill="1.1" head="3.5"/>
+      <opening id="bridge.e1.window1" kind="arch" start="4" end="6" sill="1.1" head="3.5"/>
+    </edge>
+    <edge id="bridge.e2" from="bridge.v2" to="bridge.v3" kind="wall" height="1.05"/>
     <edge id="bridge.e3" from="bridge.v3" to="bridge.v4" kind="open"/>
-    <edge id="bridge.e4" from="bridge.v4" to="bridge.v5" kind="wall"/>
+    <edge id="bridge.e4" from="bridge.v4" to="bridge.v5" kind="wall" height="1.05"/>
     <edge id="bridge.e5" from="bridge.v5" to="bridge.v0" kind="open"/>
     <region id="bridge" boundary="bridge.e0 bridge.e1 bridge.e2 bridge.e3 bridge.e4 bridge.e5" fill="floor" material="concrete"/>
   </layer>

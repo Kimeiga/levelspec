@@ -20,7 +20,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      - run: npm test
+      # All existing tests, with bounded process concurrency for native/WASM memory.
+      - run: node --test --test-concurrency=2 'tests/*.test.ts'
       - run: npm run test:site
       - run: npm run build:viewer
       - run: npm run build:site

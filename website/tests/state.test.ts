@@ -17,13 +17,26 @@ const template = readFileSync(
   "utf8",
 );
 test("URL inputs are bounded, finite and quantized", () => {
-  assert.deepEqual(readState(""), { curve: 3, step: 0, present: false });
+  assert.deepEqual(readState(""), {
+    curve: 3,
+    height: 3,
+    blocked: false,
+    look: "clay",
+    step: 0,
+    present: false,
+  });
   assert.deepEqual(readState("?curve=6&step=2&present=1"), {
+    height: 3,
+    blocked: false,
+    look: "clay",
     curve: 6,
     step: 2,
     present: true,
   });
   assert.deepEqual(readState("?curve=Infinity&step=Infinity&present=true"), {
+    height: 3,
+    blocked: false,
+    look: "clay",
     curve: 3,
     step: 0,
     present: false,
@@ -48,12 +61,22 @@ test("the fixture changes only one attribute", () => {
 test("shared state round-trips without losing the base path", () => {
   const url = writeState(
     new URL("https://example.com/levelspec/?keep=1#playground"),
-    { curve: 6, step: 2, present: false },
+    {
+      curve: 6,
+      height: 3,
+      blocked: false,
+      look: "clay",
+      step: 2,
+      present: false,
+    },
   );
   assert.equal(url.searchParams.get("keep"), "1");
   assert.equal(url.pathname, "/levelspec/");
   assert.equal(url.hash, "#playground");
   assert.deepEqual(readState(url.search), {
+    height: 3,
+    blocked: false,
+    look: "clay",
     curve: 6,
     step: 2,
     present: false,

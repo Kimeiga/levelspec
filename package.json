@@ -26,7 +26,7 @@
     "build:site": "vite build --config vite.website.config.ts",
     "preview:site": "vite preview --config vite.website.config.ts",
     "test:site": "node --test website/tests/*.test.ts",
-    "test:site:browser": "node website/tests/browser.mjs"
+    "test:site:browser": "node website/tests/browser.mjs && node website/tests/experience-browser.mjs"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",
