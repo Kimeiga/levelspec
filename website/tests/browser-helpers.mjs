@@ -50,6 +50,12 @@ export async function testContext(browser, options = {}) {
         true,
       );
   });
+  context.on("page", (page) =>
+    page.on("console", (message) => {
+      if (["warning", "error"].includes(message.type()))
+        console.error("BROWSER_CONSOLE", message.type(), message.text());
+    }),
+  );
   return context;
 }
 
@@ -81,9 +87,9 @@ export async function waitForMovement(page, before, distance) {
 }
 export async function holdKeyUntilMoved(page, key, before, distance) {
   // Geometry readiness precedes asynchronous bake binding and GPU material setup.
-  await waitForVisualReady(page);
-  await page.keyboard.down(key);
   try {
+    await waitForVisualReady(page);
+    await page.keyboard.down(key);
     await waitForMovement(page, before, distance);
   } catch (error) {
     const state = await page.evaluate(() => ({
