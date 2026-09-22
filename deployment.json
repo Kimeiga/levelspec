@@ -1,4 +1,6 @@
 {
-  "source": "c8bc5aefac081bb754b9919de4e3751c08968406",
-  "experience": "Three architectural treatments and persistent first-person walkthrough"
+  "source": "4174fb95a71c53d641715c80c2a2a4c7c1084373",
+  "experience": "Shader rendering and calibrated Cycles preset bakes",
+  "bakedPresets": 3,
+  "samples": 32
 }
