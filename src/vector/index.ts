@@ -27,6 +27,8 @@ export type {
 } from "./export-assets.ts";
 
 export * from "./reference.ts";
+export * from "./reference-raster.ts";
 export * from "./props.ts";
+export * from "./glb.ts";
 export * from "./authoring.ts";
 export { collisionMesh } from "./collision.ts";

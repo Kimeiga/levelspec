@@ -80,11 +80,15 @@ geometry, and applies instance transforms without mutating the resolver's data.
 Solid collision needs closed manifold geometry. Visual-only meshes need not be
 closed. The bounds proxy needs nonzero extent on all axes.
 
-**The file resolver is not included yet.** A `.glb` filename is a reference for
-the host, not a promise that the CLI or viewer can parse that file. The callback
-currently carries geometry only; source asset materials, UVs, skins and animations
-are not imported. The prop uses its declared LevelSpec material. The compiler
-never fetches asset URLs itself.
+LevelSpec includes a concrete GLB geometry resolver. The vector CLI resolves
+relative `.glb` files beside the SVGX automatically, and the workbench accepts
+GLB companion files through **Companions…** or drag-and-drop. The resolver reads
+the default glTF scene, applies node transforms, converts standard glTF Y-up
+coordinates to LevelSpec Z-up metres, and imports triangle POSITION/index data.
+It deliberately does not import source materials, UVs, skins, animations, Draco
+compression or external buffers. The prop uses its declared LevelSpec material.
+The compiler still never fetches asset URLs itself; custom hosts may continue to
+supply their own `resolveAsset` callback.
 
 Physics selection is explicit throughout navigation and line-of-sight checks.
 Visual-only vertices are compacted out before navigation, so a distant skyline
@@ -128,19 +132,32 @@ These numbers measure landmark alignment, not photographic similarity, camera
 calibration quality, or overall reconstruction accuracy. `referenceViewport`
 computes a shared letterbox for a renderer and reference overlay.
 
-**Viewer camera controls and overlay are not integrated yet.** Reference metadata
-round-trips through SVGX, runtime data and export metadata, but saving it does not
-make the current viewer reproduce that camera. Image handling and rendering remain
-host responsibilities in this preview.
+The workbench exposes saved references directly in the Perspective view. Choose a
+reference, use **Use camera** to reproduce its authored perspective, and enable
+**Overlay** after selecting the companion image to letterbox the render and image
+to the same viewport. Overlay mode locks orbit/fly controls so the pixels remain
+registered; disabling it restores inspection controls. The camera button reports
+the current landmark RMS in its tooltip. Open the checked-in acceptance fixture
+with `npm run dev -- --open '?map=rooftop'` or navigate to
+`/?map=rooftop`.
 
-## Verification and remaining acceptance
+## Verification and visual acceptance
 
 The focused regression suite is `node --test tests/vector-reference.test.ts`.
 It covers source round trips, camera projection agreement with Three.js, mask and
-clipping accounting, collision selection, asset resolution/cancellation, stable
-assembly IDs, navigable multi-storey stairs, and rejection of disconnected playable
-floors. Run `npm run check`, `npm test` and `npm run build:viewer` before release.
+clipping accounting, collision selection, GLB parsing/resolution, stable assembly
+IDs, navigable multi-storey stairs, and rejection of disconnected playable floors.
+`tests/vector-glb-cli.test.ts` exercises real relative-file GLB resolution through
+the CLI.
 
-This PR remains a draft until reference-view UI, a concrete asset-file importer,
-and a rooftop example with actual multi-view visual acceptance are integrated.
-No photograph reconstruction or photorealism result is claimed by these tests.
+`examples/rooftop-reference.level.svgx` is the checked-in end-to-end reference
+fixture. It has three saved 640×400 cameras and exact projected landmarks.
+`tests/vector-reference-acceptance.test.ts` recompiles that source, validates
+runtime navigation, software-renders the actual final visible triangle mesh with
+a z-buffer and flat material colors, and pixel-compares all three views against
+the original synthetic goldens in `reference/rooftop/`. Regenerate those assets
+only intentionally with `node tools/vector-rooftop-reference.ts`.
+
+Run `npm run check`, `npm test` and `npm run build:viewer` before release.
+These gates establish deterministic geometry/camera agreement for the synthetic
+fixture; they do not claim automatic photograph reconstruction or photorealism.

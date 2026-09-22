@@ -22,7 +22,8 @@
     "test:vector": "node --test 'tests/vector*.test.ts'",
     "bake:vector": "node tools/vector-bake.ts",
     "migrate:vector": "node tools/vector-migrate.ts",
-    "test:export": "node --test tests/vector-export.test.ts"
+    "test:export": "node --test tests/vector-export.test.ts",
+    "reference:rooftop": "node tools/vector-rooftop-reference.ts"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",

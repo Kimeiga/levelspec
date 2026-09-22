@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import { PerspectiveCamera, Vector3 } from "three";
 import { SceneBuilder, compile, parseLevelSvgx, serializeLevelSvgx, validateForRuntime, toGLB, toOBJ,
   compareReference, projectReference, referenceViewport, pointInMask, validateReference, collisionMesh,
-  boxGeometry, rotateXYZ, generateUVs, type ReferenceView, type V3 } from "../src/vector/index.ts";
+  boxGeometry, rotateXYZ, generateUVs, parseGLBGeometry, createGLBAssetResolver,
+  type ReferenceView, type V3 } from "../src/vector/index.ts";
 import { rayBlocked } from "../src/vector/validate.ts";
 function reference(): ReferenceView {
   return { id:"photo",image:"reference.png",width:1500,height:1000,scale:"assumed",scaleNote:"Approximate storey height of 3 metres.",
@@ -141,6 +142,28 @@ describe("scene props and physics",()=>{
     const {document,group}=fixture();const p=group.box("box",{position:[4,4,0],size:[1,1,1],material:"default",collision:"none"});
     const a=await compile(document);p.collision="solid";const b=await compile(document);
     assert.notEqual(a.geometryHash,b.geometryHash);assert.notEqual(a.navigation!.settings.cacheKey,b.navigation!.settings.cacheKey);
+  });
+  it("loads transformed GLB scene geometry through the built-in resolver",async()=>{
+    const {document,group}=fixture();
+    group.box("crate",{position:[3,4,0],size:[2,1,1.5],rotation:[0,0,20],material:"default",collision:"solid"});
+    const source=await compile(document,{navigation:false});
+    const bytes=toGLB(source),geometry=parseGLBGeometry(bytes);
+    const bounds=(positions:V3[])=>[0,1,2].flatMap((axis)=>[
+      Math.min(...positions.map((p)=>p[axis])),
+      Math.max(...positions.map((p)=>p[axis])),
+    ]);
+    const sourcePositions=Array.from({length:source.mesh.positions.length/3},(_,i)=>
+      source.mesh.positions.slice(i*3,i*3+3) as V3);
+    const actual=bounds(geometry.positions),expected=bounds(sourcePositions);
+    actual.forEach((v,i)=>assert.ok(Math.abs(v-expected[i])<1e-5,`${i}: ${v} vs ${expected[i]}`));
+    const imported=new SceneBuilder("imported"),host=imported.group("host");
+    host.platform("ground",{width:12,depth:12,material:"default"});
+    imported.document.assets=[{id:"scene",src:"scene.glb"}];
+    host.asset("scene","scene",{position:[0,0,0],size:[1,1,1],material:"default",collision:"none"});
+    const level=await compile(imported.document,{navigation:false,
+      resolveAsset:createGLBAssetResolver(async(ref)=>{assert.equal(ref,"scene.glb");return bytes;})});
+    assert.deepEqual(level.diagnostics,[]);assert.ok(level.mesh.indices.length>source.mesh.indices.length);
+    assert.throws(()=>parseGLBGeometry(new Uint8Array([1,2,3])),/too small/);
   });
   it("resolves a shared asset once, preserves transforms and rejects missing or bad geometry",async()=>{
     const {document,group}=fixture();document.assets=[{id:"model",src:"model.glb"}];

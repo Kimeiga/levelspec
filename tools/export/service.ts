@@ -12,6 +12,7 @@ import {
   parseLevelSvgx,
   validateForRuntime,
   resolveExportAssets,
+  createGLBAssetResolver,
 } from "../../src/vector/index.ts";
 import {
   exportLevel,
@@ -75,8 +76,8 @@ async function body(req: IncomingMessage) {
   const chunks: Buffer[] = [];
   for await (const chunk of req) {
     size += chunk.length;
-    if (size > 64 * 1024 * 1024)
-      throw new Error("Export request exceeds 64 MB.");
+    if (size > 192 * 1024 * 1024)
+      throw new Error("Export request exceeds 192 MB.");
     chunks.push(chunk);
   }
   return JSON.parse(Buffer.concat(chunks).toString("utf8"));
@@ -163,8 +164,17 @@ export function vectorExportService(): Plugin {
                     job.progress = line.slice(-2000);
                   },
                 };
-                const level = await compile(parseLevelSvgx(input.source), {
+                const resolveAsset = createGLBAssetResolver(async (ref) => {
+                    const encoded = input.meshAssets?.[ref];
+                    if (typeof encoded !== "string")
+                      throw new Error(
+                        `Select companion GLB "${ref}" in the export dialog.`,
+                      );
+                    return Buffer.from(encoded, "base64");
+                  }),
+                  level = await compile(parseLevelSvgx(input.source), {
                   ...options,
+                  resolveAsset,
                   uvs: Boolean(input.uvs),
                   retainExportSolids: input.formats.includes("bsp"),
                 });

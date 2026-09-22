@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 import { parseArgs } from "node:util";
 import {
   parseLevelSvgx,
@@ -10,6 +10,7 @@ import {
   toSVGPlan,
   atlasSVG,
   exportName,
+  createGLBAssetResolver,
 } from "../src/vector/index.ts";
 import {
   exportLevel,
@@ -47,8 +48,17 @@ if (values.help) {
   const abort = new AbortController();
   process.once("SIGINT", () => abort.abort(new Error("Export cancelled")));
   try {
-    const level = await compile(parseLevelSvgx(await readFile(file, "utf8")), {
+    const sourceFile = resolve(file),
+      sourceDir = dirname(sourceFile),
+      resolveAsset = createGLBAssetResolver(async (reference, signal) => {
+        signal?.throwIfAborted();
+        if (/^[a-z]+:/i.test(reference))
+          throw new Error("GLB assets must be local files, not URLs.");
+        return readFile(resolve(sourceDir, reference));
+      }),
+      level = await compile(parseLevelSvgx(await readFile(sourceFile, "utf8")), {
       signal: abort.signal,
+      resolveAsset,
       retainExportSolids: formats.includes("bsp"),
       uvs: !values["no-uv"],
       floorGaps: values["strict-floor-gaps"] ? "error" : "warning",
@@ -78,7 +88,7 @@ if (values.help) {
     const result = await exportLevel(level, {
       formats,
       output: resolve(values.out ?? "generated/vector"),
-      sourceFile: file,
+      sourceFile,
       additionalFiles,
       signal: abort.signal,
       onProgress: console.log,
