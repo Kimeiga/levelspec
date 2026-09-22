@@ -1,3 +1,8 @@
+import { materialURLs } from "./materials.ts";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { GTAOPass } from "three/addons/postprocessing/GTAOPass.js";
+import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import { overviewFrame } from "./framing.ts";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -7,6 +12,10 @@ type View = "courtyard" | "terrace" | "overview";
 /** One GPU scene. Walk positions are constrained to compiler-derived navigation. */
 export class LevelScene {
   private renderer: THREE.WebGLRenderer;
+  private composer: EffectComposer;
+  private ao: GTAOPass;
+  private textureBank = new Map<string, THREE.Texture>();
+  private output: OutputPass;
   private scene = new THREE.Scene();
   private camera = new THREE.PerspectiveCamera(56, 1, 0.05, 240);
   private controls: OrbitControls;
@@ -54,12 +63,60 @@ export class LevelScene {
     this.renderer.toneMappingExposure = 1.05;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.composer = new EffectComposer(
+      this.renderer,
+      new THREE.WebGLRenderTarget(1, 1, {
+        type: THREE.HalfFloatType,
+        samples: 4,
+      }),
+    );
+    this.composer.addPass(new RenderPass(this.scene, this.camera));
+    this.ao = new GTAOPass(this.scene, this.camera, 512, 512);
+    this.ao.updateGtaoMaterial({
+      radius: 1.05,
+      distanceExponent: 1,
+      thickness: 1,
+      samples: 12,
+    });
+    this.ao.updatePdMaterial({ radius: 4, samples: 8 });
+    this.ao.blendIntensity = 0.75;
+    this.composer.addPass(this.ao);
+    this.output = new OutputPass();
+    this.composer.addPass(this.output);
+    this.host.dataset.textures = "loading";
+    const loader = new THREE.TextureLoader();
+    Promise.all(
+      Object.entries(materialURLs).map(async ([ref, url]) => {
+        const texture = await loader.loadAsync(url);
+        if (this.abort.signal.aborted) {
+          texture.dispose();
+          return;
+        }
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.anisotropy = Math.min(
+          8,
+          this.renderer.capabilities.getMaxAnisotropy(),
+        );
+        this.textureBank.set(ref, texture);
+      }),
+    )
+      .then(() => {
+        if (!this.abort.signal.aborted) {
+          this.host.dataset.textures = "ready";
+          this.renderLevel();
+        }
+      })
+      .catch(() => {
+        this.host.dataset.textures = "error";
+        this.dirty = true;
+      });
     const canvas = this.renderer.domElement;
     canvas.tabIndex = 0;
     canvas.setAttribute("role", "img");
     canvas.setAttribute(
       "aria-label",
-      "Interactive pavilion. Drag to look around. Enter the level for WASD or on-screen walking. Escape leaves walking.",
+      "Interactive Lantern Court. Drag to look around. Enter the level for WASD or on-screen walking. Escape leaves walking.",
     );
     canvas.addEventListener(
       "webglcontextlost",
@@ -74,19 +131,19 @@ export class LevelScene {
     this.scene.background = new THREE.Color("#c9d6ce");
     this.scene.fog = new THREE.Fog("#c9d6ce", 65, 155);
     this.scene.add(this.model, this.overlays);
-    const sky = new THREE.HemisphereLight("#fff6e4", "#8d7961", 1.8);
+    const sky = new THREE.HemisphereLight("#dcecff", "#ac8e6a", 1.15);
     sky.position.set(0, 0, 40);
     this.scene.add(sky);
     const sun = new THREE.DirectionalLight("#fff4db", 2.8);
-    sun.position.set(-7, -16, 26);
+    sun.position.set(-18, -24, 28);
     sun.target.position.set(13, 4, 0);
     sun.castShadow = true;
     sun.shadow.mapSize.set(2048, 2048);
     Object.assign(sun.shadow.camera, {
-      left: -32,
-      right: 32,
-      top: 25,
-      bottom: -25,
+      left: -42,
+      right: 42,
+      top: 38,
+      bottom: -38,
       near: 1,
       far: 90,
     });
@@ -250,6 +307,12 @@ export class LevelScene {
     const { width, height } = this.host.getBoundingClientRect();
     if (!width || !height) return;
     this.renderer.setSize(width, height, false);
+    this.composer.setSize(width, height);
+    const scale = Math.min(1, 800 / Math.max(width, height));
+    this.ao.setSize(
+      Math.max(1, Math.round(width * scale)),
+      Math.max(1, Math.round(height * scale)),
+    );
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     if (this.currentView === "overview" && !this.walking) this.overviewPose();
@@ -282,8 +345,11 @@ export class LevelScene {
     this.controls.enabled = true;
     if (view === "overview") this.overviewPose();
     else if (view === "terrace")
-      this.pose([25, 7.4, this.height() + 1.65], [8, 3, 1.1]);
-    else this.pose([2, 1, 1.65], [19, 7, 1.5]);
+      this.pose(
+        [25.5, 7.4, this.height() + 1.65],
+        [3, 12, this.height() * 0.6],
+      );
+    else this.pose([1.7, 0.7, 1.7], [15, 11, 3.2]);
     this.host.dataset.mode = view;
     this.host.dispatchEvent(new CustomEvent("scene-mode", { detail: view }));
     this.resize();
@@ -417,7 +483,7 @@ export class LevelScene {
       }
     }
     if (this.dirty) {
-      this.renderer.render(this.scene, this.camera);
+      this.composer.render();
       this.dirty = false;
     }
   }
@@ -441,6 +507,7 @@ export class LevelScene {
   setNavigation(value: boolean) {
     if (this.navigation === value) return;
     this.navigation = value;
+    this.ao.enabled = !value;
     this.renderLevel();
   }
   private ownGeometry<T extends THREE.BufferGeometry>(g: T): T {
@@ -460,6 +527,7 @@ export class LevelScene {
       {
         positions: number[];
         normals: number[];
+        uv: number[];
         wall: boolean;
         material: string;
         gate: boolean;
@@ -467,18 +535,26 @@ export class LevelScene {
     >();
     for (let t = 0; t < mesh.surfaces.length; t++) {
       const s = surfaces[mesh.surfaces[t]],
-        wall = s.kind === "wall",
+        wall = s.kind === "wall" || s.kind === "ceiling" || s.role === "roof",
         gate = s.object === "east.door" || s.object === "east.stairs",
         key = `${s.material}:${wall}:${gate}`;
       let part = groups.get(key);
       if (!part) {
-        part = { positions: [], normals: [], wall, material: s.material, gate };
+        part = {
+          positions: [],
+          normals: [],
+          uv: [],
+          wall,
+          material: s.material,
+          gate,
+        };
         groups.set(key, part);
       }
       for (let j = 0; j < 3; j++) {
         const i = mesh.indices[t * 3 + j];
         part.positions.push(...mesh.positions.slice(i * 3, i * 3 + 3));
         part.normals.push(...mesh.normals.slice(i * 3, i * 3 + 3));
+        part.uv.push(...mesh.uv.slice(i * 2, i * 2 + 2));
       }
     }
     for (const part of groups.values()) {
@@ -492,10 +568,12 @@ export class LevelScene {
         "normal",
         new THREE.Float32BufferAttribute(part.normals, 3),
       );
+      g.setAttribute("uv", new THREE.Float32BufferAttribute(part.uv, 2));
       const faded = this.navigation && part.wall && !part.gate;
       const m = this.ownMaterial(
         new THREE.MeshStandardMaterial({
-          color: def?.color ?? "#b77c59",
+          color: def?.color ?? "#c6ac89",
+          map: def?.texture ? this.textureBank.get(def.texture) : undefined,
           roughness: def?.roughness ?? 0.85,
           metalness: def?.metalness ?? 0,
           transparent: faded,
@@ -592,6 +670,10 @@ export class LevelScene {
     (this.ground.material as THREE.Material).dispose();
     for (const object of this.scene.children)
       if (object instanceof THREE.DirectionalLight) object.shadow.dispose();
+    this.ao.dispose();
+    this.output.dispose();
+    this.composer.dispose();
+    for (const t of this.textureBank.values()) t.dispose();
     this.renderer.dispose();
     this.renderer.domElement.remove();
   }

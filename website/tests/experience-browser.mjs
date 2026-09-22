@@ -100,7 +100,7 @@ try {
       );
       assert.equal(
         await page.locator("#regions-result").textContent(),
-        "1 / 4",
+        "7 / 15",
       );
       assert.ok(
         (await page.locator("#diagnostic-list").textContent()).includes(
@@ -129,7 +129,7 @@ try {
     async () => {
       for (const [name, height, curve] of [
         ["chalk", "5", "6"],
-        ["night", "2", "0"],
+        ["night", "3.5", "0"],
         ["clay", "3", "3"],
       ]) {
         await page.locator(`[data-preset="${name}"]`).click();

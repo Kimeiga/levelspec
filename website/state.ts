@@ -1,3 +1,4 @@
+import { buildCourtyard } from "./architecture.ts";
 /** Bounded, shareable demo inputs. These never execute visitor-supplied code. */
 export interface DemoState {
   curve: number;
@@ -66,51 +67,17 @@ export function writeState(url: URL, state: DemoState): URL {
 
 export function normalizeHeight(value: number): number {
   return Number.isFinite(value)
-    ? Math.round(Math.max(2, Math.min(5, value)) * 2) / 2
+    ? Math.round(Math.max(3, Math.min(6, value)) * 2) / 2
     : 3;
 }
 /** Raise shared vertices together. Stairs and ramp are rebuilt by LevelSpec. */
-export function sourceForState(template: string, state: DemoState): string {
-  const height = normalizeHeight(state.height);
-  let source = sourceForCurve(template, state.curve);
-  const ids = [
-    "ramp.v1",
-    "ramp.v2",
-    "stairs.v1",
-    "stairs.v2",
-    ...Array.from({ length: 6 }, (_, i) => `bridge.v${i}`),
-  ];
-  source = source
-    .split("\n")
-    .map((line) =>
-      ids.some((id) => line.includes(`id="${id}"`))
-        ? line.replace('z="3"', `z="${height}"`)
-        : line,
-    )
-    .join("\n");
-  source = source.replace('position="25 5 3"', `position="25 5 ${height}"`);
-  if (state.blocked) {
-    source = source
-      .split("\n")
-      .map((line) => {
-        if (line.includes('id="east.door"'))
-          return line.replace('kind="door"', 'kind="wall"');
-        if (line.includes('id="east.stairs"'))
-          return line.replace('kind="open"', 'kind="wall"');
-        return line;
-      })
-      .join("\n");
-  }
-  const palettes = {
-    clay: ["#b77c59", "#dfceb0", "#427b72", "#c0aa86"],
-    chalk: ["#b9c5c0", "#e8e0cb", "#748e9c", "#c4b398"],
-    night: ["#596773", "#b7b8a8", "#bd794f", "#7d9694"],
-  };
-  palettes.clay.forEach((color, i) => {
-    source = source.replace(
-      `color="${color}"`,
-      `color="${palettes[state.look][i]}"`,
-    );
-  });
-  return source;
+export function sourceForState(state: DemoState): string {
+  return sourceForCurve(
+    buildCourtyard({
+      height: normalizeHeight(state.height),
+      blocked: state.blocked,
+      look: state.look,
+    }),
+    state.curve,
+  );
 }

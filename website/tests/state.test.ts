@@ -99,7 +99,7 @@ test("all 25 slider positions pass unchanged runtime validation", async () => {
         (sum, layer) => sum + layer.regions.length,
         0,
       ),
-      4,
+      15,
     );
   }
 });

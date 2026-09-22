@@ -21,7 +21,7 @@ const template = readFileSync(
 const build = async (height: number, curve = 3, blocked = false) =>
   compile(
     parseLevelSvgx(
-      sourceForState(template, { ...readState(""), height, curve, blocked }),
+      sourceForState({ ...readState(""), height, curve, blocked }),
     ),
   );
 test("height, access, material and presentation state survive a shared link", () => {
@@ -35,13 +35,13 @@ test("height, access, material and presentation state survive a shared link", ()
     state,
   );
   assert.equal(normalizeHeight(NaN), 3);
-  assert.equal(normalizeHeight(200), 5);
-  assert.equal(normalizeHeight(-20), 2);
+  assert.equal(normalizeHeight(200), 6);
+  assert.equal(normalizeHeight(-20), 3);
   assert.equal(readState("?look=toString&height=Infinity").look, "clay");
   assert.equal(readState("?height=Infinity").height, 3);
 });
 test("all 175 curve/elevation combinations pass the unchanged runtime validator", async () => {
-  for (let height = 2; height <= 5; height += 0.5)
+  for (let height = 3; height <= 6; height += 0.5)
     for (let curve = 0; curve <= 6; curve += 0.25) {
       const level = await build(height, curve);
       const result = await validateForRuntime(level, { sealed: true });
@@ -51,8 +51,17 @@ test("all 175 curve/elevation combinations pass the unchanged runtime validator"
         JSON.stringify({ height, curve, diagnostics: result.diagnostics }),
       );
       assert.equal(result.diagnostics.length, 0);
-      for (const vertex of level.document.layers[1].vertices)
-        assert.equal(vertex.z, height);
+      for (const floor of level.floors.filter((f) =>
+        [
+          "bridge",
+          "skybridge",
+          "west-balcony",
+          "north-balcony",
+          "studio",
+          "library",
+        ].includes(f.region),
+      ))
+        for (const p of floor.points) assert.equal(p[2], height);
       assert.equal(
         level.document.markers.find((m) => m.id === "objective")!.position[2],
         height,
@@ -60,7 +69,7 @@ test("all 175 curve/elevation combinations pass the unchanged runtime validator"
     }
 });
 test("closing both approaches really disconnects the terrace; repairing restores it", async () => {
-  for (const height of [2, 3, 5]) {
+  for (const height of [3, 4.5, 6]) {
     const broken = await build(height, 6, true);
     const bad = await validateForRuntime(broken, { sealed: true });
     assert.equal(bad.passed, false);
@@ -79,12 +88,12 @@ test("closing both approaches really disconnects the terrace; repairing restores
   }
 });
 test("walking stops at walls and the light well, climbs stairs, and reaches the terrace", async () => {
-  for (const height of [2, 3, 5]) {
+  for (const height of [3, 4.5, 6]) {
     const level = await build(height);
     const nav = new NavigationSurface(level.navigation!, [2, 2, 0]);
     let p = nav.locate([2, 2, 0])!.point;
-    const west = nav.move(p, -10, 0);
-    assert.ok(west[0] > 0.35 && west[0] < 0.8);
+    const front = nav.move(p, 0, -10);
+    assert.ok(front[1] > -3 && front[1] < 0, JSON.stringify(front));
     const well = nav.move([6, 2, p[2]], 0, 5);
     assert.ok(well[1] < 4);
     p = nav.move(p, 9, 0);
@@ -102,10 +111,10 @@ test("three spatial variations all retain usable geometry and navigation", async
   for (const look of ["clay", "chalk", "night"] as const) {
     const l = await compile(
       parseLevelSvgx(
-        sourceForState(template, {
+        sourceForState({
           ...readState(""),
           look,
-          height: look === "chalk" ? 5 : look === "night" ? 2 : 3,
+          height: look === "chalk" ? 5 : look === "night" ? 3.5 : 3,
           curve: look === "chalk" ? 6 : look === "night" ? 0 : 3,
         }),
       ),
