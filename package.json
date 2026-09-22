@@ -26,7 +26,10 @@
     "build:site": "vite build --config vite.website.config.ts",
     "preview:site": "vite preview --config vite.website.config.ts",
     "test:site": "node --test --test-concurrency=2 website/tests/*.test.ts",
-    "test:site:browser": "node website/tests/browser.mjs && node website/tests/experience-browser.mjs && node website/tests/walk-stability-browser.mjs"
+    "test:site:browser": "node website/tests/browser.mjs && node website/tests/experience-browser.mjs && node website/tests/walk-stability-browser.mjs && node website/tests/graphics-browser.mjs",
+    "bake:site": "node tools/site-bake.ts",
+    "package:site-bakes": "node tools/site-package-bakes.ts",
+    "generate:site-material-detail": "node tools/site-material-detail.ts"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",

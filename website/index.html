@@ -374,6 +374,36 @@
             </div>
           </aside>
         </div>
+        <div class="graphics-bar">
+          <span id="bake-status" role="status"
+            >Live lighting · checking preset bake</span
+          >
+          <details>
+            <summary>Appearance</summary>
+            <div class="graphics-options">
+              <label for="graphics-quality"
+                >Graphics
+                <select id="graphics-quality">
+                  <option value="enhanced">Enhanced</option>
+                  <option value="basic">Basic</option>
+                </select></label
+              >
+              <label
+                ><input type="checkbox" id="bake-toggle" checked disabled />
+                Baked indirect light</label
+              >
+              <label
+                ><input type="checkbox" id="animate-effects" /> Water and edit
+                animation</label
+              >
+              <p>
+                Presets use calibrated baked sky and bounce. Changed geometry
+                uses live lighting until it matches a baked preset. Water,
+                surface detail and bloom are viewer effects.
+              </p>
+            </div>
+          </details>
+        </div>
         <div class="demo-bottom">
           <span>Real compilation. On your device. No account.</span
           ><span id="offline-status">Preparing offline demo…</span>

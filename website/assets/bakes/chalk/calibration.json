@@ -1,0 +1,144 @@
+{
+  "blenderVersion": "4.5.9 LTS",
+  "device": "CPU",
+  "threads": 4,
+  "exr": {
+    "rgb": [
+      0.0,
+      0.003000000026077032,
+      0.125,
+      0.5,
+      1.0,
+      2.0,
+      8.0
+    ],
+    "alpha": [
+      0.0,
+      0.0010000000474974513,
+      0.125,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "cases": [
+      {
+        "view": "Standard",
+        "exposure": 0,
+        "gamma": 1,
+        "loadColorSpace": "Linear Rec.709",
+        "maximumRgbError": 0.0,
+        "maximumAlphaError": 0.0
+      },
+      {
+        "view": "Standard",
+        "exposure": 0,
+        "gamma": 1,
+        "loadColorSpace": "Non-Color",
+        "maximumRgbError": 0.0,
+        "maximumAlphaError": 0.0
+      },
+      {
+        "view": "AgX",
+        "exposure": 2.25,
+        "gamma": 1.7,
+        "loadColorSpace": "Linear Rec.709",
+        "maximumRgbError": 0.0,
+        "maximumAlphaError": 0.0
+      },
+      {
+        "view": "AgX",
+        "exposure": 2.25,
+        "gamma": 1.7,
+        "loadColorSpace": "Non-Color",
+        "maximumRgbError": 0.0,
+        "maximumAlphaError": 0.0
+      }
+    ],
+    "packedReloadMaximumError": 0.0,
+    "renderSettingsRestored": true,
+    "sourceBufferUnchanged": true,
+    "channels": "FLOAT RGBA"
+  },
+  "calibration": {
+    "basis": "Color-disabled diffuse stores E/pi in this tested Cycles version",
+    "irradianceDecodeMultiplier": 3.141592653589793,
+    "unitSky": {
+      "mean": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "maximum": 1.0,
+      "coveredPixels": 1024,
+      "seconds": 0.014506083003652748,
+      "samples": 64,
+      "size": 32,
+      "filters": [
+        "DIRECT",
+        "INDIRECT"
+      ]
+    },
+    "coloredReceiverSky": {
+      "mean": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "maximum": 1.0000001192092896,
+      "coveredPixels": 1024,
+      "seconds": 0.006480374999227934,
+      "samples": 64,
+      "size": 32,
+      "filters": [
+        "DIRECT",
+        "INDIRECT"
+      ]
+    },
+    "unitSun": {
+      "mean": [
+        0.31830957531929016,
+        0.31830957531929016,
+        0.31830957531929016
+      ],
+      "maximum": 0.31830981373786926,
+      "coveredPixels": 1024,
+      "seconds": 0.010545625002123415,
+      "samples": 64,
+      "size": 32,
+      "filters": [
+        "DIRECT"
+      ]
+    },
+    "isolatedSunIndirect": {
+      "mean": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum": 0.0,
+      "coveredPixels": 1024,
+      "seconds": 0.0025014999991981313,
+      "samples": 16,
+      "size": 32,
+      "filters": [
+        "INDIRECT"
+      ]
+    },
+    "redWallSkyIndirect": {
+      "mean": [
+        0.15637823939323425,
+        0.011076889000833035,
+        0.003680557943880558
+      ],
+      "maximum": 0.39177045226097107,
+      "coveredPixels": 1024,
+      "seconds": 0.012905625000712462,
+      "samples": 128,
+      "size": 32,
+      "filters": [
+        "INDIRECT"
+      ]
+    }
+  }
+}
