@@ -19,8 +19,39 @@ export async function launchBrowser() {
   });
 }
 /** Workflow/screenshots start still. The graphics suite explicitly tests animation. */
-export const testContext = (browser, options = {}) =>
-  browser.newContext({ reducedMotion: "reduce", ...options });
+export async function testContext(browser, options = {}) {
+  const context = await browser.newContext({
+    reducedMotion: "reduce",
+    ...options,
+  });
+  await context.addInitScript(() => {
+    window.__walkEvents = [];
+    for (const type of [
+      "keydown",
+      "keyup",
+      "blur",
+      "focus",
+      "visibilitychange",
+      "pointerlockchange",
+    ])
+      window.addEventListener(
+        type,
+        (event) => {
+          window.__walkEvents.push({
+            type,
+            key: event.key,
+            time: performance.now(),
+            hidden: document.hidden,
+            active: document.activeElement?.id,
+            mode: document.querySelector("#model")?.dataset.mode,
+          });
+          if (window.__walkEvents.length > 40) window.__walkEvents.shift();
+        },
+        true,
+      );
+  });
+  return context;
+}
 
 export async function waitForFrames(page, count = 2) {
   await page.evaluate(
@@ -49,9 +80,23 @@ export async function waitForMovement(page, before, distance) {
   );
 }
 export async function holdKeyUntilMoved(page, key, before, distance) {
+  // Geometry readiness precedes asynchronous bake binding and GPU material setup.
+  await waitForVisualReady(page);
   await page.keyboard.down(key);
   try {
     await waitForMovement(page, before, distance);
+  } catch (error) {
+    const state = await page.evaluate(() => ({
+      model: { ...document.querySelector("#model")?.dataset },
+      hidden: document.hidden,
+      active: document.activeElement?.outerHTML.slice(0, 200),
+      events: window.__walkEvents,
+    }));
+    console.error(
+      "WALK_FAILURE",
+      JSON.stringify({ before, distance, ...state }),
+    );
+    throw error;
   } finally {
     await page.keyboard.up(key);
   }
