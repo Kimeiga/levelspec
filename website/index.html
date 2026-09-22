@@ -71,6 +71,13 @@
             >
           </div>
           <div class="demo-actions">
+            <label class="style-picker"
+              ><select id="style-select" aria-label="Architectural style">
+                <option value="clay">Lantern Court</option>
+                <option value="chalk">Chalk Cloister</option>
+                <option value="night">Slate Atelier</option>
+              </select></label
+            >
             <button id="reset" class="text-button">Reset</button
             ><button id="share" class="text-button">Copy link ↗</button
             ><button id="exit-present" class="text-button" hidden>
@@ -121,9 +128,12 @@
                 </div>
                 <div class="walk-hud" hidden>
                   <span class="crosshair" aria-hidden="true">+</span>
-                  <div class="walk-label">NAVIGATION-CONSTRAINED WALK</div>
+                  <div class="walk-label">FIRST-PERSON WALKTHROUGH</div>
                   <button id="exit-walk" class="button small">
                     Exit walk · Esc
+                  </button>
+                  <button id="capture-mouse" class="button small">
+                    Capture mouse
                   </button>
                   <div class="dpad" aria-label="Walking controls">
                     <button data-move="forward" aria-label="Walk forward">
@@ -162,7 +172,8 @@
               </section>
               <div class="view-switch" aria-label="Preview view">
                 <button id="show-space" aria-pressed="true">3D space</button
-                ><button id="show-plan" aria-pressed="false">Floor plan</button>
+                ><button id="show-plan" aria-pressed="false">Floor plan</button
+                ><button id="walk-anywhere" disabled>Walk in 3D ↗</button>
               </div>
             </div>
             <div class="compiler-bar">
@@ -381,21 +392,28 @@
         <div>
           <div class="eyebrow">Keep exploring</div>
           <h2 id="variations-title">Same rules. Different places.</h2>
-          <p>Three authored parameter sets. Each rebuilds the actual model.</p>
+          <p>
+            Three architectural treatments. Different materials, rooflines,
+            details, and light.
+          </p>
         </div>
         <div class="preset-list">
           <button data-preset="clay" class="preset" aria-pressed="true">
             <span class="preset-shape clay" aria-hidden="true">01</span
             ><strong>Lantern Court</strong
-            ><span>Warm clay · 3 m terrace · curved court</span></button
+            ><span
+              >Travertine · cedar canopy · warm afternoon light</span
+            ></button
           ><button data-preset="chalk" class="preset" aria-pressed="false">
             <span class="preset-shape chalk" aria-hidden="true">02</span
-            ><strong>Stone archive</strong
-            ><span>Pale stone · 5 m terrace · deep court</span></button
+            ><strong>Chalk Cloister</strong
+            ><span
+              >White arches · cobalt ceramic · terracotta roofs</span
+            ></button
           ><button data-preset="night" class="preset" aria-pressed="false">
             <span class="preset-shape night" aria-hidden="true">03</span
             ><strong>Slate atelier</strong
-            ><span>Slate · 3.5 m terrace · straight edge</span>
+            ><span>Basalt · brushed steel · copper-lit workshop</span>
           </button>
         </div>
       </section>

@@ -25,8 +25,8 @@
     "dev:site": "vite --config vite.website.config.ts",
     "build:site": "vite build --config vite.website.config.ts",
     "preview:site": "vite preview --config vite.website.config.ts",
-    "test:site": "node --test website/tests/*.test.ts",
-    "test:site:browser": "node website/tests/browser.mjs && node website/tests/experience-browser.mjs"
+    "test:site": "node --test --test-concurrency=2 website/tests/*.test.ts",
+    "test:site:browser": "node website/tests/browser.mjs && node website/tests/experience-browser.mjs && node website/tests/walk-stability-browser.mjs"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",

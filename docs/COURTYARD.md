@@ -1,5 +1,7 @@
 # Lantern Court
 
+This document describes the original courtyard release. The current rendering, textures, architectural styles and walking behavior are specified in [THREE-WORLDS.md](THREE-WORLDS.md); notably, the old screen-space ambient-occlusion pass has been removed.
+
 The featured environment is authored in `website/architecture.ts`. It emits SVGX for the same compiler and validator used by the workbench. `website/demo.level.svgx` is a default-state snapshot.
 
 The court has 15 declared floor regions across two storeys: a central court, two approaches, covered arcades, an entrance passage, reading and exhibition rooms, upper galleries, a skybridge, and studio/library rooms. Coping, cornices, columns, handrails, roof ribs, shelves, artwork and a bench are named source objects, not geometry invented by the viewer.

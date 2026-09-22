@@ -1,8 +1,7 @@
+import { makeEnvironment } from "./environment.ts";
+import { treatments } from "./world-styles.ts";
+import { bindWalkInput } from "./walk-input.ts";
 import { materialURLs } from "./materials.ts";
-import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
-import { GTAOPass } from "three/addons/postprocessing/GTAOPass.js";
-import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import { overviewFrame } from "./framing.ts";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -12,12 +11,12 @@ type View = "courtyard" | "terrace" | "overview";
 /** One GPU scene. Walk positions are constrained to compiler-derived navigation. */
 export class LevelScene {
   private renderer: THREE.WebGLRenderer;
-  private composer: EffectComposer;
-  private ao: GTAOPass;
+  private environment?: THREE.WebGLRenderTarget;
+  private environmentStyle = "";
+  private renderedFrames = 0;
   private textureBank = new Map<string, THREE.Texture>();
-  private output: OutputPass;
   private scene = new THREE.Scene();
-  private camera = new THREE.PerspectiveCamera(56, 1, 0.05, 240);
+  private camera = new THREE.PerspectiveCamera(64, 1, 0.12, 160);
   private controls: OrbitControls;
   private model = new THREE.Group();
   private overlays = new THREE.Group();
@@ -43,6 +42,9 @@ export class LevelScene {
   private size: ResizeObserver;
   private visibility: IntersectionObserver;
   private ground: THREE.Mesh;
+  private walkInput?: ReturnType<typeof bindWalkInput>;
+  private savedWalk?: { point: V3; yaw: number; pitch: number };
+  private accentLights = new THREE.Group();
   constructor(
     private host: HTMLElement,
     onFailure: () => void,
@@ -62,27 +64,9 @@ export class LevelScene {
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.05;
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    this.composer = new EffectComposer(
-      this.renderer,
-      new THREE.WebGLRenderTarget(1, 1, {
-        type: THREE.HalfFloatType,
-        samples: 4,
-      }),
-    );
-    this.composer.addPass(new RenderPass(this.scene, this.camera));
-    this.ao = new GTAOPass(this.scene, this.camera, 512, 512);
-    this.ao.updateGtaoMaterial({
-      radius: 1.05,
-      distanceExponent: 1,
-      thickness: 1,
-      samples: 12,
-    });
-    this.ao.updatePdMaterial({ radius: 4, samples: 8 });
-    this.ao.blendIntensity = 0.75;
-    this.composer.addPass(this.ao);
-    this.output = new OutputPass();
-    this.composer.addPass(this.output);
+    this.renderer.shadowMap.type = THREE.PCFShadowMap;
+    // A single MSAA forward pass. No low-resolution screen-space AO that crawls during motion.
+    this.renderer.shadowMap.autoUpdate = false;
     this.host.dataset.textures = "loading";
     const loader = new THREE.TextureLoader();
     Promise.all(
@@ -130,7 +114,7 @@ export class LevelScene {
     this.camera.up.set(0, 0, 1);
     this.scene.background = new THREE.Color("#c9d6ce");
     this.scene.fog = new THREE.Fog("#c9d6ce", 65, 155);
-    this.scene.add(this.model, this.overlays);
+    this.scene.add(this.model, this.overlays, this.accentLights);
     const sky = new THREE.HemisphereLight("#dcecff", "#ac8e6a", 1.15);
     sky.position.set(0, 0, 40);
     this.scene.add(sky);
@@ -138,7 +122,7 @@ export class LevelScene {
     sun.position.set(-18, -24, 28);
     sun.target.position.set(13, 4, 0);
     sun.castShadow = true;
-    sun.shadow.mapSize.set(2048, 2048);
+    sun.shadow.mapSize.set(3072, 3072);
     Object.assign(sun.shadow.camera, {
       left: -42,
       right: 42,
@@ -147,7 +131,7 @@ export class LevelScene {
       near: 1,
       far: 90,
     });
-    sun.shadow.normalBias = 0.018;
+    sun.shadow.normalBias = 0.04;
     sun.shadow.bias = -0.00005;
     this.scene.add(sun, sun.target);
     this.ground = new THREE.Mesh(
@@ -202,117 +186,61 @@ export class LevelScene {
     this.view("courtyard");
   }
   private bindInput(canvas: HTMLCanvasElement) {
-    const signal = this.abort.signal;
-    let pointer: number | undefined,
-      lastX = 0,
-      lastY = 0;
-    canvas.addEventListener(
-      "pointerdown",
-      (e) => {
-        if (!this.walking) return;
-        pointer = e.pointerId;
-        lastX = e.clientX;
-        lastY = e.clientY;
-        canvas.setPointerCapture(e.pointerId);
-        canvas.focus({ preventScroll: true });
-      },
-      { signal },
-    );
-    canvas.addEventListener(
-      "pointermove",
-      (e) => {
-        if (!this.walking || pointer !== e.pointerId) return;
-        this.yaw -= (e.clientX - lastX) * 0.004;
-        this.pitch = THREE.MathUtils.clamp(
-          this.pitch - (e.clientY - lastY) * 0.004,
-          -1.1,
-          1.1,
-        );
-        lastX = e.clientX;
-        lastY = e.clientY;
-        this.updateEyes();
-      },
-      { signal },
-    );
-    for (const type of ["pointerup", "pointercancel", "lostpointercapture"])
-      canvas.addEventListener(
-        type,
-        () => {
-          pointer = undefined;
+    this.walkInput = bindWalkInput(
+      canvas,
+      {
+        walking: () => this.walking,
+        look: (dx, dy) => {
+          this.yaw -= dx * 0.003;
+          this.pitch = THREE.MathUtils.clamp(
+            this.pitch - dy * 0.003,
+            -1.1,
+            1.1,
+          );
+          this.updateEyes();
         },
-        { signal },
-      );
-    window.addEventListener(
+        key: (key, down) => {
+          if (down) this.keys.add(key);
+          else this.keys.delete(key);
+        },
+        clear: () => {
+          this.keys.clear();
+          this.touch = { forward: 0, side: 0 };
+        },
+        exit: () => this.exitWalk(),
+        mouseMode: (captured) => {
+          this.host.dataset.mouse = captured ? "captured" : "drag";
+          this.host.dispatchEvent(
+            new CustomEvent("mouse-mode", { detail: captured }),
+          );
+        },
+      },
+      this.abort.signal,
+    );
+    canvas.addEventListener(
       "keydown",
       (e) => {
-        if (
-          (e.target as Element)?.closest(
-            "input,textarea,select,[contenteditable]",
-          )
-        )
-          return;
-        if (this.walking) {
-          if (e.key === "Escape") {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            this.exitWalk();
-            return;
-          }
-          if (
-            [
-              "w",
-              "a",
-              "s",
-              "d",
-              "ArrowUp",
-              "ArrowDown",
-              "ArrowLeft",
-              "ArrowRight",
-            ].includes(e.key)
-          ) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            this.keys.add(e.key.toLowerCase());
-          }
-        } else if (document.activeElement === canvas) {
-          if (e.key === "+" || e.key === "=") {
-            e.preventDefault();
-            this.zoom(1.15);
-          }
-          if (e.key === "-") {
-            e.preventDefault();
-            this.zoom(1 / 1.15);
-          }
-          if (e.key.toLowerCase() === "r") this.reset();
+        if (this.walking) return;
+        if (e.key === "+" || e.key === "=") {
+          e.preventDefault();
+          this.zoom(1.15);
         }
+        if (e.key === "-") {
+          e.preventDefault();
+          this.zoom(1 / 1.15);
+        }
+        if (e.key.toLowerCase() === "r") this.reset();
       },
-      { capture: true, signal },
+      { signal: this.abort.signal },
     );
-    window.addEventListener(
-      "keyup",
-      (e) => this.keys.delete(e.key.toLowerCase()),
-      { signal },
-    );
-    window.addEventListener(
-      "blur",
-      () => {
-        this.keys.clear();
-        this.touch = { forward: 0, side: 0 };
-        this.stopTour();
-      },
-      { signal },
-    );
+  }
+  captureMouse() {
+    return this.walkInput?.captureMouse() ?? Promise.resolve(false);
   }
   private resize() {
     const { width, height } = this.host.getBoundingClientRect();
     if (!width || !height) return;
     this.renderer.setSize(width, height, false);
-    this.composer.setSize(width, height);
-    const scale = Math.min(1, 800 / Math.max(width, height));
-    this.ao.setSize(
-      Math.max(1, Math.round(width * scale)),
-      Math.max(1, Math.round(height * scale)),
-    );
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     if (this.currentView === "overview" && !this.walking) this.overviewPose();
@@ -339,6 +267,7 @@ export class LevelScene {
   view(view: View) {
     this.stopTour();
     this.walking = false;
+    this.walkInput?.releaseMouse();
     this.keys.clear();
     this.touch = { forward: 0, side: 0 };
     this.currentView = view;
@@ -355,6 +284,7 @@ export class LevelScene {
     this.resize();
   }
   reset() {
+    this.savedWalk = undefined;
     this.view("overview");
   }
   zoom(factor: number) {
@@ -369,18 +299,20 @@ export class LevelScene {
   }
   enterWalk(): boolean {
     if (this.busy || !this.surface) return false;
+    const saved = this.currentView === "overview" ? this.savedWalk : undefined;
     const start =
-      this.currentView === "terrace"
+      saved?.point ??
+      (this.currentView === "terrace"
         ? ([25, 7.4, this.height()] as V3)
-        : ([2, 2, 0] as V3);
-    const hit = this.surface.locate(start);
+        : ([2, 2, 0] as V3));
+    const hit = this.surface.locate(start) ?? this.surface.locate([2, 2, 0]);
     if (!hit) return false;
     this.stopTour();
     this.walking = true;
     this.controls.enabled = false;
     this.point = hit.point;
-    this.yaw = this.currentView === "terrace" ? -2.85 : 0.35;
-    this.pitch = 0;
+    this.yaw = saved?.yaw ?? (this.currentView === "terrace" ? -2.85 : 0.35);
+    this.pitch = saved?.pitch ?? 0;
     this.host.dataset.mode = "walk";
     this.host.dispatchEvent(new CustomEvent("scene-mode", { detail: "walk" }));
     this.updateEyes();
@@ -388,6 +320,12 @@ export class LevelScene {
     return true;
   }
   exitWalk() {
+    if (this.walking)
+      this.savedWalk = {
+        point: [...this.point],
+        yaw: this.yaw,
+        pitch: this.pitch,
+      };
     this.view("overview");
   }
   isWalking() {
@@ -398,7 +336,7 @@ export class LevelScene {
     if (value) {
       this.keys.clear();
       this.touch = { forward: 0, side: 0 };
-      if (this.walking) this.exitWalk();
+      // Pause input, but do not silently remove first-person mode on a rebuild.
       this.stopTour();
     }
   }
@@ -483,7 +421,8 @@ export class LevelScene {
       }
     }
     if (this.dirty) {
-      this.composer.render();
+      this.renderer.render(this.scene, this.camera);
+      this.host.dataset.frame = String(++this.renderedFrames);
       this.dirty = false;
     }
   }
@@ -495,19 +434,82 @@ export class LevelScene {
     this.materials = [];
   }
   setLevel(level: CompiledLevel) {
+    const previousHeight = this.height(),
+      wasWalking = this.walking;
+    const upstairs = this.point[2] > previousHeight - 0.2;
     this.level = level;
+    const style =
+      treatments[
+        level.document.id === "chalk-cloister"
+          ? "chalk"
+          : level.document.id === "slate-atelier"
+            ? "night"
+            : "clay"
+      ];
+    if (this.environmentStyle !== level.document.id) {
+      const environment = makeEnvironment(
+        this.renderer,
+        style.sky,
+        style.ground,
+      );
+      this.scene.environment = environment.texture;
+      this.environment?.dispose();
+      this.environment = environment;
+      this.environmentStyle = level.document.id;
+    }
+    this.scene.background = new THREE.Color(style.sky);
+    this.scene.fog = new THREE.Fog(style.sky, 65, 155);
+    (this.ground.material as THREE.MeshStandardMaterial).color.set(
+      style.ground,
+    );
+    this.renderer.toneMappingExposure = style.exposure;
+    this.accentLights.clear();
+    for (const child of this.scene.children) {
+      if (child instanceof THREE.HemisphereLight) {
+        child.color.set(style.hemisphere);
+        child.groundColor.set(style.bounce);
+        child.intensity = style.fill;
+      }
+      if (child instanceof THREE.DirectionalLight) {
+        child.color.set(style.sunColor);
+        child.intensity = style.sunIntensity;
+        child.position.set(...style.sunPosition);
+      }
+    }
+    for (const light of level.document.lights.filter(
+      (l) => l.kind === "point",
+    )) {
+      const source = new THREE.PointLight(light.color, light.intensity, 7, 2);
+      source.position.set(...light.position);
+      this.accentLights.add(source);
+    }
     const spawn = level.document.markers.find((m) => m.id === "spawn")
       ?.position ?? [2, 2, 0];
     this.surface = level.navigation
       ? new NavigationSurface(level.navigation, spawn)
       : undefined;
     this.renderLevel();
-    if (!this.walking) this.view(this.currentView);
+    if (wasWalking) {
+      const candidate: [number, number, number] = [
+        this.point[0],
+        this.point[1],
+        this.point[2] + (upstairs ? this.height() - previousHeight : 0),
+      ];
+      const hit =
+        this.surface?.locate(candidate) ?? this.surface?.locate(spawn);
+      if (hit && level.navigation?.passed) {
+        this.point = hit.point;
+        this.updateEyes();
+      } else {
+        this.exitWalk();
+        this.host.dispatchEvent(new CustomEvent("walk-interrupted"));
+      }
+    } else this.view(this.currentView);
   }
   setNavigation(value: boolean) {
+    if (this.walking) value = false;
     if (this.navigation === value) return;
     this.navigation = value;
-    this.ao.enabled = !value;
     this.renderLevel();
   }
   private ownGeometry<T extends THREE.BufferGeometry>(g: T): T {
@@ -575,6 +577,8 @@ export class LevelScene {
           color: def?.color ?? "#c6ac89",
           map: def?.texture ? this.textureBank.get(def.texture) : undefined,
           roughness: def?.roughness ?? 0.85,
+          emissive: def?.id === "lamp" ? "#d88739" : "#000000",
+          emissiveIntensity: def?.id === "lamp" ? 0.25 : 0,
           metalness: def?.metalness ?? 0,
           transparent: faded,
           opacity: faded ? 0.12 : 1,
@@ -656,9 +660,12 @@ export class LevelScene {
         this.overlays.add(pin);
       }
     }
+    this.renderer.shadowMap.needsUpdate = true;
     this.dirty = true;
   }
   dispose() {
+    this.walking = false;
+    this.walkInput?.releaseMouse();
     this.stopTour();
     this.abort.abort();
     this.size.disconnect();
@@ -670,10 +677,8 @@ export class LevelScene {
     (this.ground.material as THREE.Material).dispose();
     for (const object of this.scene.children)
       if (object instanceof THREE.DirectionalLight) object.shadow.dispose();
-    this.ao.dispose();
-    this.output.dispose();
-    this.composer.dispose();
     for (const t of this.textureBank.values()) t.dispose();
+    this.environment?.dispose();
     this.renderer.dispose();
     this.renderer.domElement.remove();
   }
