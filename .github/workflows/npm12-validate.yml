@@ -22,7 +22,8 @@ jobs:
       - name: Validate
         run: |
           npx -y npm@12 run check
-          npx -y npm@12 test
+          node --test --test-concurrency=2 'tests/*.test.ts'
+          npx -y npm@12 run test:site
           npx -y npm@12 run build:site
       - name: Remove temporary validator
         run: |
