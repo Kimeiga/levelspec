@@ -1,5 +1,5 @@
+import { materialAssets, originalMaterialFiles } from "./materials.ts";
 import "./styles.css";
-import template from "./demo.level.svgx?raw";
 import { LevelScene } from "./scene.ts";
 import { NavigationSurface } from "./navigation.ts";
 import {
@@ -36,7 +36,7 @@ let timeout: ReturnType<typeof setTimeout> | undefined;
 let toastTimer: ReturnType<typeof setTimeout> | undefined;
 let exporting = false,
   disposed = false;
-const fullSource = () => sourceForState(template, state);
+const fullSource = () => sourceForState(state);
 function notify(message: string) {
   clearTimeout(toastTimer);
   element("toast").textContent = message;
@@ -70,7 +70,7 @@ function updateSource() {
   const presets = {
     clay: { height: 3, curve: 3 },
     chalk: { height: 5, curve: 6 },
-    night: { height: 2, curve: 0 },
+    night: { height: 3.5, curve: 0 },
   };
   for (const button of document.querySelectorAll<HTMLButtonElement>(
     "[data-preset]",
@@ -121,7 +121,7 @@ function drawPlan() {
   element("plan").innerHTML = plan;
   const svg = element("plan").querySelector("svg");
   if (!svg) return;
-  svg.setAttribute("viewBox", "-1 -13 29 20");
+  svg.setAttribute("viewBox", "-13 -25 43 31");
   svg.setAttribute(
     "aria-label",
     `Courtyard floor plan. Curve control offset ${compiledCurve} metres. Ramp and stairs lead to the upper bridge.`,
@@ -426,14 +426,15 @@ async function exportModel(format: "glb" | "gltf") {
   updateExports();
   try {
     const exporter = await import("../src/vector/export.ts");
+    const assets = await materialAssets(exportingLevel);
     if (!ready || version !== revision)
       throw new Error(
         "The shape changed. Wait for compilation, then download again.",
       );
     if (format === "glb") {
       save(
-        exporter.toGLB(exportingLevel),
-        "levelspec-courtyard.glb",
+        exporter.toGLB(exportingLevel, { assets }),
+        "levelspec-lantern-court.glb",
         "model/gltf-binary",
       );
     } else {
@@ -445,9 +446,14 @@ async function exportModel(format: "glb" | "gltf") {
         throw new Error(
           "The shape changed. Wait for compilation, then download again.",
         );
-      const files = exporter.toGLTF(exportingLevel);
+      const files = exporter.toGLTF(exportingLevel, { assets });
       files["source.level.svgx"] = source;
-      files["showcase.levelspec.json"] = JSON.stringify(
+      Object.assign(files, await originalMaterialFiles());
+      if (!ready || version !== revision)
+        throw new Error(
+          "The source changed. Wait for compilation before exporting again.",
+        );
+      files["lantern-court.levelspec.json"] = JSON.stringify(
         exportMetadata(exportingLevel, ["gltf"]),
         null,
         2,
@@ -460,7 +466,7 @@ async function exportModel(format: "glb" | "gltf") {
           ]),
         ),
       );
-      save(zip, "levelspec-courtyard-gltf.zip", "application/zip");
+      save(zip, "levelspec-lantern-court-gltf.zip", "application/zip");
     }
     notify(
       format === "glb"
@@ -551,8 +557,23 @@ element("download-glb").onclick = () => {
 element("download-gltf").onclick = () => {
   void exportModel("gltf");
 };
-element("download-source").onclick = () =>
-  save(fullSource(), "courtyard.level.svgx", "application/xml");
+element("download-source").onclick = async () => {
+  const source = fullSource();
+  try {
+    const [{ zipSync, strToU8 }, images] = await Promise.all([
+      import("fflate"),
+      originalMaterialFiles(),
+    ]);
+    save(
+      zipSync({ ...images, "lantern-court.level.svgx": strToU8(source) }),
+      "lantern-court-source.zip",
+      "application/zip",
+    );
+    notify("Editable source and original material images are ready.");
+  } catch (error) {
+    notify(error instanceof Error ? error.message : "Source export failed.");
+  }
+};
 element("share").onclick = () => {
   void share();
 };
@@ -705,7 +726,7 @@ for (const button of document.querySelectorAll<HTMLButtonElement>(
     Object.assign(state, {
       look,
       curve: look === "chalk" ? 6 : look === "night" ? 0 : 3,
-      height: look === "chalk" ? 5 : look === "night" ? 2 : 3,
+      height: look === "chalk" ? 5 : look === "night" ? 3.5 : 3,
       blocked: false,
     });
     document

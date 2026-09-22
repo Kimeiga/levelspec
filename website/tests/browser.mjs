@@ -77,6 +77,9 @@ try {
     async () => {
       await page.goto(BASE);
       await ready(page);
+      await page.waitForFunction(
+        () => document.querySelector("#model").dataset.textures === "ready",
+      );
       await noOverflow(page);
       assert.equal(await page.locator("#webgl-fallback").isVisible(), false);
       assert.equal(
@@ -138,7 +141,7 @@ try {
       );
       assert.equal(
         await page.locator("#regions-result").textContent(),
-        "4 / 4",
+        "15 / 15",
       );
       assert.equal(await page.locator("#coverage-result").textContent(), "0");
       assert.equal(
@@ -166,6 +169,18 @@ try {
       );
       assert.equal(glbResult.issues.numErrors, 0);
       assert.equal(glbResult.issues.numWarnings, 0);
+      const binary = await readFile(`${OUTPUT}/courtyard.glb`);
+      const header = JSON.parse(
+        binary.subarray(20, 20 + binary.readUInt32LE(12)).toString(),
+      );
+      assert.equal(
+        header.images.length,
+        6,
+        "Six material images embedded in GLB",
+      );
+      assert.ok(
+        header.images.every((image) => Number.isInteger(image.bufferView)),
+      );
       const zipPromise = page.waitForEvent("download");
       await page.locator("#download-gltf").click();
       const zip = await zipPromise;
@@ -178,7 +193,7 @@ try {
       );
       assert.ok(gltfName);
       assert.ok(files["source.level.svgx"]);
-      assert.ok(files["showcase.levelspec.json"]);
+      assert.ok(files["lantern-court.levelspec.json"]);
       assert.ok(
         new TextDecoder()
           .decode(files["source.level.svgx"])
@@ -196,6 +211,22 @@ try {
       );
       assert.equal(gltfResult.issues.numErrors, 0);
       assert.equal(gltfResult.issues.numWarnings, 0);
+      const document = JSON.parse(new TextDecoder().decode(files[gltfName]));
+      assert.equal(document.images.length, 6);
+      for (const image of document.images)
+        assert.ok(files[image.uri], image.uri);
+      const sourceDownload = page.waitForEvent("download");
+      await page.locator("#download-source").click();
+      const sourceZip = await sourceDownload;
+      await sourceZip.saveAs(`${OUTPUT}/source.zip`);
+      const sourceFiles = unzipSync(
+        new Uint8Array(await readFile(`${OUTPUT}/source.zip`)),
+      );
+      const xml = new TextDecoder().decode(
+        sourceFiles["lantern-court.level.svgx"],
+      );
+      for (const match of xml.matchAll(/texture="([^"]+)"/g))
+        assert.ok(sourceFiles[match[1]], `Source companion ${match[1]}`);
       await page.screenshot({ path: `${OUTPUT}/export.png`, fullPage: true });
       await audit(page, "export");
     },

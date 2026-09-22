@@ -1,87 +1,313 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level version="2" id="showcase" name="Terrace pavilion" description="A curved courtyard, a branching partition, a ramp, stairs and an upper bridge." units="meters" wall-thickness="0.22" wall-height="3" floor-thickness="0.2" curve-tolerance="0.01">
-  <player radius="0.35" height="1.8" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
-  <sky color="#dce8f5" intensity="0.5"/>
-  <material id="default" color="#b77c59" roughness="0.85" metalness="0"/>
-  <material id="concrete" color="#dfceb0" repeat="1" roughness="0.85" metalness="0"/>
-  <material id="blue" color="#427b72" repeat="1" roughness="0.65" metalness="0"/>
-  <material id="sand" color="#c0aa86" repeat="1" roughness="0.8" metalness="0"/>
-  <layer id="ground" label="Ground and approaches">
-    <vertex id="courtyard.v0" x="0" y="0" z="0"/>
-    <vertex id="courtyard.v1" x="14" y="0" z="0"/>
-    <vertex id="courtyard.v2" x="14" y="12" z="0"/>
-    <vertex id="courtyard.v3" x="0" y="12" z="0"/>
-    <vertex id="partition.end" x="4" y="8" z="0"/>
-    <vertex id="well.v0" x="5" y="4" z="0"/>
-    <vertex id="well.v1" x="5" y="7" z="0"/>
-    <vertex id="well.v2" x="8" y="7" z="0"/>
-    <vertex id="well.v3" x="8" y="4" z="0"/>
-    <vertex id="east.a" x="14" y="3" z="0"/>
-    <vertex id="east.b" x="14" y="6" z="0"/>
-    <vertex id="east.c" x="14" y="9" z="0"/>
-    <vertex id="ramp.v0" x="14" y="0" z="0"/>
-    <vertex id="ramp.v1" x="23" y="0" z="3"/>
-    <vertex id="ramp.v2" x="23" y="3" z="3"/>
-    <vertex id="ramp.v3" x="14" y="3" z="0"/>
-    <vertex id="stairs.v0" x="14" y="6" z="0"/>
-    <vertex id="stairs.v1" x="23" y="6" z="3"/>
-    <vertex id="stairs.v2" x="23" y="9" z="3"/>
-    <vertex id="stairs.v3" x="14" y="9" z="0"/>
-    <edge id="courtyard.e0" from="courtyard.v0" to="courtyard.v1" kind="wall" height="1.1" control="4 -3; 10 -3"/>
-    <edge id="courtyard.e2" from="courtyard.v2" to="courtyard.v3" kind="wall" height="4.1">
-      <opening id="courtyard.e2.window0" kind="arch" start="1" end="3" sill="1.1" head="3.5"/>
-      <opening id="courtyard.e2.window1" kind="arch" start="4" end="6" sill="1.1" head="3.5"/>
-      <opening id="courtyard.e2.window2" kind="arch" start="7" end="9" sill="1.1" head="3.5"/>
-      <opening id="courtyard.e2.window3" kind="arch" start="10" end="12" sill="1.1" head="3.5"/>
-    </edge>
-    <edge id="courtyard.e3" from="courtyard.v3" to="courtyard.v0" kind="wall" height="4.1">
-      <opening id="courtyard.e3.window0" kind="arch" start="1" end="3" sill="1.1" head="3.5"/>
-      <opening id="courtyard.e3.window1" kind="arch" start="4" end="6" sill="1.1" head="3.5"/>
-      <opening id="courtyard.e3.window2" kind="arch" start="7" end="9" sill="1.1" head="3.5"/>
-    </edge>
-    <edge id="partition" from="courtyard.v3" to="partition.end" kind="wall" height="1.4" material="blue"/>
-    <edge id="well.e0" from="well.v0" to="well.v1" kind="railing" height="1.05"/>
-    <edge id="well.e1" from="well.v1" to="well.v2" kind="railing" height="1.05"/>
-    <edge id="well.e2" from="well.v2" to="well.v3" kind="railing" height="1.05"/>
-    <edge id="well.e3" from="well.v3" to="well.v0" kind="railing" height="1.05"/>
-    <edge id="east.door" from="courtyard.v1" to="east.a" kind="door"/>
-    <edge id="east.wall" from="east.a" to="east.b" kind="wall"/>
-    <edge id="east.stairs" from="east.b" to="east.c" kind="open"/>
-    <edge id="east.top" from="east.c" to="courtyard.v2" kind="wall"/>
-    <edge id="ramp.e0" from="courtyard.v1" to="ramp.v1" kind="wall" height="1.05"/>
-    <edge id="ramp.e1" from="ramp.v1" to="ramp.v2" kind="open"/>
-    <edge id="ramp.e2" from="ramp.v2" to="east.a" kind="wall" height="1.05"/>
-    <edge id="stairs.e0" from="east.b" to="stairs.v1" kind="wall" height="1.05"/>
-    <edge id="stairs.e1" from="stairs.v1" to="stairs.v2" kind="open"/>
-    <edge id="stairs.e2" from="stairs.v2" to="east.c" kind="wall" height="1.05"/>
-    <region id="courtyard" boundary="courtyard.e0 east.door east.wall east.stairs east.top courtyard.e2 courtyard.e3" fill="floor" material="concrete">
-      <hole boundary="well.e0 well.e1 well.e2 well.e3"/>
-    </region>
-    <region id="ramp" boundary="ramp.e0 ramp.e1 ramp.e2 -east.door" fill="floor" material="sand"/>
-    <region id="stairs" boundary="stairs.e0 stairs.e1 stairs.e2 -east.stairs" fill="stairs" material="blue" lower="east.stairs" upper="stairs.e1"/>
-  </layer>
-  <layer id="upper" label="Upper bridge">
-    <vertex id="bridge.v0" x="23" y="0" z="3"/>
-    <vertex id="bridge.v1" x="27" y="0" z="3"/>
-    <vertex id="bridge.v2" x="27" y="9" z="3"/>
-    <vertex id="bridge.v3" x="23" y="9" z="3"/>
-    <vertex id="bridge.v4" x="23" y="6" z="3"/>
-    <vertex id="bridge.v5" x="23" y="3" z="3"/>
-    <edge id="bridge.e0" from="bridge.v0" to="bridge.v1" kind="wall" height="1.05"/>
-    <edge id="bridge.e1" from="bridge.v1" to="bridge.v2" kind="wall" height="4.1">
-      <opening id="bridge.e1.window0" kind="arch" start="1" end="3" sill="1.1" head="3.5"/>
-      <opening id="bridge.e1.window1" kind="arch" start="4" end="6" sill="1.1" head="3.5"/>
-    </edge>
-    <edge id="bridge.e2" from="bridge.v2" to="bridge.v3" kind="wall" height="1.05"/>
-    <edge id="bridge.e3" from="bridge.v3" to="bridge.v4" kind="open"/>
-    <edge id="bridge.e4" from="bridge.v4" to="bridge.v5" kind="wall" height="1.05"/>
-    <edge id="bridge.e5" from="bridge.v5" to="bridge.v0" kind="open"/>
-    <region id="bridge" boundary="bridge.e0 bridge.e1 bridge.e2 bridge.e3 bridge.e4 bridge.e5" fill="floor" material="concrete"/>
-  </layer>
-  <seam id="ramp.join" edges="ramp.e1 bridge.e5" kind="open"/>
-  <seam id="stairs.join" edges="stairs.e1 bridge.e3" kind="open"/>
-  <marker id="spawn" layer="ground" region="courtyard" position="2 2 0" kind="attacker_spawn"/>
-  <marker id="objective" layer="upper" region="bridge" position="25 5 3" kind="objective"/>
-  <route id="climb" from="spawn" to="objective" min-routes="1" max-distance="60"/>
-  <light id="sun" kind="directional" position="-12 -15 25" target="10 5 0" color="#fff2dd" intensity="2"/>
+<level version="2" id="lantern-court" name="Lantern Court" units="meters" wall-thickness="0.28" wall-height="3" floor-thickness="0.2" curve-tolerance="0.015">
+<player radius="0.35" height="1.8" step="0.45" slope="42"/>
+<sky color="#d4e4eb" intensity="0.4"/>
+<material id="plaster" color="#c6ac89" texture="textures/plaster.png" roughness="0.75" metalness="0" repeat="1"/>
+<material id="brick" color="#cfb695" texture="textures/brick.png" roughness="0.86" metalness="0" repeat="0.45"/>
+<material id="limestone" color="#ede1c8" texture="textures/stone.png" roughness="0.8" metalness="0" repeat="0.6"/>
+<material id="paving" color="#c4b397" texture="textures/paving.png" roughness="0.82" metalness="0" repeat="0.4"/>
+<material id="tile" color="#617970" texture="textures/tile.png" roughness="0.6" metalness="0" repeat="0.6"/>
+<material id="stone" color="#bab19c" texture="textures/stone.png" roughness="0.9" metalness="0" repeat="0.7"/>
+<material id="wood" color="#866647" texture="textures/wood.png" roughness="0.67" metalness="0" repeat="0.6"/>
+<material id="bronze" color="#655b46" texture="textures/plaster.png" roughness="0.45" metalness="0.5" repeat="1"/>
+<material id="teal" color="#316557" texture="textures/plaster.png" roughness="0.28" metalness="0.1" repeat="1"/>
+<material id="gate" color="#8c5942" texture="textures/wood.png" roughness="0.65" metalness="0" repeat="0.7"/>
+<layer id="architecture" label="Lantern Court">
+<vertex id="v.0" x="0" y="0" z="0"/>
+<vertex id="v.1" x="14" y="0" z="0"/>
+<vertex id="v.2" x="14" y="3" z="0"/>
+<vertex id="v.3" x="14" y="6" z="0"/>
+<vertex id="v.4" x="14" y="9" z="0"/>
+<vertex id="v.5" x="14" y="12" z="0"/>
+<vertex id="v.6" x="0" y="12" z="0"/>
+<vertex id="v.7" x="5" y="7" z="0"/>
+<vertex id="v.8" x="8" y="7" z="0"/>
+<vertex id="v.9" x="8" y="4" z="0"/>
+<vertex id="v.10" x="5" y="4" z="0"/>
+<vertex id="v.11" x="23" y="0" z="3"/>
+<vertex id="v.12" x="23" y="3" z="3"/>
+<vertex id="v.13" x="23" y="6" z="3"/>
+<vertex id="v.14" x="23" y="9" z="3"/>
+<vertex id="v.15" x="-6" y="0" z="0"/>
+<vertex id="v.16" x="-6" y="12" z="0"/>
+<vertex id="v.17" x="-6" y="6" z="0"/>
+<vertex id="v.18" x="-6" y="2" z="0"/>
+<vertex id="v.19" x="-12" y="2" z="0"/>
+<vertex id="v.20" x="-12" y="6" z="0"/>
+<vertex id="v.21" x="23" y="12" z="0"/>
+<vertex id="v.22" x="29" y="12" z="0"/>
+<vertex id="v.23" x="29" y="18" z="0"/>
+<vertex id="v.24" x="8" y="18" z="0"/>
+<vertex id="v.25" x="-6" y="18" z="0"/>
+<vertex id="v.26" x="23" y="0" z="0"/>
+<vertex id="v.27" x="29" y="0" z="0"/>
+<vertex id="v.28" x="8" y="24" z="0"/>
+<vertex id="v.29" x="-6" y="24" z="0"/>
+<vertex id="v.30" x="29" y="24" z="0"/>
+<vertex id="v.31" x="29" y="0" z="3"/>
+<vertex id="v.32" x="29" y="12" z="3"/>
+<vertex id="v.33" x="23" y="12" z="3"/>
+<vertex id="v.34" x="23" y="11" z="3"/>
+<vertex id="v.35" x="23" y="9.5" z="3"/>
+<vertex id="v.36" x="0" y="9.5" z="3"/>
+<vertex id="v.37" x="0" y="11" z="3"/>
+<vertex id="v.38" x="-6" y="0" z="3"/>
+<vertex id="v.39" x="0" y="0" z="3"/>
+<vertex id="v.40" x="0" y="12" z="3"/>
+<vertex id="v.41" x="-6" y="12" z="3"/>
+<vertex id="v.42" x="29" y="18" z="3"/>
+<vertex id="v.43" x="8" y="18" z="3"/>
+<vertex id="v.44" x="-6" y="18" z="3"/>
+<vertex id="v.45" x="8" y="24" z="3"/>
+<vertex id="v.46" x="-6" y="24" z="3"/>
+<vertex id="v.47" x="29" y="24" z="3"/>
+<edge id="courtyard.e0" from="v.0" to="v.1" kind="wall" height="1.05" material="limestone" control="4 -3; 10 -3"></edge>
+<edge id="east.door" from="v.1" to="v.2" kind="open" height="2.8" material="limestone"></edge>
+<edge id="edge.0" from="v.2" to="v.3" kind="wall" height="2.8" material="brick"></edge>
+<edge id="east.stairs" from="v.3" to="v.4" kind="open" height="2.8" material="limestone"></edge>
+<edge id="edge.1" from="v.4" to="v.5" kind="wall" height="2.8" material="brick"></edge>
+<edge id="edge.2" from="v.5" to="v.6" kind="wall" height="2.8" material="limestone"><opening id="edge.2.opening0" kind="arch" start="0.55" end="4.1167" sill="0" head="2.48"/><opening id="edge.2.opening1" kind="arch" start="5.2167" end="8.7833" sill="0" head="2.48"/><opening id="edge.2.opening2" kind="arch" start="9.8833" end="13.45" sill="0" head="2.48"/></edge>
+<edge id="edge.3" from="v.6" to="v.0" kind="wall" height="2.8" material="limestone"><opening id="edge.3.opening0" kind="arch" start="0.55" end="3.45" sill="0" head="2.48"/><opening id="edge.3.opening1" kind="arch" start="4.55" end="7.45" sill="0" head="2.48"/><opening id="edge.3.opening2" kind="arch" start="8.55" end="11.45" sill="0" head="2.48"/></edge>
+<edge id="well.e0" from="v.7" to="v.8" kind="wall" height="0.52" material="limestone"></edge>
+<edge id="well.e1" from="v.8" to="v.9" kind="wall" height="0.52" material="limestone"></edge>
+<edge id="well.e2" from="v.9" to="v.10" kind="wall" height="0.52" material="limestone"></edge>
+<edge id="well.e3" from="v.10" to="v.7" kind="wall" height="0.52" material="limestone"></edge>
+<edge id="edge.4" from="v.1" to="v.11" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.5" from="v.11" to="v.12" kind="open" height="1.05" material="plaster"></edge>
+<edge id="edge.6" from="v.12" to="v.2" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.7" from="v.3" to="v.13" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.8" from="v.13" to="v.14" kind="open" height="1.05" material="plaster"></edge>
+<edge id="edge.9" from="v.14" to="v.4" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.10" from="v.15" to="v.0" kind="wall" height="2.8" material="brick"><opening id="edge.10.opening0" kind="arch" start="0.55" end="5.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.11" from="v.6" to="v.16" kind="open" height="2.8" material="plaster"></edge>
+<edge id="edge.12" from="v.16" to="v.17" kind="wall" height="2.8" material="brick"><opening id="edge.12.opening0" kind="arch" start="0.55" end="5.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.13" from="v.17" to="v.18" kind="open" height="2.8" material="plaster"></edge>
+<edge id="edge.14" from="v.18" to="v.15" kind="wall" height="2.8" material="brick"><opening id="edge.14.opening0" kind="arch" start="0.34" end="1.66" sill="0.78" head="2.52"/></edge>
+<edge id="edge.15" from="v.19" to="v.18" kind="wall" height="2.8" material="limestone"></edge>
+<edge id="edge.16" from="v.17" to="v.20" kind="wall" height="2.8" material="limestone"></edge>
+<edge id="edge.17" from="v.20" to="v.19" kind="wall" height="2.8" material="limestone"><opening id="edge.17.opening0" kind="arch" start="0.55" end="3.45" sill="0" head="2.5"/></edge>
+<edge id="edge.18" from="v.5" to="v.21" kind="wall" height="2.8" material="brick"><opening id="edge.18.opening0" kind="arch" start="0.55" end="3.95" sill="0.78" head="2.52"/><opening id="edge.18.opening1" kind="arch" start="5.05" end="8.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.19" from="v.21" to="v.22" kind="open" height="2.8" material="plaster"></edge>
+<edge id="edge.20" from="v.22" to="v.23" kind="wall" height="2.8" material="brick"><opening id="edge.20.opening0" kind="arch" start="0.55" end="5.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.21" from="v.23" to="v.24" kind="wall" height="2.8" material="plaster"><opening id="edge.21.opening0" kind="arch" start="0.55" end="6.45" sill="0" head="2.45"/><opening id="edge.21.opening1" kind="arch" start="7.55" end="13.45" sill="0" head="2.45"/><opening id="edge.21.opening2" kind="arch" start="14.55" end="20.45" sill="0" head="2.45"/></edge>
+<edge id="edge.22" from="v.24" to="v.25" kind="wall" height="2.8" material="plaster"><opening id="edge.22.opening0" kind="arch" start="0.55" end="6.45" sill="0" head="2.45"/><opening id="edge.22.opening1" kind="arch" start="7.55" end="13.45" sill="0" head="2.45"/></edge>
+<edge id="edge.23" from="v.25" to="v.16" kind="wall" height="2.8" material="brick"><opening id="edge.23.opening0" kind="arch" start="0.55" end="5.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.24" from="v.26" to="v.27" kind="wall" height="2.8" material="brick"><opening id="edge.24.opening0" kind="arch" start="0.55" end="5.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.25" from="v.27" to="v.22" kind="wall" height="2.8" material="brick"><opening id="edge.25.opening0" kind="arch" start="0.55" end="3.45" sill="0.78" head="2.52"/><opening id="edge.25.opening1" kind="arch" start="4.55" end="7.45" sill="0.78" head="2.52"/><opening id="edge.25.opening2" kind="arch" start="8.55" end="11.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.26" from="v.21" to="v.26" kind="wall" height="2.8" material="limestone"></edge>
+<edge id="edge.27" from="v.24" to="v.28" kind="wall" height="2.8" material="plaster"><opening id="edge.27.opening0" kind="arch" start="0.55" end="5.45" sill="0" head="2.4"/></edge>
+<edge id="edge.28" from="v.28" to="v.29" kind="wall" height="2.8" material="brick"><opening id="edge.28.opening0" kind="arch" start="0.55" end="4.1167" sill="0.78" head="2.52"/><opening id="edge.28.opening1" kind="arch" start="5.2167" end="8.7833" sill="0.78" head="2.52"/><opening id="edge.28.opening2" kind="arch" start="9.8833" end="13.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.29" from="v.29" to="v.25" kind="wall" height="2.8" material="brick"><opening id="edge.29.opening0" kind="arch" start="0.55" end="5.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.30" from="v.23" to="v.30" kind="wall" height="2.8" material="brick"><opening id="edge.30.opening0" kind="arch" start="0.55" end="5.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.31" from="v.30" to="v.28" kind="wall" height="2.8" material="brick"><opening id="edge.31.opening0" kind="arch" start="0.55" end="3.65" sill="0.78" head="2.52"/><opening id="edge.31.opening1" kind="arch" start="4.75" end="7.85" sill="0.78" head="2.52"/><opening id="edge.31.opening2" kind="arch" start="8.95" end="12.05" sill="0.78" head="2.52"/><opening id="edge.31.opening3" kind="arch" start="13.15" end="16.25" sill="0.78" head="2.52"/><opening id="edge.31.opening4" kind="arch" start="17.35" end="20.45" sill="0.78" head="2.52"/></edge>
+<edge id="edge.32" from="v.11" to="v.31" kind="wall" height="3.4" material="brick"><opening id="edge.32.opening0" kind="arch" start="0.55" end="5.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.33" from="v.31" to="v.32" kind="wall" height="3.4" material="brick"><opening id="edge.33.opening0" kind="arch" start="0.55" end="3.45" sill="0.75" head="2.8"/><opening id="edge.33.opening1" kind="arch" start="4.55" end="7.45" sill="0.75" head="2.8"/><opening id="edge.33.opening2" kind="arch" start="8.55" end="11.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.34" from="v.32" to="v.33" kind="open" height="1.05" material="plaster"></edge>
+<edge id="edge.35" from="v.33" to="v.34" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.36" from="v.34" to="v.35" kind="open" height="1.05" material="plaster"></edge>
+<edge id="edge.37" from="v.35" to="v.14" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.38" from="v.13" to="v.12" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.39" from="v.36" to="v.35" kind="wall" height="0.86" material="limestone"></edge>
+<edge id="edge.40" from="v.34" to="v.37" kind="wall" height="0.86" material="limestone"></edge>
+<edge id="edge.41" from="v.37" to="v.36" kind="open" height="1.05" material="plaster"></edge>
+<edge id="edge.42" from="v.38" to="v.39" kind="wall" height="3.4" material="brick"><opening id="edge.42.opening0" kind="arch" start="0.55" end="5.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.43" from="v.39" to="v.36" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.44" from="v.37" to="v.40" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.45" from="v.40" to="v.41" kind="open" height="1.05" material="plaster"></edge>
+<edge id="edge.46" from="v.41" to="v.38" kind="wall" height="3.4" material="brick"><opening id="edge.46.opening0" kind="arch" start="0.55" end="3.45" sill="0.75" head="2.8"/><opening id="edge.46.opening1" kind="arch" start="4.55" end="7.45" sill="0.75" head="2.8"/><opening id="edge.46.opening2" kind="arch" start="8.55" end="11.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.47" from="v.40" to="v.33" kind="wall" height="0.88" material="limestone"></edge>
+<edge id="edge.48" from="v.32" to="v.42" kind="wall" height="3.4" material="brick"><opening id="edge.48.opening0" kind="arch" start="0.55" end="5.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.49" from="v.42" to="v.43" kind="wall" height="3.4" material="plaster"><opening id="edge.49.opening0" kind="arch" start="0.55" end="6.45" sill="0" head="2.7"/><opening id="edge.49.opening1" kind="arch" start="7.55" end="13.45" sill="0" head="2.7"/><opening id="edge.49.opening2" kind="arch" start="14.55" end="20.45" sill="0" head="2.7"/></edge>
+<edge id="edge.50" from="v.43" to="v.44" kind="wall" height="3.4" material="plaster"><opening id="edge.50.opening0" kind="arch" start="0.55" end="6.45" sill="0" head="2.7"/><opening id="edge.50.opening1" kind="arch" start="7.55" end="13.45" sill="0" head="2.7"/></edge>
+<edge id="edge.51" from="v.44" to="v.41" kind="wall" height="3.4" material="brick"><opening id="edge.51.opening0" kind="arch" start="0.55" end="5.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.52" from="v.43" to="v.45" kind="wall" height="3.4" material="plaster"><opening id="edge.52.opening0" kind="arch" start="0.55" end="5.45" sill="0" head="2.5"/></edge>
+<edge id="edge.53" from="v.45" to="v.46" kind="wall" height="4.5" material="brick"><opening id="edge.53.opening0" kind="arch" start="0.55" end="4.1167" sill="0.75" head="2.8"/><opening id="edge.53.opening1" kind="arch" start="5.2167" end="8.7833" sill="0.75" head="2.8"/><opening id="edge.53.opening2" kind="arch" start="9.8833" end="13.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.54" from="v.46" to="v.44" kind="wall" height="4.5" material="brick"><opening id="edge.54.opening0" kind="arch" start="0.55" end="5.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.55" from="v.42" to="v.47" kind="wall" height="3.8" material="brick"><opening id="edge.55.opening0" kind="arch" start="0.55" end="5.45" sill="0.75" head="2.8"/></edge>
+<edge id="edge.56" from="v.47" to="v.45" kind="wall" height="3.8" material="brick"><opening id="edge.56.opening0" kind="arch" start="0.55" end="3.65" sill="0.75" head="2.8"/><opening id="edge.56.opening1" kind="arch" start="4.75" end="7.85" sill="0.75" head="2.8"/><opening id="edge.56.opening2" kind="arch" start="8.95" end="12.05" sill="0.75" head="2.8"/><opening id="edge.56.opening3" kind="arch" start="13.15" end="16.25" sill="0.75" head="2.8"/><opening id="edge.56.opening4" kind="arch" start="17.35" end="20.45" sill="0.75" head="2.8"/></edge>
+<region id="courtyard" boundary="courtyard.e0 east.door edge.0 east.stairs edge.1 edge.2 edge.3" fill="floor" material="paving">
+<hole boundary="well.e0 well.e1 well.e2 well.e3"/>
+</region>
+<region id="ramp" boundary="edge.4 edge.5 edge.6 -east.door" fill="floor" material="stone">
+</region>
+<region id="stairs" boundary="edge.7 edge.8 edge.9 -east.stairs" fill="stairs" material="stone" lower="east.stairs" upper="edge.8">
+</region>
+<region id="west-arcade" boundary="edge.10 -edge.3 edge.11 edge.12 edge.13 edge.14" fill="floor" material="tile">
+</region>
+<region id="entrance" boundary="edge.15 -edge.13 edge.16 edge.17" fill="floor" material="tile" ceiling="2.8">
+</region>
+<region id="north-arcade" boundary="-edge.11 -edge.2 edge.18 edge.19 edge.20 edge.21 edge.22 edge.23" fill="floor" material="tile">
+</region>
+<region id="east-room" boundary="edge.24 edge.25 -edge.19 edge.26" fill="floor" material="tile">
+</region>
+<region id="reading-room" boundary="-edge.22 edge.27 edge.28 edge.29" fill="floor" material="wood">
+</region>
+<region id="exhibition-room" boundary="-edge.21 edge.30 edge.31 -edge.27" fill="floor" material="paving">
+</region>
+<region id="bridge" boundary="edge.32 edge.33 edge.34 edge.35 edge.36 edge.37 -edge.8 edge.38 -edge.5" fill="floor" material="paving" ceiling="6.4">
+</region>
+<region id="skybridge" boundary="edge.39 -edge.36 edge.40 edge.41" fill="floor" material="wood">
+</region>
+<region id="west-balcony" boundary="edge.42 edge.43 -edge.41 edge.44 edge.45 edge.46" fill="floor" material="tile" ceiling="6.4">
+</region>
+<region id="north-balcony" boundary="-edge.45 edge.47 -edge.34 edge.48 edge.49 edge.50 edge.51" fill="floor" material="tile" ceiling="6.4">
+</region>
+<region id="studio" boundary="-edge.50 edge.52 edge.53 edge.54" fill="floor" material="wood" ceiling="7.5">
+</region>
+<region id="library" boundary="-edge.49 edge.55 edge.56 -edge.52" fill="floor" material="wood" ceiling="6.8">
+</region>
+</layer>
+<cover id="cornice.west.front" layer="architecture" min="-6.12 -0.16 6.4" max="0.12 0.12 6.56" material="limestone"/>
+<cover id="cornice.west.back" layer="architecture" min="-6.12 11.88 6.4" max="0.12 12.16 6.56" material="limestone"/>
+<cover id="cornice.north.front" layer="architecture" min="-6.12 11.84 6.4" max="29.12 12.12 6.56" material="limestone"/>
+<cover id="cornice.north.back" layer="architecture" min="-6.12 17.88 6.4" max="29.12 18.16 6.56" material="limestone"/>
+<cover id="cornice.east.front" layer="architecture" min="22.88 -0.16 6.4" max="29.12 0.12 6.56" material="limestone"/>
+<cover id="cornice.east.back" layer="architecture" min="22.88 11.88 6.4" max="29.12 12.16 6.56" material="limestone"/>
+<cover id="west.column.0.35" layer="architecture" min="-0.2 0.35 3.88" max="0.12 0.58 6.37" material="limestone"/>
+<cover id="west.capital.0.35" layer="architecture" min="-0.31 0.27 6.18" max="0.23 0.66 6.37" material="limestone"/>
+<cover id="west.column.2.65" layer="architecture" min="-0.2 2.65 3.88" max="0.12 2.88 6.37" material="limestone"/>
+<cover id="west.capital.2.65" layer="architecture" min="-0.31 2.57 6.18" max="0.23 2.96 6.37" material="limestone"/>
+<cover id="west.column.4.95" layer="architecture" min="-0.2 4.95 3.88" max="0.12 5.18 6.37" material="limestone"/>
+<cover id="west.capital.4.95" layer="architecture" min="-0.31 4.87 6.18" max="0.23 5.26 6.37" material="limestone"/>
+<cover id="west.column.7.25" layer="architecture" min="-0.2 7.25 3.88" max="0.12 7.48 6.37" material="limestone"/>
+<cover id="west.capital.7.25" layer="architecture" min="-0.31 7.17 6.18" max="0.23 7.56 6.37" material="limestone"/>
+<cover id="west.column.9.55" layer="architecture" min="-0.2 9.55 3.88" max="0.12 9.78 6.37" material="limestone"/>
+<cover id="west.capital.9.55" layer="architecture" min="-0.31 9.47 6.18" max="0.23 9.86 6.37" material="limestone"/>
+<cover id="west.column.11.85" layer="architecture" min="-0.2 11.85 3.88" max="0.12 12.08 6.37" material="limestone"/>
+<cover id="west.capital.11.85" layer="architecture" min="-0.31 11.77 6.18" max="0.23 12.16 6.37" material="limestone"/>
+<cover id="north.column.0.3" layer="architecture" min="0.3 11.94 3.88" max="0.55 12.2 6.37" material="limestone"/>
+<cover id="north.column.3.7" layer="architecture" min="3.7 11.94 3.88" max="3.95 12.2 6.37" material="limestone"/>
+<cover id="north.column.7.1" layer="architecture" min="7.1 11.94 3.88" max="7.35 12.2 6.37" material="limestone"/>
+<cover id="north.column.10.5" layer="architecture" min="10.5 11.94 3.88" max="10.75 12.2 6.37" material="limestone"/>
+<cover id="north.column.13.9" layer="architecture" min="13.9 11.94 3.88" max="14.15 12.2 6.37" material="limestone"/>
+<cover id="north.column.17.3" layer="architecture" min="17.3 11.94 3.88" max="17.55 12.2 6.37" material="limestone"/>
+<cover id="north.column.20.7" layer="architecture" min="20.7 11.94 3.88" max="20.95 12.2 6.37" material="limestone"/>
+<cover id="north.column.24.1" layer="architecture" min="24.1 11.94 3.88" max="24.35 12.2 6.37" material="limestone"/>
+<cover id="north.column.27.5" layer="architecture" min="27.5 11.94 3.88" max="27.75 12.2 6.37" material="limestone"/>
+<cover id="ceiling.rib.0.2" layer="architecture" min="23.25 0.2 6.08" max="28.7 0.3 6.18" material="wood"/>
+<cover id="ceiling.rib.0.76" layer="architecture" min="23.25 0.76 6.08" max="28.7 0.86 6.18" material="wood"/>
+<cover id="ceiling.rib.1.32" layer="architecture" min="23.25 1.32 6.08" max="28.7 1.42 6.18" material="wood"/>
+<cover id="ceiling.rib.1.88" layer="architecture" min="23.25 1.88 6.08" max="28.7 1.98 6.18" material="wood"/>
+<cover id="ceiling.rib.2.44" layer="architecture" min="23.25 2.44 6.08" max="28.7 2.54 6.18" material="wood"/>
+<cover id="ceiling.rib.3" layer="architecture" min="23.25 3 6.08" max="28.7 3.1 6.18" material="wood"/>
+<cover id="ceiling.rib.3.56" layer="architecture" min="23.25 3.56 6.08" max="28.7 3.66 6.18" material="wood"/>
+<cover id="ceiling.rib.4.12" layer="architecture" min="23.25 4.12 6.08" max="28.7 4.22 6.18" material="wood"/>
+<cover id="ceiling.rib.4.68" layer="architecture" min="23.25 4.68 6.08" max="28.7 4.78 6.18" material="wood"/>
+<cover id="ceiling.rib.5.24" layer="architecture" min="23.25 5.24 6.08" max="28.7 5.34 6.18" material="wood"/>
+<cover id="ceiling.rib.5.8" layer="architecture" min="23.25 5.8 6.08" max="28.7 5.9 6.18" material="wood"/>
+<cover id="ceiling.rib.6.36" layer="architecture" min="23.25 6.36 6.08" max="28.7 6.46 6.18" material="wood"/>
+<cover id="ceiling.rib.6.92" layer="architecture" min="23.25 6.92 6.08" max="28.7 7.02 6.18" material="wood"/>
+<cover id="ceiling.rib.7.48" layer="architecture" min="23.25 7.48 6.08" max="28.7 7.58 6.18" material="wood"/>
+<cover id="ceiling.rib.8.04" layer="architecture" min="23.25 8.04 6.08" max="28.7 8.14 6.18" material="wood"/>
+<cover id="ceiling.rib.8.6" layer="architecture" min="23.25 8.6 6.08" max="28.7 8.7 6.18" material="wood"/>
+<cover id="ceiling.rib.9.16" layer="architecture" min="23.25 9.16 6.08" max="28.7 9.26 6.18" material="wood"/>
+<cover id="ceiling.rib.9.72" layer="architecture" min="23.25 9.72 6.08" max="28.7 9.82 6.18" material="wood"/>
+<cover id="ceiling.rib.10.28" layer="architecture" min="23.25 10.28 6.08" max="28.7 10.38 6.18" material="wood"/>
+<cover id="ceiling.rib.10.84" layer="architecture" min="23.25 10.84 6.08" max="28.7 10.94 6.18" material="wood"/>
+<cover id="ceiling.rib.11.4" layer="architecture" min="23.25 11.4 6.08" max="28.7 11.5 6.18" material="wood"/>
+<cover id="bridge.rail.front.0.35" layer="architecture" min="0.35 9.43 3.88" max="0.39 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.0.35" layer="architecture" min="0.35 10.98 3.88" max="0.39 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.1.05" layer="architecture" min="1.05 9.43 3.88" max="1.09 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.1.05" layer="architecture" min="1.05 10.98 3.88" max="1.09 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.1.75" layer="architecture" min="1.75 9.43 3.88" max="1.79 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.1.75" layer="architecture" min="1.75 10.98 3.88" max="1.79 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.2.45" layer="architecture" min="2.45 9.43 3.88" max="2.49 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.2.45" layer="architecture" min="2.45 10.98 3.88" max="2.49 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.3.15" layer="architecture" min="3.15 9.43 3.88" max="3.19 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.3.15" layer="architecture" min="3.15 10.98 3.88" max="3.19 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.3.85" layer="architecture" min="3.85 9.43 3.88" max="3.89 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.3.85" layer="architecture" min="3.85 10.98 3.88" max="3.89 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.4.55" layer="architecture" min="4.55 9.43 3.88" max="4.59 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.4.55" layer="architecture" min="4.55 10.98 3.88" max="4.59 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.5.25" layer="architecture" min="5.25 9.43 3.88" max="5.29 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.5.25" layer="architecture" min="5.25 10.98 3.88" max="5.29 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.5.95" layer="architecture" min="5.95 9.43 3.88" max="5.99 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.5.95" layer="architecture" min="5.95 10.98 3.88" max="5.99 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.6.65" layer="architecture" min="6.65 9.43 3.88" max="6.69 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.6.65" layer="architecture" min="6.65 10.98 3.88" max="6.69 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.7.35" layer="architecture" min="7.35 9.43 3.88" max="7.39 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.7.35" layer="architecture" min="7.35 10.98 3.88" max="7.39 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.8.05" layer="architecture" min="8.05 9.43 3.88" max="8.09 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.8.05" layer="architecture" min="8.05 10.98 3.88" max="8.09 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.8.75" layer="architecture" min="8.75 9.43 3.88" max="8.79 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.8.75" layer="architecture" min="8.75 10.98 3.88" max="8.79 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.9.45" layer="architecture" min="9.45 9.43 3.88" max="9.49 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.9.45" layer="architecture" min="9.45 10.98 3.88" max="9.49 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.10.15" layer="architecture" min="10.15 9.43 3.88" max="10.19 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.10.15" layer="architecture" min="10.15 10.98 3.88" max="10.19 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.10.85" layer="architecture" min="10.85 9.43 3.88" max="10.89 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.10.85" layer="architecture" min="10.85 10.98 3.88" max="10.89 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.11.55" layer="architecture" min="11.55 9.43 3.88" max="11.59 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.11.55" layer="architecture" min="11.55 10.98 3.88" max="11.59 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.12.25" layer="architecture" min="12.25 9.43 3.88" max="12.29 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.12.25" layer="architecture" min="12.25 10.98 3.88" max="12.29 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.12.95" layer="architecture" min="12.95 9.43 3.88" max="12.99 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.12.95" layer="architecture" min="12.95 10.98 3.88" max="12.99 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.13.65" layer="architecture" min="13.65 9.43 3.88" max="13.69 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.13.65" layer="architecture" min="13.65 10.98 3.88" max="13.69 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.14.35" layer="architecture" min="14.35 9.43 3.88" max="14.39 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.14.35" layer="architecture" min="14.35 10.98 3.88" max="14.39 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.15.05" layer="architecture" min="15.05 9.43 3.88" max="15.09 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.15.05" layer="architecture" min="15.05 10.98 3.88" max="15.09 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.15.75" layer="architecture" min="15.75 9.43 3.88" max="15.79 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.15.75" layer="architecture" min="15.75 10.98 3.88" max="15.79 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.16.45" layer="architecture" min="16.45 9.43 3.88" max="16.49 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.16.45" layer="architecture" min="16.45 10.98 3.88" max="16.49 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.17.15" layer="architecture" min="17.15 9.43 3.88" max="17.19 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.17.15" layer="architecture" min="17.15 10.98 3.88" max="17.19 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.17.85" layer="architecture" min="17.85 9.43 3.88" max="17.89 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.17.85" layer="architecture" min="17.85 10.98 3.88" max="17.89 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.18.55" layer="architecture" min="18.55 9.43 3.88" max="18.59 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.18.55" layer="architecture" min="18.55 10.98 3.88" max="18.59 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.19.25" layer="architecture" min="19.25 9.43 3.88" max="19.29 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.19.25" layer="architecture" min="19.25 10.98 3.88" max="19.29 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.19.95" layer="architecture" min="19.95 9.43 3.88" max="19.99 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.19.95" layer="architecture" min="19.95 10.98 3.88" max="19.99 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.20.65" layer="architecture" min="20.65 9.43 3.88" max="20.69 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.20.65" layer="architecture" min="20.65 10.98 3.88" max="20.69 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.21.35" layer="architecture" min="21.35 9.43 3.88" max="21.39 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.21.35" layer="architecture" min="21.35 10.98 3.88" max="21.39 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.22.05" layer="architecture" min="22.05 9.43 3.88" max="22.09 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.22.05" layer="architecture" min="22.05 10.98 3.88" max="22.09 11.07 4.16" material="bronze"/>
+<cover id="bridge.rail.front.22.75" layer="architecture" min="22.75 9.43 3.88" max="22.79 9.52 4.16" material="bronze"/>
+<cover id="bridge.rail.back.22.75" layer="architecture" min="22.75 10.98 3.88" max="22.79 11.07 4.16" material="bronze"/>
+<cover id="bridge.hand.front" layer="architecture" min="0.25 9.43 4.16" max="22.75 9.53 4.21" material="bronze"/>
+<cover id="bridge.hand.back" layer="architecture" min="0.25 10.97 4.16" max="22.75 11.07 4.21" material="bronze"/>
+<cover id="reading.shelf.0" layer="architecture" min="-4.6 23.45 0.1" max="-2.65 23.8 2.4" material="wood"/>
+<cover id="reading.books.0.0" layer="architecture" min="-4.5 23.15 0.4" max="-2.75 23.44 0.72" material="gate"/>
+<cover id="reading.books.0.1" layer="architecture" min="-4.5 23.15 1.05" max="-2.75 23.44 1.37" material="bronze"/>
+<cover id="reading.books.0.2" layer="architecture" min="-4.5 23.15 1.7" max="-2.75 23.44 2.02" material="gate"/>
+<cover id="reading.shelf.1" layer="architecture" min="-1.6 23.45 0.1" max="0.35 23.8 2.4" material="wood"/>
+<cover id="reading.books.1.0" layer="architecture" min="-1.5 23.15 0.4" max="0.25 23.44 0.72" material="gate"/>
+<cover id="reading.books.1.1" layer="architecture" min="-1.5 23.15 1.05" max="0.25 23.44 1.37" material="bronze"/>
+<cover id="reading.books.1.2" layer="architecture" min="-1.5 23.15 1.7" max="0.25 23.44 2.02" material="gate"/>
+<cover id="reading.shelf.2" layer="architecture" min="1.4 23.45 0.1" max="3.35 23.8 2.4" material="wood"/>
+<cover id="reading.books.2.0" layer="architecture" min="1.5 23.15 0.4" max="3.25 23.44 0.72" material="gate"/>
+<cover id="reading.books.2.1" layer="architecture" min="1.5 23.15 1.05" max="3.25 23.44 1.37" material="bronze"/>
+<cover id="reading.books.2.2" layer="architecture" min="1.5 23.15 1.7" max="3.25 23.44 2.02" material="gate"/>
+<cover id="reading.shelf.3" layer="architecture" min="4.4 23.45 0.1" max="6.35 23.8 2.4" material="wood"/>
+<cover id="reading.books.3.0" layer="architecture" min="4.5 23.15 0.4" max="6.25 23.44 0.72" material="gate"/>
+<cover id="reading.books.3.1" layer="architecture" min="4.5 23.15 1.05" max="6.25 23.44 1.37" material="bronze"/>
+<cover id="reading.books.3.2" layer="architecture" min="4.5 23.15 1.7" max="6.25 23.44 2.02" material="gate"/>
+<cover id="gallery.frame.0" layer="architecture" min="10 23.65 1.03" max="11.55 23.74 2.12" material="bronze"/>
+<cover id="gallery.art.0" layer="architecture" min="10.08 23.6 1.11" max="11.47 23.65 2.04" material="stone"/>
+<cover id="gallery.frame.1" layer="architecture" min="13.6 23.65 1.03" max="15.15 23.74 2.12" material="bronze"/>
+<cover id="gallery.art.1" layer="architecture" min="13.68 23.6 1.11" max="15.07 23.65 2.04" material="teal"/>
+<cover id="gallery.frame.2" layer="architecture" min="17.2 23.65 1.03" max="18.75 23.74 2.12" material="bronze"/>
+<cover id="gallery.art.2" layer="architecture" min="17.28 23.6 1.11" max="18.67 23.65 2.04" material="stone"/>
+<cover id="gallery.frame.3" layer="architecture" min="20.8 23.65 1.03" max="22.35 23.74 2.12" material="bronze"/>
+<cover id="gallery.art.3" layer="architecture" min="20.88 23.6 1.11" max="22.27 23.65 2.04" material="teal"/>
+<cover id="gallery.frame.4" layer="architecture" min="24.4 23.65 1.03" max="25.95 23.74 2.12" material="bronze"/>
+<cover id="gallery.art.4" layer="architecture" min="24.48 23.6 1.11" max="25.87 23.65 2.04" material="stone"/>
+<cover id="bench.base" layer="architecture" min="-5.35 8 0.02" max="-4.65 10.4 0.36" material="limestone"/>
+<cover id="bench.seat" layer="architecture" min="-5.43 7.92 0.36" max="-4.57 10.48 0.44" material="wood"/>
+<cover id="pool.basin" layer="architecture" min="5.15 4.15 0.09" max="7.85 6.85 0.13" material="teal"/>
+<cover id="pool.coping.w" layer="architecture" min="4.84 3.84 0.52" max="5.16 7.16 0.62" material="limestone"/>
+<cover id="pool.coping.e" layer="architecture" min="7.84 3.84 0.52" max="8.16 7.16 0.62" material="limestone"/>
+<cover id="pool.coping.s" layer="architecture" min="5.16 3.84 0.52" max="7.84 4.16 0.62" material="limestone"/>
+<cover id="pool.coping.n" layer="architecture" min="5.16 6.84 0.52" max="7.84 7.16 0.62" material="limestone"/>
+<marker id="spawn" layer="architecture" region="courtyard" position="2 2 0" kind="attacker_spawn"/>
+<marker id="objective" layer="architecture" region="bridge" position="25 5 3" kind="objective"/>
+<route id="climb" from="spawn" to="objective" min-routes="1" max-distance="140"/>
+<light id="sun" kind="directional" position="-18 -24 28" target="10 9 0" color="#fff1d5" intensity="3"/>
 </level>
