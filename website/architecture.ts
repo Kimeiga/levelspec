@@ -1,3 +1,5 @@
+import { materialDescriptions, treatments } from "./world-styles.ts";
+import { addStyleDetails } from "./style-details.ts";
 import type { V3 } from "../src/vector/types.ts";
 export interface CourtOptions {
   height: number;
@@ -22,6 +24,7 @@ type Edge = {
   material?: string;
   control?: string;
   openings?: string;
+  thickness?: number;
 };
 const n = (v: number) => Number(v.toFixed(4));
 const key = (p: V3) => p.map(n).join(",");
@@ -200,6 +203,16 @@ export function buildCourtyard({
     e.openings = Array.from({ length: bays }, (_, i) => {
       const s = i * spacing + Math.min(0.55, spacing * 0.17),
         t = (i + 1) * spacing - Math.min(0.55, spacing * 0.17);
+      if (look === "chalk" && sill === 0 && t - s > 1.5) {
+        const count = 16,
+          rise = Math.min(0.28, (t - s) * 0.14);
+        return Array.from({ length: count }, (_, j) => {
+          const u = (j + 0.5) / count,
+            top =
+              head - rise + rise * Math.sqrt(Math.max(0, 1 - (2 * u - 1) ** 2));
+          return `<opening id="${e.id}.opening${i}.${j}" kind="arch" start="${n(s + ((t - s) * j) / count)}" end="${n(s + ((t - s) * (j + 1)) / count)}" sill="${n(sill)}" head="${n(top)}"/>`;
+        }).join("");
+      }
       return `<opening id="${e.id}.opening${i}" kind="arch" start="${n(s)}" end="${n(t)}" sill="${n(sill)}" head="${n(head)}"/>`;
     }).join("");
   }
@@ -299,30 +312,22 @@ export function buildCourtyard({
   }
   // Roof cornices, column capitals and slender balustrades give the shell a finished scale.
   const roof = h + 3.4;
+  // One owner per trim run. Cornices sit above the roof, never inside its faces.
+  const roofTop = roof + 0.2;
   for (const [id, x, y, X, Y] of [
-    ["west", -6, 0, 0, 12],
-    ["north", -6, 12, 29, 18],
-    ["east", 23, 0, 29, 12],
-  ] as const) {
-    box(
-      `cornice.${id}.front`,
-      [x - 0.12, y - 0.16, roof],
-      [X + 0.12, y + 0.12, roof + 0.16],
-      "limestone",
-    );
-    box(
-      `cornice.${id}.back`,
-      [x - 0.12, Y - 0.12, roof],
-      [X + 0.12, Y + 0.16, roof + 0.16],
-      "limestone",
-    );
-  }
+    ["west-front", -6.14, -0.2, 0.14, 0],
+    ["east-front", 22.86, -0.2, 29.14, 0],
+    ["court-front", 0.14, 11.8, 22.86, 12],
+    ["west-side", -6.34, 0, -6.14, 18],
+    ["east-side", 29.14, 0, 29.34, 18],
+  ] as const)
+    box(`cornice.${id}`, [x, y, roofTop], [X, Y, roofTop + 0.18], "limestone");
   for (let y = 0.35; y < 12; y += 2.3) {
     // Posts inside upper arcades sit on the parapet rather than in a walking lane.
     box(
       `west.column.${n(y)}`,
       [-0.2, y, h + 0.88],
-      [0.12, y + 0.23, roof - 0.03],
+      [0.12, y + 0.23, roof - 0.22],
       "limestone",
     );
     box(
@@ -403,31 +408,44 @@ export function buildCourtyard({
   box("pool.coping.e", [7.84, 3.84, 0.52], [8.16, 7.16, 0.62], "limestone");
   box("pool.coping.s", [5.16, 3.84, 0.52], [7.84, 4.16, 0.62], "limestone");
   box("pool.coping.n", [5.16, 6.84, 0.52], [7.84, 7.16, 0.62], "limestone");
-  const colors = {
-    clay: ["#c6ac89", "#cfb695", "#ede1c8", "#316557"],
-    chalk: ["#bdbab1", "#adb8b5", "#e9e6da", "#496871"],
-    night: ["#929c9e", "#788c94", "#d3c8ab", "#9a683f"],
-  }[look];
-  const mats = [
-    ["plaster", colors[0], "plaster", 0.75, 0, 1],
-    ["brick", colors[1], "brick", 0.86, 0, 0.45],
-    ["limestone", colors[2], "stone", 0.8, 0, 0.6],
-    ["paving", "#c4b397", "paving", 0.82, 0, 0.4],
-    ["tile", "#617970", "tile", 0.6, 0, 0.6],
-    ["stone", "#bab19c", "stone", 0.9, 0, 0.7],
-    ["wood", "#866647", "wood", 0.67, 0, 0.6],
-    ["bronze", "#655b46", "plaster", 0.45, 0.5, 1],
-    ["teal", colors[3], "plaster", 0.28, 0.1, 1],
-    ["gate", "#8c5942", "wood", 0.65, 0, 0.7],
-  ];
+  addStyleDetails(
+    look,
+    h,
+    box,
+    (id, a, b, width, height, material, control) => {
+      edges.set(id, {
+        id,
+        a,
+        b,
+        owners: [],
+        kind: "wall",
+        height,
+        thickness: width,
+        material,
+        control,
+      });
+    },
+  );
+  for (const e of edges.values()) {
+    vertex(e.a);
+    vertex(e.b);
+  }
+  const treatment = treatments[look];
+  const mats = materialDescriptions(look);
+  const levelId =
+    look === "clay"
+      ? "lantern-court"
+      : look === "chalk"
+        ? "chalk-cloister"
+        : "slate-atelier";
   const xml: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    `<level version="2" id="lantern-court" name="Lantern Court" units="meters" wall-thickness="0.28" wall-height="3" floor-thickness="0.2" curve-tolerance="0.015">`,
+    `<level version="2" id="${levelId}" name="${treatment.name}" units="meters" wall-thickness="0.28" wall-height="3" floor-thickness="0.2" curve-tolerance="0.015">`,
     '<player radius="0.35" height="1.8" step="0.45" slope="42"/>',
-    '<sky color="#d4e4eb" intensity="0.4"/>',
+    `<sky color="${treatment.sky}" intensity="${treatment.fill}"/>`,
     ...mats.map(
-      ([id, color, tex, rough, metal, repeat]) =>
-        `<material id="${id}" color="${color}" texture="textures/${tex}.png" roughness="${rough}" metalness="${metal}" repeat="${repeat}"/>`,
+      (m) =>
+        `<material id="${m.id}" color="${m.color}" texture="${m.texture}" roughness="${m.roughness}" metalness="${m.metalness}" repeat="${m.repeat}"/>`,
     ),
     '<layer id="architecture" label="Lantern Court">',
   ];
@@ -437,7 +455,7 @@ export function buildCourtyard({
   }
   for (const e of edges.values())
     xml.push(
-      `<edge id="${e.id}" from="${vertex(e.a)}" to="${vertex(e.b)}" kind="${e.kind}" height="${n(e.height!)}" material="${e.material}"${e.control ? ` control="${e.control}"` : ""}>${e.openings ?? ""}</edge>`,
+      `<edge id="${e.id}" from="${vertex(e.a)}" to="${vertex(e.b)}" kind="${e.kind}" height="${n(e.height!)}"${e.thickness ? ` thickness="${n(e.thickness)}"` : ""} material="${e.material}"${e.control ? ` control="${e.control}"` : ""}>${e.openings ?? ""}</edge>`,
     );
   for (const area of areas) {
     const boundary = boundaries.get(area.id)!;
@@ -459,7 +477,14 @@ export function buildCourtyard({
     '<marker id="spawn" layer="architecture" region="courtyard" position="2 2 0" kind="attacker_spawn"/>',
     `<marker id="objective" layer="architecture" region="bridge" position="25 5 ${h}" kind="objective"/>`,
     '<route id="climb" from="spawn" to="objective" min-routes="1" max-distance="140"/>',
-    '<light id="sun" kind="directional" position="-18 -24 28" target="10 9 0" color="#fff1d5" intensity="3"/>',
+    `<light id="sun" kind="directional" position="${treatment.sunPosition.join(" ")}" target="10 9 0" color="${treatment.sunColor}" intensity="${treatment.sunIntensity}"/>`,
+    ...(look === "chalk"
+      ? []
+      : Array.from(
+          { length: 4 },
+          (_, i) =>
+            `<light id="accent.${i}" kind="point" position="${1.2 + i * 6} 14.8 ${h - 0.83}" color="${look === "night" ? "#ffb16d" : "#ffe1a2"}" intensity="${look === "night" ? 24 : 10}"/>`,
+        )),
     "</level>",
   );
   return xml.join("\n") + "\n";

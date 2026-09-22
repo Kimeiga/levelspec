@@ -1,16 +1,16 @@
-import plaster from "./assets/textures/plaster.png?url";
-import stone from "./assets/textures/stone.png?url";
-import brick from "./assets/textures/brick.png?url";
-import paving from "./assets/textures/paving.png?url";
-import tile from "./assets/textures/tile.png?url";
-import wood from "./assets/textures/wood.png?url";
 import type { CompiledLevel } from "../src/vector/types.ts";
 import { resolveExportAssets } from "../src/vector/export-assets.ts";
+const images = import.meta.glob<string>("./assets/textures/*-*.png", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 export const materialURLs: Readonly<Record<string, string>> = Object.freeze(
   Object.fromEntries(
-    Object.entries({ plaster, stone, brick, paving, tile, wood }).map(
-      ([id, url]) => [`textures/${id}.png`, url],
-    ),
+    Object.entries(images).map(([file, url]) => [
+      file.replace("./assets/", ""),
+      url,
+    ]),
   ),
 );
 async function imageBytes(url: string): Promise<Uint8Array> {
@@ -26,15 +26,15 @@ export async function materialAssets(level: CompiledLevel) {
     return imageBytes(url);
   });
 }
-export async function originalMaterialFiles(): Promise<
-  Record<string, Uint8Array>
-> {
+export async function originalMaterialFiles(
+  source?: string,
+): Promise<Record<string, Uint8Array>> {
+  const referenced = Object.entries(materialURLs).filter(
+    ([name]) => !source || source.includes(`texture="${name}"`),
+  );
   return Object.fromEntries(
     await Promise.all(
-      Object.entries(materialURLs).map(async ([name, url]) => [
-        name,
-        await imageBytes(url),
-      ]),
+      referenced.map(async ([name, url]) => [name, await imageBytes(url)]),
     ),
   );
 }

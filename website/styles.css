@@ -1414,3 +1414,76 @@ body.walking .demo-body {
     min-height: 44px;
   }
 }
+
+/* First-person mode remains accessible from every chapter. */
+#walk-anywhere {
+  background: #244d43;
+  color: #fff;
+  min-height: 38px;
+}
+.style-picker select {
+  font: inherit;
+  max-width: 145px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+}
+#capture-mouse {
+  position: absolute;
+  top: 64px;
+  right: 18px;
+  background: #faf7e9;
+  color: #20362f;
+}
+body.walking .view-switch {
+  display: none;
+}
+body.walking .visual-panel {
+  position: relative;
+  top: auto;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+body.walking .scene-pair {
+  height: auto;
+  min-height: 0;
+  flex: 1;
+}
+body.walking .model-pane {
+  min-height: 0;
+}
+body.walking .compiler-bar {
+  flex: 0 0 auto;
+}
+body.walking .dpad {
+  left: 22px;
+  right: auto;
+  bottom: 70px;
+}
+@media (max-width: 760px) {
+  .demo-actions .style-picker select {
+    max-width: 126px;
+    font-size: 10px;
+  }
+  .demo-heading {
+    flex-wrap: wrap;
+  }
+  .demo-heading .demo-actions {
+    margin-left: auto;
+  }
+  body.walking .demo {
+    height: calc(100dvh - 84px);
+  }
+  body.walking .walk-label {
+    font-size: 9px;
+    left: 12px;
+    top: 16px;
+  }
+  #capture-mouse {
+    display: none;
+  }
+}

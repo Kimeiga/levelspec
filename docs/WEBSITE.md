@@ -1,5 +1,7 @@
 # Interactive introduction
 
+Current experience: see [THREE-WORLDS.md](THREE-WORLDS.md) for the three architectural treatments, persistent first-person entry, and surface-stability changes. Verification is in [WALK-STABILITY-VERIFICATION.md](WALK-STABILITY-VERIFICATION.md).
+
 The current featured scene is **Lantern Court**, a two-storey architectural courtyard with 15 declared floor regions. See [COURTYARD.md](COURTYARD.md) for authoring, materials, exports and limits.
 
 `website/architecture.ts` emits the SVGX source for the same compiler used by the workbench. `website/demo.level.svgx` is a tested default-state snapshot. The page follows Enter / Reshape / Validate / Export: enter at eye level, change the curve or shared elevation, inspect actual navigation, deliberately disconnect and repair access, then export the compiled result.

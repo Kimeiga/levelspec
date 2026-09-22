@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <level version="2" id="lantern-court" name="Lantern Court" units="meters" wall-thickness="0.28" wall-height="3" floor-thickness="0.2" curve-tolerance="0.015">
 <player radius="0.35" height="1.8" step="0.45" slope="42"/>
-<sky color="#d4e4eb" intensity="0.4"/>
-<material id="plaster" color="#c6ac89" texture="textures/plaster.png" roughness="0.75" metalness="0" repeat="1"/>
-<material id="brick" color="#cfb695" texture="textures/brick.png" roughness="0.86" metalness="0" repeat="0.45"/>
-<material id="limestone" color="#ede1c8" texture="textures/stone.png" roughness="0.8" metalness="0" repeat="0.6"/>
-<material id="paving" color="#c4b397" texture="textures/paving.png" roughness="0.82" metalness="0" repeat="0.4"/>
-<material id="tile" color="#617970" texture="textures/tile.png" roughness="0.6" metalness="0" repeat="0.6"/>
-<material id="stone" color="#bab19c" texture="textures/stone.png" roughness="0.9" metalness="0" repeat="0.7"/>
-<material id="wood" color="#866647" texture="textures/wood.png" roughness="0.67" metalness="0" repeat="0.6"/>
-<material id="bronze" color="#655b46" texture="textures/plaster.png" roughness="0.45" metalness="0.5" repeat="1"/>
-<material id="teal" color="#316557" texture="textures/plaster.png" roughness="0.28" metalness="0.1" repeat="1"/>
-<material id="gate" color="#8c5942" texture="textures/wood.png" roughness="0.65" metalness="0" repeat="0.7"/>
+<sky color="#d9e3e4" intensity="1.05"/>
+<material id="plaster" color="#e7c7a1" texture="textures/clay-limewash.png" roughness="0.93" metalness="0" repeat="1"/>
+<material id="brick" color="#dccfbb" texture="textures/clay-travertine.png" roughness="0.86" metalness="0" repeat="0.5"/>
+<material id="limestone" color="#ede1c8" texture="textures/clay-travertine.png" roughness="0.82" metalness="0" repeat="0.6"/>
+<material id="paving" color="#dfb594" texture="textures/clay-terracotta.png" roughness="0.79" metalness="0" repeat="0.5"/>
+<material id="tile" color="#82aa9a" texture="textures/clay-zellige.png" roughness="0.4" metalness="0" repeat="0.65"/>
+<material id="stone" color="#d9d0ba" texture="textures/clay-travertine.png" roughness="0.9" metalness="0" repeat="0.7"/>
+<material id="wood" color="#aa7b4c" texture="textures/clay-cedar.png" roughness="0.66" metalness="0" repeat="0.65"/>
+<material id="bronze" color="#86714d" texture="textures/clay-brass.png" roughness="0.42" metalness="0.65" repeat="1"/>
+<material id="teal" color="#439887" texture="textures/clay-zellige.png" roughness="0.25" metalness="0.1" repeat="0.7"/>
+<material id="gate" color="#78502e" texture="textures/clay-cedar.png" roughness="0.65" metalness="0" repeat="0.65"/>
+<material id="roof" color="#916a42" texture="textures/clay-cedar.png" roughness="0.66" metalness="0" repeat="0.65"/>
+<material id="foliage" color="#739664" texture="textures/clay-limewash.png" roughness="0.93" metalness="0" repeat="1"/>
+<material id="lamp" color="#ffe3ae" texture="textures/clay-limewash.png" roughness="0.93" metalness="0" repeat="1"/>
 <layer id="architecture" label="Lantern Court">
 <vertex id="v.0" x="0" y="0" z="0"/>
 <vertex id="v.1" x="14" y="0" z="0"/>
@@ -61,6 +64,26 @@
 <vertex id="v.45" x="8" y="24" z="3"/>
 <vertex id="v.46" x="-6" y="24" z="3"/>
 <vertex id="v.47" x="29" y="24" z="3"/>
+<vertex id="v.48" x="0.7" y="9.16" z="5.62"/>
+<vertex id="v.49" x="0.7" y="11.35" z="5.62"/>
+<vertex id="v.50" x="1.42" y="9.16" z="5.62"/>
+<vertex id="v.51" x="1.42" y="11.35" z="5.62"/>
+<vertex id="v.52" x="2.14" y="9.16" z="5.62"/>
+<vertex id="v.53" x="2.14" y="11.35" z="5.62"/>
+<vertex id="v.54" x="2.86" y="9.16" z="5.62"/>
+<vertex id="v.55" x="2.86" y="11.35" z="5.62"/>
+<vertex id="v.56" x="3.58" y="9.16" z="5.62"/>
+<vertex id="v.57" x="3.58" y="11.35" z="5.62"/>
+<vertex id="v.58" x="4.3" y="9.16" z="5.62"/>
+<vertex id="v.59" x="4.3" y="11.35" z="5.62"/>
+<vertex id="v.60" x="5.02" y="9.16" z="5.62"/>
+<vertex id="v.61" x="5.02" y="11.35" z="5.62"/>
+<vertex id="v.62" x="5.74" y="9.16" z="5.62"/>
+<vertex id="v.63" x="5.74" y="11.35" z="5.62"/>
+<vertex id="v.64" x="6.46" y="9.16" z="5.62"/>
+<vertex id="v.65" x="6.46" y="11.35" z="5.62"/>
+<vertex id="v.66" x="7.18" y="9.16" z="5.62"/>
+<vertex id="v.67" x="7.18" y="11.35" z="5.62"/>
 <edge id="courtyard.e0" from="v.0" to="v.1" kind="wall" height="1.05" material="limestone" control="4 -3; 10 -3"></edge>
 <edge id="east.door" from="v.1" to="v.2" kind="open" height="2.8" material="limestone"></edge>
 <edge id="edge.0" from="v.2" to="v.3" kind="wall" height="2.8" material="brick"></edge>
@@ -125,6 +148,16 @@
 <edge id="edge.54" from="v.46" to="v.44" kind="wall" height="4.5" material="brick"><opening id="edge.54.opening0" kind="arch" start="0.55" end="5.45" sill="0.75" head="2.8"/></edge>
 <edge id="edge.55" from="v.42" to="v.47" kind="wall" height="3.8" material="brick"><opening id="edge.55.opening0" kind="arch" start="0.55" end="5.45" sill="0.75" head="2.8"/></edge>
 <edge id="edge.56" from="v.47" to="v.45" kind="wall" height="3.8" material="brick"><opening id="edge.56.opening0" kind="arch" start="0.55" end="3.65" sill="0.75" head="2.8"/><opening id="edge.56.opening1" kind="arch" start="4.75" end="7.85" sill="0.75" head="2.8"/><opening id="edge.56.opening2" kind="arch" start="8.95" end="12.05" sill="0.75" head="2.8"/><opening id="edge.56.opening3" kind="arch" start="13.15" end="16.25" sill="0.75" head="2.8"/><opening id="edge.56.opening4" kind="arch" start="17.35" end="20.45" sill="0.75" head="2.8"/></edge>
+<edge id="clay.pergola.0" from="v.48" to="v.49" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.1" from="v.50" to="v.51" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.2" from="v.52" to="v.53" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.3" from="v.54" to="v.55" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.4" from="v.56" to="v.57" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.5" from="v.58" to="v.59" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.6" from="v.60" to="v.61" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.7" from="v.62" to="v.63" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.8" from="v.64" to="v.65" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
+<edge id="clay.pergola.9" from="v.66" to="v.67" kind="wall" height="0.16" thickness="0.14" material="wood"></edge>
 <region id="courtyard" boundary="courtyard.e0 east.door edge.0 east.stairs edge.1 edge.2 edge.3" fill="floor" material="paving">
 <hole boundary="well.e0 well.e1 well.e2 well.e3"/>
 </region>
@@ -157,23 +190,22 @@
 <region id="library" boundary="-edge.49 edge.55 edge.56 -edge.52" fill="floor" material="wood" ceiling="6.8">
 </region>
 </layer>
-<cover id="cornice.west.front" layer="architecture" min="-6.12 -0.16 6.4" max="0.12 0.12 6.56" material="limestone"/>
-<cover id="cornice.west.back" layer="architecture" min="-6.12 11.88 6.4" max="0.12 12.16 6.56" material="limestone"/>
-<cover id="cornice.north.front" layer="architecture" min="-6.12 11.84 6.4" max="29.12 12.12 6.56" material="limestone"/>
-<cover id="cornice.north.back" layer="architecture" min="-6.12 17.88 6.4" max="29.12 18.16 6.56" material="limestone"/>
-<cover id="cornice.east.front" layer="architecture" min="22.88 -0.16 6.4" max="29.12 0.12 6.56" material="limestone"/>
-<cover id="cornice.east.back" layer="architecture" min="22.88 11.88 6.4" max="29.12 12.16 6.56" material="limestone"/>
-<cover id="west.column.0.35" layer="architecture" min="-0.2 0.35 3.88" max="0.12 0.58 6.37" material="limestone"/>
+<cover id="cornice.west-front" layer="architecture" min="-6.14 -0.2 6.6" max="0.14 0 6.78" material="limestone"/>
+<cover id="cornice.east-front" layer="architecture" min="22.86 -0.2 6.6" max="29.14 0 6.78" material="limestone"/>
+<cover id="cornice.court-front" layer="architecture" min="0.14 11.8 6.6" max="22.86 12 6.78" material="limestone"/>
+<cover id="cornice.west-side" layer="architecture" min="-6.34 0 6.6" max="-6.14 18 6.78" material="limestone"/>
+<cover id="cornice.east-side" layer="architecture" min="29.14 0 6.6" max="29.34 18 6.78" material="limestone"/>
+<cover id="west.column.0.35" layer="architecture" min="-0.2 0.35 3.88" max="0.12 0.58 6.18" material="limestone"/>
 <cover id="west.capital.0.35" layer="architecture" min="-0.31 0.27 6.18" max="0.23 0.66 6.37" material="limestone"/>
-<cover id="west.column.2.65" layer="architecture" min="-0.2 2.65 3.88" max="0.12 2.88 6.37" material="limestone"/>
+<cover id="west.column.2.65" layer="architecture" min="-0.2 2.65 3.88" max="0.12 2.88 6.18" material="limestone"/>
 <cover id="west.capital.2.65" layer="architecture" min="-0.31 2.57 6.18" max="0.23 2.96 6.37" material="limestone"/>
-<cover id="west.column.4.95" layer="architecture" min="-0.2 4.95 3.88" max="0.12 5.18 6.37" material="limestone"/>
+<cover id="west.column.4.95" layer="architecture" min="-0.2 4.95 3.88" max="0.12 5.18 6.18" material="limestone"/>
 <cover id="west.capital.4.95" layer="architecture" min="-0.31 4.87 6.18" max="0.23 5.26 6.37" material="limestone"/>
-<cover id="west.column.7.25" layer="architecture" min="-0.2 7.25 3.88" max="0.12 7.48 6.37" material="limestone"/>
+<cover id="west.column.7.25" layer="architecture" min="-0.2 7.25 3.88" max="0.12 7.48 6.18" material="limestone"/>
 <cover id="west.capital.7.25" layer="architecture" min="-0.31 7.17 6.18" max="0.23 7.56 6.37" material="limestone"/>
-<cover id="west.column.9.55" layer="architecture" min="-0.2 9.55 3.88" max="0.12 9.78 6.37" material="limestone"/>
+<cover id="west.column.9.55" layer="architecture" min="-0.2 9.55 3.88" max="0.12 9.78 6.18" material="limestone"/>
 <cover id="west.capital.9.55" layer="architecture" min="-0.31 9.47 6.18" max="0.23 9.86 6.37" material="limestone"/>
-<cover id="west.column.11.85" layer="architecture" min="-0.2 11.85 3.88" max="0.12 12.08 6.37" material="limestone"/>
+<cover id="west.column.11.85" layer="architecture" min="-0.2 11.85 3.88" max="0.12 12.08 6.18" material="limestone"/>
 <cover id="west.capital.11.85" layer="architecture" min="-0.31 11.77 6.18" max="0.23 12.16 6.37" material="limestone"/>
 <cover id="north.column.0.3" layer="architecture" min="0.3 11.94 3.88" max="0.55 12.2 6.37" material="limestone"/>
 <cover id="north.column.3.7" layer="architecture" min="3.7 11.94 3.88" max="3.95 12.2 6.37" material="limestone"/>
@@ -306,8 +338,42 @@
 <cover id="pool.coping.e" layer="architecture" min="7.84 3.84 0.52" max="8.16 7.16 0.62" material="limestone"/>
 <cover id="pool.coping.s" layer="architecture" min="5.16 3.84 0.52" max="7.84 4.16 0.62" material="limestone"/>
 <cover id="pool.coping.n" layer="architecture" min="5.16 6.84 0.52" max="7.84 7.16 0.62" material="limestone"/>
+<cover id="clay.belvedere.column.0" layer="architecture" min="-5.2 19.1 7.7" max="-4.98 19.32 10.2" material="wood"/>
+<cover id="clay.belvedere.column.1" layer="architecture" min="-1.4 19.1 7.7" max="-1.18 19.32 10.2" material="wood"/>
+<cover id="clay.belvedere.column.2" layer="architecture" min="-5.2 22.9 7.7" max="-4.98 23.12 10.2" material="wood"/>
+<cover id="clay.belvedere.column.3" layer="architecture" min="-1.4 22.9 7.7" max="-1.18 23.12 10.2" material="wood"/>
+<cover id="clay.belvedere.crown" layer="architecture" min="-5.5 18.8 10.2" max="-0.9 23.4 10.42" material="wood"/>
+<cover id="clay.belvedere.screen.0" layer="architecture" min="-5.2 19.45 8.05" max="-5.08 19.51 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.1" layer="architecture" min="-5.2 19.78 8.05" max="-5.08 19.84 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.2" layer="architecture" min="-5.2 20.11 8.05" max="-5.08 20.17 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.3" layer="architecture" min="-5.2 20.44 8.05" max="-5.08 20.5 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.4" layer="architecture" min="-5.2 20.77 8.05" max="-5.08 20.83 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.5" layer="architecture" min="-5.2 21.1 8.05" max="-5.08 21.16 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.6" layer="architecture" min="-5.2 21.43 8.05" max="-5.08 21.49 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.7" layer="architecture" min="-5.2 21.76 8.05" max="-5.08 21.82 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.8" layer="architecture" min="-5.2 22.09 8.05" max="-5.08 22.15 10.12" material="wood"/>
+<cover id="clay.belvedere.screen.9" layer="architecture" min="-5.2 22.42 8.05" max="-5.08 22.48 10.12" material="wood"/>
+<cover id="clay.canopy.post.0.7" layer="architecture" min="0.7 9.4 3.87" max="0.84 9.57 5.62" material="wood"/>
+<cover id="clay.canopy.post.4.1" layer="architecture" min="4.1 9.4 3.87" max="4.24 9.57 5.62" material="wood"/>
+<cover id="clay.canopy.post.7.2" layer="architecture" min="7.2 9.4 3.87" max="7.34 9.57 5.62" material="wood"/>
+<cover id="clay.lantern.stem.0" layer="architecture" min="1.2 14.8 2.55" max="1.245 14.845 2.8" material="bronze"/>
+<cover id="clay.lantern.body.0" layer="architecture" min="1.07 14.63 2.28" max="1.37 14.96 2.54" material="lamp"/>
+<cover id="clay.lantern.cap.0" layer="architecture" min="1.03 14.59 2.54" max="1.41 15 2.6" material="bronze"/>
+<cover id="clay.lantern.stem.1" layer="architecture" min="7.2 14.8 2.55" max="7.245 14.845 2.8" material="bronze"/>
+<cover id="clay.lantern.body.1" layer="architecture" min="7.07 14.63 2.28" max="7.37 14.96 2.54" material="lamp"/>
+<cover id="clay.lantern.cap.1" layer="architecture" min="7.03 14.59 2.54" max="7.41 15 2.6" material="bronze"/>
+<cover id="clay.lantern.stem.2" layer="architecture" min="13.2 14.8 2.55" max="13.245 14.845 2.8" material="bronze"/>
+<cover id="clay.lantern.body.2" layer="architecture" min="13.07 14.63 2.28" max="13.37 14.96 2.54" material="lamp"/>
+<cover id="clay.lantern.cap.2" layer="architecture" min="13.03 14.59 2.54" max="13.41 15 2.6" material="bronze"/>
+<cover id="clay.lantern.stem.3" layer="architecture" min="19.2 14.8 2.55" max="19.245 14.845 2.8" material="bronze"/>
+<cover id="clay.lantern.body.3" layer="architecture" min="19.07 14.63 2.28" max="19.37 14.96 2.54" material="lamp"/>
+<cover id="clay.lantern.cap.3" layer="architecture" min="19.03 14.59 2.54" max="19.41 15 2.6" material="bronze"/>
 <marker id="spawn" layer="architecture" region="courtyard" position="2 2 0" kind="attacker_spawn"/>
 <marker id="objective" layer="architecture" region="bridge" position="25 5 3" kind="objective"/>
 <route id="climb" from="spawn" to="objective" min-routes="1" max-distance="140"/>
-<light id="sun" kind="directional" position="-18 -24 28" target="10 9 0" color="#fff1d5" intensity="3"/>
+<light id="sun" kind="directional" position="-18 -24 28" target="10 9 0" color="#ffe4bf" intensity="3.1"/>
+<light id="accent.0" kind="point" position="1.2 14.8 2.17" color="#ffe1a2" intensity="10"/>
+<light id="accent.1" kind="point" position="7.2 14.8 2.17" color="#ffe1a2" intensity="10"/>
+<light id="accent.2" kind="point" position="13.2 14.8 2.17" color="#ffe1a2" intensity="10"/>
+<light id="accent.3" kind="point" position="19.2 14.8 2.17" color="#ffe1a2" intensity="10"/>
 </level>

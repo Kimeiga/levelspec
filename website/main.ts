@@ -1,3 +1,4 @@
+import { treatments } from "./world-styles.ts";
 import { materialAssets, originalMaterialFiles } from "./materials.ts";
 import "./styles.css";
 import { LevelScene } from "./scene.ts";
@@ -63,10 +64,12 @@ function updateExports() {
   element<HTMLButtonElement>("download-glb").disabled = !valid;
   element<HTMLButtonElement>("download-gltf").disabled = !valid;
   element<HTMLButtonElement>("enter").disabled = !valid || !scene;
+  element<HTMLButtonElement>("walk-anywhere").disabled = !valid || !scene;
   element<HTMLButtonElement>("tour").disabled = !valid || !scene;
   element("export-warning").hidden = !report || ready;
 }
 function updateSource() {
+  element<HTMLSelectElement>("style-select").value = state.look;
   const presets = {
     clay: { height: 3, curve: 3 },
     chalk: { height: 5, curve: 6 },
@@ -316,6 +319,8 @@ function requestBuild(delay = 0) {
         }
         clearTimeout(timeout);
         level = reply.level;
+        document.querySelector(".demo-heading strong")!.textContent =
+          level.document.name;
         report = reply.report;
         if (report.navigation) level.navigation = report.navigation;
         ready =
@@ -434,7 +439,7 @@ async function exportModel(format: "glb" | "gltf") {
     if (format === "glb") {
       save(
         exporter.toGLB(exportingLevel, { assets }),
-        "levelspec-lantern-court.glb",
+        `${exportingLevel.document.id}.glb`,
         "model/gltf-binary",
       );
     } else {
@@ -448,12 +453,12 @@ async function exportModel(format: "glb" | "gltf") {
         );
       const files = exporter.toGLTF(exportingLevel, { assets });
       files["source.level.svgx"] = source;
-      Object.assign(files, await originalMaterialFiles());
+      Object.assign(files, await originalMaterialFiles(source));
       if (!ready || version !== revision)
         throw new Error(
           "The source changed. Wait for compilation before exporting again.",
         );
-      files["lantern-court.levelspec.json"] = JSON.stringify(
+      files[`${exportingLevel.document.id}.levelspec.json`] = JSON.stringify(
         exportMetadata(exportingLevel, ["gltf"]),
         null,
         2,
@@ -466,7 +471,7 @@ async function exportModel(format: "glb" | "gltf") {
           ]),
         ),
       );
-      save(zip, "levelspec-lantern-court-gltf.zip", "application/zip");
+      save(zip, `${exportingLevel.document.id}-gltf.zip`, "application/zip");
     }
     notify(
       format === "glb"
@@ -562,7 +567,7 @@ element("download-source").onclick = async () => {
   try {
     const [{ zipSync, strToU8 }, images] = await Promise.all([
       import("fflate"),
-      originalMaterialFiles(),
+      originalMaterialFiles(source),
     ]);
     save(
       zipSync({ ...images, "lantern-court.level.svgx": strToU8(source) }),
@@ -646,6 +651,7 @@ function setPreview(view: "space" | "plan") {
 }
 function updateMode(mode: string) {
   const walk = mode === "walk";
+  scene?.setNavigation(!walk && state.step === 2);
   document.body.classList.toggle("walking", walk);
   document.querySelector<HTMLElement>(".walk-hud")!.hidden = !walk;
   element("view-mode").textContent =
@@ -682,10 +688,31 @@ element("raise-terrace").onclick = () => changeHeight(5);
 element("low-terrace").onclick = () => changeHeight(3);
 element("block-route").onclick = () => setBlocked(true);
 element("repair-route").onclick = () => setBlocked(false);
-element("enter").onclick = () => {
+function startWalking() {
   setPreview("space");
-  if (scene?.enterWalk()) window.scrollTo({ top: 0, behavior: "instant" });
+  if (scene?.enterWalk()) {
+    window.scrollTo({ top: 0, behavior: "instant" });
+    if (matchMedia("(pointer:fine)").matches) void scene.captureMouse();
+  } else
+    notify("Wait for the current scene to validate, then try walking again.");
+}
+element("enter").onclick = startWalking;
+element("walk-anywhere").onclick = startWalking;
+element("capture-mouse").onclick = () => {
+  void scene?.captureMouse();
 };
+element("model").addEventListener("mouse-mode", (event) => {
+  const captured = (event as CustomEvent<boolean>).detail;
+  element("capture-mouse").hidden = captured;
+  element("model-hint").textContent = captured
+    ? "WASD to walk · Move mouse to look · Esc to exit"
+    : "WASD / touch arrows to walk · Drag to look · Esc to exit";
+});
+element("model").addEventListener("walk-interrupted", () =>
+  notify(
+    "The edited route is not walkable. Restore access to resume the walkthrough.",
+  ),
+);
 element("exit-walk").onclick = () => scene?.exitWalk();
 element("view-courtyard").onclick = () => scene?.view("courtyard");
 element("view-terrace").onclick = () => scene?.view("terrace");
@@ -741,3 +768,10 @@ for (const button of document.querySelectorAll<HTMLButtonElement>(
       block: "start",
     });
   };
+
+element<HTMLSelectElement>("style-select").onchange = (e) => {
+  const value = (e.target as HTMLSelectElement).value;
+  document
+    .querySelector<HTMLButtonElement>(`[data-preset="${value}"]`)
+    ?.click();
+};
