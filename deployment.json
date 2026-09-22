@@ -1,6 +1,7 @@
 {
-  "source": "4174fb95a71c53d641715c80c2a2a4c7c1084373",
-  "experience": "Shader rendering and calibrated Cycles preset bakes",
+  "source": "7a08cc86e87b7360588d24d44d0313bfb1d878ff",
+  "testedHead": "856acd924c19b29e6ae144e01fe21fb2ef678d35",
+  "experience": "Shader rendering, calibrated Cycles preset bakes and frame-rate-independent walking",
   "bakedPresets": 3,
   "samples": 32
 }
