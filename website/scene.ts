@@ -1,3 +1,4 @@
+import { WalkClock } from "./walk-clock.ts";
 import { VisualEffects } from "./visual-effects.ts";
 import { PoolSurface } from "./pool-shader.ts";
 import {
@@ -56,7 +57,7 @@ export class LevelScene {
   private touch = { forward: 0, side: 0 };
   private dirty = true;
   private visible = true;
-  private last = performance.now();
+  private walkClock = new WalkClock();
   private currentView: View = "courtyard";
   private tourIndex = -1;
   private tourAt = 0;
@@ -216,15 +217,13 @@ export class LevelScene {
     this.visibility = new IntersectionObserver(([e]) => {
       this.visible = e.isIntersecting;
       this.dirty = true;
-      this.keys.clear();
-      this.touch = { forward: 0, side: 0 };
+      if (!this.visible) this.clearMovement();
     });
     this.visibility.observe(host);
     document.addEventListener(
       "visibilitychange",
       () => {
-        this.keys.clear();
-        this.touch = { forward: 0, side: 0 };
+        this.clearMovement();
         this.stopTour();
         this.dirty = true;
       },
@@ -240,6 +239,7 @@ export class LevelScene {
       {
         walking: () => this.walking,
         look: (dx, dy) => {
+          this.advanceWalking(performance.now());
           this.yaw -= dx * 0.003;
           this.pitch = THREE.MathUtils.clamp(
             this.pitch - dy * 0.003,
@@ -249,13 +249,11 @@ export class LevelScene {
           this.updateEyes();
         },
         key: (key, down) => {
+          this.advanceWalking(performance.now());
           if (down) this.keys.add(key);
           else this.keys.delete(key);
         },
-        clear: () => {
-          this.keys.clear();
-          this.touch = { forward: 0, side: 0 };
-        },
+        clear: () => this.clearMovement(),
         exit: () => this.exitWalk(),
         mouseMode: (captured) => {
           this.host.dataset.mouse = captured ? "captured" : "drag";
@@ -318,8 +316,7 @@ export class LevelScene {
     this.stopTour();
     this.walking = false;
     this.walkInput?.releaseMouse();
-    this.keys.clear();
-    this.touch = { forward: 0, side: 0 };
+    this.clearMovement();
     this.currentView = view;
     this.controls.enabled = true;
     if (view === "overview") this.overviewPose();
@@ -358,6 +355,7 @@ export class LevelScene {
     const hit = this.surface.locate(start) ?? this.surface.locate([2, 2, 0]);
     if (!hit) return false;
     this.stopTour();
+    this.clearMovement();
     this.walking = true;
     this.controls.enabled = false;
     this.point = hit.point;
@@ -396,13 +394,13 @@ export class LevelScene {
     }
     this.busy = value;
     if (value) {
-      this.keys.clear();
-      this.touch = { forward: 0, side: 0 };
+      this.clearMovement();
       // Pause input, but do not silently remove first-person mode on a rebuild.
       this.stopTour();
     }
   }
   moveInput(forward: number, side: number) {
+    this.advanceWalking(performance.now());
     this.touch = { forward, side };
   }
   private updateEyes() {
@@ -442,24 +440,14 @@ export class LevelScene {
     this.tourIndex = -1;
     this.host.dispatchEvent(new CustomEvent("tour-change", { detail: false }));
   }
-  private frame() {
-    const now = performance.now(),
-      dt = Math.min(0.05, (now - this.last) / 1000);
-    this.last = now;
-    if (!this.visible || document.hidden) return;
-    if (this.tourIndex >= 0 && now > this.tourAt) {
-      const next = this.tourIndex + 1;
-      if (next > 2) {
-        this.stopTour();
-      } else {
-        this.view(next === 1 ? "terrace" : "overview");
-        this.tourIndex = next;
-        this.tourAt = now + 4200;
-        this.host.dispatchEvent(
-          new CustomEvent("tour-change", { detail: true }),
-        );
-      }
-    }
+  private clearMovement() {
+    this.keys.clear();
+    this.touch = { forward: 0, side: 0 };
+    this.walkClock.reset(performance.now());
+  }
+  private advanceWalking(now: number) {
+    const dt = this.walkClock.consume(now);
+    if (!this.visible || document.hidden || dt <= 0) return;
     if (this.walking && this.surface && !this.busy) {
       let forward =
         this.touch.forward +
@@ -482,6 +470,24 @@ export class LevelScene {
         this.updateEyes();
       }
     }
+  }
+  private frame() {
+    const now = performance.now();
+    if (!this.visible || document.hidden) return;
+    if (this.tourIndex >= 0 && now > this.tourAt) {
+      const next = this.tourIndex + 1;
+      if (next > 2) {
+        this.stopTour();
+      } else {
+        this.view(next === 1 ? "terrace" : "overview");
+        this.tourIndex = next;
+        this.tourAt = now + 4200;
+        this.host.dispatchEvent(
+          new CustomEvent("tour-change", { detail: true }),
+        );
+      }
+    }
+    this.advanceWalking(now);
     const pulse = this.animate ? Math.max(0, (this.pulseEnd - now) / 1300) : 0;
     if (pulse !== this.pulse.value) {
       this.pulse.value = pulse;

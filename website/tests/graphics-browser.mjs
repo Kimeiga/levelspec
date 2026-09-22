@@ -1,19 +1,16 @@
-import { chromium } from "playwright";
-import { readFile, writeFile, mkdir, access } from "node:fs/promises";
+import {
+  launchBrowser,
+  testContext,
+  waitForFrames,
+  waitForVisualReady,
+} from "./browser-helpers.mjs";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import assert from "node:assert/strict";
 import { PNG } from "pngjs";
 const BASE = process.env.BASE_URL || "http://127.0.0.1:48217/levelspec/",
   OUT = process.env.QA_OUTPUT || "website-qa";
 await mkdir(OUT, { recursive: true });
-let executablePath = process.env.BROWSER_PATH;
-if (!executablePath && process.platform === "darwin") {
-  const p = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-  try {
-    await access(p);
-    executablePath = p;
-  } catch {}
-}
-const browser = await chromium.launch({ headless: true, executablePath });
+const browser = await launchBrowser();
 const results = [],
   errors = [];
 async function run(name, fn) {
@@ -24,7 +21,7 @@ async function run(name, fn) {
 const ready = (p) =>
   p.locator('#playground[data-status="ready"]').waitFor({ timeout: 45000 });
 try {
-  const ctx = await browser.newContext({
+  const ctx = await testContext(browser, {
     viewport: { width: 1440, height: 1000 },
     reducedMotion: "reduce",
     acceptDownloads: true,
@@ -101,9 +98,9 @@ try {
   await run(
     "motion can be paused and Basic graphics retains walking and exports",
     async () => {
-      await page.waitForTimeout(400);
+      await waitForVisualReady(page);
       const before = await page.locator("#model").getAttribute("data-frame");
-      await page.waitForTimeout(200);
+      await waitForFrames(page);
       assert.equal(
         await page.locator("#model").getAttribute("data-frame"),
         before,
@@ -114,7 +111,12 @@ try {
       const start = Number(
         await page.locator("#model").getAttribute("data-frame"),
       );
-      await page.waitForTimeout(200);
+      await page.waitForFunction(
+        (start) =>
+          Number(document.querySelector("#model").dataset.frame) > start,
+        start,
+        { timeout: 10000 },
+      );
       assert.ok(
         Number(await page.locator("#model").getAttribute("data-frame")) > start,
       );
@@ -157,7 +159,7 @@ try {
   await run(
     "corrupt lightmaps fall back to usable live lighting without a false success",
     async () => {
-      const c = await browser.newContext({
+      const c = await testContext(browser, {
         serviceWorkers: "block",
         reducedMotion: "reduce",
       });
