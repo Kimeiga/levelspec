@@ -9,7 +9,8 @@ concurrency:
   group: website-checks-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  verify:
+  core:
+    name: Core, unit and build checks
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -20,15 +21,29 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      # All existing tests, with bounded process concurrency for native/WASM memory.
+      # Preserve every original test and the bounded native/WASM concurrency.
       - run: node --test --test-concurrency=2 'tests/*.test.ts'
       - run: npm run test:site
       - run: npm run build:viewer
       - run: npm run build:site
         env:
           SITE_BASE: /levelspec/
+  browser:
+    name: Browser, accessibility, export and offline checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npm run build:site
+        env:
+          SITE_BASE: /levelspec/
       - run: npx playwright install --with-deps chromium
-      - name: Browser, accessibility, export and offline checks
+      - name: Verify the production browser experience
         run: |
           npm run preview:site -- --host 127.0.0.1 --port 48217 --strictPort > /tmp/levelspec-site.log 2>&1 &
           SERVER_PID=$!
@@ -40,3 +55,17 @@ jobs:
           npm run test:site:browser
         env:
           SITE_BASE: /levelspec/
+  verify:
+    # Keep the existing required check name; both independent suites must pass.
+    needs: [core, browser]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Require every suite to succeed
+        env:
+          CORE_RESULT: ${{ needs.core.result }}
+          BROWSER_RESULT: ${{ needs.browser.result }}
+        run: |
+          test "$CORE_RESULT" = success
+          test "$BROWSER_RESULT" = success

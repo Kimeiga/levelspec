@@ -48,3 +48,13 @@ test("a slow frame still respects the actual navigation boundary", () => {
   assert.ok(nav.locate(point));
   assert.deepEqual(nav.move(point, 0.85, 0), point);
 });
+test("multi-second software-rendered frames are not mistaken for suspension", () => {
+  for (const milliseconds of [1200, 2500, 5000, 8000]) {
+    const clock = new WalkClock();
+    clock.reset(0);
+    assert.equal(clock.consume(milliseconds), milliseconds / 1000);
+  }
+  const clock = new WalkClock();
+  clock.reset(0);
+  assert.equal(clock.consume(10001), 0);
+});

@@ -43,6 +43,8 @@ try {
         await page.locator(`[data-step="${step}"]`).click();
         await ready(page);
         assert.equal(await page.locator("#walk-anywhere").isVisible(), true);
+        // Entry is tested from a known free route, not the previous case's wall.
+        await page.locator("#view-courtyard").click();
         await page.locator("#walk-anywhere").click();
         assert.equal(
           await page.locator("#model").getAttribute("data-mode"),
