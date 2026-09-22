@@ -1,20 +1,18 @@
-import { chromium } from "playwright";
+import {
+  launchBrowser,
+  testContext,
+  waitForMovement,
+  holdKeyUntilMoved,
+  waitForVisualReady,
+} from "./browser-helpers.mjs";
 import assert from "node:assert/strict";
-import { mkdir, writeFile, access, readFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { PNG } from "pngjs";
 import validator from "gltf-validator";
 const BASE = process.env.BASE_URL || "http://127.0.0.1:48217/levelspec/";
 const OUT = process.env.QA_OUTPUT || "website-qa";
 await mkdir(OUT, { recursive: true });
-let executablePath = process.env.BROWSER_PATH;
-if (!executablePath && process.platform === "darwin") {
-  const chrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-  try {
-    await access(chrome);
-    executablePath = chrome;
-  } catch {}
-}
-const browser = await chromium.launch({ headless: true, executablePath });
+const browser = await launchBrowser();
 const results = [],
   errors = [],
   renderComparisons = [];
@@ -30,7 +28,7 @@ async function run(name, fn) {
   console.log("PASS " + name);
 }
 try {
-  const context = await browser.newContext({
+  const context = await testContext(browser, {
     viewport: { width: 1440, height: 1000 },
     acceptDownloads: true,
   });
@@ -45,15 +43,15 @@ try {
         await page.locator(`[data-step="${step}"]`).click();
         await ready(page);
         assert.equal(await page.locator("#walk-anywhere").isVisible(), true);
+        // Entry is tested from a known free route, not the previous case's wall.
+        await page.locator("#view-courtyard").click();
         await page.locator("#walk-anywhere").click();
         assert.equal(
           await page.locator("#model").getAttribute("data-mode"),
           "walk",
         );
         const before = await position(page);
-        await page.keyboard.down("w");
-        await page.waitForTimeout(350);
-        await page.keyboard.up("w");
+        await holdKeyUntilMoved(page, "w", before, 0.25);
         const after = await position(page);
         assert.ok(
           Math.hypot(after[0] - before[0], after[1] - before[1]) > 0.25,
@@ -137,7 +135,7 @@ try {
           () => document.querySelector("#model").dataset.textures === "ready",
         );
         await page.locator("#view-courtyard").click();
-        await page.waitForTimeout(150);
+        await waitForVisualReady(page);
         const canvas = page.locator("#model canvas");
         const before = PNG.sync.read(await canvas.screenshot());
         const box = await canvas.boundingBox();
@@ -153,7 +151,7 @@ try {
         );
         await page.mouse.up();
         await page.locator("#view-courtyard").click();
-        await page.waitForTimeout(150);
+        await waitForVisualReady(page);
         const shot = await canvas.screenshot({
           path: `${OUT}/stable-${style}.png`,
         });
@@ -181,7 +179,7 @@ try {
   await run(
     "mobile walkthrough fills the viewport and on-screen movement works",
     async () => {
-      const mobile = await browser.newContext({
+      const mobile = await testContext(browser, {
         viewport: { width: 390, height: 844 },
         isMobile: true,
         hasTouch: true,
@@ -198,8 +196,11 @@ try {
       const arrow = await p.locator('[data-move="forward"]').boundingBox();
       await p.mouse.move(arrow.x + arrow.width / 2, arrow.y + arrow.height / 2);
       await p.mouse.down();
-      await p.waitForTimeout(400);
-      await p.mouse.up();
+      try {
+        await waitForMovement(p, start, 0.4);
+      } finally {
+        await p.mouse.up();
+      }
       const end = await position(p);
       assert.ok(Math.hypot(end[0] - start[0], end[1] - start[1]) > 0.4);
       await p.screenshot({ path: `OUT/fps-mobile.png`.replace("OUT", OUT) });
@@ -210,7 +211,7 @@ try {
   await run(
     "denied mouse capture retains a working drag-look walkthrough",
     async () => {
-      const fallback = await browser.newContext({
+      const fallback = await testContext(browser, {
         viewport: { width: 1280, height: 900 },
       });
       await fallback.addInitScript(() => {
@@ -224,9 +225,7 @@ try {
       await p.locator("#walk-anywhere").click();
       assert.equal(await p.locator("#model").getAttribute("data-mode"), "walk");
       const before = await position(p);
-      await p.keyboard.down("w");
-      await p.waitForTimeout(350);
-      await p.keyboard.up("w");
+      await holdKeyUntilMoved(p, "w", before, 0.25);
       const after = await position(p);
       assert.ok(Math.hypot(after[0] - before[0], after[1] - before[1]) > 0.25);
       const canvas = await p.locator("#model canvas").boundingBox();
@@ -249,7 +248,7 @@ try {
   await run(
     "losing WebGL during a walk leaves a usable plan and disables walk entry",
     async () => {
-      const fallback = await browser.newContext();
+      const fallback = await testContext(browser);
       const p = await fallback.newPage();
       p.on("pageerror", (e) => errors.push(e.message));
       await p.goto(BASE);

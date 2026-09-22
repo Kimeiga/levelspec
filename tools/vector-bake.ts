@@ -1,5 +1,10 @@
 import { readFile } from "node:fs/promises";
-import { parseLevelSvgx, compile } from "../src/vector/index.ts";
+import { dirname, resolve } from "node:path";
+import {
+  parseLevelSvgx,
+  compile,
+  resolveExportAssets,
+} from "../src/vector/index.ts";
 import { bakeLighting } from "../src/lighting/bake.ts";
 const [
   file = "examples/showcase.level.svgx",
@@ -9,8 +14,12 @@ const [
 const level = await compile(parseLevelSvgx(await readFile(file, "utf8")), {
   uvs: true,
 });
+const assets = await resolveExportAssets(level, (reference) =>
+  readFile(resolve(dirname(resolve(file)), reference)),
+);
 await bakeLighting(level, {
   output,
+  assets,
   samples: Number(samples),
   onProgress: (s) => process.stdout.write(s),
 });

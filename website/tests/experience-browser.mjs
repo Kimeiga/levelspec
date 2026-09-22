@@ -1,19 +1,15 @@
-import { chromium } from "playwright";
+import {
+  launchBrowser,
+  testContext,
+  waitForFrames,
+  holdKeyUntilMoved,
+} from "./browser-helpers.mjs";
 import assert from "node:assert/strict";
-import { writeFile, mkdir, access } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
 const BASE = process.env.BASE_URL || "http://127.0.0.1:48217/levelspec/";
 const OUTPUT = process.env.QA_OUTPUT || "website-qa";
 await mkdir(OUTPUT, { recursive: true });
-let executablePath = process.env.BROWSER_PATH;
-if (!executablePath && process.platform === "darwin") {
-  const candidate =
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-  try {
-    await access(candidate);
-    executablePath = candidate;
-  } catch {}
-}
-const browser = await chromium.launch({ headless: true, executablePath });
+const browser = await launchBrowser();
 const results = [],
   errors = [];
 const ready = (p) =>
@@ -28,7 +24,7 @@ async function run(name, fn) {
   console.log("PASS " + name);
 }
 try {
-  const context = await browser.newContext({
+  const context = await testContext(browser, {
     viewport: { width: 1440, height: 1000 },
     acceptDownloads: true,
   });
@@ -49,12 +45,10 @@ try {
         "walk",
       );
       const before = await position(page);
-      await page.keyboard.down("w");
-      await page.waitForTimeout(600);
-      await page.keyboard.up("w");
+      await holdKeyUntilMoved(page, "w", before, 0.5);
       const after = await position(page);
       assert.ok(Math.hypot(after[0] - before[0], after[1] - before[1]) > 0.5);
-      await page.waitForTimeout(200);
+      await waitForFrames(page);
       assert.deepEqual(await position(page), after);
       await page.screenshot({ path: `${OUTPUT}/immersive-walk.png` });
       await page.keyboard.press("Escape");
@@ -225,7 +219,7 @@ try {
     await run(
       `mobile ${width}: controls and affected view share the viewport`,
       async () => {
-        const ctx = await browser.newContext({
+        const ctx = await testContext(browser, {
           viewport: { width, height: 844 },
           isMobile: true,
           hasTouch: true,

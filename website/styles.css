@@ -1487,3 +1487,68 @@ body.walking .dpad {
     display: none;
   }
 }
+
+.graphics-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 16px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  background: var(--paper);
+  position: relative;
+  z-index: 12;
+}
+.graphics-bar details {
+  position: relative;
+}
+.graphics-bar summary {
+  cursor: pointer;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.graphics-options {
+  position: absolute;
+  bottom: 38px;
+  right: 0;
+  width: min(310px, 80vw);
+  padding: 16px;
+  background: #faf9f3;
+  border: 1px solid #a8b5a8;
+  box-shadow: 0 8px 30px #14261b30;
+  border-radius: 5px;
+  color: #243c32;
+}
+.graphics-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  font-size: 12px;
+}
+.graphics-options select {
+  padding: 7px;
+  background: white;
+  color: #21372e;
+  border: 1px solid #9cab9d;
+}
+.graphics-options p {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 10px 0 0;
+}
+.graphics-bar input {
+  accent-color: #226655;
+}
+body.walking .graphics-bar {
+  display: none;
+}
+@media (max-width: 760px) {
+  .graphics-bar {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+}

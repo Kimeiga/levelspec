@@ -1,3 +1,13 @@
+import { WalkClock } from "./walk-clock.ts";
+import { VisualEffects } from "./visual-effects.ts";
+import { PoolSurface } from "./pool-shader.ts";
+import {
+  detailURLs,
+  makeSurface,
+  installSurfaceShader,
+  changedObjects,
+} from "./shader-materials.ts";
+import { loadBakedLighting, type BakedLighting } from "./baked-lighting.ts";
 import { makeEnvironment } from "./environment.ts";
 import { treatments } from "./world-styles.ts";
 import { bindWalkInput } from "./walk-input.ts";
@@ -11,6 +21,19 @@ type View = "courtyard" | "terrace" | "overview";
 /** One GPU scene. Walk positions are constrained to compiler-derived navigation. */
 export class LevelScene {
   private renderer: THREE.WebGLRenderer;
+  private effects: VisualEffects;
+  private enhanced = true;
+  private animate = !matchMedia("(prefers-reduced-motion:reduce)").matches;
+  private detailBank = new Map<string, THREE.Texture>();
+  private pool?: PoolSurface;
+  private pulse = { value: 0 };
+  private pulseEnd = 0;
+  private changed = new Set<string>();
+  private baked?: BakedLighting;
+  private bakeToken = 0;
+  private bakedEnabled = true;
+  private lastAnimation = 0;
+  private animationTime = 0;
   private environment?: THREE.WebGLRenderTarget;
   private environmentStyle = "";
   private renderedFrames = 0;
@@ -34,7 +57,7 @@ export class LevelScene {
   private touch = { forward: 0, side: 0 };
   private dirty = true;
   private visible = true;
-  private last = performance.now();
+  private walkClock = new WalkClock();
   private currentView: View = "courtyard";
   private tourIndex = -1;
   private tourAt = 0;
@@ -67,6 +90,32 @@ export class LevelScene {
     this.renderer.shadowMap.type = THREE.PCFShadowMap;
     // A single MSAA forward pass. No low-resolution screen-space AO that crawls during motion.
     this.renderer.shadowMap.autoUpdate = false;
+    this.effects = new VisualEffects(this.renderer, this.scene, this.camera);
+    this.host.dataset.graphics = "enhanced";
+    this.host.dataset.bake = "live";
+    const detailLoader = new THREE.TextureLoader();
+    Promise.all(
+      Object.entries(detailURLs).map(async ([key, url]) => {
+        const texture = await detailLoader.loadAsync(url);
+        if (this.abort.signal.aborted) {
+          texture.dispose();
+          return;
+        }
+        texture.colorSpace = THREE.NoColorSpace;
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.anisotropy = 4;
+        this.detailBank.set(key, texture);
+      }),
+    )
+      .then(() => {
+        if (!this.abort.signal.aborted) {
+          this.host.dataset.detail = "ready";
+          this.renderLevel();
+        }
+      })
+      .catch(() => {
+        this.host.dataset.detail = "unavailable";
+      });
     this.host.dataset.textures = "loading";
     const loader = new THREE.TextureLoader();
     Promise.all(
@@ -168,20 +217,19 @@ export class LevelScene {
     this.visibility = new IntersectionObserver(([e]) => {
       this.visible = e.isIntersecting;
       this.dirty = true;
-      this.keys.clear();
-      this.touch = { forward: 0, side: 0 };
+      if (!this.visible) this.clearMovement();
     });
     this.visibility.observe(host);
     document.addEventListener(
       "visibilitychange",
       () => {
-        this.keys.clear();
-        this.touch = { forward: 0, side: 0 };
+        this.clearMovement();
         this.stopTour();
         this.dirty = true;
       },
       { signal: this.abort.signal },
     );
+    this.renderer.shadowMap.needsUpdate = true;
     this.renderer.setAnimationLoop(() => this.frame());
     this.view("courtyard");
   }
@@ -191,6 +239,7 @@ export class LevelScene {
       {
         walking: () => this.walking,
         look: (dx, dy) => {
+          this.advanceWalking(performance.now());
           this.yaw -= dx * 0.003;
           this.pitch = THREE.MathUtils.clamp(
             this.pitch - dy * 0.003,
@@ -200,13 +249,11 @@ export class LevelScene {
           this.updateEyes();
         },
         key: (key, down) => {
+          this.advanceWalking(performance.now());
           if (down) this.keys.add(key);
           else this.keys.delete(key);
         },
-        clear: () => {
-          this.keys.clear();
-          this.touch = { forward: 0, side: 0 };
-        },
+        clear: () => this.clearMovement(),
         exit: () => this.exitWalk(),
         mouseMode: (captured) => {
           this.host.dataset.mouse = captured ? "captured" : "drag";
@@ -241,6 +288,7 @@ export class LevelScene {
     const { width, height } = this.host.getBoundingClientRect();
     if (!width || !height) return;
     this.renderer.setSize(width, height, false);
+    this.effects.resize(width, height);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     if (this.currentView === "overview" && !this.walking) this.overviewPose();
@@ -268,8 +316,7 @@ export class LevelScene {
     this.stopTour();
     this.walking = false;
     this.walkInput?.releaseMouse();
-    this.keys.clear();
-    this.touch = { forward: 0, side: 0 };
+    this.clearMovement();
     this.currentView = view;
     this.controls.enabled = true;
     if (view === "overview") this.overviewPose();
@@ -308,6 +355,7 @@ export class LevelScene {
     const hit = this.surface.locate(start) ?? this.surface.locate([2, 2, 0]);
     if (!hit) return false;
     this.stopTour();
+    this.clearMovement();
     this.walking = true;
     this.controls.enabled = false;
     this.point = hit.point;
@@ -332,15 +380,27 @@ export class LevelScene {
     return this.walking;
   }
   setBusy(value: boolean) {
+    if (value) {
+      this.bakeToken++;
+      this.baked?.dispose();
+      this.baked = undefined;
+      this.host.dataset.bake = "live";
+      this.host.dispatchEvent(
+        new CustomEvent("bake-status", {
+          detail: "Live lighting · source changing",
+        }),
+      );
+      this.renderLevel();
+    }
     this.busy = value;
     if (value) {
-      this.keys.clear();
-      this.touch = { forward: 0, side: 0 };
+      this.clearMovement();
       // Pause input, but do not silently remove first-person mode on a rebuild.
       this.stopTour();
     }
   }
   moveInput(forward: number, side: number) {
+    this.advanceWalking(performance.now());
     this.touch = { forward, side };
   }
   private updateEyes() {
@@ -380,24 +440,14 @@ export class LevelScene {
     this.tourIndex = -1;
     this.host.dispatchEvent(new CustomEvent("tour-change", { detail: false }));
   }
-  private frame() {
-    const now = performance.now(),
-      dt = Math.min(0.05, (now - this.last) / 1000);
-    this.last = now;
-    if (!this.visible || document.hidden) return;
-    if (this.tourIndex >= 0 && now > this.tourAt) {
-      const next = this.tourIndex + 1;
-      if (next > 2) {
-        this.stopTour();
-      } else {
-        this.view(next === 1 ? "terrace" : "overview");
-        this.tourIndex = next;
-        this.tourAt = now + 4200;
-        this.host.dispatchEvent(
-          new CustomEvent("tour-change", { detail: true }),
-        );
-      }
-    }
+  private clearMovement() {
+    this.keys.clear();
+    this.touch = { forward: 0, side: 0 };
+    this.walkClock.reset(performance.now());
+  }
+  private advanceWalking(now: number) {
+    const dt = this.walkClock.consume(now);
+    if (!this.visible || document.hidden || dt <= 0) return;
     if (this.walking && this.surface && !this.busy) {
       let forward =
         this.touch.forward +
@@ -420,13 +470,50 @@ export class LevelScene {
         this.updateEyes();
       }
     }
+  }
+  private frame() {
+    const now = performance.now();
+    if (!this.visible || document.hidden) return;
+    if (this.tourIndex >= 0 && now > this.tourAt) {
+      const next = this.tourIndex + 1;
+      if (next > 2) {
+        this.stopTour();
+      } else {
+        this.view(next === 1 ? "terrace" : "overview");
+        this.tourIndex = next;
+        this.tourAt = now + 4200;
+        this.host.dispatchEvent(
+          new CustomEvent("tour-change", { detail: true }),
+        );
+      }
+    }
+    this.advanceWalking(now);
+    const pulse = this.animate ? Math.max(0, (this.pulseEnd - now) / 1300) : 0;
+    if (pulse !== this.pulse.value) {
+      this.pulse.value = pulse;
+      this.dirty = true;
+    }
+    if (
+      this.pool &&
+      this.animate &&
+      this.enhanced &&
+      now - this.lastAnimation > 33
+    ) {
+      this.animationTime += Math.min(0.05, (now - this.lastAnimation) / 1000);
+      this.pool.setTime(this.animationTime);
+      this.lastAnimation = now;
+      this.dirty = true;
+    }
     if (this.dirty) {
-      this.renderer.render(this.scene, this.camera);
+      if (this.enhanced && !this.navigation) this.effects.render();
+      else this.renderer.render(this.scene, this.camera);
       this.host.dataset.frame = String(++this.renderedFrames);
       this.dirty = false;
     }
   }
   private clear() {
+    this.pool?.dispose();
+    this.pool = undefined;
     for (const group of [this.model, this.overlays]) group.clear();
     for (const g of this.geometry) g.dispose();
     for (const m of this.materials) m.dispose();
@@ -437,7 +524,15 @@ export class LevelScene {
     const previousHeight = this.height(),
       wasWalking = this.walking;
     const upstairs = this.point[2] > previousHeight - 0.2;
+    this.changed = changedObjects(this.level, level);
+    this.pulseEnd =
+      this.changed.size && this.animate ? performance.now() + 1300 : 0;
+    this.host.dataset.changedObjects = String(this.changed.size);
+    this.baked?.dispose();
+    this.baked = undefined;
+    this.bakeToken++;
     this.level = level;
+    this.effects.setStyle(level.document.id);
     const style =
       treatments[
         level.document.id === "chalk-cloister"
@@ -462,7 +557,7 @@ export class LevelScene {
     (this.ground.material as THREE.MeshStandardMaterial).color.set(
       style.ground,
     );
-    this.renderer.toneMappingExposure = style.exposure;
+    this.renderer.toneMappingExposure = style.exposure * 0.83;
     this.accentLights.clear();
     for (const child of this.scene.children) {
       if (child instanceof THREE.HemisphereLight) {
@@ -471,15 +566,19 @@ export class LevelScene {
         child.intensity = style.fill;
       }
       if (child instanceof THREE.DirectionalLight) {
-        child.color.set(style.sunColor);
-        child.intensity = style.sunIntensity;
-        child.position.set(...style.sunPosition);
+        const light = level.document.lights.find(
+          (light) => light.kind === "directional",
+        );
+        child.color.set(light?.color ?? style.sunColor);
+        child.intensity = light?.intensity ?? style.sunIntensity;
+        child.position.set(...(light?.position ?? style.sunPosition));
+        if (light) child.target.position.set(...light.target);
       }
     }
     for (const light of level.document.lights.filter(
       (l) => l.kind === "point",
     )) {
-      const source = new THREE.PointLight(light.color, light.intensity, 7, 2);
+      const source = new THREE.PointLight(light.color, light.intensity, 0, 2);
       source.position.set(...light.position);
       this.accentLights.add(source);
     }
@@ -512,6 +611,67 @@ export class LevelScene {
     this.navigation = value;
     this.renderLevel();
   }
+  setEnhanced(value: boolean) {
+    this.enhanced = value;
+    this.host.dataset.graphics = value ? "enhanced" : "basic";
+    this.renderLevel();
+  }
+  setAnimation(value: boolean) {
+    this.animate = value;
+    this.pulse.value = 0;
+    if (!value) {
+      this.animationTime = 0;
+      this.pool?.setTime(0);
+    }
+    this.dirty = true;
+  }
+  setBakedEnabled(value: boolean) {
+    this.bakedEnabled = value;
+    this.renderLevel();
+  }
+  async loadLighting(level: CompiledLevel, source: string) {
+    const token = ++this.bakeToken;
+    this.host.dataset.bake = "checking";
+    this.host.dispatchEvent(
+      new CustomEvent("bake-status", {
+        detail: "Checking matching light bake…",
+      }),
+    );
+    try {
+      const bake = await loadBakedLighting(level, source);
+      if (
+        token !== this.bakeToken ||
+        this.level !== level ||
+        this.busy ||
+        this.abort.signal.aborted
+      ) {
+        bake?.dispose();
+        return;
+      }
+      this.baked = bake;
+      this.host.dataset.bake = bake ? "ready" : "live";
+      this.host.dataset.bakeFallbackFaces = String(
+        bake?.liveFallbackFaces ?? 0,
+      );
+      this.host.dispatchEvent(
+        new CustomEvent("bake-status", {
+          detail: bake
+            ? `Baked sky + bounce · ${bake.samples} samples${bake.liveFallbackFaces ? ` · ${bake.liveFallbackFaces} tiny faces use live shading` : ""}`
+            : "Live lighting · no bake for this edited source",
+        }),
+      );
+      this.renderLevel();
+    } catch (error) {
+      if (token !== this.bakeToken || this.abort.signal.aborted) return;
+      this.host.dataset.bake = "error";
+      this.host.dispatchEvent(
+        new CustomEvent("bake-status", {
+          detail: "Bake unavailable · using live lighting",
+        }),
+      );
+      console.warn(error);
+    }
+  }
   private ownGeometry<T extends THREE.BufferGeometry>(g: T): T {
     this.geometry.push(g);
     return g;
@@ -524,12 +684,17 @@ export class LevelScene {
     if (!this.level) return;
     this.clear();
     const { mesh, surfaces, document, curves, navigation } = this.level;
+    const baked = this.bakedEnabled ? this.baked : undefined,
+      poolPositions: number[] = [];
     const groups = new Map<
       string,
       {
         positions: number[];
         normals: number[];
         uv: number[];
+        uv1: number[];
+        changed: number[];
+        page: number;
         wall: boolean;
         material: string;
         gate: boolean;
@@ -539,13 +704,29 @@ export class LevelScene {
       const s = surfaces[mesh.surfaces[t]],
         wall = s.kind === "wall" || s.kind === "ceiling" || s.role === "roof",
         gate = s.object === "east.door" || s.object === "east.stairs",
-        key = `${s.material}:${wall}:${gate}`;
+        page = baked?.pages[t] ?? -1,
+        key = `${s.material}:${wall}:${gate}:${page}`;
+      const indices = mesh.indices.slice(t * 3, t * 3 + 3);
+      if (
+        this.enhanced &&
+        !this.navigation &&
+        document.id === "lantern-court" &&
+        s.object === "pool.basin" &&
+        indices.every((i) => mesh.normals[i * 3 + 2] > 0.99)
+      ) {
+        for (const i of indices)
+          poolPositions.push(...mesh.positions.slice(i * 3, i * 3 + 3));
+        continue;
+      }
       let part = groups.get(key);
       if (!part) {
         part = {
           positions: [],
           normals: [],
           uv: [],
+          uv1: [],
+          changed: [],
+          page,
           wall,
           material: s.material,
           gate,
@@ -557,6 +738,9 @@ export class LevelScene {
         part.positions.push(...mesh.positions.slice(i * 3, i * 3 + 3));
         part.normals.push(...mesh.normals.slice(i * 3, i * 3 + 3));
         part.uv.push(...mesh.uv.slice(i * 2, i * 2 + 2));
+        part.changed.push(this.changed.has(s.object) ? 1 : 0);
+        if (baked)
+          part.uv1.push(...baked.uv1.slice(t * 6 + j * 2, t * 6 + j * 2 + 2));
       }
     }
     for (const part of groups.values()) {
@@ -572,23 +756,45 @@ export class LevelScene {
       );
       g.setAttribute("uv", new THREE.Float32BufferAttribute(part.uv, 2));
       const faded = this.navigation && part.wall && !part.gate;
-      const m = this.ownMaterial(
-        new THREE.MeshStandardMaterial({
-          color: def?.color ?? "#c6ac89",
-          map: def?.texture ? this.textureBank.get(def.texture) : undefined,
-          roughness: def?.roughness ?? 0.85,
-          emissive: def?.id === "lamp" ? "#d88739" : "#000000",
-          emissiveIntensity: def?.id === "lamp" ? 0.25 : 0,
-          metalness: def?.metalness ?? 0,
-          transparent: faded,
-          opacity: faded ? 0.12 : 1,
-          depthWrite: !faded,
-        }),
+      g.setAttribute(
+        "lsChanged",
+        new THREE.Float32BufferAttribute(part.changed, 1),
       );
+      if (baked)
+        g.setAttribute("uv1", new THREE.Float32BufferAttribute(part.uv1, 2));
+      const m = this.ownMaterial(
+        makeSurface(
+          def,
+          def?.texture ? this.textureBank.get(def.texture) : undefined,
+          this.detailBank,
+          this.enhanced,
+        ),
+      );
+      m.transparent = faded;
+      m.opacity = faded ? 0.12 : 1;
+      m.depthWrite = !faded;
+      if (baked && part.page >= 0) {
+        m.lightMap = baked.textures[part.page];
+        m.lightMapIntensity = baked.scale;
+      }
+      installSurfaceShader(m, this.pulse, !!m.lightMap);
       const object = new THREE.Mesh(g, m);
       object.castShadow = !faded;
       object.receiveShadow = !faded;
       this.model.add(object);
+    }
+    if (poolPositions.length) {
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(poolPositions, 3),
+      );
+      this.pool = new PoolSurface(
+        geometry,
+        matchMedia("(max-width:700px)").matches ? 256 : 512,
+      );
+      this.pool.setTime(this.animate ? this.animationTime : 0);
+      this.model.add(this.pool);
     }
     const curve = curves["courtyard.e0"];
     if (curve && !this.navigation) {
@@ -679,6 +885,10 @@ export class LevelScene {
       if (object instanceof THREE.DirectionalLight) object.shadow.dispose();
     for (const t of this.textureBank.values()) t.dispose();
     this.environment?.dispose();
+    this.baked?.dispose();
+    this.bakeToken++;
+    for (const texture of this.detailBank.values()) texture.dispose();
+    this.effects.dispose();
     this.renderer.dispose();
     this.renderer.domElement.remove();
   }

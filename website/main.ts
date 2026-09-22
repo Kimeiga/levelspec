@@ -338,6 +338,7 @@ function requestBuild(delay = 0) {
         playground.dataset.blocked = String(state.blocked);
         scene?.setBusy(false);
         scene?.setLevel(level);
+        void scene?.loadLighting(level, source);
         scene?.setNavigation(state.step === 2);
         drawPlan();
         element("loading").hidden = true;
@@ -775,3 +776,20 @@ element<HTMLSelectElement>("style-select").onchange = (e) => {
     .querySelector<HTMLButtonElement>(`[data-preset="${value}"]`)
     ?.click();
 };
+
+element("graphics-quality").onchange = () =>
+  scene?.setEnhanced(
+    element<HTMLSelectElement>("graphics-quality").value === "enhanced",
+  );
+element<HTMLInputElement>("animate-effects").checked = !matchMedia(
+  "(prefers-reduced-motion:reduce)",
+).matches;
+element("animate-effects").onchange = () =>
+  scene?.setAnimation(element<HTMLInputElement>("animate-effects").checked);
+element("bake-toggle").onchange = () =>
+  scene?.setBakedEnabled(element<HTMLInputElement>("bake-toggle").checked);
+element("model").addEventListener("bake-status", (event) => {
+  element("bake-status").textContent = (event as CustomEvent<string>).detail;
+  element<HTMLInputElement>("bake-toggle").disabled =
+    element("model").dataset.bake !== "ready";
+});

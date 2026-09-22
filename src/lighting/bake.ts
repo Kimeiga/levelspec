@@ -15,12 +15,14 @@ import { generateUVs } from "../vector/uv.ts";
 import { toRuntime } from "../vector/export.ts";
 import { hash } from "../vector/geometry.ts";
 import { lightingStateHash, COMPILER_REVISION } from "./manifest.ts";
+import { assertExportable, type ExportAsset } from "../vector/export-assets.ts";
 import { REVISION } from "three";
 import { aborted, type CompiledLevel } from "../vector/types.ts";
 export interface BakeOptions {
   output: string;
   blender?: string;
   samples?: number;
+  assets?: Record<string, ExportAsset>;
   signal?: AbortSignal;
   onProgress?: (line: string) => void;
 }
@@ -66,10 +68,31 @@ export async function bakeLighting(level: CompiledLevel, options: BakeOptions) {
   } catch (e) {
     if ((e as NodeJS.ErrnoException).code !== "ENOENT") throw e;
   }
+  assertExportable(level, { assets: options.assets });
   if (!level.atlas) await generateUVs(level, { signal: options.signal });
   aborted(options.signal);
   const temp = await mkdtemp(join(tmpdir(), "levelspec-bake-"));
   try {
+    const resolvedImages: Record<string, string> = {};
+    const materialAssets: Record<string, string> = {};
+    for (const material of level.document.materials) {
+      if (!material.texture || resolvedImages[material.texture]) continue;
+      const asset = options.assets![material.texture];
+      const bytes = new Uint8Array(asset.bytes);
+      const digest = Array.from(
+        new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)),
+        (n) => n.toString(16).padStart(2, "0"),
+      ).join("");
+      if (digest !== asset.hash)
+        throw new Error("Bake image checksum does not match its bytes.");
+      const path = join(
+        temp,
+        digest + (asset.mimeType === "image/png" ? ".png" : ".jpg"),
+      );
+      await writeFile(path, bytes);
+      resolvedImages[material.texture] = path;
+      materialAssets[material.texture] = digest;
+    }
     const calibration = join(temp, "calibration");
     await run(
       executable,
@@ -89,6 +112,8 @@ export async function bakeLighting(level: CompiledLevel, options: BakeOptions) {
     const stateHash = await lightingStateHash(level);
     const payload = {
       ...toRuntime(level),
+      resolvedImages,
+      materialAssets,
       lightingStateHash: stateHash,
       compilerRevision: COMPILER_REVISION,
       rendererRevision: REVISION,
@@ -124,7 +149,7 @@ export async function bakeLighting(level: CompiledLevel, options: BakeOptions) {
     );
     await writeFile(
       join(output, "source.runtime.json"),
-      JSON.stringify(payload),
+      JSON.stringify({ ...payload, resolvedImages: undefined }),
     );
     return JSON.parse(
       await readFile(

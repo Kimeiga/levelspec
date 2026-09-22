@@ -1,5 +1,5 @@
-import { chromium } from "playwright";
-import { readFile, writeFile, mkdir, access } from "node:fs/promises";
+import { launchBrowser, testContext } from "./browser-helpers.mjs";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import { unzipSync } from "fflate";
@@ -8,18 +8,7 @@ const require = createRequire(import.meta.url);
 const BASE = process.env.BASE_URL || "http://127.0.0.1:48217/levelspec/";
 const OUTPUT = process.env.QA_OUTPUT || "website-qa";
 await mkdir(OUTPUT, { recursive: true });
-let executablePath = process.env.BROWSER_PATH;
-if (!executablePath && process.platform === "darwin") {
-  const candidate =
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-  try {
-    await access(candidate);
-    executablePath = candidate;
-  } catch {
-    /* Use Playwright's installed browser. */
-  }
-}
-const browser = await chromium.launch({ headless: true, executablePath });
+const browser = await launchBrowser();
 const results = [],
   consoleErrors = [];
 const ready = (page) =>
@@ -60,7 +49,7 @@ async function audit(page, name) {
   );
 }
 try {
-  const context = await browser.newContext({
+  const context = await testContext(browser, {
     viewport: { width: 1440, height: 1000 },
     acceptDownloads: true,
   });
@@ -288,7 +277,7 @@ try {
     await scenario(
       `responsive layout and interaction at ${width}px`,
       async () => {
-        const mobile = await browser.newContext({
+        const mobile = await testContext(browser, {
           viewport: { width, height: 844 },
           isMobile: width < 500,
           hasTouch: true,
@@ -314,7 +303,7 @@ try {
   await scenario(
     "compiler network failure disables export and Retry recovers",
     async () => {
-      const failure = await browser.newContext({ serviceWorkers: "block" });
+      const failure = await testContext(browser, { serviceWorkers: "block" });
       const p = await failure.newPage();
       await p.route("**/assets/worker-*.js", (route) => route.abort());
       await p.goto(BASE);
@@ -329,7 +318,7 @@ try {
   await scenario(
     "unavailable WebGL retains the plan, compiler, and exports",
     async () => {
-      const fallback = await browser.newContext();
+      const fallback = await testContext(browser);
       await fallback.addInitScript(() => {
         const original = HTMLCanvasElement.prototype.getContext;
         HTMLCanvasElement.prototype.getContext = function (kind, ...args) {
