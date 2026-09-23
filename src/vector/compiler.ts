@@ -1,4 +1,5 @@
 import { normalizeCoordinates } from "./precision.ts";
+import { emptyMesh, meshParts } from "./mesh.ts";
 import { auditFloorGaps } from "./floor-gaps.ts";
 import { auditSurfaceContacts } from "./surface-contacts.ts";
 import Module from "manifold-3d";
@@ -42,13 +43,6 @@ export function geometryKernel() {
     return m;
   }));
 }
-export const emptyMesh = (): MeshData => ({
-  positions: [],
-  normals: [],
-  indices: [],
-  uv: [],
-  surfaces: [],
-});
 export async function compile(
   document: LevelDocument,
   options: CompileOptions = {},
@@ -1290,32 +1284,3 @@ export async function compile(
   return level;
 }
 
-export function meshParts(mesh: MeshData, surfaces: Surface[]) {
-  const parts = new Map<
-    string,
-    {
-      id: string;
-      kind: MeshKind;
-      layer: string;
-      layers: string[];
-      dynamic: boolean;
-      triangles: number[];
-    }
-  >();
-  for (let t = 0; t < mesh.surfaces.length; t++) {
-    const s = surfaces[mesh.surfaces[t]],
-      part = parts.get(s.mesh) ?? {
-        id: s.mesh,
-        kind: s.kind,
-        layer: s.layer,
-        layers: [],
-        dynamic: s.dynamic,
-        triangles: [],
-      };
-    part.triangles.push(t);
-    if (!part.layers.includes(s.layer)) part.layers.push(s.layer);
-    part.layer = part.layers.length === 1 ? part.layers[0] : "";
-    parts.set(s.mesh, part);
-  }
-  return [...parts.values()];
-}
