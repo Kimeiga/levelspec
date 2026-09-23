@@ -76,7 +76,13 @@ def run(args):
             surface=inp['surfaces'][m['surfaces'][t]];page=m['atlasPages'][t];key=(surface['material'],page)
             if key not in bindings:
                 definition=materials.get(surface['material'],{'color':'#b9c7d1','roughness':.8,'metalness':0});mat=bpy.data.materials.new(f'{key[0]}.atlas{page}');mat.use_nodes=True;nodes=mat.node_tree.nodes;bsdf=nodes.get('Principled BSDF');bsdf.inputs['Base Color'].default_value=(*linear_hex(definition['color']),1);bsdf.inputs['Roughness'].default_value=definition['roughness'];bsdf.inputs['Metallic'].default_value=definition['metalness']
-                if definition.get('texture'):raise ValueError('External material textures require resolved image packaging before baking.')
+                if definition.get('texture'):
+                    image_path=inp.get('resolvedImages',{}).get(definition['texture'])
+                    if not image_path:raise ValueError('Missing packaged material image: '+definition['texture'])
+                    image=bpy.data.images.load(image_path,check_existing=True);image.colorspace_settings.name='sRGB';image.pack()
+                    tex=nodes.new('ShaderNodeTexImage');tex.image=image;tex.extension='REPEAT'
+                    coords=nodes.new('ShaderNodeUVMap');coords.uv_map='Material';mat.node_tree.links.new(coords.outputs['UV'],tex.inputs['Vector'])
+                    multiply=nodes.new('ShaderNodeMixRGB');multiply.blend_type='MULTIPLY';multiply.inputs[0].default_value=1;mat.node_tree.links.new(tex.outputs['Color'],multiply.inputs[1]);multiply.inputs[2].default_value=(*linear_hex(definition['color']),1);mat.node_tree.links.new(multiply.outputs[0],bsdf.inputs['Base Color'])
                 uvnode=nodes.new('ShaderNodeUVMap');uvnode.uv_map='Lightmap';target=nodes.new('ShaderNodeTexImage');mat.node_tree.links.new(uvnode.outputs['UV'],target.inputs['Vector']);targets.append((nodes,target,page));bindings[key]=mat
             if key not in slots:slots[key]=len(mesh.materials);mesh.materials.append(bindings[key])
             face.material_index=slots[key]
@@ -113,7 +119,7 @@ def run(args):
             current,owners=mip(current,owners);im=float_image(f'Hybrid.page{page}.mip{lod}',current.shape[1],current.shape[0]);im.pixels.foreach_set(current.ravel());name=f'{inp["id"]}.lightmap-{page}.mip{lod}.exr';save_linear_exr(im,out/name);mips.append({'file':name,'sha256':hashlib.sha256((out/name).read_bytes()).hexdigest()})
         pages.append({'id':page,'file':file,'sha256':hashlib.sha256((out/file).read_bytes()).hexdigest(),'mips':mips,'coverageTexels':int(coverage.sum()),'maximum':float(rgba[:,:,:3][coverage].max()) if coverage.any() else 0})
     bpy.ops.wm.save_as_mainfile(filepath=str(out/f'{inp["id"]}.blend'))
-    manifest={'version':1,'geometryHash':inp['geometryHash'],'uvHash':inp['atlas']['uvHash'],'revision':inp['lightingRevision'],'stateHash':inp['lightingStateHash'],'compilerVersion':inp['compilerRevision'],'rendererVersion':inp['rendererRevision'],'blenderVersion':bpy.app.version_string,'samples':args.samples,'seed':17,'colorSpace':'Linear-sRGB','encoding':'FLOAT_RGBA_EXR','transport':'sky-direct-indirect-plus-lights-indirect','irradianceScale':calibration['calibration']['irradianceDecodeMultiplier'],'uvChannel':1,'flipY':False,'dynamicOccluders':False,'safeMip':inp['atlas']['safeMip'],'pages':pages}
+    manifest={'version':1,'geometryHash':inp['geometryHash'],'uvHash':inp['atlas']['uvHash'],'revision':inp['lightingRevision'],'stateHash':inp['lightingStateHash'],'compilerVersion':inp['compilerRevision'],'rendererVersion':inp['rendererRevision'],'blenderVersion':bpy.app.version_string,'samples':args.samples,'materialAssets':inp.get('materialAssets',{}),'seed':17,'colorSpace':'Linear-sRGB','encoding':'FLOAT_RGBA_EXR','transport':'sky-direct-indirect-plus-lights-indirect','irradianceScale':calibration['calibration']['irradianceDecodeMultiplier'],'uvChannel':1,'flipY':False,'dynamicOccluders':False,'safeMip':inp['atlas']['safeMip'],'pages':pages}
     (out/f'{inp["id"]}.lighting.json').write_text(json.dumps(manifest,indent=2));print('SVGX_BAKE_COMPLETE',json.dumps({'pages':len(pages),'output':str(out)}))
 
 if __name__=='__main__':

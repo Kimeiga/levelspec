@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f4f3ec" />
+    <title>LevelSpec · Write a place. Step inside.</title>
+    <meta
+      name="description"
+      content="A level is a program, not a mesh. Enter an architectural space, reshape it, test its routes and take the model with you. A real LevelSpec compiler, in your browser."
+    />
+    <meta
+      property="og:title"
+      content="LevelSpec · Write a place. Step inside."
+    />
+    <meta
+      property="og:description"
+      content="Explore a place, change its structure, break and repair its routes. Try the live compiler."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#playground">Skip to the interactive demo</a>
+    <header class="site-header">
+      <a class="brand" href="%BASE_URL%" aria-label="LevelSpec home"
+        ><svg viewBox="0 0 32 32" aria-hidden="true">
+          <path
+            d="M4 24V8l12-5 12 5v16l-12 5zM4 8l12 5 12-5M16 13v16M9 22v-9l7 3 7-3v9"
+          /></svg
+        ><span>LevelSpec</span><span class="version">2 PREVIEW</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">The idea</a
+        ><a
+          href="https://github.com/Kimeiga/levelspec"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub ↗</a
+        ><button id="present" class="button small outline">Present ⤢</button>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">A compiler for places</div>
+          <h1 id="hero-title">Write a place. <span>Step inside.</span></h1>
+        </div>
+        <div class="hero-aside">
+          <p>
+            A level is a program, not a mesh.<br />
+            One description becomes floors, walls, stairs, and a space you can
+            explore.
+          </p>
+          <a id="try-demo" href="#playground" class="hero-link"
+            >Experience the live compiler ↓</a
+          >
+        </div>
+      </section>
+      <section
+        id="playground"
+        class="demo"
+        aria-label="Interactive LevelSpec introduction"
+      >
+        <div class="demo-heading">
+          <div>
+            <span class="live-dot" aria-hidden="true"></span
+            ><strong>Lantern Court</strong
+            ><span class="demo-kicker"
+              >One source. A place you can change.</span
+            >
+          </div>
+          <div class="demo-actions">
+            <label class="style-picker"
+              ><select id="style-select" aria-label="Architectural style">
+                <option value="clay">Lantern Court</option>
+                <option value="chalk">Chalk Cloister</option>
+                <option value="night">Slate Atelier</option>
+              </select></label
+            >
+            <button id="reset" class="text-button">Reset</button
+            ><button id="share" class="text-button">Copy link ↗</button
+            ><button id="exit-present" class="text-button" hidden>
+              Exit presentation ×
+            </button>
+          </div>
+        </div>
+        <nav class="steps" aria-label="Demo chapters">
+          <button data-step="0" aria-current="step">
+            <span>01</span> Enter</button
+          ><button data-step="1"><span>02</span> Reshape</button
+          ><button data-step="2"><span>03</span> Validate</button
+          ><button data-step="3"><span>04</span> Export ↗</button>
+        </nav>
+        <div class="demo-body">
+          <div class="visual-panel" data-view="space">
+            <div class="scene-pair">
+              <section class="model-pane" aria-label="3D model">
+                <div class="view-title">
+                  <span id="view-mode">At human scale</span
+                  ><span class="live-label">LIVE GEOMETRY</span>
+                </div>
+                <div id="model" class="model-host"></div>
+                <div id="loading" class="loading" role="status">
+                  <span class="loading-shape" aria-hidden="true"></span
+                  ><strong>Building your place…</strong
+                  ><span>The real compiler runs on your device.</span>
+                </div>
+                <div id="webgl-fallback" class="webgl-fallback" hidden>
+                  <strong>The 2D demo still works.</strong>
+                  <p>
+                    3D rendering is unavailable here. Reshape the plan, run
+                    validation, and export the model.
+                  </p>
+                </div>
+                <div class="camera-tools" aria-label="Camera controls">
+                  <button id="view-courtyard" title="View from the courtyard">
+                    Courtyard</button
+                  ><button
+                    id="view-terrace"
+                    title="View from the upper terrace"
+                  >
+                    Terrace</button
+                  ><button id="reset-camera" aria-label="Reset camera view">
+                    Overview</button
+                  ><button id="zoom-in" aria-label="Zoom in">+</button
+                  ><button id="zoom-out" aria-label="Zoom out">−</button>
+                </div>
+                <div class="walk-hud" hidden>
+                  <span class="crosshair" aria-hidden="true">+</span>
+                  <div class="walk-label">FIRST-PERSON WALKTHROUGH</div>
+                  <button id="exit-walk" class="button small">
+                    Exit walk · Esc
+                  </button>
+                  <button id="capture-mouse" class="button small">
+                    Capture mouse
+                  </button>
+                  <div class="dpad" aria-label="Walking controls">
+                    <button data-move="forward" aria-label="Walk forward">
+                      ↑</button
+                    ><button data-move="left" aria-label="Step left">←</button
+                    ><button data-move="back" aria-label="Walk backward">
+                      ↓</button
+                    ><button data-move="right" aria-label="Step right">
+                      →
+                    </button>
+                  </div>
+                </div>
+                <div class="view-foot">
+                  <span id="model-hint"
+                    >Choose a viewpoint, or enter and walk.</span
+                  ><button id="tour" aria-pressed="false" class="text-button">
+                    Take a 12-second tour ▶
+                  </button>
+                </div>
+              </section>
+              <section class="plan-pane" aria-label="2D floor plan">
+                <div class="view-title">
+                  <span>THE SAME SOURCE, FROM ABOVE</span>
+                </div>
+                <div id="plan" class="plan-host">
+                  <p>
+                    The same source,<br />
+                    seen from above.
+                  </p>
+                </div>
+                <div class="plan-key">
+                  <span id="plan-key-swatch" class="line-swatch"></span
+                  ><span id="plan-key-label">The edge you can change</span>
+                </div>
+                <div class="view-foot"><span>Top view · metres</span></div>
+              </section>
+              <div class="view-switch" aria-label="Preview view">
+                <button id="show-space" aria-pressed="true">3D space</button
+                ><button id="show-plan" aria-pressed="false">Floor plan</button
+                ><button id="walk-anywhere" disabled>Walk in 3D ↗</button>
+              </div>
+            </div>
+            <div class="compiler-bar">
+              <div>
+                <span
+                  id="status-dot"
+                  class="status-dot busy"
+                  aria-hidden="true"
+                ></span
+                ><span id="compile-status" role="status" aria-live="polite"
+                  >Starting the compiler…</span
+                ><button id="retry" class="text-button" hidden>Retry</button>
+              </div>
+              <span id="mesh-summary">SVGX → geometry</span>
+            </div>
+            <p id="scene-description" class="sr-only" aria-live="polite">
+              A courtyard with a central opening, a ramp, and stairs to an upper
+              terrace.
+            </p>
+          </div>
+          <aside class="story-panel">
+            <div class="chapter" data-chapter="0">
+              <div class="eyebrow">01 / Experience the result</div>
+              <h2>
+                Not just a model.<br />
+                A place.
+              </h2>
+              <p>
+                Enter the arcades. Cross the skybridge. Find the upper gallery.
+                Every surface here comes from the same editable description.
+              </p>
+              <button id="enter" class="button accent full" disabled>
+                Enter the level <span>↗</span>
+              </button>
+              <p class="panel-note">
+                WASD or on-screen buttons to move. Drag to look. Walking follows
+                the computed navigation mesh, not a full physics simulation.
+              </p>
+              <div class="source-card">
+                <div>One shared boundary <span>SVGX</span></div>
+                <code
+                  >kind="wall"<br />
+                  control=<mark id="code-before">"4 -3; 10 -3"</mark></code
+                >
+              </div>
+            </div>
+            <div class="chapter" data-chapter="1" hidden>
+              <div class="eyebrow">02 / Change the description</div>
+              <h2>
+                Change structure.<br />
+                Not individual meshes.
+              </h2>
+              <p>
+                Deepen the courtyard. Then raise the terrace: the compiler
+                rebuilds the ramp, stairs, walls, and upper floor together.
+              </p>
+              <label class="range-label" for="terrace-height"
+                >Terrace elevation
+                <output id="height-value" for="terrace-height"
+                  >3 m</output
+                ></label
+              ><input
+                type="range"
+                id="terrace-height"
+                min="3"
+                max="6"
+                step="0.5"
+                value="3"
+              />
+              <div class="curve-presets">
+                <button id="low-terrace" class="button small outline">
+                  3 metres</button
+                ><button id="raise-terrace" class="button small outline">
+                  Raise to 5 m ↑
+                </button>
+              </div>
+              <label class="range-label" for="curve"
+                >Courtyard curve
+                <output id="curve-value" for="curve">3</output></label
+              ><input
+                type="range"
+                id="curve"
+                min="0"
+                max="6"
+                step="0.25"
+                value="3"
+                aria-describedby="curve-help"
+              />
+              <div class="range-ends" id="curve-help">
+                <span>Straight</span><span>Deep</span>
+              </div>
+              <div class="curve-presets">
+                <button id="original" class="button small outline">
+                  Original</button
+                ><button id="deeper" class="button small outline">
+                  Deeper curve
+                </button>
+              </div>
+              <div class="source-card compact">
+                <div>Shared terrace vertices / courtyard edge</div>
+                <code
+                  >z=<mark id="height-code">"3"</mark><br />
+                  control=<mark id="code-after">"4 -3; 10 -3"</mark></code
+                >
+              </div>
+            </div>
+            <div class="chapter" data-chapter="2" hidden>
+              <div class="eyebrow">03 / Make it fail. Then fix it.</div>
+              <h2>
+                A good shape<br />
+                needs a way through.
+              </h2>
+              <p id="route-story">
+                The terrace has two approaches. Close both and see what the
+                validator catches.
+              </p>
+              <button id="block-route" class="button danger full">
+                Block terrace access</button
+              ><button id="repair-route" class="button accent full" hidden>
+                Restore both approaches ↗
+              </button>
+              <div class="validation-details">
+                <div>
+                  <span>Validation</span
+                  ><strong id="validation-result">Compiling…</strong>
+                </div>
+                <div>
+                  <span>Spawn → terrace</span
+                  ><strong id="route-result">Checking…</strong>
+                </div>
+                <div>
+                  <span>Reachable regions</span
+                  ><strong id="regions-result">—</strong>
+                </div>
+                <div>
+                  <span>Uncovered samples</span
+                  ><strong id="coverage-result">—</strong>
+                </div>
+              </div>
+              <div class="nav-legend">
+                <span><i class="green"></i> Reachable</span
+                ><span><i class="red"></i> Disconnected</span>
+              </div>
+              <details class="diagnostic-details">
+                <summary>Actual compiler diagnostics</summary>
+                <ul id="diagnostic-list"></ul>
+              </details>
+              <p class="panel-note">
+                Failures disable model exports. These checks describe this
+                example, not every possible level.
+              </p>
+            </div>
+            <div class="chapter" data-chapter="3" hidden>
+              <div class="eyebrow">04 / Keep what you make</div>
+              <h2>
+                Your place.<br />
+                Not our walled garden.
+              </h2>
+              <p>
+                The file you download contains the geometry you just changed,
+                not a stock model.
+              </p>
+              <p id="export-warning" class="panel-note" hidden>
+                Restore terrace access in Validate before exporting this model.
+              </p>
+              <button id="download-glb" class="button accent full" disabled>
+                Download .glb ↓</button
+              ><button id="download-gltf" class="download-secondary" disabled>
+                glTF + metadata (.zip) ↓</button
+              ><button id="download-source" class="download-secondary">
+                Source + textures (.zip) ↓
+              </button>
+              <p class="native-note">
+                Also through the CLI:
+                <a
+                  href="https://github.com/Kimeiga/levelspec/blob/main/docs/EXPORTS.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >FBX and Quake BSP2 ↗</a
+                >
+              </p>
+              <p class="panel-note">
+                Exports contain geometry and source metadata. Configure
+                collisions, lighting, and gameplay in your destination engine.
+              </p>
+            </div>
+            <div class="story-navigation">
+              <button
+                id="previous"
+                class="text-button"
+                disabled
+                aria-label="Previous demo chapter"
+              >
+                ← Back</button
+              ><button id="next" class="text-button next">
+                Reshape the space →
+              </button>
+            </div>
+          </aside>
+        </div>
+        <div class="graphics-bar">
+          <span id="bake-status" role="status"
+            >Live lighting · checking preset bake</span
+          >
+          <details>
+            <summary>Appearance</summary>
+            <div class="graphics-options">
+              <label for="graphics-quality"
+                >Graphics
+                <select id="graphics-quality">
+                  <option value="enhanced">Enhanced</option>
+                  <option value="basic">Basic</option>
+                </select></label
+              >
+              <label
+                ><input type="checkbox" id="bake-toggle" checked disabled />
+                Baked indirect light</label
+              >
+              <label
+                ><input type="checkbox" id="animate-effects" /> Water and edit
+                animation</label
+              >
+              <p>
+                Presets use calibrated baked sky and bounce. Changed geometry
+                uses live lighting until it matches a baked preset. Water,
+                surface detail and bloom are viewer effects.
+              </p>
+            </div>
+          </details>
+        </div>
+        <div class="demo-bottom">
+          <span>Real compilation. On your device. No account.</span
+          ><span id="offline-status">Preparing offline demo…</span>
+        </div>
+        <div id="share-fallback" class="share-fallback" hidden>
+          <label for="share-url">Copy this link</label
+          ><input id="share-url" readonly /><button
+            id="close-share"
+            class="text-button"
+          >
+            Close
+          </button>
+        </div>
+      </section>
+      <section class="variations" aria-labelledby="variations-title">
+        <div>
+          <div class="eyebrow">Keep exploring</div>
+          <h2 id="variations-title">Same rules. Different places.</h2>
+          <p>
+            Three architectural treatments. Different materials, rooflines,
+            details, and light.
+          </p>
+        </div>
+        <div class="preset-list">
+          <button data-preset="clay" class="preset" aria-pressed="true">
+            <span class="preset-shape clay" aria-hidden="true">01</span
+            ><strong>Lantern Court</strong
+            ><span
+              >Travertine · cedar canopy · warm afternoon light</span
+            ></button
+          ><button data-preset="chalk" class="preset" aria-pressed="false">
+            <span class="preset-shape chalk" aria-hidden="true">02</span
+            ><strong>Chalk Cloister</strong
+            ><span
+              >White arches · cobalt ceramic · terracotta roofs</span
+            ></button
+          ><button data-preset="night" class="preset" aria-pressed="false">
+            <span class="preset-shape night" aria-hidden="true">03</span
+            ><strong>Slate atelier</strong
+            ><span>Basalt · brushed steel · copper-lit workshop</span>
+          </button>
+        </div>
+      </section>
+      <section
+        id="how-it-works"
+        class="explanation"
+        aria-labelledby="idea-title"
+      >
+        <div>
+          <div class="eyebrow">A level is a program, not a mesh</div>
+          <h2 id="idea-title">
+            Change the intention.<br />
+            Rebuild the place.
+          </h2>
+        </div>
+        <div class="principles">
+          <article>
+            <h3>Describe relationships.</h3>
+            <p>
+              Floors, shared walls, openings and stairs are named parts of one
+              source. Keep your decisions editable.
+            </p>
+          </article>
+          <article>
+            <h3>Check the result.</h3>
+            <p>
+              The 3D view, plan and navigation come from the compiled level.
+              Broken routes are visible, not hidden behind a success label.
+            </p>
+          </article>
+          <article>
+            <h3>Take it elsewhere.</h3>
+            <p>
+              Export GLB or glTF here. FBX uses Blender; Quake BSP2 uses ericw
+              tools and a game palette through the CLI.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="start-section" aria-labelledby="start-title">
+        <div>
+          <div class="eyebrow">Open source. Still taking shape.</div>
+          <h2 id="start-title">What would you build?</h2>
+          <p>
+            LevelSpec 2 is a preview. Explore the format, try the workbench, or
+            help build what comes next.
+          </p>
+        </div>
+        <div class="start-links">
+          <a
+            class="button"
+            href="https://github.com/Kimeiga/levelspec"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Explore on GitHub ↗</a
+          ><a
+            href="https://github.com/Kimeiga/levelspec/blob/main/docs/SVGX.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Read the SVGX guide ↗</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>LevelSpec / An open-source experiment by Hakan Alpay.</span
+      ><a
+        href="https://github.com/Kimeiga/levelspec/blob/main/LICENSE"
+        target="_blank"
+        rel="noopener noreferrer"
+        >MIT licensed ↗</a
+      >
+    </footer>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <noscript
+      ><p class="noscript">
+        JavaScript is needed for the interactive compiler. The explanation and
+        source links remain available.
+      </p></noscript
+    >
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>

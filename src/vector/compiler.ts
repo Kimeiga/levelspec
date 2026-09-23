@@ -1,6 +1,7 @@
 import { validateProps, prepareProps } from "./props.ts";
 import { validateReference } from "./reference.ts";
 import { normalizeCoordinates } from "./precision.ts";
+import { emptyMesh, meshParts } from "./mesh.ts";
 import { auditFloorGaps } from "./floor-gaps.ts";
 import { auditSurfaceContacts } from "./surface-contacts.ts";
 import Module from "manifold-3d";
@@ -17,10 +18,8 @@ import {
   type V3,
   type Diagnostic,
   type Surface,
-  type MeshData,
   type Named,
   type FloorPatch,
-  type MeshKind,
 } from "./types.ts";
 import {
   EPS,
@@ -45,13 +44,6 @@ export function geometryKernel() {
     return m;
   }));
 }
-export const emptyMesh = (): MeshData => ({
-  positions: [],
-  normals: [],
-  indices: [],
-  uv: [],
-  surfaces: [],
-});
 export async function compile(
   document: LevelDocument,
   options: CompileOptions = {},
@@ -1345,38 +1337,4 @@ export async function compile(
     await generateUVs(level, { ...options.uv, signal: options.signal });
   }
   return level;
-}
-
-export function meshParts(mesh: MeshData, surfaces: Surface[]) {
-  const parts = new Map<
-    string,
-    {
-      id: string;
-      kind: MeshKind;
-      layer: string;
-      layers: string[];
-      dynamic: boolean;
-      collidable?: boolean;
-      visible?: boolean;
-      triangles: number[];
-    }
-  >();
-  for (let t = 0; t < mesh.surfaces.length; t++) {
-    const s = surfaces[mesh.surfaces[t]],
-      part = parts.get(s.mesh) ?? {
-        id: s.mesh,
-        kind: s.kind,
-        layer: s.layer,
-        layers: [],
-        dynamic: s.dynamic,
-        ...(s.collidable === false ? { collidable: false } : {}),
-        ...(s.visible === false ? { visible: false } : {}),
-        triangles: [],
-      };
-    part.triangles.push(t);
-    if (!part.layers.includes(s.layer)) part.layers.push(s.layer);
-    part.layer = part.layers.length === 1 ? part.layers[0] : "";
-    parts.set(s.mesh, part);
-  }
-  return [...parts.values()];
 }
