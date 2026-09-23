@@ -8,7 +8,7 @@ import {
   type V3,
 } from "./types.ts";
 import { cross, sub, dot, norm, hash, triangleOverlap } from "./geometry.ts";
-import { emptyMesh, meshParts } from "./compiler.ts";
+import { emptyMesh, meshParts } from "./mesh.ts";
 let module: ReturnType<typeof createXAtlas> | undefined;
 /** Atlas UVs are added by original-corner mapping. No coordinate-based attribute transfer. */
 export async function generateUVs(
