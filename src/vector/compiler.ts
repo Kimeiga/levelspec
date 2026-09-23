@@ -20,6 +20,7 @@ import {
   type Surface,
   type Named,
   type FloorPatch,
+  type MeshKind,
 } from "./types.ts";
 import {
   EPS,
