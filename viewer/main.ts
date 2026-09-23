@@ -15,6 +15,8 @@ import {
   atlasSVG,
   referenceViewport,
   compareReference,
+  fitReferenceCamera,
+  serializeLevelSvgx,
   type ReferenceView,
 } from "../src/vector/index.ts";
 import {
@@ -66,6 +68,7 @@ const source = $<HTMLTextAreaElement>("source"),
   uvs = $<HTMLInputElement>("uvs"),
   referenceView = $<HTMLSelectElement>("reference-view"),
   referenceCamera = $<HTMLButtonElement>("reference-camera"),
+  referenceFit = $<HTMLButtonElement>("reference-fit"),
   referenceOverlayToggle = $<HTMLInputElement>("reference-overlay"),
   referenceOpacity = $<HTMLInputElement>("reference-opacity");
 const companionFiles = new Map<string, File>();
@@ -235,6 +238,35 @@ function applyReferenceCamera() {
   referenceCameraActive = true;
   updateReferenceViewport();
 }
+function fitActiveReferenceCamera() {
+  const reference = activeReference();
+  if (!reference || !level) return;
+  try {
+    const seed: ReferenceView = {
+      ...reference,
+      camera: {
+        position: [camera.position.x, camera.position.y, camera.position.z],
+        target: [orbit.target.x, orbit.target.y, orbit.target.z],
+        up: [camera.up.x, camera.up.y, camera.up.z],
+        fov: camera.fov,
+        near: camera.near,
+        far: camera.far,
+      },
+    };
+    const result = fitReferenceCamera(seed);
+    reference.camera = result.reference.camera;
+    source.value = serializeLevelSvgx(level.document);
+    applyReferenceCamera();
+    updateReferenceControls();
+    const after = result.inFrameRmsPixels ?? result.rmsPixels;
+    $("status").textContent =
+      `Camera fit ${result.initialRmsPixels.toFixed(1)} px → ${after.toFixed(1)} px RMS · ${result.evaluations} evaluations`;
+  } catch (error) {
+    $("status").textContent =
+      error instanceof Error ? error.message : "Camera fitting failed.";
+  }
+}
+
 function updateReferenceImage() {
   if (referenceObjectURL) URL.revokeObjectURL(referenceObjectURL);
   referenceObjectURL = undefined;
@@ -283,6 +315,7 @@ function updateReferenceControls() {
     ? current
     : references[0]?.id ?? "";
   referenceCamera.disabled = !activeReference();
+  referenceFit.disabled = !activeReference();
   const reference = activeReference();
   if (reference) {
     const comparison = compareReference(reference),
@@ -1387,7 +1420,7 @@ referenceView.onchange = () => {
   updateReferenceControls();
   updateReferenceViewport();
 };
-referenceCamera.onclick = applyReferenceCamera;
+referenceCamera.onclick = applyReferenceCamera;\nreferenceFit.onclick = fitActiveReferenceCamera;
 referenceOverlayToggle.onchange = () => {
   if (referenceOverlayToggle.checked) {
     applyReferenceCamera();
