@@ -26,7 +26,7 @@ export type {
   ExportFormat,
 } from "./export-assets.ts";
 
-export * from "./reference.ts";
+export * from "./reference.ts";\nexport * from "./reference-fit.ts";
 export * from "./reference-raster.ts";
 export * from "./props.ts";
 export * from "./glb.ts";
