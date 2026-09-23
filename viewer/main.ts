@@ -1420,7 +1420,8 @@ referenceView.onchange = () => {
   updateReferenceControls();
   updateReferenceViewport();
 };
-referenceCamera.onclick = applyReferenceCamera;\nreferenceFit.onclick = fitActiveReferenceCamera;
+referenceCamera.onclick = applyReferenceCamera;
+referenceFit.onclick = fitActiveReferenceCamera;
 referenceOverlayToggle.onchange = () => {
   if (referenceOverlayToggle.checked) {
     applyReferenceCamera();
