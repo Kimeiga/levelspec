@@ -3,7 +3,6 @@ import {
   compareReference,
   pointInMask,
   projectReference,
-  type ReferenceCamera,
   type ReferenceView,
 } from "./reference.ts";
 
@@ -102,18 +101,104 @@ type Parameter =
   | { kind: CameraVectorKey; axis: 0 | 1 | 2 }
   | { kind: "fov" };
 
+const PARAMETERS: readonly Parameter[] = [
+  { kind: "position", axis: 0 },
+  { kind: "position", axis: 1 },
+  { kind: "position", axis: 2 },
+  { kind: "target", axis: 0 },
+  { kind: "target", axis: 1 },
+  { kind: "target", axis: 2 },
+  { kind: "fov" },
+];
+
 function mutateCamera(
   source: ReferenceView,
   parameter: Parameter,
   delta: number,
 ): ReferenceView {
   const candidate = cloneReference(source);
-  if (parameter.kind === "fov") {
+  if (parameter.kind === "fov")
     candidate.camera.fov = Math.max(5, Math.min(150, candidate.camera.fov + delta));
-  } else {
-    candidate.camera[parameter.kind][parameter.axis] += delta;
-  }
+  else candidate.camera[parameter.kind][parameter.axis] += delta;
   return candidate;
+}
+
+function cameraDistance(reference: ReferenceView) {
+  const { position, target } = reference.camera;
+  return Math.max(
+    0.1,
+    Math.hypot(
+      target[0] - position[0],
+      target[1] - position[1],
+      target[2] - position[2],
+    ),
+  );
+}
+
+function initialSteps(reference: ReferenceView, options: ReferenceFitOptions) {
+  const distance = cameraDistance(reference);
+  const position = options.positionStep ?? distance * 0.06;
+  const target = options.targetStep ?? distance * 0.045;
+  return [
+    position,
+    position,
+    position,
+    target,
+    target,
+    target,
+    options.fovStep ?? 3,
+  ];
+}
+
+interface Candidate {
+  reference: ReferenceView;
+  score: number;
+  evaluations: number;
+}
+
+function improveParameter(
+  current: ReferenceView,
+  parameter: Parameter,
+  step: number,
+  incumbent: number,
+): Candidate {
+  let reference = current;
+  let score = incumbent;
+  let evaluations = 0;
+  for (const direction of [-1, 1]) {
+    const candidate = mutateCamera(current, parameter, direction * step);
+    const candidateScore = fitScore(candidate);
+    evaluations++;
+    if (candidateScore + 1e-9 >= score) continue;
+    reference = candidate;
+    score = candidateScore;
+  }
+  return { reference, score, evaluations };
+}
+
+function improvePass(
+  current: ReferenceView,
+  incumbent: number,
+  steps: readonly number[],
+): Candidate {
+  let reference = current;
+  let score = incumbent;
+  let evaluations = 0;
+  for (let i = 0; i < PARAMETERS.length; i++) {
+    const result = improveParameter(reference, PARAMETERS[i], steps[i], score);
+    reference = result.reference;
+    score = result.score;
+    evaluations += result.evaluations;
+  }
+  return { reference, score, evaluations };
+}
+
+function shrinkSteps(steps: number[]) {
+  for (let i = 0; i < steps.length; i++) steps[i] *= 0.55;
+}
+
+function stepsConverged(steps: readonly number[]) {
+  return Math.max(...steps.slice(0, 6)) < 1e-5 && steps[6] < 1e-4;
 }
 
 /**
@@ -131,69 +216,21 @@ export function fitReferenceCamera(
   const initial = best;
   let evaluations = 1;
   let iterations = 0;
-
-  const distance = Math.max(
-    0.1,
-    Math.hypot(
-      current.camera.target[0] - current.camera.position[0],
-      current.camera.target[1] - current.camera.position[1],
-      current.camera.target[2] - current.camera.position[2],
-    ),
-  );
-  const parameters: Parameter[] = [
-    { kind: "position", axis: 0 },
-    { kind: "position", axis: 1 },
-    { kind: "position", axis: 2 },
-    { kind: "target", axis: 0 },
-    { kind: "target", axis: 1 },
-    { kind: "target", axis: 2 },
-    { kind: "fov" },
-  ];
-  const steps = [
-    options.positionStep ?? distance * 0.06,
-    options.positionStep ?? distance * 0.06,
-    options.positionStep ?? distance * 0.06,
-    options.targetStep ?? distance * 0.045,
-    options.targetStep ?? distance * 0.045,
-    options.targetStep ?? distance * 0.045,
-    options.fovStep ?? 3,
-  ];
+  const steps = initialSteps(current, options);
   const maxIterations = options.maxIterations ?? 80;
   const tolerance = options.tolerancePixels ?? 0.5;
 
-  for (iterations = 0; iterations < maxIterations && best > tolerance; iterations++) {
-    let passImproved = false;
-
-    for (let p = 0; p < parameters.length; p++) {
-      const parameter = parameters[p];
-      let localBest = best;
-      let localCandidate: ReferenceView | undefined;
-
-      for (const direction of [-1, 1]) {
-        const candidate = mutateCamera(current, parameter, direction * steps[p]);
-        const score = fitScore(candidate);
-        evaluations++;
-        if (score + 1e-9 < localBest) {
-          localBest = score;
-          localCandidate = candidate;
-        }
-      }
-
-      if (localCandidate) {
-        current = localCandidate;
-        best = localBest;
-        passImproved = true;
-      }
+  while (iterations < maxIterations && best > tolerance) {
+    const result = improvePass(current, best, steps);
+    evaluations += result.evaluations;
+    iterations++;
+    if (result.score + 1e-9 < best) {
+      current = result.reference;
+      best = result.score;
+      continue;
     }
-
-    if (!passImproved) {
-      for (let p = 0; p < steps.length; p++) steps[p] *= 0.55;
-      if (
-        Math.max(...steps.slice(0, 6)) < 1e-5 &&
-        steps[6] < 1e-4
-      )
-        break;
-    }
+    shrinkSteps(steps);
+    if (stepsConverged(steps)) break;
   }
 
   return {
