@@ -19,9 +19,11 @@ jobs:
           version: 3.23.0
           gate: new-only
           fail-on-issues: false
-      - name: Print full new-only report
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      - name: Generate staged health baseline
         run: |
-          fallow audit --root . --format json --changed-since "$BASE_SHA" --gate new-only > /tmp/fallow.json || true
-          cat /tmp/fallow.json
+          mkdir -p /tmp/fallow-baselines
+          fallow health --css --save-baseline /tmp/fallow-baselines/reference-authoring-health.json --format json > /tmp/fallow-health.json || true
+          echo '---REFERENCE_HEALTH_BASELINE_BEGIN---'
+          cat /tmp/fallow-baselines/reference-authoring-health.json
+          echo
+          echo '---REFERENCE_HEALTH_BASELINE_END---'
