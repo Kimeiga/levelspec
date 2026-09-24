@@ -123,8 +123,13 @@ function localMatrix(node: NonNullable<GLTF["nodes"]>[number]) {
 }
 
 function roots(gltf: GLTF) {
-  const nodes = gltf.nodes ?? [], scene = gltf.scenes?.[gltf.scene ?? 0];
-  if (scene?.nodes?.length) return scene.nodes;
+  const nodes = gltf.nodes ?? [], scenes = gltf.scenes;
+  if (gltf.scene !== undefined) {
+    if (!Number.isSafeInteger(gltf.scene) || gltf.scene < 0 || !scenes?.[gltf.scene])
+      throw new Error(`glTF default scene ${gltf.scene} does not exist.`);
+    return scenes[gltf.scene].nodes ?? [];
+  }
+  if (scenes?.length) return scenes[0].nodes ?? [];
   const children = new Set(nodes.flatMap((n) => n.children ?? []));
   return nodes.map((_, i) => i).filter((i) => !children.has(i));
 }
