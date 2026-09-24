@@ -18,12 +18,5 @@ jobs:
           command: audit
           version: 3.23.0
           gate: new-only
-          fail-on-issues: false
-      - name: Generate staged health baseline
-        run: |
-          mkdir -p /tmp/fallow-baselines
-          fallow health --css --save-baseline /tmp/fallow-baselines/reference-authoring-health.json --format json > /tmp/fallow-health.json || true
-          echo '---REFERENCE_HEALTH_BASELINE_BEGIN---'
-          cat /tmp/fallow-baselines/reference-authoring-health.json
-          echo
-          echo '---REFERENCE_HEALTH_BASELINE_END---'
+          args: --health-baseline fallow-baselines/reference-authoring-health.json
+          fail-on-issues: true
