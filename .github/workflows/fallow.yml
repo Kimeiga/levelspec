@@ -31,6 +31,27 @@ jobs:
           health-baseline: fallow-baselines/reference-authoring-health.json
           fail-on-issues: true
 
+
+  baseline-snapshot:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+      - uses: fallow-rs/fallow@v3
+        with:
+          command: health
+          version: 3.23.0
+          auto-changed-since: false
+          save-baseline: fallow-main-health.json
+          fail-on-issues: false
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fallow-main-health
+          path: fallow-main-health.json
+          retention-days: 1
+
   weekly:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
