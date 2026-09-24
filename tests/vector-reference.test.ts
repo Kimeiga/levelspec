@@ -20,6 +20,15 @@ function glbJSON(bytes: Uint8Array) {
   const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
   return JSON.parse(new TextDecoder().decode(bytes.slice(20,20+view.getUint32(12,true))));
 }
+function withGLBJSON(bytes: Uint8Array, mutate: (json: any) => void) {
+  const result=bytes.slice(),view=new DataView(result.buffer,result.byteOffset,result.byteLength),
+    length=view.getUint32(12,true),json=glbJSON(result);
+  mutate(json);
+  const encoded=new TextEncoder().encode(JSON.stringify(json));
+  assert.ok(encoded.length<=length);
+  result.fill(0x20,20,20+length);result.set(encoded,20);
+  return result;
+}
 describe("reference views",()=>{
   it("round trips cameras, normalized landmarks, masks and assumption provenance",()=>{
     const {document}=fixture(),r=reference();r.landmarks=[{id:"roof-corner",position:[0,0,3],image:[0.5,0.5]}];
@@ -164,6 +173,17 @@ describe("scene props and physics",()=>{
       resolveAsset:createGLBAssetResolver(async(ref)=>{assert.equal(ref,"scene.glb");return bytes;})});
     assert.deepEqual(level.diagnostics,[]);assert.ok(level.mesh.indices.length>source.mesh.indices.length);
     assert.throws(()=>parseGLBGeometry(new Uint8Array([1,2,3])),/too small/);
+  });
+  it("imports only the declared default GLB scene",async()=>{
+    const {document,group}=fixture();
+    group.box("crate",{position:[3,4,0],size:[2,1,1.5],material:"default",collision:"solid"});
+    const source=await compile(document,{navigation:false}),bytes=toGLB(source);
+    const empty=withGLBJSON(bytes,(json)=>{
+      const scene=json.scenes?.[json.scene??0];assert.ok(scene);scene.nodes=[];
+    });
+    assert.throws(()=>parseGLBGeometry(empty),/no triangle mesh geometry in its default scene/);
+    const missing=withGLBJSON(bytes,(json)=>{json.scene=9;});
+    assert.throws(()=>parseGLBGeometry(missing),/default scene 9 does not exist/);
   });
   it("resolves a shared asset once, preserves transforms and rejects missing or bad geometry",async()=>{
     const {document,group}=fixture();document.assets=[{id:"model",src:"model.glb"}];
