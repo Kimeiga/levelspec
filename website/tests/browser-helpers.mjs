@@ -86,9 +86,17 @@ export async function waitForMovement(page, before, distance) {
   );
 }
 export async function holdKeyUntilMoved(page, key, before, distance) {
-  // Geometry readiness precedes asynchronous bake binding and GPU material setup.
+  // Walking depends on scene geometry and textures, not the asynchronous light
+  // bake. Do not turn a slow or unavailable bake into a locomotion failure.
   try {
-    await waitForVisualReady(page);
+    await page.waitForFunction(
+      () => {
+        const state = document.querySelector("#model")?.dataset;
+        return state?.mode === "walk" && state.textures === "ready" && state.detail === "ready";
+      },
+      undefined,
+      { timeout: 15000 },
+    );
     await page.keyboard.down(key);
     // Headless Chromium can acquire pointer lock without forwarding Playwright's
     // synthetic keyboard event. Dispatch the same DOM event as a deterministic
