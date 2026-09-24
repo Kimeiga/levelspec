@@ -9,6 +9,8 @@ export interface ExportAsset {
   file: string;
 }
 export interface ExportOptions {
+  /** Collision exports include proxies and omit visual-only detail. */
+  purpose?: "visual" | "collision";
   assets?: Record<string, ExportAsset>;
 }
 export type ExportFiles = Record<string, string | Uint8Array>;
@@ -69,18 +71,34 @@ export function assertExportable(
     throw new Error(
       "Cannot export invalid geometry. Resolve compilation errors first.",
     );
-  if (!level.mesh.indices.length)
+  if (options.purpose !== "collision" && !level.mesh.indices.length)
     throw new Error("Cannot export an empty model.");
   for (const m of level.document.materials)
-    if (m.texture && !options.assets?.[m.texture])
+    if (
+      options.purpose !== "collision" &&
+      m.texture &&
+      !options.assets?.[m.texture]
+    )
       throw new Error(
         `Material ${m.id}: unresolved texture "${m.texture}". Supply resolved export assets.`,
       );
 }
 
-export function exportMetadata(level: CompiledLevel, formats: ExportFormat[]) {
+export function exportMetadata(
+  level: CompiledLevel,
+  formats: ExportFormat[],
+  purpose: "visual" | "collision" = "visual",
+  includedSurfaceIndices = [...new Set(level.mesh.surfaces)],
+) {
   return {
     version: 1,
+    purpose,
+    includedSurfaceIndices,
+    includedParts: [
+      ...new Set(
+        includedSurfaceIndices.map((index) => level.surfaces[index]?.mesh).filter(Boolean),
+      ),
+    ],
     id: level.document.id,
     name: level.document.name,
     geometryHash: level.geometryHash,
@@ -96,6 +114,9 @@ export function exportMetadata(level: CompiledLevel, formats: ExportFormat[]) {
     surfaces: level.surfaces,
     materials: level.document.materials,
     markers: level.document.markers,
+    props: level.document.props,
+    assets: level.document.assets,
+    references: level.document.references,
     routes: level.document.routes,
     links: level.document.links,
     lights: level.document.lights,

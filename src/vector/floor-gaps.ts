@@ -7,7 +7,8 @@ import type {
   V3,
 } from "./types.ts";
 import { aborted } from "./types.ts";
-import { area, orient } from "./geometry.ts";
+import { area, heightAt, orient } from "./geometry.ts";
+import { buildFlight } from "./flights.ts";
 
 const XY_EPS = 1e-5;
 const HEIGHT_EPS = 0.001 + 1e-6;
@@ -154,7 +155,20 @@ export function auditFloorGaps(
   signal?: AbortSignal,
 ): Diagnostic[] {
   const d = level.document,
-    boundaries: Boundary[] = [];
+    boundaries: Boundary[] = [],
+    slopedStairGuides = new Map<string, FloorPatch>();
+  for (const layer of d.layers)
+    for (const region of layer.regions)
+      if (region.fill === "stairs" && region.underside === "sloped")
+        slopedStairGuides.set(
+          region.id,
+          buildFlight(
+            region,
+            layer,
+            level.curves,
+            region.thickness ?? d.floorThickness,
+          ).guide,
+        );
   for (const layer of d.layers) {
     const edges = new Map(layer.edges.map((e) => [e.id, e]));
     for (const region of layer.regions) {
@@ -219,16 +233,37 @@ export function auditFloorGaps(
         length = Math.hypot(q[0] - p[0], q[1] - p[1]);
       const topsA = topSlices(a.floor, p, q),
         topsB = topSlices(b.floor, p, q);
-      const bottom = (s: Piece, r: Region): Piece =>
-        r.fill === "stairs"
-          ? {
-              ...s,
-              z0:
-                level.curves[r.lower!][0][2] -
-                (r.thickness ?? d.floorThickness),
-              dz: 0,
-            }
-          : { ...s, z0: s.z0 - (r.thickness ?? d.floorThickness) };
+      const bottom = (s: Piece, r: Region): Piece => {
+        const thickness = r.thickness ?? d.floorThickness;
+        if (r.fill !== "stairs")
+          return { ...s, z0: s.z0 - thickness };
+        const guide = slopedStairGuides.get(r.id);
+        if (!guide)
+          return {
+            ...s,
+            z0: level.curves[r.lower!][0][2] - thickness,
+            dz: 0,
+          };
+        const point = (t: number): V3 => [
+          p[0] + t * (q[0] - p[0]),
+          p[1] + t * (q[1] - p[1]),
+          0,
+        ];
+        const start = point(s.start),
+          end = point(s.end),
+          zStart = heightAt(guide, start[0], start[1]),
+          zEnd = heightAt(guide, end[0], end[1]);
+        if (zStart === undefined || zEnd === undefined)
+          throw new Error(
+            `${r.id}: cannot resolve sloped stair underside along a floor boundary.`,
+          );
+        const slope = (zEnd - zStart) / (s.end - s.start);
+        return {
+          ...s,
+          z0: zStart - slope * s.start - thickness,
+          dz: slope,
+        };
+      };
       const bottomsA = topsA.map((s) => bottom(s, a.region)),
         bottomsB = topsB.map((s) => bottom(s, b.region));
       // A lower surface that continues beneath the other region is an underpass

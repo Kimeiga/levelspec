@@ -14,9 +14,11 @@
       </div>
       <div class="file-actions">
         <button id="open">Open map</button
+        ><button id="companions">Companions…</button
         ><button id="download">Save SVGX</button
         ><button id="export" disabled>Export…</button>
         <input id="file" type="file" accept=".svgx" hidden />
+        <input id="companion-files" type="file" accept=".glb,.png,.jpg,.jpeg,.webp" multiple hidden />
       </div>
     </header>
     <main class="workspace">
@@ -107,6 +109,15 @@
             <div class="view-label">
               <h2>Perspective</h2>
               <div>
+                <select id="reference-view" aria-label="Reference view" disabled>
+                  <option value="">No reference</option>
+                </select>
+                <button id="reference-camera" disabled>Use camera</button>
+                <button id="reference-fit" disabled>Fit camera</button>
+                <label><input id="reference-overlay" type="checkbox" disabled /> Overlay</label>
+                <label id="reference-opacity-label" hidden>Opacity
+                  <input id="reference-opacity" type="range" min="0" max="1" value=".5" step=".05" />
+                </label>
                 <button id="fly">Free-fly</button
                 ><button id="fit-three">Fit 3D</button>
               </div>

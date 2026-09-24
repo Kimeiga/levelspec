@@ -267,6 +267,25 @@ h2 {
   width: 100%;
   height: 100%;
 }
+#three {
+  position: relative;
+  background: #e6eef3;
+}
+#three .reference-overlay {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  object-fit: fill;
+  user-select: none;
+}
+#reference-view {
+  max-width: 150px;
+  padding: 4px 5px;
+  font-size: 11px;
+}
+#reference-opacity {
+  width: 64px;
+}
 #plan {
   touch-action: none;
   cursor: grab;
@@ -285,6 +304,8 @@ h2 {
   filter: drop-shadow(0 0 0.07px #dd921c);
 }
 #three canvas {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;

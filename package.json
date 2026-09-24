@@ -8,7 +8,8 @@
     "./generate": "./src/generate/index.ts",
     "./vector": "./src/vector/index.ts",
     "./lighting": "./src/lighting/bake.ts",
-    "./export": "./src/export/vector/index.ts"
+    "./export": "./src/export/vector/index.ts",
+    "./authoring": "./src/vector/authoring.ts"
   },
   "scripts": {
     "compile": "node tools/build.ts",
@@ -29,7 +30,8 @@
     "test:site:browser": "node website/tests/experience-browser.mjs && node website/tests/walk-timing-browser.mjs && node website/tests/browser.mjs && node website/tests/walk-stability-browser.mjs && node website/tests/graphics-browser.mjs",
     "bake:site": "node tools/site-bake.ts",
     "package:site-bakes": "node tools/site-package-bakes.ts",
-    "generate:site-material-detail": "node tools/site-material-detail.ts"
+    "generate:site-material-detail": "node tools/site-material-detail.ts",
+    "reference:rooftop": "node tools/vector-rooftop-reference.ts"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",
@@ -55,5 +57,6 @@
   },
   "allowScripts": {
     "fsevents@2.3.3": true
-  }
+  },
+  "license": "MIT"
 }

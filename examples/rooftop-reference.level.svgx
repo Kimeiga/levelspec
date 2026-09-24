@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level version="2" id="rooftop-reference" name="Rooftop reference acceptance" units="meters" wall-thickness="0.22" wall-height="3" floor-thickness="0.2" curve-tolerance="0.01">
+  <player radius="0.25" height="2" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+  <material id="default" color="#b9c7d1" repeat="1" roughness="0.8" metalness="0"/>
+  <material id="concrete" color="#a9aaa4" repeat="1" roughness="0.92" metalness="0"/>
+  <material id="glass" color="#385762" repeat="1" roughness="0.2" metalness="0.05"/>
+  <material id="metal" color="#6e7880" repeat="1" roughness="0.45" metalness="0.65"/>
+  <material id="paint" color="#c17f47" repeat="1" roughness="0.72" metalness="0"/>
+  <layer id="architecture">
+    <vertex id="district/main/roof-deck/v0" x="-6" y="-5" z="8"/>
+    <vertex id="district/main/roof-deck/v1" x="6" y="-5" z="8"/>
+    <vertex id="district/main/roof-deck/v2" x="6" y="5" z="8"/>
+    <vertex id="district/main/roof-deck/v3" x="-6" y="5" z="8"/>
+    <edge id="district/main/roof-deck/e0" from="district/main/roof-deck/v0" to="district/main/roof-deck/v1" kind="open" join="miter"/>
+    <edge id="district/main/roof-deck/e1" from="district/main/roof-deck/v1" to="district/main/roof-deck/v2" kind="open" join="miter"/>
+    <edge id="district/main/roof-deck/e2" from="district/main/roof-deck/v2" to="district/main/roof-deck/v3" kind="open" join="miter"/>
+    <edge id="district/main/roof-deck/e3" from="district/main/roof-deck/v3" to="district/main/roof-deck/v0" kind="open" join="miter"/>
+    <region id="district/main/roof-deck" boundary="district/main/roof-deck/e0 district/main/roof-deck/e1 district/main/roof-deck/e2 district/main/roof-deck/e3" fill="floor" material="concrete" thickness="0.25"/>
+  </layer>
+  <marker id="spawn" layer="architecture" region="district/main/roof-deck" position="-4.8 -3.8 8" kind="attacker_spawn"/>
+  <prop id="district/main/mass" layer="architecture" shape="box" position="0 0 0" rotation="0 0 0" scale="12 10 7.75" material="concrete" collision="solid"/>
+  <prop id="district/main/facade/south/r0/c0" layer="architecture" shape="box" position="-4.417 -5.022 0.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r0/c1" layer="architecture" shape="box" position="-2.65 -5.022 0.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r0/c2" layer="architecture" shape="box" position="-0.883 -5.022 0.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r0/c3" layer="architecture" shape="box" position="0.883 -5.022 0.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r0/c4" layer="architecture" shape="box" position="2.65 -5.022 0.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r0/c5" layer="architecture" shape="box" position="4.417 -5.022 0.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r1/c0" layer="architecture" shape="box" position="-4.417 -5.022 2.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r1/c1" layer="architecture" shape="box" position="-2.65 -5.022 2.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r1/c2" layer="architecture" shape="box" position="-0.883 -5.022 2.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r1/c3" layer="architecture" shape="box" position="0.883 -5.022 2.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r1/c4" layer="architecture" shape="box" position="2.65 -5.022 2.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r1/c5" layer="architecture" shape="box" position="4.417 -5.022 2.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r2/c0" layer="architecture" shape="box" position="-4.417 -5.022 4.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r2/c1" layer="architecture" shape="box" position="-2.65 -5.022 4.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r2/c2" layer="architecture" shape="box" position="-0.883 -5.022 4.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r2/c3" layer="architecture" shape="box" position="0.883 -5.022 4.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r2/c4" layer="architecture" shape="box" position="2.65 -5.022 4.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r2/c5" layer="architecture" shape="box" position="4.417 -5.022 4.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r3/c0" layer="architecture" shape="box" position="-4.417 -5.022 6.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r3/c1" layer="architecture" shape="box" position="-2.65 -5.022 6.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r3/c2" layer="architecture" shape="box" position="-0.883 -5.022 6.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r3/c3" layer="architecture" shape="box" position="0.883 -5.022 6.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r3/c4" layer="architecture" shape="box" position="2.65 -5.022 6.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/facade/south/r3/c5" layer="architecture" shape="box" position="4.417 -5.022 6.375" rotation="0 0 0" scale="1.1 0.04 1.25" material="glass" collision="none"/>
+  <prop id="district/main/roof/stairhead" layer="architecture" shape="box" position="-3 -2 8" rotation="0 0 0" scale="2.4 2.1 2.2" material="concrete" collision="solid"/>
+  <prop id="district/main/roof/hvac" layer="architecture" shape="box" position="2.3 -2.4 8" rotation="0 0 8" scale="2.2 1.5 1.2" material="metal" collision="box"/>
+  <prop id="district/main/roof/tank" layer="architecture" shape="cylinder" position="3.4 2.2 8" rotation="0 0 0" scale="1.8 1.8 2.5" material="paint" collision="box" segments="20"/>
+  <prop id="district/main/roof/mast" layer="architecture" shape="cylinder" position="0.2 1.4 8" rotation="0 0 0" scale="0.14 0.14 4.2" material="metal" collision="none" segments="12"/>
+  <prop id="district/main/roof/mast-arm" layer="architecture" shape="cylinder" position="0.2 1.4 11.6" rotation="0 90 0" scale="0.1 0.1 1.6" material="metal" collision="none" segments="12"/>
+  <reference id="oblique" label="Oblique" image="rooftop-oblique.png" width="640" height="400" position="22 -25 18" target="0 0 7.5" up="0 0 1" fov="46" near="0.05" far="200" scale="measured" scale-note="Synthetic acceptance fixture authored directly in metres.">
+    <landmark id="oblique-roof-sw" position="-6 -5 8" image="0.3356247653492349 0.48180733669195475"/>
+    <landmark id="oblique-roof-ne" position="6 5 8" image="0.6662818239507741 0.4859041876824175"/>
+    <landmark id="oblique-stairhead-top" position="-3 -2 10.2" image="0.42388778236830055 0.4073204144407485"/>
+    <landmark id="oblique-tank-top" position="3.4 2.2 10.5" image="0.5881678560569477 0.4055379535546997"/>
+    <landmark id="oblique-mast-tip" position="0.2 1.4 12.2" image="0.5230196949412338 0.33695859823137897"/>
+  </reference>
+  <reference id="south" label="South" image="rooftop-south.png" width="640" height="400" position="0 -31 10.5" target="0 0 7.2" up="0 0 1" fov="43" near="0.05" far="200" scale="measured" scale-note="Synthetic acceptance fixture authored directly in metres.">
+    <landmark id="south-roof-sw" position="-6 -5 8" image="0.31775545779925424 0.48706123577892924"/>
+    <landmark id="south-roof-ne" position="6 5 8" image="0.6319925447960483 0.45337062126264804"/>
+    <landmark id="south-stairhead-top" position="-3 -2 10.2" image="0.4175587403821391 0.3781435470475249"/>
+    <landmark id="south-tank-top" position="3.4 2.2 10.5" image="0.5817034108782962 0.3648784184565772"/>
+    <landmark id="south-mast-tip" position="0.2 1.4 12.2" image="0.5049524130360055 0.2971450569659605"/>
+  </reference>
+  <reference id="east" label="East" image="rooftop-east.png" width="640" height="400" position="30 0 12.5" target="0 0 7.6" up="0 0 1" fov="43" near="0.05" far="200" scale="measured" scale-note="Synthetic acceptance fixture authored directly in metres.">
+    <landmark id="east-roof-sw" position="-6 -5 8" image="0.39058936660307936 0.4523161277253744"/>
+    <landmark id="east-roof-ne" position="6 5 8" image="0.6624903827708057 0.5297638119968728"/>
+    <landmark id="east-stairhead-top" position="-3 -2 10.2" image="0.45183077949600947 0.3824829167317101"/>
+    <landmark id="east-tank-top" position="3.4 2.2 10.5" image="0.5656764483231413 0.3894723366049595"/>
+    <landmark id="east-mast-tip" position="0.2 1.4 12.2" image="0.5377022979997336 0.30577488097651323"/>
+  </reference>
+</level>

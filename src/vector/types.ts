@@ -1,3 +1,5 @@
+import type { SceneProp, MeshAsset, AssetResolver } from "./props.ts";
+import type { ReferenceView } from "./reference.ts";
 /** LevelSpec 2. Canonical coordinates are right-handed Z-up metres. */
 export type V2 = [number, number];
 export type V3 = [number, number, number];
@@ -75,6 +77,8 @@ export interface Region extends Named {
   lower?: string;
   upper?: string;
   rise?: number;
+  /** Stair body: filled to the lower landing by default, or a sloping slab. */
+  underside?: "filled" | "sloped";
   area?: string;
 }
 export interface Layer extends Named {
@@ -142,6 +146,9 @@ export interface Player {
   ladder: boolean;
 }
 export interface LevelDocument extends Named {
+  props?: SceneProp[];
+  assets?: MeshAsset[];
+  references?: ReferenceView[];
   version: "2";
   name: string;
   description?: string;
@@ -165,6 +172,8 @@ export interface LevelDocument extends Named {
 }
 export type MeshKind = "wall" | "floor" | "stairs" | "ceiling" | "prop";
 export interface MeshPart {
+  collidable?: boolean;
+  visible?: boolean;
   id: string;
   kind: MeshKind;
   /** Sole owning layer, or an empty string for a shell spanning several layers. */
@@ -175,6 +184,9 @@ export interface MeshPart {
   triangles: number[];
 }
 export interface Surface {
+  /** Omitted means true, preserving legacy surface semantics. */
+  collidable?: boolean;
+  visible?: boolean;
   mesh: string;
   kind: MeshKind;
   id: string;
@@ -250,6 +262,8 @@ export interface CompiledLevel {
   stats: Record<string, number>;
 }
 export interface CompileOptions {
+  /** Host-controlled mesh I/O. The compiler never fetches an asset URL. */
+  resolveAsset?: AssetResolver;
   retainExportSolids?: boolean;
   signal?: AbortSignal;
   onProgress?: (stage: string) => void;

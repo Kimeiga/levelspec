@@ -6,7 +6,19 @@ import { FlyControls } from "three/addons/controls/FlyControls.js";
 import { EXRLoader } from "three/addons/loaders/EXRLoader.js";
 import showcase from "../examples/showcase.level.svgx?raw";
 import dust2 from "../examples/dust2.level.svgx?raw";
-import { toSVGPlan, atlasSVG } from "../src/vector/index.ts";
+import rooftop from "../examples/rooftop-reference.level.svgx?raw";
+import rooftopOblique from "../reference/rooftop/rooftop-oblique.png?url";
+import rooftopSouth from "../reference/rooftop/rooftop-south.png?url";
+import rooftopEast from "../reference/rooftop/rooftop-east.png?url";
+import {
+  toSVGPlan,
+  atlasSVG,
+  referenceViewport,
+  compareReference,
+  fitReferenceCamera,
+  serializeLevelSvgx,
+  type ReferenceView,
+} from "../src/vector/index.ts";
 import {
   validateLightingManifest,
   sha256Bytes,
@@ -53,7 +65,13 @@ function visibleCoverage() {
 const source = $<HTMLTextAreaElement>("source"),
   mode = $<HTMLSelectElement>("mode"),
   layers = $<HTMLSelectElement>("layer"),
-  uvs = $<HTMLInputElement>("uvs");
+  uvs = $<HTMLInputElement>("uvs"),
+  referenceView = $<HTMLSelectElement>("reference-view"),
+  referenceCamera = $<HTMLButtonElement>("reference-camera"),
+  referenceFit = $<HTMLButtonElement>("reference-fit"),
+  referenceOverlayToggle = $<HTMLInputElement>("reference-overlay"),
+  referenceOpacity = $<HTMLInputElement>("reference-opacity");
+const companionFiles = new Map<string, File>();
 let level: CompiledLevel | undefined,
   report: ValidationReport | undefined,
   selected = "",
@@ -62,11 +80,49 @@ let level: CompiledLevel | undefined,
   flyMode = false;
 let exportReady = false;
 const exportUI = setupExport(() =>
-  exportReady && level ? { level, source: source.value } : undefined,
+  exportReady && level
+    ? { level, source: source.value, companions: companionFiles }
+    : undefined,
 );
 function setExportReady(value: boolean) {
   exportReady = value;
   exportUI.setAvailable(value);
+}
+function normalizedCompanionPath(value: string) {
+  return value.replaceAll("\\", "/").replace(/^\.\//, "");
+}
+function registerCompanion(file: File) {
+  const path = normalizedCompanionPath(file.webkitRelativePath || file.name);
+  companionFiles.set(path, file);
+  companionFiles.set(file.name, file);
+  if (path.includes("/"))
+    companionFiles.set(path.slice(path.indexOf("/") + 1), file);
+}
+async function companionAssetBytes() {
+  const unique = new Map<File, Uint8Array>(),
+    result: Record<string, Uint8Array> = {};
+  let total = 0;
+  for (const [path, file] of companionFiles) {
+    if (!/\.glb$/i.test(path)) continue;
+    let bytes = unique.get(file);
+    if (!bytes) {
+      if (file.size > 64 * 1024 * 1024)
+        throw new Error(`${file.name} exceeds the 64 MB GLB viewer limit.`);
+      total += file.size;
+      if (total > 128 * 1024 * 1024)
+        throw new Error("Selected GLB companions exceed 128 MB total.");
+      bytes = new Uint8Array(await file.arrayBuffer());
+      unique.set(file, bytes);
+    }
+    result[path] = bytes;
+  }
+  return result;
+}
+function companionFile(reference: string) {
+  const normalized = normalizedCompanionPath(reference),
+    direct = companionFiles.get(normalized);
+  if (direct) return direct;
+  return companionFiles.get(normalized.split("/").at(-1)!);
 }
 type Panel = "source" | "inspect" | "atlas" | "validation";
 let activePanel: Panel | undefined;
@@ -108,6 +164,7 @@ const camera = new THREE.PerspectiveCamera(45, 1, 0.05, 2000);
 camera.up.set(0, 0, 1);
 camera.position.set(30, -25, 30);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setClearColor("#e6eef3", 1);
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -115,6 +172,11 @@ renderer.localClippingEnabled = true;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 $("three").append(renderer.domElement);
+const referenceOverlay = document.createElement("img");
+referenceOverlay.className = "reference-overlay";
+referenceOverlay.alt = "Reference image overlay";
+referenceOverlay.hidden = true;
+$("three").append(referenceOverlay);
 const orbit = new OrbitControls(camera, renderer.domElement);
 orbit.target.set(10, 5, 0);
 orbit.enableDamping = true;
@@ -123,6 +185,152 @@ fly.enabled = false;
 fly.movementSpeed = 10;
 fly.rollSpeed = 0.3;
 fly.dragToLook = true;
+let referenceCameraActive = false,
+  referenceObjectURL: string | undefined,
+  renderWidth = 1,
+  renderHeight = 1;
+const builtinReferenceImages = new Map<string, string>([
+  ["rooftop-oblique.png", rooftopOblique],
+  ["rooftop-south.png", rooftopSouth],
+  ["rooftop-east.png", rooftopEast],
+]);
+function activeReference(): ReferenceView | undefined {
+  return level?.document.references?.find((reference) => reference.id === referenceView.value);
+}
+function updateReferenceViewport() {
+  const reference = referenceCameraActive ? activeReference() : undefined;
+  let viewport = { x: 0, y: 0, width: renderWidth, height: renderHeight };
+  if (reference) {
+    viewport = referenceViewport(
+      renderWidth,
+      renderHeight,
+      reference.width / reference.height,
+    );
+    camera.aspect = reference.width / reference.height;
+  } else camera.aspect = renderWidth / renderHeight;
+  camera.updateProjectionMatrix();
+  Object.assign(referenceOverlay.style, {
+    left: `${viewport.x}px`,
+    top: `${viewport.y}px`,
+    width: `${viewport.width}px`,
+    height: `${viewport.height}px`,
+    opacity: referenceOpacity.value,
+  });
+  referenceOverlay.hidden =
+    !referenceOverlayToggle.checked || !reference || !referenceOverlay.src;
+  return viewport;
+}
+function applyReferenceCamera() {
+  const reference = activeReference();
+  if (!reference) return;
+  const c = reference.camera;
+  camera.position.set(...c.position);
+  camera.up.set(...c.up);
+  camera.fov = c.fov;
+  camera.near = c.near;
+  camera.far = c.far;
+  orbit.target.set(...c.target);
+  orbit.update();
+  flyMode = false;
+  fly.enabled = false;
+  orbit.enabled = !referenceOverlayToggle.checked;
+  $("fly").textContent = "Free-fly";
+  referenceCameraActive = true;
+  updateReferenceViewport();
+}
+function fitActiveReferenceCamera() {
+  const reference = activeReference();
+  if (!reference || !level) return;
+  try {
+    const seed: ReferenceView = {
+      ...reference,
+      camera: {
+        position: [camera.position.x, camera.position.y, camera.position.z],
+        target: [orbit.target.x, orbit.target.y, orbit.target.z],
+        up: [camera.up.x, camera.up.y, camera.up.z],
+        fov: camera.fov,
+        near: camera.near,
+        far: camera.far,
+      },
+    };
+    const result = fitReferenceCamera(seed);
+    reference.camera = result.reference.camera;
+    source.value = serializeLevelSvgx(level.document);
+    applyReferenceCamera();
+    updateReferenceControls();
+    const after = result.inFrameRmsPixels ?? result.rmsPixels;
+    $("status").textContent =
+      `Camera fit ${result.initialRmsPixels.toFixed(1)} px → ${after.toFixed(1)} px RMS · ${result.evaluations} evaluations`;
+  } catch (error) {
+    $("status").textContent =
+      error instanceof Error ? error.message : "Camera fitting failed.";
+  }
+}
+
+function updateReferenceImage() {
+  if (referenceObjectURL) URL.revokeObjectURL(referenceObjectURL);
+  referenceObjectURL = undefined;
+  const reference = activeReference();
+  referenceOverlay.removeAttribute("src");
+  referenceOverlayToggle.checked = false;
+  referenceOverlayToggle.disabled = true;
+  $("reference-opacity-label").hidden = true;
+  if (!reference) {
+    updateReferenceViewport();
+    return;
+  }
+  const file = companionFile(reference.image),
+    builtin = builtinReferenceImages.get(normalizedCompanionPath(reference.image)),
+    url = file ? URL.createObjectURL(file) : builtin;
+  if (!url) {
+    referenceCamera.title = `Camera saved. Select companion image "${reference.image}" to enable overlay.`;
+    updateReferenceViewport();
+    return;
+  }
+  if (file) referenceObjectURL = url;
+  referenceOverlay.onload = () => {
+    if (
+      referenceOverlay.naturalWidth !== reference.width ||
+      referenceOverlay.naturalHeight !== reference.height
+    ) {
+      referenceCamera.title =
+        `Reference image is ${referenceOverlay.naturalWidth}×${referenceOverlay.naturalHeight}; SVGX declares ${reference.width}×${reference.height}.`;
+      referenceOverlayToggle.disabled = true;
+      return;
+    }
+    referenceOverlayToggle.disabled = false;
+    $("reference-opacity-label").hidden = false;
+    updateReferenceViewport();
+  };
+  referenceOverlay.src = url;
+}
+function updateReferenceControls() {
+  const current = referenceView.value,
+    references = level?.document.references ?? [];
+  referenceView.replaceChildren(new Option("No reference", ""));
+  for (const reference of references)
+    referenceView.append(new Option(reference.label ?? reference.id, reference.id));
+  referenceView.disabled = !references.length;
+  referenceView.value = references.some((reference) => reference.id === current)
+    ? current
+    : references[0]?.id ?? "";
+  referenceCamera.disabled = !activeReference();
+  referenceFit.disabled = !activeReference();
+  const reference = activeReference();
+  if (reference) {
+    const comparison = compareReference(reference),
+      rms = comparison.rmsPixels === null ? "no comparable landmarks" : `RMS ${comparison.rmsPixels.toFixed(1)} px`;
+    referenceCamera.title = `${reference.image} · ${rms}`;
+  }
+  referenceCameraActive = false;
+  updateReferenceImage();
+}
+orbit.addEventListener("start", () => {
+  if (referenceCameraActive && !referenceOverlayToggle.checked) {
+    referenceCameraActive = false;
+    updateReferenceViewport();
+  }
+});
 const ambient = new THREE.HemisphereLight("#dce8f5", "#647580", 0);
 ambient.position.set(0, 0, 1);
 scene.add(ambient);
@@ -173,13 +381,12 @@ const checker = new THREE.CanvasTexture(checkerCanvas);
 checker.wrapS = checker.wrapT = THREE.RepeatWrapping;
 checker.colorSpace = THREE.SRGBColorSpace;
 const resize = new ResizeObserver(() => {
-  const host = $("three"),
-    w = host.clientWidth,
-    h = host.clientHeight;
-  if (!w || !h) return;
-  renderer.setSize(w, h);
-  camera.aspect = w / h;
-  camera.updateProjectionMatrix();
+  const host = $("three");
+  renderWidth = host.clientWidth;
+  renderHeight = host.clientHeight;
+  if (!renderWidth || !renderHeight) return;
+  renderer.setSize(renderWidth, renderHeight);
+  updateReferenceViewport();
 });
 resize.observe($("three"));
 let previous = performance.now();
@@ -189,6 +396,13 @@ renderer.setAnimationLoop(() => {
   previous = now;
   if (flyMode) fly.update(dt);
   else orbit.update();
+  const viewport = updateReferenceViewport();
+  renderer.setViewport(
+    viewport.x,
+    renderHeight - viewport.y - viewport.height,
+    viewport.width,
+    viewport.height,
+  );
   renderer.render(scene, camera);
 });
 let lightmaps: THREE.DataTexture[] = [],
@@ -278,6 +492,7 @@ function renderModel(fit = false) {
     groups = new Map<string, number[]>();
   for (let t = 0; t < m.surfaces.length; t++) {
     const s = level.surfaces[m.surfaces[t]];
+    if (s.visible === false) continue;
     if (layers.value && s.layer !== layers.value) continue;
     if (!$<HTMLInputElement>("roofs").checked && s.role === "roof") continue;
     const key = JSON.stringify([
@@ -399,6 +614,10 @@ function renderModel(fit = false) {
 }
 function fitMap() {
   if (!level) return;
+  referenceOverlayToggle.checked = false;
+  referenceCameraActive = false;
+  orbit.enabled = !flyMode;
+  updateReferenceViewport();
   const box = new THREE.Box3().setFromObject(group),
     center = box.getCenter(new THREE.Vector3()),
     size = box.getSize(new THREE.Vector3()),
@@ -894,17 +1113,28 @@ function showDiagnostics(items: Diagnostic[]) {
     $("diagnostics").append(p);
   }
 }
-function compile() {
+async function compile() {
   setExportReady(false);
   clearTimeout(debounce);
   worker?.terminate();
   const id = ++revision;
+  $("status").className = "";
+  $("status").textContent = "Loading companion assets…";
+  report = undefined;
+  let assetFiles: Record<string, Uint8Array>;
+  try {
+    assetFiles = await companionAssetBytes();
+  } catch (error) {
+    if (id !== revision) return;
+    $("status").textContent = (error as Error).message;
+    $("status").className = "error";
+    return;
+  }
+  if (id !== revision) return;
   worker = new Worker(new URL("./worker.ts", import.meta.url), {
     type: "module",
   });
-  $("status").className = "";
   $("status").textContent = "Compiling…";
-  report = undefined;
   worker.onmessage = (e) => {
     if (e.data.id !== revision) return;
     const data = e.data;
@@ -960,6 +1190,7 @@ function compile() {
           (l as THREE.DirectionalLight).shadow?.dispose();
       lights.clear();
       setEnvironment();
+      updateReferenceControls();
       for (const l of level.document.lights) {
         const light =
           l.kind === "directional"
@@ -1014,7 +1245,12 @@ function compile() {
     $("status").textContent = `Worker failed: ${e.message}`;
     $("status").className = "error";
   };
-  worker.postMessage({ id, text: source.value, uvs: uvs.checked });
+  worker.postMessage({
+    id,
+    text: source.value,
+    uvs: uvs.checked,
+    assetFiles,
+  });
 }
 $("compile").onclick = compile;
 $("cancel").onclick = () => {
@@ -1050,12 +1286,21 @@ $("download").onclick = () =>
     "application/xml",
   );
 $("open").onclick = () => $<HTMLInputElement>("file").click();
+$("companions").onclick = () => $<HTMLInputElement>("companion-files").click();
+$<HTMLInputElement>("companion-files").onchange = async (e) => {
+  const files = [...((e.target as HTMLInputElement).files ?? [])];
+  for (const file of files) registerCompanion(file);
+  if (files.some((file) => /\.glb$/i.test(file.name))) void compile();
+  else updateReferenceImage();
+  (e.target as HTMLInputElement).value = "";
+};
 $<HTMLInputElement>("file").onchange = async (e) => {
   const file = (e.target as HTMLInputElement).files?.[0];
   if (file) {
+    companionFiles.clear();
     source.value = await file.text();
     $("filename").textContent = file.name;
-    compile();
+    void compile();
   }
 };
 window.addEventListener("dragover", (e) => {
@@ -1077,12 +1322,16 @@ window.addEventListener("drop", async (e) => {
     await loadLighting(files);
     return;
   }
-  const f = files.find((f) => f.name.endsWith(".svgx"));
+  const f = files.find((file) => file.name.endsWith(".svgx"));
+  if (f) companionFiles.clear();
+  for (const file of files)
+    if (/\.(glb|png|jpe?g|webp)$/i.test(file.name)) registerCompanion(file);
   if (f) {
     source.value = await f.text();
     $("filename").textContent = f.name;
-    compile();
-  }
+    void compile();
+  } else if (files.some((file) => /\.glb$/i.test(file.name))) void compile();
+  else updateReferenceImage();
 });
 async function loadLighting(files: File[]) {
   const generation = revision,
@@ -1164,6 +1413,27 @@ async function loadLighting(files: File[]) {
   }
 }
 
+referenceView.onchange = () => {
+  referenceOverlayToggle.checked = false;
+  referenceCameraActive = false;
+  orbit.enabled = !flyMode;
+  updateReferenceControls();
+  updateReferenceViewport();
+};
+referenceCamera.onclick = applyReferenceCamera;
+referenceFit.onclick = fitActiveReferenceCamera;
+referenceOverlayToggle.onchange = () => {
+  if (referenceOverlayToggle.checked) {
+    applyReferenceCamera();
+    orbit.enabled = false;
+    fly.enabled = false;
+    flyMode = false;
+    $("fly").textContent = "Free-fly";
+  } else orbit.enabled = !flyMode;
+  updateReferenceViewport();
+};
+referenceOpacity.oninput = updateReferenceViewport;
+
 mode.onchange = () => {
   if (mode.value === "lighting" && !lightmaps.length) {
     $("status").textContent =
@@ -1195,6 +1465,9 @@ $("cut").oninput = () => {
 };
 $("fly").onclick = () => {
   resetSpacePan();
+  referenceOverlayToggle.checked = false;
+  referenceCameraActive = false;
+  updateReferenceViewport();
   flyMode = !flyMode;
   fly.enabled = flyMode;
   orbit.enabled = !flyMode;
@@ -1217,13 +1490,23 @@ window.addEventListener("beforeunload", () => {
   (grid.material as THREE.Material).dispose();
   environment?.dispose();
   environmentGenerator.dispose();
+  if (referenceObjectURL) URL.revokeObjectURL(referenceObjectURL);
   renderer.dispose();
 });
 const initialMap = new URLSearchParams(window.location.search).get("map");
-source.value = initialMap === "dust2" ? dust2 : showcase;
+source.value =
+  initialMap === "dust2"
+    ? dust2
+    : initialMap === "rooftop"
+      ? rooftop
+      : showcase;
 $("filename").textContent =
-  initialMap === "dust2" ? "dust2.level.svgx" : "showcase.level.svgx";
-// Open the large reference map directly into geometry inspection. Atlas
+  initialMap === "dust2"
+    ? "dust2.level.svgx"
+    : initialMap === "rooftop"
+      ? "rooftop-reference.level.svgx"
+      : "showcase.level.svgx";
+// Open large/reference maps directly into geometry inspection. Atlas
 // generation remains available explicitly through the existing checkbox.
-if (initialMap === "dust2") uvs.checked = false;
-compile();
+if (initialMap === "dust2" || initialMap === "rooftop") uvs.checked = false;
+void compile();

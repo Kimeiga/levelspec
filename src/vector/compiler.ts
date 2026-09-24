@@ -1,3 +1,5 @@
+import { validateProps, prepareProps } from "./props.ts";
+import { validateReference } from "./reference.ts";
 import { normalizeCoordinates } from "./precision.ts";
 import { emptyMesh, meshParts } from "./mesh.ts";
 import { auditFloorGaps } from "./floor-gaps.ts";
@@ -12,10 +14,10 @@ import {
   type CompiledLevel,
   type CompileOptions,
   type ExportSolid,
+  type V2,
   type V3,
   type Diagnostic,
   type Surface,
-  type MeshData,
   type Named,
   type FloorPatch,
   type MeshKind,
@@ -86,6 +88,9 @@ export async function compile(
     ]),
     ...d.seams,
     ...d.covers,
+    ...(d.props ?? []),
+    ...(d.assets ?? []),
+    ...(d.references ?? []).flatMap((r) => [r, ...r.landmarks, ...r.masks]),
     ...d.materials,
     ...d.markers,
     ...d.links,
@@ -95,6 +100,7 @@ export async function compile(
     if (allIds.has(o.id)) err(o, `Duplicate id ${o.id}.`, "DUPLICATE_ID");
     allIds.add(o.id);
   }
+  diagnostics.push(...validateProps(d), ...(d.references ?? []).flatMap(validateReference));
   const materials = new Set(d.materials.map((m) => m.id));
   for (const m of d.materials) {
     if (
@@ -135,6 +141,8 @@ export async function compile(
     }
     for (const r of l.regions) {
       try {
+        if (r.underside !== undefined && (r.fill !== "stairs" || !["filled", "sloped"].includes(r.underside)))
+          throw new Error("underside is only supported on stairs, with filled or sloped values.");
         if (r.material && !materials.has(r.material))
           throw new Error(`Unknown material ${r.material}.`);
         if ((r.thickness ?? d.floorThickness) <= 0)
@@ -225,14 +233,27 @@ export async function compile(
           .flatMap((l) => l.regions)
           .find((r) => r.id === a.region)!,
         rb = d.layers.flatMap((l) => l.regions).find((r) => r.id === b.region)!;
-      const span = (region: typeof ra) => ({
-        thickness: region.thickness ?? d.floorThickness,
-        base:
-          region.fill === "stairs"
-            ? curves[region.lower!][0][2] -
-              (region.thickness ?? d.floorThickness)
-            : undefined,
-      });
+      const span = (
+        region: typeof ra,
+      ): {
+        thickness: number;
+        base?: number;
+        bottom?: (point: V2) => number;
+      } => {
+        const thickness = region.thickness ?? d.floorThickness,
+          flight = flights.get(region.id);
+        return {
+          thickness,
+          ...(region.fill === "stairs"
+            ? region.underside === "sloped" && flight
+              ? {
+                  bottom: (point: V2) =>
+                    heightAt(flight.guide, point[0], point[1])! - thickness,
+                }
+              : { base: curves[region.lower!][0][2] - thickness }
+            : {}),
+        };
+      };
       const aSpan = span(ra),
         bSpan = span(rb);
       const minZA =
@@ -301,6 +322,13 @@ export async function compile(
     ...(options.retainExportSolids ? { exportSolids: [] } : {}),
   };
   if (diagnostics.some((e) => e.severity === "error")) return level;
+  let props: Awaited<ReturnType<typeof prepareProps>>;
+  try { props = await prepareProps(d, options.resolveAsset, options.signal); }
+  catch (error) {
+    if ((error as Error).name === "AbortError") throw error;
+    err(((error as Error).cause as Named) ?? d, (error as Error).message, "ASSET");
+    return level;
+  }
   options.onProgress?.("Constructing mesh");
   const K = await geometryKernel();
   aborted(options.signal);
@@ -308,6 +336,7 @@ export async function compile(
     dynamicSolids: Manifold[] = [],
     allocated: Manifold[] = [],
     originals = new Map<number, number>();
+  const visualMeshes: ReturnType<Manifold["getMesh"]>[] = [];
   const keep = (m: Manifold) => {
     allocated.push(m);
     return m;
@@ -367,6 +396,10 @@ export async function compile(
       runIndex: new Uint32Array([0, triangles.length * 3]),
       runOriginalID: new Uint32Array([id]),
     });
+    if (surface.collidable === false) {
+      visualMeshes.push(raw);
+      return;
+    }
     raw.merge();
     const solid = keep(new K.Manifold(raw));
     if (solid.status() !== "NoError")
@@ -489,7 +522,15 @@ export async function compile(
                   (p) => [
                     p[0],
                     p[1],
-                    r.fill === "stairs" ? bottom : p[2] - thickness,
+                    r.fill === "stairs"
+                      ? r.underside === "sloped"
+                        ? (() => {
+                            const guide = heightAt(flight.guide, p[0], p[1]);
+                            if (guide === undefined) throw new Error(`${r.id}: missing underside guide height.`);
+                            return guide - thickness;
+                          })()
+                        : bottom
+                      : p[2] - thickness,
                   ],
                   surface,
                 )
@@ -865,8 +906,10 @@ export async function compile(
           seam.kind === "open" && upperRegion
             ? (upperRegion.thickness ?? d.floorThickness)
             : 0,
-        stairUnderside =
-          seam.kind === "open" && upperRegion?.fill === "stairs"
+        filledStairUnderside =
+          seam.kind === "open" &&
+          upperRegion?.fill === "stairs" &&
+          upperRegion.underside !== "sloped"
             ? curves[upperRegion.lower!][0][2] - capInset
             : undefined;
       const layer = d.layers.find((l) =>
@@ -913,10 +956,10 @@ export async function compile(
         )
           throw new Error(`${seam.id}: seam XY positions differ.`);
         let top0 =
-            stairUnderside ??
+            filledStairUnderside ??
             h0[2] + (seam.kind === "wall" ? d.wallHeight : -capInset),
           top1 =
-            stairUnderside ??
+            filledStairUnderside ??
             h1[2] + (seam.kind === "wall" ? d.wallHeight : -capInset);
         if (seam.kind === "open") {
           // The upper slab itself seals shallow steps. A retaining riser fills
@@ -1104,6 +1147,18 @@ export async function compile(
         surf(c.id, c.layer, c.role ?? "cover", c.material, c.dynamic),
       );
     }
+    for (const { prop, geometry, proxy } of props) {
+      aborted(options.signal);
+      const surface = surf(prop.id, prop.layer, "prop", prop.material);
+      if (prop.collision !== "solid") surface.collidable = false;
+      add(geometry.positions, geometry.triangles, surface);
+      if (proxy) {
+        const collision = surf(prop.id, prop.layer, "collision", prop.material);
+        collision.visible = false;
+        collision.mesh += ":collision";
+        add(proxy.positions, proxy.triangles, collision);
+      }
+    }
     const areaFor = (p: V3) =>
       floors.find((f) => {
         const h = heightAt(f, p[0], p[1]);
@@ -1131,8 +1186,7 @@ export async function compile(
         ).simplify(0.0001),
       ),
     );
-    for (const solid of [...shells, ...dynamicSolids]) {
-      const m = solid.getMesh();
+    for (const m of [...shells, ...dynamicSolids].map((s) => s.getMesh()).concat(visualMeshes)) {
       let run = 0;
       for (let i = 0; i < m.triVerts.length; i += 3) {
         while (run + 1 < m.runOriginalID.length && i >= m.runIndex[run + 1])
@@ -1232,6 +1286,8 @@ export async function compile(
       s.material,
       s.dynamic,
       s.mesh,
+      ...(s.collidable === false ? ["non-collidable"] : []),
+      ...(s.visible === false ? ["invisible"] : []),
     ]),
   });
   level.parts = meshParts(mesh, surfaces);
@@ -1283,4 +1339,3 @@ export async function compile(
   }
   return level;
 }
-

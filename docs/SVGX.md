@@ -313,3 +313,11 @@ External material-image packaging, full UV gutter/distortion auditing, complete
 semantic/physical traversal parity, and the migration retirement gate remain
 open. See [the implementation ledger](IMPLEMENTATION.md) before treating this as
 a production 2.0 release.
+
+## Reference-aware authoring preview
+
+The source format also accepts root-level `reference` (with `landmark` and `mask`
+children), `asset`, and `prop` declarations. Stairs accept optional
+`underside="filled"` (the existing default) or `underside="sloped"`.
+See [Reference authoring](REFERENCE_AUTHORING.md) for examples, collision behavior,
+host asset-resolution requirements, and the not-yet-integrated viewer workflow.

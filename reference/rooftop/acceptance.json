@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "source": "examples/rooftop-reference.level.svgx",
+  "width": 640,
+  "height": 400,
+  "views": [
+    {
+      "id": "oblique",
+      "image": "rooftop-oblique.png",
+      "landmarks": 5
+    },
+    {
+      "id": "south",
+      "image": "rooftop-south.png",
+      "landmarks": 5
+    },
+    {
+      "id": "east",
+      "image": "rooftop-east.png",
+      "landmarks": 5
+    }
+  ],
+  "stats": {
+    "meshes": 33,
+    "triangles": 536,
+    "vertices": 1608,
+    "regions": 1
+  },
+  "validationPassed": true
+}

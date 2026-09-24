@@ -1,0 +1,36 @@
+name: Reference authoring
+
+on:
+  pull_request:
+    paths:
+      - "src/vector/**"
+      - "src/export/vector/**"
+      - "tests/vector*.test.ts"
+      - "viewer/**"
+      - "tools/vector*.ts"
+      - "tools/export/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - ".github/workflows/reference-authoring.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reference-authoring-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run build:viewer

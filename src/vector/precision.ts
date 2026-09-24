@@ -28,6 +28,11 @@ export function normalizeCoordinates(document:LevelDocument):LevelDocument {
  for(const l of d.lights){l.position=vector(l.position);l.target=vector(l.target);}
  for(const l of d.links){l.from=vector(l.from);l.to=vector(l.to);}
  for(const c of d.covers){c.min=vector(c.min);c.max=vector(c.max);}
+ for(const p of d.props??[]){p.position=vector(p.position);if(p.shape!=='asset')p.scale=vector(p.scale);}
+ for(const ref of d.references??[]){
+  ref.camera.position=vector(ref.camera.position);ref.camera.target=vector(ref.camera.target);
+  for(const landmark of ref.landmarks)landmark.position=vector(landmark.position);
+ }
  for(const r of d.routes)optional(r,['minDistance','maxDistance']);
  return d;
 }

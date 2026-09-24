@@ -4,11 +4,26 @@ import {
   generateUVs,
   validateForRuntime,
   SvgxError,
+  createGLBAssetResolver,
 } from "../src/vector/index.ts";
 self.onmessage = async (event: MessageEvent) => {
-  const { id, text, uvs } = event.data;
+  const { id, text, uvs, assetFiles = {} } = event.data as {
+    id: number;
+    text: string;
+    uvs: boolean;
+    assetFiles?: Record<string, Uint8Array>;
+  };
   try {
-    const level = await compile(parseLevelSvgx(text), {
+    const resolveAsset = createGLBAssetResolver(async (reference) => {
+        const normalized = reference.replaceAll("\\", "/").replace(/^\.\//, ""),
+          basename = normalized.split("/").at(-1)!,
+          bytes = assetFiles[normalized] ?? assetFiles[basename];
+        if (!bytes)
+          throw new Error(`Select companion GLB "${reference}" before compiling.`);
+        return bytes;
+      }),
+      level = await compile(parseLevelSvgx(text), {
+      resolveAsset,
       onProgress: (stage) => self.postMessage({ id, stage }),
       onGeometry: (geometry) =>
         self.postMessage({ id, level: geometry, stage: "Geometry ready" }),

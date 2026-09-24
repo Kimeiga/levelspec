@@ -116,6 +116,54 @@ function fixture(z = 1, upperThickness = 0.3, kind: "open" | "wall" = "open") {
   d.seams = [{ id: "join", edges: ["low.e1", "high.e3"], kind }];
   return d;
 }
+function stairSideFixture(underside: "filled" | "sloped") {
+  const d = createDocument("stair-side-seam"),
+    low: Layer = {
+      id: "low",
+      vertices: [
+        { id: "low.v0", x: 0, y: -2, z: 0 },
+        { id: "low.v1", x: 4, y: -2, z: 0 },
+        { id: "low.v2", x: 4, y: 0, z: 0 },
+        { id: "low.v3", x: 0, y: 0, z: 0 },
+      ],
+      edges: [0, 1, 2, 3].map((i) => ({
+        id: `low.e${i}`,
+        from: `low.v${i}`,
+        to: `low.v${(i + 1) % 4}`,
+        kind: "open",
+        openings: [],
+      })),
+      regions: [{
+        id: "low.floor", fill: "floor", boundary: ["low.e0", "low.e1", "low.e2", "low.e3"],
+        holes: [], creases: [], interior: [], thickness: 0.2,
+      }],
+    },
+    high: Layer = {
+      id: "high",
+      vertices: [
+        { id: "high.v0", x: 0, y: 0, z: 0.5 },
+        { id: "high.v1", x: 4, y: 0, z: 2.5 },
+        { id: "high.v2", x: 4, y: 2, z: 2.5 },
+        { id: "high.v3", x: 0, y: 2, z: 0.5 },
+      ],
+      edges: [0, 1, 2, 3].map((i) => ({
+        id: `high.e${i}`,
+        from: `high.v${i}`,
+        to: `high.v${(i + 1) % 4}`,
+        kind: "open",
+        openings: [],
+      })),
+      regions: [{
+        id: "high.floor", fill: "stairs", lower: "high.e3", upper: "high.e1",
+        underside, boundary: ["high.e0", "high.e1", "high.e2", "high.e3"],
+        holes: [], creases: [], interior: [], thickness: 0.2,
+      }],
+    };
+  d.layers = [low, high];
+  d.seams = [{ id: "join", edges: ["low.e2", "high.e0"], kind: "open" }];
+  return d;
+}
+
 const wallHeights = (l: Awaited<ReturnType<typeof compile>>) =>
   l.parts
     .filter((p) => p.kind === "wall")
@@ -201,6 +249,15 @@ describe("separate floor/riser contact", () => {
     assert.ok(l.parts.some((p) => p.kind === "stairs"));
     assert.ok(Math.abs(Math.max(...wallHeights(l)) - 0.7) < 1e-6);
   });
+  it("follows a sloped stair underside instead of filling to the lower landing", async () => {
+    const filled = await compile(stairSideFixture("filled"), { navigation: false }),
+      sloped = await compile(stairSideFixture("sloped"), { navigation: false });
+    assert.deepEqual(filled.diagnostics.filter((d) => d.severity === "error"), []);
+    assert.deepEqual(sloped.diagnostics.filter((d) => d.severity === "error"), []);
+    assert.ok(Math.abs(Math.max(...wallHeights(filled)) - 0.3) < 1e-6);
+    assert.ok(Math.abs(Math.max(...wallHeights(sloped)) - 2.3) < 1e-6);
+  });
+
   it("closes the exterior corner between straight and curved retaining seams", async () => {
     for (const curved of [false, true]) {
       const l = await compile(cornerFixture(curved), { navigation: false });

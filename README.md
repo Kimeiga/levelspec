@@ -4,6 +4,11 @@ The **LevelSpec 2 vector preview** adds `.level.svgx` authoring, a local 2D/3D
 inspector (`npm run dev`), separate wall/floor/stair meshes, automatic UVs and an
 optional Blender bake. See [the SVGX guide](docs/SVGX.md) and [release gates](docs/IMPLEMENTATION.md).
 The v1 interfaces described below remain available until migration parity passes.
+
+Reference-aware architectural authoring is an additional preview. See the
+[authoring guide](docs/REFERENCE_AUTHORING.md) for buildings, façade repetitions,
+roof attachments, GLB props, saved reference cameras, image overlays, and the
+checked-in multi-view rooftop acceptance fixture.
 LevelSpec 2 exports **GLB, glTF, FBX and Quake BSP2** from the CLI and workbench;
 see [export formats and tool setup](docs/EXPORTS.md).
 
@@ -114,3 +119,11 @@ joins so the compiler can read their real heights.
 The validators are not warnings. `generateLevel` and `loadAuthored` both throw
 rather than hand back a level that fails one, so a broken floor cannot reach a
 player.
+
+## License
+
+LevelSpec source code and original documentation are licensed under the
+[MIT License](LICENSE). Third-party dependencies and any retained third-party
+notices remain subject to their own licenses. Reference photographs, game
+radars, screenshots, logos, and other third-party assets are not relicensed
+by this license; their inclusion as references does not grant reuse rights.

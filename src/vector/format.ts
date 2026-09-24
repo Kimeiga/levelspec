@@ -1,3 +1,5 @@
+import { validateReference } from "./reference.ts";
+import { validateProps } from "./props.ts";
 import {normalizeCoordinates} from './precision.ts';
 import { SaxesParser } from "saxes";
 import {
@@ -111,7 +113,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
     edge: "id label from to kind control height thickness material join base-floor top-floor span-floors",
     opening: "id label kind start end sill head barricade",
     region:
-      "id label boundary fill interior material ceiling thickness role lower upper rise area",
+      "id label boundary fill interior material ceiling thickness role lower upper rise underside area",
     hole: "boundary",
     crease: "from to",
     seam: "id label edges kind material",
@@ -121,6 +123,11 @@ export function parseLevelSvgx(text: string): LevelDocument {
     route: "id label from to min-routes min-distance max-distance",
     link: "id label from to kind bidirectional ability",
     cover: "id label layer min max material dynamic role",
+    asset: "id label src",
+    prop: "id label layer shape asset position rotation scale material collision segments",
+    reference: "id label image width height position target up fov near far scale scale-note",
+    landmark: "id label position image",
+    mask: "id label points",
     player: "radius height step slope crouch vault rappel ladder",
     sky: "color intensity",
     "no-spawn-los": "markers",
@@ -135,6 +142,9 @@ export function parseLevelSvgx(text: string): LevelDocument {
       "route",
       "link",
       "cover",
+      "asset",
+      "prop",
+      "reference",
       "player",
       "sky",
       "no-spawn-los",
@@ -142,6 +152,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
     layer: ["vertex", "edge", "region"],
     edge: ["opening"],
     region: ["hole", "crease"],
+    reference: ["landmark", "mask"],
   };
   const ids = new Set<string>();
   function check(e: Element) {
@@ -335,6 +346,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
               lower: c.a.lower,
               upper: c.a.upper,
               rise: opt(c, "rise"),
+              underside: c.a.underside === undefined ? undefined : one(c, "underside", ["filled", "sloped"] as const, "filled"),
               area: c.a.area,
             })),
         });
@@ -412,6 +424,34 @@ export function parseLevelSvgx(text: string): LevelDocument {
           role: e.a.role,
         });
         break;
+      case "asset":
+        (doc.assets ??= []).push({ ...named(e), src: s(e, "src") });
+        break;
+      case "prop":
+        s(e, "collision");
+        (doc.props ??= []).push({
+          ...named(e), layer: s(e, "layer"), shape: one(e, "shape", ["box", "cylinder", "asset"], "box"),
+          position: vector(e, "position", 3) as V3,
+          rotation: vector(e, "rotation", 3, [0,0,0]) as V3,
+          scale: vector(e, "scale", 3, [1,1,1]) as V3,
+          material: s(e, "material", "default"), collision: one(e, "collision", ["solid", "none", "box"], "solid"),
+          asset: e.a.asset, segments: opt(e, "segments"),
+        });
+        break;
+      case "reference":
+        (doc.references ??= []).push({
+          ...named(e), image: s(e, "image"), width: n(e, "width"), height: n(e, "height"),
+          scale: one(e, "scale", ["assumed", "measured"], "assumed"), scaleNote: s(e, "scale-note"),
+          camera: { position: vector(e, "position", 3) as V3, target: vector(e, "target", 3) as V3,
+            up: vector(e, "up", 3, [0,0,1]) as V3, fov: n(e, "fov", 45), near: n(e, "near", 0.05), far: n(e, "far", 2000) },
+          landmarks: e.children.filter((c) => c.tag === "landmark").map((c) => ({
+            ...named(c), position: vector(c, "position", 3) as V3, image: vector(c, "image", 2) as [number, number],
+          })),
+          masks: e.children.filter((c) => c.tag === "mask").map((c) => ({
+            ...named(c), points: s(c, "points").split(";").map((pair) => pair.trim().split(/\s+/).map(Number) as [number, number]),
+          })),
+        });
+        break;
       case "player":
         for (const k of Object.keys(doc.player))
           (doc.player as any)[k] =
@@ -432,8 +472,15 @@ export function parseLevelSvgx(text: string): LevelDocument {
         break;
       }
     }
+  issues.push(...validateProps(doc), ...(doc.references ?? []).flatMap(validateReference));
   if (issues.length) throw new SvgxError(issues);
-  return normalizeCoordinates(doc);
+  const normalized = normalizeCoordinates(doc),
+    normalizedIssues = [
+      ...validateProps(normalized),
+      ...(normalized.references ?? []).flatMap(validateReference),
+    ];
+  if (normalizedIssues.length) throw new SvgxError(normalizedIssues);
+  return normalized;
 }
 export const escapeXML = (s: unknown) =>
   String(s)
@@ -521,6 +568,7 @@ export function serializeLevelSvgx(document: LevelDocument): string {
         lower: r.lower,
         upper: r.upper,
         rise: r.rise,
+        underside: r.underside,
         area: r.area,
       };
       if (!r.holes.length && !r.creases.length) leaf("region", a, 2);
@@ -577,6 +625,18 @@ export function serializeLevelSvgx(document: LevelDocument): string {
       dynamic: c.dynamic || undefined,
       role: c.role,
     });
+  for (const a of d.assets ?? []) leaf("asset", { ...name(a), src: a.src });
+  for (const p of d.props ?? []) leaf("prop", {
+    ...name(p), layer: p.layer, shape: p.shape, asset: p.asset, position: p.position,
+    rotation: p.rotation, scale: p.scale, material: p.material, collision: p.collision, segments: p.segments,
+  });
+  for (const r of d.references ?? []) {
+    lines.push(`  <reference${attrs({ ...name(r), image: r.image, width: r.width, height: r.height,
+      ...r.camera, scale: r.scale, "scale-note": r.scaleNote })}>`);
+    for (const l of r.landmarks) leaf("landmark", { ...name(l), position: l.position, image: l.image }, 2);
+    for (const m of r.masks) leaf("mask", { ...name(m), points: m.points.map((p) => p.join(" ")).join("; ") }, 2);
+    lines.push("  </reference>");
+  }
   for (const l of d.lights)
     leaf("light", {
       ...name(l),

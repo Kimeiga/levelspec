@@ -40,7 +40,7 @@ export async function generateUVs(
   let atlas = x.createAtlas();
   try {
     for (let t = 0; t < src.surfaces.length; t++)
-      if (!level.surfaces[src.surfaces[t]].dynamic) {
+      if (!level.surfaces[src.surfaces[t]].dynamic && level.surfaces[src.surfaces[t]].visible !== false) {
         inputTris.push(t);
         indices.push(...src.indices.slice(t * 3, t * 3 + 3));
       }
@@ -189,7 +189,7 @@ export async function generateUVs(
       out.chartIds!.push(vs[0].chartIndex);
     }
     for (let t = 0; t < src.surfaces.length; t++)
-      if (level.surfaces[src.surfaces[t]].dynamic) {
+      if (level.surfaces[src.surfaces[t]].dynamic || level.surfaces[src.surfaces[t]].visible === false) {
         for (const old of src.indices.slice(t * 3, t * 3 + 3))
           out.indices.push(copy(old, [0, 0]));
         out.surfaces.push(src.surfaces[t]);

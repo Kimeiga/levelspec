@@ -60,7 +60,7 @@ def run(args):
     m=inp['mesh'];positions=np.asarray(m['positions']).reshape(-1,3);tris=np.asarray(m['indices']).reshape(-1,3)
     materials={x['id']:x for x in inp['materials']};bindings={};targets=[];objects=[]
     for part in inp['meshes']:
-        if part['dynamic']:continue
+        if part['dynamic'] or not part.get('visible', True):continue
         selected=part['triangles'];originals=np.unique(tris[selected]);index={int(old):i for i,old in enumerate(originals)}
         mesh=bpy.data.meshes.new(part['id']);mesh.from_pydata(positions[originals].tolist(),[],[[index[int(v)] for v in tris[t]] for t in selected]);mesh.update()
         obj=bpy.data.objects.new(part['id'],mesh);scene.collection.objects.link(obj);obj['meshKind']=part['kind'];obj['layer']=part['layer'];obj['layers']=part.get('layers',[part['layer']]);objects.append(obj);obj.select_set(True);bpy.context.view_layer.objects.active=obj

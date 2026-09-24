@@ -17,9 +17,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      # Staged health adoption: keep this reviewed snapshot explicit while
+      # new-only continues to block findings introduced beyond it.
       - uses: fallow-rs/fallow@v3
         with:
           command: audit
           version: 3.23.0
           gate: new-only
+          health-baseline: fallow-baselines/reference-authoring-health.json
           fail-on-issues: true

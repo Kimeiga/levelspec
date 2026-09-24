@@ -9,7 +9,11 @@ import {
   type ExportFormat,
   type ExportFiles,
 } from "../src/vector/index.ts";
-type Snapshot = { level: CompiledLevel; source: string };
+type Snapshot = {
+  level: CompiledLevel;
+  source: string;
+  companions: Map<string, File>;
+};
 export function setupExport(getSnapshot: () => Snapshot | undefined) {
   const button = document.getElementById("export") as HTMLButtonElement;
   const dialog = document.createElement("dialog");
@@ -23,8 +27,8 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
       <label><input type="checkbox" name="format" value="bsp" disabled> Quake BSP2 <small>Modern Quake ports · requires compiler and palette</small></label>
     </fieldset>
     <p class="export-dependencies" role="status">Checking local export tools…</p>
-    <details><summary>Material images</summary><p>Select referenced PNG/JPEG files or their parent folder. Paths are relative to the SVGX file.</p>
-      <label>Image files <input id="export-images" type="file" accept=".png,.jpg,.jpeg" multiple></label>
+    <details><summary>Companion assets</summary><p>Select referenced PNG/JPEG material images and GLB meshes, or their parent folder. Paths are relative to the SVGX file.</p>
+      <label>Files <input id="export-images" type="file" accept=".png,.jpg,.jpeg,.glb" multiple></label>
       <label>Asset folder <input id="export-folder" type="file" webkitdirectory multiple></label>
       <p id="export-assets">No companion files selected.</p>
     </details>
@@ -79,7 +83,11 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
         `${new Set(files.values()).size} companion files selected.`;
     };
   button.onclick = async () => {
-    if (!getSnapshot()) return;
+    const snapshot = getSnapshot();
+    if (!snapshot) return;
+    for (const [path, file] of snapshot.companions) files.set(path, file);
+    dialog.querySelector("#export-assets")!.textContent =
+      `${new Set(files.values()).size} companion files selected.`;
     status.textContent = "";
     dialog.showModal();
     try {
@@ -132,12 +140,23 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
         abort.signal,
       );
       if (formats.some((f) => f === "fbx" || f === "bsp")) {
-        const encoded: Record<string, string> = {};
+        const encoded: Record<string, string> = {},
+          meshAssets: Record<string, string> = {};
         for (const [ref, asset] of Object.entries(assets)) {
           let binary = "";
           for (let i = 0; i < asset.bytes.length; i += 8192)
             binary += String.fromCharCode(...asset.bytes.subarray(i, i + 8192));
           encoded[ref] = btoa(binary);
+        }
+        for (const asset of snapshot.level.document.assets ?? []) {
+          const normalized = asset.src.replaceAll("\\", "/").replace(/^\.\//, ""),
+            file = files.get(normalized) ?? files.get(normalized.split("/").at(-1)!);
+          if (!file) throw new Error(`Select companion GLB "${asset.src}".`);
+          const bytes = new Uint8Array(await file.arrayBuffer());
+          let binary = "";
+          for (let i = 0; i < bytes.length; i += 8192)
+            binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
+          meshAssets[asset.src] = btoa(binary);
         }
         const response = await fetch("/api/exports", {
           method: "POST",
@@ -148,6 +167,7 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
             uvs: Boolean(snapshot.level.atlas),
             formats,
             assets: encoded,
+            meshAssets,
           }),
           signal: abort.signal,
         });

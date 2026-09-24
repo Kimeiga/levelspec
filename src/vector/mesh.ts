@@ -17,6 +17,8 @@ export function meshParts(mesh: MeshData, surfaces: Surface[]) {
       layer: string;
       layers: string[];
       dynamic: boolean;
+      collidable?: boolean;
+      visible?: boolean;
       triangles: number[];
     }
   >();
@@ -28,6 +30,8 @@ export function meshParts(mesh: MeshData, surfaces: Surface[]) {
         layer: s.layer,
         layers: [],
         dynamic: s.dynamic,
+        ...(s.collidable === false ? { collidable: false } : {}),
+        ...(s.visible === false ? { visible: false } : {}),
         triangles: [],
       };
     part.triangles.push(t);

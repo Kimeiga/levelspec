@@ -1,3 +1,4 @@
+import { collisionMesh } from "./collision.ts";
 import {
   init,
   NavMeshQuery,
@@ -68,7 +69,8 @@ export function rayBlocked(
   const dir = sub(b, a),
     m = level.mesh;
   for (let t = 0; t < m.surfaces.length; t++) {
-    if (!sealed && level.surfaces[m.surfaces[t]].dynamic) continue;
+    const surface = level.surfaces[m.surfaces[t]];
+    if (surface.collidable === false || (!sealed && surface.dynamic)) continue;
     const [A, B, C] = m.indices
         .slice(t * 3, t * 3 + 3)
         .map((i) => m.positions.slice(i * 3, i * 3 + 3) as V3),
@@ -257,14 +259,12 @@ export async function bakeNavmesh(
   }
   await (initialized ??= init());
   aborted(options.signal);
-  const m = level.mesh,
+  const m = collisionMesh(level, !!options.sealed),
     positions: number[] = [],
-    indices: number[] = [];
+    indices = [...m.indices];
   for (let i = 0; i < m.positions.length; i += 3)
     positions.push(m.positions[i], m.positions[i + 2], -m.positions[i + 1]);
-  for (let t = 0; t < m.surfaces.length; t++)
-    if (options.sealed || !level.surfaces[m.surfaces[t]].dynamic)
-      indices.push(...m.indices.slice(t * 3, t * 3 + 3));
+
   const failed: NavigationReport = {
     diagnostics: [],
     settings: {
