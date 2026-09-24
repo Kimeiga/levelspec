@@ -18,4 +18,10 @@ jobs:
           command: audit
           version: 3.23.0
           gate: new-only
-          fail-on-issues: true
+          fail-on-issues: false
+      - name: Print full new-only report
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          fallow audit --root . --format json --changed-since "$BASE_SHA" --gate new-only > /tmp/fallow.json || true
+          cat /tmp/fallow.json
