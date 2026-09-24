@@ -22,5 +22,4 @@ jobs:
           command: audit
           version: 3.23.0
           gate: new-only
-          args: --health-baseline fallow-baselines/reference-authoring-health.json
           fail-on-issues: true
