@@ -17,9 +17,22 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.base.sha }}
+      - uses: fallow-rs/fallow@v3
+        with:
+          command: health
+          version: 3.23.0
+          auto-changed-since: false
+          save-baseline: ${{ runner.temp }}/fallow-health-base.json
+          fail-on-issues: false
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
       - uses: fallow-rs/fallow@v3
         with:
           command: audit
           version: 3.23.0
           gate: new-only
+          health-baseline: ${{ runner.temp }}/fallow-health-base.json
           fail-on-issues: true
