@@ -21,14 +21,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      # Staged adoption baseline generated from the current main branch. New
-      # findings beyond this snapshot still fail the new-only gate.
+      # Staged health baseline: PR #2's reviewed snapshot plus the inherited
+      # core compiler hotspot touched by this extraction. New findings still fail.
       - uses: fallow-rs/fallow@v3
         with:
           command: audit
           version: 3.23.0
           gate: new-only
-          health-baseline: fallow-baselines/main-health.json
+          health-baseline: fallow-baselines/reference-authoring-health.json
           fail-on-issues: true
 
   weekly:
