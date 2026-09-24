@@ -17,27 +17,10 @@ function report(
   });
 }
 
-export function validateDocument(
+function validateIds(
   document: LevelDocument,
   diagnostics: Diagnostic[],
-): Set<string> {
-  for (const [name, value] of Object.entries({
-    wallThickness: document.wallThickness,
-    wallHeight: document.wallHeight,
-    floorThickness: document.floorThickness,
-    curveTolerance: document.curveTolerance,
-  })) {
-    if (!Number.isFinite(value) || value <= 0)
-      report(diagnostics, document, `${name} must be positive.`, "DIMENSION");
-  }
-  if (document.curveTolerance < 0.00001)
-    report(
-      diagnostics,
-      document,
-      "curve-tolerance must be at least 0.00001 metres.",
-      "DIMENSION",
-    );
-
+): void {
   const allIds = new Set<string>();
   for (const object of [
     document,
@@ -67,6 +50,30 @@ export function validateDocument(
       report(diagnostics, object, `Duplicate id ${object.id}.`, "DUPLICATE_ID");
     allIds.add(object.id);
   }
+}
+
+export function validateDocument(
+  document: LevelDocument,
+  diagnostics: Diagnostic[],
+): Set<string> {
+  for (const [name, value] of Object.entries({
+    wallThickness: document.wallThickness,
+    wallHeight: document.wallHeight,
+    floorThickness: document.floorThickness,
+    curveTolerance: document.curveTolerance,
+  })) {
+    if (!Number.isFinite(value) || value <= 0)
+      report(diagnostics, document, `${name} must be positive.`, "DIMENSION");
+  }
+  if (document.curveTolerance < 0.00001)
+    report(
+      diagnostics,
+      document,
+      "curve-tolerance must be at least 0.00001 metres.",
+      "DIMENSION",
+    );
+
+  validateIds(document, diagnostics);
 
   diagnostics.push(
     ...validateProps(document),
