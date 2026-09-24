@@ -43,6 +43,7 @@ import {
   type EdgeRecord,
 } from './types.ts';
 import { CellSet, decomposeToRects, key, rectCells, rectContains, unkey } from './grid.ts';
+import { rasterizeLayers, type LayerState } from './rasterize.ts';
 
 const EPS = 1e-6;
 const MAX_STEP_RISE = 0.19;
@@ -53,16 +54,6 @@ const MAX_STEP_RISE = 0.19;
 const RAMP_SLICE_RISE = 0.055;
 
 export type { EdgeRecord } from './types.ts';
-
-interface LayerState {
-  spec: LayerSpec;
-  occ: Map<string, string>;
-  edges: Map<string, EdgeRecord>;
-  runs: BoundaryRun[];
-  holes: CellSet;
-  heightAt: Map<string, number>;
-  zAt: Map<string, number>;
-}
 
 /**
  * How an opening of this shape is got through, given what the player can do.
@@ -99,7 +90,6 @@ export function compile(spec: LevelSpec): CompiledLevel {
   const diagnostics: Diagnostic[] = [];
   const solids: Solid[] = [];
   const boundaries: BoundaryRun[] = [];
-  const layers = new Map<string, LayerState>();
 
   const err = (
     code: string,
@@ -118,163 +108,7 @@ export function compile(spec: LevelSpec): CompiledLevel {
     diagnostics.push({ severity: 'warning', code, objects, message, ...extra });
   };
 
-  // -------------------------------------------------------------------------
-  // Pass 2 — rasterize
-  // -------------------------------------------------------------------------
-  // One diagnostic per offending space pair, not one per cell.
-  const overlapCells = new Map<string, { a: string; b: string; layer: string; cells: string[] }>();
-  /** Overlaps the author allowed, recorded rather than swallowed. */
-  const absorbed = new Map<
-    string,
-    { owner: string; shadowed: string; layer: string; cells: string[]; conflict: boolean }
-  >();
-
-  for (const layer of spec.layers) {
-    const occ = new Map<string, string>();
-    const heightAt = new Map<string, number>();
-    const zAt = new Map<string, number>();
-    const seenSpaces = new Set<string>();
-
-    for (const space of layer.spaces) {
-      if (seenSpaces.has(space.id)) {
-        err('DUPLICATE_SPACE_ID', [space.id, layer.id], `Space id "${space.id}" is declared twice.`);
-      }
-      seenSpaces.add(space.id);
-      const cells = new CellSet();
-      cells.addRect(space.rect);
-      for (const r of space.extra ?? []) cells.addRect(r);
-      for (const r of space.subtract ?? []) cells.deleteRect(r);
-      if (cells.size === 0) {
-        err('EMPTY_SPACE', [space.id], `Space "${space.id}" rasterizes to zero cells.`);
-      }
-      const h = space.height ?? layer.height;
-      const z = layer.z + (space.z_offset ?? 0);
-      let own = 0;
-      for (const k of cells.keys()) {
-        const prev = occ.get(k);
-        if (prev && prev !== space.id) {
-          if (!layer.allow_space_overlap) {
-            const pk = `${layer.id}|${prev}|${space.id}`;
-            let rec = overlapCells.get(pk);
-            if (!rec) overlapCells.set(pk, (rec = { a: prev, b: space.id, layer: layer.id, cells: [] }));
-            rec.cells.push(k);
-          } else {
-            /*
-             * Allowed overlap still loses something, and used to lose it in
-             * silence.
-             *
-             * The first writer keeps the cell — that is the one-owner rule and
-             * it is why there is never a wall drawn twice — but the second
-             * space's floor height and elevation for that cell go with it. If
-             * the two agree, nothing was lost and the union is exactly what
-             * the author asked for. If they disagree, the compiled level is
-             * wrong whichever way it is resolved, and saying so is the only
-             * honest answer.
-             */
-            const pk = `${layer.id}|${prev}|${space.id}`;
-            let rec = absorbed.get(pk);
-            if (!rec) {
-              absorbed.set(pk, (rec = {
-                owner: prev, shadowed: space.id, layer: layer.id, cells: [], conflict: false,
-              }));
-            }
-            rec.cells.push(k);
-            if (Math.abs((heightAt.get(k) ?? h) - h) > EPS || Math.abs((zAt.get(k) ?? z) - z) > EPS) {
-              rec.conflict = true;
-            }
-          }
-          continue; // first writer owns the cell
-        }
-        occ.set(k, space.id);
-        heightAt.set(k, h);
-        zAt.set(k, z);
-        own++;
-      }
-      /*
-       * A space that is entirely inside another one is not a space.
-       *
-       * It has no cells, so no boundary run names it, so a portal that asks
-       * for it finds nothing and a marker placed in it stands in a room that
-       * does not exist. Better to fail here than three passes later with a
-       * message about a boundary.
-       */
-      if (own === 0 && cells.size > 0) {
-        err(
-          'SPACE_FULLY_ABSORBED',
-          [space.id, layer.id],
-          `Space "${space.id}" is entirely covered by spaces declared before it and owns no cells of its own.`,
-          {
-            measured: 0,
-            required: 1,
-            suggestions: [
-              `Declare "${space.id}" before the space that covers it`,
-              'Move it clear',
-              'Merge the two with "extra" rather than overlapping them',
-            ],
-          },
-        );
-      }
-    }
-    layers.set(layer.id, {
-      spec: layer,
-      occ,
-      edges: new Map(),
-      runs: [],
-      holes: new CellSet(),
-      heightAt,
-      zAt,
-    });
-  }
-
-  for (const rec of overlapCells.values()) {
-    err(
-      'SPACE_OVERLAP',
-      [rec.a, rec.b, rec.layer],
-      `Spaces "${rec.a}" and "${rec.b}" overlap over ${rec.cells.length} cell(s) on layer ` +
-        `"${rec.layer}", starting at ${rec.cells[0]}. The first one declared owns them.`,
-      {
-        measured: rec.cells.length,
-        required: 0,
-        suggestions: [
-          `Move "${rec.b}" clear of "${rec.a}"`,
-          'Merge them into one space using "extra"',
-          'Set allow_space_overlap: true if the union is intended',
-        ],
-      },
-    );
-  }
-
-  for (const rec of absorbed.values()) {
-    if (rec.conflict) {
-      err(
-        'OVERLAP_HEIGHT_CONFLICT',
-        [rec.shadowed, rec.owner, rec.layer],
-        `"${rec.shadowed}" overlaps "${rec.owner}" over ${rec.cells.length} cell(s) and the two ` +
-          'disagree about the floor or ceiling there, so one of them is wrong wherever they meet.',
-        {
-          measured: rec.cells.length,
-          required: 0,
-          suggestions: [
-            'Give both spaces the same height and elevation over the overlap',
-            'Split the overlap into a space of its own',
-          ],
-        },
-      );
-    } else {
-      warn(
-        'SPACE_ABSORBED',
-        [rec.shadowed, rec.owner, rec.layer],
-        `"${rec.shadowed}" gives up ${rec.cells.length} cell(s) to "${rec.owner}", which was ` +
-          'declared first. They agree about the floor there, so the union is what was drawn.',
-        { measured: rec.cells.length },
-      );
-    }
-  }
-
-  for (const layer of spec.layers) {
-    const st = layers.get(layer.id)!;
-    for (const r of layer.floor_holes ?? []) st.holes.addRect(r);
-  }
+  const layers = rasterizeLayers(spec, err, warn);
 
   // -------------------------------------------------------------------------
   // Pass 3 — one owner per boundary edge

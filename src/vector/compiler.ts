@@ -1,5 +1,5 @@
-import { validateProps, prepareProps } from "./props.ts";
-import { validateReference } from "./reference.ts";
+import { prepareProps } from "./props.ts";
+import { validateDocument } from "./preflight.ts";
 import { normalizeCoordinates } from "./precision.ts";
 import { emptyMesh, meshParts } from "./mesh.ts";
 import { auditFloorGaps } from "./floor-gaps.ts";
@@ -66,58 +66,7 @@ export async function compile(
       objects: [o.id],
       source: o.source,
     });
-  for (const [name, value] of Object.entries({
-    wallThickness: d.wallThickness,
-    wallHeight: d.wallHeight,
-    floorThickness: d.floorThickness,
-    curveTolerance: d.curveTolerance,
-  }))
-    if (!Number.isFinite(value) || value <= 0)
-      err(d, `${name} must be positive.`, "DIMENSION");
-  if (d.curveTolerance < 0.00001)
-    err(d, "curve-tolerance must be at least 0.00001 metres.", "DIMENSION");
-  const allIds = new Set<string>();
-  for (const o of [
-    d,
-    ...d.layers.flatMap((l) => [
-      l,
-      ...l.vertices,
-      ...l.edges,
-      ...l.regions,
-      ...l.edges.flatMap((e) => e.openings),
-    ]),
-    ...d.seams,
-    ...d.covers,
-    ...(d.props ?? []),
-    ...(d.assets ?? []),
-    ...(d.references ?? []).flatMap((r) => [r, ...r.landmarks, ...r.masks]),
-    ...d.materials,
-    ...d.markers,
-    ...d.links,
-    ...d.routes,
-    ...d.lights,
-  ]) {
-    if (allIds.has(o.id)) err(o, `Duplicate id ${o.id}.`, "DUPLICATE_ID");
-    allIds.add(o.id);
-  }
-  diagnostics.push(...validateProps(d), ...(d.references ?? []).flatMap(validateReference));
-  const materials = new Set(d.materials.map((m) => m.id));
-  for (const m of d.materials) {
-    if (
-      m.repeat <= 0 ||
-      !Number.isFinite(m.repeat) ||
-      m.roughness < 0 ||
-      m.roughness > 1 ||
-      m.metalness < 0 ||
-      m.metalness > 1 ||
-      !/^#[0-9a-f]{6}$/i.test(m.color)
-    )
-      err(
-        m,
-        "Invalid material color, repeat, roughness, or metalness.",
-        "MATERIAL",
-      );
-  }
+  const materials = validateDocument(d, diagnostics);
   const owners = new Map<string, string[]>();
   for (const l of d.layers) {
     for (const v of l.vertices)

@@ -1,5 +1,19 @@
 {
   "finding_counts": {
+    "src/core/compiler.ts": {
+      "complexity_critical": {
+        "count": 2
+      },
+      "complexity_moderate": {
+        "count": 1
+      },
+      "crap_critical": {
+        "count": 2
+      },
+      "crap_moderate": {
+        "count": 2
+      }
+    },
     "src/export/vector/bsp.ts": {
       "complexity_high": {
         "count": 1
