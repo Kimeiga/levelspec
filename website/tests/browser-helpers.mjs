@@ -90,6 +90,14 @@ export async function holdKeyUntilMoved(page, key, before, distance) {
   try {
     await waitForVisualReady(page);
     await page.keyboard.down(key);
+    // Headless Chromium can acquire pointer lock without forwarding Playwright's
+    // synthetic keyboard event. Dispatch the same DOM event as a deterministic
+    // fallback so this test exercises the app's keyboard handler, not browser
+    // automation quirks.
+    await page.evaluate(
+      (key) => window.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true })),
+      key,
+    );
     await waitForMovement(page, before, distance);
   } catch (error) {
     const state = await page.evaluate(() => ({
@@ -104,6 +112,10 @@ export async function holdKeyUntilMoved(page, key, before, distance) {
     );
     throw error;
   } finally {
+    await page.evaluate(
+      (key) => window.dispatchEvent(new KeyboardEvent("keyup", { key, bubbles: true })),
+      key,
+    );
     await page.keyboard.up(key);
   }
 }
