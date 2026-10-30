@@ -4,17 +4,41 @@ import {generateSoloNavMesh,generateTileNavMeshData,buildTiledNavMeshRcConfig,ge
 import {ClipContext} from "./clipping.ts";
 import {aborted,type NavigationOptions} from "./types.ts";
 
+type Intermediates = Pick<ReturnType<typeof generateSoloNavMesh>["intermediates"], "heightfield" | "compactHeightfield" | "contourSet" | "polyMesh" | "polyMeshDetail">;
+function releaseIntermediates(m: Intermediates) {
+  if(m.heightfield)freeHeightfield(m.heightfield);
+  if(m.compactHeightfield)freeCompactHeightfield(m.compactHeightfield);
+  if(m.contourSet)freeContourSet(m.contourSet);
+  if(m.polyMesh)freePolyMesh(m.polyMesh);
+  if(m.polyMeshDetail)freePolyMeshDetail(m.polyMeshDetail);
+}
+
+function addTile(mesh: NavMesh, result: ReturnType<typeof generateTileNavMeshData>, x: number, y: number, guard: ClipContext) {
+  const m=result.intermediates;
+  try {
+    // Recast rejects zero-polygon Detour data even when an empty tile is valid.
+    if(!result.success) {
+      if(m.polyMesh?.npolys()===0 && result.error==="Failed to create Detour navmesh data")return false;
+      guard.fail(`navigation tile ${x},${y}`,result.error);
+    }
+    if(!result.data)return false;
+    try {guard.allocate((m.polyMesh?.nverts()??0)+(m.polyMeshDetail?.nverts()??0));}
+    catch(error){result.data.destroy();throw error;}
+    const added=mesh.addTile(result.data,Detour.DT_TILE_FREE_DATA,0);
+    if(statusFailed(added.status)){result.data.destroy();guard.fail(`navigation tile ${x},${y}`,`Could not add tile (status ${added.status}).`);}
+    return true;
+  } finally {
+    releaseIntermediates(m);
+  }
+}
+
 export function generateNavigation(positions:number[],indices:number[],config:Partial<SoloNavMeshGeneratorConfig>,options:NavigationOptions,guard:ClipContext) {
   const {bbMin,bbMax}=getBoundingBox(positions,indices);
   const extent=Math.max(bbMax[0]-bbMin[0],bbMax[2]-bbMin[2]);
   if(extent<=32) {
     const result=generateSoloNavMesh(positions,indices,config,true),m=result.intermediates;
     const empty=m.polyMesh?.npolys()===0;
-    if(m.heightfield)freeHeightfield(m.heightfield);
-    if(m.compactHeightfield)freeCompactHeightfield(m.compactHeightfield);
-    if(m.contourSet)freeContourSet(m.contourSet);
-    if(m.polyMesh)freePolyMesh(m.polyMesh);
-    if(m.polyMeshDetail)freePolyMeshDetail(m.polyMeshDetail);
+    releaseIntermediates(m);
     return {...result,empty};
   }
   const settings={...tiledNavMeshGeneratorConfigDefaults,...config,tileSize:32,detailSampleDist:3};
@@ -31,27 +55,7 @@ export function generateNavigation(positions:number[],indices:number[],config:Pa
     for(let y=0;y<layout.tileHeight;y++)for(let x=0;x<layout.tileWidth;x++) {
       aborted(options.signal);
       const result=generateTileNavMeshData(vertices,triangles,layout.config,chunky,{x,y,bmin:[bbMin[0]+x*layout.tcs,bbMin[1],bbMin[2]+y*layout.tcs],bmax:[bbMin[0]+(x+1)*layout.tcs,bbMax[1],bbMin[2]+(y+1)*layout.tcs]}, {offMeshConnections:config.offMeshConnections,buildBvTree:true},true,context);
-      const m=result.intermediates;
-      try {
-        // Recast rejects zero-polygon Detour data even when an empty tile is valid.
-        if(!result.success) {
-          if(m.polyMesh?.npolys()===0 && result.error==="Failed to create Detour navmesh data")continue;
-          guard.fail(`navigation tile ${x},${y}`,result.error);
-        }
-        if(result.data) {
-          try {guard.allocate((m.polyMesh?.nverts()??0)+(m.polyMeshDetail?.nverts()??0));}
-          catch(error){result.data.destroy();throw error;}
-          const added=mesh.addTile(result.data,Detour.DT_TILE_FREE_DATA,0);
-          if(statusFailed(added.status)){result.data.destroy();guard.fail(`navigation tile ${x},${y}`,`Could not add tile (status ${added.status}).`);}
-          tiles++;
-        }
-      } finally {
-        if(m.heightfield)freeHeightfield(m.heightfield);
-        if(m.compactHeightfield)freeCompactHeightfield(m.compactHeightfield);
-        if(m.contourSet)freeContourSet(m.contourSet);
-        if(m.polyMesh)freePolyMesh(m.polyMesh);
-        if(m.polyMeshDetail)freePolyMeshDetail(m.polyMeshDetail);
-      }
+      if(addTile(mesh,result,x,y,guard))tiles++;
     }
     guard.repair("NAV_SPATIAL_SUBDIVISION","Subdivided a large navigation bake into bounded tiles to preserve terrain detail.",tiles);
     complete=true;

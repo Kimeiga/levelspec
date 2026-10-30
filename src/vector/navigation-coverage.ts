@@ -95,6 +95,26 @@ function closest(at: V3, a: V3, b: V3) {
   };
 }
 
+function recordBlocked(report: NavigationCoverage, region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+  report.blockedCount = (report.blockedCount ?? 0) + 1;
+  report.blockedByReason ??= {};
+  report.blockedByReason[reason] = (report.blockedByReason[reason] ?? 0) + 1;
+  report.blocked ??= [];
+  if (report.blocked.length < 2048) report.blocked.push({region,position:at,reason,clearance});
+}
+function recordUncovered(report: NavigationCoverage, row: NavigationCoverage["regions"][number], region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+  row.uncovered++;
+  report.uncoveredCount++;
+  row.reasons[reason] = (row.reasons[reason] ?? 0) + 1;
+  if (report.uncovered.length < 2048)
+    report.uncovered.push({region,position:at,reason,...(clearance === undefined ? {} : {clearance})});
+}
+function recordCoverageFailure(premap: boolean, report: NavigationCoverage, row: NavigationCoverage["regions"][number], region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+  if (premap && ["slope", "width", "step", "headroom"].includes(reason))
+    recordBlocked(report,region,at,reason,clearance);
+  else recordUncovered(report,row,region,at,reason,clearance);
+}
+
 /** Audit required floor samples independently of the surviving Recast polygons. */
 export function auditNavigationCoverage(
   level: CompiledLevel,
@@ -217,26 +237,8 @@ export function auditNavigationCoverage(
       row.excluded++;
       report.excluded++;
     };
-    const fail = (reason: NavigationBlockReason, clearance?: number) => {
-      if (level.document.validation === "premap" && ["slope", "width", "step", "headroom"].includes(reason)) {
-        report.blockedCount = (report.blockedCount ?? 0) + 1;
-        report.blockedByReason ??= {};
-        report.blockedByReason[reason] = (report.blockedByReason[reason] ?? 0) + 1;
-        report.blocked ??= [];
-        if (report.blocked.length < 2048) report.blocked.push({region:f.region,position:at,reason,clearance});
-        return;
-      }
-      row.uncovered++;
-      report.uncoveredCount++;
-      row.reasons[reason] = (row.reasons[reason] ?? 0) + 1;
-      if (report.uncovered.length < 2048)
-        report.uncovered.push({
-          region: f.region,
-          position: at,
-          reason,
-          ...(clearance === undefined ? {} : { clearance }),
-        });
-    };
+    const fail = (reason: NavigationBlockReason, clearance?: number) =>
+      recordCoverageFailure(level.document.validation === "premap", report, row, f.region, at, reason, clearance);
     const hits = new Map<string, number[]>();
     let ceiling = Infinity;
     for (const tri of mesh.at(at[0], at[1])) {

@@ -46,8 +46,8 @@ const navigationReasons: Record<
 };
 type CoverageSample = NavigationCoverage["uncovered"][number];
 function navigation() {
-  if ($<HTMLSelectElement>("movement").value === "water") return report?.waterNavigation ?? level?.waterNavigation;
-  return report?.navigation ?? level?.navigation;
+  const key = $<HTMLSelectElement>("movement").value === "water" ? "waterNavigation" : "navigation";
+  return [report?.[key], level?.[key]].find(Boolean);
 }
 function sampleLabel(sample: CoverageSample) {
   return `${navigationReasons[sample.reason].label}${sample.clearance === undefined ? "" : ` (${sample.clearance.toFixed(2)} m clearance)`}`;
@@ -1047,23 +1047,34 @@ source.addEventListener("click", () => {
       .sort((a, b) => b.source!.offset - a.source!.offset)[0];
   if (obj) select(obj.id);
 });
-function renderCoverageSummary() {
-  const host = $("coverage-summary"),
-    nav = navigation();
-  host.replaceChildren();
-  if (!nav) return;
+function renderCoverageStatus(host: HTMLElement, nav: NonNullable<ReturnType<typeof navigation>>) {
   const summary = document.createElement("p");
   summary.textContent = `${nav.settings.movement === "water" ? `Boat (${nav.settings.boat?.draft} m draft)` : "Land"}: ${nav.settings.player.height} m tall × ${nav.settings.player.radius * 2} m wide capsule. ${nav.coverage.covered.toLocaleString()} covered samples; ${nav.coverage.uncoveredCount.toLocaleString()} uncovered.`;
   host.append(summary);
+}
+function renderCoverageVerdict(host: HTMLElement, nav: NonNullable<ReturnType<typeof navigation>>) {
   const result=document.createElement("p");result.className=nav.passed ? "success" : "error";
   result.textContent=`${nav.settings.movement === "water" ? "Boat" : "Land"} navigation: ${nav.passed ? "passed" : "needs attention"}. ${nav.components} connected areas.`;
   host.prepend(result);
+}
+function renderBlockedSummary(host: HTMLElement, nav: NonNullable<ReturnType<typeof navigation>>) {
   const blocked=document.createElement("p");blocked.textContent=`${nav.coverage.blockedCount ?? 0} physically blocked samples: ${Object.entries(nav.coverage.blockedByReason ?? {}).map(([reason,n])=>`${reason} ${n}`).join(", ") || "none"}.`;host.append(blocked);
+}
+function renderCoverageHeader(host: HTMLElement, nav: NonNullable<ReturnType<typeof navigation>>) {
+  renderCoverageStatus(host,nav);
+  renderCoverageVerdict(host,nav);
+  renderBlockedSummary(host,nav);
   for(const d of nav.diagnostics){const p=document.createElement("p");p.className=d.severity;p.textContent=`${d.code}: ${d.message}`;host.append(p);}
   const note = document.createElement("p");
   note.className = "panel-hint";
   note.textContent = `${nav.coverage.excluded.toLocaleString()} wall footprints and normal boundary margins excluded. ${nav.coverage.sampleSpacing} m sample spacing.${nav.coverage.uncoveredCount > nav.coverage.uncovered.length ? ` Showing ${nav.coverage.uncovered.length.toLocaleString()} representative failure markers.` : ""}`;
   host.append(note);
+}
+function renderCoverageSummary() {
+  const host = $("coverage-summary"), nav = navigation();
+  host.replaceChildren();
+  if (!nav) return;
+  renderCoverageHeader(host, nav);
   for (const row of nav.coverage.regions) {
     for (const reason of Object.keys(
       navigationReasons,
@@ -1082,14 +1093,17 @@ function renderCoverageSummary() {
     }
   }
 }
-function renderRepairs() {
-  const host=$("repairs");host.replaceChildren();const repairs=level?.repairs ?? [];
-  $("repair-count").textContent=String(repairs.reduce((n,r)=>n+r.count,0));
+function renderRepairRows(host: HTMLElement, repairs: NonNullable<CompiledLevel["repairs"]>) {
   for(const code of new Set(repairs.map(r=>r.code))) {
     const rows=repairs.filter(r=>r.code===code),details=document.createElement("details"),summary=document.createElement("summary");
     summary.textContent=`${code}: ${rows.reduce((n,r)=>n+r.count,0).toLocaleString()} corrections across ${rows.length} records`;details.append(summary);
     details.addEventListener("toggle",()=>{if(!details.open || details.children.length>1)return;for(const r of rows){const b=document.createElement("button");b.textContent=`${r.objects.join(", ")}: ${r.message} (${r.count})${r.area ? ` / ${r.area.toPrecision(4)} m2` : ""}${r.maxDisplacement ? ` / max ${r.maxDisplacement} m` : ""}`;b.onclick=()=>{if(r.objects[0])select(r.objects[0]);if(r.source)revealSource(r.source);};details.append(b);}});host.append(details);
   }
+}
+function renderRepairs() {
+  const host=$("repairs");host.replaceChildren();const repairs=level?.repairs ?? [];
+  $("repair-count").textContent=String(repairs.reduce((n,r)=>n+r.count,0));
+  renderRepairRows(host,repairs);
   if(!repairs.length)host.textContent="No automatic repairs were needed.";
 }
 function successLabel(){return level?.document.validation === "premap" ? "Static premap valid; gameplay reachability unverified" : "Geometry and playable navigation passed.";}

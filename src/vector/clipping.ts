@@ -65,12 +65,13 @@ export class ClipContext {
     this.limit("intermediate vertices per source triangle",pieces.reduce((n,p)=>n+p.length,0)+fresh.reduce((n,p)=>n+p.length,0),this.limits.intermediateVerticesPerTriangle);
     for(const p of fresh)pieces.push(p);
   }
-  normalize(input: V3[]): V3[] {
-    this.limit("polygon vertices", input.length, this.limits.intermediateVerticesPerTriangle);
-    if (input.some(p=>p.length!==3 || p.some(v=>!Number.isFinite(v)))) this.fail("normalize", "Nonfinite or malformed polygon vertex.");
-    let p: V3[] = [];
+  private dedupeAdjacent(input: V3[]) {
+    const p: V3[] = [];
     for (const v of input) if (!p.length || distance(p[p.length-1],v)>POINT_EPS) p.push(v);
     if (p.length>1 && distance(p[0],p[p.length-1])<=POINT_EPS) p.pop();
+    return p;
+  }
+  private removeCollinear(p: V3[]) {
     let changed = true;
     while (changed && p.length>=3) {
       aborted(this.options.signal);
@@ -80,11 +81,9 @@ export class ClipContext {
         if(ac>POINT_EPS && Math.abs(distance(a,b)+distance(b,c)-ac)<1e-12 && Math.abs(orient(a,b,c))<AREA_EPS) {p.splice(i,1);changed=true;break;}
       }
     }
-    if (input.length!==p.length) this.repair("CLIP_NORMALIZED", "Removed redundant clipping vertices.", input.length-p.length,Math.abs(polygonArea(input)-polygonArea(p)),POINT_EPS);
-    if(p.length<3) {
-      if(p.length) this.repair("CLIP_ZERO_AREA", "Discarded a zero-area clipping fragment.",1,polygonArea(p));
-      return [];
-    }
+    return p;
+  }
+  private convexBoundary(p: V3[]) {
     let sign=0, turning=0;
     for(let i=0;i<p.length;i++) {
       const a=p[i],b=p[(i+1)%p.length],c=p[(i+2)%p.length];
@@ -94,26 +93,39 @@ export class ClipContext {
       if(sign && sign*turn<0)this.fail("normalize", "Clipping requires a convex polygon.");
       sign=Math.sign(turn);
     }
-    if(!sign) {this.repair("CLIP_ZERO_AREA", "Discarded a zero-area clipping fragment.",1,polygonArea(p));return [];}
+    if(!sign)return false;
     if(Math.abs(Math.abs(turning)-2*Math.PI)>1e-5)this.fail("normalize","Self-intersecting or folded polygon boundary.");
-    if(polygonArea(p)<=AREA_EPS) {this.repair("CLIP_ZERO_AREA", "Discarded a zero-area clipping fragment.",1,polygonArea(p));return [];}
+    return true;
+  }
+  normalize(input: V3[]): V3[] {
+    this.limit("polygon vertices", input.length, this.limits.intermediateVerticesPerTriangle);
+    if (input.some(p=>p.length!==3 || p.some(v=>!Number.isFinite(v)))) this.fail("normalize", "Nonfinite or malformed polygon vertex.");
+    const p=this.removeCollinear(this.dedupeAdjacent(input));
+    if (input.length!==p.length) this.repair("CLIP_NORMALIZED", "Removed redundant clipping vertices.", input.length-p.length,Math.abs(polygonArea(input)-polygonArea(p)),POINT_EPS);
+    if(p.length<3 || !this.convexBoundary(p) || polygonArea(p)<=AREA_EPS) {
+      if(p.length) this.repair("CLIP_ZERO_AREA", "Discarded a zero-area clipping fragment.",1,polygonArea(p));
+      return [];
+    }
     return p;
+  }
+  private pushClipped(result: V3[], poly: V3[], point: V3) {
+    if(result.length && (distance(result[result.length-1],point)<=POINT_EPS || distance(result[0],point)<=POINT_EPS))return;
+    this.limit("half-plane output vertices",result.length+1,Math.min(poly.length+2,this.limits.intermediateVerticesPerTriangle));
+    result.push(point);
+  }
+  private clipEdge(result: V3[], poly: V3[], a: V3, b: V3, da: number, db: number) {
+    if(!Number.isFinite(da)||!Number.isFinite(db))this.fail("clip","Nonfinite clipping distance.");
+    if(da>=0)this.pushClipped(result,poly,a);
+    if((da>=0)===(db>=0))return;
+    const t=da/(da-db), point=a.map((v,k)=>v+t*(b[k]-v)) as V3;
+    this.pushClipped(result,poly,point);
   }
   clip(input: V3[], distanceToPlane: (p: V3)=>number): V3[] {
     const poly=this.normalize(input), result: V3[]=[];
-    const push=(p:V3)=>{
-      if(result.length && (distance(result[result.length-1],p)<=POINT_EPS || distance(result[0],p)<=POINT_EPS))return;
-      this.limit("half-plane output vertices",result.length+1,Math.min(poly.length+2,this.limits.intermediateVerticesPerTriangle));result.push(p);
-    };
     for(let i=0;i<poly.length;i++) {
       if ((i & 127) === 0) aborted(this.options.signal);
       const a=poly[i],b=poly[(i+1)%poly.length], da=distanceToPlane(a),db=distanceToPlane(b);
-      if(!Number.isFinite(da)||!Number.isFinite(db))this.fail("clip","Nonfinite clipping distance.");
-      if(da>=0 && (!result.length || distance(result[result.length-1],a)>POINT_EPS))push(a);
-      if((da>=0)!==(db>=0)) {
-        const t=da/(da-db), point=a.map((v,k)=>v+t*(b[k]-v)) as V3;
-        push(point);
-      }
+      this.clipEdge(result,poly,a,b,da,db);
     }
     const output=this.normalize(result);
     if(output.length>poly.length+1)this.fail("clip","A half-plane clip added more than one vertex.");

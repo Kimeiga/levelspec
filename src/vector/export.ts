@@ -69,6 +69,29 @@ export function toOBJ(level: CompiledLevel): string {
   }
   return lines.join("\n") + "\n";
 }
+function stairPlanPaths(level: CompiledLevel, floors: CompiledLevel["floors"]) {
+  const body: string[] = [];
+  const stairIds = new Set(
+    level.document.layers.flatMap((l) =>
+      l.regions.filter((r) => r.fill === "stairs").map((r) => r.id),
+    ),
+  );
+  for (const floor of floors.filter((f) => stairIds.has(f.region))) {
+    const edges = new Map<string, { a: V3; b: V3; low: number; high: number }>();
+    const xy = (p: V3) => p.slice(0, 2).map((n) => Math.round(n * 1e6)).join(",");
+    for (const tri of floor.triangles)
+      for (let i = 0; i < 3; i++) {
+        const a = floor.points[tri[i]], b = floor.points[tri[(i + 1) % 3]];
+        if (Math.abs(a[2] - b[2]) > 1e-5) continue;
+        const key = [xy(a), xy(b)].sort().join("/"), previous = edges.get(key);
+        edges.set(key, { a, b, low: Math.min(a[2], previous?.low ?? a[2]), high: Math.max(a[2], previous?.high ?? a[2]) });
+      }
+    const risers = [...edges.values()].filter((e) => e.high - e.low > 1e-4);
+    if (risers.length)
+      body.push(`<path class="stair-treads" data-object="${escapeXML(floor.region)}" data-layer="${escapeXML(floor.layer)}" d="${risers.map(({ a, b }) => `M ${a[0]} ${-a[1]} L ${b[0]} ${-b[1]}`).join(" ")}" fill="none" stroke="#526d80" stroke-width="0.06" pointer-events="none"/>`);
+  }
+  return body;
+}
 export function toSVGPlan(level: CompiledLevel, layer?: string): string {
   const floors = [...level.floors, ...(level.water ?? [])].filter((f) => !layer || f.layer === layer),
     points = floors.flatMap((f) => f.points),
@@ -85,44 +108,7 @@ export function toSVGPlan(level: CompiledLevel, layer?: string): string {
     (f, i) =>
       `<path data-object="${escapeXML(f.region)}" data-layer="${escapeXML(f.layer)}" d="${f.loops.map(loop).join(" ")}" fill="${waterIds.has(f.region) ? '#398cc9' : `hsl(${205 + ((i * 19) % 85)} 28% 79%)`}" fill-rule="evenodd" stroke="#829cae" stroke-width="0.04"><title>${escapeXML(f.region)}</title></path>`,
   );
-  const stairIds = new Set(
-    level.document.layers.flatMap((l) =>
-      l.regions.filter((r) => r.fill === "stairs").map((r) => r.id),
-    ),
-  );
-  for (const floor of floors.filter((f) => stairIds.has(f.region))) {
-    // Two tread edges at the same XY but different Z bound a real riser.
-    // This uses compiled treads, so curved flights and their flat platforms
-    // remain distinct without drawing the internal triangulation diagonals.
-    const edges = new Map<
-      string,
-      { a: V3; b: V3; low: number; high: number }
-    >();
-    const xy = (p: V3) =>
-      p
-        .slice(0, 2)
-        .map((n) => Math.round(n * 1e6))
-        .join(",");
-    for (const tri of floor.triangles)
-      for (let i = 0; i < 3; i++) {
-        const a = floor.points[tri[i]],
-          b = floor.points[tri[(i + 1) % 3]];
-        if (Math.abs(a[2] - b[2]) > 1e-5) continue;
-        const key = [xy(a), xy(b)].sort().join("/"),
-          previous = edges.get(key);
-        edges.set(key, {
-          a,
-          b,
-          low: Math.min(a[2], previous?.low ?? a[2]),
-          high: Math.max(a[2], previous?.high ?? a[2]),
-        });
-      }
-    const risers = [...edges.values()].filter((e) => e.high - e.low > 1e-4);
-    if (risers.length)
-      body.push(
-        `<path class="stair-treads" data-object="${escapeXML(floor.region)}" data-layer="${escapeXML(floor.layer)}" d="${risers.map(({ a, b }) => `M ${a[0]} ${-a[1]} L ${b[0]} ${-b[1]}`).join(" ")}" fill="none" stroke="#526d80" stroke-width="0.06" pointer-events="none"/>`,
-      );
-  }
+  body.push(...stairPlanPaths(level,floors));
   const retainingEdges = new Set(level.document.seams.flatMap(s => s.edges));
   for (const l of level.document.layers.filter((l) => !layer || l.id === layer))
     for (const e of l.edges) {

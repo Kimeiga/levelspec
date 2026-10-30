@@ -189,7 +189,7 @@ function navigationDiagnostics(
   return diagnostics;
 }
 
-export async function bakeNavmesh(
+async function bakeNavigationForMovement(
   level: CompiledLevel,
   options: NavigationOptions = {},
 ): Promise<NavigationReport> {
@@ -198,7 +198,7 @@ export async function bakeNavmesh(
   try {
     options.onProgress?.(`${options.movement ?? "land"}: clipping movement geometry`);
     prepared = movementLevel(level, options);
-    report = await bakeMovementNavmesh(prepared, options);
+    report = await bakeNavmesh(prepared, options);
   } catch (error) {
     if (movement === "water") level.waterNavigation = undefined; else level.navigation = undefined;
     throw error;
@@ -214,7 +214,7 @@ export async function bakeNavmesh(
   return report;
 }
 
-async function bakeMovementNavmesh(
+async function bakeNavmesh(
   level: CompiledLevel,
   options: NavigationOptions,
 ): Promise<NavigationReport> {
@@ -634,107 +634,95 @@ async function bakeMovementNavmesh(
     result.navMesh.destroy();
   }
 }
+export { bakeNavigationForMovement as bakeNavmesh };
+function auditRuntimeGeometry(level: CompiledLevel, diagnostics: Diagnostic[]) {
+  if (!level.mesh.indices.length)
+    diagnostics.push(sourceDiagnostic(level,"EMPTY_GEOMETRY","No geometry was produced."));
+  for(let t=0;t<level.mesh.indices.length;t+=3) {
+    const p=level.mesh.indices.slice(t,t+3).map(i=>level.mesh.positions.slice(i*3,i*3+3) as V3);
+    if(p.flat().some(v=>!Number.isFinite(v)) || Math.hypot(...cross(sub(p[1],p[0]),sub(p[2],p[0])))<1e-10) {
+      diagnostics.push(sourceDiagnostic(level,"INVALID_TRIANGLE","Nonfinite or degenerate triangle."));
+      break;
+    }
+  }
+}
+function auditFloorSlopes(level: CompiledLevel, floors: CompiledLevel["floors"], diagnostics: Diagnostic[]) {
+  for(const f of floors)for(const t of f.triangles) {
+    const [a,b,c]=t.map(i=>f.points[i]),n=cross(sub(b,a),sub(c,a));
+    const slope=Math.atan2(Math.hypot(n[0],n[1]),Math.abs(n[2]))*180/Math.PI;
+    if(slope<level.document.player.slope)continue;
+    diagnostics.push(sourceDiagnostic(level,"SLOPE_TOO_STEEP",`Floor slope ${slope.toFixed(1)}° exceeds ${level.document.player.slope}°.`,[f.region]));
+    break;
+  }
+}
+function auditProtectedSpawns(level: CompiledLevel, diagnostics: Diagnostic[]) {
+  const height=level.document.player.height*0.9;
+  for(const [a,b] of level.document.noSpawnLos) {
+    const A=level.document.markers.find(m=>m.id===a),B=level.document.markers.find(m=>m.id===b);
+    if(!A || !B)diagnostics.push(sourceDiagnostic(level,"MARKER_REFERENCE","Unknown no-spawn-los marker.",[a,b]));
+    else {
+      const raised=(p:V3):V3=>[p[0],p[1],p[2]+height];
+      if(!rayBlocked(level,raised(A.position),raised(B.position)))
+        diagnostics.push(sourceDiagnostic(level,"SPAWN_LOS","Protected spawn markers can see each other.",[a,b]));
+    }
+  }
+}
+function navigationFailure(error: unknown): Diagnostic {
+  if(error instanceof ClippingError)return error.diagnostic;
+  return {severity:"error",code:"NAV_BAKE",message:(error as Error).message,objects:[]};
+}
+async function optionalWaterNavigation(level: CompiledLevel, options: NavigationOptions, diagnostics: Diagnostic[]) {
+  if(!level.water?.length)return undefined;
+  try {
+    const report=await bakeNavigationForMovement(level,{...options,movement:"water",sealed:false});
+    diagnostics.push(...report.diagnostics.map(d=>({...d,message:`Boat: ${d.message}`})));
+    return report;
+  } catch(error) {
+    if((error as Error).name==="AbortError")throw error;
+    diagnostics.push(navigationFailure(error));
+    return undefined;
+  }
+}
+async function optionalSealedNavigation(level: CompiledLevel, options: NavigationOptions, diagnostics: Diagnostic[]) {
+  if(!options.sealed || !level.surfaces.some(s=>s.dynamic))return {};
+  try {
+    const sealed=await bakeNavigationForMovement(level,{...options,movement:"land",sealed:true});
+    const sealedWater=level.water?.length ? await bakeNavigationForMovement(level,{...options,movement:"water",sealed:true}) : undefined;
+    return {sealed,sealedWater};
+  } catch(error) {
+    if((error as Error).name==="AbortError")throw error;
+    diagnostics.push(navigationFailure(error));
+    return {};
+  }
+}
 export async function validateForRuntime(
   level: CompiledLevel,
   options: NavigationOptions = {},
 ): Promise<ValidationReport> {
-  const diagnostics = [...level.diagnostics],
-    add = (
-      code: string,
-      message: string,
-      objects: string[] = [],
-      severity: "error" | "warning" = "error",
-    ) =>
-      diagnostics.push(
-        sourceDiagnostic(level, code, message, objects, severity),
-      );
-  if (!level.mesh.indices.length)
-    add("EMPTY_GEOMETRY", "No geometry was produced.");
-  for (let t = 0; t < level.mesh.indices.length; t += 3) {
-    const p = level.mesh.indices
-      .slice(t, t + 3)
-      .map((i) => level.mesh.positions.slice(i * 3, i * 3 + 3) as V3);
-    if (
-      p.flat().some((v) => !Number.isFinite(v)) ||
-      Math.hypot(...cross(sub(p[1], p[0]), sub(p[2], p[0]))) < 1e-10
-    ) {
-      add("INVALID_TRIANGLE", "Nonfinite or degenerate triangle.");
-      break;
-    }
-  }
+  const diagnostics = [...level.diagnostics];
+  auditRuntimeGeometry(level,diagnostics);
   if (diagnostics.some((d) => d.severity === "error"))
     return { passed: false, diagnostics };
   let prepared: ReturnType<typeof movementLevel>;
   try { prepared = level.document.validation === "premap" ? level : movementLevel(level, { ...options, movement: "land" }); } catch(error) {
     if ((error as Error).name === "AbortError") throw error;
-    diagnostics.push(error instanceof ClippingError ? error.diagnostic : {severity:"error",code:"NAV_BAKE",message:(error as Error).message,objects:[]});
+    diagnostics.push(navigationFailure(error));
     level.navigation = undefined;
     return {passed:false, diagnostics};
   }
-  for (const f of level.document.validation === "premap" ? [] : prepared.floors)
-    for (const t of f.triangles) {
-      const [a, b, c] = t.map((i) => f.points[i]),
-        n = cross(sub(b, a), sub(c, a)),
-        slope =
-          (Math.atan2(Math.hypot(n[0], n[1]), Math.abs(n[2])) * 180) / Math.PI;
-      if (slope >= level.document.player.slope) {
-        add(
-          "SLOPE_TOO_STEEP",
-          `Floor slope ${slope.toFixed(1)}° exceeds ${level.document.player.slope}°.`,
-          [f.region],
-        );
-        break;
-      }
-    }
+  auditFloorSlopes(level,level.document.validation === "premap" ? [] : prepared.floors,diagnostics);
   let navigation: NavigationReport;
   try {
-    navigation = await bakeNavmesh(level, { ...options, movement: "land", sealed: false });
+    navigation = await bakeNavigationForMovement(level, { ...options, movement: "land", sealed: false });
   } catch (error) {
     if ((error as Error).name === "AbortError") throw error;
-    if(error instanceof ClippingError) diagnostics.push(error.diagnostic); else add("NAV_BAKE", (error as Error).message);
+    diagnostics.push(navigationFailure(error));
     return { passed: false, diagnostics };
   }
   diagnostics.push(...navigation.diagnostics);
-  let waterNavigation: NavigationReport | undefined;
-  try {
-    waterNavigation = level.water?.length ? await bakeNavmesh(level, { ...options, movement: "water", sealed: false }) : undefined;
-  } catch(error) {
-    if ((error as Error).name === "AbortError") throw error;
-    diagnostics.push(error instanceof ClippingError ? error.diagnostic : {severity:"error",code:"NAV_BAKE",message:(error as Error).message,objects:[]});
-  }
-  if (waterNavigation) diagnostics.push(...waterNavigation.diagnostics.map(d => ({ ...d, message: `Boat: ${d.message}` })));
-  for (const [a, b] of level.document.noSpawnLos) {
-    const A = level.document.markers.find((m) => m.id === a),
-      B = level.document.markers.find((m) => m.id === b);
-    if (!A || !B)
-      add("MARKER_REFERENCE", "Unknown no-spawn-los marker.", [a, b]);
-    else if (
-      !rayBlocked(
-        level,
-        [
-          A.position[0],
-          A.position[1],
-          A.position[2] + level.document.player.height * 0.9,
-        ],
-        [
-          B.position[0],
-          B.position[1],
-          B.position[2] + level.document.player.height * 0.9,
-        ],
-      )
-    )
-      add("SPAWN_LOS", "Protected spawn markers can see each other.", [a, b]);
-  }
-  let sealed: NavigationReport | undefined, sealedWater: NavigationReport | undefined;
-  try {
-    if(options.sealed && level.surfaces.some(s=>s.dynamic)) {
-      sealed=await bakeNavmesh(level,{...options,movement:"land",sealed:true});
-      if(level.water?.length)sealedWater=await bakeNavmesh(level,{...options,movement:"water",sealed:true});
-    }
-  } catch(error) {
-    if((error as Error).name === "AbortError")throw error;
-    diagnostics.push(error instanceof ClippingError ? error.diagnostic : {severity:"error",code:"NAV_BAKE",message:(error as Error).message,objects:[]});
-  }
+  const waterNavigation=await optionalWaterNavigation(level,options,diagnostics);
+  auditProtectedSpawns(level,diagnostics);
+  const {sealed,sealedWater}=await optionalSealedNavigation(level,options,diagnostics);
   return {
     validation: level.document.validation ?? "playable",
     gameplayReachabilityVerified: level.document.validation !== "premap" && !diagnostics.some(d=>d.severity==="error"),
