@@ -218,6 +218,14 @@ export function auditNavigationCoverage(
       report.excluded++;
     };
     const fail = (reason: NavigationBlockReason, clearance?: number) => {
+      if (level.document.validation === "premap" && ["slope", "width", "step", "headroom"].includes(reason)) {
+        report.blockedCount = (report.blockedCount ?? 0) + 1;
+        report.blockedByReason ??= {};
+        report.blockedByReason[reason] = (report.blockedByReason[reason] ?? 0) + 1;
+        report.blocked ??= [];
+        if (report.blocked.length < 2048) report.blocked.push({region:f.region,position:at,reason,clearance});
+        return;
+      }
       row.uncovered++;
       report.uncoveredCount++;
       row.reasons[reason] = (row.reasons[reason] ?? 0) + 1;
@@ -261,7 +269,7 @@ export function auditNavigationCoverage(
       excluded();
       return;
     }
-    if ((t.slope ?? 0) > p.slope + 0.1) {
+    if ((t.slope ?? 0) >= p.slope) {
       fail("slope");
       return;
     }
@@ -300,7 +308,12 @@ export function auditNavigationCoverage(
     const limits: ReturnType<typeof closest>[] = [];
     let step = false;
     const margin = p.radius + cell * 2;
-    for (const loop of f.loops)
+    // Movement clipping introduces shorelines and draft boundaries inside authored loops.
+    // Probe actual nearby facet edges; shared interior edges have supported continuation.
+    const boundaryLoops = level.water?.length
+      ? [...floors.around(at[0], at[1], margin)].filter(q => q.floor === f).map(q => [q.a,q.b,q.c])
+      : f.loops;
+    for (const loop of boundaryLoops)
       for (let i = 0; i < loop.length; i++) {
         const a = loop[i],
           b = loop[(i + 1) % loop.length],

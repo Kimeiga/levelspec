@@ -46,13 +46,14 @@ const navigationReasons: Record<
 };
 type CoverageSample = NavigationCoverage["uncovered"][number];
 function navigation() {
+  if ($<HTMLSelectElement>("movement").value === "water") return report?.waterNavigation ?? level?.waterNavigation;
   return report?.navigation ?? level?.navigation;
 }
 function sampleLabel(sample: CoverageSample) {
   return `${navigationReasons[sample.reason].label}${sample.clearance === undefined ? "" : ` (${sample.clearance.toFixed(2)} m clearance)`}`;
 }
 function visibleCoverage() {
-  return (navigation()?.coverage.uncovered ?? []).filter(
+  return [...(navigation()?.coverage.uncovered ?? []), ...(navigation()?.coverage.blocked ?? [])].filter(
     (sample) =>
       !layers.value ||
       level?.document.layers.some(
@@ -124,7 +125,7 @@ function companionFile(reference: string) {
   if (direct) return direct;
   return companionFiles.get(normalized.split("/").at(-1)!);
 }
-type Panel = "source" | "inspect" | "atlas" | "validation";
+type Panel = "source" | "inspect" | "atlas" | "validation" | "repairs";
 let activePanel: Panel | undefined;
 const panelButtons = [
   ...document.querySelectorAll<HTMLButtonElement>("[data-panel]"),
@@ -143,6 +144,7 @@ function showPanel(panel?: Panel) {
       inspect: "Selection",
       atlas: "Lightmap atlas",
       validation: "Validation",
+      repairs: "Automatic repairs",
     }[panel];
 }
 for (const button of panelButtons)
@@ -435,7 +437,9 @@ function materials(si: number, page: number) {
     color,
     roughness: def?.roughness ?? 0.8,
     metalness: def?.metalness ?? 0,
-    side: THREE.FrontSide,
+    side: surface.kind === "water" ? THREE.DoubleSide : THREE.FrontSide,
+    transparent: surface.kind === "water",
+    opacity: surface.kind === "water" ? 0.82 : 1,
     clippingPlanes: [plane],
     polygonOffset: surface.role === "navigation",
     polygonOffsetFactor: -1,
@@ -497,7 +501,7 @@ function renderModel(fit = false) {
     if (!$<HTMLInputElement>("roofs").checked && s.role === "roof") continue;
     const key = JSON.stringify([
         s.mesh,
-        s.object,
+        s.object === selected,
         s.material,
         m.atlasPages?.[t] ?? -1,
       ]),
@@ -541,6 +545,7 @@ function renderModel(fit = false) {
       geometry.setAttribute("uv1", new THREE.Float32BufferAttribute(uv1, 2));
     const mesh = new THREE.Mesh(geometry, materials(si, page));
     mesh.userData.object = level.surfaces[si].object;
+    mesh.userData.triangleObjects = ts.map(t=>level!.surfaces[m.surfaces[t]].object);
     mesh.userData.meshPart = level.surfaces[si].mesh;
     mesh.castShadow = mesh.receiveShadow = true;
     group.add(mesh);
@@ -713,7 +718,7 @@ function renderNavigationPlan() {
   if (mode.value !== "navigation") return;
   const nav = navigation();
   $("navigation-legend").textContent = nav
-    ? `${nav.settings.player.height} m × ${nav.settings.player.radius * 2} m capsule · Colored marks: uncovered floor`
+    ? `${nav.settings.movement === "water" ? `Boat (${nav.settings.boat?.draft} m draft)` : "Land"}: ${nav.settings.player.height} m × ${nav.settings.player.radius * 2} m capsule · Colored marks: blocked terrain or coverage failures`
     : "Building capsule navigation…";
   const svg = planHost.querySelector("g");
   if (!svg) return;
@@ -904,8 +909,8 @@ function renderAtlas() {
     });
 }
 function selectedObject() {
-  return level?.document.layers
-    .flatMap((l) => [l, ...l.vertices, ...l.edges, ...l.regions])
+  return level && [...level.document.layers
+    .flatMap((l) => [l, ...l.vertices, ...l.edges, ...l.regions]), ...level.document.seams]
     .find((o) => o.id === selected);
 }
 function revealSource(location = selectedObject()?.source) {
@@ -918,14 +923,7 @@ function revealSource(location = selectedObject()?.source) {
 $("reveal-source").onclick = () => revealSource();
 function select(id: string, detail?: string) {
   selected = id;
-  const objects =
-      level?.document.layers.flatMap((l) => [
-        l,
-        ...l.vertices,
-        ...l.edges,
-        ...l.regions,
-      ]) ?? [],
-    obj = objects.find((o) => o.id === id);
+  const obj = selectedObject();
   $("selection").textContent = obj
     ? JSON.stringify(
         Object.fromEntries(
@@ -1024,7 +1022,7 @@ renderer.domElement.addEventListener("pointerup", (e) => {
             | CoverageSample
             | undefined);
     select(
-      hit.object.userData.object,
+      hit.faceIndex == null ? hit.object.userData.object : hit.object.userData.triangleObjects?.[hit.faceIndex] ?? hit.object.userData.object,
       sample ? sampleLabel(sample) : undefined,
     );
   }
@@ -1055,8 +1053,13 @@ function renderCoverageSummary() {
   host.replaceChildren();
   if (!nav) return;
   const summary = document.createElement("p");
-  summary.textContent = `${nav.settings.player.height} m tall × ${nav.settings.player.radius * 2} m wide capsule. ${nav.coverage.covered.toLocaleString()} covered samples; ${nav.coverage.uncoveredCount.toLocaleString()} uncovered.`;
+  summary.textContent = `${nav.settings.movement === "water" ? `Boat (${nav.settings.boat?.draft} m draft)` : "Land"}: ${nav.settings.player.height} m tall × ${nav.settings.player.radius * 2} m wide capsule. ${nav.coverage.covered.toLocaleString()} covered samples; ${nav.coverage.uncoveredCount.toLocaleString()} uncovered.`;
   host.append(summary);
+  const result=document.createElement("p");result.className=nav.passed ? "success" : "error";
+  result.textContent=`${nav.settings.movement === "water" ? "Boat" : "Land"} navigation: ${nav.passed ? "passed" : "needs attention"}. ${nav.components} connected areas.`;
+  host.prepend(result);
+  const blocked=document.createElement("p");blocked.textContent=`${nav.coverage.blockedCount ?? 0} physically blocked samples: ${Object.entries(nav.coverage.blockedByReason ?? {}).map(([reason,n])=>`${reason} ${n}`).join(", ") || "none"}.`;host.append(blocked);
+  for(const d of nav.diagnostics){const p=document.createElement("p");p.className=d.severity;p.textContent=`${d.code}: ${d.message}`;host.append(p);}
   const note = document.createElement("p");
   note.className = "panel-hint";
   note.textContent = `${nav.coverage.excluded.toLocaleString()} wall footprints and normal boundary margins excluded. ${nav.coverage.sampleSpacing} m sample spacing.${nav.coverage.uncoveredCount > nav.coverage.uncovered.length ? ` Showing ${nav.coverage.uncovered.length.toLocaleString()} representative failure markers.` : ""}`;
@@ -1079,7 +1082,19 @@ function renderCoverageSummary() {
     }
   }
 }
+function renderRepairs() {
+  const host=$("repairs");host.replaceChildren();const repairs=level?.repairs ?? [];
+  $("repair-count").textContent=String(repairs.reduce((n,r)=>n+r.count,0));
+  for(const code of new Set(repairs.map(r=>r.code))) {
+    const rows=repairs.filter(r=>r.code===code),details=document.createElement("details"),summary=document.createElement("summary");
+    summary.textContent=`${code}: ${rows.reduce((n,r)=>n+r.count,0).toLocaleString()} corrections across ${rows.length} records`;details.append(summary);
+    details.addEventListener("toggle",()=>{if(!details.open || details.children.length>1)return;for(const r of rows){const b=document.createElement("button");b.textContent=`${r.objects.join(", ")}: ${r.message} (${r.count})${r.area ? ` / ${r.area.toPrecision(4)} m2` : ""}${r.maxDisplacement ? ` / max ${r.maxDisplacement} m` : ""}`;b.onclick=()=>{if(r.objects[0])select(r.objects[0]);if(r.source)revealSource(r.source);};details.append(b);}});host.append(details);
+  }
+  if(!repairs.length)host.textContent="No automatic repairs were needed.";
+}
+function successLabel(){return level?.document.validation === "premap" ? "Static premap valid; gameplay reachability unverified" : "Geometry and playable navigation passed.";}
 function showDiagnostics(items: Diagnostic[]) {
+  renderRepairs();
   renderCoverageSummary();
   $("diagnostics").replaceChildren();
   const errors = items.filter((d) => d.severity === "error").length;
@@ -1108,7 +1123,7 @@ function showDiagnostics(items: Diagnostic[]) {
     const p = document.createElement("p");
     p.className = "success";
     p.textContent = report?.passed
-      ? "Geometry and playable navigation passed."
+      ? successLabel()
       : "Geometry compiled. Navigation validation is running.";
     $("diagnostics").append(p);
   }
@@ -1161,7 +1176,7 @@ async function compile() {
     if (data.stage) $("status").textContent = data.stage;
     if (data.level) {
       const next = data.level as CompiledLevel;
-      if (next.diagnostics.some((d) => d.severity === "error")) {
+      if (next.diagnostics.some((d) => d.severity === "error") && !next.mesh.indices.length) {
         showDiagnostics(next.diagnostics);
         $("status").textContent =
           "Source needs attention. Previous preview retained.";
@@ -1230,13 +1245,13 @@ async function compile() {
       showDiagnostics(report?.diagnostics ?? level.diagnostics);
       $("validation-status").textContent = report
         ? report.passed
-          ? "Passed"
+          ? successLabel()
           : "Needs attention"
         : "Checking navigation";
       if (data.stage === "Ready") setExportReady(Boolean(report?.passed));
       if (data.stage === "Ready")
         $("status").textContent = report?.passed
-          ? "Ready to inspect"
+          ? successLabel()
           : "Compiled with validation errors";
     }
   };
@@ -1494,6 +1509,7 @@ window.addEventListener("beforeunload", () => {
   renderer.dispose();
 });
 const initialMap = new URLSearchParams(window.location.search).get("map");
+$<HTMLSelectElement>("movement").onchange = () => {mode.value="navigation";renderModel();renderPlan();renderCoverageSummary();};
 source.value =
   initialMap === "dust2"
     ? dust2

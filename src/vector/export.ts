@@ -29,6 +29,11 @@ export function toRuntime(level: CompiledLevel) {
     sky: level.document.sky,
     atlas: level.atlas,
     navigation: level.navigation,
+    waterNavigation: level.waterNavigation,
+    validation: level.document.validation ?? "playable",
+    repairs: level.repairs ?? [],
+    water: level.water,
+    boat: level.document.boat,
     diagnostics: level.diagnostics,
     stats: level.stats,
   };
@@ -65,7 +70,7 @@ export function toOBJ(level: CompiledLevel): string {
   return lines.join("\n") + "\n";
 }
 export function toSVGPlan(level: CompiledLevel, layer?: string): string {
-  const floors = level.floors.filter((f) => !layer || f.layer === layer),
+  const floors = [...level.floors, ...(level.water ?? [])].filter((f) => !layer || f.layer === layer),
     points = floors.flatMap((f) => f.points),
     xs = points.map((p) => p[0]),
     ys = points.map((p) => p[1]),
@@ -75,9 +80,10 @@ export function toSVGPlan(level: CompiledLevel, layer?: string): string {
     maxY = Math.max(1, ...ys) + 1;
   const loop = (p: V3[]) =>
     `M ${p.map((v) => `${v[0]} ${-v[1]}`).join(" L ")} Z`;
+  const waterIds = new Set((level.water ?? []).map(f => f.region));
   const body = floors.map(
     (f, i) =>
-      `<path data-object="${escapeXML(f.region)}" data-layer="${escapeXML(f.layer)}" d="${f.loops.map(loop).join(" ")}" fill="hsl(${205 + ((i * 19) % 85)} 28% 79%)" fill-rule="evenodd" stroke="#829cae" stroke-width="0.04"><title>${escapeXML(f.region)}</title></path>`,
+      `<path data-object="${escapeXML(f.region)}" data-layer="${escapeXML(f.layer)}" d="${f.loops.map(loop).join(" ")}" fill="${waterIds.has(f.region) ? '#398cc9' : `hsl(${205 + ((i * 19) % 85)} 28% 79%)`}" fill-rule="evenodd" stroke="#829cae" stroke-width="0.04"><title>${escapeXML(f.region)}</title></path>`,
   );
   const stairIds = new Set(
     level.document.layers.flatMap((l) =>
@@ -117,12 +123,14 @@ export function toSVGPlan(level: CompiledLevel, layer?: string): string {
         `<path class="stair-treads" data-object="${escapeXML(floor.region)}" data-layer="${escapeXML(floor.layer)}" d="${risers.map(({ a, b }) => `M ${a[0]} ${-a[1]} L ${b[0]} ${-b[1]}`).join(" ")}" fill="none" stroke="#526d80" stroke-width="0.06" pointer-events="none"/>`,
       );
   }
+  const retainingEdges = new Set(level.document.seams.flatMap(s => s.edges));
   for (const l of level.document.layers.filter((l) => !layer || l.id === layer))
     for (const e of l.edges) {
       const p = level.curves[e.id];
       if (!p) continue;
+      const retaining = retainingEdges.has(e.id);
       body.push(
-        `<polyline data-object="${escapeXML(e.id)}" data-layer="${escapeXML(l.id)}" points="${p.map((v) => `${v[0]},${-v[1]}`).join(" ")}" fill="none" stroke="${e.kind === "open" ? "#79adba" : e.kind === "door" ? "#bc690d" : "#233749"}" stroke-linejoin="${e.join ?? "miter"}" stroke-linecap="${e.join === "round" ? "round" : "butt"}" stroke-width="${e.kind === "open" ? 0.045 : (e.thickness ?? level.document.wallThickness)}"${e.kind === "open" ? ' stroke-dasharray=".2 .2"' : ""}/>`,
+        `<polyline data-object="${escapeXML(e.id)}" data-layer="${escapeXML(l.id)}" points="${p.map((v) => `${v[0]},${-v[1]}`).join(" ")}" fill="none" stroke="${retaining ? '#776451' : e.kind === "open" ? "#79adba" : e.kind === "door" ? "#bc690d" : "#233749"}" stroke-linejoin="${e.join ?? "miter"}" stroke-linecap="${e.join === "round" ? "round" : "butt"}" stroke-width="${e.kind === "open" && !retaining ? 0.045 : (e.thickness ?? level.document.wallThickness)}"${e.kind === "open" && !retaining ? ' stroke-dasharray=".2 .2"' : ""}/>`,
       );
     }
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${minX} ${-maxY} ${maxX - minX} ${maxY - minY}" role="img" aria-label="Floor plan"><g>${body.join("")}</g></svg>`;

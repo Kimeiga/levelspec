@@ -3,15 +3,11 @@ import {
   init,
   NavMeshQuery,
   getNavMeshPositionsAndIndices,
-  freeHeightfield,
-  freeCompactHeightfield,
-  freeContourSet,
-  freePolyMesh,
-  freePolyMeshDetail,
 } from "recast-navigation";
-import { generateSoloNavMesh } from "recast-navigation/generators";
+import { generateNavigation } from "./navigation-build.ts";
 import {
   aborted,
+  DEFAULT_BOAT,
   type CompiledLevel,
   type Diagnostic,
   type NavigationReport,
@@ -21,8 +17,10 @@ import {
 } from "./types.ts";
 import { cross, sub, heightAt, dot, hash } from "./geometry.ts";
 import { auditNavigationCoverage } from "./navigation-coverage.ts";
+import { ClipContext, ClippingError, clippingLimits } from "./clipping.ts";
+import { movementLevel } from "./movement.ts";
 let initialized: Promise<void> | undefined;
-const NAVIGATION_REVISION = 5;
+const NAVIGATION_REVISION = 10;
 const up = (p: V3) => ({ x: p[0], y: p[2], z: -p[1] });
 const down = (p: { x: number; y: number; z: number }): V3 => [p.x, -p.z, p.y];
 function disjoint(
@@ -70,7 +68,12 @@ export function rayBlocked(
     m = level.mesh;
   for (let t = 0; t < m.surfaces.length; t++) {
     const surface = level.surfaces[m.surfaces[t]];
-    if (surface.collidable === false || (!sealed && surface.dynamic)) continue;
+    if (
+      surface.kind === "water" ||
+      surface.collidable === false ||
+      (!sealed && surface.dynamic)
+    )
+      continue;
     const [A, B, C] = m.indices
         .slice(t * 3, t * 3 + 3)
         .map((i) => m.positions.slice(i * 3, i * 3 + 3) as V3),
@@ -162,7 +165,7 @@ function navigationDiagnostics(
         [row.region],
       );
     }
-  if (!level.document.markers.some((m) => m.kind.includes("spawn")))
+  if (level.document.validation !== "premap" && navigation.settings.movement !== "water" && !level.document.markers.some((m) => m.kind.includes("spawn")))
     add(
       "NO_SPAWN",
       "No spawn declared; connectivity is measured from the first navigable floor.",
@@ -190,6 +193,31 @@ export async function bakeNavmesh(
   level: CompiledLevel,
   options: NavigationOptions = {},
 ): Promise<NavigationReport> {
+  const movement = options.movement ?? "land";
+  let prepared: ReturnType<typeof movementLevel>, report: NavigationReport;
+  try {
+    options.onProgress?.(`${options.movement ?? "land"}: clipping movement geometry`);
+    prepared = movementLevel(level, options);
+    report = await bakeMovementNavmesh(prepared, options);
+  } catch (error) {
+    if (movement === "water") level.waterNavigation = undefined; else level.navigation = undefined;
+    throw error;
+  }
+  report.repairs = prepared.repairs?.filter(r => r.movement === movement);
+  level.repairs = [...(level.repairs ?? []).filter(r=>r.movement!==movement), ...(report.repairs ?? [])];
+  report.diagnostics = [...report.diagnostics.filter(d => d.code !== "WATER_DEPTH_UNKNOWN"), ...(prepared.movementDiagnostics ?? [])];
+  report.passed = report.passed && !report.diagnostics.some(d=>d.severity==="error");
+  if (!options.sealed) {
+    if (movement === "water") level.waterNavigation = report;
+    else level.navigation = report;
+  }
+  return report;
+}
+
+async function bakeMovementNavmesh(
+  level: CompiledLevel,
+  options: NavigationOptions,
+): Promise<NavigationReport> {
   aborted(options.signal);
   const cell = options.cell ?? 0.125,
     ch = options.cellHeight ?? 0.05,
@@ -206,6 +234,10 @@ export async function bakeNavmesh(
       throw new Error(`Navigation ${name} must be finite and positive.`);
   const cacheKey = await hash({
     revision: NAVIGATION_REVISION,
+    validation: level.document.validation ?? "playable",
+    clippingLimits: clippingLimits(options),
+    movement: options.movement ?? "land",
+    boat: options.movement === "water" ? level.document.boat ?? DEFAULT_BOAT : undefined,
     geometryHash: level.geometryHash,
     player: p,
     cell,
@@ -250,6 +282,10 @@ export async function bakeNavmesh(
   });
   aborted(options.signal);
   if (level.navigation?.settings.cacheKey === cacheKey) {
+    // Clipping is reconstructed before a cache lookup; retain repairs performed
+    // by the cached navigation bake as well, with the current source location.
+    level.repairs=[...(level.repairs??[]).filter(r=>r.code!=="NAV_SPATIAL_SUBDIVISION"||r.movement!==(options.movement??"land")),
+      ...(level.navigation.repairs??[]).filter(r=>r.code==="NAV_SPATIAL_SUBDIVISION").map(r=>({...r,source:level.document.source}))];
     // Source offsets can change without changing geometry or navigation settings.
     level.navigation.diagnostics = navigationDiagnostics(
       level,
@@ -262,13 +298,21 @@ export async function bakeNavmesh(
   const m = collisionMesh(level, !!options.sealed),
     positions: number[] = [],
     indices = [...m.indices];
+  const allocation = new ClipContext(options);
+  allocation.begin(level.document.id, level.document.source);
+  allocation.allocate(m.positions.length / 3);
+  if (m.positions.some(v => !Number.isFinite(v))) allocation.fail("navigation input", "Nonfinite mesh coordinate.");
   for (let i = 0; i < m.positions.length; i += 3)
     positions.push(m.positions[i], m.positions[i + 2], -m.positions[i + 1]);
 
   const failed: NavigationReport = {
     diagnostics: [],
     settings: {
+      movement: options.movement ?? "land",
+      boat: options.movement === "water" ? level.document.boat ?? DEFAULT_BOAT : undefined,
       revision: NAVIGATION_REVISION,
+    validation: level.document.validation ?? "playable",
+    clippingLimits: clippingLimits(options),
       geometryHash: level.geometryHash,
       cacheKey,
       player: { ...p },
@@ -311,7 +355,8 @@ export async function bakeNavmesh(
     if (!options.sealed) level.navigation = failed;
     return failed;
   }
-  const result = generateSoloNavMesh(
+  options.onProgress?.(`${options.movement ?? "land"}: rasterizing navigation`);
+  const result = generateNavigation(
     positions,
     indices,
     {
@@ -336,30 +381,50 @@ export async function bakeNavmesh(
           userId: i + 1,
         })),
     },
-    true,
+    options, allocation,
   );
-  const intermediates = result.intermediates,
-    empty = intermediates.polyMesh?.npolys() === 0;
-  if (intermediates.heightfield) freeHeightfield(intermediates.heightfield);
-  if (intermediates.compactHeightfield)
-    freeCompactHeightfield(intermediates.compactHeightfield);
-  if (intermediates.contourSet) freeContourSet(intermediates.contourSet);
-  if (intermediates.polyMesh) freePolyMesh(intermediates.polyMesh);
-  if (intermediates.polyMeshDetail)
-    freePolyMeshDetail(intermediates.polyMeshDetail);
+  const empty=result.empty;
   if (!result.success) {
     if (!empty) throw new Error(`Navigation bake failed: ${result.error}`);
     failed.coverage = auditNavigationCoverage(level, options, () => undefined);
+    if (level.document.validation === "premap") {
+      failed.unreachableRegions = failed.coverage.regions.filter(r=>r.uncovered>0).map(r=>r.region);
+      failed.passed = failed.coverage.uncoveredCount === 0 && !failed.unreachableMarkers.length && !failed.routes.length;
+    }
     failed.diagnostics = navigationDiagnostics(level, failed);
     if (!options.sealed) level.navigation = failed;
     return failed;
   }
   const query = new NavMeshQuery(result.navMesh, { maxNodes: 32768 });
   try {
+    let exportedVertices=0;
+    for(let i=0;i<result.navMesh.getMaxTiles();i++) {
+      const tile=result.navMesh.getTile(i),header=tile.header();
+      if(!header)continue;
+      for(let j=0;j<header.detailMeshCount();j++)exportedVertices+=tile.polys(j).vertCount()+tile.detailMeshes(j).vertCount();
+    }
+    allocation.allocate(exportedVertices);
     const [np, ni] = getNavMeshPositionsAndIndices(result.navMesh),
       canonical: number[] = [];
     for (let i = 0; i < np.length; i += 3)
       canonical.push(np[i], -np[i + 2], np[i + 1]);
+    options.onProgress?.(`${options.movement ?? "land"}: indexing navigation samples`);
+    // Index source facets once; dense imported maps otherwise scan the whole
+    // height grid for every navigation detail triangle.
+    const floorBins = new Map(level.floors.map(f => {
+      const bins = new Map<string, number[][]>();
+      for (const triangle of f.triangles) {
+        const v = triangle.map(i => f.points[i]);
+        for (let x = Math.floor(Math.min(...v.map(p=>p[0])) / 8); x <= Math.floor(Math.max(...v.map(p=>p[0])) / 8); x++)
+          for (let y = Math.floor(Math.min(...v.map(p=>p[1])) / 8); y <= Math.floor(Math.max(...v.map(p=>p[1])) / 8); y++) {
+            const key = `${x}:${y}`, bucket = bins.get(key) ?? [];
+            bucket.push(triangle); bins.set(key,bucket);
+          }
+      }
+      return [f,bins] as const;
+    }));
+    const indexedHeight = (f: CompiledLevel["floors"][number], x: number, y: number) =>
+      heightAt({...f,triangles:floorBins.get(f)?.get(`${Math.floor(x/8)}:${Math.floor(y/8)}`) ?? []},x,y);
     const samples = new Map<string, V3[]>();
     for (const f of level.floors) samples.set(f.area ?? f.region, []);
     for (let i = 0; i < ni.length; i += 3) {
@@ -368,7 +433,7 @@ export async function bakeNavmesh(
         for (let axis = 0; axis < 3; axis++)
           at[axis] += canonical[ni[i + k] * 3 + axis] / 3;
       for (const f of level.floors) {
-        const h = heightAt(f, at[0], at[1]);
+        const h = indexedHeight(f, at[0], at[1]);
         if (h !== undefined && Math.abs(h - at[2]) <= Math.max(0.22, ch * 3)) {
           samples.get(f.area ?? f.region)!.push(at);
           break;
@@ -425,6 +490,8 @@ export async function bakeNavmesh(
     const reaches = (v: V3) => {
         const nav = near(v);
         if (!nav) return false;
+        // Separate lakes are valid. Explicit routes still require a complete path.
+        if (level.document.validation === "premap" || (options.movement === "water" && !declaredSeeds.length)) return true;
         if (!reachablePolys.has(nav.ref))
           reachablePolys.set(
             nav.ref,
@@ -435,6 +502,7 @@ export async function bakeNavmesh(
       reachableRegions: string[] = [],
       unreachableRegions: string[] = [],
       representatives: V3[] = [];
+    options.onProgress?.(`${options.movement ?? "land"}: identifying components`);
     for (const [id, ss] of samples) {
       aborted(options.signal);
       let okay = ss.length > 0;
@@ -454,7 +522,7 @@ export async function bakeNavmesh(
           marker &&
           f.layer === marker.layer &&
           Math.abs(
-            (heightAt(f, marker.position[0], marker.position[1]) ?? Infinity) -
+            (indexedHeight(f, marker.position[0], marker.position[1]) ?? Infinity) -
               marker.position[2],
           ) <=
             ch * 3,
@@ -489,6 +557,7 @@ export async function bakeNavmesh(
           : 0,
       };
     });
+    options.onProgress?.(`${options.movement ?? "land"}: auditing coverage`);
     const coverage = auditNavigationCoverage(
       level,
       { ...options, cell, cellHeight: ch, sampleSpacing: spacing },
@@ -525,10 +594,11 @@ export async function bakeNavmesh(
     reachableRegions.length = 0;
     unreachableRegions.length = 0;
     for (const [area, counts] of areas)
-      (counts.disconnected || !counts.covered
+      (counts.disconnected || (!counts.covered && level.document.validation !== "premap")
         ? unreachableRegions
         : reachableRegions
       ).push(area);
+    level.repairs = [...(level.repairs ?? []).filter(r=>!allocation.repairs.some(a=>a.code===r.code&&a.movement===r.movement&&a.objects[0]===r.objects[0])),...allocation.repairs];
     const report: NavigationReport = {
       diagnostics: [],
       settings: failed.settings,
@@ -547,6 +617,7 @@ export async function bakeNavmesh(
           );
         }),
       components: representatives.length,
+      componentSeeds: representatives.map((position,i)=>({id:`component_${i}`,position})),
       reachableRegions,
       unreachableRegions,
       unreachableMarkers,
@@ -593,13 +664,20 @@ export async function validateForRuntime(
   }
   if (diagnostics.some((d) => d.severity === "error"))
     return { passed: false, diagnostics };
-  for (const f of level.floors)
+  let prepared: ReturnType<typeof movementLevel>;
+  try { prepared = level.document.validation === "premap" ? level : movementLevel(level, { ...options, movement: "land" }); } catch(error) {
+    if ((error as Error).name === "AbortError") throw error;
+    diagnostics.push(error instanceof ClippingError ? error.diagnostic : {severity:"error",code:"NAV_BAKE",message:(error as Error).message,objects:[]});
+    level.navigation = undefined;
+    return {passed:false, diagnostics};
+  }
+  for (const f of level.document.validation === "premap" ? [] : prepared.floors)
     for (const t of f.triangles) {
       const [a, b, c] = t.map((i) => f.points[i]),
         n = cross(sub(b, a), sub(c, a)),
         slope =
           (Math.atan2(Math.hypot(n[0], n[1]), Math.abs(n[2])) * 180) / Math.PI;
-      if (slope > level.document.player.slope + 0.1) {
+      if (slope >= level.document.player.slope) {
         add(
           "SLOPE_TOO_STEEP",
           `Floor slope ${slope.toFixed(1)}° exceeds ${level.document.player.slope}°.`,
@@ -610,13 +688,21 @@ export async function validateForRuntime(
     }
   let navigation: NavigationReport;
   try {
-    navigation = await bakeNavmesh(level, { ...options, sealed: false });
+    navigation = await bakeNavmesh(level, { ...options, movement: "land", sealed: false });
   } catch (error) {
     if ((error as Error).name === "AbortError") throw error;
-    add("NAV_BAKE", (error as Error).message);
+    if(error instanceof ClippingError) diagnostics.push(error.diagnostic); else add("NAV_BAKE", (error as Error).message);
     return { passed: false, diagnostics };
   }
   diagnostics.push(...navigation.diagnostics);
+  let waterNavigation: NavigationReport | undefined;
+  try {
+    waterNavigation = level.water?.length ? await bakeNavmesh(level, { ...options, movement: "water", sealed: false }) : undefined;
+  } catch(error) {
+    if ((error as Error).name === "AbortError") throw error;
+    diagnostics.push(error instanceof ClippingError ? error.diagnostic : {severity:"error",code:"NAV_BAKE",message:(error as Error).message,objects:[]});
+  }
+  if (waterNavigation) diagnostics.push(...waterNavigation.diagnostics.map(d => ({ ...d, message: `Boat: ${d.message}` })));
   for (const [a, b] of level.document.noSpawnLos) {
     const A = level.document.markers.find((m) => m.id === a),
       B = level.document.markers.find((m) => m.id === b);
@@ -639,14 +725,24 @@ export async function validateForRuntime(
     )
       add("SPAWN_LOS", "Protected spawn markers can see each other.", [a, b]);
   }
-  const sealed =
-    options.sealed && level.surfaces.some((s) => s.dynamic)
-      ? await bakeNavmesh(level, { ...options, sealed: true })
-      : undefined;
+  let sealed: NavigationReport | undefined, sealedWater: NavigationReport | undefined;
+  try {
+    if(options.sealed && level.surfaces.some(s=>s.dynamic)) {
+      sealed=await bakeNavmesh(level,{...options,movement:"land",sealed:true});
+      if(level.water?.length)sealedWater=await bakeNavmesh(level,{...options,movement:"water",sealed:true});
+    }
+  } catch(error) {
+    if((error as Error).name === "AbortError")throw error;
+    diagnostics.push(error instanceof ClippingError ? error.diagnostic : {severity:"error",code:"NAV_BAKE",message:(error as Error).message,objects:[]});
+  }
   return {
+    validation: level.document.validation ?? "playable",
+    gameplayReachabilityVerified: level.document.validation !== "premap" && !diagnostics.some(d=>d.severity==="error"),
     passed: !diagnostics.some((d) => d.severity === "error"),
     diagnostics,
     navigation,
+    waterNavigation,
+    sealedWater,
     sealed,
   };
 }
