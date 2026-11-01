@@ -119,33 +119,24 @@ function visibleEdges(surfaceIds: Int32Array, depth: Float64Array, width: number
   return result;
 }
 function distanceField(edges: Uint8Array, width: number, height: number) {
-  const result = new Float32Array(width * height);
-  const diagonal = Math.SQRT2;
-  let found = false;
-  for (let i = 0; i < edges.length; i++) { result[i] = edges[i] ? 0 : 1e6; found ||= Boolean(edges[i]); }
-  if (!found) return result;
+  const result = Float32Array.from(edges, pixel => pixel ? 0 : 1e6);
+  const at = (x: number, y: number) =>
+    x >= 0 && y >= 0 && x < width && y < height ? result[y * width + x] : 1e6;
   for (let y = 0; y < height; y++)
     for (let x = 0; x < width; x++) {
       const i = y * width + x;
-      if (x) result[i] = Math.min(result[i], result[i - 1] + 1);
-      if (y) {
-        result[i] = Math.min(result[i], result[i - width] + 1);
-        if (x) result[i] = Math.min(result[i], result[i - width - 1] + diagonal);
-        if (x + 1 < width) result[i] = Math.min(result[i], result[i - width + 1] + diagonal);
-      }
+      result[i] = Math.min(result[i], at(x-1,y)+1, at(x,y-1)+1,
+        at(x-1,y-1)+Math.SQRT2, at(x+1,y-1)+Math.SQRT2);
     }
   for (let y = height - 1; y >= 0; y--)
     for (let x = width - 1; x >= 0; x--) {
       const i = y * width + x;
-      if (x + 1 < width) result[i] = Math.min(result[i], result[i + 1] + 1);
-      if (y + 1 < height) {
-        result[i] = Math.min(result[i], result[i + width] + 1);
-        if (x) result[i] = Math.min(result[i], result[i + width - 1] + diagonal);
-        if (x + 1 < width) result[i] = Math.min(result[i], result[i + width + 1] + diagonal);
-      }
+      result[i] = Math.min(result[i], at(x+1,y)+1, at(x,y+1)+1,
+        at(x-1,y+1)+Math.SQRT2, at(x+1,y+1)+Math.SQRT2);
     }
   return result;
 }
+
 function trimmedMean(values: number[]) {
   if (!values.length) return null;
   values.sort((a, b) => a - b);
@@ -200,6 +191,75 @@ function photoEdges(photo: PhotoPixels, width: number, height: number) {
   return edges;
 }
 
+function annotatedSilhouette(annotation: PhotoEvidence | undefined, surfaces: Int32Array,
+  excluded: Uint8Array, width: number, height: number) {
+  if (!annotation?.silhouette) return null;
+  return compareMasks(surfaces, resizeMask(annotation.silhouette, width, height), excluded);
+}
+function annotatedStrokeError(annotation: PhotoEvidence | undefined, field: Float32Array,
+  excluded: Uint8Array, width: number, height: number) {
+  if (!annotation?.strokes?.length) return null;
+  return strokeError(annotation.strokes, field, width, height, excluded);
+}
+function photoDiagnostic(annotation: PhotoEvidence | undefined, field: Float32Array,
+  excluded: Uint8Array, width: number, height: number) {
+  if (!annotation?.photo) return null;
+  const edges = photoEdges(annotation.photo, width, height);
+  const errors: number[] = [];
+  const stride = Math.max(1, Math.floor(width * height / 10000));
+  for (let i = 0; i < edges.length; i += stride)
+    if (edges[i] && !excluded[i]) errors.push(Math.min(64, field[i]));
+  return trimmedMean(errors);
+}
+function independentEvidence(landmarks: ReturnType<typeof compareReference>, annotation?: PhotoEvidence) {
+  return (landmarks.compared >= 3 && landmarks.clipped === 0) ||
+    Boolean(annotation?.silhouette) || Boolean(annotation?.strokes?.length);
+}
+function landmarkError(landmarks: ReturnType<typeof compareReference>, limit: number) {
+  if (landmarks.compared > 0 && (landmarks.rmsPixels ?? Infinity) > limit)
+    return `Landmark error ${landmarks.rmsPixels?.toFixed(1)} px exceeds limit.`;
+  return null;
+}
+function silhouetteError(silhouette: ReconstructionViewReport["silhouette"], limit: number) {
+  if (silhouette && silhouette.iou < limit)
+    return `Silhouette IoU ${silhouette.iou.toFixed(3)} is below limit.`;
+  return null;
+}
+function strokeErrorMessage(distance: number | null, limit: number) {
+  if (distance !== null && distance > limit)
+    return `Structural stroke mismatch ${distance.toFixed(1)} px exceeds limit.`;
+  return null;
+}
+function viewIssues(verified: boolean, landmarks: ReturnType<typeof compareReference>,
+  silhouette: ReconstructionViewReport["silhouette"], strokeDistance: number | null,
+  limits: ReconstructionThresholds) {
+  const reasons = [
+    verified ? null : "No independent landmarks, outline mask, or structural strokes; visual fit is unverified.",
+    landmarks.clipped ? `${landmarks.clipped} landmark(s) lie outside the calibrated view.` : null,
+    landmarkError(landmarks, limits.landmarkRmsPixels ?? 8),
+    silhouetteError(silhouette, limits.silhouetteIoU ?? 0.8),
+    strokeErrorMessage(strokeDistance, limits.strokeErrorPixels ?? 5),
+  ];
+  return reasons.filter((issue): issue is string => issue !== null);
+}
+function evaluateView(level: CompiledLevel, reference: ReferenceView,
+  annotation: PhotoEvidence | undefined, maxDimension: number,
+  thresholds: ReconstructionThresholds): ReconstructionViewReport {
+  const [width, height] = resizedDimensions(reference, maxDimension);
+  const landmarks = compareReference(reference);
+  const verified = independentEvidence(landmarks, annotation);
+  const render = renderReference(level, reference, { width, height });
+  const excluded = excludeMask(reference, width, height);
+  const field = distanceField(visibleEdges(render.surfaceIds, render.depth, width, height), width, height);
+  const silhouette = annotatedSilhouette(annotation, render.surfaceIds, excluded, width, height);
+  const strokeDistance = annotatedStrokeError(annotation, field, excluded, width, height);
+  const photoDistance = photoDiagnostic(annotation, field, excluded, width, height);
+  const issues = viewIssues(verified, landmarks, silhouette, strokeDistance, thresholds);
+  return { referenceId: reference.id, size: [width, height], landmarks, silhouette,
+    strokeErrorPixels: strokeDistance, photoEdgeErrorPixels: photoDistance,
+    verified, passed: verified && issues.length === 0, issues };
+}
+
 export function evaluateReconstruction(
   level: CompiledLevel,
   evidence: PhotoEvidence[],
@@ -211,49 +271,13 @@ export function evaluateReconstruction(
   const known = new Set(references.map(r => r.id));
   for (const item of evidence)
     if (!known.has(item.referenceId)) throw new Error(`Unknown reference ${item.referenceId}.`);
-  const bounds = options.thresholds ?? {};
-  const views: ReconstructionViewReport[] = references.map(reference => {
-    const annotation = byId.get(reference.id);
-    const [width, height] = resizedDimensions(reference, options.maxDimension ?? 512);
-    const issues: string[] = [];
-    const landmarks = compareReference(reference);
-    const independentLandmarks = landmarks.compared >= 3 && landmarks.clipped === 0;
-    const hasSilhouette = Boolean(annotation?.silhouette);
-    const hasStrokes = Boolean(annotation?.strokes?.length);
-    const verified = independentLandmarks || hasSilhouette || hasStrokes;
-    const needsRender = hasSilhouette || hasStrokes || Boolean(annotation?.photo);
-    const render = needsRender ? renderReference(level, reference, { width, height }) : null;
-    const excluded = needsRender ? excludeMask(reference, width, height) : new Uint8Array(0);
-    const field = render ? distanceField(visibleEdges(render.surfaceIds, render.depth, width, height), width, height) : null;
-    const silhouette = render && annotation?.silhouette ?
-      compareMasks(render.surfaceIds, resizeMask(annotation.silhouette, width, height), excluded) : null;
-    const strokeDistance = field && annotation?.strokes?.length ?
-      strokeError(annotation.strokes, field, width, height, excluded) : null;
-    const photoDistance = field && annotation?.photo ?
-      (() => {
-        const edges = photoEdges(annotation.photo!, width, height);
-        const values: number[] = [];
-        const stride = Math.max(1, Math.floor((width * height) / 10000));
-        for (let i = 0; i < edges.length; i += stride)
-          if (edges[i] && !excluded[i]) values.push(Math.min(64, field[i]));
-        return trimmedMean(values);
-      })() : null;
-    if (!verified) issues.push("No independent landmarks, outline mask, or structural strokes; visual fit is unverified.");
-    if (landmarks.clipped) issues.push(`${landmarks.clipped} landmark(s) lie outside the calibrated view.`);
-    if (landmarks.compared > 0 && (landmarks.rmsPixels ?? Infinity) > (bounds.landmarkRmsPixels ?? 8))
-      issues.push(`Landmark error ${landmarks.rmsPixels?.toFixed(1)} px exceeds limit.`);
-    if (silhouette && silhouette.iou < (bounds.silhouetteIoU ?? 0.8))
-      issues.push(`Silhouette IoU ${silhouette.iou.toFixed(3)} is below limit.`);
-    if (strokeDistance !== null && strokeDistance > (bounds.strokeErrorPixels ?? 5))
-      issues.push(`Structural stroke mismatch ${strokeDistance.toFixed(1)} px exceeds limit.`);
-    return { referenceId: reference.id, size: [width, height], landmarks, silhouette,
-      strokeErrorPixels: strokeDistance, photoEdgeErrorPixels: photoDistance,
-      verified, passed: verified && issues.length === 0, issues };
-  });
+  const thresholds = options.thresholds ?? {};
+  const views = references.map(ref => evaluateView(level, ref, byId.get(ref.id),
+    options.maxDimension ?? 512, thresholds));
   const geometryPassed = !level.diagnostics.some(d => d.severity === "error");
   const navigationPassed = options.navigationPassed ?? (level.navigation?.passed ?? false);
   const verifiedViews = views.filter(v => v.verified).length;
-  const requiredViews = bounds.minimumVerifiedViews ?? Math.min(2, references.length);
+  const requiredViews = thresholds.minimumVerifiedViews ?? Math.min(2, references.length);
   const issues = views.flatMap(v => v.issues.map(issue => `${v.referenceId}: ${issue}`));
   if (!geometryPassed) issues.push("Geometry compilation contains errors.");
   if (!navigationPassed) issues.push("Walkable navigation has not passed validation.");
