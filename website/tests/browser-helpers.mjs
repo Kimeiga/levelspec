@@ -97,7 +97,9 @@ export async function holdKeyUntilMoved(page, key, before, distance) {
         return state?.mode === "walk" && state.textures === "ready" && state.detail === "ready";
       },
       undefined,
-      { timeout: 15000 },
+      // This readiness predicate is DOM state, not an animation-frame condition.
+      // Software-rendered WebGL may stall requestAnimationFrame in headless Chrome.
+      { timeout: 15000, polling: 100 },
     );
     await page.keyboard.down(key);
     // Chromium pointer lock may suppress the initial automation keydown or
