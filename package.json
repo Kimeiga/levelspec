@@ -9,7 +9,8 @@
     "./vector": "./src/vector/index.ts",
     "./lighting": "./src/lighting/bake.ts",
     "./export": "./src/export/vector/index.ts",
-    "./authoring": "./src/vector/authoring.ts"
+    "./authoring": "./src/vector/authoring.ts",
+    "./reconstruction": "./src/reconstruction/index.ts"
   },
   "scripts": {
     "compile": "node tools/build.ts",
@@ -31,7 +32,8 @@
     "bake:site": "node tools/site-bake.ts",
     "package:site-bakes": "node tools/site-package-bakes.ts",
     "generate:site-material-detail": "node tools/site-material-detail.ts",
-    "reference:rooftop": "node tools/vector-rooftop-reference.ts"
+    "reference:rooftop": "node tools/vector-rooftop-reference.ts",
+    "reconstruct": "node tools/reconstruct.ts"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",
