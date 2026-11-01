@@ -40,6 +40,82 @@ async function renderedViews(source: string, ids: Set<string>): Promise<{ id: st
   }
 }
 
+interface ResponsePayload {
+  error?: { message?: string };
+  status?: string;
+  output?: Array<{ type?: string; content?: Array<{ type?: string; text?: string; refusal?: string }> }>;
+}
+function correctionFeedback(request: RevisionRequest) {
+  const previous = request.lastAttempt;
+  if (!previous) return null;
+  return { iteration: previous.iteration, diagnostics: previous.diagnostics.slice(0, 75),
+    views: previous.report?.views.map(v => ({
+      referenceId: v.referenceId, landmarkRmsPixels: v.landmarks.rmsPixels,
+      silhouetteIoU: v.silhouette?.iou ?? null,
+      annotatedStrokeErrorPixels: v.strokeErrorPixels,
+      photographicEdgesDiagnosticPixels: v.photoEdgeErrorPixels,
+      issues: v.issues,
+    })) ?? [], navigationPassed: previous.report?.navigationPassed ?? false };
+}
+function candidatePrompt(request: RevisionRequest, photos: InputPhoto[]) {
+  const referenceDeclarations = photos.map(p =>
+    `${p.referenceId}: image="${p.filename}", width=${p.width}, height=${p.height}`).join("\n");
+  const feedback = correctionFeedback(request);
+  return [
+    `Iteration ${request.iteration}. Model these photographs as one shared 3D scene.`,
+    `Use these reference declarations exactly:\n${referenceDeclarations}`,
+    feedback ? "Measured correction feedback:\n" + JSON.stringify(feedback) :
+      "Start from a defensible, approximate structural blockout.",
+    request.previousSource ? "Previous SVGX, revise instead of restarting:\n" +
+      request.previousSource.slice(0, 90000) : "",
+    "Output a new complete SVGX document and preserve reference IDs.",
+  ].filter(Boolean).join("\n\n");
+}
+async function userContent(request: RevisionRequest, photos: InputPhoto[], ids: Set<string>) {
+  const content: Array<Record<string, unknown>> =
+    [{ type: "input_text", text: candidatePrompt(request, photos) }];
+  for (const photo of photos) {
+    content.push({ type: "input_text", text: `Original photograph: ${photo.referenceId}` });
+    content.push({ type: "input_image", image_url: photo.dataUrl, detail: "high" });
+  }
+  const previews = request.previousSource ? await renderedViews(request.previousSource, ids) : [];
+  for (const render of previews) {
+    content.push({ type: "input_text", text: `CURRENT COMPILED RENDER (not ground truth): ${render.id}` });
+    content.push({ type: "input_image", image_url: render.url, detail: "high" });
+  }
+  return content;
+}
+function extractSvgx(payload: ResponsePayload) {
+  const parts = (payload.output ?? []).filter(item => item.type === "message")
+    .flatMap(message => message.content ?? []);
+  const refusal = parts.find(part => part.type === "refusal");
+  if (refusal) throw new Error(`Model refused the reconstruction request: ${refusal.refusal ?? "no detail"}`);
+  const output = parts.find(part => part.type === "output_text")?.text;
+  if (!output) throw new Error(`Model returned no structured SVGX (${payload.status ?? "unknown status"}).`);
+  const result = JSON.parse(output) as { svgx?: unknown; rationale?: unknown };
+  if (typeof result.svgx !== "string" || !result.svgx.trim())
+    throw new Error("Model response did not include SVGX text.");
+  return result.svgx;
+}
+async function queryModel(config: OpenAIReviserConfig, instructions: string,
+  content: Array<Record<string, unknown>>) {
+  const response = await fetch(config.apiUrl ?? "https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: config.model, store: false, max_output_tokens: 30000,
+      instructions, input: [{ role: "user", content }],
+      text: { format: { type: "json_schema", name: "levelspec_candidate", strict: true,
+        schema: { type: "object", additionalProperties: false,
+          properties: { svgx: { type: "string" }, rationale: { type: "string" } },
+          required: ["svgx", "rationale"] } } },
+    }),
+  });
+  const payload = await response.json() as ResponsePayload;
+  if (!response.ok)
+    throw new Error(`OpenAI request failed (${response.status}): ${payload.error?.message ?? "unknown error"}`);
+  return extractSvgx(payload);
+}
 export async function createOpenAIReviser(config: OpenAIReviserConfig): Promise<ReconstructionReviser> {
   if (!config.apiKey.trim()) throw new Error("An OpenAI API key is required for model revision.");
   if (!config.model.trim()) throw new Error("Specify a vision-capable model explicitly.");
@@ -67,65 +143,7 @@ export async function createOpenAIReviser(config: OpenAIReviserConfig): Promise<
     "PARTIAL SVGX EXAMPLE:", example,
   ].join("\n\n");
   return async function revise(request: RevisionRequest) {
-    const feedback = request.lastAttempt ? {
-      iteration: request.lastAttempt.iteration,
-      diagnostics: request.lastAttempt.diagnostics.slice(0, 75),
-      views: request.lastAttempt.report?.views.map(v => ({
-        referenceId: v.referenceId,
-        landmarkRmsPixels: v.landmarks.rmsPixels,
-        silhouetteIoU: v.silhouette?.iou ?? null,
-        annotatedStrokeErrorPixels: v.strokeErrorPixels,
-        photographicEdgesDiagnosticPixels: v.photoEdgeErrorPixels,
-        issues: v.issues,
-      })) ?? [],
-      navigationPassed: request.lastAttempt.report?.navigationPassed ?? false,
-    } : null;
-    const imageDescriptions = config.photos.map(p =>
-      `${p.referenceId}: image="${p.filename}", width=${p.width}, height=${p.height}`).join("\n");
-    const prompt = `Iteration ${request.iteration}. Model these photographs as one shared 3D scene.
-Use these reference declarations exactly:\n${imageDescriptions}
-${feedback ? "\nMeasured correction feedback:\n" + JSON.stringify(feedback) : "\nStart from a defensible, approximate structural blockout."}
-${request.previousSource ? "\nPrevious SVGX, revise instead of restarting:\n" + request.previousSource.slice(0, 90000) : ""}
-Output a new, complete SVGX document; preserve the reference ids.`;
-    const content: Array<Record<string, unknown>> = [{ type: "input_text", text: prompt }];
-    for (const photo of config.photos) {
-      content.push({ type: "input_text", text: `Original photograph: ${photo.referenceId}` });
-      content.push({ type: "input_image", image_url: photo.dataUrl, detail: "high" });
-    }
-    if (request.previousSource) {
-      for (const render of await renderedViews(request.previousSource, ids)) {
-        content.push({ type: "input_text", text: `CURRENT COMPILED RENDER (not ground truth): ${render.id}` });
-        content.push({ type: "input_image", image_url: render.url, detail: "high" });
-      }
-    }
-    const response = await fetch(config.apiUrl ?? "https://api.openai.com/v1/responses", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: config.model, store: false, max_output_tokens: 30000,
-        instructions,
-        input: [{ role: "user", content }],
-        text: { format: {
-          type: "json_schema", name: "levelspec_candidate", strict: true,
-          schema: { type: "object", additionalProperties: false,
-            properties: { svgx: { type: "string" }, rationale: { type: "string" } },
-            required: ["svgx", "rationale"] },
-        } },
-      }),
-    });
-    const payload = await response.json() as {
-      error?: { message?: string }; status?: string;
-      output?: Array<{ type?: string; content?: Array<{ type?: string; text?: string; refusal?: string }> }>;
-    };
-    if (!response.ok) throw new Error(`OpenAI request failed (${response.status}): ${payload.error?.message ?? "unknown error"}`);
-    const messages = payload.output?.filter(item => item.type === "message") ?? [];
-    for (const part of messages.flatMap(message => message.content ?? []))
-      if (part.type === "refusal") throw new Error(`Model refused the reconstruction request: ${part.refusal ?? "no detail"}`);
-    const output = messages.flatMap(message => message.content ?? []).find(part => part.type === "output_text")?.text;
-    if (!output) throw new Error(`Model returned no structured SVGX (${payload.status ?? "unknown status"}).`);
-    const result = JSON.parse(output) as { svgx?: unknown; rationale?: unknown };
-    if (typeof result.svgx !== "string" || !result.svgx.trim())
-      throw new Error("Model response did not include SVGX text.");
-    return result.svgx;
+    const content = await userContent(request, config.photos, ids);
+    return queryModel(config, instructions, content);
   };
 }
