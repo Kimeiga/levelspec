@@ -141,10 +141,8 @@ function evidenceForView(referenceId: string, evidence: PhotoEvidence[]) {
   return created;
 }
 function applyViewObservations(item: PhotoEvidence, view: ManifestView) {
-  if (view.imageDimensions) item.imageDimensions = view.imageDimensions;
-  if (view.landmarks) item.landmarks = view.landmarks;
-  if (view.masks) item.masks = view.masks;
-  if (view.strokes) item.strokes = view.strokes;
+  const { imageDimensions, landmarks, masks, strokes } = view;
+  Object.assign(item, { imageDimensions, landmarks, masks, strokes });
 }
 async function attachView(view: ManifestView, manifestPath: string, evidence: PhotoEvidence[]) {
   const item = evidenceForView(view.referenceId, evidence);
