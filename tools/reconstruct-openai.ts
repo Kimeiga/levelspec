@@ -22,19 +22,23 @@ function dataPng(width: number, height: number, pixels: Uint8Array): string {
   png.data.set(pixels);
   return "data:image/png;base64," + PNG.sync.write(png).toString("base64");
 }
+function renderedLevelViews(level: Awaited<ReturnType<typeof compile>>, ids: Set<string>) {
+  const result: { id: string; url: string }[] = [];
+  for (const reference of level.document.references ?? []) {
+    if (!ids.has(reference.id)) continue;
+    const scale = Math.min(1, 512 / Math.max(reference.width, reference.height));
+    const width = Math.max(1, Math.round(reference.width * scale));
+    const height = Math.max(1, Math.round(reference.height * scale));
+    const rendered = renderReference(level, reference, { width, height });
+    result.push({ id: reference.id, url: dataPng(width, height, rendered.rgba) });
+  }
+  return result;
+}
 async function renderedViews(source: string, ids: Set<string>): Promise<{ id: string; url: string }[]> {
   try {
-    const level = await compile(parseLevelSvgx(source), { navigation: false, floorGaps: false, surfaceContacts: false });
-    const result: { id: string; url: string }[] = [];
-    for (const reference of level.document.references ?? []) {
-      if (!ids.has(reference.id)) continue;
-      const scale = Math.min(1, 512 / Math.max(reference.width, reference.height));
-      const width = Math.max(1, Math.round(reference.width * scale));
-      const height = Math.max(1, Math.round(reference.height * scale));
-      const rendered = renderReference(level, reference, { width, height });
-      result.push({ id: reference.id, url: dataPng(width, height, rendered.rgba) });
-    }
-    return result;
+    const level = await compile(parseLevelSvgx(source),
+      { navigation: false, floorGaps: false, surfaceContacts: false });
+    return renderedLevelViews(level, ids);
   } catch {
     return [];
   }
@@ -45,18 +49,21 @@ interface ResponsePayload {
   status?: string;
   output?: Array<{ type?: string; content?: Array<{ type?: string; text?: string; refusal?: string }> }>;
 }
+function viewFeedback(view: NonNullable<RevisionRequest["lastAttempt"]>["report"] extends infer T
+  ? NonNullable<T>["views"][number] : never) {
+  return { referenceId: view.referenceId, landmarkRmsPixels: view.landmarks.rmsPixels,
+    silhouetteIoU: view.silhouette?.iou ?? null,
+    annotatedStrokeErrorPixels: view.strokeErrorPixels,
+    photographicEdgesDiagnosticPixels: view.photoEdgeErrorPixels, issues: view.issues };
+}
 function correctionFeedback(request: RevisionRequest) {
   const previous = request.lastAttempt;
   if (!previous) return null;
+  const report = previous.report;
   return { iteration: previous.iteration, diagnostics: previous.diagnostics.slice(0, 75),
-    views: previous.report?.views.map(v => ({
-      referenceId: v.referenceId, landmarkRmsPixels: v.landmarks.rmsPixels,
-      silhouetteIoU: v.silhouette?.iou ?? null,
-      annotatedStrokeErrorPixels: v.strokeErrorPixels,
-      photographicEdgesDiagnosticPixels: v.photoEdgeErrorPixels,
-      issues: v.issues,
-    })) ?? [], navigationPassed: previous.report?.navigationPassed ?? false };
+    views: report ? report.views.map(viewFeedback) : [], navigationPassed: report?.navigationPassed ?? false };
 }
+
 function candidatePrompt(request: RevisionRequest, photos: InputPhoto[]) {
   const referenceDeclarations = photos.map(p =>
     `${p.referenceId}: image="${p.filename}", width=${p.width}, height=${p.height}`).join("\n");
@@ -85,18 +92,36 @@ async function userContent(request: RevisionRequest, photos: InputPhoto[], ids: 
   }
   return content;
 }
-function extractSvgx(payload: ResponsePayload) {
-  const parts = (payload.output ?? []).filter(item => item.type === "message")
+type OutputPart = { type?: string; text?: string; refusal?: string };
+function responseParts(payload: ResponsePayload): OutputPart[] {
+  return (payload.output ?? []).filter(item => item.type === "message")
     .flatMap(message => message.content ?? []);
+}
+function rejectRefusal(parts: OutputPart[]) {
   const refusal = parts.find(part => part.type === "refusal");
-  if (refusal) throw new Error(`Model refused the reconstruction request: ${refusal.refusal ?? "no detail"}`);
+  if (refusal) throw new Error(`Model refused reconstruction: ${refusal.refusal ?? "no detail"}`);
+}
+function requireOutputText(parts: OutputPart[], status?: string) {
   const output = parts.find(part => part.type === "output_text")?.text;
-  if (!output) throw new Error(`Model returned no structured SVGX (${payload.status ?? "unknown status"}).`);
-  const result = JSON.parse(output) as { svgx?: unknown; rationale?: unknown };
+  if (!output) throw new Error(`Model returned no structured SVGX (${status ?? "unknown status"}).`);
+  return output;
+}
+function parseCandidateText(text: string) {
+  const result = JSON.parse(text) as { svgx?: unknown; rationale?: unknown };
   if (typeof result.svgx !== "string" || !result.svgx.trim())
     throw new Error("Model response did not include SVGX text.");
   return result.svgx;
 }
+function extractSvgx(payload: ResponsePayload) {
+  const parts = responseParts(payload);
+  rejectRefusal(parts);
+  return parseCandidateText(requireOutputText(parts, payload.status));
+}
+function requireApiSuccess(response: Response, payload: ResponsePayload) {
+  if (!response.ok)
+    throw new Error(`OpenAI request failed (${response.status}): ${payload.error?.message ?? "unknown error"}`);
+}
+
 async function queryModel(config: OpenAIReviserConfig, instructions: string,
   content: Array<Record<string, unknown>>) {
   const response = await fetch(config.apiUrl ?? "https://api.openai.com/v1/responses", {
@@ -112,8 +137,7 @@ async function queryModel(config: OpenAIReviserConfig, instructions: string,
     }),
   });
   const payload = await response.json() as ResponsePayload;
-  if (!response.ok)
-    throw new Error(`OpenAI request failed (${response.status}): ${payload.error?.message ?? "unknown error"}`);
+  requireApiSuccess(response, payload);
   return extractSvgx(payload);
 }
 export async function createOpenAIReviser(config: OpenAIReviserConfig): Promise<ReconstructionReviser> {
