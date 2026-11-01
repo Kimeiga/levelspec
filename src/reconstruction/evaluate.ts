@@ -87,24 +87,25 @@ function excludeMask(reference: ReferenceView, width: number, height: number) {
     }
   return result;
 }
+function fraction(numerator: number, denominator: number) {
+  return denominator === 0 ? 0 : numerator / denominator;
+}
 function compareMasks(rendered: Int32Array, target: Uint8Array, exclude: Uint8Array) {
   let intersection = 0, union = 0, targetCount = 0, renderedCount = 0;
   for (let i = 0; i < target.length; i++) {
-    if (exclude[i]) continue;
-    const a = rendered[i] >= 0, b = target[i] !== 0;
-    if (a) renderedCount++;
-    if (b) targetCount++;
-    if (a && b) intersection++;
-    if (a || b) union++;
+    const valid = Number(exclude[i] === 0);
+    const a = valid * Number(rendered[i] >= 0), b = valid * Number(target[i] !== 0);
+    renderedCount += a;
+    targetCount += b;
+    intersection += a * b;
+    union += Math.min(1, a + b);
   }
-  return {
-    iou: union ? intersection / union : 0,
-    precision: renderedCount ? intersection / renderedCount : 0,
-    recall: targetCount ? intersection / targetCount : 0,
-    targetPixels: targetCount,
-    renderedPixels: renderedCount,
-  };
+  return { iou: fraction(intersection, union),
+    precision: fraction(intersection, renderedCount),
+    recall: fraction(intersection, targetCount),
+    targetPixels: targetCount, renderedPixels: renderedCount };
 }
+
 function visibleEdges(surfaceIds: Int32Array, depth: Float64Array, width: number, height: number) {
   const result = new Uint8Array(width * height);
   for (let y = 1; y < height - 1; y++)
