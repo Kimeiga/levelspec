@@ -111,6 +111,8 @@ async function loadPhotos(paths: string[]) {
 }
 interface ManifestView {
   referenceId: string;
+  /** Trusted original crop size when --image is not supplied. */
+  imageDimensions?: [number, number];
   /** Trusted, independently measured 3D-to-image point correspondences. */
   landmarks?: { id: string; position: [number, number, number]; image: [number, number] }[];
   /** Only externally supplied masks can exclude evidence from acceptance. */
@@ -139,6 +141,7 @@ function evidenceForView(referenceId: string, evidence: PhotoEvidence[]) {
   return created;
 }
 function applyViewObservations(item: PhotoEvidence, view: ManifestView) {
+  if (view.imageDimensions) item.imageDimensions = view.imageDimensions;
   if (view.landmarks) item.landmarks = view.landmarks;
   if (view.masks) item.masks = view.masks;
   if (view.strokes) item.strokes = view.strokes;
