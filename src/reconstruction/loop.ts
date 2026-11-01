@@ -164,17 +164,15 @@ export async function runReconstruction(
   let status: ReconstructionLoopResult["status"] = "exhausted";
   for (let i = 0; i <= revisions; i++) {
     if (options.signal?.aborted) { status = "aborted"; break; }
-    if (source.trim()) {
-      const result = await inspectSource(source, evidence, options, i, limit);
-      attempts.push(result.attempt);
-      await options.onAttempt?.(result.attempt);
-      keepBetter(best, result);
-      if (result.attempt.accepted) { status = "accepted"; break; }
-    }
+    const result = await inspectSource(source, evidence, options, i, limit);
+    attempts.push(result.attempt);
+    await options.onAttempt?.(result.attempt);
+    keepBetter(best, result);
+    if (result.attempt.accepted) { status = "accepted"; break; }
     if (i === revisions) break;
     const next = await reviser({ iteration: i + 1, previousSource: source,
       lastAttempt: attempts.at(-1) ?? null, attempts: [...attempts] });
-    if (!next || next === source) { status = "stopped"; break; }
+    if (!next?.trim() || next === source) { status = "stopped"; break; }
     source = next;
   }
   return { accepted: status === "accepted", status,
