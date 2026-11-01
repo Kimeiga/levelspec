@@ -226,13 +226,19 @@ function independentEvidence(landmarks: ReturnType<typeof compareReference>,
     Boolean(silhouette && silhouette.targetPixels > 0 && silhouette.renderedPixels > 0) ||
     strokeDistance !== null;
 }
-function trustedReference(reference: ReferenceView, annotation?: PhotoEvidence): ReferenceView {
-  if (annotation?.imageFilename && annotation.imageFilename !== reference.image)
+function assertReferenceFilename(reference: ReferenceView, filename?: string) {
+  if (filename && filename !== reference.image)
     throw new Error(`Reference ${reference.id} image name differs from independently supplied photo.`);
-  if (annotation?.photo && (annotation.photo.width !== reference.width ||
-      annotation.photo.height !== reference.height))
+}
+function assertReferencePhotoDimensions(reference: ReferenceView, photo?: PhotoPixels) {
+  if (!photo) return;
+  if (photo.width !== reference.width || photo.height !== reference.height)
     throw new Error(`Reference ${reference.id} dimensions differ from independently supplied photo.`);
-  // Only the author-independent observations can establish a photographic fit.
+}
+function trustedReference(reference: ReferenceView, annotation?: PhotoEvidence): ReferenceView {
+  assertReferenceFilename(reference, annotation?.imageFilename);
+  assertReferencePhotoDimensions(reference, annotation?.photo);
+  // The model cannot manufacture acceptance observations or exclusion masks.
   return { ...reference, landmarks: annotation?.landmarks ?? [], masks: annotation?.masks ?? [] };
 }
 function landmarkError(landmarks: ReturnType<typeof compareReference>, limit: number) {
