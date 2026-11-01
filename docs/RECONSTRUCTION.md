@@ -32,7 +32,10 @@ The first proposal and subsequent revisions go through the **same compiler,
 runtime navigation checks and multi-view evaluator**. Each iteration writes a
 complete SVGX candidate and an evaluation report. The best valid candidate
 appears in `best.level.svgx`; `result.json` records why it was or wasn't
-accepted. The process exits nonzero if the acceptance gates fail.
+accepted. When the best candidate passes geometry and navigation, the CLI also
+writes `best.glb` (visible geometry), `best-collision.glb` (physics proxy) and
+`best.runtime.json` (navigation, markers and source ownership). These are
+portable game assets, not a standalone game. The process exits nonzero if the acceptance gates fail.
 
 To evaluate a candidate without a model or API key:
 
