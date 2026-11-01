@@ -264,3 +264,23 @@ describe("review regressions: shared architectural topology", () => {
     assert.equal(group.layer.edges.length, 4);
   });
 });
+
+describe("initial-model generation", () => {
+  it("runs the model once when no source is provided and zero revisions are allowed", async () => {
+    const { scene } = fixture();
+    const compiled = await compile(scene.document, { navigation: false });
+    const independent = silhouetteEvidence(compiled);
+    const generated = serializeLevelSvgx(scene.document);
+    let count = 0;
+    const result = await runReconstruction("", independent, async feedback => {
+      count++;
+      assert.equal(feedback.iteration, 0);
+      assert.equal(feedback.lastAttempt, null);
+      return generated;
+    }, { maxRevisions: 0, evaluationDimension: 80 });
+    assert.equal(count, 1);
+    assert.equal(result.attempts.length, 1);
+    assert.equal(result.status, "accepted", result.attempts[0].diagnostics.join("\n"));
+    assert.equal(result.source, generated);
+  });
+});
