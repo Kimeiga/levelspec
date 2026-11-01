@@ -27,11 +27,20 @@ With --model, supply OPENAI_API_KEY as an environment variable.
 Without --model, --source performs read-only evaluation (no model calls).
 Photographs stay local except when explicitly sent to the model API.
 `;
-function requireInput(args: Args) {
+function requireSource(args: Args) {
   if (!args.source && !args.model)
     throw new Error("Specify --source for evaluation or --model to generate a model.");
+}
+function requireImagesForModel(args: Args) {
   if (args.model && !args.images.length)
     throw new Error("Model reconstruction requires at least one --image.");
+}
+function setOption(argv: string[], index: number, setters: Record<string, (value: string) => void>) {
+  const flag = argv[index], setter = setters[flag];
+  if (!setter) throw new Error(`Unknown option ${flag}\n${usage}`);
+  const value = argv[index + 1];
+  if (!value) throw new Error(`Missing value for ${flag}`);
+  setter(value);
 }
 function parseArgs(argv: string[]): Args | null {
   const args: Args = { images: [], out: "generated/reconstruction", revisions: 4 };
@@ -43,18 +52,15 @@ function parseArgs(argv: string[]): Args | null {
     "--out": value => { args.out = value; },
     "--max-revisions": value => { args.revisions = Number(value); },
   };
-  for (let i = 0; i < argv.length; i++) {
-    const flag = argv[i];
-    if (flag === "--help" || flag === "-h") return null;
-    const setter = setters[flag];
-    if (!setter) throw new Error(`Unknown option ${flag}\n${usage}`);
-    const value = argv[++i];
-    if (!value) throw new Error(`Missing value for ${flag}`);
-    setter(value);
+  for (let i = 0; i < argv.length; i += 2) {
+    if (argv[i] === "--help" || argv[i] === "-h") return null;
+    setOption(argv, i, setters);
   }
-  requireInput(args);
+  requireSource(args);
+  requireImagesForModel(args);
   return args;
 }
+
 interface Decoded {
   width: number;
   height: number;
@@ -165,9 +171,7 @@ async function recordResult(out: string, result: ReconstructionLoopResult) {
   }
   console.log(`Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`);
 }
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
-  if (!args) { console.log(usage); return; }
+async function execute(args: Args) {
   const { inputs, evidence } = await loadPhotos(args.images);
   const thresholds = await attachAnnotations(args.evidence, evidence);
   const revise = await resolveReviser(args, inputs);
@@ -178,8 +182,14 @@ async function main() {
     onAttempt: attempt => recordAttempt(args.out, attempt),
   });
   await recordResult(args.out, result);
-  if (!result.accepted) process.exitCode = 1;
+  process.exitCode = Number(!result.accepted);
 }
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  if (!args) { console.log(usage); return; }
+  await execute(args);
+}
+
 main().catch(error => {
   console.error(error instanceof Error ? error.message : String(error));
   process.exitCode = 1;
