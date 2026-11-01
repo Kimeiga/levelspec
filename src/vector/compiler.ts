@@ -1245,7 +1245,7 @@ export async function compile(
   for (const f of water) {
     const r = d.layers.flatMap((l) => l.regions).find((r) => r.id === f.region)!;
     const si = surfaces.length;
-    surfaces.push({ mesh: `water:${f.layer}:${f.region}`, kind: "water", id: `${f.region}:water`, object: f.region, layer: f.layer, role: "water", material: r.material ?? "default", dynamic: false });
+    surfaces.push({ mesh: `water:${f.layer}:${f.region}`, kind: "water", id: `${f.region}:water`, object: f.region, layer: f.layer, role: "water", material: r.material ?? "default", dynamic: false, collidable: false });
     const start = mesh.positions.length / 3;
     for (const p of f.points) {
       mesh.positions.push(...p);

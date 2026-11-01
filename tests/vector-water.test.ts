@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { createDocument, compile, bakeNavmesh, parseLevelSvgx, serializeLevelSvgx, toRuntime, toGLB, type LevelDocument, type Region, type V3 } from "../src/vector/index.ts";
+import { createDocument, compile, collisionMesh, bakeNavmesh, parseLevelSvgx, serializeLevelSvgx, toRuntime, toGLB, type LevelDocument, type Region, type V3 } from "../src/vector/index.ts";
 import { movementLevel } from "../src/vector/movement.ts";
 
 function rect(d: LevelDocument, id: string, x: number, y: number, w: number, h: number, z: number, fill: Region["fill"] = "floor") {
@@ -23,6 +23,25 @@ function route(d: LevelDocument, id: string, a: V3, b: V3, movement: "land"|"wat
   d.routes.push({id,from:`${id}_a`,to:`${id}_b`,minRoutes:1,movement});
 }
 describe("water surfaces and independent movement",()=>{
+  it("renders water without including it in collision geometry or metadata",async()=>{
+    const l=await compile(lake());
+    assert.deepEqual(l.diagnostics,[]);
+    assert.ok(l.waterNavigation!.indices.length>0,"non-solid water must still support boat navigation");
+    const waterTriangles=l.mesh.surfaces.filter(si=>l.surfaces[si].kind==="water");
+    const solidTriangles=l.mesh.surfaces.filter(si=>l.surfaces[si].kind!=="water");
+    assert.ok(waterTriangles.length>0,"water must remain in the render mesh");
+    assert.ok(solidTriangles.length>0,"the lake bed must have solid geometry");
+    for(const sealed of [false,true]) {
+      const collision=collisionMesh(l,sealed);
+      assert.deepEqual(collision.surfaces,solidTriangles,"collision must retain terrain and exclude water");
+      assert.equal(collision.indices.length,solidTriangles.length*3);
+    }
+    const runtime=toRuntime(l);
+    for(const si of new Set(waterTriangles))assert.equal(runtime.surfaces[si].collidable,false);
+    const waterParts=runtime.meshes.filter(part=>part.kind==="water");
+    assert.ok(waterParts.length>0);
+    for(const part of waterParts)assert.equal(part.collidable,false);
+  });
   it("round trips water, boat profiles and movement markers; exports non-solid water",async()=>{
     const d=lake();
     d.markers.push({id:"tree",layer:"bed_layer",position:[200,200,0],kind:"decoration",movement:"none"});

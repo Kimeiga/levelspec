@@ -226,7 +226,9 @@ export function movementLevel(level: CompiledLevel, options: NavigationOptions):
   const waterIndex = new Index(level.water ?? []), bedIndex = new Index(level.floors, f => regions.get(f.region)?.thickness ?? level.document.floorThickness);
   const {floors,unknownRegions}=buildMovementFloors(level,movement,regions,waterIndex,bedIndex,boat,context);
   const mesh=buildMovementMesh(level,movement,floors,regions,waterIndex,context);
-  return { ...level, document, floors, mesh, navigation: movement === "water" ? level.waterNavigation : level.navigation,
+  // Boat navigation rasterizes water as support; keep this flag local to its temporary geometry.
+  const surfaces=movement === "water" ? level.surfaces.map(s=>s.kind === "water" ? {...s,collidable:true} : s) : level.surfaces;
+  return { ...level, document, floors, mesh, surfaces, navigation: movement === "water" ? level.waterNavigation : level.navigation,
     repairs: [...(level.repairs ?? []).filter(r => r.movement !== movement), ...context.repairs],
     movementDiagnostics: [
       ...unknownRegions.map(({region,area}):Diagnostic=>({severity:"error",code:"WATER_DEPTH_UNKNOWN",message:`Excluded ${area.toPrecision(4)} m² of water without supporting seabed geometry; boat depth is unknown there.`,objects:[region],source:regions.get(region)?.source})),
