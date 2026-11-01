@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { PNG } from "pngjs";
 import { compile, parseLevelSvgx, renderReference } from "../src/vector/index.ts";
 import type { ReconstructionReviser, RevisionRequest } from "../src/reconstruction/loop.ts";
-import type { ReconstructionViewReport } from "../src/reconstruction/evaluate.ts";
+import type { ReconstructionViewReport, ReconstructionReport } from "../src/reconstruction/evaluate.ts";
 
 export interface InputPhoto {
   referenceId: string;
@@ -56,12 +56,17 @@ function viewFeedback(view: ReconstructionViewReport) {
     annotatedStrokeErrorPixels: view.strokeErrorPixels,
     photographicEdgesDiagnosticPixels: view.photoEdgeErrorPixels, issues: view.issues };
 }
+function feedbackViews(report: ReconstructionReport | null) {
+  return report?.views.map(viewFeedback) ?? [];
+}
+function feedbackNavigation(report: ReconstructionReport | null) {
+  return report?.navigationPassed ?? false;
+}
 function correctionFeedback(request: RevisionRequest) {
   const previous = request.lastAttempt;
   if (!previous) return null;
-  const report = previous.report;
   return { iteration: previous.iteration, diagnostics: previous.diagnostics.slice(0, 75),
-    views: report ? report.views.map(viewFeedback) : [], navigationPassed: report?.navigationPassed ?? false };
+    views: feedbackViews(previous.report), navigationPassed: feedbackNavigation(previous.report) };
 }
 
 function candidatePrompt(request: RevisionRequest, photos: InputPhoto[]) {
