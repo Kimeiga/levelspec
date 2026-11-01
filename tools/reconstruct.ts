@@ -97,7 +97,7 @@ async function loadPhoto(value: string, index: number) {
   const input: InputPhoto = { referenceId, filename: basename(path),
     width: decoded.width, height: decoded.height,
     dataUrl: `data:${decoded.mime};base64,${bytes.toString("base64")}` };
-  const evidence: PhotoEvidence = { referenceId, photo: {
+  const evidence: PhotoEvidence = { referenceId, imageFilename: filename, photo: {
     width: decoded.width, height: decoded.height, rgba: decoded.rgba,
   } };
   return { input, evidence };
@@ -111,6 +111,10 @@ async function loadPhotos(paths: string[]) {
 }
 interface ManifestView {
   referenceId: string;
+  /** Trusted, independently measured 3D-to-image point correspondences. */
+  landmarks?: { id: string; position: [number, number, number]; image: [number, number] }[];
+  /** Only externally supplied masks can exclude evidence from acceptance. */
+  masks?: { id: string; points: [number, number][] }[];
   strokes?: { id: string; points: [number, number][] }[];
   silhouettePath?: string;
 }
@@ -133,6 +137,8 @@ async function attachView(view: ManifestView, manifestPath: string, evidence: Ph
     item = { referenceId: view.referenceId };
     evidence.push(item);
   }
+  if (view.landmarks) item.landmarks = view.landmarks;
+  if (view.masks) item.masks = view.masks;
   if (view.strokes) item.strokes = view.strokes;
   if (view.silhouettePath)
     item.silhouette = await loadSilhouette(resolve(dirname(manifestPath), view.silhouettePath));
