@@ -191,6 +191,11 @@ function dynamicallyBlockedFixture() {
     id: "closed-gate", layer: group.layer.id,
     min: [3.8, 0, 0], max: [4.2, 8, 3], dynamic: true,
   });
+  scene.document.markers[0].position = [1, 4, 0];
+  scene.document.markers.push({
+    id: "exit", layer: group.layer.id, kind: "objective", position: [7, 4, 0],
+  });
+  scene.document.routes.push({ id: "gate-route", from: "spawn", to: "exit", minRoutes: 1 });
   return scene;
 }
 
@@ -199,6 +204,10 @@ describe("review regressions: navigation and candidate retention", () => {
     const scene = dynamicallyBlockedFixture();
     const raw = await compile(scene.document, { navigation: false });
     const evidence = silhouetteEvidence(raw);
+    const ordinary = await validateForRuntime(raw, { sealed: true });
+    assert.equal(ordinary.passed, true);
+    assert.equal(ordinary.navigation?.routes.find(route => route.id === "gate-route")?.reachable, true);
+    assert.equal(ordinary.sealed?.routes.find(route => route.id === "gate-route")?.reachable, false);
     const source = serializeLevelSvgx(scene.document);
     const result = await runReconstruction(source, evidence, async () => null, {
       maxRevisions: 0, evaluationDimension: 80,
@@ -222,6 +231,7 @@ describe("review regressions: navigation and candidate retention", () => {
     });
     assert.equal(result.attempts[0].valid, false);
     assert.ok(result.attempts[0].report);
+    assert.ok(Number.isFinite(result.attempts[0].score), "Rejected candidate must be genuinely scored.");
     assert.equal(result.source, null);
     assert.equal(result.level, null);
     assert.equal(result.report, null);
