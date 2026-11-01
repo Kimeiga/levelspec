@@ -308,6 +308,14 @@ function evaluateView(level: CompiledLevel, reference: ReferenceView,
     verified, passed: verified && issues.length === 0, issues };
 }
 
+/** Closed-state navigation is mandatory for dynamic geometry and must never be ignored. */
+function sealedNavigationIssue(level: CompiledLevel, status: boolean | null): string | null {
+  if (status === false) return "Sealed navigation failed.";
+  if (status !== true && level.surfaces.some(surface => surface.dynamic))
+    return "Sealed navigation has not been verified for dynamic geometry.";
+  return null;
+}
+
 export function evaluateReconstruction(
   level: CompiledLevel,
   evidence: PhotoEvidence[],
@@ -327,16 +335,13 @@ export function evaluateReconstruction(
   const navigationPassed = (options.navigationPassed ?? (level.navigation?.passed ?? false)) &&
     level.navigation?.passed !== false;
   const sealedNavigationPassed = options.sealedNavigationPassed ?? null;
-  const sealedRequired = level.surfaces.some(surface => surface.dynamic);
   const verifiedViews = views.filter(v => v.verified).length;
   const requiredViews = thresholds.minimumVerifiedViews ?? Math.min(2, references.length);
   const issues = views.flatMap(v => v.issues.map(issue => `${v.referenceId}: ${issue}`));
   if (!geometryPassed) issues.push("Geometry compilation contains errors.");
   if (!navigationPassed) issues.push("Walkable navigation has not passed validation.");
-  if (sealedNavigationPassed === false)
-    issues.push("Sealed navigation failed.");
-  else if (sealedRequired && sealedNavigationPassed !== true)
-    issues.push("Sealed navigation has not been verified for dynamic geometry.");
+  const sealedIssue = sealedNavigationIssue(level, sealedNavigationPassed);
+  if (sealedIssue) issues.push(sealedIssue);
   if (verifiedViews < Math.max(1, requiredViews))
     issues.push(`Only ${verifiedViews} verified view(s); ${Math.max(1, requiredViews)} required.`);
   return { views, verifiedViews, navigationPassed,

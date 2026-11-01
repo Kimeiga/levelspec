@@ -28,16 +28,21 @@ npm run reconstruct -- \
   --out generated/reconstruction
 ```
 
-The first proposal and subsequent revisions go through the **same compiler,
-runtime navigation checks and multi-view evaluator**. Each iteration writes a
-complete SVGX candidate and an evaluation report. The best geometry- and navigation-valid candidate
-appears in `best.level.svgx`; `result.json` separately records whether its
-visual evidence met the acceptance criteria. Invalid candidates remain in the
-iteration files for diagnosis and AI revision. If none passes geometry and
-both applicable navigation states, no best candidate or game export is written. When the best candidate passes geometry and navigation, the CLI also
-writes `best.glb` (visible geometry), `best-collision.glb` (physics proxy) and
-`best.runtime.json` (navigation, markers and source ownership). These are
-portable game assets, not a standalone game. The process exits nonzero if the acceptance gates fail.
+The first proposal and subsequent revisions pass through the same compiler,
+runtime navigation checks, and multi-view evaluator. Each iteration saves its
+SVGX source and diagnostic report. A **successful** run always outputs the
+candidate that actually satisfied acceptance, even when an earlier rejected
+candidate had a numerically better score. When no candidate is accepted,
+`best.level.svgx` may contain the best geometry- and navigation-valid draft;
+`result.json` states clearly that acceptance failed. Invalid drafts stay in
+the iteration files.
+
+When a valid best candidate exists, the CLI also writes `best.glb`,
+`best-collision.glb`, and `best.runtime.json`. They are portable game
+assets, not a hosted game. Each run first deletes only previous generated
+results in its output directory, including stale exports and iteration files.
+Unrelated user files are preserved. If no valid candidate exists, no best
+source or GLB is emitted. The command exits nonzero if acceptance fails.
 
 To evaluate a candidate without a model or API key:
 
@@ -58,9 +63,11 @@ workbench to use the existing registered image overlay and walkability inspector
 
 Photos alone produce a **diagnostic** edge-distance metric. It is not an
 acceptance gate because tile grout, shadows, reflections and pipes may dominate
-the edges. To certify a reconstruction, supply independent, human-reviewed
-landmarks, masks, silhouette segmentation, or structural strokes in a trusted
-`--evidence` manifest. These must be independently supplied by the caller,
+the edges. To certify a reconstruction, supply a human-reviewed
+**silhouette or structural-edge stroke** in a trusted `--evidence` manifest.
+Landmarks help calibrate the camera and detect projection errors but cannot
+prove the compiled geometry matches the building. Exclusion masks likewise
+do not count as positive reconstruction evidence. These must be independently supplied by the caller,
 never generated alongside the SVGX or reverse-engineered from its projections.
 Acceptance uses the original cropped image dimensions from `--image`, or
 `imageDimensions: [width, height]` in the independent manifest when image
@@ -119,7 +126,10 @@ Example `annotations.json`:
   normalized, photo-observed 2D locations. Source SVGX landmarks are ignored
   for acceptance even when they yield zero reprojection error. Independently
   validate image correspondence and the assumed physical scale.
-- A photo view cannot be certified by image-edge similarity alone.
+- A photo view cannot be certified by natural-photo edge similarity, landmark
+  reprojection, or camera calibration alone. A structural stroke must have
+  multiple distinct points and cannot consist of a single coincident pixel.
+  Certified views require structural correspondence to the compiled mesh.
 - At least two independently annotated views are required when the candidate
   references multiple views, by default.
 
@@ -129,6 +139,8 @@ The evaluation is not a single unqualified "photorealism" score.
 Valid compilation, ordinary open-state navigation, and closed-state navigation
 when dynamic colliders exist are separate required conditions. A runtime
 report saying `passed` is not sufficient if its `sealed` report fails.
+The exported evaluator also fails direct calls with `sealedNavigationPassed: false`,
+or with missing sealed validation when dynamic geometry is present.
 
 ## Architectural authoring
 
@@ -166,7 +178,9 @@ use explicit floor/wall topology, not `building(... usage: "scenery")`
 or a giant solid-box prop. Irregular floors use polygon boundaries; place
 individual stair flights and landings rather than forcing all buildings into
 a repeated switchback template. Wall creation and floor polygon construction
-reuse shared vertices and edges regardless of authoring order.
+reuse shared vertices and edges regardless of authoring order **within the same
+authoring group**. Independent groups, even on one layer with coincident
+coordinates, never share vertex or edge IDs implicitly.
 
 ## Implementation contracts
 
