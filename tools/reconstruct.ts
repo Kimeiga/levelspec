@@ -197,13 +197,20 @@ async function recordResult(out: string, result: ReconstructionLoopResult) {
   await writePortableExports(out, result);
   console.log(`Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`);
 }
+async function readSourceAndResetOutput(args: Args): Promise<string> {
+  try {
+    // Allow an earlier best.level.svgx to serve as the next run's input.
+    return args.source ? await readFile(args.source, "utf8") : "";
+  } finally {
+    // Even a failed input read must not leave previous success artifacts behind.
+    await prepareRunOutput(args.out);
+  }
+}
 async function execute(args: Args) {
-  // Invalidate previous successful outputs before the current run can fail.
-  await prepareRunOutput(args.out);
+  const source = await readSourceAndResetOutput(args);
   const { inputs, evidence } = await loadPhotos(args.images);
   const thresholds = await attachAnnotations(args.evidence, evidence);
   const revise = await resolveReviser(args, inputs);
-  const source = args.source ? await readFile(args.source, "utf8") : "";
   const result = await runReconstruction(source, evidence, revise, {
     maxRevisions: args.model ? args.revisions : 0, thresholds,
     onAttempt: attempt => recordAttempt(args.out, attempt),

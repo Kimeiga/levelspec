@@ -20,6 +20,24 @@ describe("reconstruction output hygiene", () => {
       await rm(root, { recursive: true, force: true });
     }
   });
+  it("reads the previous best source before clearing its own output directory", async () => {
+    const root = await mkdtemp(join(tmpdir(), "levelspec-inplace-"));
+    try {
+      const oldSource = join(root, "best.level.svgx");
+      await writeFile(oldSource, "<invalid>");
+      await writeFile(join(root, "best.glb"), "obsolete");
+      const run = spawnSync(process.execPath, [
+        "tools/reconstruct.ts", "--source", oldSource, "--out", root,
+      ], { cwd: process.cwd(), encoding: "utf8", timeout: 30000 });
+      assert.equal(run.status, 1, run.stderr || run.stdout);
+      assert.ok(!run.stderr.includes("ENOENT"), "Input must be captured before cleanup.");
+      assert.ok((await readdir(root)).includes("iteration-00.level.svgx"));
+      assert.equal(await readFile(join(root, "iteration-00.level.svgx"), "utf8"), "<invalid>");
+      assert.equal(JSON.parse(await readFile(join(root, "result.json"), "utf8")).accepted, false);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
   it("does not leave a previous successful export after a failed CLI run", async () => {
     const root = await mkdtemp(join(tmpdir(), "levelspec-stale-"));
     const out = join(root, "output"), source = join(root, "bad.level.svgx");
