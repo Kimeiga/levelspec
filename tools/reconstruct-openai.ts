@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { PNG } from "pngjs";
 import { compile, parseLevelSvgx, renderReference } from "../src/vector/index.ts";
 import type { ReconstructionReviser, RevisionRequest } from "../src/reconstruction/loop.ts";
+import type { ReconstructionViewReport } from "../src/reconstruction/evaluate.ts";
 
 export interface InputPhoto {
   referenceId: string;
@@ -49,8 +50,7 @@ interface ResponsePayload {
   status?: string;
   output?: Array<{ type?: string; content?: Array<{ type?: string; text?: string; refusal?: string }> }>;
 }
-function viewFeedback(view: NonNullable<RevisionRequest["lastAttempt"]>["report"] extends infer T
-  ? NonNullable<T>["views"][number] : never) {
+function viewFeedback(view: ReconstructionViewReport) {
   return { referenceId: view.referenceId, landmarkRmsPixels: view.landmarks.rmsPixels,
     silhouetteIoU: view.silhouette?.iou ?? null,
     annotatedStrokeErrorPixels: view.strokeErrorPixels,
