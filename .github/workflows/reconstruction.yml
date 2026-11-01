@@ -27,5 +27,5 @@ jobs:
       - run: npm ci
       - run: npm run check
       - name: Reference and reconstruction regression
-        run: node --test tests/vector-reference-fit.test.ts tests/vector-reconstruction.test.ts
+        run: node --test tests/vector-reference-fit.test.ts tests/vector-reconstruction.test.ts tests/vector-reconstruction-openai.test.ts
       - run: npm run build:viewer
