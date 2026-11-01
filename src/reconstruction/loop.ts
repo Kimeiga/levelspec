@@ -33,7 +33,7 @@ export interface ReconstructionLoopOptions {
 export interface ReconstructionLoopResult {
   accepted: boolean;
   status: "accepted" | "exhausted" | "stopped" | "aborted";
-  /** Lowest-penalty compiled candidate, not necessarily the last proposed one. */
+  /** Lowest-penalty geometry- and navigation-valid candidate, or null. */
   source: string | null;
   level: CompiledLevel | null;
   report: ReconstructionReport | null;
@@ -83,13 +83,24 @@ async function inspectSource(source: string, evidence: PhotoEvidence[],
       signal: options.signal,
     });
     const runtime = await validateForRuntime(level, { sealed: true });
+    const dynamicSurfaces = level.surfaces.some(surface => surface.dynamic);
+    const openPassed = runtime.passed && runtime.navigation?.passed === true;
+    const sealedPassed = !dynamicSurfaces || runtime.sealed?.passed === true;
     const report = evaluateReconstruction(level, evidence, {
       maxDimension: options.evaluationDimension,
-      thresholds: options.thresholds, navigationPassed: runtime.passed,
+      thresholds: options.thresholds,
+      navigationPassed: openPassed && sealedPassed,
+      sealedNavigationPassed: dynamicSurfaces ? sealedPassed : null,
     });
+    const sealedDiagnostics = dynamicSurfaces && !sealedPassed ?
+      (runtime.sealed?.diagnostics.filter(d => d.severity === "error")
+        .map(d => `SEALED ${d.code}: ${d.message}`) ?? []) : [];
+    if (dynamicSurfaces && !sealedPassed && !sealedDiagnostics.length)
+      sealedDiagnostics.push("SEALED_NAVIGATION: Closed-state navigation did not pass.");
     const diagnostics = [
       ...level.diagnostics.filter(d => d.severity === "error").map(d => `${d.code}: ${d.message}`),
       ...runtime.diagnostics.filter(d => d.severity === "error").map(d => `${d.code}: ${d.message}`),
+      ...sealedDiagnostics,
       ...report.issues,
     ];
     return { attempt: buildAttempt(iteration, source, report, diagnostics), level };
@@ -106,7 +117,7 @@ interface BestCandidate {
 }
 function keepBetter(best: BestCandidate, result: { attempt: ReconstructionAttempt; level: CompiledLevel | null }) {
   const { attempt, level } = result;
-  if (attempt.report && level && attempt.score < best.score) {
+  if (attempt.valid && attempt.report && level && attempt.score < best.score) {
     best.source = attempt.source;
     best.level = level;
     best.report = attempt.report;
