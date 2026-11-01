@@ -1,6 +1,5 @@
 /** Intent-level architectural helpers. They emit ordinary SVGX topology, not opaque meshes. */
 import type { V2, V3, Edge, Opening, Region } from "./types.ts";
-import { coordinateKey } from "./precision.ts";
 import type { AuthoringGroup } from "./authoring.ts";
 
 export interface WallOptions {
@@ -27,40 +26,18 @@ export function addWall(group: AuthoringGroup, id: string, options: WallOptions)
   positive("Wall height", options.height);
   if (options.thickness !== undefined) positive("Wall thickness", options.thickness);
   if (!options.material) throw new Error("A wall requires a material.");
-  const full = sourceId(group, id);
-  if (group.layer.edges.some(e => e.id === full) ||
-      group.layer.vertices.some(v => v.id === full) ||
-      group.layer.regions.some(r => r.id === full))
-    throw new Error(`Duplicate architectural object ${full}.`);
   const a = group.world(options.from), b = group.world(options.to);
   if (Math.abs(a[2] - b[2]) > 1e-6)
     throw new Error("An opening-bearing wall needs a horizontal base; split sloped walls.");
   if (Math.hypot(a[0] - b[0], a[1] - b[1]) < 0.01)
     throw new Error("A wall must span at least 1 cm horizontally.");
-  const vertex = (position: V3, suffix: string) => {
-    const key = coordinateKey(position);
-    const existing = group.layer.vertices.find(v => coordinateKey([v.x, v.y, v.z]) === key);
-    if (existing) return existing.id;
-    const name = `${full}/${suffix}`;
-    group.layer.vertices.push({ id: name, x: position[0], y: position[1], z: position[2] });
-    return name;
-  };
-  const from = vertex(a, "a"), to = vertex(b, "b");
-  const edge = group.layer.edges.find(e =>
-    (e.from === from && e.to === to) || (e.from === to && e.to === from));
-  if (edge) {
-    if (edge.kind !== "open") throw new Error(`Edge ${edge.id} is already a wall.`);
-    edge.kind = "wall";
-    edge.height = options.height;
-    edge.material = options.material;
-    edge.thickness = options.thickness;
-    return edge;
-  }
-  const created: Edge = { id: full, from, to, kind: "wall",
-    height: options.height, material: options.material,
-    thickness: options.thickness, openings: [] };
-  group.layer.edges.push(created);
-  return created;
+  const edge = group.edge(id, options.from, options.to);
+  if (edge.kind !== "open") throw new Error(`Edge ${edge.id} is already a wall.`);
+  edge.kind = "wall";
+  edge.height = options.height;
+  edge.material = options.material;
+  edge.thickness = options.thickness;
+  return edge;
 }
 
 export interface CircularOpeningOptions {
@@ -147,8 +124,14 @@ export function addStoreyShell(group: AuthoringGroup, id: string, options: Store
   const walls = floor.boundary.map(edgeRef => {
     const edgeId = edgeRef.replace(/^-/, "");
     const edge = group.layer.edges.find(e => e.id === edgeId);
-    if (!edge || edge.kind !== "open")
-      throw new Error(`Storey wall boundary ${edgeId} is already occupied.`);
+    if (!edge) throw new Error(`Missing storey boundary ${edgeId}.`);
+    if (edge.kind === "wall") {
+      if (edge.height !== options.height || edge.material !== options.material ||
+          (edge.thickness ?? undefined) !== (options.wallThickness ?? undefined))
+        throw new Error(`Existing storey wall ${edgeId} has conflicting dimensions or material.`);
+      return edge;
+    }
+    if (edge.kind !== "open") throw new Error(`Storey wall boundary ${edgeId} is already occupied.`);
     edge.kind = "wall";
     edge.height = options.height;
     edge.material = options.material;
