@@ -33,3 +33,5 @@ export * from "./props.ts";
 export * from "./glb.ts";
 export * from "./authoring.ts";
 export { collisionMesh } from "./collision.ts";
+
+export * from "./architecture.ts";
