@@ -22,6 +22,8 @@ export interface PhotoEvidence {
   masks?: ReferenceMask[];
   /** If provided, the candidate must identify this exact cropped image. */
   imageFilename?: string;
+  /** Original crop size, independently recorded when photo pixels are omitted. */
+  imageDimensions?: [number, number];
   /** Optional original photo (not a texture or a synthetic rendering). */
   photo?: PhotoPixels;
   /** Optional binary foreground segmentation, width*height of the photo. */
@@ -230,14 +232,28 @@ function assertReferenceFilename(reference: ReferenceView, filename?: string) {
   if (filename && filename !== reference.image)
     throw new Error(`Reference ${reference.id} image name differs from independently supplied photo.`);
 }
-function assertReferencePhotoDimensions(reference: ReferenceView, photo?: PhotoPixels) {
-  if (!photo) return;
-  if (photo.width !== reference.width || photo.height !== reference.height)
+function hasIndependentObservation(annotation: PhotoEvidence) {
+  return Boolean(annotation.landmarks?.length || annotation.strokes?.length || annotation.silhouette);
+}
+function independentlyMeasuredSize(annotation: PhotoEvidence): [number, number] | null {
+  if (annotation.photo) return [annotation.photo.width, annotation.photo.height];
+  return annotation.imageDimensions ?? null;
+}
+function assertReferencePhotoDimensions(reference: ReferenceView, annotation?: PhotoEvidence) {
+  if (!annotation) return;
+  const measured = independentlyMeasuredSize(annotation);
+  if (!measured) {
+    if (hasIndependentObservation(annotation))
+      throw new Error(`Reference ${reference.id} needs independently supplied image dimensions for acceptance.`);
+    return;
+  }
+  if (measured[0] !== reference.width || measured[1] !== reference.height)
     throw new Error(`Reference ${reference.id} dimensions differ from independently supplied photo.`);
 }
+
 function trustedReference(reference: ReferenceView, annotation?: PhotoEvidence): ReferenceView {
   assertReferenceFilename(reference, annotation?.imageFilename);
-  assertReferencePhotoDimensions(reference, annotation?.photo);
+  assertReferencePhotoDimensions(reference, annotation);
   // The model cannot manufacture acceptance observations or exclusion masks.
   return { ...reference, landmarks: annotation?.landmarks ?? [], masks: annotation?.masks ?? [] };
 }
