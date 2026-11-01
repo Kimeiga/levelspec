@@ -97,7 +97,7 @@ async function loadPhoto(value: string, index: number) {
   const input: InputPhoto = { referenceId, filename: basename(path),
     width: decoded.width, height: decoded.height,
     dataUrl: `data:${decoded.mime};base64,${bytes.toString("base64")}` };
-  const evidence: PhotoEvidence = { referenceId, imageFilename: filename, photo: {
+  const evidence: PhotoEvidence = { referenceId, imageFilename: basename(path), photo: {
     width: decoded.width, height: decoded.height, rgba: decoded.rgba,
   } };
   return { input, evidence };
