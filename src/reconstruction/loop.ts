@@ -124,6 +124,11 @@ function keepBetter(best: BestCandidate, result: { attempt: ReconstructionAttemp
     best.score = attempt.score;
   }
 }
+async function initialCandidate(source: string, reviser: ReconstructionReviser) {
+  if (source.trim()) return source;
+  return (await reviser({ iteration: 0, previousSource: "", lastAttempt: null, attempts: [] })) ?? "";
+}
+
 /**
  * The model proposes geometry, but only compiler, navigation, and independent
  * photographic evidence can accept it. No model provider is required here.
@@ -137,7 +142,13 @@ export async function runReconstruction(
   const { revisions, limit } = validateLimits(options);
   const attempts: ReconstructionAttempt[] = [];
   const best: BestCandidate = { source: null, level: null, report: null, score: Infinity };
-  let source = initialSource;
+  if (options.signal?.aborted)
+    return { accepted: false, status: "aborted", source: null, level: null,
+      report: null, attempts: [] };
+  let source = await initialCandidate(initialSource, reviser);
+  if (!source.trim())
+    return { accepted: false, status: "stopped", source: null, level: null,
+      report: null, attempts };
   let status: ReconstructionLoopResult["status"] = "exhausted";
   for (let i = 0; i <= revisions; i++) {
     if (options.signal?.aborted) { status = "aborted"; break; }
