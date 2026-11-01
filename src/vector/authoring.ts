@@ -1,5 +1,5 @@
 /** Reusable intent-level operations. Output is ordinary, independently validated SVGX. */
-import { createDocument, type LevelDocument, type Layer, type Region, type V3, type Material } from "./types.ts";
+import { createDocument, type LevelDocument, type Layer, type Region, type V3, type Material, type Edge } from "./types.ts";
 import { coordinateKey, snapCoordinate } from "./precision.ts";
 import { rotateXYZ, type SceneProp } from "./props.ts";
 
@@ -41,7 +41,7 @@ export class SceneBuilder {
 }
 export class AuthoringGroup {
   private vertices = new Map<string, string>();
-  private edges = new Map<string, { id: string; from: string; to: string }>();
+  private edges = new Map<string, Edge>();
   private operations = new Set<string>();
   readonly scene: SceneBuilder;
   readonly id: string;
@@ -87,28 +87,51 @@ export class AuthoringGroup {
     return this.cylinder(id, { position: from, size: [diameter,diameter,length], material, collision,
       rotation: [0, Math.atan2(Math.hypot(x,y),z)*180/Math.PI, Math.atan2(y,x)*180/Math.PI], segments: 12 });
   }
+  /** One coordinate registry for walls and polygons, regardless of construction order. */
+  private vertexAt(position: V3, id: string): string {
+    const key = coordinateKey(position);
+    const existingId = this.vertices.get(key);
+    if (existingId) return existingId;
+    const existing = this.layer.vertices.find(v => coordinateKey([v.x, v.y, v.z]) === key);
+    if (existing) {
+      this.vertices.set(key, existing.id);
+      return existing.id;
+    }
+    this.layer.vertices.push({ id, x: position[0], y: position[1], z: position[2] });
+    this.vertices.set(key, id);
+    return id;
+  }
+  private edgeAt(from: string, to: string, id: string): Edge {
+    const key = [from, to].sort().join("|");
+    const existing = this.edges.get(key) ??
+      this.layer.edges.find(edge => (edge.from === from && edge.to === to) ||
+        (edge.from === to && edge.to === from));
+    if (existing) {
+      this.edges.set(key, existing);
+      return existing;
+    }
+    const edge: Edge = { id, from, to, kind: "open", openings: [] };
+    this.edges.set(key, edge);
+    this.layer.edges.push(edge);
+    return edge;
+  }
+  /** An edge shares vertices and boundaries with floor polygons in either authoring order. */
+  edge(id: string, from: V3, to: V3): Edge {
+    const full = this.name(id);
+    const a = this.vertexAt(this.world(from), `${full}/v0`);
+    const b = this.vertexAt(this.world(to), `${full}/v1`);
+    if (a === b) throw new Error("An edge requires two different endpoints.");
+    return this.edgeAt(a, b, full);
+  }
   /** This explicit assembly owns its shared boundaries; the compiler never welds unrelated groups. */
   polygon(id: string, points: V3[], options: Partial<Pick<Region, "fill" | "thickness" | "material" | "rise" | "underside">> = {}) {
     if (points.length < 3) throw new Error("A floor polygon needs at least three vertices.");
     const full = this.name(id);
-    const ids = points.map((point,i) => {
-      const world = this.world(point), key = coordinateKey(world);
-      let vertex = this.vertices.get(key);
-      if (!vertex) {
-        vertex = `${full}/v${i}`;
-        this.vertices.set(key,vertex);
-        this.layer.vertices.push({ id: vertex, x: world[0], y: world[1], z: world[2] });
-      }
-      return vertex;
-    });
-    const boundary = ids.map((from,i) => {
-      const to = ids[(i+1)%ids.length], key = [from,to].sort().join("|");
-      let edge = this.edges.get(key);
-      if (!edge) {
-        edge = { id: `${full}/e${i}`, from, to };
-        this.edges.set(key,edge);
-        this.layer.edges.push({ ...edge, kind: "open", openings: [] });
-      }
+    const ids = points.map((point, i) =>
+      this.vertexAt(this.world(point), `${full}/v${i}`));
+    const boundary = ids.map((from, i) => {
+      const to = ids[(i + 1) % ids.length];
+      const edge = this.edgeAt(from, to, `${full}/e${i}`);
       return edge.from === from ? edge.id : `-${edge.id}`;
     });
     const region: Region = { id: full, fill: "floor", boundary, holes: [], interior: [], creases: [], ...options };
