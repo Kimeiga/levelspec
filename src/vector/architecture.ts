@@ -77,6 +77,13 @@ export interface CircularOpeningOptions {
  * Each slice is wholly inside the circle, so a wall never loses material
  * outside the specified radius. This is geometry/collision, not a dark decal.
  */
+function checkOpeningConflicts(wall: Edge, slices: Opening[]) {
+  for (const slice of slices)
+    if (wall.openings.some(other =>
+      slice.start < other.end - 1e-6 && slice.end > other.start + 1e-6))
+      throw new Error("Circular opening overlaps another opening in the wall.");
+}
+
 export function addCircularOpening(
   group: AuthoringGroup, wall: Edge, id: string, options: CircularOpeningOptions,
 ): Opening[] {
@@ -113,10 +120,7 @@ export function addCircularOpening(
     };
     result.push(opening);
   }
-  for (const opening of result) {
-    if (wall.openings.some(o => opening.start < o.end - 1e-6 && opening.end > o.start + 1e-6))
-      throw new Error("Circular opening overlaps another opening in the wall.");
-  }
+  checkOpeningConflicts(wall, result);
   wall.openings.push(...result);
   return result;
 }
