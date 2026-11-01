@@ -43,16 +43,79 @@ function score(report: ReconstructionReport) {
   const perView = report.views.reduce((sum, view) => sum +
     (view.silhouette ? (1 - view.silhouette.iou) * 100 : 0) +
     (view.strokeErrorPixels ?? 0) +
+    (view.photoEdgeErrorPixels ?? 0) / 4 +
     (view.landmarks.rmsPixels ?? 0) / 4, 0);
   return perView + report.issues.length * 100 +
     (report.geometryPassed ? 0 : 1000) +
     (report.navigationPassed ? 0 : 1000);
 }
-
+function validateLimits(options: ReconstructionLoopOptions) {
+  const revisions = options.maxRevisions ?? 4, limit = options.maxSourceCharacters ?? 2_000_000;
+  if (!Number.isInteger(revisions) || revisions < 0 || revisions > 30)
+    throw new Error("maxRevisions must be an integer from 0 to 30.");
+  if (!Number.isInteger(limit) || limit < 1000 || limit > 10_000_000)
+    throw new Error("maxSourceCharacters must be between 1000 and 10000000.");
+  return { revisions, limit };
+}
+function invalidAttempt(iteration: number, source: string, message: string): ReconstructionAttempt {
+  return { iteration, source, valid: false, accepted: false,
+    report: null, diagnostics: [message], score: Infinity };
+}
+function buildAttempt(iteration: number, source: string,
+  report: ReconstructionReport, diagnostics: string[]): ReconstructionAttempt {
+  const valid = report.geometryPassed && report.navigationPassed;
+  return { iteration, source, valid, report, diagnostics,
+    accepted: report.passed && diagnostics.length === 0, score: score(report) };
+}
+async function inspectSource(source: string, evidence: PhotoEvidence[],
+  options: ReconstructionLoopOptions, iteration: number, limit: number):
+  Promise<{ attempt: ReconstructionAttempt; level: CompiledLevel | null }> {
+  if (source.length > limit) return {
+    attempt: invalidAttempt(iteration, source,
+      `SVGX exceeds source character budget (${source.length} > ${limit}).`),
+    level: null,
+  };
+  try {
+    const document = parseLevelSvgx(source);
+    const level = await compile(document, {
+      floorGaps: "error", surfaceContacts: "error",
+      navigation: { sealed: true, signal: options.signal },
+      signal: options.signal,
+    });
+    const runtime = await validateForRuntime(level, { sealed: true });
+    const report = evaluateReconstruction(level, evidence, {
+      maxDimension: options.evaluationDimension,
+      thresholds: options.thresholds, navigationPassed: runtime.passed,
+    });
+    const diagnostics = [
+      ...level.diagnostics.filter(d => d.severity === "error").map(d => `${d.code}: ${d.message}`),
+      ...runtime.diagnostics.filter(d => d.severity === "error").map(d => `${d.code}: ${d.message}`),
+      ...report.issues,
+    ];
+    return { attempt: buildAttempt(iteration, source, report, diagnostics), level };
+  } catch (error) {
+    return { attempt: invalidAttempt(iteration, source,
+      error instanceof Error ? error.message : String(error)), level: null };
+  }
+}
+interface BestCandidate {
+  source: string | null;
+  level: CompiledLevel | null;
+  report: ReconstructionReport | null;
+  score: number;
+}
+function keepBetter(best: BestCandidate, result: { attempt: ReconstructionAttempt; level: CompiledLevel | null }) {
+  const { attempt, level } = result;
+  if (attempt.report && level && attempt.score < best.score) {
+    best.source = attempt.source;
+    best.level = level;
+    best.report = attempt.report;
+    best.score = attempt.score;
+  }
+}
 /**
- * Uses strict compiler and traversal checks. Invalid proposals are sent back
- * to the reviser as diagnostics rather than silently corrected by the compiler.
- * No AI/model/API request is made by this module.
+ * The model proposes geometry, but only compiler, navigation, and independent
+ * photographic evidence can accept it. No model provider is required here.
  */
 export async function runReconstruction(
   initialSource: string,
@@ -60,72 +123,26 @@ export async function runReconstruction(
   reviser: ReconstructionReviser,
   options: ReconstructionLoopOptions = {},
 ): Promise<ReconstructionLoopResult> {
-  const revisions = options.maxRevisions ?? 4;
-  if (!Number.isInteger(revisions) || revisions < 0 || revisions > 30)
-    throw new Error("maxRevisions must be an integer from 0 to 30.");
-  const limit = options.maxSourceCharacters ?? 2_000_000;
-  if (!Number.isInteger(limit) || limit < 1000 || limit > 10_000_000)
-    throw new Error("maxSourceCharacters must be between 1000 and 10000000.");
+  const { revisions, limit } = validateLimits(options);
   const attempts: ReconstructionAttempt[] = [];
-  let source = initialSource, bestSource: string | null = null,
-    bestLevel: CompiledLevel | null = null, bestReport: ReconstructionReport | null = null,
-    bestScore = Infinity;
+  const best: BestCandidate = { source: null, level: null, report: null, score: Infinity };
+  let source = initialSource;
   let status: ReconstructionLoopResult["status"] = "exhausted";
   for (let i = 0; i <= revisions; i++) {
     if (options.signal?.aborted) { status = "aborted"; break; }
-    if (!source.trim()) {
-      if (i === revisions) { status = "stopped"; break; }
-      const next = await reviser({ iteration: i, previousSource: source,
-        lastAttempt: attempts.at(-1) ?? null, attempts: [...attempts] });
-      if (!next || next === source) { status = "stopped"; break; }
-      source = next;
-      continue;
+    if (source.trim()) {
+      const result = await inspectSource(source, evidence, options, i, limit);
+      attempts.push(result.attempt);
+      await options.onAttempt?.(result.attempt);
+      keepBetter(best, result);
+      if (result.attempt.accepted) { status = "accepted"; break; }
     }
-    let report: ReconstructionReport | null = null, level: CompiledLevel | null = null;
-    const diagnostics: string[] = [];
-    if (source.length > limit)
-      diagnostics.push(`SVGX exceeds source character budget (${source.length} > ${limit}).`);
-    else {
-      try {
-        const document = parseLevelSvgx(source);
-        level = await compile(document, {
-          floorGaps: "error", surfaceContacts: "error",
-          navigation: { sealed: true, signal: options.signal },
-          signal: options.signal,
-        });
-        for (const diagnostic of level.diagnostics.filter(d => d.severity === "error"))
-          diagnostics.push(`${diagnostic.code}: ${diagnostic.message}`);
-        const runtime = await validateForRuntime(level, { sealed: true });
-        for (const diagnostic of runtime.diagnostics.filter(d => d.severity === "error"))
-          diagnostics.push(`${diagnostic.code}: ${diagnostic.message}`);
-        report = evaluateReconstruction(level, evidence, {
-          maxDimension: options.evaluationDimension,
-          thresholds: options.thresholds, navigationPassed: runtime.passed,
-        });
-        diagnostics.push(...report.issues);
-      } catch (error) {
-        if (options.signal?.aborted) { status = "aborted"; break; }
-        diagnostics.push(error instanceof Error ? error.message : String(error));
-      }
-    }
-    const currentScore = report ? score(report) : Infinity;
-    const attempt: ReconstructionAttempt = {
-      iteration: i, source, report, diagnostics,
-      valid: Boolean(report?.geometryPassed && report.navigationPassed),
-      accepted: Boolean(report?.passed && !diagnostics.length), score: currentScore,
-    };
-    attempts.push(attempt);
-    await options.onAttempt?.(attempt);
-    if (report && level && currentScore < bestScore) {
-      bestSource = source; bestReport = report; bestLevel = level; bestScore = currentScore;
-    }
-    if (attempt.accepted) { status = "accepted"; break; }
     if (i === revisions) break;
     const next = await reviser({ iteration: i + 1, previousSource: source,
-      lastAttempt: attempt, attempts: [...attempts] });
+      lastAttempt: attempts.at(-1) ?? null, attempts: [...attempts] });
     if (!next || next === source) { status = "stopped"; break; }
     source = next;
   }
   return { accepted: status === "accepted", status,
-    source: bestSource, level: bestLevel, report: bestReport, attempts };
+    source: best.source, level: best.level, report: best.report, attempts };
 }
