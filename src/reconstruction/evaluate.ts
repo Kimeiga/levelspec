@@ -1,6 +1,6 @@
 /** Evidence-based comparison of compiled LevelSpec geometry with reference images. */
 import type { CompiledLevel, V2 } from "../vector/types.ts";
-import type { ReferenceView } from "../vector/reference.ts";
+import type { ReferenceView, ReferenceLandmark, ReferenceMask } from "../vector/reference.ts";
 import { compareReference, pointInMask } from "../vector/reference.ts";
 import { renderReference } from "../vector/reference-raster.ts";
 
@@ -16,6 +16,12 @@ export interface AnnotatedStroke {
 }
 export interface PhotoEvidence {
   referenceId: string;
+  /** Independently recorded 3D/2D correspondences. SVGX landmarks are untrusted. */
+  landmarks?: ReferenceLandmark[];
+  /** Independently recorded exclusions; do not trust candidate SVGX masks. */
+  masks?: ReferenceMask[];
+  /** If provided, the candidate must identify this exact cropped image. */
+  imageFilename?: string;
   /** Optional original photo (not a texture or a synthetic rendering). */
   photo?: PhotoPixels;
   /** Optional binary foreground segmentation, width*height of the photo. */
@@ -50,6 +56,8 @@ export interface ReconstructionReport {
   views: ReconstructionViewReport[];
   verifiedViews: number;
   navigationPassed: boolean;
+  /** Null means no dynamic surfaces require a separate sealed navigation test. */
+  sealedNavigationPassed: boolean | null;
   geometryPassed: boolean;
   issues: string[];
 }
@@ -212,9 +220,20 @@ function photoDiagnostic(annotation: PhotoEvidence | undefined, field: Float32Ar
     if (edges[i] && !excluded[i]) errors.push(Math.min(64, field[i]));
   return trimmedMean(errors);
 }
-function independentEvidence(landmarks: ReturnType<typeof compareReference>, annotation?: PhotoEvidence) {
+function independentEvidence(landmarks: ReturnType<typeof compareReference>,
+  silhouette: ReconstructionViewReport["silhouette"], strokeDistance: number | null) {
   return (landmarks.compared >= 3 && landmarks.clipped === 0) ||
-    Boolean(annotation?.silhouette) || Boolean(annotation?.strokes?.length);
+    Boolean(silhouette && silhouette.targetPixels > 0 && silhouette.renderedPixels > 0) ||
+    strokeDistance !== null;
+}
+function trustedReference(reference: ReferenceView, annotation?: PhotoEvidence): ReferenceView {
+  if (annotation?.imageFilename && annotation.imageFilename !== reference.image)
+    throw new Error(`Reference ${reference.id} image name differs from independently supplied photo.`);
+  if (annotation?.photo && (annotation.photo.width !== reference.width ||
+      annotation.photo.height !== reference.height))
+    throw new Error(`Reference ${reference.id} dimensions differ from independently supplied photo.`);
+  // Only the author-independent observations can establish a photographic fit.
+  return { ...reference, landmarks: annotation?.landmarks ?? [], masks: annotation?.masks ?? [] };
 }
 function landmarkError(landmarks: ReturnType<typeof compareReference>, limit: number) {
   if (landmarks.compared > 0 && (landmarks.rmsPixels ?? Infinity) > limit)
@@ -246,15 +265,16 @@ function viewIssues(verified: boolean, landmarks: ReturnType<typeof compareRefer
 function evaluateView(level: CompiledLevel, reference: ReferenceView,
   annotation: PhotoEvidence | undefined, maxDimension: number,
   thresholds: ReconstructionThresholds): ReconstructionViewReport {
+  const trusted = trustedReference(reference, annotation);
   const [width, height] = resizedDimensions(reference, maxDimension);
-  const landmarks = compareReference(reference);
-  const verified = independentEvidence(landmarks, annotation);
+  const landmarks = compareReference(trusted);
   const render = renderReference(level, reference, { width, height });
-  const excluded = excludeMask(reference, width, height);
+  const excluded = excludeMask(trusted, width, height);
   const field = distanceField(visibleEdges(render.surfaceIds, render.depth, width, height), width, height);
   const silhouette = annotatedSilhouette(annotation, render.surfaceIds, excluded, width, height);
   const strokeDistance = annotatedStrokeError(annotation, field, excluded, width, height);
   const photoDistance = photoDiagnostic(annotation, field, excluded, width, height);
+  const verified = independentEvidence(landmarks, silhouette, strokeDistance);
   const issues = viewIssues(verified, landmarks, silhouette, strokeDistance, thresholds);
   return { referenceId: reference.id, size: [width, height], landmarks, silhouette,
     strokeErrorPixels: strokeDistance, photoEdgeErrorPixels: photoDistance,
@@ -264,7 +284,8 @@ function evaluateView(level: CompiledLevel, reference: ReferenceView,
 export function evaluateReconstruction(
   level: CompiledLevel,
   evidence: PhotoEvidence[],
-  options: { maxDimension?: number; thresholds?: ReconstructionThresholds; navigationPassed?: boolean } = {},
+  options: { maxDimension?: number; thresholds?: ReconstructionThresholds;
+    navigationPassed?: boolean; sealedNavigationPassed?: boolean | null } = {},
 ): ReconstructionReport {
   const references = level.document.references ?? [];
   const byId = new Map(evidence.map(e => [e.referenceId, e]));
@@ -284,6 +305,7 @@ export function evaluateReconstruction(
   if (!navigationPassed) issues.push("Walkable navigation has not passed validation.");
   if (verifiedViews < Math.max(1, requiredViews))
     issues.push(`Only ${verifiedViews} verified view(s); ${Math.max(1, requiredViews)} required.`);
-  return { views, verifiedViews, navigationPassed, geometryPassed, issues,
+  return { views, verifiedViews, navigationPassed,
+    sealedNavigationPassed: options.sealedNavigationPassed ?? null, geometryPassed, issues,
     passed: issues.length === 0 && views.length > 0 };
 }
