@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** Local photo reconstruction CLI. Originals remain local unless model mode is selected. */
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { basename, dirname, extname, join, resolve } from "node:path";
 import { PNG } from "pngjs";
 import jpeg from "jpeg-js";
@@ -9,6 +9,7 @@ import { runReconstruction, type ReconstructionReviser,
   type ReconstructionAttempt, type ReconstructionLoopResult } from "../src/reconstruction/loop.ts";
 import type { PhotoEvidence, ReconstructionThresholds } from "../src/reconstruction/evaluate.ts";
 import { createOpenAIReviser, type InputPhoto } from "./reconstruct-openai.ts";
+import { prepareRunOutput } from "./reconstruct-output.ts";
 
 interface Args {
   images: string[];
@@ -197,11 +198,12 @@ async function recordResult(out: string, result: ReconstructionLoopResult) {
   console.log(`Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`);
 }
 async function execute(args: Args) {
+  // Invalidate previous successful outputs before the current run can fail.
+  await prepareRunOutput(args.out);
   const { inputs, evidence } = await loadPhotos(args.images);
   const thresholds = await attachAnnotations(args.evidence, evidence);
   const revise = await resolveReviser(args, inputs);
   const source = args.source ? await readFile(args.source, "utf8") : "";
-  await mkdir(args.out, { recursive: true });
   const result = await runReconstruction(source, evidence, revise, {
     maxRevisions: args.model ? args.revisions : 0, thresholds,
     onAttempt: attempt => recordAttempt(args.out, attempt),

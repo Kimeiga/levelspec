@@ -38,7 +38,7 @@ export interface ReconstructionThresholds {
   silhouetteIoU?: number;
   /** Maximum annotated structural-stroke error in evaluation pixels. */
   strokeErrorPixels?: number;
-  /** Number of views with independent landmarks, strokes, or masks. */
+  /** Number of views with independent geometry-linked silhouettes or strokes. */
   minimumVerifiedViews?: number;
 }
 export interface ReconstructionViewReport {
@@ -222,11 +222,16 @@ function photoDiagnostic(annotation: PhotoEvidence | undefined, field: Float32Ar
     if (edges[i] && !excluded[i]) errors.push(Math.min(64, field[i]));
   return trimmedMean(errors);
 }
-function independentEvidence(landmarks: ReturnType<typeof compareReference>,
-  silhouette: ReconstructionViewReport["silhouette"], strokeDistance: number | null) {
-  return (landmarks.compared >= 3 && landmarks.clipped === 0) ||
-    Boolean(silhouette && silhouette.targetPixels > 0 && silhouette.renderedPixels > 0) ||
-    strokeDistance !== null;
+function hasStructuralStroke(annotation?: PhotoEvidence): boolean {
+  return annotation?.strokes?.some(stroke => stroke.points.some((point, i) =>
+    i > 0 && Math.hypot(point[0] - stroke.points[i - 1][0],
+      point[1] - stroke.points[i - 1][1]) > 0.001)) ?? false;
+}
+/** Camera correspondences alone cannot prove any compiled geometry matches a photo. */
+function independentEvidence(silhouette: ReconstructionViewReport["silhouette"],
+  strokeDistance: number | null, annotation?: PhotoEvidence) {
+  return Boolean(silhouette && silhouette.targetPixels > 0 && silhouette.renderedPixels > 0) ||
+    (strokeDistance !== null && hasStructuralStroke(annotation));
 }
 function assertReferenceFilename(reference: ReferenceView, filename?: string) {
   if (filename && filename !== reference.image)
@@ -276,7 +281,7 @@ function viewIssues(verified: boolean, landmarks: ReturnType<typeof compareRefer
   silhouette: ReconstructionViewReport["silhouette"], strokeDistance: number | null,
   limits: ReconstructionThresholds) {
   const reasons = [
-    verified ? null : "No independent landmarks, outline mask, or structural strokes; visual fit is unverified.",
+    verified ? null : "No independent geometry-linked silhouette or structural stroke; visual fit is unverified.",
     landmarks.clipped ? `${landmarks.clipped} landmark(s) lie outside the calibrated view.` : null,
     landmarkError(landmarks, limits.landmarkRmsPixels ?? 8),
     silhouetteError(silhouette, limits.silhouetteIoU ?? 0.8),
@@ -296,7 +301,7 @@ function evaluateView(level: CompiledLevel, reference: ReferenceView,
   const silhouette = annotatedSilhouette(annotation, render.surfaceIds, excluded, width, height);
   const strokeDistance = annotatedStrokeError(annotation, field, excluded, width, height);
   const photoDistance = photoDiagnostic(annotation, field, excluded, width, height);
-  const verified = independentEvidence(landmarks, silhouette, strokeDistance);
+  const verified = independentEvidence(silhouette, strokeDistance, annotation);
   const issues = viewIssues(verified, landmarks, silhouette, strokeDistance, thresholds);
   return { referenceId: reference.id, size: [width, height], landmarks, silhouette,
     strokeErrorPixels: strokeDistance, photoEdgeErrorPixels: photoDistance,
@@ -319,15 +324,22 @@ export function evaluateReconstruction(
   const views = references.map(ref => evaluateView(level, ref, byId.get(ref.id),
     options.maxDimension ?? 512, thresholds));
   const geometryPassed = !level.diagnostics.some(d => d.severity === "error");
-  const navigationPassed = options.navigationPassed ?? (level.navigation?.passed ?? false);
+  const navigationPassed = (options.navigationPassed ?? (level.navigation?.passed ?? false)) &&
+    level.navigation?.passed !== false;
+  const sealedNavigationPassed = options.sealedNavigationPassed ?? null;
+  const sealedRequired = level.surfaces.some(surface => surface.dynamic);
   const verifiedViews = views.filter(v => v.verified).length;
   const requiredViews = thresholds.minimumVerifiedViews ?? Math.min(2, references.length);
   const issues = views.flatMap(v => v.issues.map(issue => `${v.referenceId}: ${issue}`));
   if (!geometryPassed) issues.push("Geometry compilation contains errors.");
   if (!navigationPassed) issues.push("Walkable navigation has not passed validation.");
+  if (sealedNavigationPassed === false)
+    issues.push("Sealed navigation failed.");
+  else if (sealedRequired && sealedNavigationPassed !== true)
+    issues.push("Sealed navigation has not been verified for dynamic geometry.");
   if (verifiedViews < Math.max(1, requiredViews))
     issues.push(`Only ${verifiedViews} verified view(s); ${Math.max(1, requiredViews)} required.`);
   return { views, verifiedViews, navigationPassed,
-    sealedNavigationPassed: options.sealedNavigationPassed ?? null, geometryPassed, issues,
+    sealedNavigationPassed, geometryPassed, issues,
     passed: issues.length === 0 && views.length > 0 };
 }

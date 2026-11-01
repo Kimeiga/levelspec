@@ -33,7 +33,7 @@ export interface ReconstructionLoopOptions {
 export interface ReconstructionLoopResult {
   accepted: boolean;
   status: "accepted" | "exhausted" | "stopped" | "aborted";
-  /** Lowest-penalty geometry- and navigation-valid candidate, or null. */
+  /** Accepted candidate on success; otherwise lowest-scoring valid candidate, or null. */
   source: string | null;
   level: CompiledLevel | null;
   report: ReconstructionReport | null;
@@ -121,15 +121,17 @@ async function inspectSource(source: string, evidence: PhotoEvidence[],
   }
 }
 
-interface BestCandidate {
+export interface BestCandidate {
   source: string | null;
   level: CompiledLevel | null;
   report: ReconstructionReport | null;
   score: number;
 }
-function keepBetter(best: BestCandidate, result: { attempt: ReconstructionAttempt; level: CompiledLevel | null }) {
+/** Accepted candidates supersede lower-scoring rejected candidates. */
+export function keepBetter(best: BestCandidate, result: { attempt: ReconstructionAttempt; level: CompiledLevel | null }) {
   const { attempt, level } = result;
-  if (attempt.valid && attempt.report && level && attempt.score < best.score) {
+  if (attempt.valid && attempt.report && level &&
+      (attempt.accepted || attempt.score < best.score)) {
     best.source = attempt.source;
     best.level = level;
     best.report = attempt.report;

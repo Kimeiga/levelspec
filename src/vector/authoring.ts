@@ -87,25 +87,18 @@ export class AuthoringGroup {
     return this.cylinder(id, { position: from, size: [diameter,diameter,length], material, collision,
       rotation: [0, Math.atan2(Math.hypot(x,y),z)*180/Math.PI, Math.atan2(y,x)*180/Math.PI], segments: 12 });
   }
-  /** One coordinate registry for walls and polygons, regardless of construction order. */
+  /** Vertices are shared only within this authoring group (the intended assembly). */
   private vertexAt(position: V3, id: string): string {
     const key = coordinateKey(position);
     const existingId = this.vertices.get(key);
     if (existingId) return existingId;
-    const existing = this.layer.vertices.find(v => coordinateKey([v.x, v.y, v.z]) === key);
-    if (existing) {
-      this.vertices.set(key, existing.id);
-      return existing.id;
-    }
     this.layer.vertices.push({ id, x: position[0], y: position[1], z: position[2] });
     this.vertices.set(key, id);
     return id;
   }
   private edgeAt(from: string, to: string, id: string): Edge {
     const key = [from, to].sort().join("|");
-    const existing = this.edges.get(key) ??
-      this.layer.edges.find(edge => (edge.from === from && edge.to === to) ||
-        (edge.from === to && edge.to === from));
+    const existing = this.edges.get(key);
     if (existing) {
       this.edges.set(key, existing);
       return existing;
