@@ -5,7 +5,7 @@ import { SceneBuilder, compile, renderReference, serializeLevelSvgx, projectRefe
 import { rayBlocked } from "../src/vector/validate.ts";
 import { addWall, addCircularOpening, addStoreyShell, addStairFlight } from "../src/vector/architecture.ts";
 import { evaluateReconstruction, type PhotoEvidence } from "../src/reconstruction/evaluate.ts";
-import { runReconstruction } from "../src/reconstruction/loop.ts";
+import { runReconstruction, keepBetter, type BestCandidate, type ReconstructionAttempt } from "../src/reconstruction/loop.ts";
 
 function fixture() {
   const scene = new SceneBuilder("reconstruction-test");
@@ -151,8 +151,8 @@ describe("review regressions: independently trusted evidence", () => {
     assert.ok(reported.views.every(view => view.landmarks.compared === 0));
     assert.match(reported.issues.join(" "), /independent|unverified/i);
   });
-  it("accepts externally authored correspondences, and rejects ones that disagree", async () => {
-    const { scene } = fixture();
+  it("uses trusted landmarks to check cameras, but requires actual geometry-linked observations", async () => {
+    const { scene, group } = fixture();
     const level = await compile(scene.document, { navigation: false });
     const evidence: PhotoEvidence[] = (level.document.references ?? []).map(ref => ({
       referenceId: ref.id, imageDimensions: [ref.width, ref.height],
@@ -161,11 +161,24 @@ describe("review regressions: independently trusted evidence", () => {
           id: `trusted-${i}`, position, image: projectReference(ref, position).image!,
         })),
     }));
-    const matched = evaluateReconstruction(level, evidence, { navigationPassed: true, maxDimension: 80 });
+    const cameraOnly = evaluateReconstruction(level, evidence, { navigationPassed: true, maxDimension: 80 });
+    assert.equal(cameraOnly.passed, false);
+    assert.equal(cameraOnly.verifiedViews, 0);
+    assert.ok(cameraOnly.views.every(view => view.landmarks.rmsPixels === 0));
+    // Unrelated extra geometry does not change the self-consistent camera fit.
+    group.box("unrelated", { position: [4, -2, 0], size: [6, 3, 10],
+      material: "default", collision: "none" });
+    const unrelated = await compile(scene.document, { navigation: false });
+    assert.equal(evaluateReconstruction(unrelated, evidence, {
+      navigationPassed: true, maxDimension: 80,
+    }).passed, false);
+    const anchored = silhouetteEvidence(level);
+    for (let i = 0; i < anchored.length; i++) anchored[i].landmarks = evidence[i].landmarks;
+    const matched = evaluateReconstruction(level, anchored, { navigationPassed: true, maxDimension: 80 });
     assert.equal(matched.passed, true, matched.issues.join("\n"));
     assert.equal(matched.verifiedViews, 2);
-    evidence[0].landmarks![0].image = [0, 0];
-    const mismatched = evaluateReconstruction(level, evidence, { navigationPassed: true, maxDimension: 80 });
+    anchored[0].landmarks![0].image = [0, 0];
+    const mismatched = evaluateReconstruction(level, anchored, { navigationPassed: true, maxDimension: 80 });
     assert.equal(mismatched.passed, false);
     assert.match(mismatched.issues.join(" "), /Landmark error/);
   });
@@ -317,5 +330,90 @@ describe("review regressions: image metadata is not model-controlled evidence", 
     assert.throws(() => evaluateReconstruction(compiled, evidence, {
       navigationPassed: true, maxDimension: 80,
     }), /independently supplied image dimensions/);
+  });
+});
+
+
+describe("acceptance correctness regressions", () => {
+  it("prioritizes an accepted result even when a rejected valid candidate scored lower", async () => {
+    const { scene } = fixture();
+    const level = await compile(scene.document, { navigation: false });
+    const report = evaluateReconstruction(level, silhouetteEvidence(level), {
+      navigationPassed: true, maxDimension: 80,
+    });
+    const best: BestCandidate = { source: null, level: null, report: null, score: Infinity };
+    const rejected: ReconstructionAttempt = {
+      iteration: 0, source: "rejected", valid: true, accepted: false,
+      report, score: 1, diagnostics: ["Rejected visual acceptance"],
+    };
+    const accepted: ReconstructionAttempt = {
+      iteration: 1, source: "accepted", valid: true, accepted: true,
+      report, score: 500, diagnostics: [],
+    };
+    keepBetter(best, { attempt: rejected, level });
+    assert.equal(best.source, "rejected");
+    keepBetter(best, { attempt: accepted, level });
+    assert.equal(best.source, "accepted");
+    assert.equal(best.score, 500);
+    assert.strictEqual(best.report, accepted.report);
+  });
+  it("rejects camera-only observations and single point pseudo-edges", async () => {
+    const { scene } = fixture();
+    const level = await compile(scene.document, { navigation: false });
+    const reference = level.document.references![0];
+    const point: [number, number, number] = [4, 4, 0];
+    const report = evaluateReconstruction(level, [{
+      referenceId: reference.id,
+      imageDimensions: [reference.width, reference.height],
+      landmarks: [0, 1, 2].map(i => ({
+        id: `camera-${i}`, position: point, image: projectReference(reference, point).image!,
+      })),
+      strokes: [{ id: "single-pixel", points: [[0.5, 0.5]] }],
+    }], { navigationPassed: true, maxDimension: 80,
+      thresholds: { minimumVerifiedViews: 1, strokeErrorPixels: 1000 } });
+    assert.equal(report.passed, false);
+    assert.equal(report.verifiedViews, 0);
+    assert.equal(report.views[0].landmarks.compared, 3);
+  });
+  it("requires sealed-navigation evidence from direct evaluator calls", async () => {
+    const scene = dynamicallyBlockedFixture();
+    const level = await compile(scene.document, { navigation: false });
+    const evidence = silhouetteEvidence(level);
+    const ordinaryOnly = evaluateReconstruction(level, evidence, {
+      navigationPassed: true, maxDimension: 80,
+    });
+    assert.equal(ordinaryOnly.passed, false);
+    assert.match(ordinaryOnly.issues.join(" "), /Sealed navigation has not been verified/);
+    const failedSealed = evaluateReconstruction(level, evidence, {
+      navigationPassed: true, sealedNavigationPassed: false, maxDimension: 80,
+    });
+    assert.equal(failedSealed.passed, false);
+    assert.equal(failedSealed.sealedNavigationPassed, false);
+    assert.match(failedSealed.issues.join(" "), /Sealed navigation failed/);
+    const noDynamic = await compile(fixture().scene.document, { navigation: false });
+    const badStatus = evaluateReconstruction(noDynamic, silhouetteEvidence(noDynamic), {
+      navigationPassed: true, sealedNavigationPassed: false, maxDimension: 80,
+    });
+    assert.equal(badStatus.passed, false, "Direct evaluator must never ignore explicit sealed failure.");
+  });
+  it("keeps coincident and adjacent architectural groups topologically independent", () => {
+    const scene = new SceneBuilder("assembly-isolation");
+    const first = scene.group("west");
+    const second = scene.group("east");
+    const wall = addWall(first, "partition", {
+      from: [4, 0, 0], to: [4, 4, 0], height: 3, material: "default",
+    });
+    const left = first.platform("floor", { width: 4, depth: 4, material: "default" });
+    const right = second.platform("floor", {
+      origin: [4, 0, 0], width: 4, depth: 4, material: "default",
+    });
+    const edges = (boundary: string[]) => boundary.map(e => e.replace(/^-/, ""));
+    assert.ok(edges(left.boundary).includes(wall.id));
+    assert.ok(!edges(right.boundary).includes(wall.id));
+    assert.equal(first.layer, second.layer);
+    assert.equal(first.layer.vertices.length, 8);
+    assert.equal(first.layer.edges.length, 8);
+    assert.equal(first.layer.edges.filter(edge => edge.kind === "wall").length, 1);
+    for (const edge of edges(right.boundary)) assert.ok(!edges(left.boundary).includes(edge));
   });
 });
