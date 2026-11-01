@@ -1,6 +1,6 @@
 /** Model-agnostic reconstruction loop. An AI supplies proposed SVGX edits; the compiler and evaluator decide what passed. */
 import { compile, parseLevelSvgx, validateForRuntime } from "../vector/index.ts";
-import type { CompiledLevel } from "../vector/types.ts";
+import type { CompiledLevel, ValidationReport, Diagnostic } from "../vector/types.ts";
 import { evaluateReconstruction, type PhotoEvidence, type ReconstructionReport,
   type ReconstructionThresholds } from "./evaluate.ts";
 
@@ -67,6 +67,38 @@ function buildAttempt(iteration: number, source: string,
   return { iteration, source, valid, report, diagnostics,
     accepted: report.passed && diagnostics.length === 0, score: score(report) };
 }
+function errorMessages(diagnostics: Diagnostic[], prefix = "") {
+  return diagnostics.filter(d => d.severity === "error")
+    .map(d => `${prefix}${d.code}: ${d.message}`);
+}
+function sealedState(level: CompiledLevel, runtime: ValidationReport) {
+  const required = level.surfaces.some(surface => surface.dynamic);
+  return { required, passed: !required || runtime.sealed?.passed === true };
+}
+function closedStateDiagnostics(runtime: ValidationReport, required: boolean, passed: boolean) {
+  if (!required || passed) return [];
+  const errors = errorMessages(runtime.sealed?.diagnostics ?? [], "SEALED ");
+  return errors.length ? errors : ["SEALED_NAVIGATION: Closed-state navigation did not pass."];
+}
+async function inspectCompiled(level: CompiledLevel, source: string, evidence: PhotoEvidence[],
+  options: ReconstructionLoopOptions, iteration: number) {
+  const runtime = await validateForRuntime(level, { sealed: true, signal: options.signal });
+  const sealed = sealedState(level, runtime);
+  const openPassed = runtime.passed && runtime.navigation?.passed === true;
+  const report = evaluateReconstruction(level, evidence, {
+    maxDimension: options.evaluationDimension,
+    thresholds: options.thresholds,
+    navigationPassed: openPassed && sealed.passed,
+    sealedNavigationPassed: sealed.required ? sealed.passed : null,
+  });
+  const diagnostics = [
+    ...errorMessages(level.diagnostics),
+    ...errorMessages(runtime.diagnostics),
+    ...closedStateDiagnostics(runtime, sealed.required, sealed.passed),
+    ...report.issues,
+  ];
+  return { attempt: buildAttempt(iteration, source, report, diagnostics), level };
+}
 async function inspectSource(source: string, evidence: PhotoEvidence[],
   options: ReconstructionLoopOptions, iteration: number, limit: number):
   Promise<{ attempt: ReconstructionAttempt; level: CompiledLevel | null }> {
@@ -82,33 +114,13 @@ async function inspectSource(source: string, evidence: PhotoEvidence[],
       navigation: { sealed: true, signal: options.signal },
       signal: options.signal,
     });
-    const runtime = await validateForRuntime(level, { sealed: true });
-    const dynamicSurfaces = level.surfaces.some(surface => surface.dynamic);
-    const openPassed = runtime.passed && runtime.navigation?.passed === true;
-    const sealedPassed = !dynamicSurfaces || runtime.sealed?.passed === true;
-    const report = evaluateReconstruction(level, evidence, {
-      maxDimension: options.evaluationDimension,
-      thresholds: options.thresholds,
-      navigationPassed: openPassed && sealedPassed,
-      sealedNavigationPassed: dynamicSurfaces ? sealedPassed : null,
-    });
-    const sealedDiagnostics = dynamicSurfaces && !sealedPassed ?
-      (runtime.sealed?.diagnostics.filter(d => d.severity === "error")
-        .map(d => `SEALED ${d.code}: ${d.message}`) ?? []) : [];
-    if (dynamicSurfaces && !sealedPassed && !sealedDiagnostics.length)
-      sealedDiagnostics.push("SEALED_NAVIGATION: Closed-state navigation did not pass.");
-    const diagnostics = [
-      ...level.diagnostics.filter(d => d.severity === "error").map(d => `${d.code}: ${d.message}`),
-      ...runtime.diagnostics.filter(d => d.severity === "error").map(d => `${d.code}: ${d.message}`),
-      ...sealedDiagnostics,
-      ...report.issues,
-    ];
-    return { attempt: buildAttempt(iteration, source, report, diagnostics), level };
+    return await inspectCompiled(level, source, evidence, options, iteration);
   } catch (error) {
     return { attempt: invalidAttempt(iteration, source,
       error instanceof Error ? error.message : String(error)), level: null };
   }
 }
+
 interface BestCandidate {
   source: string | null;
   level: CompiledLevel | null;
