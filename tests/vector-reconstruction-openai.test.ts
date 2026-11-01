@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
-import { AddressInfo } from "node:net";
+import type { AddressInfo } from "node:net";
 import { createOpenAIReviser } from "../tools/reconstruct-openai.ts";
 
 describe("reconstruction model adapter", () => {
