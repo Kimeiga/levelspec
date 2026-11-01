@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { SceneBuilder, compile, renderReference, serializeLevelSvgx,
+import { SceneBuilder, compile, renderReference, serializeLevelSvgx, projectReference, validateForRuntime,
   type ReferenceView } from "../src/vector/index.ts";
 import { rayBlocked } from "../src/vector/validate.ts";
 import { addWall, addCircularOpening, addStoreyShell, addStairFlight } from "../src/vector/architecture.ts";
@@ -132,5 +132,135 @@ describe("multi-view reference evaluation", () => {
     assert.equal(result.accepted, false);
     assert.equal(result.status, "stopped");
     assert.equal(result.attempts.length, 1);
+  });
+});
+
+describe("review regressions: independently trusted evidence", () => {
+  it("rejects model-authored perfectly aligned landmarks without external annotations", async () => {
+    const { scene } = fixture();
+    const positions: [number, number, number][] = [[3, 3, 0], [4, 4, 0], [5, 5, 0]];
+    for (const ref of scene.document.references ?? [])
+      ref.landmarks = positions.map((position, index) => ({
+        id: `fabricated-${index}`, position, image: projectReference(ref, position).image!,
+      }));
+    const level = await compile(scene.document, { navigation: false });
+    const reported = evaluateReconstruction(level, [], { navigationPassed: true, maxDimension: 80 });
+    assert.equal(reported.passed, false);
+    assert.equal(reported.verifiedViews, 0);
+    assert.ok(reported.views.every(view => view.landmarks.compared === 0));
+    assert.match(reported.issues.join(" "), /independent|unverified/i);
+  });
+  it("accepts externally authored correspondences, and rejects ones that disagree", async () => {
+    const { scene } = fixture();
+    const level = await compile(scene.document, { navigation: false });
+    const evidence: PhotoEvidence[] = (level.document.references ?? []).map(ref => ({
+      referenceId: ref.id,
+      landmarks: ([[3, 3, 0], [4, 4, 0], [5, 5, 0]] as [number, number, number][])
+        .map((position, i) => ({
+          id: `trusted-${i}`, position, image: projectReference(ref, position).image!,
+        })),
+    }));
+    const matched = evaluateReconstruction(level, evidence, { navigationPassed: true, maxDimension: 80 });
+    assert.equal(matched.passed, true, matched.issues.join("\n"));
+    assert.equal(matched.verifiedViews, 2);
+    evidence[0].landmarks![0].image = [0, 0];
+    const mismatched = evaluateReconstruction(level, evidence, { navigationPassed: true, maxDimension: 80 });
+    assert.equal(mismatched.passed, false);
+    assert.match(mismatched.issues.join(" "), /Landmark error/);
+  });
+  it("does not allow candidate-defined masks to erase external structural evidence", async () => {
+    const { scene } = fixture();
+    const target = scene.document.references![0];
+    target.masks.push({ id: "fake-mask", points: [[0, 0], [1, 0], [1, 1], [0, 1]] });
+    const level = await compile(scene.document, { navigation: false });
+    const evidence: PhotoEvidence[] = [{
+      referenceId: "front", strokes: [{ id: "unmatched-edge", points: [[0.99, 0.98]] }],
+    }];
+    const report = evaluateReconstruction(level, evidence, {
+      navigationPassed: true, maxDimension: 80,
+      thresholds: { strokeErrorPixels: 1, minimumVerifiedViews: 1 },
+    });
+    assert.equal(report.passed, false);
+    assert.ok((report.views[0].strokeErrorPixels ?? 0) > 1);
+  });
+});
+
+function dynamicallyBlockedFixture() {
+  const { scene, group } = fixture();
+  scene.document.covers.push({
+    id: "closed-gate", layer: group.layer.id,
+    min: [3.8, 0, 0], max: [4.2, 8, 3], dynamic: true,
+  });
+  return scene;
+}
+
+describe("review regressions: navigation and candidate retention", () => {
+  it("rejects a candidate whose closed dynamic gate disconnects the navigable floor", async () => {
+    const scene = dynamicallyBlockedFixture();
+    const raw = await compile(scene.document, { navigation: false });
+    const evidence = silhouetteEvidence(raw);
+    const source = serializeLevelSvgx(scene.document);
+    const result = await runReconstruction(source, evidence, async () => null, {
+      maxRevisions: 0, evaluationDimension: 80,
+    });
+    assert.equal(result.attempts.length, 1);
+    const attempt = result.attempts[0];
+    assert.equal(attempt.report?.navigationPassed, false, attempt.diagnostics.join("\n"));
+    assert.equal(attempt.report?.sealedNavigationPassed, false);
+    assert.equal(attempt.valid, false);
+    assert.equal(attempt.accepted, false);
+    assert.match(attempt.diagnostics.join(" "), /SEALED/);
+    assert.equal(result.accepted, false);
+  });
+  it("does not expose an invalid but compilable candidate as the best output", async () => {
+    const scene = dynamicallyBlockedFixture();
+    const raw = await compile(scene.document, { navigation: false });
+    const evidence = silhouetteEvidence(raw);
+    const invalid = serializeLevelSvgx(scene.document);
+    const result = await runReconstruction(invalid, evidence, async () => null, {
+      maxRevisions: 1, evaluationDimension: 80,
+    });
+    assert.equal(result.attempts[0].valid, false);
+    assert.ok(result.attempts[0].report);
+    assert.equal(result.source, null);
+    assert.equal(result.level, null);
+    assert.equal(result.report, null);
+    assert.equal(result.attempts[0].source, invalid, "Rejected drafts must remain available to the reviser.");
+  });
+});
+
+describe("review regressions: shared architectural topology", () => {
+  for (const wallFirst of [true, false]) {
+    it(`uses one wall edge and four vertices when wall is ${wallFirst ? "before" : "after"} floor`, async () => {
+      const scene = new SceneBuilder(wallFirst ? "wall-first" : "floor-first");
+      const group = scene.group("shell");
+      const makeWall = () => addWall(group, "south", {
+        from: [0, 0, 0], to: [8, 0, 0], height: 3, material: "default",
+      });
+      const wall = wallFirst ? makeWall() : null;
+      const floor = group.platform("deck", { width: 8, depth: 8, material: "default" });
+      const shared = wall ?? makeWall();
+      const source = serializeLevelSvgx(scene.document);
+      assert.equal(group.layer.vertices.length, 4);
+      assert.equal(group.layer.edges.length, 4);
+      assert.equal(group.layer.edges.filter(edge => edge.kind === "wall").length, 1);
+      assert.ok(floor.boundary.includes(shared.id) || floor.boundary.includes("-" + shared.id));
+      assert.ok(source.includes(shared.id));
+      const level = await compile(scene.document, { navigation: false });
+      assert.deepEqual(level.diagnostics.filter(d => d.severity === "error"), []);
+    });
+  }
+  it("reuses a compatible wall that was authored before the enclosing storey", () => {
+    const scene = new SceneBuilder("prior-wall");
+    const group = scene.group("shell");
+    const existing = addWall(group, "south", { from: [0, 0, 0], to: [8, 0, 0],
+      height: 3.2, material: "default" });
+    const shell = addStoreyShell(group, "floor", {
+      footprint: [[0, 0], [8, 0], [8, 8], [0, 8]],
+      z: 0, height: 3.2, material: "default",
+    });
+    assert.strictEqual(shell.walls[0], existing);
+    assert.equal(group.layer.vertices.length, 4);
+    assert.equal(group.layer.edges.length, 4);
   });
 });
