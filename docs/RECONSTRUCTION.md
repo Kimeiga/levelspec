@@ -30,9 +30,11 @@ npm run reconstruct -- \
 
 The first proposal and subsequent revisions go through the **same compiler,
 runtime navigation checks and multi-view evaluator**. Each iteration writes a
-complete SVGX candidate and an evaluation report. The best valid candidate
-appears in `best.level.svgx`; `result.json` records why it was or wasn't
-accepted. When the best candidate passes geometry and navigation, the CLI also
+complete SVGX candidate and an evaluation report. The best geometry- and navigation-valid candidate
+appears in `best.level.svgx`; `result.json` separately records whether its
+visual evidence met the acceptance criteria. Invalid candidates remain in the
+iteration files for diagnosis and AI revision. If none passes geometry and
+both applicable navigation states, no best candidate or game export is written. When the best candidate passes geometry and navigation, the CLI also
 writes `best.glb` (visible geometry), `best-collision.glb` (physics proxy) and
 `best.runtime.json` (navigation, markers and source ownership). These are
 portable game assets, not a standalone game. The process exits nonzero if the acceptance gates fail.
@@ -57,9 +59,11 @@ workbench to use the existing registered image overlay and walkability inspector
 Photos alone produce a **diagnostic** edge-distance metric. It is not an
 acceptance gate because tile grout, shadows, reflections and pipes may dominate
 the edges. To certify a reconstruction, supply independent, human-reviewed
-landmarks in SVGX and/or reference segmentation/stroke annotations. These must
-be derived from the photographs, never reverse-engineered from the generated
-mesh or its projections.
+landmarks, masks, silhouette segmentation, or structural strokes in a trusted
+`--evidence` manifest. These must be independently supplied by the caller,
+never generated alongside the SVGX or reverse-engineered from its projections.
+The model-authored `<landmark>` and `<mask>` elements remain usable for
+workbench inspection, but **cannot verify or exclude acceptance evidence**.
 
 Example `annotations.json`:
 
@@ -74,6 +78,12 @@ Example `annotations.json`:
   "views": [
     {
       "referenceId": "view1",
+      "landmarks": [
+        { "id": "trusted-corner", "position": [0, 0, 3], "image": [0.5, 0.4] }
+      ],
+      "masks": [
+        { "id": "foreground-person", "points": [[0.02, 0.7], [0.15, 0.7], [0.15, 0.98], [0.02, 0.98]] }
+      ],
       "silhouettePath": "view1-building-mask.png",
       "strokes": [
         { "id": "courtyard-wall-top", "points": [[0.2, 0.3], [0.7, 0.32]] }
@@ -95,12 +105,13 @@ Example `annotations.json`:
 - A silhouette image uses opaque white for building geometry and black or
   transparent for background; it may have its own resolution. Annotate only
   the geometry represented by the target scene, not background buildings.
-- Reference `<mask>` polygons exclude foreground obstructions (people,
-  vehicles, trees) from comparisons. Occluded or invisible structures are not
-  assumed to be present or absent.
-- Saved `<landmark>` entries compare authored world XYZ positions against
-  independent observed image XY positions. Do not allow the generator to
-  fabricate the correspondence: it could make its own metric look perfect.
+- Only the independent evidence manifest's `masks` exclude foreground
+  obstructions (people, vehicles, trees) from acceptance comparisons.
+  Occluded or invisible structures are not assumed to be present or absent.
+- The manifest's `landmarks` are trusted 3D world coordinates paired with
+  normalized, photo-observed 2D locations. Source SVGX landmarks are ignored
+  for acceptance even when they yield zero reprojection error. Independently
+  validate image correspondence and the assumed physical scale.
 - A photo view cannot be certified by image-edge similarity alone.
 - At least two independently annotated views are required when the candidate
   references multiple views, by default.
@@ -108,7 +119,9 @@ Example `annotations.json`:
 Metrics are separate: landmark reprojection RMS, silhouette IoU, annotated
 structural-edge error, and an **informational** natural-photo edge score.
 The evaluation is not a single unqualified "photorealism" score.
-Valid compilation and sealed navigation are separate required conditions.
+Valid compilation, ordinary open-state navigation, and closed-state navigation
+when dynamic colliders exist are separate required conditions. A runtime
+report saying `passed` is not sufficient if its `sealed` report fails.
 
 ## Architectural authoring
 
@@ -145,7 +158,8 @@ an approximation, not an exact analytic circle. For an enterable structure,
 use explicit floor/wall topology, not `building(... usage: "scenery")`
 or a giant solid-box prop. Irregular floors use polygon boundaries; place
 individual stair flights and landings rather than forcing all buildings into
-a repeated switchback template.
+a repeated switchback template. Wall creation and floor polygon construction
+reuse shared vertices and edges regardless of authoring order.
 
 ## Implementation contracts
 
