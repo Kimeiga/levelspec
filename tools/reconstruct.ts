@@ -131,15 +131,21 @@ async function loadSilhouette(filename: string) {
         (decoded.rgba[j] + decoded.rgba[j + 1] + decoded.rgba[j + 2]) / 3 > 127 ? 1 : 0;
     }) };
 }
-async function attachView(view: ManifestView, manifestPath: string, evidence: PhotoEvidence[]) {
-  let item = evidence.find(e => e.referenceId === view.referenceId);
-  if (!item) {
-    item = { referenceId: view.referenceId };
-    evidence.push(item);
-  }
+function evidenceForView(referenceId: string, evidence: PhotoEvidence[]) {
+  const existing = evidence.find(item => item.referenceId === referenceId);
+  if (existing) return existing;
+  const created: PhotoEvidence = { referenceId };
+  evidence.push(created);
+  return created;
+}
+function applyViewObservations(item: PhotoEvidence, view: ManifestView) {
   if (view.landmarks) item.landmarks = view.landmarks;
   if (view.masks) item.masks = view.masks;
   if (view.strokes) item.strokes = view.strokes;
+}
+async function attachView(view: ManifestView, manifestPath: string, evidence: PhotoEvidence[]) {
+  const item = evidenceForView(view.referenceId, evidence);
+  applyViewObservations(item, view);
   if (view.silhouettePath)
     item.silhouette = await loadSilhouette(resolve(dirname(manifestPath), view.silhouettePath));
 }
