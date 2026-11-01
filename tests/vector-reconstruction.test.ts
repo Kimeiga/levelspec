@@ -27,7 +27,8 @@ function fixture() {
 function silhouetteEvidence(level: Awaited<ReturnType<typeof compile>>): PhotoEvidence[] {
   return (level.document.references ?? []).map(reference => {
     const raster = renderReference(level, reference, { width: 80, height: 60 });
-    return { referenceId: reference.id, silhouette: {
+    return { referenceId: reference.id,
+      imageDimensions: [reference.width, reference.height] as [number, number], silhouette: {
       width: 80, height: 60,
       pixels: Uint8Array.from(raster.surfaceIds, index => index >= 0 ? 1 : 0),
     } };
@@ -154,7 +155,7 @@ describe("review regressions: independently trusted evidence", () => {
     const { scene } = fixture();
     const level = await compile(scene.document, { navigation: false });
     const evidence: PhotoEvidence[] = (level.document.references ?? []).map(ref => ({
-      referenceId: ref.id,
+      referenceId: ref.id, imageDimensions: [ref.width, ref.height],
       landmarks: ([[3, 3, 0], [4, 4, 0], [5, 5, 0]] as [number, number, number][])
         .map((position, i) => ({
           id: `trusted-${i}`, position, image: projectReference(ref, position).image!,
@@ -174,7 +175,7 @@ describe("review regressions: independently trusted evidence", () => {
     target.masks.push({ id: "fake-mask", points: [[0, 0], [1, 0], [1, 1], [0, 1]] });
     const level = await compile(scene.document, { navigation: false });
     const evidence: PhotoEvidence[] = [{
-      referenceId: "front", strokes: [{ id: "unmatched-edge", points: [[0.99, 0.98]] }],
+      referenceId: "front", imageDimensions: [80, 60], strokes: [{ id: "unmatched-edge", points: [[0.99, 0.98]] }],
     }];
     const report = evaluateReconstruction(level, evidence, {
       navigationPassed: true, maxDimension: 80,
@@ -292,5 +293,29 @@ describe("initial-model generation", () => {
     assert.equal(result.attempts.length, 1);
     assert.equal(result.status, "accepted", result.attempts[0].diagnostics.join("\n"));
     assert.equal(result.source, generated);
+  });
+});
+
+describe("review regressions: image metadata is not model-controlled evidence", () => {
+  it("rejects dimensions changed by the candidate despite independent matching silhouettes", async () => {
+    const { scene } = fixture();
+    const compiled = await compile(scene.document, { navigation: false });
+    const evidence = silhouetteEvidence(compiled);
+    compiled.document.references![0].width = 40;
+    assert.throws(() => evaluateReconstruction(compiled, evidence, {
+      navigationPassed: true, maxDimension: 80,
+    }), /dimensions differ from independently supplied photo/);
+  });
+  it("does not accept landmark-only evidence without independently measured image size", async () => {
+    const { scene } = fixture();
+    const compiled = await compile(scene.document, { navigation: false });
+    const reference = compiled.document.references![0];
+    const position: [number, number, number] = [4, 4, 0];
+    const evidence: PhotoEvidence[] = [{ referenceId: reference.id,
+      landmarks: [{ id: "trusted-point", position, image: projectReference(reference, position).image! }],
+    }];
+    assert.throws(() => evaluateReconstruction(compiled, evidence, {
+      navigationPassed: true, maxDimension: 80,
+    }), /independently supplied image dimensions/);
   });
 });
