@@ -62,6 +62,11 @@ the edges. To certify a reconstruction, supply independent, human-reviewed
 landmarks, masks, silhouette segmentation, or structural strokes in a trusted
 `--evidence` manifest. These must be independently supplied by the caller,
 never generated alongside the SVGX or reverse-engineered from its projections.
+Acceptance uses the original cropped image dimensions from `--image`, or
+`imageDimensions: [width, height]` in the independent manifest when image
+pixels are omitted. Without those independent dimensions, annotated geometry
+cannot be certified: an AI could otherwise shrink pixel error by changing
+the candidate's image metadata.
 The model-authored `<landmark>` and `<mask>` elements remain usable for
 workbench inspection, but **cannot verify or exclude acceptance evidence**.
 
@@ -78,6 +83,7 @@ Example `annotations.json`:
   "views": [
     {
       "referenceId": "view1",
+      "imageDimensions": [1500, 1000],
       "landmarks": [
         { "id": "trusted-corner", "position": [0, 0, 3], "image": [0.5, 0.4] }
       ],
@@ -91,6 +97,7 @@ Example `annotations.json`:
     },
     {
       "referenceId": "view2",
+      "imageDimensions": [1500, 1000],
       "strokes": [
         { "id": "opening-diameter", "points": [[0.41, 0.44], [0.62, 0.44]] }
       ]
