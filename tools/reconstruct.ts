@@ -4,6 +4,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { basename, dirname, extname, join, resolve } from "node:path";
 import { PNG } from "pngjs";
 import jpeg from "jpeg-js";
+import { toGLB, toRuntime } from "../src/vector/index.ts";
 import { runReconstruction, type ReconstructionReviser,
   type ReconstructionAttempt, type ReconstructionLoopResult } from "../src/reconstruction/loop.ts";
 import type { PhotoEvidence, ReconstructionThresholds } from "../src/reconstruction/evaluate.ts";
@@ -158,6 +159,12 @@ async function recordAttempt(out: string, attempt: ReconstructionAttempt) {
   }, null, 2));
   console.log(`${stem}: ${attempt.valid ? "geometry/navigation passed" : "invalid"}; ${attempt.accepted ? "accepted" : "not accepted"}`);
 }
+async function writePortableExports(out: string, result: ReconstructionLoopResult) {
+  if (!result.level || !result.report?.geometryPassed || !result.report.navigationPassed) return;
+  await writeFile(join(out, "best.glb"), toGLB(result.level));
+  await writeFile(join(out, "best-collision.glb"), toGLB(result.level, { purpose: "collision" }));
+  await writeFile(join(out, "best.runtime.json"), JSON.stringify(toRuntime(result.level)));
+}
 async function recordResult(out: string, result: ReconstructionLoopResult) {
   await writeFile(join(out, "result.json"), JSON.stringify({
     accepted: result.accepted, status: result.status,
@@ -169,6 +176,7 @@ async function recordResult(out: string, result: ReconstructionLoopResult) {
     await writeFile(join(out, "best.level.svgx"), result.source);
     console.log(`Saved best candidate: ${join(out, "best.level.svgx")}`);
   }
+  await writePortableExports(out, result);
   console.log(`Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`);
 }
 async function execute(args: Args) {
