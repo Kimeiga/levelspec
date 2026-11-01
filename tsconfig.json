@@ -29,6 +29,8 @@
     "vite.config.ts",
     "website/**/*.ts",
     "vite.website.config.ts",
-    "tools/site*.ts"
+    "tools/site*.ts",
+    "src/reconstruction/**/*.ts",
+    "tools/reconstruct*.ts"
   ]
 }
