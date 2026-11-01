@@ -159,11 +159,15 @@ async function recordAttempt(out: string, attempt: ReconstructionAttempt) {
   }, null, 2));
   console.log(`${stem}: ${attempt.valid ? "geometry/navigation passed" : "invalid"}; ${attempt.accepted ? "accepted" : "not accepted"}`);
 }
+function portableExportable(result: ReconstructionLoopResult) {
+  return Boolean(result.level && result.report?.geometryPassed && result.report.navigationPassed);
+}
 async function writePortableExports(out: string, result: ReconstructionLoopResult) {
-  if (!result.level || !result.report?.geometryPassed || !result.report.navigationPassed) return;
-  await writeFile(join(out, "best.glb"), toGLB(result.level));
-  await writeFile(join(out, "best-collision.glb"), toGLB(result.level, { purpose: "collision" }));
-  await writeFile(join(out, "best.runtime.json"), JSON.stringify(toRuntime(result.level)));
+  if (!portableExportable(result)) return;
+  const level = result.level!;
+  await writeFile(join(out, "best.glb"), toGLB(level));
+  await writeFile(join(out, "best-collision.glb"), toGLB(level, { purpose: "collision" }));
+  await writeFile(join(out, "best.runtime.json"), JSON.stringify(toRuntime(level)));
 }
 async function recordResult(out: string, result: ReconstructionLoopResult) {
   await writeFile(join(out, "result.json"), JSON.stringify({
