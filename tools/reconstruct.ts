@@ -85,7 +85,7 @@ function parseImageArg(value: string, index: number) {
   const equals = value.indexOf("=");
   const referenceId = equals > 0 ? value.slice(0, equals) : `view${index + 1}`;
   const path = equals > 0 ? value.slice(equals + 1) : value;
-  if (!/^[A-Za-z_][\\w.-]*$/.test(referenceId))
+  if (!/^[A-Za-z_][\w.-]*$/.test(referenceId))
     throw new Error(`Invalid reference id ${referenceId}.`);
   return { referenceId, path };
 }
