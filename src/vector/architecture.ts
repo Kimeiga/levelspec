@@ -15,7 +15,7 @@ function positive(label: string, value: number) {
   if (!Number.isFinite(value) || value <= 0) throw new Error(`${label} must be finite and positive.`);
 }
 function sourceId(group: AuthoringGroup, id: string) {
-  if (!/^[A-Za-z_][\\w.:/-]*$/.test(id)) throw new Error(`Invalid architectural id ${id}.`);
+  if (!/^[A-Za-z_][\w.:/-]*$/.test(id)) throw new Error(`Invalid architectural id ${id}.`);
   return `${group.id}/${id}`;
 }
 
