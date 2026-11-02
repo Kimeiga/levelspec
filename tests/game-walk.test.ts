@@ -32,11 +32,29 @@ describe("Kiln played from its exported collision GLB", () => {
     });
   }
   it("cannot walk straight through the walls between spawns", () => {
-    const state: PlayerState = { position: [...marker("attacker_spawn")], verticalSpeed: 0, grounded: true };
+    const start = marker("attacker_spawn");
+    const state: PlayerState = { position: [...start], verticalSpeed: 0, grounded: true };
     const goal = marker("defender_spawn");
     for (let i = 0; i < 60 * 30; i++)
       stepPlayer(world, meta.player, state, { wish: [goal[0] - state.position[0], goal[2] - state.position[2]] }, 1 / 60);
-    assert.ok(Math.hypot(goal[0] - state.position[0], goal[2] - state.position[2]) > 10);
-    assert.ok(state.position[1] > world.min[1] - 1, "fell out of the world");
+    const p = state.position;
+    // It must actually move (not pass by never leaving spawn) and then be stopped.
+    assert.ok(Math.hypot(p[0] - start[0], p[2] - start[2]) > 3, "never left spawn");
+    assert.ok(Math.hypot(goal[0] - p[0], goal[2] - p[2]) > 10);
+    assert.ok(p[1] > world.min[1] - 1, "fell out of the world");
+  });
+  it("stops a jump at a ceiling", () => {
+    // A slab 2.2 m above the floor: the 1.8 m player jumping 0.68 m must not pass it.
+    const slab = new CollisionWorld(
+      [-5, 0, -5, 5, 0, -5, 5, 0, 5, -5, 0, 5, -5, 2.2, -5, 5, 2.2, -5, 5, 2.2, 5, -5, 2.2, 5],
+      [0, 2, 1, 0, 3, 2, 4, 5, 6, 4, 6, 7]);
+    const state: PlayerState = { position: [0, 0, 0], verticalSpeed: 0, grounded: true };
+    let top = 0;
+    for (let i = 0; i < 60; i++) {
+      stepPlayer(slab, meta.player, state, { wish: [0, 0], jump: i === 0 }, 1 / 60);
+      top = Math.max(top, state.position[1] + meta.player.height);
+    }
+    assert.ok(top <= 2.2 + 0.05, `head reached ${top.toFixed(2)} m`);
+    assert.ok(state.grounded, "did not land again");
   });
 });

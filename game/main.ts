@@ -71,14 +71,15 @@ const markerAt = (i: number) => meta.markers.filter((m) => m.kind === order[i])[
 const player: PlayerState = { position: [...markerAt(0).position] as Vec3, verticalSpeed: 0, grounded: false };
 let yaw = 0, pitch = 0, overview = false;
 const keys = new Set<string>();
+const teleport = (i: number) => {
+  player.position = [...markerAt(i).position] as Vec3;
+  player.verticalSpeed = 0;
+};
 addEventListener("keydown", (e) => {
   keys.add(e.code);
   if (e.code === "KeyO") overview = !overview;
   const i = ["Digit1", "Digit2", "Digit3", "Digit4"].indexOf(e.code);
-  if (i >= 0 && markerAt(i)) {
-    player.position = [...markerAt(i).position] as Vec3;
-    player.verticalSpeed = 0;
-  }
+  if (i >= 0 && markerAt(i)) teleport(i);
 });
 addEventListener("keyup", (e) => keys.delete(e.code));
 renderer.domElement.addEventListener("click", () => renderer.domElement.requestPointerLock());
@@ -88,28 +89,32 @@ addEventListener("mousemove", (e) => {
   pitch = Math.max(-1.5, Math.min(1.5, pitch - e.movementY * 0.0022));
 });
 
-let last = performance.now();
-renderer.setAnimationLoop((now) => {
-  const dt = Math.min(0.05, (now - last) / 1000);
-  last = now;
+/** WASD relative to the view direction, in world (x, z). */
+function wishFromKeys(): [number, number] {
   const f = Number(keys.has("KeyW")) - Number(keys.has("KeyS"));
   const s = Number(keys.has("KeyD")) - Number(keys.has("KeyA"));
-  const wish: [number, number] = [
-    -Math.sin(yaw) * f + Math.cos(yaw) * s,
-    -Math.cos(yaw) * f - Math.sin(yaw) * s,
-  ];
-  stepPlayer(world, meta.player, player, { wish, jump: keys.has("Space") }, dt,
-    keys.has("ShiftLeft") ? RUN_SPEED * 0.52 : RUN_SPEED);
-  if (player.position[1] < world.min[1] - 20) player.position = [...markerAt(0).position] as Vec3;
-  const eye = meta.player.height - 0.16;
+  return [-Math.sin(yaw) * f + Math.cos(yaw) * s, -Math.cos(yaw) * f - Math.sin(yaw) * s];
+}
+function placeCamera() {
   if (overview) {
     // Debug overhead view of the whole map, south (attackers) at the bottom.
     camera.position.set(centre.x, centre.y + span * 1.9, centre.z + span * 0.55);
     camera.lookAt(centre);
-  } else {
-    camera.position.set(player.position[0], player.position[1] + eye, player.position[2]);
-    camera.rotation.set(pitch, yaw, 0, "YXZ");
+    return;
   }
+  const eye = meta.player.height - 0.16;
+  camera.position.set(player.position[0], player.position[1] + eye, player.position[2]);
+  camera.rotation.set(pitch, yaw, 0, "YXZ");
+}
+
+let last = performance.now();
+renderer.setAnimationLoop((now) => {
+  const dt = Math.min(0.05, (now - last) / 1000);
+  last = now;
+  const speed = keys.has("ShiftLeft") ? RUN_SPEED * 0.52 : RUN_SPEED;
+  stepPlayer(world, meta.player, player, { wish: wishFromKeys(), jump: keys.has("Space") }, dt, speed);
+  if (player.position[1] < world.min[1] - 20) teleport(0);
+  placeCamera();
   status.textContent = `${player.position.map((n) => n.toFixed(1)).join(", ")}${player.grounded ? "" : " (airborne)"}`;
   renderer.render(scene, camera);
 });

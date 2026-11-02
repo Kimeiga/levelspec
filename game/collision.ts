@@ -3,6 +3,8 @@
  * glTF Y-up metres, bucketed on a horizontal grid. No Three.js dependency, so
  * the browser game and the Node walk test use exactly the same collision.
  */
+import { cross, dot, norm as normalize, sub } from "../src/vector/geometry.ts";
+
 export type Vec3 = [number, number, number];
 
 export interface Hit {
@@ -11,13 +13,8 @@ export interface Hit {
   normal: Vec3;
 }
 
-const sub = (a: Vec3, b: Vec3): Vec3 => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
-const dot = (a: Vec3, b: Vec3) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
-const cross = (a: Vec3, b: Vec3): Vec3 =>
-  [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
 const scale = (a: Vec3, s: number): Vec3 => [a[0] * s, a[1] * s, a[2] * s];
 const add = (a: Vec3, b: Vec3): Vec3 => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
-const normalize = (a: Vec3): Vec3 => scale(a, 1 / (Math.hypot(...a) || 1));
 
 /** Ericson, Real-Time Collision Detection 5.1.5. */
 export function closestPointOnTriangle(p: Vec3, a: Vec3, b: Vec3, c: Vec3): Vec3 {
@@ -53,22 +50,26 @@ export class CollisionWorld {
         const j = indices[i + k] * 3;
         return [positions[j], positions[j + 1], positions[j + 2]] as Vec3;
       });
-      const n = cross(sub(tri[1], tri[0]), sub(tri[2], tri[0]));
-      if (Math.hypot(...n) < 1e-10) continue; // degenerate
-      const index = this.triangles.push(tri) - 1;
-      this.normals.push(normalize(n));
-      for (const v of tri) for (let a = 0; a < 3; a++) {
-        this.min[a] = Math.min(this.min[a], v[a]);
-        this.max[a] = Math.max(this.max[a], v[a]);
-      }
-      const xs = tri.map((v) => Math.floor(v[0] / this.cell)), zs = tri.map((v) => Math.floor(v[2] / this.cell));
-      for (let x = Math.min(...xs); x <= Math.max(...xs); x++)
-        for (let z = Math.min(...zs); z <= Math.max(...zs); z++) {
-          const key = `${x},${z}`;
-          const list = this.buckets.get(key);
-          if (list) list.push(index); else this.buckets.set(key, [index]);
-        }
+      this.addTriangle(tri);
     }
+  }
+
+  private addTriangle(tri: Vec3[]) {
+    const n = cross(sub(tri[1], tri[0]), sub(tri[2], tri[0]));
+    if (Math.hypot(...n) < 1e-10) return; // degenerate
+    const index = this.triangles.push(tri) - 1;
+    this.normals.push(normalize(n));
+    for (const v of tri) for (let a = 0; a < 3; a++) {
+      this.min[a] = Math.min(this.min[a], v[a]);
+      this.max[a] = Math.max(this.max[a], v[a]);
+    }
+    const xs = tri.map((v) => Math.floor(v[0] / this.cell)), zs = tri.map((v) => Math.floor(v[2] / this.cell));
+    for (let x = Math.min(...xs); x <= Math.max(...xs); x++)
+      for (let z = Math.min(...zs); z <= Math.max(...zs); z++) {
+        const key = `${x},${z}`;
+        const list = this.buckets.get(key);
+        if (list) list.push(index); else this.buckets.set(key, [index]);
+      }
   }
 
   /** Triangle indices whose bucket overlaps the horizontal square around (x, z). */
@@ -80,25 +81,28 @@ export class CollisionWorld {
     return found;
   }
 
-  /** Möller–Trumbore against both faces, nearest hit within maxDistance. */
+  /** Möller–Trumbore against both faces; ray distance or null. */
+  private intersect(t: number, origin: Vec3, direction: Vec3): number | null {
+    const [a, b, c] = this.triangles[t];
+    const e1 = sub(b, a), e2 = sub(c, a), p = cross(direction, e2), det = dot(e1, p);
+    if (Math.abs(det) < 1e-12) return null;
+    const s = sub(origin, a), u = dot(s, p) / det;
+    if (u < 0 || u > 1) return null;
+    const q = cross(s, e1), v = dot(direction, q) / det;
+    if (v < 0 || u + v > 1) return null;
+    return dot(e2, q) / det;
+  }
+
+  /** Nearest hit within maxDistance. */
   raycast(origin: Vec3, direction: Vec3, maxDistance: number): Hit | null {
     let best: Hit | null = null;
     const reach = Math.hypot(direction[0], direction[2]) * maxDistance;
     for (const t of this.near(origin[0] + direction[0] * maxDistance / 2,
       origin[2] + direction[2] * maxDistance / 2, reach / 2 + 0.01)) {
-      const [a, b, c] = this.triangles[t];
-      const e1 = sub(b, a), e2 = sub(c, a), p = cross(direction, e2), det = dot(e1, p);
-      if (Math.abs(det) < 1e-12) continue;
-      const s = sub(origin, a), u = dot(s, p) / det;
-      if (u < 0 || u > 1) continue;
-      const q = cross(s, e1), v = dot(direction, q) / det;
-      if (v < 0 || u + v > 1) continue;
-      const d = dot(e2, q) / det;
-      if (d < 0 || d > maxDistance || (best && d >= best.distance)) continue;
+      const d = this.intersect(t, origin, direction);
+      if (d === null || d < 0 || d > maxDistance || (best && d >= best.distance)) continue;
       best = { distance: d, point: add(origin, scale(direction, d)), normal: this.normals[t] };
     }
     return best;
   }
 }
-
-export { add, dot, normalize, scale, sub };

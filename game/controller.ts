@@ -35,29 +35,37 @@ function sphereHeights(shape: PlayerShape) {
   return [low, (low + high) / 2, high];
 }
 
-/** Push the body out of non-walkable triangles; returns whether anything was touched. */
-function resolveWalls(world: CollisionWorld, shape: PlayerShape, p: Vec3): boolean {
-  let touched = false;
+/** Push the body horizontally out of one triangle; returns whether it moved. */
+function pushOut(world: CollisionWorld, shape: PlayerShape, p: Vec3, t: number): boolean {
+  const [a, b, c] = world.triangles[t];
+  let moved = false;
+  for (const h of sphereHeights(shape)) {
+    const centre: Vec3 = [p[0], p[1] + h, p[2]];
+    const q = closestPointOnTriangle(centre, a, b, c);
+    const dx = centre[0] - q[0], dz = centre[2] - q[2], horizontal = Math.hypot(dx, dz);
+    const distance = Math.hypot(dx, centre[1] - q[1], dz);
+    if (distance >= shape.radius || horizontal < 1e-6) continue;
+    const push = (shape.radius - distance) + 1e-4;
+    p[0] += dx / horizontal * push;
+    p[2] += dz / horizontal * push;
+    moved = true;
+  }
+  return moved;
+}
+
+/** Push the body out of non-walkable triangles until nothing overlaps. */
+function resolveWalls(world: CollisionWorld, shape: PlayerShape, p: Vec3) {
   for (let iteration = 0; iteration < 4; iteration++) {
     let moved = false;
-    for (const t of world.near(p[0], p[2], shape.radius + 0.5)) {
-      if (walkable(world.normals[t][1], shape)) continue;
-      const [a, b, c] = world.triangles[t];
-      for (const h of sphereHeights(shape)) {
-        const centre: Vec3 = [p[0], p[1] + h, p[2]];
-        const q = closestPointOnTriangle(centre, a, b, c);
-        const dx = centre[0] - q[0], dz = centre[2] - q[2], horizontal = Math.hypot(dx, dz);
-        const distance = Math.hypot(dx, centre[1] - q[1], dz);
-        if (distance >= shape.radius || horizontal < 1e-6) continue;
-        const push = (shape.radius - distance) + 1e-4;
-        p[0] += dx / horizontal * push;
-        p[2] += dz / horizontal * push;
-        moved = touched = true;
-      }
-    }
+    for (const t of world.near(p[0], p[2], shape.radius + 0.5))
+      if (!walkable(world.normals[t][1], shape) && pushOut(world, shape, p, t)) moved = true;
     if (!moved) break;
   }
-  return touched;
+}
+
+/** Stop a jump at the ceiling instead of letting the head pass through it. */
+function hitCeiling(world: CollisionWorld, shape: PlayerShape, p: Vec3, rise: number) {
+  return world.raycast([p[0], p[1] + shape.step, p[2]], [0, 1, 0], shape.height - shape.step + rise) !== null;
 }
 
 /** Highest walkable floor under the footprint, searched from step height down. */
@@ -82,23 +90,28 @@ export function stepPlayer(world: CollisionWorld, shape: PlayerShape, state: Pla
     state.grounded = false;
   }
   const steps = Math.max(1, Math.ceil(Math.max(Math.hypot(vx, vz), Math.abs(state.verticalSpeed)) * dt / SUBSTEP));
-  const h = dt / steps, p = state.position;
+  const h = dt / steps;
   for (let i = 0; i < steps; i++) {
-    p[0] += vx * h;
-    p[2] += vz * h;
-    resolveWalls(world, shape, p);
-    if (!state.grounded || state.verticalSpeed > 0) state.verticalSpeed -= GRAVITY * h;
-    const fall = Math.max(0, -state.verticalSpeed * h);
-    const ground = state.verticalSpeed > 0 ? null
-      : groundBelow(world, shape, p, state.grounded ? SNAP : fall);
-    if (ground !== null) {
-      p[1] = ground;
-      state.verticalSpeed = 0;
-      state.grounded = true;
-    } else {
-      p[1] += state.verticalSpeed * h;
-      state.grounded = false;
-    }
+    state.position[0] += vx * h;
+    state.position[2] += vz * h;
+    resolveWalls(world, shape, state.position);
+    moveVertically(world, shape, state, h);
   }
   return state;
+}
+
+/** Gravity, ceilings, and landing or step-up for one substep. */
+function moveVertically(world: CollisionWorld, shape: PlayerShape, state: PlayerState, h: number) {
+  const p = state.position;
+  if (state.verticalSpeed > 0 && hitCeiling(world, shape, p, state.verticalSpeed * h)) state.verticalSpeed = 0;
+  if (!state.grounded || state.verticalSpeed > 0) state.verticalSpeed -= GRAVITY * h;
+  const reach = state.grounded ? SNAP : Math.max(0, -state.verticalSpeed * h);
+  const ground = state.verticalSpeed > 0 ? null : groundBelow(world, shape, p, reach);
+  state.grounded = ground !== null;
+  if (ground !== null) {
+    p[1] = ground;
+    state.verticalSpeed = 0;
+  } else {
+    p[1] += state.verticalSpeed * h;
+  }
 }

@@ -105,7 +105,34 @@ export class WalkGrid {
   }
 }
 
-/** Drive the controller along a planned route at 60 Hz. */
+/** Skip waypoints already reached, including ones rounded past on a corner. */
+function nextTarget(route: Node[], target: number, p: Vec3) {
+  while (target < route.length - 1 && Math.hypot(route[target].x - p[0], route[target].z - p[2]) < CELL * 1.5) target++;
+  return target;
+}
+
+/** Follow a planned route at 60 Hz; returns a failure reason or null on arrival. */
+function follow(world: CollisionWorld, shape: PlayerShape, route: Node[], state: PlayerState,
+  progress: { seconds: number; walked: number }): string | null {
+  const dt = 1 / 60, limit = route.length * CELL / RUN_SPEED * 2 + 10, p = state.position;
+  let target = 1, stuck = 0;
+  while (progress.seconds < limit) {
+    target = nextTarget(route, target, p);
+    const w = route[target], dx = w.x - p[0], dz = w.z - p[2];
+    if (target === route.length - 1 && Math.hypot(dx, dz) < 0.25) return null;
+    const before: Vec3 = [...p];
+    stepPlayer(world, shape, state, { wish: [dx, dz] }, dt);
+    const moved = Math.hypot(p[0] - before[0], p[2] - before[2]);
+    progress.walked += moved;
+    progress.seconds += dt;
+    stuck = moved < RUN_SPEED * dt * 0.05 ? stuck + 1 : 0;
+    if (stuck > 60) return "stuck";
+    if (p[1] < world.min[1] - 5) return "fell out of the world";
+  }
+  return "timed out away from goal";
+}
+
+/** Plan on the standability grid, then walk the controller along the plan. */
 export function walk(world: CollisionWorld, shape: PlayerShape, grid: WalkGrid, start: Vec3, goal: Vec3): WalkResult {
   const from = grid.nearest(start), to = grid.nearest(goal);
   const fail = (reason: string): WalkResult =>
@@ -115,24 +142,10 @@ export function walk(world: CollisionWorld, shape: PlayerShape, grid: WalkGrid, 
   if (!route) return fail("no route on the standability grid");
   const n0 = grid.nodes[from];
   const state: PlayerState = { position: [n0.x, n0.y, n0.z], verticalSpeed: 0, grounded: true };
-  const dt = 1 / 60, limit = route.length * CELL / RUN_SPEED * 2 + 10;
-  let target = 1, seconds = 0, walked = 0, stuck = 0;
-  while (seconds < limit) {
-    const p = state.position;
-    // Skip waypoints already reached, including ones rounded past on a corner.
-    while (target < route.length - 1 && Math.hypot(route[target].x - p[0], route[target].z - p[2]) < CELL * 1.5) target++;
-    const w = route[target], dx = w.x - p[0], dz = w.z - p[2];
-    if (target === route.length - 1 && Math.hypot(dx, dz) < 0.25) break;
-    const before: Vec3 = [...p];
-    stepPlayer(world, shape, state, { wish: [dx, dz] }, dt);
-    const moved = Math.hypot(p[0] - before[0], p[2] - before[2]);
-    walked += moved;
-    seconds += dt;
-    stuck = moved < RUN_SPEED * dt * 0.05 ? stuck + 1 : 0;
-    if (stuck > 60) return { reached: false, planned: true, seconds, walked, end: [...p], reason: "stuck" };
-    if (p[1] < world.min[1] - 5) return { reached: false, planned: true, seconds, walked, end: [...p], reason: "fell out of the world" };
-  }
+  const progress = { seconds: 0, walked: 0 };
+  const failure = follow(world, shape, route, state, progress);
   const p = state.position;
-  const reached = Math.hypot(goal[0] - p[0], goal[2] - p[2]) < 1.5 && Math.abs(goal[1] - p[1]) < 0.6;
-  return { reached, planned: true, seconds, walked, end: [...p], reason: reached ? undefined : "timed out away from goal" };
+  const reached = !failure && Math.hypot(goal[0] - p[0], goal[2] - p[2]) < 1.5 && Math.abs(goal[1] - p[1]) < 0.6;
+  return { reached, planned: true, ...progress, end: [...p],
+    reason: reached ? undefined : failure ?? "arrived away from the marker" };
 }

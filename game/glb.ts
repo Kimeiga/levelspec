@@ -43,25 +43,27 @@ export function readGlbTriangles(data: ArrayBuffer): { positions: Float32Array; 
     throw new Error(`Unsupported component type ${a.componentType}.`);
   };
   const positions: number[] = [], indices: number[] = [];
+  const appendPrimitive = (primitive: any, world: Mat4) => {
+    const p = accessor(primitive.attributes.POSITION) as Float32Array;
+    const base = positions.length / 3;
+    for (let i = 0; i < p.length; i += 3) {
+      const [x, y, z] = [p[i], p[i + 1], p[i + 2]];
+      positions.push(
+        world[0] * x + world[4] * y + world[8] * z + world[12],
+        world[1] * x + world[5] * y + world[9] * z + world[13],
+        world[2] * x + world[6] * y + world[10] * z + world[14],
+      );
+    }
+    const idx = primitive.indices === undefined
+      ? Uint32Array.from({ length: p.length / 3 }, (_, i) => i)
+      : accessor(primitive.indices);
+    for (const i of idx) indices.push(base + i);
+  };
   const visit = (nodeIndex: number, parent: Mat4) => {
     const node = gltf.nodes[nodeIndex], world = multiply(parent, trs(node));
-    for (const primitive of node.mesh === undefined ? [] : gltf.meshes[node.mesh].primitives) {
-      if ((primitive.mode ?? 4) !== 4) continue;
-      const p = accessor(primitive.attributes.POSITION) as Float32Array;
-      const base = positions.length / 3;
-      for (let i = 0; i < p.length; i += 3) {
-        const [x, y, z] = [p[i], p[i + 1], p[i + 2]];
-        positions.push(
-          world[0] * x + world[4] * y + world[8] * z + world[12],
-          world[1] * x + world[5] * y + world[9] * z + world[13],
-          world[2] * x + world[6] * y + world[10] * z + world[14],
-        );
-      }
-      const idx = primitive.indices === undefined
-        ? Uint32Array.from({ length: p.length / 3 }, (_, i) => i)
-        : accessor(primitive.indices);
-      for (const i of idx) indices.push(base + i);
-    }
+    const primitives = node.mesh === undefined ? [] : gltf.meshes[node.mesh].primitives;
+    // Mode 4 is TRIANGLES, the glTF default; points and lines carry no collision.
+    for (const primitive of primitives) if ((primitive.mode ?? 4) === 4) appendPrimitive(primitive, world);
     for (const child of node.children ?? []) visit(child, world);
   };
   for (const root of gltf.scenes[gltf.scene ?? 0].nodes) visit(root, identity());
