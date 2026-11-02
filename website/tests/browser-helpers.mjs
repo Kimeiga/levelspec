@@ -82,7 +82,9 @@ export async function waitForMovement(page, before, distance) {
       );
     },
     { before, distance },
-    { timeout: 10000 },
+    // Poll independently of requestAnimationFrame: software WebGL rendering
+    // can stall the animation callback while the walk state is still active.
+    { timeout: 12000, polling: 100 },
   );
 }
 export async function holdKeyUntilMoved(page, key, before, distance) {
@@ -95,18 +97,26 @@ export async function holdKeyUntilMoved(page, key, before, distance) {
         return state?.mode === "walk" && state.textures === "ready" && state.detail === "ready";
       },
       undefined,
-      { timeout: 15000 },
+      // This readiness predicate is DOM state, not an animation-frame condition.
+      // Software-rendered WebGL may stall requestAnimationFrame in headless Chrome.
+      { timeout: 15000, polling: 100 },
     );
     await page.keyboard.down(key);
-    // Headless Chromium can acquire pointer lock without forwarding Playwright's
-    // synthetic keyboard event. Dispatch the same DOM event as a deterministic
-    // fallback so this test exercises the app's keyboard handler, not browser
-    // automation quirks.
-    await page.evaluate(
-      (key) => window.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true })),
-      key,
-    );
-    await waitForMovement(page, before, distance);
+    // Chromium pointer lock may suppress the initial automation keydown or
+    // blur may clear pressed keys. Repeat real DOM keydown events while held.
+    // This exercises the normal input handler, never mutates player position.
+    const repeat = await page.evaluate((key) => {
+      const press = () => window.dispatchEvent(new KeyboardEvent("keydown", {
+        key, bubbles: true, cancelable: true, repeat: true,
+      }));
+      press();
+      return window.setInterval(press, 120);
+    }, key);
+    try {
+      await waitForMovement(page, before, distance);
+    } finally {
+      await page.evaluate((id) => window.clearInterval(id), repeat);
+    }
   } catch (error) {
     const state = await page.evaluate(() => ({
       model: { ...document.querySelector("#model")?.dataset },

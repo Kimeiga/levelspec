@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - "src/vector/**"
+      - "src/reconstruction/**"
+      - "tools/reconstruct*.ts"
+      - "docs/RECONSTRUCTION.md"
       - "src/export/vector/**"
       - "tests/vector*.test.ts"
       - "viewer/**"

@@ -1,0 +1,31 @@
+name: Image reconstruction
+on:
+  pull_request:
+    paths:
+      - "src/reconstruction/**"
+      - "src/vector/architecture.ts"
+      - "src/vector/index.ts"
+      - "tools/reconstruct*.ts"
+      - "tests/vector-reconstruction*.test.ts"
+      - "docs/RECONSTRUCTION.md"
+      - ".github/workflows/reconstruction.yml"
+permissions:
+  contents: read
+concurrency:
+  group: image-reconstruction-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  focused:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Reference and reconstruction regression
+        run: node --test tests/vector-reference-fit.test.ts tests/vector-reconstruction.test.ts tests/vector-reconstruction-openai.test.ts tests/vector-reconstruction-output.test.ts
+      - run: npm run build:viewer

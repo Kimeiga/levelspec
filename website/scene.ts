@@ -217,7 +217,9 @@ export class LevelScene {
     this.visibility = new IntersectionObserver(([e]) => {
       this.visible = e.isIntersecting;
       this.dirty = true;
-      if (!this.visible) this.clearMovement();
+      // Walking remains active through transient intersection changes caused
+      // by first-person layout and pointer-lock transitions.
+      if (!this.visible && !this.walking) this.clearMovement();
     });
     this.visibility.observe(host);
     document.addEventListener(
@@ -447,7 +449,7 @@ export class LevelScene {
   }
   private advanceWalking(now: number) {
     const dt = this.walkClock.consume(now);
-    if (!this.visible || document.hidden || dt <= 0) return;
+    if ((!this.visible && !this.walking) || document.hidden || dt <= 0) return;
     if (this.walking && this.surface && !this.busy) {
       let forward =
         this.touch.forward +
@@ -473,7 +475,7 @@ export class LevelScene {
   }
   private frame() {
     const now = performance.now();
-    if (!this.visible || document.hidden) return;
+    if ((!this.visible && !this.walking) || document.hidden) return;
     if (this.tourIndex >= 0 && now > this.tourAt) {
       const next = this.tourIndex + 1;
       if (next > 2) {

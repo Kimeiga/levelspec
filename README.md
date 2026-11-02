@@ -9,6 +9,10 @@ Reference-aware architectural authoring is an additional preview. See the
 [authoring guide](docs/REFERENCE_AUTHORING.md) for buildings, façade repetitions,
 roof attachments, GLB props, saved reference cameras, image overlays, and the
 checked-in multi-view rooftop acceptance fixture.
+For experimental **image-to-playable reconstruction**, including photo comparison,
+independent acceptance evidence, an optional vision model and explicit collision
+exports, see the [reconstruction guide](docs/RECONSTRUCTION.md).
+
 LevelSpec 2 exports **GLB, glTF, FBX and Quake BSP2** from the CLI and workbench;
 see [export formats and tool setup](docs/EXPORTS.md).
 
