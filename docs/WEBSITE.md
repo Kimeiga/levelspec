@@ -1,27 +1,160 @@
-# Interactive introduction
+# Layout reviewer
 
-Current experience: see [THREE-WORLDS.md](THREE-WORLDS.md) for the three architectural treatments, persistent first-person entry, and surface-stability changes. Verification is in [WALK-STABILITY-VERIFICATION.md](WALK-STABILITY-VERIFICATION.md).
-
-The current featured scene is **Lantern Court**, a two-storey architectural courtyard with 15 declared floor regions. See [COURTYARD.md](COURTYARD.md) for authoring, materials, exports and limits.
-
-`website/architecture.ts` emits the SVGX source for the same compiler used by the workbench. `website/demo.level.svgx` is a tested default-state snapshot. The page follows Enter / Reshape / Validate / Export: enter at eye level, change the curve or shared elevation, inspect actual navigation, deliberately disconnect and repair access, then export the compiled result.
+Both browser entry points use the shared `review/` implementation. The local
+viewer opens `.level.svgx` and companion assets; the static deployment opens the
+curated Lantern Court snapshot. Both are read-only, full-window review tools.
+XML authoring, repairs and exports belong in external editors and CLI workflows.
 
 ## Run and verify
 
-Use Node 24. Run `npm ci`, then `npm run dev:site`. Run `npm run check`, `node --test --test-concurrency=2 'tests/*.test.ts'`, and `npm run test:site`.
+Use Node 24 and `npm ci`. `npm run dev` opens the local viewer;
+`npm run dev:site` opens the curated reviewer. Build with `npm run build:viewer`
+and `SITE_BASE=/levelspec/ npm run build:site` (use `/` for root hosting).
 
-Build with `SITE_BASE=/levelspec/ npm run build:site`; output is `dist-site/`. For a root domain use `SITE_BASE=/`. Start `SITE_BASE=/levelspec/ npm run preview:site -- --port 48217 --strictPort`, then run `npm run test:site:browser`. The browser suites accept `BASE_URL`, `QA_OUTPUT`, and `BROWSER_PATH`. They use installed Chrome on macOS or Playwright's installed Chromium elsewhere.
+Production acceptance needs both servers, with the same site base used at build:
 
-## Presentation and sharing
+```sh
+SITE_BASE=/levelspec/ npm run preview:site -- --port 48217 --strictPort
+node node_modules/vite/bin/vite.js preview --port 48218 --strictPort
+npm run test:site:browser
+```
 
-Present hides the surrounding introduction. Arrow keys or 1–4 change chapters. Escape leaves walking before exiting presentation. Reset restores the initial source and camera. Shared links preserve bounded curve, elevation, material and validation-demo state without forcing presentation mode.
+The last command belongs in a third terminal. The suite accepts `BASE_URL`,
+`VIEWER_URL`, `QA_OUTPUT`, and `BROWSER_PATH`. It uses installed Chrome on macOS
+or Playwright Chromium elsewhere. See `.github/workflows/website.yml` and
+[the test disposition](reviews/reviewer-test-disposition.md).
 
-The production service worker precaches compiler code, assets and exports. Wait for **Ready offline on this device**. External GitHub documentation still needs connectivity. An existing tab may need a reload after the service worker updates.
+## Controls and guarantees
 
-## Contracts
+- Switch between full-size 2D and 3D viewports. Camera, plan pan/zoom, selected
+  element and floor persist across switching. Fit restores framing; 3D offers
+  top/front/side/three-quarter presets and ninety-degree turns.
+- Review floors, roofs, section height, dimensions, navigation and spatial issues.
+  Dimensions report axis-aligned bounds in meters, not arbitrary point-to-point
+  measurements. Navigation and issues are optional read-only overlays.
+- Walk uses the authored land spawn and compiler-derived land navigation. WASD,
+  arrows or touch buttons move; drag looks; Escape returns to the unchanged
+  overview. It is constrained inspection, not full gameplay physics.
+- Illustrated grayscale is a presentation layer. Authored-material inspection
+  uses authored colors, roughness, metalness and UV textures. Missing image
+  companions are reported; the local viewer never fetches arbitrary source paths.
+  Reference images require explicitly supplied companion assets and show their
+  declared scale note; camera matching is outside this reviewer version.
+- Source loading uses revision-checked workers. Cancellation terminates the worker;
+  retry can recover. Failed loads retain visibly stale geometry and disable walking.
+  Malformed sources and validation errors never become successful validation claims.
+- Plans and validation remain available when WebGL is absent or lost. Restoring a
+  lost graphics context enables 3D again. The renderer skips idle/hidden frames and
+  owns/disposes its geometry, texture, shadow and input resources.
 
-The 25 curve settings and seven elevations (3–6 m) are compiled and validated in the Node suite. New inputs cancel previous workers and immediately invalidate model exports. Failed validation, stale results, network errors and timeouts do not become successful exports.
+The production service worker precaches the application, compiler, font and bundled
+textures. Wait for **Ready offline on this device**. External GitHub links still need
+connectivity. Font and imagery are local, with no runtime CDN requirement.
 
-One Three.js scene owns the 3D preview, using compiled normals and material UVs. Rendering pauses when idle/offscreen. The plan and text remain available without WebGL. Walking follows compiler-derived navigation, not full gameplay physics. Material images are original and bundled locally, not fetched from a CDN. GLB embeds them; glTF and editable-source ZIPs include the required companion images.
+## Visual provenance
 
-Native FBX and BSP2 exports remain CLI workflows with external dependencies. The site does not claim automatic photo reconstruction or finished gameplay scenes. Source, browser tests and generated publishing files are separate; built artifacts are hosted on `gh-pages` and source changes are reviewed through pull requests.
+The layout uses SuperRec's pale gray surfaces and structural rails, Snap Engine's
+modular grid and compact typography, and a new shared Three.js renderer adapting
+orthographic lighting, screen-space charcoal outlines and fine, deterministic randomized dithering
+(2 CSS-pixel cells with seven tonal steps). Visible depth, surface normals and authored-part boundaries generate roughly
+1.5 CSS-pixel outlines in image space, including visible contacts and intersections.
+Illumination, shadows and dithering do not generate contour lines. No Svelte dependency,
+category models or sibling runtime imports were introduced.
+
+The bundled `review/assets/SuperPixelBitmap-Regular.woff2` comes from
+`font-maker/fonts/super-pixel-bitmap/build/fonts/` at font-maker revision
+`a5aee66567ebd46538cebb2b78f1c8f3898f2347`. Its square-pixel outlines differ from
+SuperRec's Fluid variant. Design references were inspected at SuperRec revision
+`417257a539a0ed264aeb6e619e926dc094c3832e` and Snap Engine revision
+`e6a41678b151cb0773cc243c62474393f199d85e`. Existing authored textures retain
+repository provenance; the illustrated layer does not alter source or mesh exports.
+
+## Repeatable architectural views
+
+The shared reviewer offers **Orthographic** and **Perspective** projections.
+Expand **Camera / Z-up meters** to enter a position and target in domain XYZ
+coordinates, a vertical field of view, an orthographic view height and roll. Apply
+validates the complete pose before changing the view. Switching projection keeps
+position, target and actual orientation; Fit frames the model using the active
+projection and preserves effective roll. Top/front/side presets reset roll to zero. Walking
+uses its own perspective camera and returns to the unchanged overview.
+
+**Open this view** encodes the actual camera pose, framing and appearance in a URL. This is
+useful for matching a photograph, comparing revisions or asking another agent to
+inspect the same junction. Use the same source for an image comparison; exact links lock the measured image
+aspect even when the originating review follows its viewport. The URL does not contain source files and does not reproduce selection,
+section height or floor filters. A CLI preview URL works while its
+server is running; the ordinary local viewer still needs its source opened.
+
+Start a live review at a known view directly:
+
+```sh
+npm run --silent levelspec -- preview projects/my-level/level.level.svgx \
+  --camera "11 -17 8" --target "2 3 1" --projection perspective --fov 47 --roll 21.49 \
+  --appearance inspection --frame-aspect 0.75
+```
+
+Camera and target must be supplied together and differ. Values are finite Z-up
+meters; FOV is greater than zero and below 150 degrees. `--view-height 14` sets
+orthographic vertical framing in meters, independent of camera distance. Omitted
+pose uses automatic fit; omitted projection uses orthographic.
+
+Appearance is `illustrated` (the default), `materials`, or `inspection`, selected
+with the Appearance control, `appearance` URL parameter or `--appearance` CLI flag.
+Neutral inspection displays authored colors and textures without lighting or
+shadows, retaining structural outlines, section clipping and selection cues.
+It is a presentation aid, not calibrated photographic color. Switching appearance
+preserves camera/framing; the current-view link and a page reload retain the
+selected appearance. Invalid initial URL options show a diagnostic and fall back
+to the default review as a group. Exported geometry and materials are unaffected.
+
+
+The **Image frame** controls center the largest image of the chosen width/height
+ratio inside both workspace axes. Omission or **Viewport** follows the available
+viewport. Presets, a custom numeric ratio and **Use selected reference ratio** all
+set the same numeric preference. The reference action copies declared width/height;
+changing or clearing the reference afterward does not change the lock. It never
+uses the thumbnail rectangle or infers camera registration.
+
+`--frame-aspect 0.75` and `frame-aspect=0.75` lock a portrait image. Supported live
+ratios run from 0.1 through 10, limiting thin frames and rejecting numerical
+extremes without silently clamping. Browsers quantize fractional CSS dimensions.
+If that moves a supported lock beyond an endpoint, the frame's long dimension is
+rounded inward to a whole CSS pixel and the box is recentered. This can leave a
+small pixel margin; replay preserves composition within that layout quantization.
+Reported/link aspect remains the actual fractional box used by projection, rather
+than the requested preference or rounded canvas client/backing dimensions. Camera pose, vertical FOV, roll and selection
+survive resizing; Fit uses the actual image frame. The 2D plan stays full viewport,
+and walking shares the chosen 3D frame. **Viewport** removes the preference from
+the current URL. **Open this view** instead encodes the newly measured actual ratio,
+so reopening an exact link locks its composition in a differently sized window.
+A responsive frame outside the supported lock range remains usable but its exact
+replay link is unavailable. Invalid form values retain the last useful frame and
+show a diagnostic; invalid initial options follow the atomic fallback above.
+
+Roll is finite degrees, default zero, with positive right-hand rotation about
+the camera-to-target direction. For a camera looking along +Y, +90° makes image-up
+point along +X. Negative CLI values use `--roll=-21.49`. Domain geometry and walking
+stay Z-up. The view URL records actual effective roll after orbiting, normalized
+to the signed half-turn range; it preserves orientation rather than whole-turn counts.
+
+Dimensions now appear inside the viewport as well as the selection panel.
+They are axis-aligned XYZ bounds of the selected geometry, chosen floor or layout,
+excluding invisible collision proxies and hidden roofs. Section clipping does not
+change these full geometry bounds. They are not room clear widths, surveyed
+measurements or building-code assertions. The Dimensions checkbox hides both labels.
+For browser automation, `#viewport-dimensions` exposes `data-min`, `data-max`,
+`data-extent` and `data-scope`; `#model` exposes the current `data-view` JSON,
+`data-projection` and `data-projection-matrix`. The composed `data-view` reports
+actual `frameAspect` separately from the optional `frameAspectLock` preference. `data-view-matrix` is the actual
+rendered camera's column-major world-to-camera matrix, including roll; during
+walking it describes the separate walk camera while `data-view` retains the
+overview pose. These do not change authored XML, collision or navigation.
+
+The compact [Suggestions panel](SUGGESTIONS.md) opens source-linked geometry findings
+in either view, with highlights, cutaway, copyable review links and XML suppression
+annotations. It remains separate from validation and never edits the XML.
+
+Spatial Validation errors provide Inspect and Copy review link, with exact overlap
+patches highlighted in 2D/3D. Invalid but renderable geometry remains inspectable;
+see [surface overlap errors](SVGX.md#visible-surface-overlap-errors).

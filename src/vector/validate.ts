@@ -1,3 +1,5 @@
+import { refreshNavigationSuggestions } from "./navigation-suggestions.ts";
+import { navigationComponents } from "./navigation-components.ts";
 import { collisionMesh } from "./collision.ts";
 import {
   init,
@@ -20,7 +22,7 @@ import { auditNavigationCoverage } from "./navigation-coverage.ts";
 import { ClipContext, ClippingError, clippingLimits } from "./clipping.ts";
 import { movementLevel } from "./movement.ts";
 let initialized: Promise<void> | undefined;
-const NAVIGATION_REVISION = 11;
+const NAVIGATION_REVISION = 13;
 const up = (p: V3) => ({ x: p[0], y: p[2], z: -p[1] });
 const down = (p: { x: number; y: number; z: number }): V3 => [p.x, -p.z, p.y];
 function disjoint(
@@ -200,7 +202,14 @@ async function bakeNavigationForMovement(
     prepared = movementLevel(level, options);
     report = await bakeNavmesh(prepared, options);
   } catch (error) {
-    if (movement === "water") level.waterNavigation = undefined; else level.navigation = undefined;
+    if (!options.sealed) {
+      if (movement === "water") level.waterNavigation = undefined;
+      else {
+        level.navigation = undefined;
+        level.navigationSuggestionsStatus = "unavailable";
+        level.suggestions = level.suggestions.filter(s=>s.code!=="NAV_ISLAND"&&s.code!=="FLIGHT_NAV_MISSING");
+      }
+    }
     throw error;
   }
   report.repairs = prepared.repairs?.filter(r => r.movement === movement);
@@ -209,7 +218,10 @@ async function bakeNavigationForMovement(
   report.passed = report.passed && !report.diagnostics.some(d=>d.severity==="error");
   if (!options.sealed) {
     if (movement === "water") level.waterNavigation = report;
-    else level.navigation = report;
+    else {
+      level.navigation = report;
+      await refreshNavigationSuggestions(level, report, options.signal);
+    }
   }
   return report;
 }
@@ -332,6 +344,8 @@ async function bakeNavmesh(
     },
     passed: false,
     components: 0,
+    componentDetails: [],
+    triangleComponents: [],
     reachableRegions: [],
     unreachableRegions: [
       ...new Set(level.floors.map((f) => f.area ?? f.region)),
@@ -603,7 +617,9 @@ async function bakeNavmesh(
         : reachableRegions
       ).push(area);
     level.repairs = [...(level.repairs ?? []).filter(r=>!allocation.repairs.some(a=>a.code===r.code&&a.movement===r.movement&&a.objects[0]===r.objects[0])),...allocation.repairs];
+    const componentData = navigationComponents(result.navMesh, level, canonical, ni, Math.max(0.22,ch*3), options.signal);
     const report: NavigationReport = {
+      ...componentData,
       diagnostics: [],
       settings: failed.settings,
       coverage,

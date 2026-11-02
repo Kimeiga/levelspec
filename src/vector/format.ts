@@ -109,6 +109,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
   const known: Record<string, string> = {
     level:
       "version id name validation description units wall-thickness wall-height floor-thickness curve-tolerance expect-fail",
+    "review-suppression": "suggestion fingerprint reason",
     layer: "id label",
     vertex: "id label x y z",
     edge: "id label from to kind control height thickness material join base-floor top-floor span-floors",
@@ -136,6 +137,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
   };
   const children: Record<string, string[]> = {
     level: [
+      "review-suppression",
       "layer",
       "seam",
       "material",
@@ -275,6 +277,13 @@ export function parseLevelSvgx(text: string): LevelDocument {
   doc.curveTolerance = n(root, "curve-tolerance", 0.01);
   for (const e of root.children)
     switch (e.tag) {
+      case "review-suppression": {
+        const suppression = { suggestion: s(e, "suggestion"), fingerprint: s(e, "fingerprint"), reason: s(e, "reason") };
+        if (!suppression.reason.trim()) fail(e, "A review suppression requires a nonempty reason.");
+        if (doc.reviewSuppressions?.some(value => value.suggestion === suppression.suggestion)) fail(e, `Duplicate suppression for ${suppression.suggestion}; replace the existing annotation.`);
+        (doc.reviewSuppressions ??= []).push(suppression);
+        break;
+      }
       case "layer":
         doc.layers.push({
           ...named(e),
@@ -519,6 +528,7 @@ export function serializeLevelSvgx(document: LevelDocument): string {
   lines.push(
     `<level${attrs({ version: "2", id: d.id, name: d.name, validation: d.validation === "premap" ? "premap" : undefined, description: d.description, units: "meters", "wall-thickness": d.wallThickness, "wall-height": d.wallHeight, "floor-thickness": d.floorThickness, "curve-tolerance": d.curveTolerance, "expect-fail": d.expectFail || undefined })}>`,
   );
+  for (const suppression of d.reviewSuppressions ?? []) leaf("review-suppression", { ...suppression });
   leaf("player", { ...d.player });
   if (d.boat) leaf("boat", { ...d.boat });
   leaf("sky", d.sky);

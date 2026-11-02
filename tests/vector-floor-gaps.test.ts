@@ -5,6 +5,7 @@ import {
   createDocument,
   parseLevelSvgx,
   serializeLevelSvgx,
+  SceneBuilder,
   type Layer,
   type LevelDocument,
 } from "../src/vector/index.ts";
@@ -56,7 +57,8 @@ function adjacent(height = 1): LevelDocument {
 }
 
 async function inspect(d: LevelDocument) {
-  const level = await compile(d, { navigation: false });
+  // These fixtures deliberately overlap retaining walls and slabs while testing gap coverage.
+  const level = await compile(d, { navigation: false, surfaceContacts: false });
   assert.deepEqual(
     level.diagnostics.filter((diagnostic) => diagnostic.severity === "error"),
     [],
@@ -161,6 +163,56 @@ describe("unsealed adjacent floor boundaries", () => {
     assert.ok(height > 1.7 && height < 1.9);
     stairs.regions[0].underside = "filled";
     assert.deepEqual(await inspect(d), []);
+  });
+
+  it("audits perpendicular sloped stairs meeting a landing at a shared corner after rotation and translation", async () => {
+    for (const yaw of [0, 31, 90, 180]) {
+      const scene = new SceneBuilder("perpendicular-stairs");
+      const group = scene.group("entry", { origin: [7.3, -4.2, 2], yaw });
+      group.platform("landing", {
+        width: 1.5, depth: 1.4, thickness: 0.16, material: "default",
+      });
+      group.polygon("north-flight", [
+        [0, 1.4, 0], [1.5, 1.4, 0], [1.5, 4.9, 1.6], [0, 4.9, 1.6],
+      ], { fill: "stairs", rise: 0.18, underside: "sloped", thickness: 0.16 });
+      group.polygon("west-flight", [
+        [0, 0, 0], [0, 1.4, 0], [-1.6, 1.4, 1], [-1.6, 0, 1],
+      ], { fill: "stairs", rise: 0.18, underside: "sloped", thickness: 0.16 });
+      group.platform("upper-landing", {
+        origin: [-3.1, 0, 1], width: 1.5, depth: 1.4,
+        thickness: 0.16, material: "default",
+      });
+      const level = await compile(scene.document, {
+        navigation: false, floorGaps: "error",
+      });
+      assert.deepEqual(level.diagnostics, [], `Valid landing joins at yaw ${yaw}`);
+      const flight = level.floors.find((floor) => floor.region === "entry/west-flight");
+      assert.ok(flight && flight.triangles.length > 0, "The audited flight retains real tread geometry.");
+      assert.ok(Math.abs(Math.max(...flight.points.map((point) => point[2])) - 3) < 1e-6);
+    }
+  });
+
+  it("still reports a real exposed sloped stair-side gap after rotation and translation", async () => {
+    const document = adjacent();
+    const stairs = document.layers[1];
+    stairs.vertices.forEach((vertex) => { vertex.z = vertex.y / 2; });
+    Object.assign(stairs.regions[0], {
+      fill: "stairs", lower: "high.e0", upper: "high.e2", underside: "sloped",
+    });
+    const radians = 31 * Math.PI / 180;
+    for (const layer of document.layers) for (const vertex of layer.vertices) {
+      const { x, y } = vertex;
+      vertex.x = 7.3 + x * Math.cos(radians) - y * Math.sin(radians);
+      vertex.y = -4.2 + x * Math.sin(radians) + y * Math.cos(radians);
+      vertex.z += 2;
+    }
+    const level = await compile(document, { navigation: false, floorGaps: "error" });
+    const gaps = level.diagnostics.filter((diagnostic) => diagnostic.code === "FLOOR_EDGE_GAP");
+    assert.equal(gaps.length, 1);
+    assert.equal(gaps[0].severity, "error");
+    assertPair(gaps[0].objects);
+    const height = Number(gaps[0].message.match(/about ([\d.]+) m high/)?.[1]);
+    assert.ok(height > 1.7 && height < 1.9, "An orientation change cannot hide the physical gap.");
   });
 
   it("recognizes a first stair riser stepping down onto a continuous underpass floor", async () => {
@@ -278,9 +330,9 @@ describe("unsealed adjacent floor boundaries", () => {
         })),
         [
           {
-            severity: "warning",
-            code: "WALL_FLOOR_COPLANAR",
-            objects: ["stair-side-riser", "low.floor"],
+            severity: "error",
+            code: "SURFACE_COPLANAR",
+            objects: ["low.floor", "stair-side-riser"],
           },
         ],
       );

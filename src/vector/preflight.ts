@@ -56,6 +56,12 @@ export function validateDocument(
   document: LevelDocument,
   diagnostics: Diagnostic[],
 ): Set<string> {
+  const suppressed = new Set<string>();
+  for (const suppression of document.reviewSuppressions ?? []) {
+    if (!suppression.reason.trim() || !suppression.suggestion.trim() || !suppression.fingerprint.trim() || suppressed.has(suppression.suggestion))
+      report(diagnostics, document, "Review suppressions require a unique finding, fingerprint, and nonempty reason.", "REVIEW_SUPPRESSION");
+    suppressed.add(suppression.suggestion);
+  }
   for (const [name, value] of Object.entries({
     wallThickness: document.wallThickness,
     wallHeight: document.wallHeight,

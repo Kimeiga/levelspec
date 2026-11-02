@@ -1,3 +1,4 @@
+import { auditSuggestions } from "./suggestions.ts";
 import { prepareProps } from "./props.ts";
 import { validateDocument } from "./preflight.ts";
 import { ClippingError } from "./clipping.ts";
@@ -274,16 +275,19 @@ export async function compile(
     water,
     curves,
     diagnostics,
+    suggestions: [],
+    navigationSuggestionsStatus: options.navigation === false ? "unavailable" : "pending",
     geometryHash: "",
     semantic,
     stats: {},
     ...(options.retainExportSolids ? { exportSolids: [] } : {}),
   };
-  if (diagnostics.some((e) => e.severity === "error")) return level;
+  if (diagnostics.some((e) => e.severity === "error")) {level.navigationSuggestionsStatus="unavailable";return level;}
   let props: Awaited<ReturnType<typeof prepareProps>>;
   try { props = await prepareProps(d, options.resolveAsset, options.signal); }
   catch (error) {
     if ((error as Error).name === "AbortError") throw error;
+    level.navigationSuggestionsStatus = "unavailable";
     err(((error as Error).cause as Named) ?? d, (error as Error).message, "ASSET");
     return level;
   }
@@ -1293,7 +1297,7 @@ export async function compile(
       diagnostics.push(
         ...auditSurfaceContacts(
           level,
-          options.surfaceContacts ?? "warning",
+          options.surfaceContacts ?? "error",
           options.signal,
         ),
       );
@@ -1306,6 +1310,9 @@ export async function compile(
         ),
       );
   }
+  if (!diagnostics.some((d) => d.severity === "error"))
+    level.suggestions = await auditSuggestions(level, options.signal);
+  if (diagnostics.some(d=>d.severity === "error") || options.navigation === false) level.navigationSuggestionsStatus = "unavailable";
   options.onGeometry?.(level);
   if (
     options.navigation !== false &&
@@ -1327,6 +1334,7 @@ export async function compile(
       }
     } catch (error) {
       if ((error as Error).name === "AbortError") throw error;
+      if (level.navigationSuggestionsStatus !== "complete") level.navigationSuggestionsStatus = "unavailable";
       if(error instanceof ClippingError) diagnostics.push(error.diagnostic); else err(d, (error as Error).message, "NAV_BAKE");
     }
   }

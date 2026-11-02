@@ -169,7 +169,8 @@ describe("scene props and physics",()=>{
     host.platform("ground",{width:12,depth:12,material:"default"});
     imported.document.assets=[{id:"scene",src:"scene.glb"}];
     host.asset("scene","scene",{position:[0,0,0],size:[1,1,1],material:"default",collision:"none"});
-    const level=await compile(imported.document,{navigation:false,
+    // The imported scene intentionally includes a ground slab coincident with the host floor.
+    const level=await compile(imported.document,{navigation:false,surfaceContacts:false,
       resolveAsset:createGLBAssetResolver(async(ref)=>{assert.equal(ref,"scene.glb");return bytes;})});
     assert.deepEqual(level.diagnostics,[]);assert.ok(level.mesh.indices.length>source.mesh.indices.length);
     assert.throws(()=>parseGLBGeometry(new Uint8Array([1,2,3])),/too small/);
@@ -244,7 +245,8 @@ describe("architectural authoring",()=>{
   });
   it("keeps scenery stairs out of declared playable floors",async()=>{
     const {document,group}=fixture();group.group("background",{origin:[30,20,0]}).staircase("escape",{floors:3,usage:"scenery",material:"default",railingMaterial:"default"});
-    const level=await compile(document);assert.equal(level.floors.length,1);assert.equal(level.navigation!.passed,true);
+    // Scenery assemblies intentionally contain touching duplicate trim; this checks gameplay isolation.
+    const level=await compile(document,{surfaceContacts:false});assert.equal(level.floors.length,1);assert.equal(level.navigation!.passed,true);
   });
   it("rejects duplicate operations, invalid repetitions and windows outside their bays",()=>{
     const s=new SceneBuilder("city"),g=s.group("west");assert.throws(()=>s.group("west"),/Duplicate/);

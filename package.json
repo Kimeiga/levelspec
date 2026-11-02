@@ -49,7 +49,11 @@
     "reconstruct": "node tools/reconstruct.ts",
     "game:export": "node tools/vector-migrate.ts kiln.plan && node tools/game-export.ts maps/vector/maps/hand/kiln.level.svgx --out game/public/maps/kiln",
     "game:dev": "vite --config vite.game.config.ts",
-    "game:build": "vite build --config vite.game.config.ts"
+    "game:build": "vite build --config vite.game.config.ts",
+    "levelspec": "node bin/levelspec.mjs",
+    "test:preview:browser": "node tests/preview-browser.mjs && node tests/suggestions-browser.mjs && node tests/inspection-browser.mjs && node tests/outlines-browser.mjs && node tests/frame-aspect-browser.mjs && node tests/overlaps-browser.mjs && node tests/walk-inspection-browser.mjs && node tests/navigation-cell-browser.mjs",
+    "test:walk:browser": "node tests/walk-inspection-browser.mjs",
+    "test:review:browser": "node website/tests/review-browser.mjs"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",
@@ -76,5 +80,8 @@
   "allowScripts": {
     "fsevents@2.3.3": true
   },
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "levelspec": "./bin/levelspec.mjs"
+  }
 }

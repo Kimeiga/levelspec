@@ -51,7 +51,9 @@ function slice(a: V3, b: V3, p: [V3, V3, V3]): Piece | undefined {
     if (Math.abs(f1 - f0) < 1e-12) {
       if (f0 < -tolerance) return;
     } else {
-      const t = (-tolerance - f0) / (f1 - f0);
+      // Clip crossing edges at their real plane. Expanding the interval turns
+      // corner-only contacts into spans beyond a sloped stair's guide surface.
+      const t = -f0 / (f1 - f0);
       if (f1 > f0) start = Math.max(start, t);
       else end = Math.min(end, t);
     }

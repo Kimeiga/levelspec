@@ -9,12 +9,47 @@ export interface SourceLocation {
   offset: number;
   end?: number;
 }
+/** Source-linked world-space overlap inspection target in Z-up meters. */
+export interface DiagnosticReview {
+  id: string;
+  layers: string[];
+  bounds: { min: V3; max: V3 };
+  position: V3;
+  direction: V3;
+  patches: V3[][];
+}
+export type ReviewFinding = Pick<Suggestion, "id" | "objects" | "layers" | "bounds" | "position" | "direction" | "navigation"> & { code?: string; patches?: V3[][] };
 export interface Diagnostic {
+  review?: DiagnosticReview;
+  relatedSources?: { object: string; source?: SourceLocation }[];
   severity: "error" | "warning" | "info";
   code: string;
   message: string;
   objects: string[];
   source?: SourceLocation;
+}
+/** Non-blocking architectural review finding. Distances and targets use Z-up meters. */
+export interface Suggestion {
+  id: string;
+  code: "WALL_ALIGNMENT" | "FLIGHT_WALL_GAP" | "FLIGHT_OPEN_SIDE" | "NAV_ISLAND" | "FLIGHT_NAV_MISSING";
+  message: string;
+  objects: string[];
+  sources: { object: string; source?: SourceLocation }[];
+  layers: string[];
+  position: V3;
+  bounds: { min: V3; max: V3 };
+  direction: V3;
+  evidence: { offset?: number; length: number; area?: number; small?: boolean; disconnected?: boolean };
+  navigation?: { component: string };
+  fingerprint: string;
+  state: "active" | "suppressed";
+  suppression?: { reason: string; stale: boolean };
+}
+/** An intentional finding, acknowledged against one revision of its local geometry. */
+export interface ReviewSuppression {
+  suggestion: string;
+  fingerprint: string;
+  reason: string;
 }
 export interface Named {
   id: string;
@@ -178,6 +213,7 @@ export interface Boat {
 }
 export const DEFAULT_BOAT: Boat = { radius: 2, draft: 0.5, height: 2 };
 export interface LevelDocument extends Named {
+  reviewSuppressions?: ReviewSuppression[];
   props?: SceneProp[];
   assets?: MeshAsset[];
   references?: ReferenceView[];
@@ -279,6 +315,8 @@ export interface ExportSolid {
   surface: Surface;
 }
 export interface CompiledLevel {
+  navigationSuggestionsStatus: "pending" | "complete" | "unavailable";
+  suggestions: Suggestion[];
   repairs?: RepairRecord[];
   /** Non-solid water surfaces, separate from physical floor slabs. */
   water?: FloorPatch[];
@@ -311,7 +349,7 @@ export interface CompileOptions {
   navigation?: boolean | NavigationOptions;
   /** Adjacent unsealed floor-height gaps warn by default; opt into errors or disable. */
   floorGaps?: false | "warning" | "error";
-  /** Coplanar, same-facing wall/floor overlaps warn by default. */
+  /** Visible, same-facing coplanar overlaps are errors by default. */
   surfaceContacts?: false | "warning" | "error";
   uvs?: boolean;
   uv?: UVOptions;
@@ -368,7 +406,20 @@ export interface NavigationCoverage {
     reasons: Partial<Record<NavigationBlockReason, number>>;
   }[];
 }
+/** A weakly connected walking network; area is horizontal footprint in square meters. */
+export interface NavigationComponent {
+  id: string;
+  area: number;
+  bounds: { min: V3; max: V3 };
+  /** Representative point on the mesh, rather than the possibly unsupported bounds center. */
+  position: V3;
+  regions: string[];
+  layers: string[];
+}
 export interface NavigationReport {
+  componentDetails: NavigationComponent[];
+  /** One component ID for each triangle of indices; empty means disabled polygon. */
+  triangleComponents: string[];
   componentSeeds?: {id:string;position:V3}[];
   repairs?: RepairRecord[];
   /** Navigation failures remain separate from geometry compilation diagnostics. */

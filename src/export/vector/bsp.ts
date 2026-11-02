@@ -4,7 +4,7 @@ import type { CompiledLevel, ExportSolid, V3 } from "../../vector/types.ts";
 import type { ExportAsset } from "../../vector/export-assets.ts";
 import { geometryKernel } from "../../vector/compiler.ts";
 import { heightAt } from "../../vector/geometry.ts";
-import { boxMesh } from "../../core/mesh.ts";
+import { boxMesh } from "./box-mesh.ts";
 import {
   convexBrushes,
   solidManifold,

@@ -25,11 +25,49 @@ import {
 } from "../src/vector/index.ts";
 import { exportLevel } from "../src/export/vector/index.ts";
 import { runTool } from "../src/export/vector/process.ts";
-import { signedVolume } from "../src/core/mesh.ts";
+import { boxMesh } from "../src/export/vector/box-mesh.ts";
 import { geometryKernel } from "../src/vector/compiler.ts";
 import { solidManifold, convexBrushes } from "../src/export/vector/brushes.ts";
 import { buildQuakeMap } from "../src/export/vector/bsp.ts";
 import { quakeWad } from "../src/export/vector/textures.ts";
+/** Independent scalar triple-product volume oracle for closed, oriented triangles. */
+function signedVolume(mesh: { positions: number[]; indices: number[]; normals?: number[] }): number {
+  let sixTimesVolume = 0;
+  const p = mesh.positions;
+  for (let i = 0; i < mesh.indices.length; i += 3) {
+    const a = mesh.indices[i] * 3;
+    const b = mesh.indices[i + 1] * 3;
+    const c = mesh.indices[i + 2] * 3;
+    sixTimesVolume += p[a] * (p[b + 1] * p[c + 2] - p[b + 2] * p[c + 1])
+      + p[a + 1] * (p[b + 2] * p[c] - p[b] * p[c + 2])
+      + p[a + 2] * (p[b] * p[c + 1] - p[b + 1] * p[c]);
+  }
+  return sixTimesVolume / 6;
+}
+
+describe("export box geometry", () => {
+  it("has outward normals and the analytic volume of an asymmetric translated box", () => {
+    const mesh = boxMesh({ min: [1, 2, 3], max: [4, 7, 5] });
+    assert.equal(mesh.indices.length, 36);
+    assert.ok(Math.abs(signedVolume(mesh) - 30) < 1e-9);
+    for (let i = 0; i < mesh.indices.length; i += 3) {
+      const [a, b, c] = mesh.indices.slice(i, i + 3).map(index => mesh.positions.slice(index * 3, index * 3 + 3));
+      const u = b.map((value, axis) => value - a[axis]);
+      const v = c.map((value, axis) => value - a[axis]);
+      const cross = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+      const centroid = a.map((value, axis) => (value + b[axis] + c[axis]) / 3);
+      const fromCenter = centroid.map((value, axis) => value - [2.5, 4.5, 4][axis]);
+      assert.ok(cross.reduce((sum, value, axis) => sum + value * fromCenter[axis], 0) > 0);
+      for (const index of mesh.indices.slice(i, i + 3)) {
+        const normal = mesh.normals.slice(index * 3, index * 3 + 3);
+        assert.ok(cross.reduce((sum, value, axis) => sum + value * normal[axis], 0) > 0);
+      }
+    }
+    const reversed = mesh.indices.flatMap((_, i, indices) => i % 3 === 0 ? [indices[i + 2], indices[i + 1], indices[i]] : []);
+    assert.ok(Math.abs(signedVolume({ positions: mesh.positions, indices: reversed }) + 30) < 1e-9);
+  });
+});
+
 function fixture() {
   const d = createDocument("export-room");
   d.layers = [
@@ -475,7 +513,8 @@ describe("Quake brush export", () => {
       layer: "ground",
       shape: "asset",
       asset: "open-mesh",
-      position: [4, 2, 1],
+      // Keep the open triangle above the floor so BSP solid validation owns this failure.
+      position: [4, 2, 1.1],
       rotation: [0, 0, 0],
       scale: [1, 1, 1],
       material: "paint",

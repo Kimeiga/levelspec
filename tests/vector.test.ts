@@ -19,13 +19,13 @@ function expectSideContacts(
       objects,
     })),
     edges.map((edge) => ({
-      severity: "warning",
-      code: "WALL_FLOOR_COPLANAR",
-      objects: [edge, "floor"],
+      severity: "error",
+      code: "SURFACE_COPLANAR",
+      objects: [edge, "floor"].sort(),
     })),
   );
   assert.ok(
-    l.diagnostics.every((d) => d.message.includes("same-facing side surfaces")),
+    l.diagnostics.every((d) => d.message.includes("same-facing surfaces")),
   );
 }
 export function room() {

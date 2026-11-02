@@ -10,7 +10,7 @@ import {
   open,
   lstat,
 } from "node:fs/promises";
-import { dirname, resolve, join, relative, isAbsolute } from "node:path";
+import { dirname, resolve, join, relative, isAbsolute, parse } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { CompiledLevel } from "../../vector/types.ts";
 import { toGLB, toGLTF, toRuntime } from "../../vector/export.ts";
@@ -35,12 +35,31 @@ export interface ExportLevelOptions extends BSPOptions {
   /** Additional compile reports/legacy artifacts included in the same transaction. */
   additionalFiles?: ExportFiles;
 }
+/** Rejects redirected destination parents; this is not a concurrent filesystem sandbox. */
+async function checkDestination(directory: string) {
+  const absolute = resolve(directory);
+  let current = parse(absolute).root;
+  for (const part of relative(current, absolute).split(/[\\/]/).filter(Boolean)) {
+    current = join(current, part);
+    // macOS supplies these system aliases even for ordinary temporary directories.
+    if (process.platform === "darwin" && ["/var", "/tmp"].includes(current)) continue;
+    try {
+      const info = await lstat(current);
+      if (info.isSymbolicLink()) throw new Error(`Export destination contains a symlink: ${current}`);
+      if (!info.isDirectory()) throw new Error(`Export destination is not a directory: ${current}`);
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    }
+  }
+}
 export async function writeExportFiles(directory: string, files: ExportFiles) {
+  await checkDestination(directory);
   for (const [name, data] of Object.entries(files)) {
     const file = resolve(directory, name),
       rel = relative(directory, file);
     if (isAbsolute(rel) || rel.startsWith("..") || !rel)
       throw new Error(`Unsafe export filename: ${name}`);
+    await checkDestination(dirname(file));
     await mkdir(dirname(file), { recursive: true });
     await writeFile(file, data);
   }
@@ -65,6 +84,7 @@ async function publish(
   backup: string,
   signal?: AbortSignal,
 ) {
+  await checkDestination(output);
   await mkdir(output, { recursive: true });
   const lock = join(output, ".levelspec-export.lock");
   let handle;
@@ -80,6 +100,7 @@ async function publish(
       signal?.throwIfAborted();
       const dest = join(output, name),
         old = join(backup, name);
+      await checkDestination(dirname(dest));
       await mkdir(dirname(dest), { recursive: true });
       await mkdir(dirname(old), { recursive: true });
       try {
@@ -138,6 +159,7 @@ export async function exportLevel(
   assertExportable(level, { assets });
   const output = resolve(options.output),
     name = exportName(level.document.id);
+  await checkDestination(output);
   await mkdir(dirname(output), { recursive: true });
   const work = await mkdtemp(join(dirname(output), ".levelspec-export-")),
     stage = join(work, "stage"),

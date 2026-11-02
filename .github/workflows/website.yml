@@ -21,15 +21,15 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      # Preserve every original test and the bounded native/WASM concurrency.
-      - run: node --test --test-concurrency=2 'tests/*.test.ts'
+      # Use the shared bounded native/WASM test command.
+      - run: npm test
       - run: npm run test:site
       - run: npm run build:viewer
       - run: npm run build:site
         env:
           SITE_BASE: /levelspec/
   browser:
-    name: Browser, accessibility, export and offline checks
+    name: Reviewer, accessibility and offline checks
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -42,14 +42,18 @@ jobs:
       - run: npm run build:site
         env:
           SITE_BASE: /levelspec/
+      - run: npm run build:viewer
       - run: npx playwright install --with-deps chromium
+      - run: npm run test:preview:browser
       - name: Verify the production browser experience
         run: |
           npm run preview:site -- --host 127.0.0.1 --port 48217 --strictPort > /tmp/levelspec-site.log 2>&1 &
-          SERVER_PID=$!
-          trap 'kill "$SERVER_PID"' EXIT
+          SITE_PID=$!
+          node node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 48218 --strictPort > /tmp/levelspec-viewer.log 2>&1 &
+          VIEWER_PID=$!
+          trap 'kill "$SITE_PID" "$VIEWER_PID"' EXIT
           for attempt in $(seq 1 30); do
-            if curl --fail --silent http://127.0.0.1:48217/levelspec/ > /dev/null; then break; fi
+            if curl --fail --silent http://127.0.0.1:48217/levelspec/ > /dev/null && curl --fail --silent http://127.0.0.1:48218/ > /dev/null; then break; fi
             sleep 1
           done
           npm run test:site:browser

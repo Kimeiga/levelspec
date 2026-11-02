@@ -1,9 +1,55 @@
-# Reference-aware architectural authoring (preview)
+# Reference-aware architectural authoring
 
 This addition makes image-guided level construction easier to express in code.
 It does not infer a scene from an image automatically. A host or author estimates
 geometry and the reference camera, then compiles ordinary LevelSpec geometry.
-The existing LevelSpec 2 migration and runtime acceptance gates remain in force.
+XML runtime validation remains authoritative; the legacy migration gate is retired.
+
+## Start from original evidence
+
+For substantial reference reconstruction, establish reviewed drawings before
+dependent production geometry. Inspect the raw originals and user annotations,
+then save a source-only feature inventory: visible shapes/openings/levels, view
+correspondence, source regions, dimension provenance and unresolved relationships.
+Keep observations, user explanations, estimates and inferred construction distinct.
+Unknown hidden corridors or stair connections remain unknown; do not complete them
+merely to make a plausible building.
+
+For difficult openings, overlapping storeys and junctions, author editable SVG
+traces in each original's native pixel coordinates with the unchanged photograph
+and separate observed, uncertain and inferred layers. Retain source hashes, stable
+path IDs, full-image context and readable crops. Perspective traces are observations,
+not measured plans. See [photo contour tracing](../.agents/skills/reference-level-authoring/references/photo-contour-tracing.md).
+
+Draw plans, elevations, sections and enlarged details with CAD-level specificity:
+actual supported profiles, opening rims/reveals, surrounding wall material, slab
+edges/thicknesses, stairs and landings. Label estimates, section cutting planes,
+removed cutaway regions and cross-view correspondences. Generic boxes and labels
+cannot replace visible geometry. Independently review the frozen drawings against
+originals before dependent XML detail; defer critical unresolved relationships while
+continuing independently supported work. The
+[schematic workflow](../.agents/skills/reference-level-authoring/references/schematic-workflow.md)
+defines this drawing standard and review gate.
+
+Freeze XML/companions, compile them and capture actual renders of that revision.
+Fresh-context critics first save source-only observations, then inspect drawings
+and model renders and author their own paired original/candidate contours. Fit and
+lock cameras using stable distributed landmarks; test held-out openings and slab
+edges. Unmatched critical views stay diagnostic and cannot close fidelity acceptance.
+Original pixels remain authoritative: a schematic derived from the same wrong
+model cannot validate that model. Geometry and navigation checks do not establish
+source fidelity. See [paired contour review](../.agents/skills/reference-level-authoring/references/paired-contour-review.md)
+and [independent review prompts](../.agents/skills/reference-level-authoring/references/independent-review.md).
+
+The repository includes optional Python/Pillow
+[comparison helpers](../.agents/skills/reference-level-authoring/references/comparison-tools.md)
+for source-only packets, paginated reference/schematic/render boards and contextual
+contour pairs. They preserve native snapshots, crop/framing transforms and SHA256
+provenance, refuse to overwrite frozen packets, and require human inspection.
+They do not render models, fit cameras or infer hidden construction. Pillow can
+run in an isolated environment; no sibling checkout, Blender installation or main
+package dependency is required. Keep originals, editable drawings and review
+records with the project; place reproducible outputs under ignored `generated/`.
 
 ## Build from architectural intent
 
@@ -132,14 +178,27 @@ These numbers measure landmark alignment, not photographic similarity, camera
 calibration quality, or overall reconstruction accuracy. `referenceViewport`
 computes a shared letterbox for a renderer and reference overlay.
 
-The workbench exposes saved references directly in the Perspective view. Choose a
-reference, use **Use camera** to reproduce its authored perspective, and enable
-**Overlay** after selecting the companion image to letterbox the render and image
-to the same viewport. Overlay mode locks orbit/fly controls so the pixels remain
-registered; disabling it restores inspection controls. The camera button reports
-the current landmark RMS in its tooltip. Open the checked-in acceptance fixture
-with `npm run dev -- --open '?map=rooftop'` or navigate to
-`/?map=rooftop`.
+The current reviewer shows supplied reference images under **References**. To
+inspect from a recorded or estimated camera, choose **Perspective**, open
+**Camera / Z-up meters**, and enter the position, target and field of view. **Open
+this view** produces a URL for the actual overview pose and framing; use the same
+source and viewport aspect when comparing revisions. The CLI accepts the same
+values, for example:
+
+```sh
+npm run --silent levelspec -- preview projects/dai2-daiban/level.level.svgx \
+  --camera "1.2 1.8 3" --target "3.4 4.9 5.2" --projection perspective --fov 82
+```
+
+The viewport dimensions show the compiled selected object or visible layout's
+XYZ extents, not measured passage clearance. See [review controls](WEBSITE.md).
+The reviewer does not calibrate a reference photograph or perform the API's
+landmark comparison automatically.
+
+The [Dai-2 Daiban courtyard study](../projects/dai2-daiban/BRIEF.md) is a real-photo
+authoring example with retained originals, estimated plans/sections, editable XML,
+local analytical aperture geometry, route checks and independent critique. Its
+unmeasured dimensions and provisional hidden connections are recorded explicitly.
 
 ## Verification and visual acceptance
 

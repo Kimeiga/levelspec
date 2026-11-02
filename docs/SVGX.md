@@ -1,29 +1,24 @@
-# LevelSpec 2 vector authoring (preview)
+# XML LevelSpec authoring
 
-The vector compiler is available through `levelspec/vector`. Its canonical
-coordinate system is right-handed, Z-up, in metres. Runtime JSON is generated
-output. The existing root API remains available while migration parity is being
-verified; this workspace is not yet a completed 2.0 release.
+The XML compiler is available through `levelspec` and `levelspec/vector`. Its
+canonical coordinate system is right-handed, Z-up, in meters. Runtime JSON is
+generated output; ASCII plans and JSON level authoring have been retired.
 
-Run `npm run dev` to open the source editor and linked plan/3D inspector. Open or
-drop a `.level.svgx` file, edit its XML, and compile it. A source error retains the
-last valid preview and marks it stale. Atlas generation is optional. Cancelling
-terminates the compilation worker. Orbit and free-fly inspection are available;
-free-fly does not enforce player collision.
+Edit XML with your normal tools and use the read-only reviewer for inspection.
+For live file watching run `npm run --silent levelspec -- preview <file.level.svgx>`.
+Malformed XML retains visibly stale geometry until repaired. Local file opening is
+also available through `npm run dev`; the browser does not save source or export.
 
 ```sh
-npm run compile:vector -- examples/showcase.level.svgx
-npm run compile:vector -- examples/showcase.level.svgx --no-uv
+npm run compile -- examples/showcase.level.svgx --out generated/showcase
+npm run compile -- examples/showcase.level.svgx --out generated/showcase --no-uv
 node tools/vector-bake.ts examples/showcase.level.svgx generated/lighting/my-bake 64
 ```
 
-The compile command writes mesh JSON, OBJ, SVG, GLB, UV layouts, and validation
-reports beneath `generated/vector`. OBJ carries material UVs only. GLB contains
-`TEXCOORD_0` and, after atlas generation, `TEXCOORD_1`. Generic GLB viewers do not
-apply LevelSpec lighting manifests automatically.
-
-For GLB/glTF/FBX/BSP format selection, texture packaging, native tool setup,
-viewer downloads and preservation details, see [Exporting levels](EXPORTS.md).
+Build writes GLB, runtime/report JSON, OBJ, SVG and optional atlas data beneath the
+explicit `--out` directory. GLB contains material UVs and, after unwrapping,
+lightmap UVs; generic viewers do not automatically apply lighting manifests.
+See [exports](EXPORTS.md) for formats and [review controls](WEBSITE.md) for UI.
 
 ## Minimal document
 
@@ -186,33 +181,34 @@ platform is an ordinary separate floor, joined to the descending rail with an
 explicit elevation seam. Local solid-span validation also checks stacked sloping
 floors across layers without confusing overlapping global height ranges.
 
-## Wall/floor overlap warnings
+## Visible surface overlap errors
 
-Compilation reports `WALL_FLOOR_COPLANAR` when the final wall and floor/stair
-meshes contain overlapping, same-facing surface patches. This includes a wall
-cap at floor elevation and vertical slab sides coinciding with wall faces or end
-caps. Each source pair produces one warning with both IDs, source location,
-overlap area, an example coordinate and the nominal half-thickness offset.
+Compilation reports `SURFACE_COPLANAR` when visible geometry contains overlapping,
+same-facing coplanar patches. The audit covers architectural surfaces, primitive
+props and imported meshes, including duplicate faces inside one object. Collision
+settings do not exempt visual geometry; invisible collision proxies are excluded.
 
-Raise the wall above the floor, terminate a supporting wall at the slab
-underside, or move the floor boundary to meet its physical face without an
-overlapping patch. Moving only the rendered object, applying depth bias, or
-changing material colors does not repair the source geometry. Mesh categories
-remain separate; the audit does not union floors with walls or shift geometry.
+Each canonical object pair produces one diagnostic with source IDs, approximate
+union overlap area, related object/asset source locations, and a spatial review
+target. Validation provides Inspect, Cutaway and Copy review link; a direct link
+uses `?diagnostic=<id>` or `preview <source> --diagnostic <id>`. Diagnostic and
+suggestion selectors are mutually exclusive. The reviewer retains geometry after
+an overlap error so invalid layouts can still be inspected. Resolved findings are
+reconciled on source updates and stale geometry disables inspection controls.
 
-The check uses actual triangle intersections, including sloped surfaces and
-openings. It excludes opposing underside supports, bottom caps and line/point
-contact. A 0.1 mm plane/footprint tolerance and a 1 mm² area threshold suppress
-float32 construction residue; this is a geometry audit, not a guarantee against
-all camera-dependent depth artifacts.
+Separate or remove duplicate surfaces in source geometry. The compiler never
+shifts geometry, unions distinct objects or applies material depth bias to hide
+an overlap. Opposing construction supports, ordinary triangle neighbors,
+perpendicular crossings and line/point contact are excluded. Downward same-facing
+overlaps are checked. Existing 0.1 mm plane/footprint and 1 mm² area tolerances
+suppress construction residue; this does not guarantee detection of all
+camera-dependent depth artifacts or merely close surfaces.
 
-Warnings are enabled by default. Use `surfaceContacts: "error"` for strict
-compilation or `surfaceContacts: false` to disable this audit. The CLI provides
-`--strict-surface-contacts`. Warnings are included in runtime JSON and the
-viewer's linked Validation panel. Current Dust II passes both strict contact
-and strict floor-gap checks without warnings. Wall feet follow their supporting
-floor plane; open retaining seams start at the lower walking surface. Actual
-authored cap or side overlaps still produce diagnostics.
+Overlaps are errors by default and prevent validation/export success. Explicit
+`surfaceContacts: "warning"` or `false` changes this policy. The CLI provides
+`--surface-contacts error|warning|off`; the former strict-only flag is removed.
+Existing suggestion suppressions do not suppress overlap errors. Failed builds
+preserve published outputs.
 
 ## Automatic navigation and clearance
 
@@ -270,7 +266,7 @@ The default is a warning so an intentional open edge stays inspectable. Use
 `floorGaps: false` to disable this audit. The CLI equivalent for strict builds is:
 
 ```sh
-npm run compile:vector -- examples/dust2.level.svgx --strict-floor-gaps
+npm run compile -- examples/dust2.level.svgx --strict-floor-gaps
 ```
 
 The audit exposed a former Dust II gap at Long A / CT. It was repaired by restoring
@@ -339,17 +335,16 @@ sun/lamp lighting live. Receiver albedo is excluded from the lightmap. Material
 colors remain present for bounce. The result includes raw linear EXRs, coverage
 and chart arrays, chart-aware mips, settings, checksums and an editable `.blend`.
 
-Enable lightmap UVs in the inspector, then drop the `.lighting.json` file and all
-its EXR page/mip files together. The viewer binds them to `uv1` and rejects stale
-geometry, atlas, material, light, compiler or renderer revisions. Covered black
-texels remain covered; padding does not infer coverage from brightness. The
-current Cycles calibration stores E/pi and records the corresponding decode
-multiplier. Runtime material albedo and direct lights are applied once.
+Lighting manifests and their EXR/mip companions belong to the optional bake pipeline.
+The current read-only reviewer does not expose the former lighting-manifest drop
+workflow. Validate hashes and destination-renderer binding in the intended consumer;
+a successful bake is not visual acceptance. Historical calibration evidence is in
+[the archive](archive/README.md).
 
-External material-image packaging, full UV gutter/distortion auditing, complete
-semantic/physical traversal parity, and the migration retirement gate remain
-open. See [the implementation ledger](IMPLEMENTATION.md) before treating this as
-a production 2.0 release.
+Export material images are packaged for portable mesh formats. Remaining UV,
+lighting and destination-runtime limits are recorded in
+[the implementation ledger](IMPLEMENTATION.md). Legacy migration parity is no
+longer a release gate; retained XML contracts are the acceptance standard.
 
 ## Reference-aware authoring preview
 
@@ -357,7 +352,7 @@ The source format also accepts root-level `reference` (with `landmark` and `mask
 children), `asset`, and `prop` declarations. Stairs accept optional
 `underside="filled"` (the existing default) or `underside="sloped"`.
 See [Reference authoring](REFERENCE_AUTHORING.md) for examples, collision behavior,
-host asset-resolution requirements, and the not-yet-integrated viewer workflow.
+host asset-resolution requirements and reference controls.
 
 ## Static premaps and automatic repairs
 
@@ -383,8 +378,7 @@ The repair is reflected in compiled water triangles and mesh exports.
 
 Compiled levels and runtime exports include `repairs`: source-linked records with
 code, message, objects, count, affected area and maximum displacement where
-applicable. Navigation repairs also identify movement mode. The viewer's Repairs
-panel keeps successful corrections separate from diagnostics.
+applicable. Navigation repairs also identify movement mode. Consumers should keep successful repairs separate from error diagnostics.
 
 Clipping checks finiteness, convexity, vertex growth and area conservation while
 processing. Limits are checked before allocation; defaults are 4,096 fragments
@@ -415,3 +409,7 @@ invalidates the entire movement result. Zero-polygon tiles are valid empty space
 Local detail samples use three cells (0.375 m by default), keeping each tile below
 the detail capacity without relaxing the height or movement tolerances.
 Coverage checks use the actual clipped terrain edges at shorelines.
+
+Architectural review findings use the separate [suggestions channel](SUGGESTIONS.md).
+Root-level `<review-suppression suggestion="…" fingerprint="…" reason="…"/>`
+annotations acknowledge exact findings until their relevant geometry changes.

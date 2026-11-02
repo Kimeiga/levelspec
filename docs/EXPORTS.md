@@ -1,25 +1,26 @@
 # LevelSpec 2 exports
 
-The vector CLI and workbench export GLB, glTF, binary FBX, and Quake BSP2.
+The repository CLI exports GLB, glTF, binary FBX, and Quake BSP2.
 Exports contain geometry and source metadata, not Unity/Godot gameplay scenes.
-The v1 API and legacy Quake `.map` exporter remain available separately.
+The former ASCII/JSON APIs and legacy exporters are retired. BSP2 uses the XML
+export pipeline; runtime JSON remains a supported generated artifact.
 
 ## CLI
 
 ```sh
 # Existing default: GLB, runtime JSON, OBJ, SVG, validation and UV reports.
-npm run compile:vector -- examples/showcase.level.svgx
+npm run compile -- examples/showcase.level.svgx --out generated/showcase
 
 # Portable models with referenced material images.
-npm run compile:vector -- examples/showcase.level.svgx \
+npm run compile -- examples/showcase.level.svgx \
   --formats glb,gltf --out generated/my-export
 
 # Binary FBX (Blender is optional until this format is requested).
-npm run compile:vector -- examples/showcase.level.svgx \
+npm run compile -- examples/showcase.level.svgx \
   --formats fbx --blender /path/to/blender --out generated/my-export
 
 # Modern Quake source ports, not GoldSrc, Source, CS:GO or CS2.
-npm run compile:vector -- examples/showcase.level.svgx \
+npm run compile -- examples/showcase.level.svgx \
   --formats bsp --out generated/quake \
   --qbsp /path/to/ericw-tools/qbsp \
   --vis /path/to/ericw-tools/vis \
@@ -28,8 +29,9 @@ npm run compile:vector -- examples/showcase.level.svgx \
 ```
 
 Select several formats with `--formats glb,gltf,fbx,bsp`. `--no-uv` skips
-lightmap unwrapping; material UVs are always present. `--strict-floor-gaps` and
-`--strict-surface-contacts` still work. Invalid geometry or failed runtime
+lightmap unwrapping; material UVs are always present. `--strict-floor-gaps` promotes floor gaps to errors.
+`--surface-contacts error|warning|off` controls visible surface overlap auditing
+(default: error). Invalid geometry or failed runtime
 validation prevents publication. Ctrl+C cancels native work and removes staging
 files. A failed/cancelled run preserves previous outputs; unrelated files in the
 output directory are retained.
@@ -46,26 +48,11 @@ palette are optional external dependencies, not installed or redistributed by
 LevelSpec. The palette must be the 768-byte RGB `palette.lmp` appropriate for
 your Quake installation.
 
-## Viewer
+## Read-only reviewer
 
-Run `npm run dev` and choose **Export…** after compilation and validation finish.
-The dialog exports all layers, regardless of cutaway, roof visibility or layer
-filters. Editing the source, cancelling compilation, or invalid results disable
-export until the current source is ready.
-
-GLB and glTF run entirely in the browser. FBX/BSP use a loopback-only,
-same-origin service supplied by the Vite development server. Configure its tool
-environment before starting Vite. The dialog displays missing dependencies;
-a hosted/static viewer offers CLI instructions for native formats.
-
-Use **Material images** to select companion PNG/JPEG files or an asset folder.
-Folder-relative paths must match the SVGX `texture` attributes; selecting two
-files with the same basename from different folders requires selecting their
-parent directory. Images are not read from arbitrary server filesystem paths.
-Downloads are ZIP archives containing model files and metadata. Closing the
-dialog or pressing **Cancel export** cancels an active job. Native jobs are
-serialized, completed downloads expire after ten minutes, and requests are
-limited to 64 MB.
+The reviewer inspects compiled geometry but has no export dialog or source editor.
+Use the CLI to export the authored source. Floor/cutaway/appearance controls affect
+inspection only; they do not alter authored export geometry or materials.
 
 ## Contents and preservation
 
@@ -170,7 +157,7 @@ visibility/light lumps.
 corners, UVs, materials and marker positions to exported runtime JSON.
 `tools/export/verify-godot.gd` exercises Godot's GLTFDocument importer.
 Local acceptance artifacts live under `generated/export-qa` (not source assets).
-The full suite passed 366 tests with one optional BSP test skipped; the focused
+Historical acceptance (not a current run): the full suite passed 366 tests with one optional BSP test skipped; the focused
 native-enabled export suite passed all 10 export tests, and the final vector
 suite passed all 125 tests with no skips. Godot 4.7.2 imported
 the textured showcase with both UV channels; Blender round-trip checks cover

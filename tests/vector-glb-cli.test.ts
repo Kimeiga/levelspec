@@ -68,18 +68,21 @@ test("vector CLI resolves local GLB assets relative to the SVGX file", async () 
       output = join(temp, "out");
     await writeFile(source, serializeLevelSvgx(scene.document));
     const result = await run([
-      "tools/vector-build.ts",
+      "bin/levelspec.mjs",
+      "build",
       source,
       "--formats",
       "glb",
+      "--json",
       "--out",
       output,
       "--no-uv",
       "--strict-floor-gaps",
-      "--strict-surface-contacts",
+      "--surface-contacts",
+      "error",
     ]);
     assert.equal(result.code, 0, result.stderr || result.stdout);
-    assert.match(result.stdout, /"passed": true/);
+    assert.equal(JSON.parse(result.stdout).success, true);
     const exported = await readFile(join(output, "cli-glb.glb"));
     assert.equal(exported.toString("ascii", 0, 4), "glTF");
   } finally {

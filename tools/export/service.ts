@@ -187,6 +187,7 @@ export function vectorExportService(): Plugin {
                   );
                 const validation = await validateForRuntime(level, {
                   sealed: true,
+                  signal: job.abort.signal,
                 });
                 if (!validation.passed)
                   throw new Error(

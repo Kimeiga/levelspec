@@ -187,13 +187,13 @@ function expectSideContacts(
       objects,
     })),
     floors.map((floor) => ({
-      severity: "warning",
-      code: "WALL_FLOOR_COPLANAR",
-      objects: ["join", floor],
+      severity: "error",
+      code: "SURFACE_COPLANAR",
+      objects: ["join", floor].sort(),
     })),
   );
   assert.ok(
-    l.diagnostics.every((d) => d.message.includes("same-facing side surfaces")),
+    l.diagnostics.every((d) => d.message.includes("same-facing surfaces")),
   );
 }
 

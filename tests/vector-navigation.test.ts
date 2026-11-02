@@ -198,6 +198,68 @@ describe("compiled capsule navigation and independent floor coverage", () => {
     assert.ok(level.navigation!.coverage.excluded > 0);
     assert.equal(level.navigation?.passed, true);
   });
+  for (const reversed of [false, true]) {
+    it(`accepts exact open-floor corner margins with ${reversed ? "reversed" : "forward"} winding`, async () => {
+      const d = createDocument("aligned-corners");
+      const region = floor(d, "floor", -.25, -.25, 6, 6);
+      if (reversed) region.boundary = region.boundary.toReversed().map(id => "-" + id);
+      spawn(d, "start", [2, 2, 0]);
+      const level = await compile(d), nav = level.navigation!;
+      assert.deepEqual(level.diagnostics, []);
+      assert.ok(nav.positions.length > 0);
+      assert.equal(nav.components, 1);
+      assert.deepEqual(nav.unreachableMarkers, []);
+      assert.ok(nav.coverage.covered > 0);
+      assert.equal(nav.coverage.uncoveredCount, 0, JSON.stringify(nav.coverage));
+      assert.ok(nav.coverage.excluded > 0);
+      assert.equal(nav.passed, true);
+    });
+  }
+  it("classifies exact straight-edge margins independently of a remote prop's raster phase", async () => {
+    const d = createDocument("aligned-edge");
+    floor(d, "floor", 0, -.25, 6, 6);
+    spawn(d, "start", [3, 2, 0]);
+    d.materials.push({ id: "remote-material", color: "#aaaaaa", repeat: 1, roughness: .8, metalness: 0 });
+    d.props = [{ id: "remote", layer: "shared", shape: "box", position: [10, 6.05, 0], scale: [.2, .2, 1], rotation: [0, 0, 0], collision: "solid", material: "remote-material" }];
+    const level = await compile(d), nav = level.navigation!;
+    assert.deepEqual(level.diagnostics, []);
+    assert.ok(nav.positions.length > 0);
+    assert.equal(nav.components, 1);
+    assert.deepEqual(nav.unreachableMarkers, []);
+    assert.ok(nav.coverage.covered > 0);
+    assert.ok(nav.coverage.excluded > 0);
+    assert.equal(nav.coverage.uncoveredCount, 0, JSON.stringify(nav.coverage));
+    assert.equal(nav.passed, true);
+  });
+  it("still identifies an aligned edge as part of an undersized passage", async () => {
+    const d = createDocument("aligned-narrow");
+    floor(d, "narrow", 0, -.25, 4, .4);
+    spawn(d, "start", [2, -.05, 0]);
+    const level = await compile(d), nav = level.navigation!;
+    assert.deepEqual(level.diagnostics, []);
+    assert.equal(nav.passed, false);
+    assert.ok(nav.coverage.uncovered.some(sample => sample.reason === "width" && Math.abs(sample.position[1] + .25) < 1e-6), JSON.stringify(nav.coverage));
+  });
+  for (const [rise, reason] of [[0, "uncovered"], [.8, "step"]] as const) {
+    it(`retains ${reason} failures at an exact shared floor boundary`, async () => {
+      const d = createDocument("shared-boundary");
+      floor(d, "left", 0, 0, 3.25, 6);
+      floor(d, "right", 3.25, 0, 3.25, 6, rise);
+      const level = await compile(d, { navigation: false });
+      assert.ok(!level.diagnostics.some(diagnostic => diagnostic.severity === "error"));
+      const coverage = auditNavigationCoverage(level, {}, () => undefined);
+      assert.ok(coverage.uncovered.some(sample =>
+        sample.region === "right" &&
+        sample.position[0] === 3.25 && sample.position[1] === 2.25 &&
+        sample.reason === reason,
+      ), JSON.stringify(coverage));
+      assert.ok(coverage.uncovered.some(sample =>
+        sample.region === "right" &&
+        sample.position[0] === 4.25 && sample.position[1] === 2.25 &&
+        sample.reason === "uncovered",
+      ), JSON.stringify(coverage));
+    });
+  }
   it("excludes samples exactly on a merged wall junction with different top heights", async () => {
     const d = room(),
       l = d.layers[0];

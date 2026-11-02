@@ -1,0 +1,76 @@
+{
+  "before": "8c041e52df17ec8dd6091ccbd41db7e48b972d9a1651ef81bbc5352ae4326e77",
+  "after": "8c041e52df17ec8dd6091ccbd41db7e48b972d9a1651ef81bbc5352ae4326e77",
+  "results": [
+    {
+      "frame": {
+        "width": 90.59375,
+        "height": 906
+      },
+      "canvas": {
+        "clientWidth": 91,
+        "clientHeight": 906,
+        "backingWidth": 90,
+        "backingHeight": 906
+      },
+      "projectionAspect": 0.09999310154525386,
+      "state": {
+        "projection": "orthographic",
+        "position": [
+          13.387532260204527,
+          -7.387532260204524,
+          9.229402419683721
+        ],
+        "target": [
+          2.999999999999999,
+          2.999999999999999,
+          0.39999999850988377
+        ],
+        "fov": 55,
+        "viewHeight": 7.557961338339641,
+        "roll": 0,
+        "appearance": "illustrated",
+        "frameAspect": 0.09999310154525386,
+        "frameAspectLock": 0.1
+      },
+      "href": null,
+      "linkText": "Frame replay unavailable",
+      "diagnostic": "frame-aspect must be a width/height ratio from 0.1 through 10."
+    },
+    {
+      "frame": {
+        "width": 1176,
+        "height": 117.59375
+      },
+      "canvas": {
+        "clientWidth": 1176,
+        "clientHeight": 118,
+        "backingWidth": 1176,
+        "backingHeight": 117
+      },
+      "projectionAspect": 10.000531490831783,
+      "state": {
+        "projection": "orthographic",
+        "position": [
+          13.387532260204527,
+          -7.387532260204524,
+          9.229402419683721
+        ],
+        "target": [
+          2.999999999999999,
+          2.999999999999999,
+          0.39999999850988377
+        ],
+        "fov": 55,
+        "viewHeight": 7.557961338339641,
+        "roll": 0,
+        "appearance": "illustrated",
+        "frameAspect": 10.000531490831783,
+        "frameAspectLock": 10
+      },
+      "href": null,
+      "linkText": "Frame replay unavailable",
+      "diagnostic": "frame-aspect must be a width/height ratio from 0.1 through 10."
+    }
+  ]
+}

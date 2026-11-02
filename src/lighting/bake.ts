@@ -7,10 +7,10 @@ import {
   access,
   mkdir,
   rm,
+  rename,
 } from "node:fs/promises";
 import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { tmpdir } from "node:os";
 import { generateUVs } from "../vector/uv.ts";
 import { toRuntime } from "../vector/export.ts";
 import { hash } from "../vector/geometry.ts";
@@ -47,6 +47,7 @@ async function run(executable: string, args: string[], options: BakeOptions) {
     );
   });
 }
+/** Publishes a complete new lighting revision; failures leave its destination absent. */
 export async function bakeLighting(level: CompiledLevel, options: BakeOptions) {
   if (level.diagnostics.some((d) => d.severity === "error"))
     throw new Error("Cannot bake invalid geometry.");
@@ -71,7 +72,9 @@ export async function bakeLighting(level: CompiledLevel, options: BakeOptions) {
   assertExportable(level, { assets: options.assets });
   if (!level.atlas) await generateUVs(level, { signal: options.signal });
   aborted(options.signal);
-  const temp = await mkdtemp(join(tmpdir(), "levelspec-bake-"));
+  await mkdir(dirname(output), { recursive: true });
+  const temp = await mkdtemp(join(dirname(output), ".levelspec-bake-"));
+  const stagedOutput = join(temp, "result");
   try {
     const resolvedImages: Record<string, string> = {};
     const materialAssets: Record<string, string> = {};
@@ -121,7 +124,6 @@ export async function bakeLighting(level: CompiledLevel, options: BakeOptions) {
     };
     const input = join(temp, "input.json");
     await writeFile(input, JSON.stringify(payload));
-    await mkdir(dirname(output), { recursive: true });
     await run(
       executable,
       [
@@ -135,7 +137,7 @@ export async function bakeLighting(level: CompiledLevel, options: BakeOptions) {
         "--input",
         input,
         "--output",
-        output,
+        stagedOutput,
         "--calibration",
         join(calibration, "results.json"),
         "--samples",
@@ -144,19 +146,28 @@ export async function bakeLighting(level: CompiledLevel, options: BakeOptions) {
       options,
     );
     await writeFile(
-      join(output, "calibration.json"),
+      join(stagedOutput, "calibration.json"),
       await readFile(join(calibration, "results.json")),
     );
     await writeFile(
-      join(output, "source.runtime.json"),
+      join(stagedOutput, "source.runtime.json"),
       JSON.stringify({ ...payload, resolvedImages: undefined }),
     );
-    return JSON.parse(
+    const manifest = JSON.parse(
       await readFile(
-        join(output, `${level.document.id}.lighting.json`),
+        join(stagedOutput, `${level.document.id}.lighting.json`),
         "utf8",
       ),
     );
+    aborted(options.signal);
+    try {
+      await access(output);
+      throw new Error(`Output already exists: ${output}. Choose a new revision directory.`);
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    }
+    await rename(stagedOutput, output);
+    return manifest;
   } finally {
     await rm(temp, { recursive: true, force: true });
   }

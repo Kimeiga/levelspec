@@ -249,6 +249,7 @@ export function auditNavigationCoverage(
     }
     return [...hits.values()].some((h) => h.length % 2 === 1);
   };
+  /** Tests local solid occupancy above a point in one collision mesh. */
   const insideWall = (x: number, y: number, z: number, id: string) => {
     const heights: number[] = [];
     for (const tri of mesh.at(x, y)) {
@@ -258,6 +259,7 @@ export function auditNavigationCoverage(
     }
     return heights.length % 2 === 1;
   };
+  /** Distinguishes a grounded obstacle margin from a floating obstruction. */
   const groundedMargin = (at: V3, q: ReturnType<typeof closest>, id: string) => {
     if (q.d >= p.radius) return false;
     if (q.d > EPS) {
@@ -274,6 +276,7 @@ export function auditNavigationCoverage(
   // Retain the original body plane for floating beams, plus a low plane for
   // retaining walls. Filled stair and slab sides participate like other solids.
   const bodyPlanes = new Set([Math.min(p.height * 0.5, 0.75), Math.min(p.height * 0.5, p.step + EPS * 4)]);
+  /** Classify an authored surface sample against physical clearance and actual navigation. */
   function inspect(at: V3, t: Triangle) {
     const f = t.floor!,
       key = `${f.region}:${at.map((v) => Math.round(v * 1e6)).join(",")}`;
@@ -361,7 +364,10 @@ export function auditNavigationCoverage(
 
     // A floor boundary is a margin only when it has no supported continuation.
     // Height-compatible adjacent regions/treads do not erase step or gap failures.
-    const limits: ReturnType<typeof closest>[] = [];
+    const limits: (ReturnType<typeof closest> & {
+      directionX: number;
+      directionY: number;
+    })[] = [];
     let step = false;
     const margin = p.radius + cell * 2;
     // Movement clipping introduces shorelines and draft boundaries inside authored loops.
@@ -374,22 +380,31 @@ export function auditNavigationCoverage(
         const a = loop[i],
           b = loop[(i + 1) % loop.length],
           near = closest(at, a, b);
-        if (near.d > margin || near.d < EPS) continue;
-        const x = at[0] + near.x * (1 + cell / near.d),
-          y = at[1] + near.y * (1 + cell / near.d);
-        if (supported(x, y, at[2])) continue;
-        if (
-          floors.at(x, y).some((t) => {
-            const z = zAt(t, x, y);
-            return (
-              z !== undefined &&
-              z - at[2] > p.step + ch &&
-              z - at[2] < p.height
-            );
-          })
-        )
-          step = true;
-        limits.push(near);
+        if (near.d > margin) continue;
+        const length = Math.hypot(near.dx, near.dy);
+        if (length <= EPS) continue;
+        // An exact edge has no point-to-edge direction. Probe both normals so
+        // ordinary margins remain exclusions while adjacent bad steps still fail.
+        const directions: [number, number][] = near.d > EPS
+          ? [[near.x / near.d, near.y / near.d]]
+          : [[-near.dy / length, near.dx / length], [near.dy / length, -near.dx / length]];
+        for (const [directionX, directionY] of directions) {
+          const x = at[0] + directionX * (near.d + cell),
+            y = at[1] + directionY * (near.d + cell);
+          if (supported(x, y, at[2])) continue;
+          if (
+            floors.at(x, y).some((t) => {
+              const z = zAt(t, x, y);
+              return (
+                z !== undefined &&
+                Math.abs(z - at[2]) > p.step + ch &&
+                Math.abs(z - at[2]) < p.height
+              );
+            })
+          )
+            step = true;
+          limits.push({ ...near, directionX, directionY });
+        }
       }
     let wallMargin = false;
     // Wall faces account for thickness, freestanding partitions and cover beside a route.
@@ -398,10 +413,10 @@ export function auditNavigationCoverage(
         const crossings = crossSection(tri, at[2] + height);
         if (!crossings) continue;
         const q = closest(at, crossings[0], crossings[1]);
-        if (q.d <= margin && q.d > EPS) limits.push(q);
-        // A capsule center inside the radius of a grounded obstacle is a wall
-        // margin, even beside a retaining cliff. Prove grounding locally in
-        // this closed solid; a remote low vertex on a sloped beam is insufficient.
+        if (q.d <= margin && q.d > EPS)
+          limits.push({ ...q, directionX: q.x / q.d, directionY: q.y / q.d });
+        // Prove grounding locally in the closed solid; a remote low vertex
+        // on a sloped beam cannot establish a capsule margin here.
         if (groundedMargin(at, q, tri.mesh!)) wallMargin = true;
       }
     }
@@ -417,7 +432,7 @@ export function auditNavigationCoverage(
               b.interior &&
               Math.abs(a.dx * b.dx + a.dy * b.dy) >
                 0.98 * Math.hypot(a.dx, a.dy) * Math.hypot(b.dx, b.dy) &&
-              (a.x * b.x + a.y * b.y) / (a.d * b.d) < -0.7 &&
+              a.directionX * b.directionX + a.directionY * b.directionY < -0.7 &&
               a.d + b.d < 2 * p.radius + cell,
           ),
     );
