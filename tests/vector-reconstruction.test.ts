@@ -24,10 +24,17 @@ function fixture() {
   return { scene, group };
 }
 
-function silhouetteEvidence(level: Awaited<ReturnType<typeof compile>>): PhotoEvidence[] {
+/** Surveyed floor corners standing in for independently measured correspondences. */
+function trustedLandmarks(reference: ReferenceView) {
+  return ([[0, 0, 0], [8, 0, 0], [8, 8, 0], [0, 8, 0]] as [number, number, number][])
+    .map((position, i) => ({ id: `survey-${i}`, position, image: projectReference(reference, position).image! }));
+}
+function silhouetteEvidence(level: Awaited<ReturnType<typeof compile>>,
+  calibrated = true): PhotoEvidence[] {
   return (level.document.references ?? []).map(reference => {
     const raster = renderReference(level, reference, { width: 80, height: 60 });
     return { referenceId: reference.id,
+      ...(calibrated ? { landmarks: trustedLandmarks(reference) } : {}),
       imageDimensions: [reference.width, reference.height] as [number, number], silhouette: {
       width: 80, height: 60,
       pixels: Uint8Array.from(raster.surfaceIds, index => index >= 0 ? 1 : 0),
@@ -156,14 +163,13 @@ describe("review regressions: independently trusted evidence", () => {
     const level = await compile(scene.document, { navigation: false });
     const evidence: PhotoEvidence[] = (level.document.references ?? []).map(ref => ({
       referenceId: ref.id, imageDimensions: [ref.width, ref.height],
-      landmarks: ([[3, 3, 0], [4, 4, 0], [5, 5, 0]] as [number, number, number][])
-        .map((position, i) => ({
-          id: `trusted-${i}`, position, image: projectReference(ref, position).image!,
-        })),
+      landmarks: trustedLandmarks(ref),
     }));
     const cameraOnly = evaluateReconstruction(level, evidence, { navigationPassed: true, maxDimension: 80 });
     assert.equal(cameraOnly.passed, false);
     assert.equal(cameraOnly.verifiedViews, 0);
+    // Calibrated, so the rejection is for missing geometry-linked observations.
+    assert.ok(cameraOnly.views.every(view => view.cameraCalibrated));
     assert.ok(cameraOnly.views.every(view => view.landmarks.rmsPixels === 0));
     // Unrelated extra geometry does not change the self-consistent camera fit.
     group.box("unrelated", { position: [4, -2, 0], size: [6, 3, 10],
@@ -172,8 +178,17 @@ describe("review regressions: independently trusted evidence", () => {
     assert.equal(evaluateReconstruction(unrelated, evidence, {
       navigationPassed: true, maxDimension: 80,
     }).passed, false);
+    // Enough landmarks, but collinear ones leave the camera free to roll about their line.
+    const collinear = silhouetteEvidence(level);
+    for (const item of collinear) {
+      const ref = level.document.references!.find(r => r.id === item.referenceId)!;
+      item.landmarks = ([[2, 2, 0], [3, 3, 0], [4, 4, 0], [5, 5, 0], [6, 6, 0]] as [number, number, number][])
+        .map((position, i) => ({ id: `line-${i}`, position, image: projectReference(ref, position).image! }));
+    }
+    const rolled = evaluateReconstruction(level, collinear, { navigationPassed: true, maxDimension: 80 });
+    assert.equal(rolled.passed, false);
+    assert.match(rolled.issues.join(" "), /not independently calibrated/);
     const anchored = silhouetteEvidence(level);
-    for (let i = 0; i < anchored.length; i++) anchored[i].landmarks = evidence[i].landmarks;
     const matched = evaluateReconstruction(level, anchored, { navigationPassed: true, maxDimension: 80 });
     assert.equal(matched.passed, true, matched.issues.join("\n"));
     assert.equal(matched.verifiedViews, 2);
@@ -362,18 +377,26 @@ describe("acceptance correctness regressions", () => {
     const level = await compile(scene.document, { navigation: false });
     const reference = level.document.references![0];
     const point: [number, number, number] = [4, 4, 0];
+    const coincident = evaluateReconstruction(level, [{
+      referenceId: reference.id,
+      imageDimensions: [reference.width, reference.height],
+      landmarks: [0, 1, 2, 3].map(i => ({
+        id: `camera-${i}`, position: point, image: projectReference(reference, point).image!,
+      })),
+    }], { navigationPassed: true, maxDimension: 80, thresholds: { minimumVerifiedViews: 1 } });
+    assert.equal(coincident.views[0].cameraCalibrated, false);
+    // A properly calibrated camera still cannot certify a single-point "stroke".
     const report = evaluateReconstruction(level, [{
       referenceId: reference.id,
       imageDimensions: [reference.width, reference.height],
-      landmarks: [0, 1, 2].map(i => ({
-        id: `camera-${i}`, position: point, image: projectReference(reference, point).image!,
-      })),
+      landmarks: trustedLandmarks(reference),
       strokes: [{ id: "single-pixel", points: [[0.5, 0.5]] }],
     }], { navigationPassed: true, maxDimension: 80,
       thresholds: { minimumVerifiedViews: 1, strokeErrorPixels: 1000 } });
+    assert.equal(report.views[0].cameraCalibrated, true);
     assert.equal(report.passed, false);
     assert.equal(report.verifiedViews, 0);
-    assert.equal(report.views[0].landmarks.compared, 3);
+    assert.equal(report.views[0].landmarks.compared, 4);
   });
   it("requires sealed-navigation evidence from direct evaluator calls", async () => {
     const scene = dynamicallyBlockedFixture();
@@ -415,5 +438,99 @@ describe("acceptance correctness regressions", () => {
     assert.equal(first.layer.edges.length, 8);
     assert.equal(first.layer.edges.filter(edge => edge.kind === "wall").length, 1);
     for (const edge of edges(right.boundary)) assert.ok(!edges(left.boundary).includes(edge));
+  });
+});
+
+describe("review regressions: reviser failures and cancellation", () => {
+  it("keeps the best valid candidate and reports the error when the reviser throws", async () => {
+    const { scene } = fixture();
+    const source = serializeLevelSvgx(scene.document);
+    const result = await runReconstruction(source, [], async () => {
+      throw new Error("provider unavailable");
+    }, { maxRevisions: 2, evaluationDimension: 80 });
+    assert.equal(result.accepted, false);
+    assert.equal(result.status, "failed");
+    assert.match(result.error ?? "", /provider unavailable/);
+    assert.equal(result.attempts.length, 1);
+    assert.equal(result.source, source);
+  });
+  it("reports an initial-generation failure without a candidate", async () => {
+    const result = await runReconstruction("", [], async () => {
+      throw new Error("bad credentials");
+    }, { maxRevisions: 0, evaluationDimension: 80 });
+    assert.equal(result.status, "failed");
+    assert.match(result.error ?? "", /bad credentials/);
+    assert.equal(result.source, null);
+    assert.equal(result.attempts.length, 0);
+  });
+  it("does not request another revision after cancellation during inspection", async () => {
+    const { scene } = fixture();
+    const source = serializeLevelSvgx(scene.document);
+    const controller = new AbortController();
+    let revisions = 0;
+    const result = await runReconstruction(source, [], async () => { revisions++; return source + " "; }, {
+      maxRevisions: 3, evaluationDimension: 80, signal: controller.signal,
+      onAttempt: () => controller.abort(),
+    });
+    assert.equal(revisions, 0);
+    assert.equal(result.status, "aborted");
+    assert.equal(result.accepted, false);
+  });
+  it("passes the cancellation signal to the reviser", async () => {
+    const { scene } = fixture();
+    const source = serializeLevelSvgx(scene.document);
+    const controller = new AbortController();
+    let received: AbortSignal | undefined;
+    await runReconstruction(source, [], async request => { received = request.signal; return null; },
+      { maxRevisions: 1, evaluationDimension: 80, signal: controller.signal });
+    assert.equal(received, controller.signal);
+  });
+});
+
+describe("review regressions: candidate-authored cameras need independent calibration", () => {
+  it("does not certify matching silhouettes seen through an uncalibrated camera", async () => {
+    const { scene } = fixture();
+    const level = await compile(scene.document, { navigation: false });
+    const report = evaluateReconstruction(level, silhouetteEvidence(level, false),
+      { navigationPassed: true, maxDimension: 80 });
+    assert.equal(report.passed, false);
+    assert.equal(report.verifiedViews, 0);
+    assert.ok(report.views.every(view => !view.cameraCalibrated && (view.silhouette?.iou ?? 0) > 0.99));
+    assert.match(report.issues.join(" "), /not independently calibrated/);
+  });
+  it("rejects a moved camera that the trusted survey contradicts", async () => {
+    const { scene } = fixture();
+    const truth = await compile(scene.document, { navigation: false });
+    const evidence = silhouetteEvidence(truth);
+    // The candidate re-aims its camera; calibrated landmarks expose the change.
+    scene.document.references![0].camera.position = [2, -14, 9];
+    const moved = await compile(scene.document, { navigation: false });
+    const report = evaluateReconstruction(moved, evidence, { navigationPassed: true, maxDimension: 80 });
+    assert.equal(report.passed, false);
+    assert.ok((report.views[0].landmarks.rmsPixels ?? 0) > 1);
+    assert.equal(report.views[1].landmarks.rmsPixels, 0);
+  });
+  it("lets the independent manifest, not the candidate, opt out of calibration", async () => {
+    const { scene } = fixture();
+    const level = await compile(scene.document, { navigation: false });
+    const report = evaluateReconstruction(level, silhouetteEvidence(level, false), {
+      navigationPassed: true, maxDimension: 80, thresholds: { minimumCameraLandmarks: 0 },
+    });
+    assert.equal(report.passed, true, report.issues.join("\n"));
+    assert.throws(() => evaluateReconstruction(level, [], {
+      navigationPassed: true, thresholds: { minimumCameraLandmarks: -1 } }), /non-negative/);
+  });
+});
+
+describe("review regressions: cancellation during the final inspection", () => {
+  it("reports aborted, not exhausted, for a zero-revision evaluation cancelled mid-run", async () => {
+    const { scene } = fixture();
+    const controller = new AbortController();
+    const result = await runReconstruction(serializeLevelSvgx(scene.document), [], async () => null, {
+      maxRevisions: 0, evaluationDimension: 80, signal: controller.signal,
+      onAttempt: () => controller.abort(),
+    });
+    assert.equal(result.status, "aborted");
+    assert.equal(result.accepted, false);
   });
 });

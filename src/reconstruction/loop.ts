@@ -19,6 +19,8 @@ export interface RevisionRequest {
   previousSource: string;
   lastAttempt: ReconstructionAttempt | null;
   attempts: readonly ReconstructionAttempt[];
+  /** Cancellation for the reviser's own work, such as model requests. */
+  signal?: AbortSignal;
 }
 export type ReconstructionReviser = (feedback: RevisionRequest) => Promise<string | null>;
 export interface ReconstructionLoopOptions {
@@ -32,12 +34,15 @@ export interface ReconstructionLoopOptions {
 }
 export interface ReconstructionLoopResult {
   accepted: boolean;
-  status: "accepted" | "exhausted" | "stopped" | "aborted";
+  /** "failed" means the reviser threw; see `error`. */
+  status: "accepted" | "exhausted" | "stopped" | "aborted" | "failed";
   /** Accepted candidate on success; otherwise lowest-scoring valid candidate, or null. */
   source: string | null;
   level: CompiledLevel | null;
   report: ReconstructionReport | null;
   attempts: ReconstructionAttempt[];
+  /** Reviser failure message when status is "failed" or the reviser was aborted. */
+  error?: string;
 }
 function score(report: ReconstructionReport) {
   const perView = report.views.reduce((sum, view) => sum +
@@ -138,9 +143,12 @@ export function keepBetter(best: BestCandidate, result: { attempt: Reconstructio
     best.score = attempt.score;
   }
 }
-async function initialCandidate(source: string, reviser: ReconstructionReviser) {
+async function initialCandidate(source: string, reviser: ReconstructionReviser, signal?: AbortSignal) {
   if (source.trim()) return source;
-  return (await reviser({ iteration: 0, previousSource: "", lastAttempt: null, attempts: [] })) ?? "";
+  return (await reviser({ iteration: 0, previousSource: "", lastAttempt: null, attempts: [], signal })) ?? "";
+}
+function message(error: unknown) {
+  return error instanceof Error ? error.message : String(error);
 }
 
 /**
@@ -159,11 +167,18 @@ export async function runReconstruction(
   if (options.signal?.aborted)
     return { accepted: false, status: "aborted", source: null, level: null,
       report: null, attempts: [] };
-  let source = await initialCandidate(initialSource, reviser);
+  let source: string;
+  try {
+    source = await initialCandidate(initialSource, reviser, options.signal);
+  } catch (error) {
+    return { accepted: false, status: options.signal?.aborted ? "aborted" : "failed",
+      error: message(error), source: null, level: null, report: null, attempts };
+  }
   if (!source.trim())
     return { accepted: false, status: "stopped", source: null, level: null,
       report: null, attempts };
   let status: ReconstructionLoopResult["status"] = "exhausted";
+  let error: string | undefined;
   for (let i = 0; i <= revisions; i++) {
     if (options.signal?.aborted) { status = "aborted"; break; }
     const result = await inspectSource(source, evidence, options, i, limit);
@@ -172,11 +187,23 @@ export async function runReconstruction(
     keepBetter(best, result);
     if (result.attempt.accepted) { status = "accepted"; break; }
     if (i === revisions) break;
-    const next = await reviser({ iteration: i + 1, previousSource: source,
-      lastAttempt: attempts.at(-1) ?? null, attempts: [...attempts] });
+    // Never spend another model request on a cancelled run.
+    if (options.signal?.aborted) { status = "aborted"; break; }
+    let next: string | null;
+    try {
+      next = await reviser({ iteration: i + 1, previousSource: source,
+        lastAttempt: attempts.at(-1) ?? null, attempts: [...attempts], signal: options.signal });
+    } catch (failure) {
+      // Keep the attempts and best valid candidate instead of discarding the run.
+      status = options.signal?.aborted ? "aborted" : "failed";
+      error = message(failure);
+      break;
+    }
     if (!next?.trim() || next === source) { status = "stopped"; break; }
     source = next;
   }
-  return { accepted: status === "accepted", status,
+  // A cancel during the final inspection surfaces as an invalid attempt, not a break.
+  if (options.signal?.aborted && status !== "accepted") status = "aborted";
+  return { accepted: status === "accepted", status, ...(error ? { error } : {}),
     source: best.source, level: best.level, report: best.report, attempts };
 }

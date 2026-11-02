@@ -185,7 +185,7 @@ async function writePortableExports(out: string, result: ReconstructionLoopResul
 }
 async function recordResult(out: string, result: ReconstructionLoopResult) {
   await writeFile(join(out, "result.json"), JSON.stringify({
-    accepted: result.accepted, status: result.status,
+    accepted: result.accepted, status: result.status, error: result.error ?? null,
     attempts: result.attempts.map(a => ({ iteration: a.iteration, valid: a.valid,
       accepted: a.accepted, score: a.score, diagnostics: a.diagnostics })),
     report: result.report,
@@ -195,6 +195,7 @@ async function recordResult(out: string, result: ReconstructionLoopResult) {
     console.log(`Saved best candidate: ${join(out, "best.level.svgx")}`);
   }
   await writePortableExports(out, result);
+  if (result.error) console.error(`Reviser error: ${result.error}`);
   console.log(`Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`);
 }
 async function readSourceAndResetOutput(args: Args): Promise<string> {
@@ -211,10 +212,19 @@ async function execute(args: Args) {
   const { inputs, evidence } = await loadPhotos(args.images);
   const thresholds = await attachAnnotations(args.evidence, evidence);
   const revise = await resolveReviser(args, inputs);
-  const result = await runReconstruction(source, evidence, revise, {
-    maxRevisions: args.model ? args.revisions : 0, thresholds,
-    onAttempt: attempt => recordAttempt(args.out, attempt),
-  });
+  // Ctrl+C cancels model requests but still records what was produced so far.
+  const controller = new AbortController();
+  const cancel = () => controller.abort(new Error("Cancelled by user."));
+  process.once("SIGINT", cancel);
+  let result: ReconstructionLoopResult;
+  try {
+    result = await runReconstruction(source, evidence, revise, {
+      maxRevisions: args.model ? args.revisions : 0, thresholds, signal: controller.signal,
+      onAttempt: attempt => recordAttempt(args.out, attempt),
+    });
+  } finally {
+    process.off("SIGINT", cancel);
+  }
   await recordResult(args.out, result);
   process.exitCode = Number(!result.accepted);
 }

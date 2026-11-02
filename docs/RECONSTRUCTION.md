@@ -44,6 +44,14 @@ results in its output directory, including stale exports and iteration files.
 Unrelated user files are preserved. If no valid candidate exists, no best
 source or GLB is emitted. The command exits nonzero if acceptance fails.
 
+Model requests are retried (three attempts, exponential backoff) only for
+rate limits, 5xx responses and network failures; other 4xx errors and
+truncated (`incomplete`) structured output fail immediately. If the model
+adapter still fails, the run stops with `status: "failed"` and the
+provider message in `result.json`'s `error`, while keeping every recorded
+iteration and the best valid candidate so far. Ctrl+C cancels any in-flight
+request, records `status: "aborted"`, and never issues another revision.
+
 To evaluate a candidate without a model or API key:
 
 ```sh
@@ -83,6 +91,7 @@ Example `annotations.json`:
 {
   "thresholds": {
     "minimumVerifiedViews": 2,
+    "minimumCameraLandmarks": 4,
     "landmarkRmsPixels": 8,
     "silhouetteIoU": 0.8,
     "strokeErrorPixels": 5
@@ -92,7 +101,10 @@ Example `annotations.json`:
       "referenceId": "view1",
       "imageDimensions": [1500, 1000],
       "landmarks": [
-        { "id": "trusted-corner", "position": [0, 0, 3], "image": [0.5, 0.4] }
+        { "id": "door-left-sill", "position": [0, 0, 0], "image": [0.31, 0.78] },
+        { "id": "door-right-sill", "position": [1.2, 0, 0], "image": [0.42, 0.79] },
+        { "id": "parapet-corner", "position": [0, 0, 6.4], "image": [0.29, 0.12] },
+        { "id": "far-pier-base", "position": [9.5, 4, 0], "image": [0.86, 0.71] }
       ],
       "masks": [
         { "id": "foreground-person", "points": [[0.02, 0.7], [0.15, 0.7], [0.15, 0.98], [0.02, 0.98]] }
@@ -126,6 +138,13 @@ Example `annotations.json`:
   normalized, photo-observed 2D locations. Source SVGX landmarks are ignored
   for acceptance even when they yield zero reprojection error. Independently
   validate image correspondence and the assumed physical scale.
+- The candidate SVGX authors each reference camera, so a silhouette or stroke
+  match proves little on its own: a crude box seen from a convenient camera can
+  match a building outline. A view is therefore certified only when its camera
+  is pinned by at least `minimumCameraLandmarks` (default 4) trusted, in-frame
+  landmarks that are not collinear. Their RMS must also pass
+  `landmarkRmsPixels`. Only the independent manifest can lower this; `0`
+  disables the requirement and should be reserved for synthetic fixtures.
 - A photo view cannot be certified by natural-photo edge similarity, landmark
   reprojection, or camera calibration alone. A structural stroke must have
   multiple distinct points and cannot consist of a single coincident pixel.

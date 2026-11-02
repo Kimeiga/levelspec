@@ -30,3 +30,10 @@ Do not optimize camera fitting and geometry jointly without anchors: the
 candidate may appear visually aligned for the wrong structural reasons.
 These edge annotations are independently recorded, but they do not provide
 absolute scale, occluded geometry, or a robust silhouette benchmark.
+
+Because these annotations contain no trusted 3D landmarks, the evaluator
+**cannot certify any view** from them under the default
+`minimumCameraLandmarks: 4` rule; stroke error is reported as a diagnostic
+only. Certifying this study requires at least four non-collinear, in-frame
+points per view with measured or explicitly agreed world coordinates. Without
+a survey, no reconstruction of this building should be described as accurate.

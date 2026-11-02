@@ -17,6 +17,10 @@ export interface OpenAIReviserConfig {
   apiKey: string;
   photos: InputPhoto[];
   apiUrl?: string;
+  /** Total requests per revision, including retries of transient failures. */
+  maxAttempts?: number;
+  /** Base backoff between retries; doubles each time. */
+  retryDelayMs?: number;
 }
 function dataPng(width: number, height: number, pixels: Uint8Array): string {
   const png = new PNG({ width, height });
@@ -46,8 +50,9 @@ async function renderedViews(source: string, ids: Set<string>): Promise<{ id: st
 }
 
 interface ResponsePayload {
-  error?: { message?: string };
+  error?: { message?: string; code?: string };
   status?: string;
+  incomplete_details?: { reason?: string };
   output?: Array<{ type?: string; content?: Array<{ type?: string; text?: string; refusal?: string }> }>;
 }
 function viewFeedback(view: ReconstructionViewReport) {
@@ -106,9 +111,12 @@ function rejectRefusal(parts: OutputPart[]) {
   const refusal = parts.find(part => part.type === "refusal");
   if (refusal) throw new Error(`Model refused reconstruction: ${refusal.refusal ?? "no detail"}`);
 }
-function requireOutputText(parts: OutputPart[], status?: string) {
+function requireOutputText(parts: OutputPart[], payload: ResponsePayload) {
+  // Truncated structured output is not parseable JSON; say why instead of crashing in JSON.parse.
+  if (payload.status === "incomplete")
+    throw new Error(`Model response incomplete (${payload.incomplete_details?.reason ?? "unknown reason"}).`);
   const output = parts.find(part => part.type === "output_text")?.text;
-  if (!output) throw new Error(`Model returned no structured SVGX (${status ?? "unknown status"}).`);
+  if (!output) throw new Error(`Model returned no structured SVGX (${payload.status ?? "unknown status"}).`);
   return output;
 }
 function parseCandidateText(text: string) {
@@ -120,17 +128,66 @@ function parseCandidateText(text: string) {
 function extractSvgx(payload: ResponsePayload) {
   const parts = responseParts(payload);
   rejectRefusal(parts);
-  return parseCandidateText(requireOutputText(parts, payload.status));
+  return parseCandidateText(requireOutputText(parts, payload));
 }
-function requireApiSuccess(response: Response, payload: ResponsePayload) {
-  if (!response.ok)
-    throw new Error(`OpenAI request failed (${response.status}): ${payload.error?.message ?? "unknown error"}`);
+
+class ProviderError extends Error {
+  readonly status: number;
+  readonly code: string | undefined;
+  constructor(status: number, detail: string, code?: string) {
+    super(`OpenAI request failed (${status}): ${detail}`);
+    this.status = status;
+    this.code = code;
+  }
+}
+/** Rate limits and server errors are worth retrying; other 4xx responses and exhausted quota are not. */
+function transient(error: unknown) {
+  if (error instanceof ProviderError)
+    return (error.status === 429 && error.code !== "insufficient_quota") || error.status >= 500;
+  return error instanceof TypeError; // fetch network failure
+}
+async function readPayload(response: Response): Promise<ResponsePayload> {
+  const text = await response.text();
+  let payload: unknown;
+  try {
+    payload = JSON.parse(text);
+  } catch {
+    payload = undefined;
+  }
+  if (payload !== null && typeof payload === "object") return payload as ResponsePayload;
+  // Gateways return HTML or plain text; keep a short, readable excerpt.
+  if (!response.ok) throw new ProviderError(response.status, text.slice(0, 200).trim() || "empty body");
+  throw new Error(`Model API returned non-object content (${response.status}).`);
+}
+function wait(ms: number, signal?: AbortSignal) {
+  return new Promise<void>((resolve, reject) => {
+    if (signal?.aborted) return reject(signal.reason);
+    const onAbort = () => { clearTimeout(timer); reject(signal!.reason); };
+    const timer = setTimeout(() => { signal?.removeEventListener("abort", onAbort); resolve(); }, ms);
+    signal?.addEventListener("abort", onAbort, { once: true });
+  });
+}
+async function withRetries<T>(config: OpenAIReviserConfig, signal: AbortSignal | undefined,
+  request: () => Promise<T>): Promise<T> {
+  const attempts = config.maxAttempts ?? 3, delay = config.retryDelayMs ?? 2000;
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await request();
+    } catch (error) {
+      if (signal?.aborted || attempt >= attempts || !transient(error)) throw error;
+      await wait(delay * 2 ** (attempt - 1), signal);
+    }
+  }
 }
 
 async function queryModel(config: OpenAIReviserConfig, instructions: string,
-  content: Array<Record<string, unknown>>) {
+  content: Array<Record<string, unknown>>, signal?: AbortSignal) {
+  return withRetries(config, signal, () => requestCandidate(config, instructions, content, signal));
+}
+async function requestCandidate(config: OpenAIReviserConfig, instructions: string,
+  content: Array<Record<string, unknown>>, signal?: AbortSignal) {
   const response = await fetch(config.apiUrl ?? "https://api.openai.com/v1/responses", {
-    method: "POST",
+    method: "POST", signal,
     headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       model: config.model, store: false, max_output_tokens: 30000,
@@ -141,8 +198,9 @@ async function queryModel(config: OpenAIReviserConfig, instructions: string,
           required: ["svgx", "rationale"] } } },
     }),
   });
-  const payload = await response.json() as ResponsePayload;
-  requireApiSuccess(response, payload);
+  const payload = await readPayload(response);
+  if (!response.ok)
+    throw new ProviderError(response.status, payload.error?.message ?? "unknown error", payload.error?.code);
   return extractSvgx(payload);
 }
 export async function createOpenAIReviser(config: OpenAIReviserConfig): Promise<ReconstructionReviser> {
@@ -150,8 +208,9 @@ export async function createOpenAIReviser(config: OpenAIReviserConfig): Promise<
   if (!config.model.trim()) throw new Error("Specify a vision-capable model explicitly.");
   if (!config.photos.length) throw new Error("At least one reference photograph is required.");
   // The same source format used by the deterministic compiler is given to the model.
-  const guide = (await readFile("docs/SVGX.md", "utf8")).slice(0, 24000);
-  const example = (await readFile("examples/rooftop-reference.level.svgx", "utf8")).slice(0, 5500);
+  const guide = (await readFile(new URL("../docs/SVGX.md", import.meta.url), "utf8")).slice(0, 24000);
+  const example = (await readFile(new URL("../examples/rooftop-reference.level.svgx", import.meta.url),
+    "utf8")).slice(0, 5500);
   const ids = new Set(config.photos.map(p => p.referenceId));
   const instructions = [
     "You are reconstructing a navigable architectural environment from reference photographs.",
@@ -173,6 +232,6 @@ export async function createOpenAIReviser(config: OpenAIReviserConfig): Promise<
   ].join("\n\n");
   return async function revise(request: RevisionRequest) {
     const content = await userContent(request, config.photos, ids);
-    return queryModel(config, instructions, content);
+    return queryModel(config, instructions, content, request.signal);
   };
 }

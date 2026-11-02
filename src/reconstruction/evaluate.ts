@@ -40,6 +40,12 @@ export interface ReconstructionThresholds {
   strokeErrorPixels?: number;
   /** Number of views with independent geometry-linked silhouettes or strokes. */
   minimumVerifiedViews?: number;
+  /**
+   * Trusted, non-collinear landmarks a view needs before its silhouette or strokes
+   * count. The candidate authors the camera; without independent calibration it
+   * could pick a pose that makes crude geometry match. Default 4; 0 opts out.
+   */
+  minimumCameraLandmarks?: number;
 }
 export interface ReconstructionViewReport {
   referenceId: string;
@@ -49,6 +55,8 @@ export interface ReconstructionViewReport {
   strokeErrorPixels: number | null;
   /** Unsupervised photo edges are noisy (tiles, shadows); diagnostic only. */
   photoEdgeErrorPixels: number | null;
+  /** Trusted landmarks pin the candidate-authored camera; see minimumCameraLandmarks. */
+  cameraCalibrated: boolean;
   verified: boolean;
   passed: boolean;
   issues: string[];
@@ -233,6 +241,25 @@ function independentEvidence(silhouette: ReconstructionViewReport["silhouette"],
   return Boolean(silhouette && silhouette.targetPixels > 0 && silhouette.renderedPixels > 0) ||
     (strokeDistance !== null && hasStructuralStroke(annotation));
 }
+function spansPlane(points: [number, number, number][]) {
+  const extent = Math.max(1e-9, ...points.flatMap(p => points.map(q => Math.hypot(
+    p[0] - q[0], p[1] - q[1], p[2] - q[2]))));
+  const [a] = points;
+  return points.some(b => points.some(c => {
+    const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], v = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+    return Math.hypot(u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2],
+      u[0] * v[1] - u[1] * v[0]) > 1e-3 * extent * extent;
+  }));
+}
+/** Collinear landmarks leave the camera free to rotate about their line. */
+function cameraCalibrated(trusted: ReferenceView, landmarks: ReturnType<typeof compareReference>,
+  minimum: number) {
+  if (!Number.isInteger(minimum) || minimum < 0)
+    throw new Error("minimumCameraLandmarks must be a non-negative integer.");
+  if (minimum === 0) return true;
+  const used = trusted.landmarks.filter((_, i) => landmarks.landmarks[i].status === "compared");
+  return used.length >= minimum && spansPlane(used.map(l => l.position));
+}
 function assertReferenceFilename(reference: ReferenceView, filename?: string) {
   if (filename && filename !== reference.image)
     throw new Error(`Reference ${reference.id} image name differs from independently supplied photo.`);
@@ -277,11 +304,13 @@ function strokeErrorMessage(distance: number | null, limit: number) {
     return `Structural stroke mismatch ${distance.toFixed(1)} px exceeds limit.`;
   return null;
 }
-function viewIssues(verified: boolean, landmarks: ReturnType<typeof compareReference>,
+function viewIssues(observed: boolean, calibrated: boolean, landmarks: ReturnType<typeof compareReference>,
   silhouette: ReconstructionViewReport["silhouette"], strokeDistance: number | null,
   limits: ReconstructionThresholds) {
   const reasons = [
-    verified ? null : "No independent geometry-linked silhouette or structural stroke; visual fit is unverified.",
+    observed ? null : "No independent geometry-linked silhouette or structural stroke; visual fit is unverified.",
+    calibrated ? null : `Camera is not independently calibrated; supply at least ${limits.minimumCameraLandmarks ?? 4} ` +
+      "trusted, non-collinear, in-frame landmarks for this view.",
     landmarks.clipped ? `${landmarks.clipped} landmark(s) lie outside the calibrated view.` : null,
     landmarkError(landmarks, limits.landmarkRmsPixels ?? 8),
     silhouetteError(silhouette, limits.silhouetteIoU ?? 0.8),
@@ -301,11 +330,13 @@ function evaluateView(level: CompiledLevel, reference: ReferenceView,
   const silhouette = annotatedSilhouette(annotation, render.surfaceIds, excluded, width, height);
   const strokeDistance = annotatedStrokeError(annotation, field, excluded, width, height);
   const photoDistance = photoDiagnostic(annotation, field, excluded, width, height);
-  const verified = independentEvidence(silhouette, strokeDistance, annotation);
-  const issues = viewIssues(verified, landmarks, silhouette, strokeDistance, thresholds);
+  const observed = independentEvidence(silhouette, strokeDistance, annotation);
+  const calibrated = cameraCalibrated(trusted, landmarks, thresholds.minimumCameraLandmarks ?? 4);
+  const verified = observed && calibrated;
+  const issues = viewIssues(observed, calibrated, landmarks, silhouette, strokeDistance, thresholds);
   return { referenceId: reference.id, size: [width, height], landmarks, silhouette,
     strokeErrorPixels: strokeDistance, photoEdgeErrorPixels: photoDistance,
-    verified, passed: verified && issues.length === 0, issues };
+    cameraCalibrated: calibrated, verified, passed: verified && issues.length === 0, issues };
 }
 
 /** Closed-state navigation is mandatory for dynamic geometry and must never be ignored. */
