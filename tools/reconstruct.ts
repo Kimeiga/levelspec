@@ -183,20 +183,28 @@ async function writePortableExports(out: string, result: ReconstructionLoopResul
   await writeFile(join(out, "best-collision.glb"), toGLB(level, { purpose: "collision" }));
   await writeFile(join(out, "best.runtime.json"), JSON.stringify(toRuntime(level)));
 }
-async function recordResult(out: string, result: ReconstructionLoopResult) {
-  await writeFile(join(out, "result.json"), JSON.stringify({
+function resultSummary(result: ReconstructionLoopResult) {
+  return {
     accepted: result.accepted, status: result.status, error: result.error ?? null,
     attempts: result.attempts.map(a => ({ iteration: a.iteration, valid: a.valid,
       accepted: a.accepted, score: a.score, diagnostics: a.diagnostics })),
     report: result.report,
-  }, null, 2));
-  if (result.source) {
-    await writeFile(join(out, "best.level.svgx"), result.source);
-    console.log(`Saved best candidate: ${join(out, "best.level.svgx")}`);
-  }
-  await writePortableExports(out, result);
+  };
+}
+async function writeBestSource(out: string, source: string | null) {
+  if (!source) return;
+  await writeFile(join(out, "best.level.svgx"), source);
+  console.log(`Saved best candidate: ${join(out, "best.level.svgx")}`);
+}
+function logStatus(result: ReconstructionLoopResult) {
   if (result.error) console.error(`Reviser error: ${result.error}`);
   console.log(`Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`);
+}
+async function recordResult(out: string, result: ReconstructionLoopResult) {
+  await writeFile(join(out, "result.json"), JSON.stringify(resultSummary(result), null, 2));
+  await writeBestSource(out, result.source);
+  await writePortableExports(out, result);
+  logStatus(result);
 }
 async function readSourceAndResetOutput(args: Args): Promise<string> {
   try {

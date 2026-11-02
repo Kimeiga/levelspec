@@ -143,12 +143,55 @@ export function keepBetter(best: BestCandidate, result: { attempt: Reconstructio
     best.score = attempt.score;
   }
 }
-async function initialCandidate(source: string, reviser: ReconstructionReviser, signal?: AbortSignal) {
-  if (source.trim()) return source;
-  return (await reviser({ iteration: 0, previousSource: "", lastAttempt: null, attempts: [], signal })) ?? "";
+interface Stop {
+  status: ReconstructionLoopResult["status"];
+  error?: string;
 }
 function message(error: unknown) {
   return error instanceof Error ? error.message : String(error);
+}
+/** A reviser failure ends the run but keeps the attempts and best valid candidate. */
+async function revise(reviser: ReconstructionReviser, request: RevisionRequest): Promise<string | Stop> {
+  try {
+    const next = await reviser(request);
+    if (!next?.trim() || next === request.previousSource) return { status: "stopped" };
+    return next;
+  } catch (failure) {
+    return { status: request.signal?.aborted ? "aborted" : "failed", error: message(failure) };
+  }
+}
+interface LoopState {
+  evidence: PhotoEvidence[];
+  reviser: ReconstructionReviser;
+  options: ReconstructionLoopOptions;
+  revisions: number;
+  limit: number;
+  attempts: ReconstructionAttempt[];
+  best: BestCandidate;
+}
+/** Inspect and record one candidate; a Stop ends the run before the next revision. */
+async function inspectStep(source: string, iteration: number, state: LoopState): Promise<Stop | null> {
+  const result = await inspectSource(source, state.evidence, state.options, iteration, state.limit);
+  state.attempts.push(result.attempt);
+  await state.options.onAttempt?.(result.attempt);
+  keepBetter(state.best, result);
+  if (result.attempt.accepted) return { status: "accepted" };
+  if (iteration === state.revisions) return { status: "exhausted" };
+  // Never spend another model request on a cancelled run.
+  return state.options.signal?.aborted ? { status: "aborted" } : null;
+}
+async function iterate(initial: string, state: LoopState): Promise<Stop> {
+  const signal = state.options.signal;
+  let source = initial;
+  for (let i = 0; ; i++) {
+    if (signal?.aborted) return { status: "aborted" };
+    const stop = await inspectStep(source, i, state);
+    if (stop) return stop;
+    const next = await revise(state.reviser, { iteration: i + 1, previousSource: source,
+      lastAttempt: state.attempts.at(-1) ?? null, attempts: [...state.attempts], signal });
+    if (typeof next !== "string") return next;
+    source = next;
+  }
 }
 
 /**
@@ -162,48 +205,17 @@ export async function runReconstruction(
   options: ReconstructionLoopOptions = {},
 ): Promise<ReconstructionLoopResult> {
   const { revisions, limit } = validateLimits(options);
-  const attempts: ReconstructionAttempt[] = [];
-  const best: BestCandidate = { source: null, level: null, report: null, score: Infinity };
-  if (options.signal?.aborted)
-    return { accepted: false, status: "aborted", source: null, level: null,
-      report: null, attempts: [] };
-  let source: string;
-  try {
-    source = await initialCandidate(initialSource, reviser, options.signal);
-  } catch (error) {
-    return { accepted: false, status: options.signal?.aborted ? "aborted" : "failed",
-      error: message(error), source: null, level: null, report: null, attempts };
+  const state: LoopState = { evidence, reviser, options, revisions, limit, attempts: [],
+    best: { source: null, level: null, report: null, score: Infinity } };
+  let stop: Stop = { status: "aborted" };
+  if (!options.signal?.aborted) {
+    const first = initialSource.trim() ? initialSource : await revise(reviser,
+      { iteration: 0, previousSource: "", lastAttempt: null, attempts: [], signal: options.signal });
+    stop = typeof first === "string" ? await iterate(first, state) : first;
   }
-  if (!source.trim())
-    return { accepted: false, status: "stopped", source: null, level: null,
-      report: null, attempts };
-  let status: ReconstructionLoopResult["status"] = "exhausted";
-  let error: string | undefined;
-  for (let i = 0; i <= revisions; i++) {
-    if (options.signal?.aborted) { status = "aborted"; break; }
-    const result = await inspectSource(source, evidence, options, i, limit);
-    attempts.push(result.attempt);
-    await options.onAttempt?.(result.attempt);
-    keepBetter(best, result);
-    if (result.attempt.accepted) { status = "accepted"; break; }
-    if (i === revisions) break;
-    // Never spend another model request on a cancelled run.
-    if (options.signal?.aborted) { status = "aborted"; break; }
-    let next: string | null;
-    try {
-      next = await reviser({ iteration: i + 1, previousSource: source,
-        lastAttempt: attempts.at(-1) ?? null, attempts: [...attempts], signal: options.signal });
-    } catch (failure) {
-      // Keep the attempts and best valid candidate instead of discarding the run.
-      status = options.signal?.aborted ? "aborted" : "failed";
-      error = message(failure);
-      break;
-    }
-    if (!next?.trim() || next === source) { status = "stopped"; break; }
-    source = next;
-  }
-  // A cancel during the final inspection surfaces as an invalid attempt, not a break.
-  if (options.signal?.aborted && status !== "accepted") status = "aborted";
-  return { accepted: status === "accepted", status, ...(error ? { error } : {}),
+  // A cancel during the final inspection surfaces as an invalid attempt, not a stop.
+  const status = options.signal?.aborted && stop.status !== "accepted" ? "aborted" : stop.status;
+  const { best, attempts } = state;
+  return { accepted: status === "accepted", status, ...(stop.error ? { error: stop.error } : {}),
     source: best.source, level: best.level, report: best.report, attempts };
 }
