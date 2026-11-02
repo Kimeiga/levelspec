@@ -1,3 +1,4 @@
+import { ClippingError } from "../src/vector/clipping.ts";
 import {
   compile,
   parseLevelSvgx,
@@ -64,7 +65,7 @@ self.onmessage = async (event: MessageEvent) => {
     self.postMessage({
       id,
       error: (error as Error).message,
-      diagnostics: error instanceof SvgxError ? error.diagnostics : undefined,
+      diagnostics: error instanceof SvgxError ? error.diagnostics : error instanceof ClippingError ? [error.diagnostic] : undefined,
     });
   }
 };

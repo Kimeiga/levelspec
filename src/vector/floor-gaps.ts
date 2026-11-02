@@ -172,6 +172,7 @@ export function auditFloorGaps(
   for (const layer of d.layers) {
     const edges = new Map(layer.edges.map((e) => [e.id, e]));
     for (const region of layer.regions) {
+      if (region.fill === "water") continue;
       const floor = level.floors.find((f) => f.region === region.id)!;
       [region.boundary, ...region.holes].forEach((refs, loop) => {
         const side = Math.sign(area(floor.loops[loop])) * (loop ? -1 : 1);

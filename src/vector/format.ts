@@ -4,6 +4,7 @@ import {normalizeCoordinates} from './precision.ts';
 import { SaxesParser } from "saxes";
 import {
   createDocument,
+  DEFAULT_BOAT,
   type LevelDocument,
   type Diagnostic,
   type SourceLocation,
@@ -107,7 +108,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
     ]);
   const known: Record<string, string> = {
     level:
-      "version id name description units wall-thickness wall-height floor-thickness curve-tolerance expect-fail",
+      "version id name validation description units wall-thickness wall-height floor-thickness curve-tolerance expect-fail",
     layer: "id label",
     vertex: "id label x y z",
     edge: "id label from to kind control height thickness material join base-floor top-floor span-floors",
@@ -119,9 +120,9 @@ export function parseLevelSvgx(text: string): LevelDocument {
     seam: "id label edges kind material",
     material: "id label color repeat roughness metalness texture",
     light: "id label kind position target color intensity angle",
-    marker: "id label layer region position kind team",
-    route: "id label from to min-routes min-distance max-distance",
-    link: "id label from to kind bidirectional ability",
+    marker: "id label layer region position kind team movement",
+    route: "id label from to min-routes min-distance max-distance movement",
+    link: "id label from to kind bidirectional ability movement",
     cover: "id label layer min max material dynamic role",
     asset: "id label src",
     prop: "id label layer shape asset position rotation scale material collision segments",
@@ -129,6 +130,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
     landmark: "id label position image",
     mask: "id label points",
     player: "radius height step slope crouch vault rappel ladder",
+    boat: "radius draft height",
     sky: "color intensity",
     "no-spawn-los": "markers",
   };
@@ -146,6 +148,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
       "prop",
       "reference",
       "player",
+      "boat",
       "sky",
       "no-spawn-los",
     ],
@@ -263,6 +266,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
   if (s(root, "units", "meters") !== "meters")
     fail(root, "Units must be meters.");
   doc.name = s(root, "name", doc.id);
+  doc.validation = one(root, "validation", ["premap", "playable"] as const, "playable");
   doc.description = root.a.description;
   doc.expectFail = b(root, "expect-fail");
   doc.wallThickness = n(root, "wall-thickness", 0.22);
@@ -334,7 +338,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
               holes: c.children
                 .filter((h) => h.tag === "hole")
                 .map((h) => list(s(h, "boundary"))),
-              fill: one(c, "fill", ["floor", "stairs", "ramp"], "floor"),
+              fill: one(c, "fill", ["floor", "stairs", "ramp", "water"], "floor"),
               interior: list(c.a.interior),
               creases: c.children
                 .filter((h) => h.tag === "crease")
@@ -386,6 +390,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
       case "marker":
         doc.markers.push({
           ...named(e),
+          movement: e.a.movement ? one(e, "movement", ["land", "water", "none"] as const, "land") : undefined,
           layer: s(e, "layer"),
           region: e.a.region,
           position: vector(e, "position", 3) as V3,
@@ -396,6 +401,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
       case "route":
         doc.routes.push({
           ...named(e),
+          movement: e.a.movement ? one(e, "movement", ["land", "water"] as const, "land") : undefined,
           from: s(e, "from"),
           to: s(e, "to"),
           minRoutes: n(e, "min-routes", 1),
@@ -406,6 +412,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
       case "link":
         doc.links.push({
           ...named(e),
+          movement: e.a.movement ? one(e, "movement", ["land", "water"] as const, "land") : undefined,
           from: vector(e, "from", 3) as V3,
           to: vector(e, "to", 3) as V3,
           kind: s(e, "kind"),
@@ -451,6 +458,11 @@ export function parseLevelSvgx(text: string): LevelDocument {
             ...named(c), points: s(c, "points").split(";").map((pair) => pair.trim().split(/\s+/).map(Number) as [number, number]),
           })),
         });
+        break;
+      case "boat":
+        doc.boat = { radius: n(e, "radius", DEFAULT_BOAT.radius), draft: n(e, "draft", DEFAULT_BOAT.draft), height: n(e, "height", DEFAULT_BOAT.height) };
+        for (const [key, value] of Object.entries(doc.boat))
+          if (value <= 0) fail(e, `Boat ${key} must be positive.`);
         break;
       case "player":
         for (const k of Object.keys(doc.player))
@@ -503,9 +515,10 @@ export function serializeLevelSvgx(document: LevelDocument): string {
     lines.push(`${"  ".repeat(depth)}<${tag}${attrs(a)}/>`);
   const name = (v: Named) => ({ id: v.id, label: v.label });
   lines.push(
-    `<level${attrs({ version: "2", id: d.id, name: d.name, description: d.description, units: "meters", "wall-thickness": d.wallThickness, "wall-height": d.wallHeight, "floor-thickness": d.floorThickness, "curve-tolerance": d.curveTolerance, "expect-fail": d.expectFail || undefined })}>`,
+    `<level${attrs({ version: "2", id: d.id, name: d.name, validation: d.validation === "premap" ? "premap" : undefined, description: d.description, units: "meters", "wall-thickness": d.wallThickness, "wall-height": d.wallHeight, "floor-thickness": d.floorThickness, "curve-tolerance": d.curveTolerance, "expect-fail": d.expectFail || undefined })}>`,
   );
   leaf("player", { ...d.player });
+  if (d.boat) leaf("boat", { ...d.boat });
   leaf("sky", d.sky);
   for (const m of d.materials)
     leaf("material", {
@@ -596,6 +609,7 @@ export function serializeLevelSvgx(document: LevelDocument): string {
       position: m.position,
       kind: m.kind,
       team: m.team,
+      movement: m.movement,
     });
   for (const r of d.routes)
     leaf("route", {
@@ -605,6 +619,7 @@ export function serializeLevelSvgx(document: LevelDocument): string {
       "min-routes": r.minRoutes,
       "min-distance": r.minDistance,
       "max-distance": r.maxDistance,
+      movement: r.movement,
     });
   for (const l of d.links)
     leaf("link", {
@@ -614,6 +629,7 @@ export function serializeLevelSvgx(document: LevelDocument): string {
       kind: l.kind,
       bidirectional: l.bidirectional,
       ability: l.ability,
+      movement: l.movement,
     });
   for (const c of d.covers)
     leaf("cover", {

@@ -95,6 +95,26 @@ function closest(at: V3, a: V3, b: V3) {
   };
 }
 
+function recordBlocked(report: NavigationCoverage, region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+  report.blockedCount = (report.blockedCount ?? 0) + 1;
+  report.blockedByReason ??= {};
+  report.blockedByReason[reason] = (report.blockedByReason[reason] ?? 0) + 1;
+  report.blocked ??= [];
+  if (report.blocked.length < 2048) report.blocked.push({region,position:at,reason,clearance});
+}
+function recordUncovered(report: NavigationCoverage, row: NavigationCoverage["regions"][number], region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+  row.uncovered++;
+  report.uncoveredCount++;
+  row.reasons[reason] = (row.reasons[reason] ?? 0) + 1;
+  if (report.uncovered.length < 2048)
+    report.uncovered.push({region,position:at,reason,...(clearance === undefined ? {} : {clearance})});
+}
+function recordCoverageFailure(premap: boolean, report: NavigationCoverage, row: NavigationCoverage["regions"][number], region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+  if (premap && ["slope", "width", "step", "headroom"].includes(reason))
+    recordBlocked(report,region,at,reason,clearance);
+  else recordUncovered(report,row,region,at,reason,clearance);
+}
+
 /** Audit required floor samples independently of the surviving Recast polygons. */
 export function auditNavigationCoverage(
   level: CompiledLevel,
@@ -217,18 +237,8 @@ export function auditNavigationCoverage(
       row.excluded++;
       report.excluded++;
     };
-    const fail = (reason: NavigationBlockReason, clearance?: number) => {
-      row.uncovered++;
-      report.uncoveredCount++;
-      row.reasons[reason] = (row.reasons[reason] ?? 0) + 1;
-      if (report.uncovered.length < 2048)
-        report.uncovered.push({
-          region: f.region,
-          position: at,
-          reason,
-          ...(clearance === undefined ? {} : { clearance }),
-        });
-    };
+    const fail = (reason: NavigationBlockReason, clearance?: number) =>
+      recordCoverageFailure(level.document.validation === "premap", report, row, f.region, at, reason, clearance);
     const hits = new Map<string, number[]>();
     let ceiling = Infinity;
     for (const tri of mesh.at(at[0], at[1])) {
@@ -261,7 +271,7 @@ export function auditNavigationCoverage(
       excluded();
       return;
     }
-    if ((t.slope ?? 0) > p.slope + 0.1) {
+    if ((t.slope ?? 0) >= p.slope) {
       fail("slope");
       return;
     }
@@ -300,7 +310,12 @@ export function auditNavigationCoverage(
     const limits: ReturnType<typeof closest>[] = [];
     let step = false;
     const margin = p.radius + cell * 2;
-    for (const loop of f.loops)
+    // Movement clipping introduces shorelines and draft boundaries inside authored loops.
+    // Probe actual nearby facet edges; shared interior edges have supported continuation.
+    const boundaryLoops = level.water?.length
+      ? [...floors.around(at[0], at[1], margin)].filter(q => q.floor === f).map(q => [q.a,q.b,q.c])
+      : f.loops;
+    for (const loop of boundaryLoops)
       for (let i = 0; i < loop.length; i++) {
         const a = loop[i],
           b = loop[(i + 1) % loop.length],
