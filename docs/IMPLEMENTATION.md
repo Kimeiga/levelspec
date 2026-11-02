@@ -91,10 +91,14 @@ Implemented and exercised:
 
 Open release gates:
 
-- The first complete corpus validation found 210 regressions in navigation,
-  marker placement or route semantics compared with the legacy validator. The
-  report is `generated/migration-report.json`. Those results predate the latest
-  structural mesh separation and must be rerun after remaining navigation work.
+- Corpus validation (`node tools/vector-migrate.ts --validate`, 2 November
+  2026) finds 71 of 391 maps that pass the legacy validator but fail v2,
+  down from 153 that day. The fixes made converted ramps part of the area that
+  absorbed them and gave links explicit `from-area`/`to-area`. Before that,
+  route checks treated every stair and ramp as a dead end. The remaining
+  failures by map are NAV_STEP 47, NAV_UNCOVERED 31, ROUTE_REQUIREMENT 12,
+  NAV_DISCONNECTED 8, NAV_HEADROOM 8, MARKER_UNREACHABLE 6 and NAV_WIDTH 5. A
+  map can fail several. The report is `generated/migration-report.json`.
   Conversion success is not validation parity.
 - Complete semantic/physical graph comparison, special traversal semantics and
   legacy pocket/marker tolerances require corpus reconciliation. The new sampled

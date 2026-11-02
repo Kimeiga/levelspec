@@ -91,7 +91,7 @@ line/column where available.
 | `marker`       | Required `id`, `layer`, `position`; optional `region`, `kind="poi"`, `team`, `label`                                                                                                         |
 | `route`        | Required `id`, `from`, `to` marker IDs; optional `min-routes="1"`, `min-distance`, `max-distance`                                                                                            |
 | `no-spawn-los` | Required `markers` pair                                                                                                                                                                      |
-| `link`         | Required `id`, `from`, `to` XYZ positions, `kind`; optional `bidirectional="true"`, `ability`                                                                                                |
+| `link`         | Required `id`, `from`, `to` XYZ positions, `kind`; optional `bidirectional="true"`, `ability`, `from-area`, `to-area` (the areas joined; otherwise inferred from the floor at each position) |
 | `cover`        | Required `id`, `layer`, `min`, `max` XYZ bounds; optional `material`, `dynamic="false"`, `role`, `label`                                                                                     |
 | `player`       | Defaults: `radius="0.25" height="2" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"`                                                                           |
 

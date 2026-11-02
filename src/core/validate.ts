@@ -750,6 +750,17 @@ export function validate(level: CompiledLevel): ValidationReport {
       message: `Markers "${a}" and "${b}" can see each other from spawn.`,
       suggestions: ['Insert a sightline blocker', 'Offset one spawn', 'Rotate the approach'],
     });
+  // checkTactical cannot test a pair it cannot find; that must not read as a pass.
+  const markerIds = new Set(level.markers.map((m) => m.id));
+  for (const [a, b] of level.spec.gameplay?.no_spawn_los ?? [])
+    if (!markerIds.has(a) || !markerIds.has(b))
+      diagnostics.push({
+        severity: 'error',
+        code: 'MARKER_REFERENCE',
+        objects: [a, b],
+        message: `no_spawn_los references unknown marker "${markerIds.has(a) ? b : a}".`,
+        suggestions: ['Use marker ids, or area names in a .plan file'],
+      });
 
   const passed = !diagnostics.some((d) => d.severity === 'error');
   /*

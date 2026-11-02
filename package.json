@@ -33,7 +33,10 @@
     "package:site-bakes": "node tools/site-package-bakes.ts",
     "generate:site-material-detail": "node tools/site-material-detail.ts",
     "reference:rooftop": "node tools/vector-rooftop-reference.ts",
-    "reconstruct": "node tools/reconstruct.ts"
+    "reconstruct": "node tools/reconstruct.ts",
+    "game:export": "node tools/vector-migrate.ts kiln.plan && node tools/game-export.ts maps/vector/maps/hand/kiln.level.svgx --out game/public/maps/kiln",
+    "game:dev": "vite --config vite.game.config.ts",
+    "game:build": "vite build --config vite.game.config.ts"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",

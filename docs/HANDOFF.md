@@ -64,6 +64,39 @@ ends so the next one can continue from facts, not memory.
 - LevelSpec 2 migration parity and the other release gates in
   `docs/IMPLEMENTATION.md` were not touched.
 
+## 2026-11-02: first original map end to end in Three.js (Kiln)
+
+The user's games run in Three.js. The goal is CS- and Siege-style maps,
+proven by playing them in a Three.js game.
+
+- `maps/hand/kiln.plan` is an original bomb-defusal blockout.
+  `npm run game:export` converts it to v2, validates it, and writes a visual
+  GLB, a collision GLB and `game.json` (Y-up markers) to `game/public/maps/kiln`.
+  Output is deterministic.
+- `game/` is a sample Three.js consumer: GLTFLoader, a sphere-stack
+  controller with step-up and slopes, pointer-lock FPS controls, and an
+  overhead view on O.
+- `tests/game-walk.test.ts` independently probes the collision GLB, plans
+  with A*, and physically walks all four spawn-to-site routes. It also checks
+  that the player cannot walk through walls.
+- LevelSpec bugs found by building Kiln, all fixed with regression tests in
+  `tests/plan-pipeline.test.ts`:
+  1. Even-width plan ramp strips put their flight one cell outside the
+     strip. The fix changes only Dust II's A ramp across the corpus; it still
+     passes.
+  2. `no_spawn_los` in plans took area names, but validators expect marker
+     ids, and v1 *silently skipped* unknown ids. Plans now resolve names, and
+     v1 reports MARKER_REFERENCE.
+  3. The v1→v2 converter made ramps their own areas and gave links no area
+     identity. v2 route counting therefore saw every ramp and stair as a dead
+     end. Fixed with `from-area`/`to-area` on `<link>`. v1→v2 regressions
+     dropped from 153 to 71 maps.
+- **Open:** a ramp strip narrower than the area at its low end leaves
+  NAVMESH_VOID_EDGE at the concave corner (v1 compiler). Kiln avoids this with
+  same-width landings. The plan test asserts only clipping for that reason.
+- Kiln's longest sightline (82 m) runs along the attacker-side haul road
+  through T spawn into the tunnels. It needs a playtest judgement.
+
 ### Suggested next steps
 
 1. A real-model run with rights-cleared photos, ideally your own, kept
