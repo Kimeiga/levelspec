@@ -1,0 +1,62 @@
+{
+  "id": "og_kiln",
+  "name": "Kiln",
+  "geometryHash": "a7dd8a9e3d4c7c2d993456cee64ade6bcda43493972096386b65a31be10f53cc",
+  "coordinateSystem": "glTF Y-up metres",
+  "player": {
+    "radius": 0.35,
+    "height": 1.8,
+    "step": 0.45,
+    "slope": 42
+  },
+  "markers": [
+    {
+      "id": "mark_attacker_spawn_t_spawn",
+      "kind": "attacker_spawn",
+      "team": "attack",
+      "label": "Clay Yard",
+      "region": "t_spawn",
+      "position": [
+        48.8,
+        0,
+        -7.2
+      ]
+    },
+    {
+      "id": "mark_defender_spawn_ct_spawn",
+      "kind": "defender_spawn",
+      "team": "defend",
+      "label": "Office Block",
+      "region": "ct_spawn",
+      "position": [
+        48.8,
+        1.2,
+        -68
+      ]
+    },
+    {
+      "id": "mark_site_a_site",
+      "kind": "site",
+      "team": "neutral",
+      "label": "A",
+      "region": "a_site",
+      "position": [
+        20,
+        1.2,
+        -61.6
+      ]
+    },
+    {
+      "id": "mark_site_b_site",
+      "kind": "site",
+      "team": "neutral",
+      "label": "B",
+      "region": "b_site",
+      "position": [
+        80.8,
+        0.6,
+        -60
+      ]
+    }
+  ]
+}

@@ -558,8 +558,11 @@ function flightFrom(
   const axis = horizontal ? 0 : 1;
   const endCells = (atLow: boolean): [number, number][] =>
     pts.filter((p) => p[axis] === (atLow ? (horizontal ? minX : minY) : horizontal ? maxX : maxY));
+  // stairFootprint widens a flight floor((w-1)/2) cells to the low side of its
+  // anchor, so anchor on that cell; floor(n/2) shifted even-width flights one
+  // cell off the strip and into its wall.
   const middle = (list: [number, number][]): [number, number] =>
-    list.sort((a, b) => a[1 - axis] - b[1 - axis])[Math.floor(list.length / 2)];
+    list.sort((a, b) => a[1 - axis] - b[1 - axis])[Math.floor((list.length - 1) / 2)];
 
   const lowEnd = middle(endCells(true));
   const highEnd = middle(endCells(false));
@@ -625,6 +628,18 @@ function flightFrom(
 // -----------------------------------------------------------------------------
 // Directives — the handful of things a picture cannot say
 // -----------------------------------------------------------------------------
+
+/**
+ * The marker standing in a named area. An area may have got its marker from
+ * its legend entry (`mark_<area>`) or from a `mark` directive
+ * (`mark_<kind>_<area>`), and directives naming areas should not care which.
+ */
+function markerFor(spec: LevelSpec, name: string): string | undefined {
+  const markers = spec.gameplay?.markers ?? [];
+  return markers.find((m) => m.id === name)?.id ??
+    markers.find((m) => m.id === `mark_${name}`)?.id ??
+    markers.find((m) => m.id.endsWith(`_${name}`))?.id;
+}
 
 function applyDirectives(
   spec: LevelSpec,
@@ -707,16 +722,8 @@ function applyDirectives(
         // Routes are checked between markers, so an area name is resolved to
         // the marker standing in it.
         const [from, to, min] = args;
-        const markers = spec.gameplay?.markers ?? [];
-        // An area may have got its marker from its legend entry (`mark_<area>`)
-        // or from a `mark` directive (`mark_<kind>_<area>`), and a route should
-        // not care which.
-        const resolve = (name: string): string | undefined =>
-          markers.find((m) => m.id === name)?.id ??
-          markers.find((m) => m.id === `mark_${name}`)?.id ??
-          markers.find((m) => m.id.endsWith(`_${name}`))?.id;
-        const a = resolve(from);
-        const b = resolve(to);
+        const a = markerFor(spec, from);
+        const b = markerFor(spec, to);
         if (!a || !b) {
           issues.push({
             line,
@@ -754,8 +761,18 @@ function applyDirectives(
         break;
       }
       case 'no_spawn_los': {
+        // Named by area like `route`; validators compare marker ids, and an
+        // unresolved name used to be skipped, silently disabling the check.
+        const [a, b] = args.map((name) => markerFor(spec, name));
+        if (!a || !b) {
+          issues.push({
+            line,
+            message: `no_spawn_los needs a marker at each end; '${!a ? args[0] : args[1]}' has none`,
+          });
+          break;
+        }
         const g = (spec.gameplay ??= {});
-        (g.no_spawn_los ??= []).push([args[0], args[1]]);
+        (g.no_spawn_los ??= []).push([a, b]);
         break;
       }
       case 'stairs':

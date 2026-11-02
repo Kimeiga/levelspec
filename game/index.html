@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LevelSpec Game Sample</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #0d1014; color: #e8edf2; font: 14px system-ui, sans-serif; overflow: hidden; }
+    canvas { display: block; }
+    #hud { position: fixed; left: 12px; top: 12px; padding: 10px 12px; background: rgb(13 16 20 / 0.72); border-radius: 6px; line-height: 1.5; max-width: 360px; }
+    #hud kbd { background: #2a313a; border-radius: 3px; padding: 0 4px; }
+    #crosshair { position: fixed; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px; border-radius: 50%; background: #fff; opacity: 0.8; pointer-events: none; }
+    #status { color: #9fb3c8; }
+  </style>
+</head>
+<body>
+  <div id="hud">
+    <strong id="title">Loading map…</strong><br>
+    Click to play. <kbd>WASD</kbd> move, <kbd>Space</kbd> jump, <kbd>Shift</kbd> walk,
+    <kbd>1</kbd>–<kbd>4</kbd> teleport to T spawn, CT spawn, A, B. <kbd>O</kbd> overhead view. <kbd>Esc</kbd> releases the mouse.
+    <div id="status"></div>
+  </div>
+  <div id="crosshair"></div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

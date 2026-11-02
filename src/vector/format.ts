@@ -122,7 +122,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
     light: "id label kind position target color intensity angle",
     marker: "id label layer region position kind team movement",
     route: "id label from to min-routes min-distance max-distance movement",
-    link: "id label from to kind bidirectional ability movement",
+    link: "id label from to kind bidirectional ability movement from-area to-area",
     cover: "id label layer min max material dynamic role",
     asset: "id label src",
     prop: "id label layer shape asset position rotation scale material collision segments",
@@ -418,6 +418,8 @@ export function parseLevelSvgx(text: string): LevelDocument {
           kind: s(e, "kind"),
           bidirectional: b(e, "bidirectional", true),
           ability: e.a.ability,
+          fromArea: e.a["from-area"],
+          toArea: e.a["to-area"],
         });
         break;
       case "cover":
@@ -630,6 +632,8 @@ export function serializeLevelSvgx(document: LevelDocument): string {
       bidirectional: l.bidirectional,
       ability: l.ability,
       movement: l.movement,
+      "from-area": l.fromArea,
+      "to-area": l.toArea,
     });
   for (const c of d.covers)
     leaf("cover", {

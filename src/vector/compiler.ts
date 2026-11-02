@@ -1123,11 +1123,20 @@ export async function compile(
         const h = heightAt(f, p[0], p[1]);
         return h !== undefined && Math.abs(h - p[2]) < 0.5;
       });
+    const knownAreas = new Set(floors.map((f) => f.area ?? f.region));
+    const areaName = (link: (typeof d.links)[number], declared: string | undefined, at: V3) => {
+      if (declared) {
+        if (!knownAreas.has(declared)) err(link, `Link area "${declared}" is not a floor area.`, "LINK_AREA");
+        return declared;
+      }
+      const floor = areaFor(at);
+      return floor && (floor.area ?? floor.region);
+    };
     for (const link of d.links) {
-      const a = areaFor(link.from),
-        b = areaFor(link.to);
+      const a = areaName(link, link.fromArea, link.from),
+        b = areaName(link, link.toArea, link.to);
       if (a && b && (!link.ability || (d.player as any)[link.ability] === true))
-        semantic.edges.push([a.area ?? a.region, b.area ?? b.region]);
+        semantic.edges.push([a, b]);
     }
     for (const edge of semantic.edges)
       for (let i = 0; i < 2; i++)

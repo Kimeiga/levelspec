@@ -101,11 +101,19 @@ export function migrateSpec(spec: LevelSpec) {
                 Math.min(Y, (cy + h) * g),
               ],
             });
-      } else
+      } else {
+        // A drawn ramp strip belongs to the v1 area that absorbed it. Giving its
+        // steps their own area left that area with no semantic edge to the ramp,
+        // so route checks counted the climb as a dead end.
+        const g = spec.grid ?? 1,
+          centre = `${Math.floor((x + X) / 2 / g)},${Math.floor((y + Y) / 2 / g)}`;
         rectangles.push({
-          area: s.id.replace(/_(?:step|slice)_\d+$/, ""),
+          area:
+            old.occupancy.get(s.layer)?.get(centre) ??
+            s.id.replace(/_(?:step|slice)_\d+$/, ""),
           bounds: [x, y, X, Y],
         });
+      }
       for (const {
         area,
         bounds: [x, y, X, Y],
@@ -285,6 +293,10 @@ export function migrateSpec(spec: LevelSpec) {
       to: b.pos,
       kind: e.kind,
       bidirectional: true,
+      // v1 already knows which spaces this edge joins; positions alone can
+      // resolve to stair treads or a stairwell hole instead.
+      fromArea: a.space,
+      toArea: b.space,
     });
   }
   return { document: d, legacy: old, text: serializeLevelSvgx(d) };

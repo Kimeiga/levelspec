@@ -129,6 +129,13 @@ export interface Link extends Named {
   kind: string;
   bidirectional: boolean;
   ability?: string;
+  /**
+   * Areas the link joins. Without them the compiler infers each end from the
+   * floor at its position, which fails when an end lands on stair treads or
+   * over the stairwell hole it climbs through.
+   */
+  fromArea?: string;
+  toArea?: string;
 }
 export interface Cover extends Named {
   layer: string;
