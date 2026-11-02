@@ -19,6 +19,7 @@ export function normalizeCoordinates(document:LevelDocument):LevelDocument {
  const vector=(v:V3)=>v.map(q) as V3;
  optional(d,['wallThickness','wallHeight','floorThickness','curveTolerance']);
  optional(d.player,['radius','height','step','crouch','vault']);
+ if(d.boat)optional(d.boat,['radius','height','draft']);
  for(const l of d.layers){
   for(const v of l.vertices)optional(v,['x','y','z']);
   for(const e of l.edges){optional(e,['height','thickness']);if(e.control)e.control=e.control.map(v=>[q(v[0]),q(v[1])]);for(const o of e.openings)optional(o,['start','end','sill','head']);}

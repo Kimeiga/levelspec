@@ -72,6 +72,16 @@ export function validateDocument(
       "curve-tolerance must be at least 0.00001 metres.",
       "DIMENSION",
     );
+  if (
+    document.validation !== undefined &&
+    !["premap", "playable"].includes(document.validation)
+  )
+    report(
+      diagnostics,
+      document,
+      "Unknown validation contract.",
+      "VALIDATION_MODE",
+    );
 
   validateIds(document, diagnostics);
 

@@ -134,6 +134,8 @@ export async function buildQuakeMap(
   name: string,
   options: ProcessOptions = {},
 ) {
+  if (level.water?.length)
+    throw new Error("BSP water volumes are not supported yet. Export water surfaces with GLB, glTF, OBJ or FBX and runtime metadata.");
   if (!level.exportSolids?.length)
     throw new Error("BSP requires compile(..., { retainExportSolids: true }).");
   const K = await geometryKernel();

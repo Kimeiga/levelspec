@@ -667,3 +667,16 @@ button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+/* Repair details can include source identities and measured geometric changes. */
+#repairs details { margin: .5rem 0; min-width: 0; }
+#repairs summary { cursor: pointer; overflow-wrap: anywhere; }
+#repairs button {
+  display: block;
+  width: 100%;
+  margin: .35rem 0;
+  padding: .5rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
+  line-height: 1.4;
+}

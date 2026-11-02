@@ -67,7 +67,7 @@ export interface Edge extends Named {
 export interface Region extends Named {
   boundary: string[];
   holes: string[][];
-  fill: "floor" | "stairs" | "ramp";
+  fill: "floor" | "stairs" | "ramp" | "water";
   interior: string[];
   creases: [string, string][];
   material?: string;
@@ -107,6 +107,7 @@ export interface Light extends Named {
   angle?: number;
 }
 export interface Marker extends Named {
+  movement?: "land" | "water" | "none";
   layer: string;
   region?: string;
   position: V3;
@@ -114,6 +115,7 @@ export interface Marker extends Named {
   team?: string;
 }
 export interface Route extends Named {
+  movement?: "land" | "water";
   from: string;
   to: string;
   minRoutes: number;
@@ -121,6 +123,7 @@ export interface Route extends Named {
   maxDistance?: number;
 }
 export interface Link extends Named {
+  movement?: "land" | "water";
   from: V3;
   to: V3;
   kind: string;
@@ -145,10 +148,34 @@ export interface Player {
   rappel: boolean;
   ladder: boolean;
 }
+export interface RepairRecord {
+  code: string;
+  message: string;
+  objects: string[];
+  source?: SourceLocation;
+  count: number;
+  area?: number;
+  maxDisplacement?: number;
+  movement?: "land" | "water";
+}
+export interface ClippingLimits {
+  fragmentsPerTriangle: number;
+  intermediateVerticesPerTriangle: number;
+  generatedVertices: number;
+}
+/** Generic circular boat footprint; dimensions are in document metres. */
+export interface Boat {
+  radius: number;
+  draft: number;
+  height: number;
+}
+export const DEFAULT_BOAT: Boat = { radius: 2, draft: 0.5, height: 2 };
 export interface LevelDocument extends Named {
   props?: SceneProp[];
   assets?: MeshAsset[];
   references?: ReferenceView[];
+  validation?: "premap" | "playable";
+  boat?: Boat;
   version: "2";
   name: string;
   description?: string;
@@ -170,7 +197,7 @@ export interface LevelDocument extends Named {
   sky: { color: string; intensity: number };
   expectFail?: boolean;
 }
-export type MeshKind = "wall" | "floor" | "stairs" | "ceiling" | "prop";
+export type MeshKind = "wall" | "floor" | "stairs" | "ceiling" | "prop" | "water";
 export interface MeshPart {
   collidable?: boolean;
   visible?: boolean;
@@ -245,6 +272,10 @@ export interface ExportSolid {
   surface: Surface;
 }
 export interface CompiledLevel {
+  repairs?: RepairRecord[];
+  /** Non-solid water surfaces, separate from physical floor slabs. */
+  water?: FloorPatch[];
+  waterNavigation?: NavigationReport;
   /** Optional closed, pre-union solids for brush exporters. */
   exportSolids?: ExportSolid[];
   version: "2";
@@ -285,6 +316,9 @@ export interface UVOptions {
   signal?: AbortSignal;
 }
 export interface NavigationOptions {
+  onProgress?: (stage: string) => void;
+  clippingLimits?: Partial<ClippingLimits>;
+  movement?: "land" | "water";
   sealed?: boolean;
   signal?: AbortSignal;
   cell?: number;
@@ -299,6 +333,9 @@ export type NavigationBlockReason =
   | "disconnected"
   | "uncovered";
 export interface NavigationCoverage {
+  blockedCount?: number;
+  blocked?: { region: string; position: V3; reason: NavigationBlockReason; clearance?: number }[];
+  blockedByReason?: Partial<Record<NavigationBlockReason, number>>;
   sampleSpacing: number;
   sampled: number;
   covered: number;
@@ -321,9 +358,15 @@ export interface NavigationCoverage {
   }[];
 }
 export interface NavigationReport {
+  componentSeeds?: {id:string;position:V3}[];
+  repairs?: RepairRecord[];
   /** Navigation failures remain separate from geometry compilation diagnostics. */
   diagnostics: Diagnostic[];
   settings: {
+    validation?: "premap" | "playable";
+    clippingLimits?: ClippingLimits;
+    movement?: "land" | "water";
+    boat?: Boat;
     revision: number;
     geometryHash: string;
     cacheKey: string;
@@ -349,6 +392,10 @@ export interface NavigationReport {
   }[];
 }
 export interface ValidationReport {
+  validation?: "premap" | "playable";
+  gameplayReachabilityVerified?: boolean;
+  waterNavigation?: NavigationReport;
+  sealedWater?: NavigationReport;
   passed: boolean;
   diagnostics: Diagnostic[];
   navigation?: NavigationReport;

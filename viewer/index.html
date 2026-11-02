@@ -42,6 +42,7 @@
             </select></label
           >
           <label><input id="roofs" type="checkbox" /> Roofs</label>
+          <label>Navigation <select id="movement"><option value="land">Land</option><option value="water">Boat</option></select></label>
           <label
             >Cutaway
             <input id="cut" type="range" min="-1" max="1" value="1" step=".01"
@@ -84,6 +85,7 @@
         >
           Validation <span id="diagnostic-count">0</span>
         </button>
+        <button data-panel="repairs" aria-controls="repairs-panel" aria-expanded="false">Repairs <span id="repair-count">0</span></button>
       </div>
       <div class="stage">
         <div class="views">
@@ -161,6 +163,7 @@ Select an edge, floor, or atlas chart to inspect its source.</pre
               Select a chart to highlight its surfaces in the map.
             </p>
           </section>
+          <section id="repairs-panel" class="utility-content diagnostics" hidden><p>Automatic corrections preserving map meaning. Original source data is unchanged.</p><div id="repairs"></div></section>
           <section
             id="validation-panel"
             class="utility-content diagnostics"
@@ -171,6 +174,7 @@ Select an edge, floor, or atlas chart to inspect its source.</pre
               id="coverage-summary"
               aria-label="Navigation floor coverage"
             ></section>
+            <h3>All geometry and movement diagnostics</h3>
             <div id="diagnostics" role="log"></div>
           </section>
         </aside>

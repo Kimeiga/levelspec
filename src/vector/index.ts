@@ -33,5 +33,6 @@ export * from "./props.ts";
 export * from "./glb.ts";
 export * from "./authoring.ts";
 export { collisionMesh } from "./collision.ts";
+export { ClippingError, DEFAULT_CLIPPING_LIMITS } from "./clipping.ts";
 
 export * from "./architecture.ts";

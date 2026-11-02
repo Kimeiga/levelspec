@@ -1,5 +1,7 @@
 import { prepareProps } from "./props.ts";
 import { validateDocument } from "./preflight.ts";
+import { ClippingError } from "./clipping.ts";
+import { repairWaterPrecision } from "./movement.ts";
 import { normalizeCoordinates } from "./precision.ts";
 import { emptyMesh, meshParts } from "./mesh.ts";
 import { auditFloorGaps } from "./floor-gaps.ts";
@@ -56,6 +58,7 @@ export async function compile(
     curves: Record<string, V3[]> = {},
     flights = new Map<string, Flight>(),
     floors: FloorPatch[] = [],
+    water: FloorPatch[] = [],
     surfaces: Surface[] = [],
     mesh = emptyMesh();
   const err = (o: Named, message: string, code = "TOPOLOGY") =>
@@ -104,7 +107,12 @@ export async function compile(
         const f = flight?.floor ?? triangulate(r, l, curves);
         if (r.ceiling !== undefined && f.points.some((p) => p[2] >= r.ceiling!))
           throw new Error("Ceiling is at or below the floor.");
-        floors.push(f);
+        if (r.fill === "water") {
+          if (r.ceiling !== undefined) throw new Error("Water cannot have a solid ceiling.");
+          if (f.points.some((p) => Math.abs(p[2] - f.points[0][2]) > EPS))
+            throw new Error("A water region must have one surface elevation; use separate regions for different water levels.");
+          water.push(f);
+        } else floors.push(f);
         for (const ref of [r.boundary, ...r.holes].flat()) {
           const id = ref.replace(/^-/, "");
           owners.set(id, [...(owners.get(id) ?? []), r.id]);
@@ -263,6 +271,7 @@ export async function compile(
     parts: [],
     surfaces,
     floors,
+    water,
     curves,
     diagnostics,
     geometryHash: "",
@@ -449,6 +458,7 @@ export async function compile(
     for (const l of d.layers)
       for (const r of l.regions) {
         aborted(options.signal);
+        if (r.fill === "water") continue;
         const f = floors.find((f) => f.region === r.id)!;
         const flight = flights.get(r.id);
         if (flight) {
@@ -1225,6 +1235,28 @@ export async function compile(
   } finally {
     for (const s of allocated.reverse()) s.delete();
   }
+  // Water is an open, non-solid surface. Never pass it through slab/solid union.
+  try {
+    repairWaterPrecision(level, {...(typeof options.navigation === "object" ? options.navigation : {}),signal:options.signal});
+  } catch(error) {
+    if((error as Error).name === "AbortError")throw error;
+    if(error instanceof ClippingError)diagnostics.push(error.diagnostic);else err(d,(error as Error).message,"WATER_REPAIR");
+  }
+  for (const f of water) {
+    const r = d.layers.flatMap((l) => l.regions).find((r) => r.id === f.region)!;
+    const si = surfaces.length;
+    surfaces.push({ mesh: `water:${f.layer}:${f.region}`, kind: "water", id: `${f.region}:water`, object: f.region, layer: f.layer, role: "water", material: r.material ?? "default", dynamic: false, collidable: false });
+    const start = mesh.positions.length / 3;
+    for (const p of f.points) {
+      mesh.positions.push(...p);
+      mesh.normals.push(0, 0, 1);
+      mesh.uv.push(p[0], p[1]);
+    }
+    for (const triangle of f.triangles) {
+      mesh.indices.push(...triangle.map((i) => i + start));
+      mesh.surfaces.push(si);
+    }
+  }
   level.geometryHash = await hash({
     positions: mesh.positions,
     indices: mesh.indices,
@@ -1245,6 +1277,7 @@ export async function compile(
     triangles: mesh.indices.length / 3,
     vertices: mesh.positions.length / 3,
     regions: floors.length,
+    waterRegions: water.length,
   };
   if (!diagnostics.some((d) => d.severity === "error")) {
     if (options.surfaceContacts !== false)
@@ -1276,9 +1309,16 @@ export async function compile(
         ...(typeof options.navigation === "object" ? options.navigation : {}),
         signal: options.signal,
       });
+      if (water.length) {
+        options.onProgress?.("Boat navigation");
+        level.waterNavigation = await bakeNavmesh(level, {
+          ...(typeof options.navigation === "object" ? options.navigation : {}),
+          movement: "water", signal: options.signal,
+        });
+      }
     } catch (error) {
       if ((error as Error).name === "AbortError") throw error;
-      err(d, (error as Error).message, "NAV_BAKE");
+      if(error instanceof ClippingError) diagnostics.push(error.diagnostic); else err(d, (error as Error).message, "NAV_BAKE");
     }
   }
   if (options.uvs && !diagnostics.some((d) => d.severity === "error")) {

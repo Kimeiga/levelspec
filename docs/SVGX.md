@@ -216,6 +216,43 @@ authored cap or side overlaps still produce diagnostics.
 
 ## Automatic navigation and clearance
 
+### Water and boats
+
+`<region fill="water" .../>` declares a horizontal, non-solid water surface.
+Use separate regions for different elevations, and holes for islands. Water has
+its own mesh/surface kind, material and runtime `water` patches; it is excluded
+from solid floor overlap checks and does not create a floor slab or ceiling.
+The authored terrain below it remains available as bathymetry. Assigning a blue
+material to an ordinary floor does not give it water semantics.
+
+```xml
+<boat radius="2" draft="0.5" height="2"/>
+<marker id="boat-start" layer="coast" kind="poi" movement="water" position="10 20 3"/>
+<marker id="tree" layer="ground" kind="decoration" movement="none" position="30 40 4"/>
+<route id="boat-route" from="boat-start" to="boat-end" movement="water"/>
+```
+
+`boat` is optional and defaults to the dimensions above, in metres. It models a
+circular footprint, minimum draft and clearance above the surface, not a ship's
+turning dynamics. `movement` on markers accepts `land`, `water`, or `none`;
+routes and links accept `land` or `water`. Omission preserves land behavior.
+No boarding or movement-mode transition is synthesized.
+
+Compilation retains `CompiledLevel.navigation` for land and additionally produces
+`waterNavigation` when water exists. Runtime JSON, validation and export metadata
+preserve both reports. `bakeNavmesh(level, { movement: "water" })` requests the
+boat report explicitly. Changes to the boat profile invalidate its cache.
+Land walking surfaces are clipped below water; boat candidates are restricted
+to known sufficient depth, eroded for the boat radius, and checked against solid
+obstacles and overhead clearance. Water bodies may be disconnected; explicit
+routes must have a complete path. Missing seabed areas are excluded and reported
+as `WATER_DEPTH_UNKNOWN`. Bridges above water remain ordinary solid geometry.
+
+The viewer's Navigation selector switches between Land and Boat. Water appears
+in both the SVG plan and 3D geometry, independent of reference images. Portable
+mesh exports retain its surface identity. BSP export currently rejects water
+explicitly because its brush-volume representation is not implemented.
+
 Compilation also reports `FLOOR_EDGE_GAP` when two floor boundaries coincide in
 XY, have filled regions on opposite sides, and leave an unsealed vertical gap
 larger than 1 mm. It checks partial and curved boundaries, actual stair heights,
@@ -321,3 +358,60 @@ children), `asset`, and `prop` declarations. Stairs accept optional
 `underside="filled"` (the existing default) or `underside="sloped"`.
 See [Reference authoring](REFERENCE_AUTHORING.md) for examples, collision behavior,
 host asset-resolution requirements, and the not-yet-integrated viewer workflow.
+
+## Static premaps and automatic repairs
+
+`<level validation="premap">` declares a static map survey. Omission defaults to
+`playable`, retaining strict authored-floor and spawn-based connectivity checks.
+Premaps validate each navigation component independently; `componentSeeds` gives
+stable IDs and representative positions. A spawn is optional. Explicit markers
+and routes remain requirements in either mode, including boat draft/clearance.
+
+Premap coverage records physically demonstrated slope, width, step and headroom
+restrictions in `blockedCount`, `blockedByReason`, and capped `blocked` samples.
+Unexplained missing navigation is still an error. The slope cutoff matches Recast:
+a slope at or above the configured limit is blocked. A successful premap reports
+`gameplayReachabilityVerified: false`; the viewer says **Static premap valid;
+gameplay reachability unverified**. It does not claim exact game movement.
+
+Clipping automatically normalizes duplicate consecutive vertices, redundant
+collinear vertices and zero-area fragments, ignores disjoint masks, and removes
+equivalent masks/fragments. Water extending outside supporting terrain is trimmed
+only when the entire unsupported fragment lies in its 0.001 m boundary band.
+Larger missing seabeds produce `WATER_DEPTH_UNKNOWN` errors. No depth is inferred.
+The repair is reflected in compiled water triangles and mesh exports.
+
+Compiled levels and runtime exports include `repairs`: source-linked records with
+code, message, objects, count, affected area and maximum displacement where
+applicable. Navigation repairs also identify movement mode. The viewer's Repairs
+panel keeps successful corrections separate from diagnostics.
+
+Clipping checks finiteness, convexity, vertex growth and area conservation while
+processing. Limits are checked before allocation; defaults are 4,096 fragments
+and 32,768 intermediate vertices per source triangle, and 2,000,000 generated
+vertices per movement bake. Override using positive safe integers:
+
+```ts
+await compile(document, { navigation: { clippingLimits: {
+  fragmentsPerTriangle: 4096,
+  intermediateVerticesPerTriangle: 32768,
+  generatedVertices: 2_000_000,
+} } });
+```
+
+The same options work with `bakeNavmesh` and `validateForRuntime`. An irreparable
+invariant or budget failure produces `CLIP_INVARIANT` or `CLIP_COMPLEXITY_LIMIT`
+with the source object, operation and measured limit. Compilation retains usable
+geometry; failed navigation is invalidated and never cached. Abort signals are
+checked inside clipping loops. Changing the validation contract or clipping
+limits invalidates navigation caches.
+
+Large navigation extents (over 32 m) are automatically split into 32-cell tiles
+(4 m at the default cell size). This prevents large terrain polygons from
+exhausting Recast's detail-vertex capacity and flattening local terrain features.
+`NAV_SPATIAL_SUBDIVISION` records this processing repair. Tile intermediates are
+released immediately, cancellation is checked between tiles, and a failed tile
+invalidates the entire movement result. Zero-polygon tiles are valid empty space.
+Local detail samples use three cells (0.375 m by default), keeping each tile below
+the detail capacity without relaxing the height or movement tolerances.
+Coverage checks use the actual clipped terrain edges at shorelines.
