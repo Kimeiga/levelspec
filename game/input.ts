@@ -3,9 +3,10 @@ export function bindGameInput(target: EventTarget, action: (code: string) => voi
   const keys = new Set<string>();
   target.addEventListener("keydown", (event) => {
     const e = event as KeyboardEvent;
+    if (e.repeat) return;
     const first = !keys.has(e.code);
     keys.add(e.code);
-    if (first && !e.repeat) action(e.code);
+    if (first) action(e.code);
   });
   target.addEventListener("keyup", (event) => keys.delete((event as KeyboardEvent).code));
   target.addEventListener("blur", () => keys.clear());

@@ -17,6 +17,11 @@ describe("game keyboard input", () => {
       assert.ok(held.has("KeyW") && held.has("ShiftLeft"), "movement did not engage");
       (reset === "blur" ? target : documentEvents).dispatchEvent(new Event(reset));
       assert.equal(held.size, 0);
+      // Unlocking the mouse leaves the window focused. The still-held W key
+      // can auto-repeat after reset; it must not start movement again.
+      key(target, "keydown", "KeyW", true);
+      key(target, "keydown", "ShiftLeft", true);
+      assert.equal(held.size, 0, "auto-repeat rearmed movement after reset");
       key(target, "keydown", "KeyW");
       assert.ok(held.has("KeyW"), "cannot move after returning");
       key(target, "keyup", "KeyW");
