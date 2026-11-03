@@ -36,6 +36,7 @@
     "game/**/*.ts",
     "vite.game.config.ts",
     "tests/game-*.ts",
+    "tests/flight-solids.test.ts",
     "tests/plan-pipeline.test.ts"
   ]
 }

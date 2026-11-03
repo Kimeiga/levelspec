@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { planToSpec, PlanError } from "../src/authoring/plan.ts";
 import { compile as compileLegacy } from "../src/core/compiler.ts";
-import { validateForRuntime as validateLegacy } from "../src/core/validate.ts";
+import { checkGeometry, validateForRuntime as validateLegacy } from "../src/core/validate.ts";
 import { migrateText } from "../tools/migration/convert.ts";
 import { compile } from "../src/vector/compiler.ts";
 import { validateForRuntime } from "../src/vector/validate.ts";
@@ -59,6 +59,22 @@ describe("plan authoring regressions", () => {
     const report = validateLegacy(level);
     assert.deepEqual(report.diagnostics.filter((d) => d.severity === "error"), []);
   });
+  for (const turns of [0, 1, 2, 3]) {
+    it(`keeps cap-adjacent slivers valid without removing their floor, turned ${turns}`, () => {
+      const text = twoRooms("...rr.....").replace("grid: 1.6", "grid: 1.6\nwall_thickness: 0.2")
+        .replace("+0.6", "+0.8");
+      const level = compileLegacy(planToSpec(turnPlan(text, turns)));
+      assert.deepEqual(validateLegacy(level).diagnostics.filter((d) => d.severity === "error"), []);
+    });
+    it(`keeps off-grid cap fragments non-overlapping, turned ${turns}`, () => {
+      const text = twoRooms("...rr.....").replace("grid: 1.6", "grid: 1.1\nwall_thickness: 0.12")
+        .replace("+0.6", "+1.21");
+      const report = checkGeometry(compileLegacy(planToSpec(turnPlan(text, turns))).solids);
+      assert.equal(report.zfight_pairs, 0, JSON.stringify(report.zfight_examples));
+      assert.equal(report.intersecting_pairs, 0, JSON.stringify(report.intersecting_examples));
+      assert.equal(report.degenerate, 0);
+    });
+  }
 });
 
 describe("v1 to v2 migration", () => {

@@ -44,6 +44,7 @@ import {
 } from './types.ts';
 import { CellSet, decomposeToRects, key, rectCells, rectContains, unkey } from './grid.ts';
 import { rasterizeLayers, type LayerState } from './rasterize.ts';
+import { appendFlightBox, normalizeFlightBands } from './flight.ts';
 
 const EPS = 1e-6;
 const MAX_STEP_RISE = 0.19;
@@ -922,8 +923,9 @@ export function compile(spec: LevelSpec): CompiledLevel {
           ? [v.footprint[1] - 1, v.footprint[1] + v.footprint[3]]
           : [v.footprint[0] - 1, v.footprint[0] + v.footprint[2]];
       const sliceBoxes = new Map<string, Solid>();
+      const flightSolids: Solid[] = [];
       const emitSlice = (solid: Solid): void =>
-        appendFlightBox(solids, sliceBoxes, solid, dir.axis === 'x' ? 0 : 1);
+        appendFlightBox(flightSolids, sliceBoxes, solid, dir.axis === 'x' ? 0 : 1);
 
       for (const { lo, hi, treadLo, treadHi, step: i, index } of flightSlices(base, dir, steps, g, standing)) {
         // Treads abut along the run and never overlap: each one owns exactly
@@ -1039,6 +1041,13 @@ export function compile(spec: LevelSpec): CompiledLevel {
           });
         }
       }
+      if (vc.from_layer === vc.to_layer) {
+        normalizeFlightBands(solids, flightSolids, {
+          id: vc.id, layer: vc.from_layer, axis: dir.axis === 'x' ? 0 : 1,
+          bounds: { min: [base.min[0], base.min[1], bottom], max: [base.max[0], base.max[1], Math.max(zFrom, zTo)] },
+          wallThickness: wt,
+        });
+      } else solids.push(...flightSolids);
     } else if (vc.kind === 'ladder') {
       const b = rectBox(v.footprint, g, zFrom, zTo + 0.6);
       solids.push({
@@ -1360,21 +1369,6 @@ function* flightSlices(
     const points = [lo, ...sorted.filter((at) => at > lo + EPS && at < hi - EPS), hi];
     for (let j = 0; j + 1 < points.length; j++)
       yield { lo: points[j], hi: points[j + 1], treadLo: lo, treadHi: hi, step, index: index++ };
-  }
-}
-
-/** Keep adjacent pieces with identical sections as one solid, including guards. */
-function appendFlightBox(solids: Solid[], sections: Map<string, Solid>, solid: Solid, axis: 0 | 1): void {
-  const b = solid.box, perp = 1 - axis;
-  const section = [solid.role, b.min[perp], b.max[perp], b.min[2], b.max[2]].join('|');
-  const previous = sections.get(section);
-  if (previous && (Math.abs(previous.box.max[axis] - b.min[axis]) <= EPS ||
-                   Math.abs(b.max[axis] - previous.box.min[axis]) <= EPS)) {
-    previous.box.min[axis] = Math.min(previous.box.min[axis], b.min[axis]);
-    previous.box.max[axis] = Math.max(previous.box.max[axis], b.max[axis]);
-  } else {
-    solids.push(solid);
-    sections.set(section, solid);
   }
 }
 

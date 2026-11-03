@@ -3,6 +3,32 @@
 Running log for autonomous engineering sessions. Update it before a session
 ends so the next one can continue from facts, not memory.
 
+## 2026-11-03: PR #15 review follow-up
+
+[PR #15](https://github.com/Kimeiga/levelspec/pull/15) publishes the continuation
+below. Independent review found two additional cases, now fixed with regressions:
+
+- A still-held movement key could auto-repeat after pointer unlock and rearm
+  movement. Repeated keydown events now return before changing held state.
+  All three reset regressions fail before this fix; browser pointer unlock
+  followed by repeated W events now remains stationary until a fresh press.
+- A cap only millimetres from a tread edge produced near-coincident parallel
+  faces. The baseline-valid reproduction uses grid 1.6, wall thickness 0.2 and
+  rise 0.8. Same-layer flight side bands now normalize the exact union of wings,
+  guards and static wall bases in horizontal strata, then coalesce identical
+  sections. Central tread heights stay intact; dynamic panels and other layers
+  remain separate. The helper is `src/core/flight.ts`. Multi-storey flight
+  normalization is unchanged.
+
+The eight added compass/parameter regressions, exact-volume and raised-elevation
+checks, dynamic-panel separation, existing navigation and physical/exported
+collision tests pass: **180 focused tests**. An expanded old-versus-new geometry
+sweep finds **zero regressions in 1,728 cases** (the reviewed version had 60).
+Typecheck, game build and Fallow's full `origin/main` comparison pass. Kiln was
+regenerated and its six exported collision tests pass. The final full-suite,
+corpus and remote CI outcome for this follow-up is attached to PR #15; the
+earlier local-only verification below predates this review correction.
+
 ## 2026-11-03: ramp landing coverage and Kiln spatial review
 
 Starting checkout: `main` at `e1c8dfb` (merged PR #14), with only the user's
