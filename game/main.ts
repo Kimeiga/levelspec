@@ -4,6 +4,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { CollisionWorld, type Vec3 } from "./collision.ts";
 import { stepPlayer, RUN_SPEED, type PlayerShape, type PlayerState } from "./controller.ts";
 import { readGlbTriangles } from "./glb.ts";
+import { bindGameInput } from "./input.ts";
 
 interface GameMarker { id: string; kind: string; label?: string; position: Vec3 }
 interface GameMeta { id: string; name: string; player: PlayerShape; markers: GameMarker[] }
@@ -70,18 +71,15 @@ const order = ["attacker_spawn", "defender_spawn", "site", "site"];
 const markerAt = (i: number) => meta.markers.filter((m) => m.kind === order[i])[i === 3 ? 1 : 0];
 const player: PlayerState = { position: [...markerAt(0).position] as Vec3, verticalSpeed: 0, grounded: false };
 let yaw = 0, pitch = 0, overview = false;
-const keys = new Set<string>();
 const teleport = (i: number) => {
   player.position = [...markerAt(i).position] as Vec3;
   player.verticalSpeed = 0;
 };
-addEventListener("keydown", (e) => {
-  keys.add(e.code);
-  if (e.code === "KeyO") overview = !overview;
-  const i = ["Digit1", "Digit2", "Digit3", "Digit4"].indexOf(e.code);
+const keys = bindGameInput(window, (code) => {
+  if (code === "KeyO") overview = !overview;
+  const i = ["Digit1", "Digit2", "Digit3", "Digit4"].indexOf(code);
   if (i >= 0 && markerAt(i)) teleport(i);
-});
-addEventListener("keyup", (e) => keys.delete(e.code));
+}, document);
 renderer.domElement.addEventListener("click", () => renderer.domElement.requestPointerLock());
 addEventListener("mousemove", (e) => {
   if (document.pointerLockElement !== renderer.domElement) return;
