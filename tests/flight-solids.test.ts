@@ -46,3 +46,42 @@ it('leaves a dynamic side panel separate from the immutable flight shell', () =>
   assert.deepEqual(shell.find((s) => s.id === 'panel'), panel);
   assert.equal(checkGeometry(shell).intersecting_pairs, 0);
 });
+
+for (const height of [10.195, 10.1999995]) {
+  it(`preserves valid bridging wall columns beside the ${height} tread`, () => {
+    const shell = [
+      solid('bridge', 'exterior_wall', box(0, 1, 10, 0.1, 2, 14)),
+      solid('upper', 'exterior_wall', box(0, 2, 10.2, 0.1, 3, 14)),
+    ];
+    const pieces = [
+      solid('low', 'ramp', box(0, 0, 10, 2, 1, height)),
+      solid('high', 'ramp', box(0.1, 1, 10, 1.9, 3, 10.3)),
+    ];
+    assert.ok(checkGeometry([...shell, ...pieces]).runtime_ready);
+    normalizeFlightBands(shell, pieces, {
+      id: 'flight', layer: 'raised', axis: 1, bounds: box(0, 0, 10, 2, 3, 10.3), wallThickness: 0.2,
+    });
+    assert.ok(checkGeometry(shell).runtime_ready, JSON.stringify(checkGeometry(shell)));
+  });
+}
+
+it('repairs one side without cutting a valid close-height bridge on the other', () => {
+  const shell = [
+    solid('left-bridge', 'exterior_wall', box(0, 1.5, 10, 0.1, 2.25, 14)),
+    solid('left-upper', 'exterior_wall', box(0, 2.25, 10.105, 0.1, 3, 14)),
+    solid('right-cap', 'exterior_wall', box(1.9, 2.25, 10, 2, 3, 14)),
+  ];
+  const pieces = [
+    solid('step0', 'ramp', box(0, 0, 10, 2, 0.75, 10.05)),
+    solid('step1', 'ramp', box(0, 0.75, 10, 2, 1.5, 10.1)),
+    solid('step2-core', 'ramp', box(0.1, 1.5, 10, 1.9, 2.25, 10.15)),
+    solid('step3', 'ramp', box(0.1, 2.25, 10, 1.9, 3, 10.2)),
+    solid('right-wing', 'ramp', box(1.9, 2.244, 10, 2, 2.25, 10.15)),
+  ];
+  assert.equal(checkGeometry([...shell, ...pieces]).zfight_pairs, 1);
+  normalizeFlightBands(shell, pieces, {
+    id: 'flight', layer: 'raised', axis: 1, bounds: box(0, 0, 10, 2, 3, 10.2), wallThickness: 0.2,
+  });
+  assert.ok(checkGeometry(shell).runtime_ready, JSON.stringify(checkGeometry(shell)));
+  assert.ok(Math.abs(volume(shell) - 1.589715) < 1e-9, 'changed the occupied union');
+});

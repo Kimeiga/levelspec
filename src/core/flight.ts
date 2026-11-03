@@ -1,4 +1,6 @@
 import type { Box, Solid } from './types.ts';
+import { FACE_TOLERANCE } from './contact.ts';
+import { repairBandRectangles } from './flight-rectangles.ts';
 
 const EPS = 1e-6;
 const WALL_ROLES = new Set(['static_hard', 'exterior_wall', 'riser', 'sill', 'lintel']);
@@ -74,47 +76,25 @@ function coordinates(sources: Solid[], axis: number): number[] {
   return [...new Set(sources.flatMap(({ box: b }) => [b.min[axis], b.max[axis]]))].sort((a, b) => a - b);
 }
 
-function occupiedIntervals(sources: Solid[], axis: 0 | 1, p0: number, p1: number, z0: number, z1: number) {
-  const perp = 1 - axis;
-  const intervals = sources.filter(({ box: b }) =>
-    b.min[perp] < p1 - EPS && b.max[perp] > p0 + EPS &&
-    b.min[2] < z1 - EPS && b.max[2] > z0 + EPS)
-    .map(({ box: b }): [number, number] => [b.min[axis], b.max[axis]])
-    .sort((a, b) => a[0] - b[0]);
-  const merged: [number, number][] = [];
-  for (const interval of intervals) {
-    const previous = merged.at(-1);
-    if (previous && interval[0] <= previous[1] + EPS) previous[1] = Math.max(previous[1], interval[1]);
-    else merged.push(interval);
-  }
-  return merged;
-}
-
-function unionBand(sources: Solid[], band: Box, options: FlightBands): Solid[] {
+function unionBand(sources: Solid[], band: Box, neighbors: Solid[], options: FlightBands): Solid[] {
   const perp = 1 - options.axis;
-  const ps = coordinates(sources, perp), zs = coordinates(sources, 2);
-  const emitted: Solid[] = [], sections = new Map<string, Solid>();
+  const ps = coordinates(sources, perp);
+  const emitted: Solid[] = [];
   const spaces = [...new Set(sources.flatMap((s) => s.spaces))].sort();
+  const nearby = neighbors.filter(({ box: b }) => b.min.every((lo, i) =>
+    lo <= band.max[i] + FACE_TOLERANCE && b.max[i] >= band.min[i] - FACE_TOLERANCE)).map((s) => s.box);
   for (let p = 0; p + 1 < ps.length; p++) {
-    for (let z = 0; z + 1 < zs.length; z++) {
-      for (const [lo, hi] of occupiedIntervals(sources, options.axis, ps[p], ps[p + 1], zs[z], zs[z + 1])) {
-        const section = [ps[p], ps[p + 1], lo, hi].join('|');
-        const previous = sections.get(section);
-        if (previous && Math.abs(previous.box.max[2] - zs[z]) <= EPS) {
-          previous.box.max[2] = zs[z + 1];
-          continue;
-        }
-        const box = copyBox(band);
-        box.min[options.axis] = lo; box.max[options.axis] = hi;
+    const boxes = sources.filter(({ box: b }) => b.min[perp] < ps[p + 1] - EPS && b.max[perp] > ps[p] + EPS)
+      .map(({ box: b }) => {
+        const box = copyBox(b);
         box.min[perp] = ps[p]; box.max[perp] = ps[p + 1];
-        box.min[2] = zs[z]; box.max[2] = zs[z + 1];
-        const solid: Solid = {
-          id: `${options.id}_support_${emitted.length}`, role: 'riser', box,
-          layer: options.layer, spaces, dynamic: false,
-        };
-        emitted.push(solid);
-        sections.set(section, solid);
-      }
+        return box;
+      });
+    for (const box of repairBandRectangles(boxes, options.axis, nearby)) {
+      emitted.push({
+        id: `${options.id}_support_${emitted.length}`, role: 'riser', box,
+        layer: options.layer, spaces, dynamic: false,
+      });
     }
   }
   return emitted;
@@ -123,8 +103,9 @@ function unionBand(sources: Solid[], band: Box, options: FlightBands): Solid[] {
 /**
  * A tiny wing beside a wall cap cannot be a separate full-depth tread box:
  * its end faces nearly coincide with the cap or its adjoining tread. Keep
- * the exact union of wings, guards and static wall bases in horizontal layers.
- * The central treads retain their original heights. Dynamic walls stay separate.
+ * the exact union of wings, guards and static wall bases, choosing only pair
+ * repairs that remove conflicts. Central tread heights and valid wall columns
+ * stay intact. Dynamic walls stay separate.
  */
 export function normalizeFlightBands(solids: Solid[], pieces: Solid[], options: FlightBands): void {
   const perp = 1 - options.axis, base = options.bounds;
@@ -136,7 +117,8 @@ export function normalizeFlightBands(solids: Solid[], pieces: Solid[], options: 
       if (side === 0) band.max[perp] = band.min[perp] + options.wallThickness / 2;
       else band.min[perp] = band.max[perp] - options.wallThickness / 2;
       const collected = collectBand(remaining, flight, band, options);
-      const supports = unionBand(collected.sources, band, { ...options, id: `${options.id}_side_${side}` });
+      const supports = unionBand(collected.sources, band, collected.remaining,
+        { ...options, id: `${options.id}_side_${side}` });
       remaining = [...collected.remaining, ...supports];
     }
   }

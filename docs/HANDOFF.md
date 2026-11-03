@@ -15,14 +15,24 @@ below. Independent review found two additional cases, now fixed with regressions
 - A cap only millimetres from a tread edge produced near-coincident parallel
   faces. The baseline-valid reproduction uses grid 1.6, wall thickness 0.2 and
   rise 0.8. Same-layer flight side bands now normalize the exact union of wings,
-  guards and static wall bases in horizontal strata, then coalesce identical
-  sections. Central tread heights stay intact; dynamic panels and other layers
-  remain separate. The helper is `src/core/flight.ts`. Multi-storey flight
-  normalization is unchanged.
+  guards and static wall bases. `src/core/flight-rectangles.ts` preserves valid
+  columns and repartitions only conflicting pairs using their existing planes.
+  A candidate must strictly reduce the unchanged face-contact conflict count,
+  including neighboring geometry, and may not introduce degenerate boxes.
+  The bounded repair leaves unresolved findings visible to final validation.
+  Central tread heights stay intact; dynamic panels and other layers remain
+  separate. Multi-storey flight normalization is unchanged.
+- Review also caught an intermediate horizontal-strata decomposition that cut
+  valid bridge columns into 5 mm (or sub-micrometre) height layers. Regressions
+  cover valid columns, compound flights with a conflict on the opposite side,
+  exact occupied volume and nonzero elevations. The shared contact predicate
+  was extracted unchanged into `src/core/contact.ts`: 2,000 comparison cases
+  produce exactly the original validator's geometry reports, including its
+  0.01 m tolerance boundaries. No validator thresholds or baselines changed.
 
 The eight added compass/parameter regressions, exact-volume and raised-elevation
 checks, dynamic-panel separation, existing navigation and physical/exported
-collision tests pass: **180 focused tests**. An expanded old-versus-new geometry
+collision tests pass. An expanded old-versus-new geometry
 sweep finds **zero regressions in 1,728 cases** (the reviewed version had 60).
 Typecheck, game build and Fallow's full `origin/main` comparison pass. Kiln was
 regenerated and its six exported collision tests pass. The final full-suite,
