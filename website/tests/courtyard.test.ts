@@ -13,7 +13,8 @@ const fixture = readFileSync(
   "utf8",
 );
 test("the default SVGX matches the live architectural authoring module", () => {
-  assert.equal(fixture, buildCourtyard({ height: 3 }));
+  // Git may check the fixture out with CRLF on Windows; XML content must match.
+  assert.equal(fixture.replaceAll("\r\n", "\n"), buildCourtyard({ height: 3 }));
 });
 test("rooms, overhead bridge and details survive real compilation", async () => {
   const level = await compile(parseLevelSvgx(fixture));

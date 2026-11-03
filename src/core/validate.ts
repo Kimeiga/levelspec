@@ -10,6 +10,7 @@ import { DEFAULTS, type CompiledLevel, type Diagnostic, type Solid } from './typ
 import { boxCenter, boxMesh, brushContains, signedVolume, windingConsistent } from './mesh.ts';
 import { key, lineCells, unkey } from './grid.ts';
 import { bakeNavmesh, type NavmeshOptions, type NavmeshReport } from './navmesh.ts';
+import { boxContact, FACE_TOLERANCE as TOL } from './contact.ts';
 
 export interface GeometryReport {
   solids: number;
@@ -97,10 +98,6 @@ export function checkGeometry(solids: Solid[]): GeometryReport {
   const seen = new Set<number>();
   const offenders = new Set<string>();
   const pairId = (i: number, j: number): number => i * solids.length + j;
-  // Faces nearer than this count as coincident. Z-fighting is caused by
-  // near-coincidence, so "I nudged it by a millimetre" is not a fix.
-  const TOL = 0.01;
-
   for (const arr of buckets.values()) {
     for (let ai = 0; ai < arr.length; ai++) {
       for (let bi = ai + 1; bi < arr.length; bi++) {
@@ -128,25 +125,13 @@ export function checkGeometry(solids: Solid[]): GeometryReport {
         // Independently of overlap: do the two solids present a surface on the
         // same plane, facing the same way, over a shared area? That is the
         // z-fighting class, and it is what a screenshot cannot rule out.
-        let zfight = false;
-        let touching = false;
-        for (let a = 0; a < 3 && !zfight; a++) {
-          const o1 = ov[(a + 1) % 3];
-          const o2 = ov[(a + 2) % 3];
-          if (o1 <= TOL || o2 <= TOL) continue; // edge or corner contact only
-          const sameMax = Math.abs(A.max[a] - B.max[a]) < TOL;
-          const sameMin = Math.abs(A.min[a] - B.min[a]) < TOL;
-          const backToBack =
-            Math.abs(A.max[a] - B.min[a]) < TOL || Math.abs(A.min[a] - B.max[a]) < TOL;
-          if (sameMax || sameMin) zfight = true;
-          else if (backToBack) touching = true;
-        }
-        if (zfight) {
+        const contact = boxContact(A, B, ov);
+        if (contact === 'coplanar') {
           report.zfight_pairs++;
           offenders.add(solids[i].id).add(solids[j].id);
           if (report.zfight_examples.length < 12)
             report.zfight_examples.push([solids[i].id, solids[j].id]);
-        } else if (touching) {
+        } else if (contact === 'touching') {
           report.touching_pairs++;
         }
       }

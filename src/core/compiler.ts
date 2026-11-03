@@ -44,6 +44,7 @@ import {
 } from './types.ts';
 import { CellSet, decomposeToRects, key, rectCells, rectContains, unkey } from './grid.ts';
 import { rasterizeLayers, type LayerState } from './rasterize.ts';
+import { appendFlightBox, normalizeFlightBands } from './flight.ts';
 
 const EPS = 1e-6;
 const MAX_STEP_RISE = 0.19;
@@ -898,8 +899,6 @@ export function compile(spec: LevelSpec): CompiledLevel {
     if (vc.kind === 'stairs' || vc.kind === 'ramp') {
       const steps = v.steps;
       const dir = stairDir(vc, v.footprint, g);
-      const alongLen = dir.axis === 'x' ? v.footprint[2] * g : v.footprint[3] * g;
-      const tread = alongLen / steps;
       const riseStep = (zTo - zFrom) / steps;
       const base = rectBox(v.footprint, g, zFrom, zFrom);
       // Treads sit on the lower floor slab, never inside it.
@@ -923,13 +922,14 @@ export function compile(spec: LevelSpec): CompiledLevel {
         dir.axis === 'x'
           ? [v.footprint[1] - 1, v.footprint[1] + v.footprint[3]]
           : [v.footprint[0] - 1, v.footprint[0] + v.footprint[2]];
+      const sliceBoxes = new Map<string, Solid>();
+      const flightSolids: Solid[] = [];
+      const emitSlice = (solid: Solid): void =>
+        appendFlightBox(flightSolids, sliceBoxes, solid, dir.axis === 'x' ? 0 : 1);
 
-      for (let i = 0; i < steps; i++) {
+      for (const { lo, hi, treadLo, treadHi, step: i, index } of flightSlices(base, dir, steps, g, standing)) {
         // Treads abut along the run and never overlap: each one owns exactly
         // one tread-length slice, so the staircase adds no intersecting volume.
-        const a0 = dir.positive ? i * tread : alongLen - (i + 1) * tread;
-        const lo = (dir.axis === 'x' ? base.min[0] : base.min[1]) + a0;
-        const hi = lo + tread;
         const top = zFrom + (i + 1) * riseStep;
         const perp = dir.axis === 'x' ? 1 : 0;
 
@@ -973,7 +973,15 @@ export function compile(spec: LevelSpec): CompiledLevel {
           // cancelled by the wall — it starts on top of it.
           const owned = ownedTo(strip);
           inset[sideIdx] = !walkable || owned > bottom + EPS;
-          guardFrom[sideIdx] = Math.max(bottom, owned === -Infinity ? bottom : owned);
+          // Keep a guard's supporting height across the original tread, as in
+          // the unsplit flight. A cap starting millimetres from a tread edge
+          // must not create a thin, full-depth stringer beside that cap.
+          const guardStrip: Box = { min: [...strip.min], max: [...strip.max] };
+          const along = dir.axis === 'x' ? 0 : 1;
+          guardStrip.min[along] = treadLo;
+          guardStrip.max[along] = treadHi;
+          const support = ownedTo(guardStrip);
+          guardFrom[sideIdx] = Math.max(bottom, support === -Infinity ? bottom : support);
           guard[sideIdx] = !walkable;
         }
 
@@ -992,8 +1000,8 @@ export function compile(spec: LevelSpec): CompiledLevel {
           perp === 1
             ? { min: [lo, lowP, bottom], max: [hi, highP, top] }
             : { min: [lowP, lo, bottom], max: [highP, hi, top] };
-        solids.push({
-          id: `${vc.id}_step_${i}`,
+        emitSlice({
+          id: `${vc.id}_step_${index}`,
           role: vc.kind === 'ramp' ? 'ramp' : 'stair',
           box,
           layer: vc.from_layer,
@@ -1020,8 +1028,8 @@ export function compile(spec: LevelSpec): CompiledLevel {
           const guardTop = Math.min(top + 1.0, Math.max(zFrom, zTo), ceilingAbove ?? Infinity);
           const guardBase = guardFrom[sideIdx];
           if (guardTop - guardBase < 0.05) continue;
-          solids.push({
-            id: `${vc.id}_stringer_${i}_${sideIdx}`,
+          emitSlice({
+            id: `${vc.id}_stringer_${index}_${sideIdx}`,
             role: 'riser',
             box:
               perp === 1
@@ -1033,6 +1041,13 @@ export function compile(spec: LevelSpec): CompiledLevel {
           });
         }
       }
+      if (vc.from_layer === vc.to_layer) {
+        normalizeFlightBands(solids, flightSolids, {
+          id: vc.id, layer: vc.from_layer, axis: dir.axis === 'x' ? 0 : 1,
+          bounds: { min: [base.min[0], base.min[1], bottom], max: [base.max[0], base.max[1], Math.max(zFrom, zTo)] },
+          wallThickness: wt,
+        });
+      } else solids.push(...flightSolids);
     } else if (vc.kind === 'ladder') {
       const b = rectBox(v.footprint, g, zFrom, zTo + 0.6);
       solids.push({
@@ -1319,6 +1334,41 @@ function wallRole(r: BoundaryRun): SolidRole {
       return 'glass';
     default:
       return r.exterior ? 'exterior_wall' : 'static_hard';
+  }
+}
+
+/**
+ * A tread can cross a cell edge or the end of a wall's junction cap. Decide
+ * its width separately on each interval: an inset for a wall on one end must
+ * not remove the floor beside the other end. Keep the original tread height
+ * on all its pieces, so this changes neither step rise nor flight gradient.
+ */
+function* flightSlices(
+  base: Box,
+  dir: { axis: 'x' | 'y'; positive: boolean },
+  steps: number,
+  g: number,
+  standing: Solid[],
+): Generator<{ lo: number; hi: number; treadLo: number; treadHi: number; step: number; index: number }> {
+  const axis = dir.axis === 'x' ? 0 : 1;
+  const start = base.min[axis], end = base.max[axis];
+  const cuts = new Set<number>();
+  for (let at = Math.round(start / g) + 1; at * g < end - EPS; at++) cuts.add(at * g);
+  for (const { box: b } of standing) {
+    if (b.min[0] >= base.max[0] - EPS || b.max[0] <= base.min[0] + EPS ||
+        b.min[1] >= base.max[1] - EPS || b.max[1] <= base.min[1] + EPS) continue;
+    cuts.add(b.min[axis]);
+    cuts.add(b.max[axis]);
+  }
+  const sorted = [...cuts].sort((a, b) => a - b);
+  const tread = (end - start) / steps;
+  let index = 0;
+  for (let step = 0; step < steps; step++) {
+    const lo = start + (dir.positive ? step : steps - step - 1) * tread;
+    const hi = start + (dir.positive ? step + 1 : steps - step) * tread;
+    const points = [lo, ...sorted.filter((at) => at > lo + EPS && at < hi - EPS), hi];
+    for (let j = 0; j + 1 < points.length; j++)
+      yield { lo: points[j], hi: points[j + 1], treadLo: lo, treadHi: hi, step, index: index++ };
   }
 }
 
