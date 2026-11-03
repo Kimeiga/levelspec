@@ -55,21 +55,24 @@ function subtractBox(box: Box, cut: Box): Box[] {
   return out;
 }
 
+function bandIntersection(solid: Solid, belongsToFlight: boolean, band: Box, options: FlightBands): Box | undefined {
+  const eligible = belongsToFlight ||
+    (!solid.dynamic && solid.layer === options.layer && WALL_ROLES.has(solid.role));
+  const cut = eligible ? intersection(solid.box, band) : undefined;
+  if (!cut || belongsToFlight) return cut;
+  // Keep the entire wall column in run/z. Cutting it at the flight's
+  // bounds can create a thin upper, lower or end remnant by itself.
+  const perp = 1 - options.axis;
+  const column = copyBox(solid.box);
+  column.min[perp] = cut.min[perp]; column.max[perp] = cut.max[perp];
+  return column;
+}
+
 function collectBand(solids: Solid[], flight: Set<Solid>, band: Box, options: FlightBands) {
   const sources: Solid[] = [], remaining: Solid[] = [];
   for (const solid of solids) {
-    const eligible = flight.has(solid) ||
-      (!solid.dynamic && solid.layer === options.layer && WALL_ROLES.has(solid.role));
-    let cut = eligible ? intersection(solid.box, band) : undefined;
+    const cut = bandIntersection(solid, flight.has(solid), band, options);
     if (!cut) { remaining.push(solid); continue; }
-    if (!flight.has(solid)) {
-      // Keep the entire wall column in run/z. Cutting it at the flight's
-      // bounds can create a thin upper, lower or end remnant by itself.
-      const perp = 1 - options.axis;
-      const column = copyBox(solid.box);
-      column.min[perp] = cut.min[perp]; column.max[perp] = cut.max[perp];
-      cut = column;
-    }
     sources.push({ ...solid, box: cut });
     for (const [i, box] of subtractBox(solid.box, cut).entries()) {
       const part = { ...solid, id: `${solid.id}_${options.id}_rest_${i}`, box };
