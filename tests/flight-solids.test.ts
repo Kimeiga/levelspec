@@ -85,3 +85,18 @@ it('repairs one side without cutting a valid close-height bridge on the other', 
   assert.ok(checkGeometry(shell).runtime_ready, JSON.stringify(checkGeometry(shell)));
   assert.ok(Math.abs(volume(shell) - 1.589715) < 1e-9, 'changed the occupied union');
 });
+
+for (const height of [10.305, 10.3000005]) {
+  it(`retains wall columns ending just above the flight at ${height}`, () => {
+    const shell = [solid('wall', 'exterior_wall', box(0, 1, 10, 0.1, 2, height))];
+    const pieces = [
+      solid('low', 'ramp', box(0, 0, 10, 2, 1, 10.2)),
+      solid('high', 'ramp', box(0.1, 1, 10, 1.9, 2, 10.3)),
+    ];
+    assert.ok(checkGeometry([...shell, ...pieces]).runtime_ready);
+    normalizeFlightBands(shell, pieces, {
+      id: 'flight', layer: 'raised', axis: 1, bounds: box(0, 0, 10, 2, 2, 10.3), wallThickness: 0.2,
+    });
+    assert.ok(checkGeometry(shell).runtime_ready, JSON.stringify(checkGeometry(shell)));
+  });
+}

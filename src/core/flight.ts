@@ -60,8 +60,16 @@ function collectBand(solids: Solid[], flight: Set<Solid>, band: Box, options: Fl
   for (const solid of solids) {
     const eligible = flight.has(solid) ||
       (!solid.dynamic && solid.layer === options.layer && WALL_ROLES.has(solid.role));
-    const cut = eligible ? intersection(solid.box, band) : undefined;
+    let cut = eligible ? intersection(solid.box, band) : undefined;
     if (!cut) { remaining.push(solid); continue; }
+    if (!flight.has(solid)) {
+      // Keep the entire wall column in run/z. Cutting it at the flight's
+      // bounds can create a thin upper, lower or end remnant by itself.
+      const perp = 1 - options.axis;
+      const column = copyBox(solid.box);
+      column.min[perp] = cut.min[perp]; column.max[perp] = cut.max[perp];
+      cut = column;
+    }
     sources.push({ ...solid, box: cut });
     for (const [i, box] of subtractBox(solid.box, cut).entries()) {
       const part = { ...solid, id: `${solid.id}_${options.id}_rest_${i}`, box };
@@ -76,13 +84,16 @@ function coordinates(sources: Solid[], axis: number): number[] {
   return [...new Set(sources.flatMap(({ box: b }) => [b.min[axis], b.max[axis]]))].sort((a, b) => a - b);
 }
 
-function unionBand(sources: Solid[], band: Box, neighbors: Solid[], options: FlightBands): Solid[] {
+function unionBand(sources: Solid[], neighbors: Solid[], options: FlightBands): Solid[] {
+  if (sources.length === 0) return [];
   const perp = 1 - options.axis;
   const ps = coordinates(sources, perp);
   const emitted: Solid[] = [];
   const spaces = [...new Set(sources.flatMap((s) => s.spaces))].sort();
+  const min = [0, 1, 2].map((i) => Math.min(...sources.map((s) => s.box.min[i])));
+  const max = [0, 1, 2].map((i) => Math.max(...sources.map((s) => s.box.max[i])));
   const nearby = neighbors.filter(({ box: b }) => b.min.every((lo, i) =>
-    lo <= band.max[i] + FACE_TOLERANCE && b.max[i] >= band.min[i] - FACE_TOLERANCE)).map((s) => s.box);
+    lo <= max[i] + FACE_TOLERANCE && b.max[i] >= min[i] - FACE_TOLERANCE)).map((s) => s.box);
   for (let p = 0; p + 1 < ps.length; p++) {
     const boxes = sources.filter(({ box: b }) => b.min[perp] < ps[p + 1] - EPS && b.max[perp] > ps[p] + EPS)
       .map(({ box: b }) => {
@@ -117,7 +128,7 @@ export function normalizeFlightBands(solids: Solid[], pieces: Solid[], options: 
       if (side === 0) band.max[perp] = band.min[perp] + options.wallThickness / 2;
       else band.min[perp] = band.max[perp] - options.wallThickness / 2;
       const collected = collectBand(remaining, flight, band, options);
-      const supports = unionBand(collected.sources, band, collected.remaining,
+      const supports = unionBand(collected.sources, collected.remaining,
         { ...options, id: `${options.id}_side_${side}` });
       remaining = [...collected.remaining, ...supports];
     }

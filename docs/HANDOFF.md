@@ -21,7 +21,10 @@ below. Independent review found two additional cases, now fixed with regressions
   including neighboring geometry, and may not introduce degenerate boxes.
   The bounded repair leaves unresolved findings visible to final validation.
   Central tread heights stay intact; dynamic panels and other layers remain
-  separate. Multi-storey flight normalization is unchanged.
+  separate. Static walls retain their complete run/height columns: clipping
+  them at the flight's endpoint elevation could itself create a thin remnant.
+  Neighbor scoring covers the expanded source bounds. Multi-storey flight
+  normalization is unchanged.
 - Review also caught an intermediate horizontal-strata decomposition that cut
   valid bridge columns into 5 mm (or sub-micrometre) height layers. Regressions
   cover valid columns, compound flights with a conflict on the opposite side,
@@ -29,6 +32,10 @@ below. Independent review found two additional cases, now fixed with regressions
   was extracted unchanged into `src/core/contact.ts`: 2,000 comparison cases
   produce exactly the original validator's geometry reports, including its
   0.01 m tolerance boundaries. No validator thresholds or baselines changed.
+  Final independent review cleared all findings after 80 focused tests and the
+  1,728-case sweep. The high-rise cap regression covers N/S; E/W already had
+  four minimum-height cap/floor coplanar findings on the base commit, and still
+  reports those four rather than hiding them.
 
 The eight added compass/parameter regressions, exact-volume and raised-elevation
 checks, dynamic-panel separation, existing navigation and physical/exported

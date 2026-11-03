@@ -74,6 +74,14 @@ describe("plan authoring regressions", () => {
       assert.equal(report.intersecting_pairs, 0, JSON.stringify(report.intersecting_examples));
       assert.equal(report.degenerate, 0);
     });
+    // This high-rise fixture was already invalid in E/W because of a separate
+    // minimum-height junction cap. N/S were valid before the flight repair.
+    if (turns === 0 || turns === 2) it(`preserves a wall just above the ramp destination, turned ${turns}`, () => {
+      const text = twoRooms("...rr.....").replace("height=4 roof=no", "height=4.005 roof=no")
+        .replace("+0.6", "+4.0");
+      const report = validateLegacy(compileLegacy(planToSpec(turnPlan(text, turns))));
+      assert.deepEqual(report.diagnostics.filter((d) => d.severity === "error"), []);
+    });
   }
 });
 
