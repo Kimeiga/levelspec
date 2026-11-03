@@ -91,15 +91,25 @@ Implemented and exercised:
 
 Open release gates:
 
-- Corpus validation (`node tools/vector-migrate.ts --validate`, 2 November
-  2026) finds 71 of 391 maps that pass the legacy validator but fail v2,
-  down from 153 that day. The fixes made converted ramps part of the area that
+- Corpus validation (`node tools/vector-migrate.ts --validate`, rechecked
+  3 November 2026) finds 71 legacy-valid maps failing v2: 391 maps total,
+  390 legacy-valid, 319 v2-valid, one intentionally invalid fixture. Pass/fail
+  status and diagnostic code sets match the pre-landing-fix baseline on every
+  map. The count was reduced from 153 on 2 November. Those earlier fixes made
+  converted ramps part of the area that
   absorbed them and gave links explicit `from-area`/`to-area`. Before that,
   route checks treated every stair and ramp as a dead end. The remaining
   failures by map are NAV_STEP 47, NAV_UNCOVERED 31, ROUTE_REQUIREMENT 12,
-  NAV_DISCONNECTED 8, NAV_HEADROOM 8, MARKER_UNREACHABLE 6 and NAV_WIDTH 5. A
+  NAV_DISCONNECTED 8, NAV_HEADROOM 8, MARKER_UNREACHABLE 6, NAV_WIDTH 5 and
+  SPAWN_LOS 1 (the latter is `levels/original_ring_arena.json`). A
   map can fail several. The report is `generated/migration-report.json`.
   Conversion success is not validation parity.
+- The narrow-ramp landing gap in the legacy compiler is repaired and tested
+  through legacy triangles and exported collision GLBs in all four directions.
+  Stepped/same-width landings and stacked guard/wall-cap cases retain the
+  existing overlap, coplanar and clearance gates. See `docs/HANDOFF.md` for the
+  3 November regression, corpus, browser and finite-sweep evidence; this does
+  not close the continuous-traversal or v2 parity release gates.
 - Complete semantic/physical graph comparison, special traversal semantics and
   legacy pocket/marker tolerances require corpus reconciliation. The new sampled
   clearance checks do not by themselves establish legacy validation parity.
