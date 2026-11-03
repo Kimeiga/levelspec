@@ -1,7 +1,7 @@
 {
   "id": "og_kiln",
   "name": "Kiln",
-  "geometryHash": "a7dd8a9e3d4c7c2d993456cee64ade6bcda43493972096386b65a31be10f53cc",
+  "geometryHash": "0d20f845332138dce8fcc8eb89a28ab12045741e47f5227ddb7274cf76ff1647",
   "coordinateSystem": "glTF Y-up metres",
   "player": {
     "radius": 0.35,

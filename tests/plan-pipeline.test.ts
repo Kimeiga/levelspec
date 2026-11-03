@@ -8,43 +8,36 @@ import { migrateText } from "../tools/migration/convert.ts";
 import { compile } from "../src/vector/compiler.ts";
 import { validateForRuntime } from "../src/vector/validate.ts";
 import { parseLevelSvgx, serializeLevelSvgx } from "../src/vector/format.ts";
-
-const twoRooms = (strip: string, extra = "") => `id: ramp_test
-grid: 1.6
-layer g z=0 height=4 roof=no
-legend
-  A  low   "Low"   room
-  B  high  "High"  room  +0.6
-  r  climb "Ramp"  ramp
-end
-plan
-..........
-.BBBBBBBB.
-.BBBBBBBB.
-.BBBBBBBB.
-${strip}
-${strip}
-${strip}
-${strip}
-${strip}
-.AAAAAAAA.
-.AAAAAAAA.
-..........
-end
-mark attacker_spawn low attack
-mark defender_spawn high defend
-${extra}`;
+import { twoRooms, turnPlan } from "./fixtures/ramp.ts";
 
 describe("plan authoring regressions", () => {
   for (const strip of ["...rr.....", "...rrr....", "..rrrr...."]) {
     it(`keeps a ${strip.split("r").length - 1}-cell ramp flight inside its strip`, () => {
       const report = validateLegacy(compileLegacy(planToSpec(twoRooms(strip))));
-      // Narrow strips still meet the rooms at concave corners (a separate,
-      // documented NAVMESH_VOID_EDGE gap); this regression is about clipping.
       const codes = report.diagnostics.filter((d) => d.severity === "error").map((d) => d.code);
       for (const code of ["PLACED_SOLID_CLIPS_WALL", "DUPLICATE_COPLANAR", "INTERSECTING_VOLUMES"])
         assert.ok(!codes.includes(code), codes.join(", "));
     });
+  }
+  for (const strip of ["...rr.....", "...rrr....", "..rrrr...."]) {
+    for (const turns of [0, 1, 2, 3]) {
+      it(`seals both landings of ${strip} climbing ${["N", "E", "S", "W"][turns]}`, () => {
+        const level = compileLegacy(planToSpec(turnPlan(twoRooms(strip), turns)));
+        const report = validateLegacy(level);
+        assert.deepEqual(report.diagnostics.filter((d) => d.severity === "error"), []);
+      });
+    }
+    for (const turns of [0, 1, 2, 3]) {
+      it(`keeps stepped and same-width landings valid for ${strip} turned ${turns}`, () => {
+        const source = twoRooms(strip);
+        const sameWidth = source.replaceAll(".AAAAAAAA.", strip.replaceAll("r", "A"))
+          .replaceAll(".BBBBBBBB.", strip.replaceAll("r", "B"));
+        for (const text of [source.replace("grid: 1.6", "grid: 1.6\nstair_style: stepped"), sameWidth]) {
+          const report = validateLegacy(compileLegacy(planToSpec(turnPlan(text, turns))));
+          assert.deepEqual(report.diagnostics.filter((d) => d.severity === "error"), []);
+        }
+      });
+    }
   }
   it("resolves no_spawn_los area names to the markers standing in them", () => {
     const spec = planToSpec(twoRooms("...rr.....", "no_spawn_los low high"));
@@ -60,6 +53,11 @@ describe("plan authoring regressions", () => {
     spec.gameplay!.no_spawn_los = [["mark_attacker_spawn_low", "missing"]];
     const report = validateLegacy(compileLegacy(spec));
     assert.ok(report.diagnostics.some((d) => d.code === "MARKER_REFERENCE" && d.severity === "error"));
+  });
+  it("keeps stacked stair guards clear when a wall cap starts beside a tread boundary", () => {
+    const level = compileLegacy(planToSpec(readFileSync("maps/hand/riser.plan", "utf8")));
+    const report = validateLegacy(level);
+    assert.deepEqual(report.diagnostics.filter((d) => d.severity === "error"), []);
   });
 });
 
