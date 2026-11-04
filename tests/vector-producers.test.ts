@@ -12,6 +12,7 @@ import type { LevelSpec } from "../src/core/types.ts";
 
 import * as producers from '../src/authoring/producers.ts';
 import * as generators from '../src/generate/vector.ts';
+import {boxGeometry} from '../src/vector/props.ts';
 async function api() {
   return producers;
 }
@@ -154,4 +155,26 @@ it('loads one land run while preserving separate boat and land gameplay',async()
   assert.ok(result.enemyPosts.every(p=>p[0]<40),'run enemy posts are reachable from the selected spawn');
   assert.ok(result.document.markers.some(m=>m.id==='boat.enemy'&&m.movement==='water'));
   assert.ok(result.document.markers.some(m=>m.id==='annex.enemy'));
+});
+
+it('publishes and loads imported props through the caller asset resolver',async()=>{
+  const base=await producers.producePlan(twoRooms('...rr.....'));
+  base.document.assets=[{id:'crate.mesh',src:'crate.glb'}];
+  base.document.props=[{id:'crate.prop',layer:base.document.layers[0].id,shape:'asset',asset:'crate.mesh',
+    position:[3.2,2.4,0],rotation:[0,0,0],scale:[1,1,1],material:'default',collision:'solid'}];
+  let calls=0;
+  const signal=new AbortController().signal;
+  const resolveAsset=async(asset:{src:string},received?:AbortSignal)=>{
+    assert.equal(asset.src,'crate.glb');assert.equal(received,signal);calls++;
+    return boxGeometry();
+  };
+  const options={signal,resolveAsset};
+  const published=await producers.produceDocument(base.document,options);
+  assert.equal(published.report.passed,true);
+  calls=0;
+  const result=await generators.loadAuthoredV2({id:'mesh-props',text:published.text},options);
+  assert.equal(result.report.passed,true);assert.ok(calls>=2,'resolver reaches source and final publication compiles');
+  assert.equal(result.document.props![0].asset,'crate.mesh');
+  await assert.rejects(()=>producers.produceDocument(base.document),/resolveAsset/);
+  await assert.rejects(()=>producers.produceDocument(base.document,{resolveAsset:async()=>({positions:[],triangles:[]})}),/triangles/);
 });

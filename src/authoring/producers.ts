@@ -6,8 +6,11 @@ import { parseLevelSvgx, serializeLevelSvgx } from "../vector/format.ts";
 import { validateForRuntime } from "../vector/validate.ts";
 import { aborted, type LevelDocument, type Diagnostic, type V3 } from "../vector/types.ts";
 import { migrateSpec, migrateText } from "./legacy-convert.ts";
+import type { AssetResolver } from '../vector/props.ts';
 
 export interface ProducerOptions {
+  /** Host-controlled imported mesh I/O; publication never fetches assets itself. */
+  resolveAsset?: AssetResolver;
   signal?: AbortSignal;
   onProgress?: (stage: string) => void;
   /** Observes verified navigation for placement; never changes acceptance. */
@@ -31,7 +34,7 @@ export async function produceDocument(document: LevelDocument, options: Producer
   if (document.validation === "premap") throw new Error("A premap draft cannot be published as a playable map.");
   if (document.expectFail) throw new Error("An expected-failure fixture cannot be published as a playable map.");
   const text = serializeLevelSvgx(document), parsed = parseLevelSvgx(text);
-  const level = await compile(parsed, { signal: options.signal, onProgress: options.onProgress,
+  const level = await compile(parsed, { resolveAsset: options.resolveAsset, signal: options.signal, onProgress: options.onProgress,
     navigation: { signal: options.signal, onReachableSample: options.onReachableSample, sampleOrigin: options.sampleOrigin } });
   const report = await validateForRuntime(level, { signal: options.signal, sealed: true });
   if (!report.passed) throw new ProducerValidationError("vector", report.diagnostics);

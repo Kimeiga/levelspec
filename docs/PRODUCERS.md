@@ -53,6 +53,10 @@ only newly allocated posts reached from that run's spawn; authored markers for
 other runs or movement domains remain in the document. All APIs accept cancellation
 through `signal`. Navigation observers expose reached samples and walking
 distances without adding validation seeds or changing acceptance.
+Native documents with imported mesh props can supply `resolveAsset` in producer
+options. It is forwarded to every compile, including authored loading's final
+publication. Asset loading stays under host control and resolved geometry still
+passes the usual prop and runtime validation.
 
 The existing `levelspec`, `levelspec/generate`, `compile`, `generateLevel`,
 `loadAuthored`, and `tools/build.ts` interfaces retain their legacy contracts.
