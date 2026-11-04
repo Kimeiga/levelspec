@@ -86,7 +86,8 @@ plan
 end
 
 wall equipment entry
-door equipment entry 2
+door equipment entry 2 at=32,3
+door equipment entry 2 at=32,23
 wall power_room equipment
 door power_room equipment 2
 wall head_room antenna_deck

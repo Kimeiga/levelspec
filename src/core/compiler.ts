@@ -45,6 +45,7 @@ import {
 import { CellSet, decomposeToRects, key, rectCells, rectContains, unkey } from './grid.ts';
 import { rasterizeLayers, type LayerState } from './rasterize.ts';
 import { appendFlightBox, normalizeFlightBands } from './flight.ts';
+import { verticalFootprint } from './vertical-footprint.ts';
 
 const EPS = 1e-6;
 const MAX_STEP_RISE = 0.19;
@@ -443,32 +444,16 @@ export function compile(spec: LevelSpec): CompiledLevel {
     const zFrom = from.zAt.get(key(vc.from_cell[0], vc.from_cell[1])) ?? from.spec.z;
     const zTo = to.zAt.get(key(vc.to_cell[0], vc.to_cell[1])) ?? to.spec.z;
     const rise = zTo - zFrom;
-    const widthCells = Math.max(1, Math.round((vc.width ?? 1.6) / g));
-
-    const dx = vc.to_cell[0] - vc.from_cell[0];
-    const dy = vc.to_cell[1] - vc.from_cell[1];
-    let dir: 'N' | 'S' | 'E' | 'W' | null = vc.direction ?? null;
-    if (!dir) {
-      if (Math.abs(dx) >= Math.abs(dy) && dx !== 0) dir = dx > 0 ? 'E' : 'W';
-      else if (dy !== 0) dir = dy > 0 ? 'N' : 'S';
-    }
-
-    let footprint: Rect;
-    if (vc.kind === 'stairs' || vc.kind === 'ramp') {
-      if (!dir) {
+    const resolved = verticalFootprint(vc, g);
+    if (!resolved) {
         err(
           'STAIR_NO_DIRECTION',
           [vc.id],
           `Stair "${vc.id}" has identical from/to cells and no explicit direction.`,
         );
         continue;
-      }
-      const runCells = Math.max(1, Math.abs(dir === 'E' || dir === 'W' ? dx : dy) + 1);
-      footprint = stairFootprint(vc.from_cell, dir, runCells, widthCells);
-    } else {
-      const [sw, sd] = vc.size_cells ?? [1, 1];
-      footprint = [vc.from_cell[0], vc.from_cell[1], sw, sd];
     }
+    const { footprint, direction: dir } = resolved;
 
     // The upper layer's floor (and the lower layer's roof) open over the link.
     for (const [x, y] of rectCells(footprint)) to.holes.add(x, y);
@@ -538,6 +523,18 @@ export function compile(spec: LevelSpec): CompiledLevel {
           boundary: run.id,
           dynamic: dyn,
         });
+        if (cap.base - cap.lower > EPS) {
+          const [slo, shi] = cap.lowerIsMinus ? [lo, run.coord] : [run.coord, hi];
+          solids.push({
+            id: `${run.id}#cap_skirt_${cap.t0.toFixed(2)}`,
+            role: role === 'exterior_wall' ? 'exterior_wall' : 'static_hard',
+            box: wallBox(run, slo, shi, cap.t0, cap.t1, cap.lower, cap.base),
+            layer: layer.id,
+            spaces: run.sides.filter((x) => x !== OUTSIDE),
+            boundary: run.id,
+            dynamic: false,
+          });
+        }
       }
 
       // Where one side sits lower, a skirt closes the gap under the wall — on
@@ -1196,23 +1193,23 @@ function junctionCaps(
   r: BoundaryRun,
   st: LayerState,
   g: number,
-): { t0: number; t1: number; base: number }[] {
-  const out: { t0: number; t1: number; base: number }[] = [];
+): { t0: number; t1: number; base: number; lower: number; lowerIsMinus: boolean }[] {
+  const out: ReturnType<typeof junctionCaps> = [];
   const line = Math.round(r.coord / g);
-  const floorAt = (cross: number): number | undefined => {
+  const floorAt = (cross: number) => {
     const a = st.zAt.get(r.axis === 'x' ? key(line - 1, cross) : key(cross, line - 1));
     const b = st.zAt.get(r.axis === 'x' ? key(line, cross) : key(cross, line));
-    if (a === undefined) return b;
-    if (b === undefined) return a;
-    return Math.max(a, b);
+    if (a === undefined && b === undefined) return undefined;
+    const minus = a ?? b!, plus = b ?? a!;
+    return { base: Math.max(minus, plus), lower: Math.min(minus, plus), lowerIsMinus: minus < plus };
   };
   if (r.emitStart < r.start - EPS) {
-    const base = floorAt(Math.round(r.start / g) - 1);
-    if (base !== undefined) out.push({ t0: r.emitStart, t1: r.start, base });
+    const floors = floorAt(Math.round(r.start / g) - 1);
+    if (floors) out.push({ t0: r.emitStart, t1: r.start, ...floors });
   }
   if (r.emitEnd > r.end + EPS) {
-    const base = floorAt(Math.round(r.end / g));
-    if (base !== undefined) out.push({ t0: r.end, t1: r.emitEnd, base });
+    const floors = floorAt(Math.round(r.end / g));
+    if (floors) out.push({ t0: r.end, t1: r.emitEnd, ...floors });
   }
   return out;
 }
@@ -1370,14 +1367,6 @@ function* flightSlices(
     for (let j = 0; j + 1 < points.length; j++)
       yield { lo: points[j], hi: points[j + 1], treadLo: lo, treadHi: hi, step, index: index++ };
   }
-}
-
-function stairFootprint(from: Cell, dir: 'N' | 'S' | 'E' | 'W', runCells: number, widthCells: number): Rect {
-  const halfLeft = Math.floor((widthCells - 1) / 2);
-  if (dir === 'E') return [from[0], from[1] - halfLeft, runCells, widthCells];
-  if (dir === 'W') return [from[0] - runCells + 1, from[1] - halfLeft, runCells, widthCells];
-  if (dir === 'N') return [from[0] - halfLeft, from[1], widthCells, runCells];
-  return [from[0] - halfLeft, from[1] - runCells + 1, widthCells, runCells];
 }
 
 function stairDir(

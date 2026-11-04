@@ -99,6 +99,10 @@ door sort_office walk_ring 2
 stairs floor 8,7 -> ring 8,15 2.6
 stairs floor 33,7 -> ring 33,15 2.6
 
+wall outbound inbound
+arch outbound inbound 2 at=36,3
+arch outbound inbound 2 at=36,27
+
 mark attacker_spawn inbound attack "Inbound"
 mark site belt_floor neutral "Belt Floor"
 

@@ -2,7 +2,7 @@
 import { compile as compileLegacy } from "../../src/core/compiler.ts";
 import { decomposeToRects, unkey } from "../../src/core/grid.ts";
 import { planToSpec } from "../../src/authoring/plan.ts";
-import type { LevelSpec } from "../../src/core/types.ts";
+import { DEFAULTS, type LevelSpec } from "../../src/core/types.ts";
 import {
   createDocument,
   type Layer,
@@ -10,6 +10,7 @@ import {
   type EdgeKind,
 } from "../../src/vector/types.ts";
 import { serializeLevelSvgx } from "../../src/vector/format.ts";
+import { migrationCrossings } from "./crossings.ts";
 export function migrateSpec(spec: LevelSpec) {
   const old = compileLegacy(spec),
     d = createDocument(spec.id);
@@ -18,7 +19,7 @@ export function migrateSpec(spec: LevelSpec) {
   d.expectFail = spec.expect_fail;
   d.wallThickness = spec.wall_thickness ?? 0.22;
   d.floorThickness = spec.floor_thickness ?? 0.2;
-  d.player = { ...d.player, ...spec.player };
+  d.player = { ...d.player, ...DEFAULTS.player, ...spec.player };
   const used = new Set([d.id]);
   const id = (s: string) => {
     let base = s.replace(/[^\w.:/-]/g, "_");
@@ -43,8 +44,8 @@ export function migrateSpec(spec: LevelSpec) {
   }
   const vertices = new Map<string, string>(),
     edges = new Map<string, { id: string; from: string; to: string }>();
-  const vertex = (l: Layer, p: V3) => {
-    const key = `${l.id}:${p.join(",")}`;
+  const vertex = (l: Layer, p: V3, area = "") => {
+    const key = `${l.id}:${area}:${p.join(",")}`;
     if (vertices.has(key)) return vertices.get(key)!;
     const v = id(`v${vertices.size}`);
     l.vertices.push({ id: v, x: p[0], y: p[1], z: p[2] });
@@ -124,7 +125,9 @@ export function migrateSpec(spec: LevelSpec) {
             [X, Y, Z],
             [x, Y, Z],
           ],
-          vs = points.map((p) => vertex(l, p));
+          // Resolved v1 crossings are authoritative. Shared open floor edges
+          // would manufacture a second connection through a migrated wall.
+          vs = points.map((p) => vertex(l, p, area));
         l.regions.push({
           id: id(s.id),
           label: s.label ?? area,
@@ -276,17 +279,9 @@ export function migrateSpec(spec: LevelSpec) {
     markerIds.get(a) ?? a,
     markerIds.get(b) ?? b,
   ]);
-  const connected = new Set<string>();
-  for (const e of old.nav.edges) {
+  for (const e of migrationCrossings(old)) {
     const a = old.nav.nodes[e.a],
       b = old.nav.nodes[e.b];
-    if (a.space === b.space && a.layer === b.layer) continue;
-    const key =
-      [`${a.layer}:${a.space}`, `${b.layer}:${b.space}`].sort().join("|") +
-      ":" +
-      (e.via ?? e.kind);
-    if (connected.has(key)) continue;
-    connected.add(key);
     d.links.push({
       id: id(e.via ?? `link${d.links.length}`),
       from: a.pos,

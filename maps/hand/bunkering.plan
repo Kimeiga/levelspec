@@ -91,6 +91,10 @@ door foam_house pipe_gallery_f 2
 stairs gallery_fuel 16,5 -> tank_farm 22,5 2.6
 stairs gallery_fuel 6,5 -> tank_farm 6,11 2.4
 
+wall bund gate_fuel
+arch bund gate_fuel 2 at=35,3
+arch bund gate_fuel 2 at=35,23
+
 mark attacker_spawn gate_fuel attack "Gate"
 mark site jetty neutral "Jetty"
 

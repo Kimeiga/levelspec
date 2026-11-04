@@ -280,7 +280,7 @@ exercise unsealed and correctly supported boundaries.
 
 `compile()` builds open-state navigation by default. The default player is 2 m tall
 and 0.5 m in diameter (`radius=0.25`); explicit `<player>` settings still override it.
-Default Recast cells are 0.125 m horizontally and 0.05 m vertically. These are a
+Default Recast cells are 0.0625 m horizontally and 0.01 m vertically. These are a
 conservative voxel approximation, not an exact continuous capsule collision proof.
 
 ```ts

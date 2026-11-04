@@ -163,6 +163,10 @@ stairs two 36,20 -> three 36,14 3.0
 stairs one 9,8 -> two 9,13 3.0
 stairs two 12,9 -> three 12,15 3.0
 
+wall open_plan atrium
+arch open_plan atrium 2 at=15,12
+arch open_plan atrium 2 at=21,12
+
 mark attacker_spawn lobby attack "Lobby"
 mark defender_spawn plant_deck defend "Plant"
 mark site atrium neutral "Atrium"

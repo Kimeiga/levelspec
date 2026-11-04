@@ -72,7 +72,8 @@
       ],
       "portals": [
         { "id": "cat_south_open", "between": ["catwalk", "__outside__"], "kind": "open", "width_cells": 2, "side": "S", "hint": [43, 26] },
-        { "id": "cat_platform_open", "between": ["cat_platform", "__outside__"], "kind": "open", "width_cells": 2, "side": "E", "hint": [51, 50] }
+        { "id": "cat_platform_open", "between": ["cat_platform", "__outside__"], "kind": "open", "width_cells": 2, "side": "E", "hint": [51, 50] },
+        { "id": "cat_platform_stair_entry", "between": ["cat_platform", "__outside__"], "kind": "open", "width_cells": 2, "side": "S", "hint": [49, 48] }
       ]
     }
   ],

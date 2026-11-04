@@ -14,7 +14,6 @@ type Triangle = {
   b: V3;
   c: V3;
   mesh?: string;
-  obstacle?: boolean;
   floor?: FloorPatch;
   slope?: number;
 };
@@ -64,13 +63,28 @@ class TriangleIndex {
     return all;
   }
 }
-function zAt(t: Triangle, x: number, y: number) {
+function ownsProjectedPoint(t: Triangle, x: number, y: number, winding: number) {
+  const vertices = winding > 0 ? [t.a, t.b, t.c] : [t.a, t.c, t.b];
+  for (let i = 0; i < 3; i++) {
+    const A = vertices[i], B = vertices[(i + 1) % 3],
+      dx = B[0] - A[0], dy = B[1] - A[1],
+      side = dx * (y - A[1]) - dy * (x - A[0]);
+    if (side < -1e-10) return false;
+    if (Math.abs(side) <= 1e-10 && !(dy > 0 || (dy === 0 && dx < 0))) return false;
+  }
+  return true;
+}
+
+function zAt(t: Triangle, x: number, y: number, halfOpen = false) {
   const { a, b, c } = t,
     d = (b[1] - c[1]) * (a[0] - c[0]) + (c[0] - b[0]) * (a[1] - c[1]);
   if (Math.abs(d) < 1e-12) return undefined;
   const u = ((b[1] - c[1]) * (x - c[0]) + (c[0] - b[0]) * (y - c[1])) / d,
     v = ((c[1] - a[1]) * (x - c[0]) + (a[0] - c[0]) * (y - c[1])) / d;
   if (u < -EPS || v < -EPS || u + v > 1 + EPS) return undefined;
+  // Shared entries and exits use one consistent facet owner at stringer seams.
+  // Floor support queries remain inclusive.
+  if (halfOpen && !ownsProjectedPoint(t, x, y, d)) return undefined;
   return u * a[2] + v * b[2] + (1 - u - v) * c[2];
 }
 function closest(at: V3, a: V3, b: V3) {
@@ -93,6 +107,18 @@ function closest(at: V3, a: V3, b: V3) {
     dy,
     interior: t > EPS && t < 1 - EPS,
   };
+}
+
+function crossSection(t: Triangle, z: number) {
+  const vertices = [t.a, t.b, t.c], crossings: V3[] = [];
+  for (let i = 0; i < 3; i++) {
+    const a = vertices[i], b = vertices[(i + 1) % 3];
+    if ((a[2] <= z && b[2] > z) || (b[2] <= z && a[2] > z)) {
+      const u = (z - a[2]) / (b[2] - a[2]);
+      crossings.push([a[0] + u * (b[0] - a[0]), a[1] + u * (b[1] - a[1]), z]);
+    }
+  }
+  return crossings.length === 2 ? crossings : undefined;
 }
 
 function recordBlocked(report: NavigationCoverage, region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
@@ -126,8 +152,8 @@ export function auditNavigationCoverage(
   ) => { position: V3; reachable: boolean } | undefined,
 ): NavigationCoverage {
   const p = level.document.player,
-    cell = options.cell ?? 0.125,
-    ch = options.cellHeight ?? 0.05,
+    cell = options.cell ?? 0.0625,
+    ch = options.cellHeight ?? 0.01,
     spacing = options.sampleSpacing ?? 0.5,
     mesh = new TriangleIndex(),
     floors = new TriangleIndex();
@@ -146,7 +172,6 @@ export function auditNavigationCoverage(
       b,
       c,
       mesh: surface.mesh,
-      obstacle: surface.kind === "wall" || surface.kind === "prop",
     });
   }
   for (const floor of level.floors)
@@ -216,7 +241,7 @@ export function auditNavigationCoverage(
   const occupied = (x: number, y: number, z: number) => {
     const hits = new Map<string, number[]>();
     for (const tri of mesh.at(x, y)) {
-      const h = zAt(tri, x, y);
+      const h = zAt(tri, x, y, true);
       if (h === undefined || h <= z + 0.03) continue;
       const values = hits.get(tri.mesh!) ?? [];
       if (!values.some((v) => Math.abs(v - h) < EPS)) values.push(h);
@@ -224,6 +249,31 @@ export function auditNavigationCoverage(
     }
     return [...hits.values()].some((h) => h.length % 2 === 1);
   };
+  const insideWall = (x: number, y: number, z: number, id: string) => {
+    const heights: number[] = [];
+    for (const tri of mesh.at(x, y)) {
+      if (tri.mesh !== id) continue;
+      const h = zAt(tri, x, y, true);
+      if (h !== undefined && h > z + EPS && !heights.some(v => Math.abs(v - h) < EPS)) heights.push(h);
+    }
+    return heights.length % 2 === 1;
+  };
+  const groundedMargin = (at: V3, q: ReturnType<typeof closest>, id: string) => {
+    if (q.d >= p.radius) return false;
+    if (q.d > EPS) {
+      const scale = 1 + EPS * 4 / q.d;
+      return insideWall(at[0] + q.x * scale, at[1] + q.y * scale, at[2] + p.step, id);
+    }
+    const length = Math.hypot(q.dx, q.dy);
+    if (length <= EPS) return false;
+    return [-1, 1].some(sign => {
+      const scale = sign * EPS * 4 / length;
+      return insideWall(at[0] - q.dy * scale, at[1] + q.dx * scale, at[2] + p.step, id);
+    });
+  };
+  // Retain the original body plane for floating beams, plus a low plane for
+  // retaining walls. Filled stair and slab sides participate like other solids.
+  const bodyPlanes = new Set([Math.min(p.height * 0.5, 0.75), Math.min(p.height * 0.5, p.step + EPS * 4)]);
   function inspect(at: V3, t: Triangle) {
     const f = t.floor!,
       key = `${f.region}:${at.map((v) => Math.round(v * 1e6)).join(",")}`;
@@ -245,7 +295,7 @@ export function auditNavigationCoverage(
       const z = zAt(tri, at[0], at[1]);
       if (z === undefined) continue;
       if (z > at[2] + 0.06) ceiling = Math.min(ceiling, z - at[2]);
-      if (z > at[2] + 0.03) {
+      if (z > at[2] + 0.03 && zAt(tri, at[0], at[1], true) !== undefined) {
         const h = hits.get(tri.mesh!) ?? [];
         if (!h.some((v) => Math.abs(v - z) < EPS)) h.push(z);
         hits.set(tri.mesh!, h);
@@ -286,6 +336,10 @@ export function auditNavigationCoverage(
           [-e, 0],
           [0, e],
           [0, -e],
+          [e, e],
+          [-e, e],
+          [e, -e],
+          [-e, -e],
         ].some(([dx, dy]) => occupied(at[0] + dx, at[1] + dy, at[2]))
       ) {
         excluded();
@@ -329,35 +383,26 @@ export function auditNavigationCoverage(
             const z = zAt(t, x, y);
             return (
               z !== undefined &&
-              Math.abs(z - at[2]) > p.step + ch &&
-              Math.abs(z - at[2]) < p.height
+              z - at[2] > p.step + ch &&
+              z - at[2] < p.height
             );
           })
         )
           step = true;
         limits.push(near);
       }
+    let wallMargin = false;
     // Wall faces account for thickness, freestanding partitions and cover beside a route.
     for (const tri of mesh.around(at[0], at[1], margin)) {
-      if (!tri.obstacle) continue;
-      const z = at[2] + Math.min(p.height * 0.5, 0.75),
-        vertices = [tri.a, tri.b, tri.c],
-        crossings: V3[] = [];
-      for (let i = 0; i < 3; i++) {
-        const a = vertices[i],
-          b = vertices[(i + 1) % 3];
-        if ((a[2] <= z && b[2] > z) || (b[2] <= z && a[2] > z)) {
-          const u = (z - a[2]) / (b[2] - a[2]);
-          crossings.push([
-            a[0] + u * (b[0] - a[0]),
-            a[1] + u * (b[1] - a[1]),
-            z,
-          ]);
-        }
-      }
-      if (crossings.length === 2) {
+      for (const height of bodyPlanes) {
+        const crossings = crossSection(tri, at[2] + height);
+        if (!crossings) continue;
         const q = closest(at, crossings[0], crossings[1]);
         if (q.d <= margin && q.d > EPS) limits.push(q);
+        // A capsule center inside the radius of a grounded obstacle is a wall
+        // margin, even beside a retaining cliff. Prove grounding locally in
+        // this closed solid; a remote low vertex on a sloped beam is insufficient.
+        if (groundedMargin(at, q, tri.mesh!)) wallMargin = true;
       }
     }
     // Two almost parallel opposing sides identify a tight passage. A sharp corner
@@ -378,6 +423,10 @@ export function auditNavigationCoverage(
     );
     if (narrow) {
       fail("width");
+      return;
+    }
+    if (wallMargin) {
+      excluded();
       return;
     }
     if (step) {

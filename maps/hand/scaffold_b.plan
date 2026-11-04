@@ -135,6 +135,10 @@ stairs mid_slab 8,7 -> top_slab 8,14 2.6
 stairs ground_slab 16,5 -> mid_slab 16,12 2.6
 stairs mid_slab 24,7 -> top_slab 24,14 2.6
 
+wall slab_one compound
+arch slab_one compound 2 at=28,3
+arch slab_one compound 2 at=28,25
+
 mark attacker_spawn compound attack "Compound"
 mark site slab_three neutral "Top Slab"
 

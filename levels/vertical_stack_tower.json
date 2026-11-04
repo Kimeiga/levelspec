@@ -82,6 +82,7 @@
       "portals": [
         { "id": "l3_core", "between": ["l3_main", "l3_stairs"], "kind": "arch", "width_cells": 3, "hint": [9, 14] },
         { "id": "l3_bal", "between": ["l3_main", "l3_balcony"], "kind": "door", "width_cells": 2, "hint": [0, 6] },
+        { "id": "l3_bal_north", "between": ["l3_main", "l3_balcony"], "kind": "door", "width_cells": 2, "hint": [0, 10] },
         { "id": "l3_east_window", "between": ["l3_main", "__outside__"], "kind": "rappel_window", "width_cells": 3, "side": "E", "hint": [20, 8], "barricade": true }
       ]
     },

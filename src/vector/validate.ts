@@ -20,7 +20,7 @@ import { auditNavigationCoverage } from "./navigation-coverage.ts";
 import { ClipContext, ClippingError, clippingLimits } from "./clipping.ts";
 import { movementLevel } from "./movement.ts";
 let initialized: Promise<void> | undefined;
-const NAVIGATION_REVISION = 10;
+const NAVIGATION_REVISION = 11;
 const up = (p: V3) => ({ x: p[0], y: p[2], z: -p[1] });
 const down = (p: { x: number; y: number; z: number }): V3 => [p.x, -p.z, p.y];
 function disjoint(
@@ -219,8 +219,8 @@ async function bakeNavmesh(
   options: NavigationOptions,
 ): Promise<NavigationReport> {
   aborted(options.signal);
-  const cell = options.cell ?? 0.125,
-    ch = options.cellHeight ?? 0.05,
+  const cell = options.cell ?? 0.0625,
+    ch = options.cellHeight ?? 0.01,
     spacing = options.sampleSpacing ?? 0.5,
     p = level.document.player;
   for (const [name, value] of Object.entries({

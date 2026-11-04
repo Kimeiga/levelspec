@@ -86,24 +86,29 @@ Implemented and exercised:
   preserved all positions exactly and both UV channels within float32 precision.
   Geometry/UV changes in this refinement invalidate those earlier lighting manifests;
   they require a fresh bake before use with the new meshes.
-- All 381 ASCII plans and nine JSON levels have SVGX conversion candidates under
+- All 382 ASCII plans and nine JSON levels have SVGX conversion candidates under
   `maps/vector`. The one-shot adapter lives under `tools/migration`.
+- Migration preserves v1 player defaults, keeps separate physical crossing runs,
+  and prevents independent wall strips from acquiring phantom connections through
+  shared open floor edges. Automatic plan markers avoid stair footprints and
+  punched floor holes. Repeated portal directives accept explicit `at=x,y` hints.
+- Navigation now defaults to 0.0625 m horizontal / 0.01 m vertical voxels while
+  retaining the authored player limits and independent 0.5 m coverage audit.
+  Half-open solid-ray ownership resolves shared stringer seams. Capsule margins
+  require local closed-solid occupancy at step height, including filled stair
+  bodies; narrow-passage, headroom, excessive-step and route failures remain errors.
+- CI runs the complete migration corpus and rejects unexpected failures in either
+  the legacy source or v2 output. Intentional invalid fixtures remain invalid.
 
 Open release gates:
 
-- Corpus validation (`node tools/vector-migrate.ts --validate`, rechecked
-  3 November 2026) finds 71 legacy-valid maps failing v2: 391 maps total,
-  390 legacy-valid, 319 v2-valid, one intentionally invalid fixture. Pass/fail
-  status and diagnostic code sets match the pre-landing-fix baseline on every
-  map. The count was reduced from 153 on 2 November. Those earlier fixes made
-  converted ramps part of the area that
-  absorbed them and gave links explicit `from-area`/`to-area`. Before that,
-  route checks treated every stair and ramp as a dead end. The remaining
-  failures by map are NAV_STEP 47, NAV_UNCOVERED 31, ROUTE_REQUIREMENT 12,
-  NAV_DISCONNECTED 8, NAV_HEADROOM 8, MARKER_UNREACHABLE 6, NAV_WIDTH 5 and
-  SPAWN_LOS 1 (the latter is `levels/original_ring_arena.json`). A
-  map can fail several. The report is `generated/migration-report.json`.
-  Conversion success is not validation parity.
+- Corpus validation (`node tools/vector-migrate.ts --validate`) requires all
+  390 expected-valid sources to pass both validators, while the intentionally
+  invalid fixture must remain rejected. The preceding 3 November checkpoint had
+  71 legacy-valid maps failing v2 (319 passing). Reconciliation also exposed
+  layouts relying on duplicate doorway connections; those require separate
+  physical entrances rather than lower route requirements. The full report is
+  `generated/migration-report.json`; conversion alone does not satisfy the gate.
 - The narrow-ramp landing gap in the legacy compiler is repaired and tested
   through legacy triangles and exported collision GLBs in all four directions.
   Stepped/same-width landings and stacked guard/wall-cap cases retain the

@@ -97,6 +97,10 @@ door stores inspection 2
 stairs apron 10,9 -> gallery 10,20 2.6
 stairs apron 28,9 -> gallery 28,20 2.6
 
+wall crew_wing apron_yard
+arch crew_wing apron_yard 2 at=30,3
+arch crew_wing apron_yard 2 at=30,25
+
 mark attacker_spawn apron_yard attack "Apron"
 mark site bay neutral "Maintenance Bay"
 

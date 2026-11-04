@@ -4,6 +4,7 @@ import { validateForRuntime as validateLegacy } from "../src/core/validate.ts";
 import { migrateText } from "./migration/convert.ts";
 import { compile } from "../src/vector/compiler.ts";
 import { validateForRuntime } from "../src/vector/validate.ts";
+import { parseLevelSvgx } from "../src/vector/format.ts";
 const args = process.argv.slice(2),
   filter = args.find((x) => !x.startsWith("--")) ?? "",
   check = args.includes("--validate"),
@@ -46,7 +47,7 @@ for (const path of [...(await walk("maps")), ...(await walk("levels"))].filter(
       row.legacyDiagnostics = previous.diagnostics.filter(
         (d) => d.severity === "error",
       );
-      const level = await compile(document),
+      const level = await compile(parseLevelSvgx(text)),
         report = await validateForRuntime(level);
       row.passed = report.passed;
       row.diagnostics = report.diagnostics.filter(
@@ -56,7 +57,7 @@ for (const path of [...(await walk("maps")), ...(await walk("levels"))].filter(
     }
     rows.push(row);
     console.log(
-      `${rows.length} ${path}${check ? " " + (row.passed ? "PASS" : "FAIL") : ""}`,
+      `${rows.length} ${path}${check ? " " + (row.passed && row.legacyPassed ? "PASS" : "FAIL") : ""}`,
     );
   } catch (error) {
     rows.push({ source: path, error: (error as Error).message });
@@ -75,13 +76,19 @@ console.log(
     validationFailures: rows.filter(
       (r) => r.passed === false && !r.expectedFailure,
     ).length,
+    legacyValidationFailures: rows.filter(
+      (r) => r.legacyPassed === false && !r.expectedFailure,
+    ).length,
+    unexpectedSuccesses: rows.filter(
+      (r) => r.expectedFailure && (r.passed === true || r.legacyPassed === true),
+    ).length,
     regressions: rows.filter((r) => r.legacyPassed && r.passed === false)
       .length,
   }),
 );
-if (
-  rows.some(
-    (r) => r.error || (check && r.passed === false && !r.expectedFailure),
-  )
-)
+const unexpected = rows.filter(r => !r.expectedFailure);
+const expected = rows.filter(r => r.expectedFailure);
+const failed = unexpected.some(r => r.passed === false || r.legacyPassed === false);
+const unexpectedlyPassed = expected.some(r => r.passed === true || r.legacyPassed === true);
+if (rows.some(r => r.error) || (check && (failed || unexpectedlyPassed)))
   process.exitCode = 1;

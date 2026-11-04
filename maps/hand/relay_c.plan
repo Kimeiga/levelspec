@@ -93,6 +93,10 @@ door head_room antenna_deck 2
 stairs hall 8,7 -> deck 8,15 2.6
 stairs hall 26,7 -> deck 26,15 2.6
 
+wall power_room entry
+arch power_room entry 2 at=32,3
+arch power_room entry 2 at=32,23
+
 mark attacker_spawn entry attack "Entry"
 mark site antenna_deck neutral "Antenna Deck"
 

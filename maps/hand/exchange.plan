@@ -122,6 +122,10 @@ stairs apparatus_one 6,5 -> apparatus_two 6,12 2.4
 stairs apparatus_two 7,6 -> apparatus_three 7,13 2.4
 stairs apparatus_one 12,5 -> apparatus_two 12,12 2.4
 
+wall frames_one exchange_entry
+arch frames_one exchange_entry 2 at=27,3
+arch frames_one exchange_entry 2 at=27,21
+
 mark attacker_spawn exchange_entry attack "Entry"
 mark site frames_two neutral "Frames"
 

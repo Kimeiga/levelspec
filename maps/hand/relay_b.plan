@@ -88,7 +88,8 @@ end
 wall power_room equipment
 door power_room equipment 2
 wall equipment entry
-door equipment entry 2
+door equipment entry 2 at=29,3
+door equipment entry 2 at=29,23
 wall head_room antenna_deck
 door head_room antenna_deck 2
 

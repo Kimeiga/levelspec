@@ -153,7 +153,7 @@
     "mode": "bomb_defuse",
     "move_speed": 4.6,
     "markers": [
-      { "id": "t_spawn_pt", "layer": "ground", "cell": [32, 9], "kind": "attacker_spawn", "team": "attack", "label": "T Spawn" },
+      { "id": "t_spawn_pt", "layer": "ground", "cell": [32, 6], "kind": "attacker_spawn", "team": "attack", "label": "T Spawn" },
       { "id": "ct_spawn_pt", "layer": "ground", "cell": [35, 66], "kind": "defender_spawn", "team": "defend", "label": "CT Spawn" },
       { "id": "site_a", "layer": "ground", "cell": [15, 41], "kind": "site", "team": "neutral", "label": "A Site" },
       { "id": "site_b", "layer": "ground", "cell": [66, 49], "kind": "site", "team": "neutral", "label": "B Site" },

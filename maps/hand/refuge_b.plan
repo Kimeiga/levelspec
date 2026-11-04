@@ -85,6 +85,10 @@ door dormitory common_room 2
 stairs cellar 15,5 -> hut 15,11 2.2
 stairs cellar 6,5 -> hut 6,11 2.2
 
+wall common_room porch
+arch common_room porch 2 at=24,3
+arch common_room porch 2 at=24,19
+
 mark attacker_spawn porch attack "Porch"
 mark site cellar_room neutral "Cellar"
 

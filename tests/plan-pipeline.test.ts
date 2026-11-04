@@ -11,6 +11,17 @@ import { parseLevelSvgx, serializeLevelSvgx } from "../src/vector/format.ts";
 import { twoRooms, turnPlan } from "./fixtures/ramp.ts";
 
 describe("plan authoring regressions", () => {
+  it("places independently named doors at explicit grid hints", () => {
+    const source = twoRooms("...rr.....", "wall low high\ndoor low high 1 at=3,6\ndoor low high 1 at=6,6");
+    const spec = planToSpec(source);
+    const doors = spec.layers[0].portals!.filter(p => p.between.includes("low") && p.between.includes("high"));
+    assert.deepEqual(doors.map(p => p.hint), [[3, 6], [6, 6]]);
+    assert.equal(new Set(doors.map(p => p.id)).size, 2);
+  });
+  it("rejects malformed portal position hints", () => {
+    for (const hint of ["at=1,no", "at=1,2,3", "near=1,2"])
+      assert.throws(() => planToSpec(twoRooms("...rr.....", `door low high 1 ${hint}`)), PlanError);
+  });
   for (const strip of ["...rr.....", "...rrr....", "..rrrr...."]) {
     it(`keeps a ${strip.split("r").length - 1}-cell ramp flight inside its strip`, () => {
       const report = validateLegacy(compileLegacy(planToSpec(twoRooms(strip))));

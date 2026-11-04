@@ -4,6 +4,7 @@ import { compile } from "../src/vector/compiler.ts";
 import { bakeNavmesh, validateForRuntime } from "../src/vector/validate.ts";
 import { parseLevelSvgx, serializeLevelSvgx } from "../src/vector/format.ts";
 import { toRuntime } from "../src/vector/export.ts";
+import { auditNavigationCoverage } from "../src/vector/navigation-coverage.ts";
 import {
   createDocument,
   type LevelDocument,
@@ -62,6 +63,48 @@ function room() {
 }
 
 describe("compiled capsule navigation and independent floor coverage", () => {
+  it("keeps a retaining-wall capsule margin distinct from a required climb", async () => {
+    const d = createDocument("retaining-wall");
+    d.player.radius = 0.35;
+    d.player.height = 1.8;
+    floor(d, "low", 0, 0, 4, 6);
+    floor(d, "high", 4, 0, 2, 6, 0.84);
+    spawn(d, "low-start", [1, 3, 0]);
+    spawn(d, "high-start", [5, 3, 0.84]);
+    const l = d.layers[0];
+    l.vertices.push({ id: "wall.a", x: 4, y: 0, z: 0 }, { id: "wall.b", x: 4, y: 6, z: 0 });
+    l.edges.push({ id: "retaining", from: "wall.a", to: "wall.b", kind: "wall", height: 0.84, thickness: 0.32, openings: [] });
+    const level = await compile(d);
+    assert.equal(level.navigation!.passed, true, JSON.stringify(level.navigation!.coverage.uncovered));
+    d.routes.push({ id: "cannot-climb", from: "low-start", to: "high-start", minRoutes: 1 });
+    const blocked = await validateForRuntime(await compile(d));
+    assert.ok(blocked.diagnostics.some(x => x.code === "ROUTE_REQUIREMENT"));
+  });
+  it("retains headroom failures under the locally floating end of a sloped wall", async () => {
+    const d = createDocument("floating-sloped-wall");
+    d.player = { ...d.player, radius: 0.35, height: 1.8, step: 0.3 };
+    floor(d, "room", 0, 0, 6, 6);
+    const l = d.layers[0];
+    l.vertices.push({ id: "wall.a", x: 0, y: 2.35, z: 0 }, { id: "wall.b", x: 6, y: 2.35, z: 0.6 });
+    l.edges.push({ id: "sloped", from: "wall.a", to: "wall.b", kind: "wall", height: 1.5, thickness: 0.2, openings: [] });
+    const level = await compile(d, { navigation: false });
+    const coverage = auditNavigationCoverage(level, {}, () => undefined);
+    assert.ok(coverage.uncovered.some(s => s.reason === "headroom" && s.position[0] === 5.25 && s.position[1] === 2.25 && Math.abs(s.clearance! - 0.525) < 0.001));
+  });
+  it("rejects a narrow body-height passage between floating side beams", async () => {
+    const d = createDocument("floating-narrow-branch");
+    d.player = { ...d.player, radius: 0.35, height: 1.8 };
+    floor(d, "room", 0, 0, 4, 4);
+    floor(d, "branch", 4, 1.85, 3, 0.8);
+    spawn(d, "start", [2, 2, 0]);
+    d.covers.push(
+      { id: "south-beam", layer: "shared", min: [4, 1.85, 0.6], max: [7, 2.05, 3] },
+      { id: "north-beam", layer: "shared", min: [4, 2.45, 0.6], max: [7, 2.65, 3] },
+    );
+    const report = await validateForRuntime(await compile(d));
+    assert.equal(report.passed, false);
+    assert.ok(report.diagnostics.some(d => d.code === "NAV_WIDTH"));
+  });
   it("includes source-linked navigation diagnostics in compilation, cache and runtime output", async () => {
     const d = room();
     d.layers[0].regions[0].ceiling = 1.8;
@@ -121,8 +164,8 @@ describe("compiled capsule navigation and independent floor coverage", () => {
     );
     assert.equal(level.navigation.settings.player.height, 2);
     assert.equal(level.navigation.settings.player.radius, 0.25);
-    assert.equal(level.navigation.settings.cell, 0.125);
-    assert.equal(level.navigation.settings.cellHeight, 0.05);
+    assert.equal(level.navigation.settings.cell, 0.0625);
+    assert.equal(level.navigation.settings.cellHeight, 0.01);
     assert.ok(stages.indexOf("geometry") < stages.indexOf("Navigation"));
     const report = await validateForRuntime(level);
     assert.equal(report.navigation, level.navigation);
@@ -397,7 +440,7 @@ describe("compiled capsule navigation and independent floor coverage", () => {
       openings: [],
     }));
     l.regions[0].boundary = l.edges.map((e) => e.id);
-    const level = await compile(d);
+    const level = await compile(d, { navigation: { cell: 0.125 } });
     assert.equal(
       level.navigation?.passed,
       true,

@@ -68,6 +68,18 @@ Openings need no declaration, because a gap you draw in a wall *is* the
 opening. Areas are not rectangles either — each letter's cells are decomposed
 into maximal rectangles on the way out, so an L-shaped site costs nothing.
 
+Use a wall and separately positioned openings when a route needs independent
+entrances. Position hints use grid cells; repeated directives receive unique IDs:
+
+```text
+wall entry hall
+arch entry hall 2 at=4,8
+arch entry hall 2 at=12,8
+```
+
+One wide doorway counts as one semantic entrance after v2 migration. Two
+entrances need a wall pier or separate paths between them.
+
 ## The map library
 
 380 floor plans in three sets. `maps/cs/` holds 111 real competitive layouts

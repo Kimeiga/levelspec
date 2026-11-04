@@ -93,6 +93,10 @@ arch hot_room cold_room 3
 stairs hypocaust 22,5 -> pools 22,11 2.4
 stairs hypocaust 6,5 -> pools 6,11 2.4
 
+wall cold_room changing
+arch cold_room changing 2 at=30,3
+arch cold_room changing 2 at=30,23
+
 mark attacker_spawn changing attack "Changing"
 mark site hot_room neutral "Hot Room"
 
