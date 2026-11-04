@@ -83,7 +83,19 @@ native annotation; SVGX alone does not retain the raster lattice.
 
 Every command accepts `--out` (a directory except for trace/author, where it is
 a file). Plans/finalize accept `--src` for an input directory. Filters select
-only matching inputs; finalization never deletes unselected outputs. Author
+only matching inputs; finalization never deletes unselected outputs.
+Native finalization preflights every selected destination before any publication
+or write. Same-stem `.plan`, `.json`, `.svgx` and `.level.svgx` sources that
+resolve to one output are rejected with both source names and the destination.
+Resolved paths include existing directory aliases and platform case rules.
+An output cannot overwrite another selected input; geometry-preserving native
+finalization in place is supported when it is the source's own destination.
+Python seed annotation preserves every explicit source player field, including
+ability flags, and rejects conflicting annotation or multiple-source values.
+It may supplement unspecified fields; legacy parser defaults are not explicit
+source constraints.
+
+Author
 also accepts `--spec` and `--traced` paths for source proposals. `--legacy`
 retains the old output formats and locations. Author, concept and finalize
 still apply both validation gates with `--legacy`; use the source APIs for

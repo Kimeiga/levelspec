@@ -83,15 +83,23 @@ divides those distances by `moveSpeed` (positive; default 4.6 m/s). Native
 The conservative physical guard groups contiguous shared native boundary and
 opening runs between logical floor areas into one entrance. Distinct entrances
 require separate runs, such as mouths separated by a real wall pier. It checks
-candidate crossings against the native navigation mesh. This prevents an
+candidate crossings against the sealed native navigation mesh. Navigation
+triangles are clipped to each area's floor ownership, and their connected
+fragments establish that area's actual navigable components. Markers and mouths
+attach to those components, so covers, walls and collision props cannot lend
+exits across an internal divider. Triangle edges never supply route capacity.
+Enabled authored native links use their real endpoints and direction; coincident
+links share one capacity. This prevents an
 L-shaped opening or subdivided straight opening from manufacturing independent
 routes. The guard can undercount complicated geometry because crossings are
-sampled; it never lowers the source `minRoutes` or substitutes for strict native
+sampled; a mouth with disconnected crossing clusters conservatively retains
+one cluster. It never lowers the source `minRoutes` or substitutes for strict native
 validation. Its reusable internal helpers are `physicalRouteEvidence` and
 `requirePhysicalRoutes` in `src/authoring/physical-routes.ts`.
 
-Other advisory data includes space/connection counts, unique compiled adjacency
-degrees and branch/dead-end spaces, actual floor elevation range, and preserved
+Other advisory data includes space/connection counts, component adjacency
+degrees and their minimum per logical space (used for branch/dead-end spaces),
+actual floor elevation range, and preserved
 cover count. Sightlines sample deterministic marker pairs at 90% player height
 against compiled collidable triangles, including sealed dynamic geometry, with
 at most 64 pairs and 2 million triangle tests. The report states whether the

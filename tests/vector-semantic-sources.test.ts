@@ -13,6 +13,22 @@ import {publishPythonCandidates} from '../src/authoring/semantic-python-publish.
 import {prepareNativeAnnotation,createNativeAnnotation} from '../src/authoring/semantic-native-annotation.ts';
 
 const plan=():NativeSemanticPlan=>({format:'levelspec-semantic/2',id:'source',name:'Source',grid:1,layers:[{id:'ground',height:4}],areas:[{id:'west',rects:[[0,0,10,12]]},{id:'east',rects:[[10,0,10,12]]}]});
+test('annotation preserves explicit plan and semantic player limits and rejects conflicting sources',async()=>{
+  const text='id: body\ngrid: 1\nradius: 0.42\nheight: 1.9\nstep: 0.3\nladder: false\nrappel: true\nlayer ground z=0 height=5 roof=no\nlegend\n A room "Room" lane\nend\nplan\n'+Array(12).fill('AAAAAAAAAAAA').join('\n')+'\nend\n';
+  const decoded=await decodeSemanticSource(text,'.plan');assert.equal(decoded.kind,'semantic');if(decoded.kind!=='semantic')return;
+  for(const source of [decoded.plan,{...plan(),player:{radius:.42,height:1.9,step:.3,ladder:false,rappel:true}}]){
+    const d={ID:'annotation',NAME:'Annotation',AREAS:[{id:'room',seeds:[[3,3,1,1]] as [number,number,number,number][]}]};
+    for(const [field,value] of Object.entries(source.player!)) {
+      assert.throws(()=>composePythonDeclarations({...d,PLAYER:{[field]:typeof value==='boolean'?!value:value!+.1}},new Map([['ground',source]])),/preserve.*PLAYER.*(radius|height|step|crouch|ladder|rappel)/i);
+    }
+    const retained=composePythonDeclarations({...d,PLAYER:{...source.player,slope:37}},new Map([['ground',source]]));assert.deepEqual(retained.player,{...source.player,slope:37});
+    const second={...source,player:{...source.player,radius:.35}};
+    assert.throws(()=>composePythonDeclarations(d,new Map([['ground',source],['other',second]])),/preserve.*PLAYER.*radius/i);
+    assert.throws(()=>composePythonDeclarations(d,new Map([['ground',source],['other',{...source,player:{ladder:true}}]])),/preserve.*PLAYER.*ladder/i);
+    const supplement=composePythonDeclarations({...d,PLAYER:{crouch:1.3}},new Map([['ground',source],['other',{...source,player:{slope:37}}]]));
+    assert.deepEqual(supplement.player,{...source.player,crouch:1.3,slope:37});
+  }
+});
 test('direct semantic grammar retains quoted marks, distances, movement, LOS, walls and portal head/sill',async()=>{
   const p=plan();applySemanticDirectives(p,['mark attacker_spawn west attack "West \\"Entry\\""','mark site east neutral "East"','route west east 1 minDistance=1 maxDistance=100 movement=land','wall west east','door west east 3 at=10,5 head=2.8 sill=0']);
   const r=await produceSemantic(p);assert.equal(r.document.markers[0].label,'West "Entry"');assert.equal(r.document.routes[0].maxDistance,100);assert.equal(r.document.routes[0].movement,'land');

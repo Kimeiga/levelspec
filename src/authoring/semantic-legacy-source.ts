@@ -27,7 +27,9 @@ function playerHeaders(plan:NativeSemanticPlan,h:Record<string,string>) {
 }
 function basePlan(spec:LevelSpec):NativeSemanticPlan {
   return {format:'levelspec-semantic/2',id:spec.id,name:spec.name,description:spec.description,grid:spec.grid??2,
-    wallThickness:spec.wall_thickness,floorThickness:spec.floor_thickness,player:spec.player,
+    // Native construction applies the same historical defaults. Only explicit
+    // headers below are source constraints; parser defaults must not block supplements.
+    wallThickness:spec.wall_thickness,floorThickness:spec.floor_thickness,
     layers:spec.layers.map(l=>({id:l.id,label:l.label,z:l.z,height:l.height,roof:l.roof})),
     areas:spec.layers.flatMap(l=>l.spaces.map(a=>({id:a.id,label:a.label,role:a.role,layer:l.id,z:a.z_offset,height:a.height,rects:[a.rect,...a.extra??[]],holes:a.subtract}))),
     covers:spec.covers?.map(c=>({id:c.id,label:c.label,role:c.material,layer:c.layer,rect:c.rect,height:c.height})),

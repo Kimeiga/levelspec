@@ -18,6 +18,44 @@ function run(tool:string,args:string[],isolate:boolean|'source'=true) {
 }
 const raster={format:'levelspec-raster/1' as const,id:'trace',name:'Trace',sourceImage:'fixture.png',grid:1,colors:[[80,90,100] as [number,number,number]],rows:Array.from({length:10},()=>Array(16).fill(0))};
 function directory(t:{after:(fn:()=>void)=>void}) {const dir=mkdtempSync(join(tmpdir(),'semantic-native-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));return dir;}
+test('conflicting Python PLAYER cannot replace explicit plan or semantic source limits or prior output',t=>{
+  const dir=directory(t),spec=join(dir,'labels.py'),out=join(dir,'output.svgx');writeFileSync(out,'prior artifact');
+  writeFileSync(spec,"ID='labels'\nNAME='Labels'\nGRID=1\nPLAYER={'radius':0.35,'height':1.8,'step':0.45}\nAREAS=[{'id':'room','seeds':[(3,3,1,1)]}]\n");
+  const legacy='id: body\ngrid: 1\nradius: 0.42\nheight: 1.9\nstep: 0.3\nlayer ground z=0 height=5 roof=no\nlegend\n A room "Room" lane\nend\nplan\n'+Array(12).fill('AAAAAAAAAAAA').join('\n')+'\nend\n';
+  const semantic={format:'levelspec-semantic/2',id:'body',name:'Body',grid:1,player:{radius:.42,height:1.9,step:.3},layers:[{id:'ground',height:5}],areas:[{id:'room',rects:[[0,0,12,12]]}]};
+  for(const [extension,text] of [['plan',legacy],['json',JSON.stringify(semantic)]]){
+    const source=join(dir,'body.'+extension);writeFileSync(source,text);const r=run('author',['labels','--spec',spec,'--traced',source,'--out',out],extension==='plan'?'source':true);
+    assert.notEqual(r.status,0);assert.match(r.stderr,/preserve.*PLAYER/i);assert.equal(readFileSync(out,'utf8'),'prior artifact');
+  }
+});
+test('finalization preflights suffix collisions without replacing prior output and respects filtering',t=>{
+  const dir=directory(t),src=join(dir,'src'),out=join(dir,'out');mkdirSync(src);mkdirSync(out);
+  const native=serializeLevelSvgx(traceToDocument(raster));
+  const legacy='id: legacy_source\ngrid: 1\nlayer ground z=0 height=5 roof=no\nlegend\n A room "Room" lane\nend\nplan\n'+Array(10).fill('A'.repeat(16)).join('\n')+'\nend\n';
+  for(const names of [['shared.json','shared.svgx'],['foo.svgx','foo.level.svgx'],['mixed.plan','mixed.json']]){
+    for(const name of names)writeFileSync(join(src,name),name.endsWith('.svgx')?native:name.endsWith('.plan')?legacy:JSON.stringify(raster));
+    const destination=join(out,names[0].split('.')[0]+'.level.svgx');writeFileSync(destination,'prior artifact');
+    const r=run('finalize',[names[0].split('.')[0],'--src',src,'--out',out]);assert.notEqual(r.status,0);assert.match(r.stderr,/collision/i);for(const name of names)assert.ok(r.stderr.includes(name));assert.equal(readFileSync(destination,'utf8'),'prior artifact');
+  }
+  const filtered=run('finalize',['shared.svgx','--src',src,'--out',out]);assert.equal(filtered.status,0,filtered.stderr);assert.equal(readFileSync(join(out,'foo.level.svgx'),'utf8'),'prior artifact');
+  if(process.platform==='win32'){
+    const caseSrc=join(dir,'case');mkdirSync(caseSrc);writeFileSync(join(caseSrc,'Case.svgx'),native);writeFileSync(join(caseSrc,'case.json'),JSON.stringify(raster));
+    const r=run('finalize',['--src',caseSrc,'--out',out]);assert.notEqual(r.status,0);assert.match(r.stderr,/collision/);assert.match(r.stderr,/Case.svgx/);assert.match(r.stderr,/case.json/);
+  }
+});
+test('finalizer permits native in-place publication but rejects aliases of other selected inputs',t=>{
+  const dir=directory(t),native=serializeLevelSvgx(traceToDocument(raster)),path=join(dir,'foo.level.svgx');writeFileSync(path,native);
+  let r=run('finalize',['--src',dir,'--out',dir]);assert.equal(r.status,0,r.stderr);assert.equal(readFileSync(path,'utf8'),native);
+  writeFileSync(join(dir,'foo.svgx'),native);r=run('finalize',['--src',dir,'--out',dir]);assert.notEqual(r.status,0);assert.match(r.stderr,/collision/i);assert.equal(readFileSync(path,'utf8'),native);
+});
+test('direct native author and finalizer retain an enabled authored ladder',async t=>{
+  const {createGameplay}=await import('../../src/gameplay/index.ts');
+  const d=createGameplay({format:'levelspec-gameplay/2',id:'native_ladder',name:'Ladder',player:{ladder:true},spaces:[{id:'low',rect:[0,0,12,12]},{id:'high',rect:[0,0,12,12],z:4}],connections:[],markers:[{id:'s',space:'low',kind:'spawn'},{id:'t',space:'high',kind:'site'}],routes:[{id:'climb',from:'s',to:'t',minRoutes:1}]});
+  d.links.push({id:'ladder',kind:'ladder',ability:'ladder',bidirectional:true,from:[6,6,0],to:[6,6,4],fromArea:'low',toArea:'high'});
+  const dir=directory(t),src=join(dir,'src'),out=join(dir,'out');mkdirSync(src);const path=join(src,'ladder.svgx'),text=serializeLevelSvgx(d);writeFileSync(path,text);
+  const finalized=run('finalize',['--src',src,'--out',out]);assert.equal(finalized.status,0,finalized.stderr);assert.equal(readFileSync(join(out,'ladder.level.svgx'),'utf8'),text);
+  const authored=run('author',['ladder','--spec',path,'--out',join(out,'author.svgx')]);assert.equal(authored.status,0,authored.stderr);assert.equal(readFileSync(join(out,'author.svgx'),'utf8'),text);
+});
 
 test('default author loads Python declarations directly without legacy semantic modules',t=>{
   const dir=directory(t),spec=join(dir,'room.py'),out=join(dir,'room.svgx');

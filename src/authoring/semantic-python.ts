@@ -69,8 +69,16 @@ function inherited(plan:NativeSemanticPlan,source:Map<string,NativeSemanticPlan>
 function requireFootprintSource(input:NativeSemanticPlan) {
   if([input.flights,input.portals,input.boundaries].some(items=>items?.length))throw new Error('Annotation of authored legacy boundaries/flights is unsupported; use native SVGX or the original source directly.');
 }
+function inheritPlayer(plan:NativeSemanticPlan,input:NativeSemanticPlan) {
+  for(const [field,value] of Object.entries(input.player??{})) {
+    const annotated=plan.player?.[field as keyof NonNullable<NativeSemanticPlan['player']>];
+    if(value!==undefined&&annotated!==undefined&&value!==annotated)
+      throw new Error(`Annotation must preserve the source PLAYER ${field}=${value}; conflicting annotation or source value ${annotated}.`);
+  }
+  plan.player={...input.player,...plan.player};
+}
 function inheritMetadata(plan:NativeSemanticPlan,input:NativeSemanticPlan) {
-  plan.player={...input.player,...plan.player};plan.expectFail=plan.expectFail||input.expectFail;
+  inheritPlayer(plan,input);plan.expectFail=plan.expectFail||input.expectFail;
   plan.moveSpeed??=input.moveSpeed;if(input.validation==='premap')plan.validation='premap';
 }
 function inheritMarker(plan:NativeSemanticPlan,state:ReturnType<typeof semanticCells>,lid:string,m:SemanticMarker) {
