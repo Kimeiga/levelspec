@@ -98,3 +98,26 @@ test('native and legacy trace publication preserve user IDs and their output for
     else assert.equal(parseLevelSvgx(text).id,id);
   }
 });
+
+test('native trace writes exact validated raster evidence without forwarding the output flag to Python',async t=>{
+  const dir=mkdtempSync(join(tmpdir(),'trace-retained-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
+  const image=join(dir,'room.png'),out=join(dir,'room.svgx'),evidence=join(dir,'room.raster.json');roomImage(image);
+  const script=fileURLToPath(new URL('../../tools/trace.ts',import.meta.url));
+  const r=spawnSync(process.execPath,['--import','data:text/javascript,'+encodeURIComponent(hook),script,image,'--cells=12','--bands=1','--grid=1',`--out=${out}`,`--evidence=${evidence}`],{encoding:'utf8'});
+  assert.equal(r.status,0,r.stderr);const raw=readFileSync(evidence,'utf8'),raster=parseRasterTrace(raw);assert.equal(raster.grid,1);
+  const direct=python(fileURLToPath(new URL('../../tools/trace_radar.py',import.meta.url)),[image,'--cells','12','--bands','1','--grid','1','--format','raster']);assert.equal(raw,direct);assert.equal((await produceTrace(raster)).text,readFileSync(out,'utf8'));
+});
+test('trace rejects evidence conflicts, legacy combination and invalid source before either output write',t=>{
+  const dir=mkdtempSync(join(tmpdir(),'trace-retained-failure-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
+  const image=join(dir,'room.png'),out=join(dir,'room.svgx'),evidence=join(dir,'room.json');roomImage(image);writeFileSync(out,'old map');writeFileSync(evidence,'old evidence');
+  const script=fileURLToPath(new URL('../../tools/trace.ts',import.meta.url));
+  const aliases=process.platform==='win32'?[[image,'--out',out,'--evidence',join(dir,'ROOM.SVGX')]]:[];
+  for(const args of [[image,'--out',out,'--evidence',join(dir,'.','room.svgx')],...aliases,[image,'--out',out,'--evidence',evidence,'--legacy'],[join(dir,'missing.png'),'--out',out,'--evidence',evidence]]){
+    const r=spawnSync(process.execPath,[script,...args],{encoding:'utf8'});assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),'old map');assert.equal(readFileSync(evidence,'utf8'),'old evidence');
+  }
+  const badRasters=['{"format":"wrong"}',JSON.stringify({format:'levelspec-raster/1',id:'disconnected',name:'Disconnected',sourceImage:'fixture',grid:1,colors:[[0,0,0]],rows:Array.from({length:8},()=>[...Array(8).fill(0),...Array(4).fill(null),...Array(8).fill(0)])})];
+  for(const raster of badRasters){
+    const mock=`import cp from 'node:child_process';import {syncBuiltinESMExports} from 'node:module';cp.execFileSync=()=>${JSON.stringify(raster)};syncBuiltinESMExports();`;
+    const r=spawnSync(process.execPath,['--import','data:text/javascript,'+encodeURIComponent(mock),script,image,'--out',out,'--evidence',evidence],{encoding:'utf8'});assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),'old map');assert.equal(readFileSync(evidence,'utf8'),'old evidence');
+  }
+});

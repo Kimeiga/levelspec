@@ -108,6 +108,17 @@ Implemented and exercised:
   Tracing shares image analysis with the legacy draft writer but no longer emits
   or compiles an intermediate plan on its default path. See
   [producer migration status and compatibility paths](PRODUCERS.md).
+- Default author, concept and finalize paths also construct native geometry.
+  Concepts use shared source-neutral layout helpers and native semantic publication;
+  custom JSON declarations are supported independently of the catalog. Failed
+  candidates cannot rank as valid or write. Physical flight-side guards can repair
+  low-underside clearance without changing source elevations or hard constraints.
+  Native producer/internal migration is complete for these supported source paths.
+  Actual `.plan` decoding remains an intentional compatibility source boundary;
+  public `producePlan`/`produceSpec` and explicit `--legacy` commands retain their
+  original compiler/adapter contracts. See [concepts](CONCEPTS.md) for finite-search
+  and advisory-scoring limitations, and [semantic authoring](SEMANTIC.md) for explicit
+  unsupported source transformations.
 
 Open release gates:
 
@@ -124,10 +135,9 @@ Open release gates:
   acceptance fixtures, and installed Three.js GPU calibration still need coverage.
 - External material texture packaging and remaining source/export round trips
   need completion. The baker explicitly rejects unresolved external textures.
-- Python semantic annotation/composition, concept proposals and legacy-plan
-  finalization still use compatibility authoring paths. Native procedural and
-  radar tracing paths are complete; legacy APIs remain supported. The public
-  root API, `tools/build.ts` default and package version remain 1.x.
+- Legacy APIs remain supported despite the completed native producer migration.
+  The public root API, `tools/build.ts` default and package version remain 1.x;
+  migration completion does not close unrelated corpus/parity or release gates.
 
 Verification is recorded in `generated/dust2-refinement`: the full suite passed
 309 tests, and the final focused suite passed all 67 vector tests. Both runs have
