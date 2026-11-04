@@ -324,6 +324,10 @@ export interface UVOptions {
 }
 export interface NavigationOptions {
   onProgress?: (stage: string) => void;
+  /** Observes reachable floor centroids; supplying it bypasses the report cache. */
+  onReachableSample?: (position: V3, distance: number) => void;
+  /** Observer-only origin. Does not add a seed or change validation reachability. */
+  sampleOrigin?: V3;
   clippingLimits?: Partial<ClippingLimits>;
   movement?: "land" | "water";
   sealed?: boolean;

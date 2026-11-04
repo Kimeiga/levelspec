@@ -640,11 +640,14 @@ const fightyard: Archetype = {
     const rooms: string[] = ['deck', 'pit'];
     const rd = Math.round(rng.int(8, 11) * s);
     const corners: [string, Rect, [number, number], [number, number]][] = [
-      ['nook_sw', [-rd, -rd, rd, rd + 6], [0, 2], [2, 0]],
-      ['nook_ne', [w, d - 6, rd, rd + 6], [w, d - 3], [w + 2, d]],
+      ['nook_sw', [-rd, -rd, rd + 6, rd + 6], [0, 2], [2, 0]],
+      ['nook_ne', [w - 6, d - 6, rd + 6, rd + 6], [w, d - 3], [w - 3, d]],
     ];
     for (const [nid, rect, h1, h2] of rng.sample(corners, rng.int(1, 2))) {
-      if (!b.space('ground', nid, rect, { label: 'Nook', role: 'room' })) continue;
+      // Wrap each corner around two faces. A rectangular west/east appendage
+      // has only one shared boundary, so both hinted doors collapsed to one.
+      const notch: Rect = nid==='nook_sw'?[0,0,6,6]:[w-6,d-6,6,6];
+      if (!b.space('ground', nid, rect, { label: 'Nook', role: 'room', subtract:[notch] })) continue;
       b.wall('ground', nid, 'deck', 'hard');
       b.portal('ground', { id: `${nid}_a`, between: [nid, 'deck'], kind: 'arch', width_cells: 3, hint: h1 });
       b.portal('ground', { id: `${nid}_b`, between: [nid, 'deck'], kind: 'door', width_cells: 2, hint: h2 });

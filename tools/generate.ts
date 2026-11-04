@@ -6,17 +6,22 @@
  *   node tools/generate.ts 50 --keep  also write specs + plans to generated/
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { generateLevel } from '../src/generate/index.ts';
+import { generateLevelV2 } from '../src/generate/vector.ts';
+import { writeArtifact, argumentsFor } from './producers/io.ts';
 import { toSVGPlan } from '../src/export/formats.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const args = process.argv.slice(2);
-const count = Number(args.find((a) => /^\d+$/.test(a)) ?? 50);
+const { values, rest: args } = argumentsFor(process.argv.slice(2), ['--out']);
+const positional=args.filter(a=>!a.startsWith('--'));
+if(positional.length>1)throw new Error('usage: node tools/generate.ts [count] [--keep] [--out directory] [--legacy]');
+const count = Number(positional[0] ?? 50);
+if(!Number.isSafeInteger(count)||count<1)throw new Error('count must be a positive integer.');
 const keep = args.includes('--keep');
+const legacy = args.includes('--legacy');
 
 const C = {
   dim: (s: string) => `\x1b[2m${s}\x1b[0m`,
@@ -35,12 +40,12 @@ let solids = 0;
 let samples = 0;
 const failReasons: string[] = [];
 
-const out = join(ROOT, 'generated', 'levels');
-if (keep) mkdirSync(out, { recursive: true });
+const out = values.get('--out') ?? join(ROOT, 'generated', legacy?'levels':'vector/levels');
 
 for (let i = 0; i < count; i++) {
   const depth = 1 + (i % 8);
-  const r = generateLevel({ seed: `sweep-${i}`, depth });
+  const options = { seed: `sweep-${i}`, depth };
+  const r = legacy ? generateLevel(options) : await generateLevelV2(options);
   if (!r.ok) {
     failures++;
     failReasons.push(...r.reasons.slice(0, 2));
@@ -51,11 +56,13 @@ for (let i = 0; i < count; i++) {
   totalAttempts += r.attempts;
   totalMs += r.ms;
   minRoutes = Math.min(minRoutes, r.disjointRoutes);
-  solids += r.report.geometry.solids;
-  samples += r.navmesh.samples;
+  solids += 'spec' in r ? r.level.solids.length : r.level.parts.length;
+  samples += 'navmesh' in r ? r.navmesh.samples : r.report.navigation!.indices.length/3;
   if (keep && i < 12) {
-    writeFileSync(join(out, `${r.spec.id}.json`), JSON.stringify(r.spec, null, 2));
-    writeFileSync(join(out, `${r.spec.id}.plan.svg`), toSVGPlan(r.level));
+    if('spec' in r) {
+      writeArtifact(join(out, `${r.spec.id}.json`), JSON.stringify(r.spec, null, 2));
+      writeArtifact(join(out, `${r.spec.id}.plan.svg`), toSVGPlan(r.level));
+    } else writeArtifact(join(out, `${r.document.id}.level.svgx`), r.text);
   }
 }
 

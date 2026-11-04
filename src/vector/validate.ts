@@ -281,7 +281,7 @@ async function bakeNavmesh(
     })),
   });
   aborted(options.signal);
-  if (level.navigation?.settings.cacheKey === cacheKey) {
+  if (level.navigation?.settings.cacheKey === cacheKey && !options.onReachableSample) {
     // Clipping is reconstructed before a cache lookup; retain repairs performed
     // by the cached navigation bake as well, with the current source location.
     level.repairs=[...(level.repairs??[]).filter(r=>r.code!=="NAV_SPATIAL_SUBDIVISION"||r.movement!==(options.movement??"land")),
@@ -509,6 +509,10 @@ async function bakeNavmesh(
       for (const v of ss) {
         if (!representatives.some((r) => path(r, v))) representatives.push(v);
         if (!reaches(v)) okay = false;
+        else if (options.onReachableSample) {
+          const walk = path(options.sampleOrigin ?? seeds[0], v);
+          if (walk) options.onReachableSample([...v], walk.slice(1).reduce((s,p,i) => s + Math.hypot(p.x-walk[i].x,p.y-walk[i].y,p.z-walk[i].z),0));
+        }
       }
       (okay ? reachableRegions : unreachableRegions).push(id);
     }
