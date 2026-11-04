@@ -40,6 +40,8 @@ function posts(points: Placement[], spawn: V3) {
   const candidates=points.filter(p=>distance(p.position,spawn)>10),stride=Math.max(1,Math.ceil(candidates.length/96));
   return candidates.filter((_,i)=>i%stride===0);
 }
+function isLand(marker:Marker) {return (marker.movement??'land')==='land';}
+function landEnemyPosts(d:LevelDocument) {return d.markers.filter(m=>m.kind==='enemy_post'&&isLand(m)).map(m=>m.position);}
 
 function addPosts(d:LevelDocument,points:Placement[],spawn:V3) {
   const id=identifiers(d);
@@ -58,7 +60,7 @@ async function publishCandidate(candidate:GeneratedLevel,options:ProducerOptions
   });
   return {...published,legacy:made.legacy,theme:candidate.theme,archetype:candidate.archetype,spawn:spawn.position,
     spawnFacing:facing(published.level,spawn.position,pool.points),exit:exit.position,pickups,
-    enemyPosts:published.document.markers.filter(m=>m.kind==='enemy_post').map(m=>m.position),
+    enemyPosts:landEnemyPosts(published.document),
     disjointRoutes:Math.min(...published.report.navigation!.routes.map(r=>r.disjointRoutes))};
 }
 
@@ -98,7 +100,7 @@ function placedMarker(d:LevelDocument,id:string,kind:string,p:Placement):Marker 
 }
 
 async function runEndpoints(made:ProducedLevel,d:LevelDocument,rng:Rng,options:ProducerOptions) {
-  const landMarkers=d.markers.filter(m=>(m.movement??'land')==='land');
+  const landMarkers=d.markers.filter(isLand);
   const id=identifiers(d),declared=landMarkers.find(m=>m.kind==='attacker_spawn');
   let pool=await placementPool(made.level,options,declared?.position);
   const spawn=declared??placedMarker(d,id('run.spawn'),'attacker_spawn',roomyPoint(pool.points,rng));
@@ -148,5 +150,5 @@ export async function loadAuthoredV2(source: AuthoredV2Source, options: Authored
   const marker=(id:string)=>published.document.markers.find(m=>m.id===id)!;
   return {...published,legacy:made.legacy,theme:selectedTheme,archetype:"authored",seed:source.id,depth,spawn:marker(spawn.id).position,
     spawnFacing:facing(published.level,spawn.position,pool.points),exit:marker(exit.id).position,pickups:pickups.map(p=>({...p,at:marker(p.id).position})),
-    enemyPosts:published.document.markers.filter(m=>m.kind==='enemy_post').map(m=>m.position),attempts:1,ms:performance.now()-start,disjointRoutes:actual.disjointRoutes};
+    enemyPosts:landEnemyPosts(published.document),attempts:1,ms:performance.now()-start,disjointRoutes:actual.disjointRoutes};
 }

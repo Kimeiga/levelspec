@@ -138,7 +138,8 @@ it('loads land gameplay from a valid document whose boat endpoints appear first'
   d.boat={radius:1,draft:0.5,height:2};
   const landSpawn=d.markers.find(m=>m.kind==='attacker_spawn')!,landGoal={...d.markers.find(m=>m.kind==='defender_spawn')!,id:'land.goal',kind:'objective'};
   d.markers.unshift({id:'boat.spawn',layer:'lake',position:[44,5,3],kind:'attacker_spawn',movement:'water'},
-    {id:'boat.goal',layer:'lake',position:[56,15,3],kind:'objective',movement:'water'});
+    {id:'boat.goal',layer:'lake',position:[56,15,3],kind:'objective',movement:'water'},
+    {id:'boat.enemy',layer:'lake',position:[50,10,3],kind:'enemy_post',movement:'water'});
   d.markers.push(landGoal);
   d.routes.push({id:'boat.route',from:'boat.spawn',to:'boat.goal',minRoutes:1,movement:'water'});
   const source=await producers.produceDocument(d);
@@ -146,4 +147,6 @@ it('loads land gameplay from a valid document whose boat endpoints appear first'
   assert.deepEqual(result.spawn,landSpawn.position);assert.deepEqual(result.exit,landGoal.position);
   assert.equal(result.report.passed,true);assert.equal(result.level.waterNavigation!.routes[0].reachable,true);
   assert.ok(result.pickups.every(p=>p.at[0]<40));
+  assert.ok(result.enemyPosts.every(p=>p[0]<40),'land run enemy posts exclude boat gameplay');
+  assert.ok(result.document.markers.some(m=>m.id==='boat.enemy'&&m.movement==='water'));
 });
