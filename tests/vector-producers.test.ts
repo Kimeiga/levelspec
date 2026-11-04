@@ -127,12 +127,13 @@ it('allocates run IDs across nested opening and reference objects',async()=>{
   assert.equal(again.text,result.text,'same input and seed reproduce the canonical authored run');
 });
 
-it('loads land gameplay from a valid document whose boat endpoints appear first',async()=>{
+it('loads one land run while preserving separate boat and land gameplay',async()=>{
   const base=await producers.producePlan(twoRooms('...rr.....'));
   const d=base.document;
-  for(const [id,z,fill] of [['bed',0,'floor'],['lake',3,'water']] as const) {
-    const vertices=[[40,0],[60,0],[60,20],[40,20]].map(([x,y],i)=>({id:`${id}.v${i}`,x,y,z}));
-    const edges=vertices.map((v,i)=>({id:`${id}.e${i}`,from:v.id,to:vertices[(i+1)%4].id,kind:'open' as const,openings:[]}));
+  for(const [id,z,fill,offset] of [['bed',0,'floor',40],['lake',3,'water',40],['annex',0,'floor',80]] as const) {
+    const vertices=[[0,0],[20,0],[20,20],[0,20]].map(([x,y],i)=>({id:`${id}.v${i}`,x:x+offset,y,z}));
+    const kind=id==='annex'?'wall' as const:'open' as const;
+    const edges=vertices.map((v,i)=>({id:`${id}.e${i}`,from:v.id,to:vertices[(i+1)%4].id,kind,height:4,openings:[]}));
     d.layers.push({id,vertices,edges,regions:[{id:`${id}.surface`,fill,boundary:edges.map(e=>e.id),holes:[],interior:[],creases:[]}]});
   }
   d.boat={radius:1,draft:0.5,height:2};
@@ -141,12 +142,16 @@ it('loads land gameplay from a valid document whose boat endpoints appear first'
     {id:'boat.goal',layer:'lake',position:[56,15,3],kind:'objective',movement:'water'},
     {id:'boat.enemy',layer:'lake',position:[50,10,3],kind:'enemy_post',movement:'water'});
   d.markers.push(landGoal);
+  d.markers.push({id:'annex.spawn',layer:'annex',position:[90,10,0],kind:'attacker_spawn'},
+    {id:'annex.enemy',layer:'annex',position:[94,15,0],kind:'enemy_post'});
   d.routes.push({id:'boat.route',from:'boat.spawn',to:'boat.goal',minRoutes:1,movement:'water'});
   const source=await producers.produceDocument(d);
+  assert.equal(source.report.navigation!.components,2,'separate seeded land gameplay is valid');
   const result=await generators.loadAuthoredV2({id:'mixed',text:source.text},{seed:'mixed'});
   assert.deepEqual(result.spawn,landSpawn.position);assert.deepEqual(result.exit,landGoal.position);
   assert.equal(result.report.passed,true);assert.equal(result.level.waterNavigation!.routes[0].reachable,true);
   assert.ok(result.pickups.every(p=>p.at[0]<40));
-  assert.ok(result.enemyPosts.every(p=>p[0]<40),'land run enemy posts exclude boat gameplay');
+  assert.ok(result.enemyPosts.every(p=>p[0]<40),'run enemy posts are reachable from the selected spawn');
   assert.ok(result.document.markers.some(m=>m.id==='boat.enemy'&&m.movement==='water'));
+  assert.ok(result.document.markers.some(m=>m.id==='annex.enemy'));
 });

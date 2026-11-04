@@ -41,18 +41,22 @@ function posts(points: Placement[], spawn: V3) {
   return candidates.filter((_,i)=>i%stride===0);
 }
 function isLand(marker:Marker) {return (marker.movement??'land')==='land';}
-function landEnemyPosts(d:LevelDocument) {return d.markers.filter(m=>m.kind==='enemy_post'&&isLand(m)).map(m=>m.position);}
+function runEnemyPosts(d:LevelDocument,ids:string[]) {
+  const allocated=new Set(ids);
+  return d.markers.filter(m=>allocated.has(m.id)).map(m=>m.position);
+}
 
 function addPosts(d:LevelDocument,points:Placement[],spawn:V3) {
-  const id=identifiers(d);
-  for(const p of posts(points,spawn))d.markers.push({id:id('run.enemy'),kind:'enemy_post',layer:p.layer,region:p.area,position:p.position});
+  const id=identifiers(d),markers=posts(points,spawn).map(p=>({id:id('run.enemy'),kind:'enemy_post',layer:p.layer,region:p.area,position:p.position}));
+  d.markers.push(...markers);
+  return markers.map(m=>m.id);
 }
 
 async function publishCandidate(candidate:GeneratedLevel,options:ProducerOptions) {
   const made=await produceSpec(candidate.spec,options);
   const spawn=made.document.markers.find(m=>m.kind==='attacker_spawn')!,exit=made.document.markers.find(m=>m.kind==='objective')!;
   const pool=await placementPool(made.level,options,spawn.position),d=structuredClone(made.document);
-  addPosts(d,pool.points,spawn.position);
+  const enemyIds=addPosts(d,pool.points,spawn.position);
   const published=await produceDocument(d,options);
   const pickups=candidate.pickups.map(p=>{
     const index=made.legacy.level.markers.findIndex(m=>m.id===p.id),marker=published.document.markers[index];
@@ -60,7 +64,7 @@ async function publishCandidate(candidate:GeneratedLevel,options:ProducerOptions
   });
   return {...published,legacy:made.legacy,theme:candidate.theme,archetype:candidate.archetype,spawn:spawn.position,
     spawnFacing:facing(published.level,spawn.position,pool.points),exit:exit.position,pickups,
-    enemyPosts:landEnemyPosts(published.document),
+    enemyPosts:runEnemyPosts(published.document,enemyIds),
     disjointRoutes:Math.min(...published.report.navigation!.routes.map(r=>r.disjointRoutes))};
 }
 
@@ -144,11 +148,11 @@ export async function loadAuthoredV2(source: AuthoredV2Source, options: Authored
   const {spawn,exit,pool}=await runEndpoints(made,d,rng,options);
   const kinds=pickupKinds(rng,depth,navigationArea(made.report.navigation!));
   const pickups=placePickups(d,pool.points,spawn.position,rng,kinds);
-  addPosts(d,pool.points,spawn.position);
+  const enemyIds=addPosts(d,pool.points,spawn.position);
   const route=identifiers(d)('run.route');d.routes.push({id:route,from:spawn.id,to:exit.id,minRoutes:1});
   const published=await produceDocument(d,options),actual=published.report.navigation!.routes.find(r=>r.id===route)!;
   const marker=(id:string)=>published.document.markers.find(m=>m.id===id)!;
   return {...published,legacy:made.legacy,theme:selectedTheme,archetype:"authored",seed:source.id,depth,spawn:marker(spawn.id).position,
     spawnFacing:facing(published.level,spawn.position,pool.points),exit:marker(exit.id).position,pickups:pickups.map(p=>({...p,at:marker(p.id).position})),
-    enemyPosts:landEnemyPosts(published.document),attempts:1,ms:performance.now()-start,disjointRoutes:actual.disjointRoutes};
+    enemyPosts:runEnemyPosts(published.document,enemyIds),attempts:1,ms:performance.now()-start,disjointRoutes:actual.disjointRoutes};
 }

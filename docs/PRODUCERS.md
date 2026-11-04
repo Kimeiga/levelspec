@@ -48,7 +48,9 @@ runtime `report`. Source-based results also include `legacy` validation evidence
 Generation retries up to `attempts`, then returns a failure with reasons; it
 never lowers `minRoutes`. Authored loading places run furniture on navigation
 reached from the actual land run spawn, validates the added markers and a spawn-to-exit
-route, and preserves any stricter authored routes. All APIs accept cancellation
+route, and preserves any stricter authored routes. Run enemy-post results contain
+only newly allocated posts reached from that run's spawn; authored markers for
+other runs or movement domains remain in the document. All APIs accept cancellation
 through `signal`. Navigation observers expose reached samples and walking
 distances without adding validation seeds or changing acceptance.
 
