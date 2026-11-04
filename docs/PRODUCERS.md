@@ -1,15 +1,26 @@
 # V2 generators and tracing tools
 
-The producer commands publish `.level.svgx` by default. They compile and runtime
-validate the compatibility source, serialize and parse the SVGX, then compile
-and runtime validate that exact document before writing it. Failed candidates
+The producer commands publish `.level.svgx` by default. Procedural generation
+constructs native vector documents directly. Compatibility source commands also
+compile and runtime validate their source. Every path serializes and parses the
+SVGX, then compiles and runtime validates that exact document before writing it. Failed candidates
 cannot replace an existing artifact. Player dimensions, route requirements and
 spawn visibility requirements are preserved. Expected-failure fixtures and
 premap drafts cannot be published as playable maps.
 
-The proposal algorithms still use semantic LevelSpec/plan intermediates. This
-is an incremental migration of the publication and runtime paths; the legacy
-source languages and synchronous APIs remain supported.
+`generateLevelV2` now uses a native builder and seven native archetypes. Shared
+floor boundaries define connections; ramps and switchback stairs are native
+regions. Native generation, native authored loading and the default generator
+CLI do not load the legacy builder, compiler or migration adapter. Player dimensions
+and requested route counts remain unchanged, and depth scales the layout rather
+than the player. Themes supply native materials and solid decoration. Pickups
+and enemy posts are placed on navigation reached from the selected spawn.
+
+Native proposals have their own deterministic seed sequence and layouts; they
+do not promise identical drawings to the compatibility generator. The existing
+`generateLevel` API and `gen --legacy` retain their original algorithms and output
+formats. Plan/spec authored inputs and the other authoring/tracing proposal
+algorithms still use explicit compatibility paths. No legacy APIs are retired.
 
 ```sh
 npm run gen -- 10 --keep             # generated/vector/levels/*.level.svgx
@@ -44,7 +55,8 @@ const converted = await producePlan(planText);
 ```
 
 V2 results expose `document`, canonical `text`, native compiled `level` and a
-runtime `report`. Source-based results also include `legacy` validation evidence.
+runtime `report`. Compatibility source-based results also include `legacy`
+validation evidence; native procedural results have no legacy intermediate.
 Generation retries up to `attempts`, then returns a failure with reasons; it
 never lowers `minRoutes`. Authored loading places run furniture on navigation
 reached from the actual land run spawn, validates the added markers and a spawn-to-exit
@@ -65,3 +77,5 @@ The existing `levelspec`, `levelspec/generate`, `compile`, `generateLevel`,
 Run `npm run test:producers` for the seven-archetype/depth sweep and real Python
 tracing/composition integration tests. CI installs NumPy/Pillow explicitly and
 requires this job in addition to the existing core, browser and migration jobs.
+The native tests also block legacy module loading, close real lane mouths to
+check route rejection, verify repeatability, and exercise explicit legacy CLI output.

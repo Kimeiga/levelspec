@@ -10,11 +10,11 @@ import {produceSpec} from '../../src/authoring/producers.ts';
 // Exercise each topology explicitly; a random sweep alone can omit one entirely.
 for(const archetype of ['three_lane','ring','stacked','compound','bridges','sky_islands','fightyard']) {
   test(`v2 ${archetype} preserves two routes at early and later depths`,{timeout:180000},async()=>{
-    for(const depth of [1,4]) {
-      const r=await generateLevelV2({archetype,depth,seed:'producer-migration',attempts:14,minRoutes:2});
+    for(const depth of [1,4])for(const seed of ['producer-migration','native-decor']) {
+      const r=await generateLevelV2({archetype,depth,seed,attempts:14,minRoutes:2});
       assert.ok(r.ok,JSON.stringify(r));
       assert.ok(r.disjointRoutes>=2);
-      assert.equal(r.legacy!.report.passed,true);
+      assert.equal(r.legacy,undefined);
       const report=await validateForRuntime(await compile(parseLevelSvgx(r.text)));
       assert.equal(report.passed,true);
       assert.equal(r.document.routes[0].minRoutes,2);
