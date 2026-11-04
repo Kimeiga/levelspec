@@ -23,7 +23,8 @@ function floorZone(id:string,zones:ZoneLookup,band:BandPlan|undefined) {
 function sealReferences(b:BandPlan,z:ZonePlan,zones:ZoneLookup) {
   for(const [other,kind] of Object.entries(z.seal??{})){
     const target=floorZone(other,zones,b);if(z.open||other===z.id)throw new Error(`${z.id}: invalid seal reference ${other}.`);
-    const reverse=target.seal?.[z.id];if(reverse&&reverse!==kind)throw new Error(`${z.id}: conflicting seal with ${other}.`);
+    const reverse=target.seal&&Object.hasOwn(target.seal,z.id)?target.seal[z.id]:undefined;
+    if(reverse&&reverse!==kind)throw new Error(`${z.id}: conflicting seal with ${other}.`);
   }
 }
 function linkReference(l:LinkPlan,bands:Map<string,BandPlan>,zones:ZoneLookup) {

@@ -20,6 +20,24 @@ test('public native custom concept publishes without legacy modules',()=>{
   const code=`import assert from 'node:assert/strict';const {parseConcept,produceConcept}=await import('levelspec/concept');const c=parseConcept(${JSON.stringify(JSON.stringify(custom))});const p=await produceConcept(c,'v0');assert.equal(p.report.passed,true);assert.equal(p.document.links.length,0);assert.equal(p.document.routes[0].minRoutes,1);assert.equal(p.document.player.radius,.35);assert.equal(p.document.player.height,1.8);assert.equal(p.document.markers[0].position[2],2);`;
   const r=run(['--input-type=module','--eval',code]);assert.equal(r.status,0,r.stderr);
 });
+test('prototype-named zone IDs publish with empty reverse seals and legacy modules blocked',()=>{
+  const code=`import assert from 'node:assert/strict';const {parseConcept,produceConcept}=await import('levelspec/concept');
+    for(const id of ['constructor','toString','valueOf']){
+      const c=${JSON.stringify(custom)};c.spawn=id;c.bands[0].zones[0].id=id;c.bands[0].zones[0].seal={work:'door'};c.bands[0].zones[1].seal={};
+      const p=await produceConcept(parseConcept(JSON.stringify(c)),'v0');assert.equal(p.report.passed,true,id);assert.equal(p.document.links.length,0);
+      assert.deepEqual(p.plan.portals[0].between,[id,'work']);const openings=p.document.layers.flatMap(l=>l.edges.flatMap(e=>e.openings));assert.equal(openings.length,1);assert.equal(openings[0].kind,'door');
+    }`;
+  const r=run(['--input-type=module','--eval',code]);assert.equal(r.status,0,r.stderr);
+});
+test('prototype-named zone IDs accept unrelated reverse seals but reject conflicting own seals',()=>{
+  for(const id of ['constructor','toString','valueOf']){
+    const c=parseConcept(JSON.stringify(custom));c.spawn=id;c.bands[0].zones[0].id=id;c.bands[0].zones[0].seal={work:'door'};
+    const target=c.bands[0].zones[1];target.seal={storage:'arch'};c.bands[0].zones.push({id:'storage',label:'Storage',role:'room',weight:1});
+    assert.doesNotThrow(()=>parseConcept(JSON.stringify(c)),`${id}: unrelated reverse seal`);
+    target.seal[id]='door';assert.doesNotThrow(()=>parseConcept(JSON.stringify(c)),`${id}: matching own reverse seal`);
+    target.seal[id]='arch';assert.throws(()=>parseConcept(JSON.stringify(c)),new RegExp(`${id}: conflicting seal with work`));
+  }
+});
 test('silo v0 retains its three source flights and publishes with real side guards',async()=>{
   const c=CONCEPTS.find(c=>c.id==='silo')!,proposal=createConcept(c,'v0');assert.deepEqual(proposal.placed,legacyLayout(c,'v0'));
   const result=await produceConcept(c,'v0');assert.equal(result.report.passed,true);assert.equal(result.plan.flights!.length,3);assert.equal(result.document.routes[0].minRoutes,1);assert.equal(result.document.links.length,0);
