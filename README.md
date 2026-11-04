@@ -3,7 +3,7 @@
 The **LevelSpec 2 vector preview** adds `.level.svgx` authoring, a local 2D/3D
 inspector (`npm run dev`), separate wall/floor/stair meshes, automatic UVs and an
 optional Blender bake. See [the SVGX guide](docs/SVGX.md) and [release gates](docs/IMPLEMENTATION.md).
-The v1 interfaces described below remain available until migration parity passes.
+The v1 interfaces described below remain available for compatibility.
 
 Generators and tracing commands now publish validated v2 SVGX by default. See
 [producer APIs, commands and legacy compatibility](docs/PRODUCERS.md).

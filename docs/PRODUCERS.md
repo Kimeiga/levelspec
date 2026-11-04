@@ -19,8 +19,10 @@ and enemy posts are placed on navigation reached from the selected spawn.
 Native proposals have their own deterministic seed sequence and layouts; they
 do not promise identical drawings to the compatibility generator. The existing
 `generateLevel` API and `gen --legacy` retain their original algorithms and output
-formats. Plan/spec authored inputs and the other authoring/tracing proposal
-algorithms still use explicit compatibility paths. No legacy APIs are retired.
+formats. Radar tracing now constructs native regions directly from raster
+evidence, too. Plan/spec authored inputs, Python semantic annotation/composition,
+concept proposals and legacy-plan finalization still use explicit compatibility
+paths. No legacy APIs are retired.
 
 ```sh
 npm run gen -- 10 --keep             # generated/vector/levels/*.level.svgx
@@ -31,10 +33,37 @@ npm run finalize -- mirage           # generated/vector/finalized/*.level.svgx
 npm run concept -- terminus --write  # generated/vector/concepts/*.level.svgx
 ```
 
-Tracing requires Python with NumPy and Pillow. Set `PYTHON` or pass `--python`
+Image analysis requires Python with NumPy and Pillow. Set `PYTHON` or pass `--python`
 to select an interpreter; the default is `python3`. The raw `trace_radar.py`,
 `annotate.py` and `compose.py` interfaces still emit legacy plan drafts. Use
 the Node commands above for validated publication.
+
+Default `trace` requests structured `levelspec-raster/1` evidence from the image
+analyzer and builds v2 geometry without a plan parser, legacy compiler or migration
+adapter. Identical raster runs form floor polygons with shared cell-boundary
+vertices. Missing cells remain void, including courtyards; exposed boundaries
+become walls. Color bands supply provisional area labels and materials. The
+tracer preserves its 0.35 m radius, 1.8 m height and 0.45 m step, then publishes
+through the same sealed native runtime gate. It does not invent gameplay routes
+or elevations. The image-analysis algorithm, crop controls and raster resolution
+remain shared with the legacy draft writer. `trace --legacy` still validates both
+the source plan and serialized v2 conversion before writing a plan.
+
+The additive `levelspec/trace` API accepts raster evidence without Python:
+
+```ts
+import { parseRasterTrace, traceToDocument, produceTrace } from 'levelspec/trace';
+
+const raster = parseRasterTrace(jsonText);
+const proposal = traceToDocument(raster); // editable native document, not validated
+const published = await produceTrace(raster); // canonical SVGX + runtime report
+```
+
+The raster protocol includes `id`, `name`, `sourceImage`, positive `grid` in
+metres, RGB `colors`, and rectangular north-first `rows` of color indices or
+`null` for void. It accepts at most 1024 rows and columns and a minimum 1 mm grid,
+matching the native coordinate lattice. `trace_radar.py --format raster` exports
+this evidence; omitting that option retains its existing plan draft interface.
 
 Every command accepts `--out` (a directory except for trace/author, where it is
 a file). Plans/finalize accept `--src` for an input directory. Filters select
@@ -56,7 +85,7 @@ const converted = await producePlan(planText);
 
 V2 results expose `document`, canonical `text`, native compiled `level` and a
 runtime `report`. Compatibility source-based results also include `legacy`
-validation evidence; native procedural results have no legacy intermediate.
+validation evidence; native procedural and raster tracing results have no legacy intermediate.
 Generation retries up to `attempts`, then returns a failure with reasons; it
 never lowers `minRoutes`. Authored loading places run furniture on navigation
 reached from the actual land run spawn, validates the added markers and a spawn-to-exit
@@ -79,3 +108,7 @@ tracing/composition integration tests. CI installs NumPy/Pillow explicitly and
 requires this job in addition to the existing core, browser and migration jobs.
 The native tests also block legacy module loading, close real lane mouths to
 check route rejection, verify repeatability, and exercise explicit legacy CLI output.
+Tracing tests compare native evidence with legacy footprints across white, black
+and transparent backgrounds, check cropped and full-canvas inputs, and verify
+strict rejection of disconnected floors, narrow passages and unsatisfied gameplay
+constraints.

@@ -57,6 +57,8 @@ test('radar tracing publishes real v2 geometry and reports Python failures witho
   // Equals syntax is handled by Node; argparse abbreviations cannot reach a writer.
   r=command('trace',[image,'--cells=12','--bands=1','--grid=1',`--out=${out}`]);assert.equal(r.status,0,r.stderr);await valid(out);
   r=command('trace',[image,'--ou',out]);assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),before);
+  r=command('trace',[image,'--cells','12','--bands','1','--grid','0.02','--out',out]);
+  assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),before,'failed native runtime validation must preserve the prior artifact');
   r=command('trace',[image,'--python',join(dir,'missing-python'),'--out',out]);assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),before);
   assert.ok(r.stderr.includes('Set PYTHON'));
 });
