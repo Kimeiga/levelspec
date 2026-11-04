@@ -18,6 +18,16 @@
     "esModuleInterop": true
   },
   "include": [
+    "src/generate/**/*.ts",
+    "src/authoring/producers.ts",
+    "tools/producers/**/*.ts",
+    "tools/generate.ts",
+    "tools/plans.ts",
+    "tools/trace.ts",
+    "tools/author.ts",
+    "tools/finalize.ts",
+    "tools/concept.ts",
+    "tests/producers/**/*.ts",
     "src/vector/**/*.ts",
     "src/lighting/**/*.ts",
     "viewer/**/*.ts",

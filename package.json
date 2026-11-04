@@ -6,6 +6,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./generate": "./src/generate/index.ts",
+    "./generate/vector": "./src/generate/vector.ts",
+    "./producers": "./src/authoring/producers.ts",
     "./vector": "./src/vector/index.ts",
     "./lighting": "./src/lighting/bake.ts",
     "./export": "./src/export/vector/index.ts",
@@ -15,6 +17,12 @@
   "scripts": {
     "compile": "node tools/build.ts",
     "gen": "node tools/generate.ts",
+    "plans": "node tools/plans.ts",
+    "trace": "node tools/trace.ts",
+    "author": "node tools/author.ts",
+    "finalize": "node tools/finalize.ts",
+    "concept": "node tools/concept.ts",
+    "test:producers": "node --test --test-concurrency=2 tests/producers/*.test.ts",
     "test": "node --test 'tests/*.test.ts'",
     "dev": "vite",
     "build:viewer": "vite build",

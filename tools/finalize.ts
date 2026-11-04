@@ -16,22 +16,19 @@
  *   node tools/finalize.ts [filter]
  */
 
-import { readdirSync, readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { planToSpec, PlanError } from '../src/authoring/plan.ts';
 import { compile } from '../src/core/compiler.ts';
 import { validate } from '../src/core/validate.ts';
 import { bakeNavmesh } from '../src/core/navmesh.ts';
+import { producePlan, ProducerValidationError } from '../src/authoring/producers.ts';
+import { argumentsFor, writeArtifact } from './producers/io.ts';
 
-const src = join(import.meta.dirname, '../maps/traced');
-const dst = join(import.meta.dirname, '../maps/cs');
-mkdirSync(dst, { recursive: true });
-// Clear only what this tool produces. Wiping the directory wholesale is how a
-// build step eats hand-written source that happens to live beside its output —
-// which is a good reason for the two never to share a directory, and a better
-// reason not to reach for rm -rf in a generator.
-for (const f of readdirSync(dst)) if (f.endsWith('.plan')) rmSync(join(dst, f));
-const filter = process.argv[2];
+const {values,rest}=argumentsFor(process.argv.slice(2),['--src','--out']);
+const legacy=rest.includes('--legacy'),filter=rest.find(a=>!a.startsWith('--'));
+const src = values.get('--src')??join(import.meta.dirname, '../maps/traced');
+const dst = values.get('--out')??join(import.meta.dirname, legacy?'../maps/cs':'../generated/vector/finalized');
 
 /** Deterministic per-map jitter, so two maps never feel identically built. */
 function hash(s: string): number {
@@ -148,6 +145,7 @@ function withProfile(
 }
 
 const files = readdirSync(src).filter((f) => f.endsWith('.plan')).filter((f) => !filter || f.includes(filter)).sort();
+if(!files.length)throw new Error('No traced plans matched.');
 const results: Result[] = [];
 const failed: { id: string; why: string }[] = [];
 
@@ -202,9 +200,10 @@ for (const file of files) {
       if (!rep.passed) continue;
       const nav = bakeNavmesh(level);
       if (!nav.ok) continue;
+      const produced = await producePlan(text);
       const cells = spec.layers.reduce((a, l) => a + l.spaces.length, 0);
       shipped = {
-        text,
+        text: legacy?text:produced.text,
         result: {
           id, profile: p.name, areas: cells, solids: level.solids.length,
           cells: Math.round(nav.playable_samples ?? 0), bands: letters.length,
@@ -212,7 +211,7 @@ for (const file of files) {
       };
       break;
     } catch (e) {
-      if (!(e instanceof PlanError)) throw e;
+      if (!(e instanceof PlanError) && !(e instanceof ProducerValidationError)) throw e;
     }
   }
 
@@ -220,7 +219,7 @@ for (const file of files) {
     failed.push({ id, why: 'no profile survived the gates' });
     continue;
   }
-  writeFileSync(join(dst, file), shipped.text);
+  writeArtifact(join(dst, legacy?file:file.replace(/\.plan$/,'.level.svgx')), shipped.text);
   results.push(shipped.result);
 }
 
@@ -238,6 +237,7 @@ console.log(`\n${withHeight}/${results.length} have real elevation (${Math.round
 console.log(`median areas per map: ${results.map((r) => r.areas).sort((a, b) => a - b)[results.length >> 1]}`);
 console.log(`median solids per map: ${results.map((r) => r.solids).sort((a, b) => a - b)[results.length >> 1]}`);
 if (failed.length) {
+  process.exitCode=1;
   console.log(`\n${failed.length} could not be finished:`);
   for (const f of failed.slice(0, 12)) console.log(`  ${f.id}: ${f.why}`);
 }

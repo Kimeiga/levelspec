@@ -16,7 +16,6 @@
  *   node tools/concept.ts terminus --plan       print the winning drawing
  */
 
-import { writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -27,9 +26,12 @@ import { apart, draw } from '../src/authoring/concept.ts';
 import { score, type Score } from '../src/authoring/score.ts';
 import { CONCEPTS } from '../src/authoring/concepts.ts';
 import type { SpatialConcept } from '../src/authoring/concept.ts';
+import { producePlan } from '../src/authoring/producers.ts';
+import { writeArtifact, argumentsFor } from './producers/io.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const args = process.argv.slice(2);
+const {values,rest:args}=argumentsFor(process.argv.slice(2),['--out']);
+const legacy=args.includes('--legacy');
 const flag = (k: string, d: number): number => {
   const i = args.indexOf(`--${k}`);
   return i >= 0 ? Number(args[i + 1]) : d;
@@ -37,10 +39,14 @@ const flag = (k: string, d: number): number => {
 const ATTEMPTS = flag('attempts', 24);
 /** How many genuinely different layouts of one concept to keep. */
 const VARIANTS = flag('variants', 3);
+for(const [name,value] of [['attempts',ATTEMPTS],['variants',VARIANTS]] as const)
+  if(!Number.isSafeInteger(value)||value<1)throw new Error(`${name} must be a positive integer.`);
+if(VARIANTS>5)throw new Error('At most five named variants are supported.');
 const write = args.includes('--write');
 const showPlan = args.includes('--plan');
 const WHY = args.includes('--why');
 const only = args.filter((a) => !a.startsWith('--') && !/^\d+$/.test(a));
+for(const id of only)if(!CONCEPTS.some(c=>c.id===id))throw new Error(`Unknown concept ${id}.`);
 
 interface Attempt {
   seed: string;
@@ -62,7 +68,7 @@ const dead = (why: string): Score => ({
   verticality: 0, spread: 0, journey: 0, rhythm: 0, mystery: 0, cost: 1, total: -1,
 });
 
-function realise(concept: SpatialConcept): Attempt[] {
+async function realise(concept: SpatialConcept): Promise<Attempt[]> {
   const out: Attempt[] = [];
   for (let i = 0; i < ATTEMPTS; i++) {
     const seed = `v${i}`;
@@ -82,6 +88,7 @@ function realise(concept: SpatialConcept): Attempt[] {
     }
     try {
       const level = compile(planToSpec(text));
+      await producePlan(text);
       out.push({ seed, text, signature, score: score(concept, level) });
     } catch (e) {
       out.push({ seed, text, signature, score: dead(`compile: ${String(e).slice(0, 110)}`) });
@@ -95,7 +102,7 @@ const pct = (v: number): string => `${Math.round(v * 100)}%`;
 let wrote = 0;
 for (const concept of CONCEPTS) {
   if (only.length && !only.includes(concept.id)) continue;
-  const tries = realise(concept);
+  const tries = await realise(concept);
   const good = tries.filter((t) => t.score.compiles && t.score.reachable).sort((a, b) => b.score.total - a.score.total);
 
   console.log(`\n${concept.name} — ${concept.thesis}`);
@@ -121,7 +128,7 @@ for (const concept of CONCEPTS) {
   for (const [k, n] of [...seen].sort((a, b) => b[1] - a[1]).slice(0, 5)) {
     console.log(`    ! ${String(n).padStart(2)}x  ${k}`);
   }
-  if (!good.length && !WHY) continue;
+  if (!good.length) {process.exitCode=1;if(!WHY)continue;}
 
   console.log('    seed   score  vertical  spread  journey  rhythm  mystery  samples');
   for (const t of good.slice(0, 5)) {
@@ -182,16 +189,18 @@ for (const concept of CONCEPTS) {
   if (!keep.length) continue;
   if (showPlan) console.log(`\n${keep[0].text}`);
   if (write) {
-    keep.forEach((k, i) => {
+    for(const [i,k] of keep.entries()) {
       const suffix = i ? `_${'bcde'[i - 1]}` : '';
       // Redrawn with its variant number so its id and its name plate differ
       // from the first one's; the library files by name and keeps one of any
       // two that share it.
       const text = draw(concept, k.seed, i).text;
-      writeFileSync(join(ROOT, 'maps', 'hand', `${concept.id}${suffix}.plan`), text);
+      const produced=await producePlan(text);
+      const output=join(values.get('--out')??join(ROOT,legacy?'maps/hand':'generated/vector/concepts'),`${concept.id}${suffix}${legacy?'.plan':'.level.svgx'}`);
+      writeArtifact(output,legacy?text:produced.text);
       wrote++;
-      console.log(`    written: maps/hand/${concept.id}${suffix}.plan (seed ${k.seed}, score ${k.score.total.toFixed(2)})`);
-    });
+      console.log(`    written: ${output} (seed ${k.seed}, score ${k.score.total.toFixed(2)})`);
+    }
   } else {
     console.log(`    would keep ${keep.length}: ${keep.map((k) => `${k.seed}@${k.score.total.toFixed(2)}`).join(' ')}`);
   }
