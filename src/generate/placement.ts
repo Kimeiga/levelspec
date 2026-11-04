@@ -1,7 +1,7 @@
 import type { CompiledLevel, LevelDocument, V3 } from "../vector/types.ts";
 import { heightAt } from "../vector/geometry.ts";
 import { bakeNavmesh, rayBlocked } from "../vector/validate.ts";
-import type { ProducerOptions } from "../authoring/producers.ts";
+import type { ProducerOptions } from "../authoring/native-producer.ts";
 import type { Rng } from "./rng.ts";
 
 export interface Placement { position: V3; layer: string; area: string }

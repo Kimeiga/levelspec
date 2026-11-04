@@ -9,10 +9,8 @@
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { generateLevel } from '../src/generate/index.ts';
 import { generateLevelV2 } from '../src/generate/vector.ts';
 import { writeArtifact, argumentsFor } from './producers/io.ts';
-import { toSVGPlan } from '../src/export/formats.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values, rest: args } = argumentsFor(process.argv.slice(2), ['--out']);
@@ -45,7 +43,7 @@ const out = values.get('--out') ?? join(ROOT, 'generated', legacy?'levels':'vect
 for (let i = 0; i < count; i++) {
   const depth = 1 + (i % 8);
   const options = { seed: `sweep-${i}`, depth };
-  const r = legacy ? generateLevel(options) : await generateLevelV2(options);
+  const r = legacy ? (await import('../src/generate/index.ts')).generateLevel(options) : await generateLevelV2(options);
   if (!r.ok) {
     failures++;
     failReasons.push(...r.reasons.slice(0, 2));
@@ -60,6 +58,7 @@ for (let i = 0; i < count; i++) {
   samples += 'navmesh' in r ? r.navmesh.samples : r.report.navigation!.indices.length/3;
   if (keep && i < 12) {
     if('spec' in r) {
+      const {toSVGPlan}=await import('../src/export/formats.ts');
       writeArtifact(join(out, `${r.spec.id}.json`), JSON.stringify(r.spec, null, 2));
       writeArtifact(join(out, `${r.spec.id}.plan.svg`), toSVGPlan(r.level));
     } else writeArtifact(join(out, `${r.document.id}.level.svgx`), r.text);

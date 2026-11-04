@@ -1,9 +1,10 @@
 /** Async v2 producers. Legacy synchronous APIs remain in ./index.ts. */
-import { generateLevel, type GenerateOptions, type GenerateFailure, type GeneratedLevel, type Pickup, type AuthoredOptions } from "./index.ts";
-import { ARCHETYPES } from "./archetypes.ts";
+import type { GenerateOptions, GenerateFailure, Pickup, AuthoredOptions } from "./index.ts";
+import {NATIVE_ARCHETYPES,proposeNative} from './native-archetypes.ts';
 import { Rng } from "./rng.ts";
 import { THEMES } from "./themes.ts";
-import { producePlan, produceSpec, produceDocument, ProducerValidationError, type ProducerOptions, type ProducedLevel, type ProducedSource } from "../authoring/producers.ts";
+import {produceDocument,ProducerValidationError,type ProducerOptions,type ProducedLevel} from '../authoring/native-producer.ts';
+import type {ProducedSource} from '../authoring/producers.ts';
 import { parseLevelSvgx } from "../vector/format.ts";
 import { aborted, type V3, type NavigationReport, type LevelDocument, type Marker } from "../vector/types.ts";
 import { placementPool, roomyPoint, spreadPoints, identifiers, facing, distance, type Placement } from "./placement.ts";
@@ -52,17 +53,19 @@ function addPosts(d:LevelDocument,points:Placement[],spawn:V3) {
   return markers.map(m=>m.id);
 }
 
-async function publishCandidate(candidate:GeneratedLevel,options:ProducerOptions) {
-  const made=await produceSpec(candidate.spec,options);
+async function publishCandidate(candidate:ReturnType<typeof proposeNative>,depth:number,options:ProducerOptions) {
+  const made=await produceDocument(candidate.document,options);
   const spawn=made.document.markers.find(m=>m.kind==='attacker_spawn')!,exit=made.document.markers.find(m=>m.kind==='objective')!;
   const pool=await placementPool(made.level,options,spawn.position),d=structuredClone(made.document);
+  const planned=proceduralPickups(candidate.rng,depth);
+  const placed=placePickups(d,pool.points,spawn.position,candidate.rng,planned);
   const enemyIds=addPosts(d,pool.points,spawn.position);
   const published=await produceDocument(d,options);
-  const pickups=candidate.pickups.map(p=>{
-    const index=made.legacy.level.markers.findIndex(m=>m.id===p.id),marker=published.document.markers[index];
+  const pickups=placed.map(p=>{
+    const marker=published.document.markers.find(m=>m.id===p.id)!;
     return {...p,id:marker.id,at:marker.position};
   });
-  return {...published,legacy:made.legacy,theme:candidate.theme,archetype:candidate.archetype,spawn:spawn.position,
+  return {...published,theme:candidate.theme,archetype:candidate.archetype,spawn:spawn.position,
     spawnFacing:facing(published.level,spawn.position,pool.points),exit:exit.position,pickups,
     enemyPosts:runEnemyPosts(published.document,enemyIds),
     disjointRoutes:Math.min(...published.report.navigation!.routes.map(r=>r.disjointRoutes))};
@@ -71,7 +74,7 @@ async function publishCandidate(candidate:GeneratedLevel,options:ProducerOptions
 function generationSettings(options:GenerateV2Options) {
   const attempts=options.attempts??14,depth=options.depth??1,minRoutes=options.minRoutes??2;
   positiveInteger('attempts',attempts);positiveInteger('depth',depth);positiveInteger('minRoutes',minRoutes);
-  if(options.archetype&&!ARCHETYPES.some(a=>a.id===options.archetype))throw new Error(`Unknown archetype ${options.archetype}.`);
+  if(options.archetype&&!NATIVE_ARCHETYPES.some(a=>a.id===options.archetype))throw new Error(`Unknown archetype ${options.archetype}.`);
   if(options.theme)theme(options.theme,new Rng(0));
   return {attempts,depth,seed:String(options.seed??Date.now())};
 }
@@ -80,10 +83,9 @@ export async function generateLevelV2(options: GenerateV2Options = {}): Promise<
   const start=performance.now(),{attempts,depth,seed}=generationSettings(options),reasons:string[]=[];
   for(let attempt=1;attempt<=attempts;attempt++) {
     aborted(options.signal);
-    const candidate=generateLevel({...options,seed:`${seed}:v2:${attempt}`,attempts:1});
-    if(!candidate.ok){reasons.push(...candidate.reasons);continue;}
+    const candidate=proposeNative(`${seed}:v2:${attempt}`,depth,options.minRoutes??2,options.archetype,options.theme);
     try {
-      return {ok:true,...await publishCandidate(candidate,options),seed,depth,attempts:attempt,ms:performance.now()-start};
+      return {ok:true,...await publishCandidate(candidate,depth,options),seed,depth,attempts:attempt,ms:performance.now()-start};
     } catch(error) {
       if(!(error instanceof ProducerValidationError))throw error;
       reasons.push(`${candidate.archetype}: ${error.stage}: ${error.diagnostics.filter(d=>d.severity==="error").map(d=>d.code).slice(0,4).join(",")}`);
@@ -95,6 +97,7 @@ export async function generateLevelV2(options: GenerateV2Options = {}): Promise<
 async function readSource(source:AuthoredV2Source,options:ProducerOptions):Promise<ProducedLevel & {legacy?:ProducedSource['legacy']}> {
   const trimmed=source.text.trimStart(),format=source.format??(trimmed.startsWith('<')?'svgx':trimmed.startsWith('{')?'spec':'plan');
   if(format==='svgx')return produceDocument(parseLevelSvgx(source.text),options);
+  const {produceSpec,producePlan}=await import('../authoring/producers.ts');
   if(format==='spec')return produceSpec(JSON.parse(source.text),options);
   return producePlan(source.text,options);
 }
@@ -115,12 +118,23 @@ async function runEndpoints(made:ProducedLevel,d:LevelDocument,rng:Rng,options:P
   return {spawn,exit,pool};
 }
 
-function placePickups(d:LevelDocument,points:Placement[],spawn:V3,rng:Rng,kinds:Pickup['kind'][]):Pickup[] {
+type PlannedPickup=Pick<Pickup,'kind'|'variant'>;
+function placePickups(d:LevelDocument,points:Placement[],spawn:V3,rng:Rng,kinds:PlannedPickup[]):Pickup[] {
   const id=identifiers(d),placed=spreadPoints(points,kinds.length,spawn,rng,d.player.radius);
-  return kinds.map((kind,i)=>{
-    const marker=placedMarker(d,id('run.pickup'),'poi',placed[i]);marker.label=kind;
-    return {id:marker.id,kind,at:marker.position};
+  return kinds.map((pickup,i)=>{
+    const marker=placedMarker(d,id('run.pickup'),'poi',placed[i]);marker.label=pickup.variant?`${pickup.kind}:${pickup.variant}`:pickup.kind;
+    return {id:marker.id,...pickup,at:marker.position};
   });
+}
+
+function proceduralPickups(rng:Rng,depth:number):PlannedPickup[] {
+  const out:PlannedPickup[]=[];
+  const health=rng.int(2,3)+(depth>3?1:0),ammo=rng.int(3,5),guns=depth===1?1:rng.int(1,2);
+  for(let i=0;i<health;i++)out.push({kind:'health'});
+  for(let i=0;i<ammo;i++)out.push({kind:'ammo'});
+  if(rng.bool(0.7))out.push({kind:'armor'});
+  for(let i=0;i<guns;i++)out.push({kind:'weapon',variant:rng.pick(['smg','shotgun','rifle'])});
+  return rng.shuffle(out);
 }
 
 function pickupKinds(rng:Rng,depth:number,area:number): Pickup["kind"][] {
@@ -147,7 +161,7 @@ export async function loadAuthoredV2(source: AuthoredV2Source, options: Authored
   const made=await readSource(source,options),d=structuredClone(made.document);
   const {spawn,exit,pool}=await runEndpoints(made,d,rng,options);
   const kinds=pickupKinds(rng,depth,navigationArea(made.report.navigation!));
-  const pickups=placePickups(d,pool.points,spawn.position,rng,kinds);
+  const pickups=placePickups(d,pool.points,spawn.position,rng,kinds.map(kind=>({kind})));
   const enemyIds=addPosts(d,pool.points,spawn.position);
   const route=identifiers(d)('run.route');d.routes.push({id:route,from:spawn.id,to:exit.id,minRoutes:1});
   const published=await produceDocument(d,options),actual=published.report.navigation!.routes.find(r=>r.id===route)!;

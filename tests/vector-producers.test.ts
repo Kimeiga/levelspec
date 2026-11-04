@@ -89,7 +89,7 @@ it("generates v2 geometry while honoring the requested route count", async () =>
   assert.equal(result.document.version, "2");
   assert.ok(result.disjointRoutes >= 3);
   assert.equal(result.report.passed, true);
-  assert.equal(result.legacy!.report.passed, true);
+  assert.equal(result.legacy, undefined);
   assert.ok(result.level.mesh.indices.length > 0);
 });
 
@@ -104,6 +104,16 @@ it("loads native authored SVGX with reachable run furniture", async () => {
   assert.ok(result.enemyPosts.length > 0);
   assert.ok(result.report.navigation!.routes.some(r => r.reachable));
   assert.deepEqual(result.report.navigation!.unreachableMarkers, []);
+});
+
+it('retains explicit plan and spec authored input compatibility',async()=>{
+  const text=twoRooms('...rr.....');
+  for(const source of [{id:'plan-compat',text,format:'plan' as const},
+    {id:'spec-compat',text:JSON.stringify(planToSpec(text)),format:'spec' as const}]) {
+    const loaded=await generators.loadAuthoredV2(source,{seed:'compat'});
+    assert.equal(loaded.report.passed,true);assert.equal(loaded.legacy!.report.passed,true);
+    assert.equal(loaded.document.version,'2');
+  }
 });
 
 it('allocates run IDs across nested opening and reference objects',async()=>{
