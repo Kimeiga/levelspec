@@ -95,3 +95,12 @@ test('native trace annotation raises areas across original material bands and re
   assert.equal(new Set(d.layers.flatMap(l=>l.regions.filter(r=>r.area==='west').map(r=>r.material))).size,2);
   assert.ok(d.seams.length>0);assert.equal(d.links.length,0);for(const material of source.materials)assert.ok(d.materials.some(m=>m.id===material.id));
 });
+
+test('unknown optional Python portal references reject composition and annotation without replacing artifacts',t=>{
+  const dir=directory(t),spec=join(dir,'typo.py'),out=join(dir,'typo.svgx'),traced=join(dir,'trace.json');writeFileSync(out,'prior artifact');writeFileSync(traced,JSON.stringify(raster));
+  for(const annotation of [false,true])for(const pair of ["('typo','east')","('west','typo')"]){
+    const areas=annotation?"[{'id':'west','seeds':[(2,3,1,1)]},{'id':'east','seeds':[(12,3,1,1)]}]":"[{'id':'west','rects':[(0,0,8,10)]},{'id':'east','rects':[(8,0,8,10)]}]";
+    writeFileSync(spec,`ID='typo'\nNAME='Typo'\nGRID=1\nAREAS=${areas}\nPORTALS=[{'between':${pair},'width':2}]\nDIRECTIVES=['mark spawn west','mark site east','route west east 1']\n`);
+    const result=run('author',['typo','--spec',spec,'--traced',traced,'--out',out]);assert.notEqual(result.status,0);assert.match(result.stderr,/portal\/0: unknown area typo/i);assert.equal(readFileSync(out,'utf8'),'prior artifact');
+  }
+});

@@ -83,3 +83,26 @@ test('native elevation edits retain headroom, relative apertures and grounded of
   const plain=createSemantic({...p,portals:[]});plain.covers[0].min=[9,3,2];plain.covers[0].max=[11,4,3];q.areas[0].z=0;
   assert.throws(()=>createNativeAnnotation(q,[plain]),/different elevation transforms/);
 });
+
+test('native annotation retains a source wall seam even when an alternative path passes all gates',async()=>{
+  const p=plan();p.id='seam_source';p.areas[1].z=.3;p.areas.push({id:'north',rects:[[0,12,20,6]],z:.3});
+  const source=createSemantic(p),layer=source.layers[0];
+  const barrier=source.seams.find(s=>s.edges.every(id=>{const e=layer.edges.find(e=>e.id===id)!;return [e.from,e.to].every(id=>layer.vertices.find(v=>v.id===id)!.x===10);}))!;
+  barrier.kind='wall';barrier.label='Retained separation';barrier.material=source.materials[0].id;
+  source.markers=[{id:'a',layer:'ground',kind:'spawn',position:[3,3,0]},{id:'b',layer:'ground',kind:'site',position:[17,3,.3]}];source.routes=[{id:'around',from:'a',to:'b',minRoutes:1}];
+  await publishSemanticDocument(source);
+  const q=structuredClone(p);q.id='seam_annotation';prepareNativeAnnotation(q,[source],new Map([['ground',0]]));
+  const retained=createNativeAnnotation(q,[source]);await publishSemanticDocument(retained);
+  const walls=retained.seams.filter(s=>s.kind==='wall');assert.equal(walls.length,1);assert.equal(walls[0].label,barrier.label);assert.equal(walls[0].material,barrier.material);assert.deepEqual(retained.routes,source.routes);
+  const split=structuredClone(q);split.areas[0].rects=[[0,0,10,6]];split.areas.push({id:'west_north',rects:[[0,6,10,6]]});
+  const subdivided=createNativeAnnotation(split,[source]);await publishSemanticDocument(subdivided);assert.equal(subdivided.seams.filter(s=>s.kind==='wall').length,2);assert.ok(subdivided.seams.filter(s=>s.kind==='wall').every(s=>s.label===barrier.label&&s.material===barrier.material));
+  q.areas[1].z=0;assert.throws(()=>createNativeAnnotation(q,[source]),/seam.*retain|retain.*seam/i);
+});
+
+test('optional Python portal proposals reject either unknown area before composition or annotation filtering',()=>{
+  for(const annotation of [false,true])for(const between of [['typo','east'],['west','typo']] as [string,string][]){
+    const areas=annotation?[{id:'west',seeds:[[2,2,1,1]] as [number,number,number,number][]},{id:'east',seeds:[[15,2,1,1]] as [number,number,number,number][]}]:plan().areas;
+    const d={ID:'unknown_portal',NAME:'Unknown portal',GRID:1,AREAS:areas,PORTALS:[{between,width:2}],DIRECTIVES:['mark spawn west','mark site east','route west east 1']};
+    assert.throws(()=>composePythonDeclarations(d,annotation?new Map([['ground',plan()]]):undefined),/portal\/0: unknown area typo/i);
+  }
+});

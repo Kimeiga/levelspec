@@ -39,6 +39,8 @@ function selectedRun(parts:Segment[],portal:SemanticPortal,grid:number) {
 }
 /** Historical desired-size portal hints become exact native geometry BEFORE validation. */
 export function placeSourcePortals(plan:NativeSemanticPlan,portals:SemanticPortal[],mode:'annotation'|'composition'|'legacy') {
+  const areas=new Set(plan.areas.map(a=>a.id));
+  for(const portal of portals)for(const id of portal.between)if(!areas.has(id))throw new Error(`${portal.id}: unknown area ${id}.`);
   for(const proposal of portals)placeProposal(plan,proposal,mode);
 }
 function placeProposal(plan:NativeSemanticPlan,proposal:SemanticPortal,mode:'annotation'|'composition'|'legacy') {

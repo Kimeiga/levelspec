@@ -100,6 +100,8 @@ proposals are diagnosed. A finite strict native candidate search may omit option
 portal closure and opening together. Explicit wall directives, direct native
 portals, body limits, routes and LOS are never removed. CLI diagnostics print
 initial placements even when publication fails, plus candidate omissions on success.
+Both portal area IDs must resolve before proposal filtering; a typo is an error,
+including when the proposal would otherwise have no shared boundary.
 
 `author --spec` accepts Python, semantic JSON, gameplay JSON or SVGX. `--traced`
 accepts `levelspec-raster/1` JSON, actual `.plan`, or native SVGX. Actual `.plan`
@@ -129,6 +131,9 @@ area into patches with one logical physical component. Reassignment across sourc
 color bands is supported. Existing wall kinds, wall heights and relative aperture
 head/sill follow their transformed floor. Marker and cover floor offsets, hard
 requirements, player, flags, materials, lights, assets and references survive.
+Source seam barriers retain their kind, material and metadata. Matching uses the
+original floor ownership on each side, including when a seam becomes several
+pieces. Collapsed, overlapping or incompletely matched source seams fail explicitly.
 
 Ambiguous transformations fail: a cover spanning different floor shifts, elevation
 changes with imported props, floor-anchored walls requiring old region IDs, and

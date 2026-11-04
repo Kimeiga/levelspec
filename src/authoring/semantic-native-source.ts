@@ -2,6 +2,7 @@ import type {LevelDocument,V3} from '../vector/types.ts';
 import {subdivideNativeEdge} from './native-subdivide.ts';
 import {restoreNativeFloors} from './semantic-native-projection.ts';
 import {transformedNativeObjects} from './semantic-native-objects.ts';
+import {retainNativeSeams} from './semantic-native-seams.ts';
 export {projectNativeFloor} from './semantic-native-projection.ts';
 
 function boundaries(d:LevelDocument) {
@@ -18,6 +19,7 @@ export function retainNativeAuthorship(proposal:LevelDocument,source:LevelDocume
   for(const old of boundaries(source))splitAtOriginal(d,old,fresh);
   const target=boundaries(d);
   for(const original of boundaries(source))transferBoundary(original,target);
+  retainNativeSeams(d,source,grid);
   retainObjects(d,source,grid);return d;
 }
 type Boundary=ReturnType<typeof boundaries>[number];
