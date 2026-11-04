@@ -57,6 +57,36 @@ test('slanted fractional footprints and oblique ports publish without grid or ax
   assert.ok(made.document.layers[0].vertices.some(v=>v.x===0.125&&v.y===4.375));
 });
 
+test('non-45-degree host mouths share edges before and after canonical publication',async()=>{
+  const {api}=await fixture();
+  const plan={format:'levelspec-gameplay/2' as const,id:'slanted-mouths',name:'Slanted mouths',spaces:[
+    {id:'a',footprint:[[0,0],[8,0],[10,7],[2,7]] as [number,number][]},
+    {id:'b',footprint:[[16,0],[24,0],[26,7],[18,7]] as [number,number][]}],
+    connections:[{id:'walk',from:{space:'a',edge:1},to:{space:'b',edge:3},width:4}],
+    markers:[{id:'s',space:'a',kind:'attacker_spawn'},{id:'e',space:'b',kind:'objective'}],
+    routes:[{id:'r',from:'s',to:'e',minRoutes:1}]};
+  const proposal=api.createGameplay(plan);
+  function assertMouths(document:typeof proposal) {
+    const layer=document.layers[0],walk=layer.regions.find(r=>r.id==='walk')!;
+    for(const id of ['a','b']) {
+      const host=layer.regions.find(r=>r.id===id)!;
+      const shared=walk.boundary.filter(ref=>host.boundary.some(h=>h.replace(/^-/,'')===ref.replace(/^-/,'')));
+      assert.equal(shared.length,1,`${id} shares exactly one physical mouth`);
+      const hostRef=host.boundary.find(ref=>ref.replace(/^-/,'')===shared[0].replace(/^-/,''))!;
+      assert.notEqual(shared[0].startsWith('-'),hostRef.startsWith('-'),'host and strip own opposite sides of the same edge');
+      assert.equal(layer.edges.find(e=>e.id===shared[0].replace(/^-/,''))!.kind,'open');
+    }
+  }
+  assertMouths(proposal);
+  const made=await api.produceGameplay(plan);
+  assert.equal(made.report.passed,true);assertMouths(made.document);
+  assert.equal(made.document.routes[0].minRoutes,1);
+  assert.equal(made.document.routes[0].from,'s');assert.equal(made.document.routes[0].to,'e');
+  assert.equal(made.assessment.routes[0].physicalDisjointRoutes,1);
+  assert.equal(serializeLevelSvgx(parseLevelSvgx(made.text)),made.text);
+  assert.equal((await produceDocument(parseLevelSvgx(made.text))).report.passed,true);
+});
+
 test('one physical mouth cannot satisfy two required routes',async()=>{
   const {api}=await fixture();
   const plan={format:'levelspec-gameplay/2' as const,id:'one-mouth',name:'One mouth',spaces:[

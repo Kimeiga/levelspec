@@ -17,7 +17,9 @@ function mouth(port:GameplayPort,width:number,spaces:Map<string,GameplaySpace>):
   const {space,edge,a,b}=resolvePort(port,spaces);
   const dx=b[0]-a[0],dy=b[1]-a[1],length=Math.hypot(dx,dy),at=port.at??0.5,half=width/(2*length);
   if(at-half < -1e-8||at+half>1+1e-8)throw new Error(`${space.id}: port mouth does not fit edge ${edge}.`);
-  const point=(t:number):V3=>[snapCoordinate(a[0]+t*dx),snapCoordinate(a[1]+t*dy),snapCoordinate(space.z??0)];
+  // Keep XY on the host line until assembly has inserted and shared these vertices.
+  // Native serialization then rounds each shared vertex once, preserving topology.
+  const point=(t:number):V3=>[a[0]+t*dx,a[1]+t*dy,snapCoordinate(space.z??0)];
   return {start:point(at-half),end:point(at+half),outward:[dy/length,-dx/length],space:space.id,edge,low:at-half,high:at+half};
 }
 export function connectionMouths(connection:GameplayConnection,spaces:Map<string,GameplaySpace>) {
