@@ -1,0 +1,44 @@
+{
+  "format": "levelspec-gameplay/2",
+  "id": "floodgate",
+  "name": "Floodgate Exchange",
+  "description": "An exposed sluice bridge, a longer covered northern flank, and a raised pump overlook with separate western ramp and eastern stairs.",
+  "wallThickness": 0.22,
+  "wallHeight": 3,
+  "floorThickness": 0.22,
+  "moveSpeed": 4.6,
+  "spaces": [
+    {"id":"west-muster","label":"West muster","role":"spawn","rect":[0,0,10,14]},
+    {"id":"east-lock","label":"East lock","role":"objective","rect":[32,0,10,14]},
+    {"id":"north-valve","label":"Valve shed","rect":[0,24,10,10],"roof":true},
+    {"id":"north-filter","label":"Filter shed","rect":[32,24,10,10],"roof":true},
+    {"id":"west-pump-foot","rect":[0,-18,10,10]},
+    {"id":"east-pump-foot","rect":[32,-18,10,10]},
+    {"id":"pump-overlook","label":"Pump overlook","role":"high-ground","rect":[16,-18,10,10],"z":2,"wallHeight":1.15}
+  ],
+  "connections": [
+    {"id":"sluice-bridge","label":"Exposed bridge","purpose":"fast exposed crossing","from":{"space":"west-muster","edge":1},"to":{"space":"east-lock","edge":3},"width":4,"wallHeight":1.15},
+    {"id":"covered-turn-west","from":{"space":"west-muster","edge":2},"to":{"space":"north-valve","edge":0},"width":4,"roof":true,"purpose":"covered approach"},
+    {"id":"covered-gallery","label":"Covered gallery","from":{"space":"north-valve","edge":1},"to":{"space":"north-filter","edge":3},"kind":"door","width":4,"roof":true,"purpose":"slower covered flank"},
+    {"id":"covered-turn-east","from":{"space":"north-filter","edge":0},"to":{"space":"east-lock","edge":2},"width":4,"roof":true},
+    {"id":"lower-access-west","from":{"space":"west-muster","edge":0},"to":{"space":"west-pump-foot","edge":2},"width":4},
+    {"id":"lower-access-east","from":{"space":"east-lock","edge":0},"to":{"space":"east-pump-foot","edge":2},"width":4},
+    {"id":"overlook-ramp","from":{"space":"west-pump-foot","edge":1},"to":{"space":"pump-overlook","edge":3},"kind":"ramp","width":4,"wallHeight":1.15},
+    {"id":"overlook-stairs","from":{"space":"pump-overlook","edge":1},"to":{"space":"east-pump-foot","edge":3},"kind":"stairs","width":4,"wallHeight":1.15,"rise":0.18}
+  ],
+  "covers": [
+    {"id":"west-crate","label":"Muster crate","space":"west-muster","position":[2,10,0],"size":[1.5,1.5,1.2]},
+    {"id":"east-crate","space":"east-lock","position":[40,10,0],"size":[1.5,1.5,1.2]},
+    {"id":"overlook-console","space":"pump-overlook","position":[21,-10,0],"size":[2,1,1.1]}
+  ],
+  "markers": [
+    {"id":"west-spawn","label":"West spawn","space":"west-muster","kind":"attacker_spawn","team":"west","position":[5,3]},
+    {"id":"east-spawn","label":"East spawn","space":"east-lock","kind":"defender_spawn","team":"east","position":[37,3]},
+    {"id":"overlook-objective","label":"Overlook objective","space":"pump-overlook","kind":"objective","position":[21,-13]}
+  ],
+  "routes": [
+    {"id":"exchange","from":"west-spawn","to":"east-spawn","minRoutes":2,"minDistance":25,"maxDistance":120},
+    {"id":"take-overlook","from":"west-spawn","to":"overlook-objective","minRoutes":2,"minDistance":15,"maxDistance":120}
+  ],
+  "noSpawnLos": [["west-spawn","east-spawn"]]
+}
