@@ -5,7 +5,9 @@ inspector (`npm run dev`), separate wall/floor/stair meshes, automatic UVs and a
 optional Blender bake. See [the SVGX guide](docs/SVGX.md) and [release gates](docs/IMPLEMENTATION.md).
 The v1 interfaces described below remain available for compatibility.
 
-Generators and tracing commands now publish validated v2 SVGX by default. See
+Default generate, trace, author, concept and finalize commands now construct native
+geometry and publish validated v2 SVGX. Custom proportional declarations use the
+[native concept API](docs/CONCEPTS.md). See
 [producer APIs, commands and legacy compatibility](docs/PRODUCERS.md).
 
 Reference-aware architectural authoring is an additional preview. See the

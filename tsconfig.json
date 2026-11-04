@@ -19,6 +19,8 @@
   },
   "include": [
     "src/generate/**/*.ts",
+    "src/gameplay/**/*.ts",
+    "tools/gameplay.ts",
     "src/authoring/producers.ts",
     "tools/producers/**/*.ts",
     "tools/generate.ts",

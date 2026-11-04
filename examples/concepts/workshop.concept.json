@@ -1,0 +1,27 @@
+{
+  "id": "workshop",
+  "name": "Workshop",
+  "thesis": "An arrival court and dispatch hall connected around two work rooms.",
+  "built": "a repair workshop",
+  "incident": "the shift ended before the last dispatch",
+  "verb": "cross",
+  "contrast": ["arrival court", "work rooms"],
+  "grid": 1,
+  "size": [30, 30],
+  "wall": 0.3,
+  "routes": 2,
+  "bands": [{
+    "id": "ground", "z": 0, "height": 4,
+    "purpose": "arrival, repair and dispatch", "roofed": false,
+    "extent": [1, 1, 28, 28],
+    "zones": [
+      {"id": "arrival", "label": "Arrival", "role": "spawn", "weight": 1},
+      {"id": "repair", "label": "Repair", "role": "room", "weight": 1},
+      {"id": "assembly", "label": "Assembly", "role": "room", "weight": 1},
+      {"id": "dispatch", "label": "Dispatch", "role": "site", "weight": 1}
+    ]
+  }],
+  "links": [],
+  "spawn": "arrival",
+  "objective": "dispatch"
+}

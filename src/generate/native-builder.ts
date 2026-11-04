@@ -1,6 +1,7 @@
 /** Native vector proposals: shared floor boundaries supply the actual route graph. */
 import {SceneBuilder} from '../vector/authoring.ts';
-import {coordinateKey,snapCoordinate} from '../vector/precision.ts';
+import {snapCoordinate} from '../vector/precision.ts';
+import {junctions} from '../authoring/native-junctions.ts';
 import type {V3,Region} from '../vector/types.ts';
 import type {Theme} from './themes.ts';
 import type {Rng} from './rng.ts';
@@ -9,20 +10,6 @@ export interface NativeRoom {id:string;x:number;y:number;w:number;h:number;z:num
 interface Surface {id:string;points:V3[];fill:Region['fill'];wallHeight:number}
 const centre=(r:NativeRoom):V3=>[r.x+r.w/2,r.y+r.h/2,r.z];
 const color=(n:number)=>'#'+n.toString(16).padStart(6,'0');
-
-function segmentParameter(p:V3,a:V3,b:V3):number|undefined {
-  const d=b.map((n,i)=>n-a[i]),length=d.reduce((s,n)=>s+n*n,0);
-  const t=d.reduce((s,n,i)=>s+n*(p[i]-a[i]),0)/length;
-  if(t<=1e-8||t>=1-1e-8)return;
-  return p.every((n,i)=>Math.abs(n-a[i]-t*d[i])<1e-7)?t:undefined;
-}
-function junctions(points:V3[],all:V3[]):V3[] {
-  return points.flatMap((a,i)=>{
-    const b=points[(i+1)%points.length],cuts=new Map<string,{p:V3;t:number}>();
-    for(const p of all){const t=segmentParameter(p,a,b);if(t!==undefined)cuts.set(coordinateKey(p),{p,t});}
-    return [a,...[...cuts.values()].sort((x,y)=>x.t-y.t).map(c=>c.p)];
-  });
-}
 
 export class NativeBuilder {
   readonly scene:SceneBuilder;

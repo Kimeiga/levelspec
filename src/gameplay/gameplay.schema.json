@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "levelspec-gameplay/2",
+  "title": "LevelSpec native gameplay plan v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "id", "name", "spaces", "connections", "markers"],
+  "properties": {
+    "format": {"const": "levelspec-gameplay/2"},
+    "id": {"$ref": "#/$defs/id"},
+    "name": {"$ref": "#/$defs/text"},
+    "description": {"$ref": "#/$defs/text"},
+    "player": {"$ref": "#/$defs/player"},
+    "wallThickness": {"$ref": "#/$defs/positive"},
+    "wallHeight": {"$ref": "#/$defs/positive"},
+    "floorThickness": {"$ref": "#/$defs/positive"},
+    "moveSpeed": {"$ref": "#/$defs/positive", "default": 4.6},
+    "spaces": {"type":"array", "minItems":1, "maxItems":256, "items":{"$ref":"#/$defs/space"}},
+    "connections": {"type":"array", "maxItems":512, "items":{"$ref":"#/$defs/connection"}},
+    "markers": {"type":"array", "maxItems":512, "items":{"$ref":"#/$defs/marker"}},
+    "covers": {"type":"array", "maxItems":512, "items":{"$ref":"#/$defs/cover"}},
+    "routes": {"type":"array", "maxItems":512, "items":{"$ref":"#/$defs/route"}},
+    "noSpawnLos": {"type":"array", "maxItems":512, "items":{"type":"array", "minItems":2, "maxItems":2, "items":{"$ref":"#/$defs/id"}}}
+  },
+  "$defs": {
+    "id": {"type":"string", "pattern":"^[A-Za-z_][\\w.:/-]*$"},
+    "text": {"type":"string", "pattern":"\\S"},
+    "number": {"type":"number", "minimum":-1000000, "maximum":1000000},
+    "positive": {"type":"number", "exclusiveMinimum":0, "maximum":1000000},
+    "nonnegative": {"type":"number", "minimum":0, "maximum":1000000},
+    "xy": {"type":"array", "minItems":2, "maxItems":2, "items":{"$ref":"#/$defs/number"}},
+    "xyz": {"type":"array", "minItems":3, "maxItems":3, "items":{"$ref":"#/$defs/number"}},
+    "size": {"type":"array", "minItems":3, "maxItems":3, "items":{"$ref":"#/$defs/positive"}},
+    "rect": {"type":"array", "minItems":4, "maxItems":4, "prefixItems":[{"$ref":"#/$defs/number"},{"$ref":"#/$defs/number"},{"$ref":"#/$defs/positive"},{"$ref":"#/$defs/positive"}]},
+    "player": {
+      "type":"object", "additionalProperties":false,
+      "properties": {
+        "radius":{"$ref":"#/$defs/positive"}, "height":{"$ref":"#/$defs/positive"},
+        "step":{"$ref":"#/$defs/nonnegative"}, "slope":{"$ref":"#/$defs/positive"},
+        "crouch":{"$ref":"#/$defs/positive"}, "vault":{"$ref":"#/$defs/nonnegative"},
+        "rappel":{"type":"boolean"}, "ladder":{"type":"boolean"}
+      }
+    },
+    "space": {
+      "type":"object", "additionalProperties":false, "required":["id"],
+      "oneOf":[{"required":["rect"],"not":{"required":["footprint"]}},{"required":["footprint"],"not":{"required":["rect"]}}],
+      "properties": {
+        "id":{"$ref":"#/$defs/id"}, "label":{"$ref":"#/$defs/text"}, "role":{"$ref":"#/$defs/text"},
+        "rect":{"$ref":"#/$defs/rect"}, "footprint":{"type":"array","minItems":3,"maxItems":128,"items":{"$ref":"#/$defs/xy"}},
+        "z":{"$ref":"#/$defs/number"}, "wallHeight":{"$ref":"#/$defs/positive"}, "headroom":{"$ref":"#/$defs/positive"}, "roof":{"type":"boolean"}
+      }
+    },
+    "port": {
+      "type":"object", "additionalProperties":false, "required":["space"],
+      "oneOf":[{"required":["edge"],"not":{"required":["side"]}},{"required":["side"],"not":{"required":["edge"]}}],
+      "properties": {
+        "space":{"$ref":"#/$defs/id"}, "edge":{"type":"integer","minimum":0,"maximum":1000000},
+        "side":{"enum":["south","east","north","west"]}, "at":{"type":"number","minimum":0,"maximum":1,"default":0.5}
+      }
+    },
+    "connection": {
+      "type":"object", "additionalProperties":false, "required":["id","from","to","width"],
+      "properties": {
+        "id":{"$ref":"#/$defs/id"}, "label":{"$ref":"#/$defs/text"}, "purpose":{"$ref":"#/$defs/text"},
+        "from":{"$ref":"#/$defs/port"}, "to":{"$ref":"#/$defs/port"},
+        "kind":{"enum":["corridor","door","ramp","stairs"],"default":"corridor"}, "width":{"$ref":"#/$defs/positive"},
+        "wallHeight":{"$ref":"#/$defs/positive"}, "headroom":{"$ref":"#/$defs/positive"}, "roof":{"type":"boolean"}, "rise":{"$ref":"#/$defs/positive"}
+      },
+      "if":{"required":["rise"]}, "then":{"required":["kind"],"properties":{"kind":{"const":"stairs"}}}
+    },
+    "marker": {
+      "type":"object", "additionalProperties":false, "required":["id","space","kind"],
+      "properties": {
+        "id":{"$ref":"#/$defs/id"}, "label":{"$ref":"#/$defs/text"}, "space":{"$ref":"#/$defs/id"},
+        "kind":{"$ref":"#/$defs/text"}, "team":{"$ref":"#/$defs/text"}, "position":{"$ref":"#/$defs/xy"}
+      }
+    },
+    "cover": {
+      "type":"object", "additionalProperties":false, "required":["id","space","position","size"],
+      "properties": {
+        "id":{"$ref":"#/$defs/id"}, "label":{"$ref":"#/$defs/text"}, "space":{"$ref":"#/$defs/id"},
+        "position":{"$ref":"#/$defs/xyz"}, "size":{"$ref":"#/$defs/size"}, "role":{"$ref":"#/$defs/text"}
+      }
+    },
+    "route": {
+      "type":"object", "additionalProperties":false, "required":["id","from","to","minRoutes"],
+      "properties": {
+        "id":{"$ref":"#/$defs/id"}, "label":{"$ref":"#/$defs/text"}, "from":{"$ref":"#/$defs/id"}, "to":{"$ref":"#/$defs/id"},
+        "minRoutes":{"type":"integer","minimum":1,"maximum":1000000}, "minDistance":{"$ref":"#/$defs/nonnegative"},
+        "maxDistance":{"$ref":"#/$defs/nonnegative"}, "movement":{"const":"land"}
+      }
+    }
+  }
+}

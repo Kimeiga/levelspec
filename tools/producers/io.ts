@@ -1,5 +1,5 @@
-import { mkdirSync, writeFileSync, renameSync, rmSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import { mkdirSync, writeFileSync, renameSync, rmSync,existsSync,realpathSync } from 'node:fs';
+import { dirname, resolve,join,basename } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 
@@ -14,6 +14,12 @@ export function argumentsFor(argv: string[], names: string[]) {
     values.set(name, value);
   }
   return { values, rest };
+}
+
+/** Resolve existing ancestors as well as files, including directory aliases. */
+export function canonicalArtifactPath(path:string):string {
+  const absolute=resolve(path),resolved=existsSync(absolute)?realpathSync(absolute):join(canonicalArtifactPath(dirname(absolute)),basename(absolute));
+  return process.platform==='win32'?resolved.toLowerCase():resolved;
 }
 
 /** Call only after validation; a failed write leaves the previous artifact intact. */

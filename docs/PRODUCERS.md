@@ -20,17 +20,22 @@ Native proposals have their own deterministic seed sequence and layouts; they
 do not promise identical drawings to the compatibility generator. The existing
 `generateLevel` API and `gen --legacy` retain their original algorithms and output
 formats. Radar tracing now constructs native regions directly from raster
-evidence, too. Plan/spec authored inputs, Python semantic annotation/composition,
-concept proposals and legacy-plan finalization still use explicit compatibility
-paths. No legacy APIs are retired.
+evidence, too. Python semantic annotation/composition and finalization now build
+native geometry directly. Actual `.plan` files are decoded only at an explicit,
+lazy source boundary; their native publication does not run the old compiler.
+Concept proposals now consume the native semantic API directly, including arbitrary
+caller declarations through `levelspec/concept` and `concept --spec`. The public
+`producePlan`/`produceSpec` conversion APIs intentionally retain dual compatibility
+validation. No legacy APIs are retired. See [native concepts](CONCEPTS.md) and [native semantic authoring](SEMANTIC.md)
+for the reusable API, source placement rules and SVGX annotation requirements.
 
 ```sh
 npm run gen -- 10 --keep             # generated/vector/levels/*.level.svgx
 npm run plans -- kiln.plan           # generated/vector/plans/hand/kiln.level.svgx
 npm run trace -- radar.png --cells 46 --bands 4 --out generated/radar.level.svgx
-npm run author -- skydeck            # generated/vector/authored/skydeck.level.svgx
+npm run author -- atrium             # generated/vector/authored/atrium.level.svgx
 npm run finalize -- mirage           # generated/vector/finalized/*.level.svgx
-npm run concept -- terminus --write  # generated/vector/concepts/*.level.svgx
+npm run concept -- silo --attempts=1 --write --variants=1 # generated/vector/concepts/*.level.svgx
 ```
 
 Image analysis requires Python with NumPy and Pillow. Set `PYTHON` or pass `--python`
@@ -64,14 +69,39 @@ metres, RGB `colors`, and rectangular north-first `rows` of color indices or
 `null` for void. It accepts at most 1024 rows and columns and a minimum 1 mm grid,
 matching the native coordinate lattice. `trace_radar.py --format raster` exports
 this evidence; omitting that option retains its existing plan draft interface.
+The Node command can retain the exact evidence beside SVGX:
+
+```sh
+npm run trace -- radar.png --out generated/radar.level.svgx --evidence generated/radar.raster.json
+```
+
+`--evidence` is never forwarded to Python and is incompatible with `--legacy`.
+Resolved output/evidence paths must differ. Both raster parsing and native
+publication succeed before either file is written; source/validation failure
+preserves both prior files. Retained raster provides exact GRID provenance for
+native annotation; SVGX alone does not retain the raster lattice.
 
 Every command accepts `--out` (a directory except for trace/author, where it is
 a file). Plans/finalize accept `--src` for an input directory. Filters select
-only matching inputs; finalization never deletes unselected outputs. Author
+only matching inputs; finalization never deletes unselected outputs.
+Native finalization preflights every selected destination before any publication
+or write. Same-stem `.plan`, `.json`, `.svgx` and `.level.svgx` sources that
+resolve to one output are rejected with both source names and the destination.
+Resolved paths include existing directory aliases and platform case rules.
+An output cannot overwrite another selected input; geometry-preserving native
+finalization in place is supported when it is the source's own destination.
+Python seed annotation preserves every explicit source player field, including
+ability flags, and rejects conflicting annotation or multiple-source values.
+It may supplement unspecified fields; legacy parser defaults are not explicit
+source constraints.
+
+Author
 also accepts `--spec` and `--traced` paths for source proposals. `--legacy`
 retains the old output formats and locations. Author, concept and finalize
 still apply both validation gates with `--legacy`; use the source APIs for
 drafts that are not ready for runtime publication.
+Raw source declarations can still fail strict gameplay or clearance requirements;
+default native publication is not a promise that every draft is valid.
 
 ```ts
 import { generateLevelV2, loadAuthoredV2 } from 'levelspec/generate/vector';
@@ -101,6 +131,8 @@ passes the usual prop and runtime validation.
 
 The existing `levelspec`, `levelspec/generate`, `compile`, `generateLevel`,
 `loadAuthored`, and `tools/build.ts` interfaces retain their legacy contracts.
+`loadAuthoredV2` also intentionally accepts legacy plan/spec source formats through
+the compatibility producers; its SVGX source path uses native publication directly.
 `tools/migration/convert.ts` and `crossings.ts` remain compatibility re-exports.
 
 Run `npm run test:producers` for the seven-archetype/depth sweep and real Python
