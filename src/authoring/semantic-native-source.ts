@@ -1,11 +1,12 @@
 import type {LevelDocument,V3} from '../vector/types.ts';
-import {subdivideNativeEdge} from './native-subdivide.ts';
+import {subdivideNativeBoundary} from './native-subdivide.ts';
 import {restoreNativeFloors} from './semantic-native-projection.ts';
 import {transformedNativeObjects} from './semantic-native-objects.ts';
 import {retainNativeSeams} from './semantic-native-seams.ts';
 import {requiredNativeBoundaries,requireCompatibleBoundary} from './semantic-native-intent.ts';
 import type {NativeSemanticPlan} from './semantic-types.ts';
 import {horizontalAnnotation,annotationPunches} from './semantic-native-flights.ts';
+import {nativeBoundaryCells} from './semantic-native-ownership.ts';
 export {projectNativeFloor} from './semantic-native-projection.ts';
 
 function boundaries(d:LevelDocument) {
@@ -21,8 +22,8 @@ export function retainNativeAuthorship(proposal:LevelDocument,source:LevelDocume
   const punched=annotationPunches(plan);
   restoreNativeFloors(horizontalAnnotation(d,plan),source,grid,punched);
   for(const old of boundaries(source))splitAtOriginal(d,old,fresh);
-  const target=boundaries(d),required=requiredNativeBoundaries(d,plan);
-  for(const original of boundaries(source))transferBoundary(original,target,required);
+  const target=boundaries(d),required=requiredNativeBoundaries(d,plan),oldOwners=nativeBoundaryCells(source,grid),newOwners=nativeBoundaryCells(horizontalAnnotation(d,plan),grid);
+  for(const original of boundaries(source))transferBoundary(original,target,required,oldOwners,newOwners);
   retainNativeSeams(horizontalAnnotation(d,plan),source,grid,punched,required);
   retainObjects(d,source,grid,horizontalAnnotation(d,plan));return d;
 }
@@ -33,13 +34,15 @@ function splitAtOriginal(d:LevelDocument,old:Boundary,fresh:(s:string)=>string) 
     const length=Math.hypot(target.b[0]-target.a[0],target.b[1]-target.a[1]);
     const cuts=[0,length,...[old.a,old.b].filter(p=>along(p,target.a,target.b)).map(p=>Math.hypot(p[0]-target.a[0],p[1]-target.a[1]))].sort((a,b)=>a-b).filter((n,i,a)=>i===0||n-a[i-1]>1e-7);
     if(cuts.length<=2)continue;
-    if(d.seams.some(s=>s.edges.includes(target.edge.id)))throw new Error(`${old.edge.id}: annotation cannot repartition an authored retaining seam; align source regions explicitly.`);
-    subdivideNativeEdge(d,target.edge,cuts,fresh);
+    // Splitting one retaining side also replaces its partner in this snapshot.
+    if(!d.layers.some(l=>l.edges.includes(target.edge)))continue;
+    subdivideNativeBoundary(d,target.edge,cuts,fresh);
   }
 }
-function transferBoundary(original:Boundary,target:Boundary[],required:Set<string>) {
+function transferBoundary(original:Boundary,target:Boundary[],required:Set<string>,oldOwners:Map<string,Set<string>>,newOwners:Map<string,Set<string>>) {
     const e=original.edge;if(e.kind==='open'&&!e.openings.length)return;
-    const matches=target.filter(b=>b.layer===original.layer&&along(b.a,original.a,original.b)&&along(b.b,original.a,original.b));
+    const cells=oldOwners.get(e.id),sameOwner=(id:string)=>!cells||[...newOwners.get(id)??[]].some(c=>cells.has(c));
+    const matches=target.filter(b=>b.layer===original.layer&&sameOwner(b.edge.id)&&along(b.a,original.a,original.b)&&along(b.b,original.a,original.b));
     const length=Math.hypot(original.b[0]-original.a[0],original.b[1]-original.a[1]);
     if(Math.abs(matches.reduce((n,b)=>n+Math.hypot(b.b[0]-b.a[0],b.b[1]-b.a[1]),0)-length)>1e-7)throw new Error(`${e.id}: annotation would alter an authored native boundary; align the new regions with its endpoints or use raster evidence for a new proposal.`);
     for(const m of matches){const expected=structuredClone(m.edge);transferAttributes(original,m);if(required.has(m.edge.id))requireCompatibleBoundary(expected,m.edge);}

@@ -120,6 +120,8 @@ Without `--out`, only canonical SVGX goes to stdout. `--report` writes advisory
 JSON separately. Unknown/duplicate flags, malformed inputs, colliding artifact
 paths and failed publication are rejected before writes. Each artifact uses the
 existing atomic `writeArtifact`, preserving the previous file on a failed write.
+Collision checks resolve existing path ancestors, including directory aliases,
+and compare paths without case distinctions on Windows.
 
 [Floodgate](../examples/gameplay/floodgate.gameplay.json) demonstrates arbitrary
 space and connection names: a fast exposed bridge, a longer covered northern

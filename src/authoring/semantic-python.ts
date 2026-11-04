@@ -93,6 +93,12 @@ function settings(d:PythonDeclarations,composition:boolean) {
 function gameplay(d:PythonDeclarations) {
   return {markers:structuredClone(d.GAMEPLAY?.markers??[]),routes:structuredClone(d.GAMEPLAY?.routes??[]),noSpawnLos:structuredClone(d.GAMEPLAY?.noSpawnLos??[]),moveSpeed:d.MOVE_SPEED??d.GAMEPLAY?.moveSpeed};
 }
+function directives(d:PythonDeclarations,p:NativeSemanticPlan) {
+  const objects=()=>[...p.portals??[],...p.markers??[],...p.routes??[],...p.flights??[]],existing=new Set(objects());
+  const reserved=new Set((d.PORTALS??[]).map((portal,i)=>portal.id??`portal/${i}`));
+  applySemanticDirectives(p,d.DIRECTIVES??[]);
+  for(const item of objects())if(!existing.has(item)&&reserved.has(item.id))throw new Error(`Duplicate semantic id ${item.id}: a directive aliases a source optional portal, including omitted proposals.`);
+}
 /** Typed declarations only. No Python process, legacy syntax or native compilation here. */
 export function composePythonDeclarations(d:PythonDeclarations,source=new Map<string,NativeSemanticPlan>()):NativeSemanticPlan {
   const composition=pythonComposition(d),layers=pythonLayers(d),first=source.values().next().value;
@@ -106,5 +112,5 @@ export function composePythonDeclarations(d:PythonDeclarations,source=new Map<st
     areas:composition?d.AREAS.map(({ceiling,seeds,...a})=>({...a,height:ceiling})):assignedAreas(d,source,layers),
     covers:[],expectFail:d.EXPECT_FAIL,validation:d.VALIDATION,placementDiagnostics:[]};
   if(!composition)inherited(p,source);
-  placePythonObjects(d,p,composition);applySemanticDirectives(p,d.DIRECTIVES??[]);placePythonCovers(d,p,composition);return p;
+  placePythonObjects(d,p,composition);directives(d,p);placePythonCovers(d,p,composition);return p;
 }

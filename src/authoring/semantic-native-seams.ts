@@ -1,10 +1,10 @@
 import type {LevelDocument,Seam,V3} from '../vector/types.ts';
-import {projectNativeFloor} from './semantic-native-projection.ts';
+import {nativeRegionCells} from './semantic-native-ownership.ts';
 
 interface Side {layer:string;a:V3;b:V3;cells:Set<string>}
 interface SourceSeam {seam:Seam;sides:[Side,Side]}
 function descriptors(document:LevelDocument,grid:number):SourceSeam[] {
-  const projected=projectNativeFloor(document,grid),cells=new Map(projected.areas.map(a=>[a.id,new Set(a.cells!.map(c=>c.join(',')))]));
+  const cells=nativeRegionCells(document,grid);
   const sides=new Map<string,Side>();
   for(const layer of document.layers){
     const vertices=new Map(layer.vertices.map(v=>[v.id,[v.x,v.y,v.z] as V3]));

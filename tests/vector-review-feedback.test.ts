@@ -33,6 +33,44 @@ test('retaining seams preserve authored barriers and compatible hard annotation 
   q.boundaries[0].kind='wall';await publishSemanticDocument(createNativeAnnotation(q,[barrier]));
 });
 
+test('compatible stepped doorway boundaries retain each floor side exactly once',async()=>{
+  const p=plan();p.areas[1].z=.3;p.portals=[{id:'step_door',between:['west','east'],kind:'door',width:4}];p.markers=[{id:'spawn',kind:'spawn',area:'west',position:[3,3]},{id:'site',kind:'site',area:'east',position:[17,3]}];p.routes=[{id:'through',from:'spawn',to:'site',minRoutes:1}];
+  const source=createSemantic(p);await publishSemanticDocument(source);
+  for(const shift of [0,.28])for(const explicit of [false,true]){
+    const q=structuredClone(p);q.markers=[];q.routes=[];q.areas.forEach(a=>{a.z=(a.z??0)+shift;});prepareNativeAnnotation(q,[source],new Map([['ground',0]]));
+    if(!explicit)q.portals=[];
+    const d=createNativeAnnotation(q,[source]),made=await publishSemanticDocument(d);assert.equal(made.physical.routes[0].physicalDisjointRoutes,1);
+    const openings=d.layers[0].edges.flatMap(e=>e.openings);assert.equal(openings.reduce((n,o)=>n+o.end-o.start,0),4);assert.ok(openings.every(o=>o.head===2.1&&o.sill===0));assert.equal(d.markers[1].position[2],Number((.3+shift).toFixed(6)));
+  }
+  const conflicting=structuredClone(p);conflicting.markers=[];conflicting.routes=[];conflicting.portals=[];conflicting.boundaries=[{between:['west','east'],kind:'wall'}];assert.throws(()=>createNativeAnnotation(conflicting,[source]),/conflict.*boundary|boundary.*conflict/);
+});
+
+test('compatible stepped wall profiles survive unchanged and shifted native annotation',async()=>{
+  const p=plan();p.areas[1].z=.3;p.areas.push({id:'north',rects:[[0,12,20,5]],z:.3});p.boundaries=[{between:['west','east'],kind:'wall'}];
+  const source=createSemantic(p);await publishSemanticDocument(source);
+  for(const shift of [0,.28]){
+    const q=structuredClone(p);q.boundaries=[];q.areas.forEach(a=>{a.z=(a.z??0)+shift;});prepareNativeAnnotation(q,[source],new Map([['ground',0]]));
+    const d=createNativeAnnotation(q,[source]);await publishSemanticDocument(d);const layer=d.layers[0],vertices=new Map(layer.vertices.map(v=>[v.id,v]));
+    const walls=layer.edges.filter(e=>vertices.get(e.from)!.x===10&&vertices.get(e.to)!.x===10&&Math.max(vertices.get(e.from)!.y,vertices.get(e.to)!.y)<=12);
+    const original=source.layers[0],points=new Map(original.vertices.map(v=>[v.id,v])),sourceWalls=original.edges.filter(e=>points.get(e.from)!.x===10&&points.get(e.to)!.x===10&&Math.max(points.get(e.from)!.y,points.get(e.to)!.y)<=12);
+    assert.equal(walls.length,2);assert.deepEqual(walls.map(e=>[e.kind,e.height,e.openings.length]).sort(),sourceWalls.map(e=>[e.kind,e.height,e.openings.length]).sort());assert.equal(d.seams.filter(s=>s.kind==='wall').length,1);
+  }
+});
+
+test('new automatic native annotation markers account for retained covers without moving explicit authorship',async()=>{
+  const p:NativeSemanticPlan={format:'levelspec-semantic/2',id:'covered_source',name:'Covered source',grid:1,layers:[{id:'ground',height:5}],areas:[{id:'room',rects:[[0,0,12,12]]}],covers:[{id:'retained_crate',rect:[5,5,2,2],height:2}],markers:[{id:'retained_site',kind:'site',area:'room',position:[3,3]}]};
+  for(const shift of [0,2]){
+    const source=createSemantic(p),q=structuredClone(p);q.id='covered_annotation';q.covers=[];q.markers=[{id:'new_spawn',kind:'spawn',area:'room'}];q.areas[0].z=shift;
+    prepareNativeAnnotation(q,[source],new Map([['ground',0]]));const d=createNativeAnnotation(q,[source]),made=await publishSemanticDocument(d);assert.equal(made.report.passed,true);assert.notDeepEqual(d.markers[0].position,[6.5,6.5,shift]);assert.deepEqual(d.markers[1].position,[3,3,shift]);assert.deepEqual(d.covers[0].min,[5,5,shift]);assert.deepEqual(d.covers[0].max,[7,7,shift+2]);assert.equal(d.covers[0].id,'retained_crate');
+    assert.equal(serializeLevelSvgx(createNativeAnnotation(q,[source])),serializeLevelSvgx(d));
+    q.markers[0].position=[6,6];const blocked=createNativeAnnotation(q,[source]);assert.deepEqual(blocked.markers[0].position,[6,6,shift]);await assert.rejects(publishSemanticDocument(blocked),/NAV|MARKER/);
+    delete q.markers[0].position;source.covers[0].min=[0,0,0];source.covers[0].max=[12,12,2];assert.throws(()=>createNativeAnnotation(q,[source]),/no capsule-clear marker/);
+  }
+  const source=createSemantic(p),q=structuredClone(p);q.id='high_cover_annotation';q.covers=[];q.markers=[{id:'new_spawn',kind:'spawn',area:'room'}];source.covers[0].min[2]=2;source.covers[0].max[2]=4;
+  const high=createNativeAnnotation(q,[source]);assert.deepEqual(high.markers[0].position,[6.5,6.5,0]);await publishSemanticDocument(high);
+  source.covers[0].min[2]=0;source.covers[0].max[2]=2;source.markers[0].position=[6,6,0];const blockedSource=createNativeAnnotation(q,[source]);assert.deepEqual(blockedSource.markers[1].position,[6,6,0]);await assert.rejects(publishSemanticDocument(blockedSource),/NAV|MARKER/);
+});
+
 test('new native annotation flights retain all unpunched source properties and reject ambiguous objects',async()=>{
   for(const kind of ['ramp','stairs'] as const){
     const p=plan();p.areas[1].z=2;p.layers[0].roof=true;const source=createSemantic(p);source.layers[0].regions[0].thickness=.37;
@@ -100,12 +138,22 @@ test('stacked native floor projection rejects ownership loss but direct publicat
 
 test('optional portal ID collisions cannot erase required directives or malformed structure',async()=>{
   const d:PythonDeclarations={ID:'collision',NAME:'Collision',GRID:1,AREAS:plan().areas,PORTALS:[{id:'door_west_east_1',between:['west','east'],kind:'window',width:1,sill:1,head:1.5}],DIRECTIVES:['door west east 3','mark spawn west','mark site east','route west east 1']};
-  const p=composePythonDeclarations(d);let attempts=0;
-  await assert.rejects(publishPythonCandidates(p,['door_west_east_1'],candidate=>{attempts++;return produceSemantic(candidate);}),/Duplicate semantic id/);assert.equal(attempts,0);
+  let attempts=0;
+  await assert.rejects(async()=>{const p=composePythonDeclarations(d);return publishPythonCandidates(p,['door_west_east_1'],candidate=>{attempts++;return produceSemantic(candidate);});},/Duplicate semantic id/);assert.equal(attempts,0);
   const bad=plan();bad.portals=[{id:'west',between:['west','east'],kind:'door',width:3}];
   await assert.rejects(publishPythonCandidates(bad,['west'],candidate=>produceSemantic(candidate)),/Duplicate semantic id/);
   const omitted:PythonDeclarations={ID:'omitted_duplicate',NAME:'Omitted duplicate',GRID:1,AREAS:[{id:'a',rects:[[0,0,8,8]]},{id:'b',rects:[[10,0,8,8]]}],PORTALS:[{id:'a',between:['a','b'],width:2}]};
   assert.throws(()=>composePythonDeclarations(omitted),/Duplicate semantic id/);
+});
+
+test('early omitted optional portal identity cannot remove a later required low doorway',async()=>{
+  const d:PythonDeclarations={ID:'early_collision',NAME:'Early collision',GRID:1,AREAS:[...plan().areas,{id:'far',rects:[[20,0,10,12]]}],PORTALS:[{id:'door_west_east_0',between:['west','far'],width:1}],DIRECTIVES:['door west east 3 head=1','mark spawn west','mark site east','route west east 1']};
+  let attempts=0;
+  await assert.rejects(async()=>{const p=composePythonDeclarations(d);return publishPythonCandidates(p,d.PORTALS!.map(p=>p.id!),candidate=>{attempts++;return produceSemantic(candidate);});},/Duplicate semantic id|ROUTE|NAV/);
+  assert.equal(attempts,0,'raw omitted identities are rejected before evaluating a hard portal');
+  d.PORTALS![0].id='omitted_optional';const p=composePythonDeclarations(d);await assert.rejects(publishPythonCandidates(p,['omitted_optional'],candidate=>produceSemantic(candidate)),/ROUTE|NAV/);
+  await assert.rejects(publishPythonCandidates(p,['door_west_east_0'],candidate=>produceSemantic(candidate)),/ROUTE|NAV/);
+  d.DIRECTIVES![0]='door west east 3 head=2.5';const good=composePythonDeclarations(d),made=await publishPythonCandidates(good,['omitted_optional'],candidate=>produceSemantic(candidate));assert.equal(made.omittedPortals.length,0);assert.ok(made.document.layers[0].edges.flatMap(e=>e.openings).some(o=>o.head===2.5));
 });
 
 test('default gameplay markers search around exact cover using the whole player body',async()=>{

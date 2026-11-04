@@ -2,7 +2,7 @@
 import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {parseGameplayPlan,produceGameplay} from '../src/gameplay/index.ts';
-import {writeArtifact} from './producers/io.ts';
+import {writeArtifact,canonicalArtifactPath} from './producers/io.ts';
 
 const usage='Usage: node tools/gameplay.ts <plan.gameplay.json> [--out file] [--report file]';
 function option(argv:string[],index:number,values:Map<string,string>) {
@@ -13,7 +13,7 @@ function option(argv:string[],index:number,values:Map<string,string>) {
   values.set(flag,resolve(value));
 }
 function requireDistinctPaths(paths:string[]) {
-  const comparable=paths.map(p=>process.platform==='win32'?p.toLowerCase():p);
+  const comparable=paths.map(canonicalArtifactPath);
   if(new Set(comparable).size!==comparable.length)throw new Error('Input, output and report must have distinct paths.');
 }
 function argumentsFor(argv:string[]) {

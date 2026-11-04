@@ -1,15 +1,14 @@
 /** Validated v2 radar tracing. The Python tracer remains a legacy draft API. */
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import { parseRasterTrace, produceTrace } from '../src/tracing/native.ts';
-import { argumentsFor, python, writeArtifact } from './producers/io.ts';
+import { argumentsFor, python, writeArtifact,canonicalArtifactPath } from './producers/io.ts';
 
 const forwarded=['--id','--name','--cells','--bands','--grid','--span','--fill','--white-cut','--bg-tol','--alpha-cut','--smooth','--min-band'];
 const { values, rest } = argumentsFor(process.argv.slice(2), ['--out', '--evidence', '--python',...forwarded]);
 const legacy = rest.includes('--legacy');
 const evidence=values.get('--evidence'),out=values.get('--out');
 if(legacy&&evidence)throw new Error('--evidence is native raster provenance; it cannot be used with --legacy.');
-const pathKey=(path:string)=>process.platform==='win32'?resolve(path).toLowerCase():resolve(path);
-if(out&&evidence&&pathKey(out)===pathKey(evidence))throw new Error('--out and --evidence must resolve to different paths.');
+if(out&&evidence&&canonicalArtifactPath(out)===canonicalArtifactPath(evidence))throw new Error('--out and --evidence must resolve to different paths.');
 const noCrop=rest.includes('--no-crop');
 const args = rest.filter(a => a !== '--legacy'&&a!=='--no-crop');
 if (args.length!==1||args[0].startsWith('-')) throw new Error('usage: node tools/trace.ts <image> [tracer options] [--out path] [--legacy]');

@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {mkdtempSync,readFileSync,writeFileSync,rmSync,existsSync} from 'node:fs';
+import {mkdtempSync,readFileSync,writeFileSync,rmSync,existsSync,mkdirSync,symlinkSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -15,6 +15,22 @@ return r;}});`;
 function run(args:string[]) {
   return spawnSync(process.execPath,['--import','data:text/javascript,'+encodeURIComponent(hook),...args],{encoding:'utf8',timeout:110000});
 }
+
+test('gameplay and trace reject aliased artifact destinations before replacing source or outputs',t=>{
+  const dir=mkdtempSync(join(tmpdir(),'gameplay-alias-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
+  const real=join(dir,'real'),alias=join(dir,'alias');mkdirSync(real);symlinkSync(real,alias,process.platform==='win32'?'junction':'dir');
+  const input=join(real,'plan.json'),text=JSON.stringify({format:'levelspec-gameplay/2',id:'alias_room',name:'Alias room',spaces:[{id:'room',rect:[0,0,8,8]}],connections:[],markers:[{id:'spawn',space:'room',kind:'spawn'}]});writeFileSync(input,text);
+  for(const flag of ['--out','--report']){
+    const result=run([cli,input,flag,join(alias,'plan.json')]);assert.notEqual(result.status,0);assert.match(result.stderr,/distinct paths/);assert.equal(readFileSync(input,'utf8'),text);
+  }
+  const output=join(real,'nested','output.svgx'),report=join(alias,'nested','output.svgx');
+  const result=run([cli,input,'--out',output,'--report',report]);assert.notEqual(result.status,0);assert.match(result.stderr,/distinct paths/);assert.equal(existsSync(output),false);assert.equal(readFileSync(input,'utf8'),text);
+  mkdirSync(join(real,'nested'));writeFileSync(output,'prior artifact');const existing=run([cli,input,'--out',output,'--report',report]);assert.notEqual(existing.status,0);assert.match(existing.stderr,/distinct paths/);assert.equal(readFileSync(output,'utf8'),'prior artifact');
+  if(process.platform==='win32'){const result=run([cli,input,'--out',join(alias,'PLAN.JSON')]);assert.notEqual(result.status,0);assert.match(result.stderr,/distinct paths/);assert.equal(readFileSync(input,'utf8'),text);}
+  const good=run([cli,input,'--out',join(alias,'map.svgx'),'--report',join(real,'report.json')]);assert.equal(good.status,0,good.stderr);assert.equal(readFileSync(input,'utf8'),text);assert.match(readFileSync(join(real,'map.svgx'),'utf8'),/version="2"/);
+  const trace=fileURLToPath(new URL('../../tools/trace.ts',import.meta.url)),collision=join(real,'evidence.json');writeFileSync(collision,'prior artifact');
+  const traced=run([trace,'unused.png','--out',collision,'--evidence',join(alias,'evidence.json'),'--python','unavailable-python']);assert.notEqual(traced.status,0);assert.match(traced.stderr,/different paths/);assert.equal(readFileSync(collision,'utf8'),'prior artifact');
+});
 test('gameplay API and CLI publish with all legacy generators and compatibility producers blocked',{timeout:120000},t=>{
   const dir=mkdtempSync(join(tmpdir(),'gameplay-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
   const out=join(dir,'map.level.svgx'),report=join(dir,'report.json');

@@ -15,7 +15,8 @@ function reason(candidate:Candidate<unknown>) {return candidate.error instanceof
 /** Historical optional Python portals only. Every candidate retains every hard constraint and exact cover. */
 export async function publishPythonCandidates<T extends ProducedLevel>(plan:NativeSemanticPlan,optionalIds:string[],publish:(p:NativeSemanticPlan)=>Promise<T>) {
   checkSemantic(plan);
-  const source=structuredClone(plan),ids=optionalIds.filter(id=>source.portals?.some(p=>p.id===id));
+  const source=structuredClone(plan),placed=new Set(source.placementDiagnostics?.filter(d=>d.code==='PORTAL_PLACEMENT'&&d.placed===1&&d.omitted===0).map(d=>d.id));
+  const ids=optionalIds.filter(id=>placed.has(id)&&source.portals?.some(p=>p.id===id));
   let skip:string[]=[],best=await evaluate(source,publish);
   for(let round=0;!best.result&&round<ids.length;round++){
     const next=await nextCandidate(source,ids,skip,best,publish);if(!next)break;skip=next.skip;best=next.candidate;

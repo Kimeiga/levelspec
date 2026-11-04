@@ -13,8 +13,12 @@ export type * from './semantic-types.ts';
 export type {ProducerOptions};
 export function parseSemanticPlan(text:string):NativeSemanticPlan {const plan:unknown=JSON.parse(text);checkSemantic(plan);return plan;}
 export function createSemantic(plan:NativeSemanticPlan,patches?:FloorPatches):LevelDocument {
+  const {state,assembly}=createSemanticGeometry(plan,patches);semanticFurniture(state,assembly);return assembly.document;
+}
+/** Geometry stage shared with native annotation, before automatic object placement. */
+export function createSemanticGeometry(plan:NativeSemanticPlan,patches?:FloorPatches) {
   checkSemantic(plan);const state=semanticCells(plan),flights=semanticFlights(state),assembly=assembleSemantic(state,flights,patches);
-  applySemanticPortals(plan,assembly);semanticFurniture(state,assembly);return assembly.document;
+  applySemanticPortals(plan,assembly);return {state,assembly};
 }
 /** The same strict native + physical gates also apply to retained native sources. */
 export async function publishSemanticDocument(document:LevelDocument,options:ProducerOptions={}) {

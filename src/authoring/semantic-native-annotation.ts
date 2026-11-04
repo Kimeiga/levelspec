@@ -1,9 +1,12 @@
 import {projectNativeFloor,nativeFloorPatches} from './semantic-native-projection.ts';
 import {semanticCells,areaCells} from './semantic-cells.ts';
-import {createSemantic} from './semantic.ts';
+import {createSemanticGeometry} from './semantic.ts';
 import {retainNativeAuthorship} from './semantic-native-source.ts';
 import type {NativeSemanticPlan} from './semantic-types.ts';
 import type {LevelDocument} from '../vector/types.ts';
+import {semanticFurniture} from './semantic-furniture.ts';
+import {transformedNativeObjects} from './semantic-native-objects.ts';
+import {horizontalAnnotation} from './semantic-native-flights.ts';
 
 /** Explicit Z is relative to a declared origin, otherwise the uniform source base.
  * Omitted area Z retains its original floor; ambiguous multi-height edits fail. */
@@ -31,7 +34,9 @@ function retainSettings(plan:NativeSemanticPlan,sources:LevelDocument[]) {
   plan.player=structuredClone(first.player);plan.wallThickness=first.wallThickness;plan.floorThickness=first.floorThickness;
 }
 export function createNativeAnnotation(plan:NativeSemanticPlan,sources:LevelDocument[]) {
-  let document=createSemantic(plan,nativeFloorPatches(sources,plan.grid));
+  const {state,assembly}=createSemanticGeometry(plan,nativeFloorPatches(sources,plan.grid));
+  const horizontal=horizontalAnnotation(assembly.document,plan),covers=sources.flatMap(source=>transformedNativeObjects(source,horizontal,plan.grid).covers);
+  semanticFurniture(state,assembly,covers);let document=assembly.document;
   for(const source of sources)document=retainNativeAuthorship(document,source,plan.grid,plan);
   return document;
 }

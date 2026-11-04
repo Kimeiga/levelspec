@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {mkdtempSync,mkdirSync,readFileSync,writeFileSync,rmSync} from 'node:fs';
+import {mkdtempSync,mkdirSync,readFileSync,writeFileSync,rmSync,symlinkSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {parseLevelSvgx,serializeLevelSvgx} from '../../src/vector/format.ts';
@@ -25,6 +25,23 @@ test('native annotation rejects a hard wall conflicting with a source doorway be
   const d=createSemantic({format:'levelspec-semantic/2',id:'door_source',name:'Door source',grid:1,layers:[{id:'ground',height:4}],areas:[{id:'west',rects:[[0,0,10,12]]},{id:'east',rects:[[10,0,10,12]]}],portals:[{id:'door',between:['west','east'],kind:'door',width:2}]});writeFileSync(source,serializeLevelSvgx(d));
   writeFileSync(spec,"ID='wall_annotation'\nNAME='Wall annotation'\nGRID=1\nAREAS=[{'id':'west','seeds':[(4,5,1,1)]},{'id':'east','seeds':[(15,5,1,1)]}]\nDIRECTIVES=['wall west east']\n");
   const r=run('author',['wall','--spec',spec,'--traced',source,'--out',out]);assert.notEqual(r.status,0);assert.match(r.stderr,/conflicts.*boundary/);assert.equal(readFileSync(out,'utf8'),'prior artifact');
+});
+
+test('raw optional portal aliases never erase required low doorways or replace prior output',t=>{
+  const dir=directory(t),spec=join(dir,'collision.py'),out=join(dir,'output.svgx');writeFileSync(out,'prior artifact');
+  for(const active of [false,true]){
+    const id=active?'door_west_east_1':'door_west_east_0',between=active?"('west','east')":"('west','far')";
+    writeFileSync(spec,`ID='portal_alias'\nNAME='Portal alias'\nGRID=1\nAREAS=[{'id':'west','rects':[(0,0,10,12)]},{'id':'east','rects':[(10,0,10,12)]},{'id':'far','rects':[(20,0,10,12)]}]\nPORTALS=[{'id':'${id}','between':${between},'width':1}]\nDIRECTIVES=['door west east 3 head=1','mark spawn west','mark site east','route west east 1']\n`);
+    const result=run('author',['collision','--spec',spec,'--out',out]);assert.notEqual(result.status,0);assert.match(result.stderr,/Duplicate semantic id/);assert.equal(readFileSync(out,'utf8'),'prior artifact');
+  }
+});
+
+test('native annotation CLI places only omitted new markers around retained exact cover',t=>{
+  const dir=directory(t),spec=join(dir,'covered.py'),source=join(dir,'source.svgx'),out=join(dir,'output.svgx');
+  const d=createSemantic({format:'levelspec-semantic/2',id:'covered_source',name:'Covered source',grid:1,layers:[{id:'ground',height:5}],areas:[{id:'room',rects:[[0,0,12,12]]}],covers:[{id:'crate',rect:[5,5,2,2],height:2}],markers:[{id:'retained',kind:'site',area:'room',position:[3,3]}]});writeFileSync(source,serializeLevelSvgx(d));
+  const prefix="ID='covered_annotation'\nNAME='Covered annotation'\nGRID=1\nAREAS=[{'id':'room','seeds':[(3,3,1,1)]}]\n";writeFileSync(spec,prefix+"DIRECTIVES=['mark spawn room']\n");
+  const result=run('author',['covered','--spec',spec,'--traced',source,'--out',out]);assert.equal(result.status,0,result.stderr);const good=readFileSync(out,'utf8'),made=parseLevelSvgx(good);assert.notDeepEqual(made.markers.find(m=>m.id==='mark_spawn_room')!.position,[6.5,6.5,0]);assert.deepEqual(made.markers.find(m=>m.id==='retained')!.position,[3,3,0]);assert.deepEqual(made.covers[0].min,[5,5,0]);assert.deepEqual(made.covers[0].max,[7,7,2]);
+  writeFileSync(spec,prefix+"GAMEPLAY={'markers':[{'id':'explicit','kind':'spawn','area':'room','position':[6,6]}]}\n");const blocked=run('author',['covered','--spec',spec,'--traced',source,'--out',out]);assert.notEqual(blocked.status,0);assert.match(blocked.stderr,/NAV|MARKER/);assert.equal(readFileSync(out,'utf8'),good);
 });
 
 test('Python native annotation publishes a new physical ramp without legacy modules',t=>{
@@ -62,6 +79,13 @@ test('finalizer permits native in-place publication but rejects aliases of other
   const dir=directory(t),native=serializeLevelSvgx(traceToDocument(raster)),path=join(dir,'foo.level.svgx');writeFileSync(path,native);
   let r=run('finalize',['--src',dir,'--out',dir]);assert.equal(r.status,0,r.stderr);assert.equal(readFileSync(path,'utf8'),native);
   writeFileSync(join(dir,'foo.svgx'),native);r=run('finalize',['--src',dir,'--out',dir]);assert.notEqual(r.status,0);assert.match(r.stderr,/collision/i);assert.equal(readFileSync(path,'utf8'),native);
+});
+
+test('finalizer canonical path reuse preserves legitimate in-place publication through a directory alias',t=>{
+  const dir=directory(t),src=join(dir,'real'),alias=join(dir,'alias');mkdirSync(src);symlinkSync(src,alias,process.platform==='win32'?'junction':'dir');
+  const text=serializeLevelSvgx(traceToDocument(raster)),source=join(src,'map.level.svgx');writeFileSync(source,text);
+  const result=run('finalize',['--src',src,'--out',alias]);assert.equal(result.status,0,result.stderr);assert.equal(readFileSync(source,'utf8'),text);
+  writeFileSync(join(src,'map.svgx'),text);const collision=run('finalize',['--src',src,'--out',alias]);assert.notEqual(collision.status,0);assert.match(collision.stderr,/collision/);assert.equal(readFileSync(source,'utf8'),text);
 });
 test('direct native author and finalizer retain an enabled authored ladder',async t=>{
   const {createGameplay}=await import('../../src/gameplay/index.ts');

@@ -1,6 +1,6 @@
-import {readFileSync,readdirSync,realpathSync,existsSync} from 'node:fs';
-import {join,extname,resolve,dirname,basename} from 'node:path';
-import {argumentsFor,writeArtifact} from './producers/io.ts';
+import {readFileSync,readdirSync} from 'node:fs';
+import {join,extname} from 'node:path';
+import {argumentsFor,writeArtifact,canonicalArtifactPath} from './producers/io.ts';
 import {decodeSemanticSource} from '../src/authoring/semantic-sources.ts';
 import {produceSemantic,publishSemanticDocument} from '../src/authoring/semantic.ts';
 import {SEMANTIC_PROFILES,semanticProfile} from '../src/authoring/semantic-profiles.ts';
@@ -10,15 +10,10 @@ if(rest.length>1||rest.some(n=>n.startsWith('-')))throw new Error('usage: node t
 const src=values.get('--src')??join(import.meta.dirname,'../maps/traced'),out=values.get('--out')??join(import.meta.dirname,'../generated/vector/finalized'),filter=rest[0];
 const files=readdirSync(src).filter(f=>['.plan','.svgx','.json'].includes(extname(f))&&(!filter||f.includes(filter))).sort();
 if(!files.length)throw new Error('No traced sources matched.');
-// Resolve existing ancestors too, so a symlinked output directory cannot alias an input.
-function canonicalPath(path:string):string {
-  const absolute=resolve(path),resolved=existsSync(absolute)?realpathSync(absolute):join(canonicalPath(dirname(absolute)),basename(absolute));
-  return process.platform==='win32'?resolved.toLowerCase():resolved;
-}
 const destinations=new Map(files.map(file=>[file,join(out,file.replace(/(?:\.level)?\.(?:plan|svgx|json)$/,'.level.svgx'))]));
-const inputs=new Map(files.map(file=>[canonicalPath(join(src,file)),file])),owners=new Map<string,string>();
+const inputs=new Map(files.map(file=>[canonicalArtifactPath(join(src,file)),file])),owners=new Map<string,string>();
 for(const [file,destination] of destinations){
-  const path=canonicalPath(destination),prior=owners.get(path),input=inputs.get(path);
+  const path=canonicalArtifactPath(destination),prior=owners.get(path),input=inputs.get(path);
   if(prior||input&&input!==file)throw new Error(`Finalizer destination collision: ${file} and ${prior??input} target ${destination}; select one source or use separate output directories.`);
   owners.set(path,file);
 }
