@@ -98,11 +98,12 @@ function placedMarker(d:LevelDocument,id:string,kind:string,p:Placement):Marker 
 }
 
 async function runEndpoints(made:ProducedLevel,d:LevelDocument,rng:Rng,options:ProducerOptions) {
-  const id=identifiers(d),declared=d.markers.find(m=>m.kind==='attacker_spawn');
+  const landMarkers=d.markers.filter(m=>(m.movement??'land')==='land');
+  const id=identifiers(d),declared=landMarkers.find(m=>m.kind==='attacker_spawn');
   let pool=await placementPool(made.level,options,declared?.position);
   const spawn=declared??placedMarker(d,id('run.spawn'),'attacker_spawn',roomyPoint(pool.points,rng));
   if(!declared)pool=await placementPool(made.level,options,spawn.position);
-  const declaredExit=d.markers.find(m=>m.kind==='objective'||m.kind==='site');
+  const declaredExit=landMarkers.find(m=>m.kind==='objective'||m.kind==='site');
   if(!pool.farthest)throw new Error('No supported exit navigation.');
   const exit=declaredExit??placedMarker(d,id('run.exit'),'objective',pool.farthest);
   return {spawn,exit,pool};

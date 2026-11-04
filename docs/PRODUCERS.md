@@ -47,7 +47,7 @@ V2 results expose `document`, canonical `text`, native compiled `level` and a
 runtime `report`. Source-based results also include `legacy` validation evidence.
 Generation retries up to `attempts`, then returns a failure with reasons; it
 never lowers `minRoutes`. Authored loading places run furniture on navigation
-reached from the actual run spawn, validates the added markers and a spawn-to-exit
+reached from the actual land run spawn, validates the added markers and a spawn-to-exit
 route, and preserves any stricter authored routes. All APIs accept cancellation
 through `signal`. Navigation observers expose reached samples and walking
 distances without adding validation seeds or changing acceptance.
