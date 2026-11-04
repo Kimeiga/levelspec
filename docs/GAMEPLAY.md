@@ -80,6 +80,9 @@ reachability and walking distances come from native navigation; `travelSeconds`
 divides those distances by `moveSpeed` (positive; default 4.6 m/s). Native
 `disjointRoutes` remains visible alongside `physicalDisjointRoutes`.
 
+The default marker search checks cover against the full player radius and height,
+including floor-relative cover elevation. Explicit marker positions are never moved.
+
 The conservative physical guard groups contiguous shared native boundary and
 opening runs between logical floor areas into one entrance. Distinct entrances
 require separate runs, such as mouths separated by a real wall pier. It checks

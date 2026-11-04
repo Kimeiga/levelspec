@@ -1,5 +1,6 @@
 import {key,unkey} from '../core/grid.ts';
 import {semanticCells} from './semantic-cells.ts';
+import {checkSemantic} from './semantic-check.ts';
 import type {NativeSemanticPlan,SemanticPortal} from './semantic-types.ts';
 
 interface Segment {axis:number;fixed:number;start:number;end:number;cell:string}
@@ -39,6 +40,7 @@ function selectedRun(parts:Segment[],portal:SemanticPortal,grid:number) {
 }
 /** Historical desired-size portal hints become exact native geometry BEFORE validation. */
 export function placeSourcePortals(plan:NativeSemanticPlan,portals:SemanticPortal[],mode:'annotation'|'composition'|'legacy') {
+  checkSemantic({...plan,portals:[...plan.portals??[],...portals]});
   const areas=new Set(plan.areas.map(a=>a.id));
   for(const portal of portals)for(const id of portal.between)if(!areas.has(id))throw new Error(`${portal.id}: unknown area ${id}.`);
   for(const proposal of portals)placeProposal(plan,proposal,mode);

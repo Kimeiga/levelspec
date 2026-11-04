@@ -3,6 +3,9 @@ import {subdivideNativeEdge} from './native-subdivide.ts';
 import {restoreNativeFloors} from './semantic-native-projection.ts';
 import {transformedNativeObjects} from './semantic-native-objects.ts';
 import {retainNativeSeams} from './semantic-native-seams.ts';
+import {requiredNativeBoundaries,requireCompatibleBoundary} from './semantic-native-intent.ts';
+import type {NativeSemanticPlan} from './semantic-types.ts';
+import {horizontalAnnotation,annotationPunches} from './semantic-native-flights.ts';
 export {projectNativeFloor} from './semantic-native-projection.ts';
 
 function boundaries(d:LevelDocument) {
@@ -10,17 +13,18 @@ function boundaries(d:LevelDocument) {
 }
 function along(p:V3,a:V3,b:V3) {const axis=a[0]===b[0]?1:0;return p[1-axis]===a[1-axis]&&p[axis]>=Math.min(a[axis],b[axis])-1e-7&&p[axis]<=Math.max(a[axis],b[axis])+1e-7;}
 /** Retain source walls/openings and gameplay after exact floor reassignment. */
-export function retainNativeAuthorship(proposal:LevelDocument,source:LevelDocument,grid:number):LevelDocument {
+export function retainNativeAuthorship(proposal:LevelDocument,source:LevelDocument,grid:number,plan?:NativeSemanticPlan):LevelDocument {
   const d=structuredClone(proposal),allIds=new Set([d.id,...d.layers.flatMap(l=>[l.id,...l.vertices.map(v=>v.id),...l.edges.map(e=>e.id),...l.regions.map(r=>r.id)])]);
   const fresh=(base:string)=>{let i=0,id=base;while(allIds.has(id))id=`${base}.${++i}`;allIds.add(id);return id;};
   // Match the original exact segment endpoints before transferring attributes.
   // Trace output deliberately retains every cell boundary vertex.
-  restoreNativeFloors(d,source,grid);
+  const punched=annotationPunches(plan);
+  restoreNativeFloors(horizontalAnnotation(d,plan),source,grid,punched);
   for(const old of boundaries(source))splitAtOriginal(d,old,fresh);
-  const target=boundaries(d);
-  for(const original of boundaries(source))transferBoundary(original,target);
-  retainNativeSeams(d,source,grid);
-  retainObjects(d,source,grid);return d;
+  const target=boundaries(d),required=requiredNativeBoundaries(d,plan);
+  for(const original of boundaries(source))transferBoundary(original,target,required);
+  retainNativeSeams(horizontalAnnotation(d,plan),source,grid,punched,required);
+  retainObjects(d,source,grid,horizontalAnnotation(d,plan));return d;
 }
 type Boundary=ReturnType<typeof boundaries>[number];
 function splitAtOriginal(d:LevelDocument,old:Boundary,fresh:(s:string)=>string) {
@@ -33,12 +37,12 @@ function splitAtOriginal(d:LevelDocument,old:Boundary,fresh:(s:string)=>string) 
     subdivideNativeEdge(d,target.edge,cuts,fresh);
   }
 }
-function transferBoundary(original:Boundary,target:Boundary[]) {
+function transferBoundary(original:Boundary,target:Boundary[],required:Set<string>) {
     const e=original.edge;if(e.kind==='open'&&!e.openings.length)return;
     const matches=target.filter(b=>b.layer===original.layer&&along(b.a,original.a,original.b)&&along(b.b,original.a,original.b));
     const length=Math.hypot(original.b[0]-original.a[0],original.b[1]-original.a[1]);
     if(Math.abs(matches.reduce((n,b)=>n+Math.hypot(b.b[0]-b.a[0],b.b[1]-b.a[1]),0)-length)>1e-7)throw new Error(`${e.id}: annotation would alter an authored native boundary; align the new regions with its endpoints or use raster evidence for a new proposal.`);
-    for(const m of matches)transferAttributes(original,m);
+    for(const m of matches){const expected=structuredClone(m.edge);transferAttributes(original,m);if(required.has(m.edge.id))requireCompatibleBoundary(expected,m.edge);}
 }
 function transferAttributes(original:Boundary,m:Boundary) {
       const e=original.edge;
@@ -47,14 +51,14 @@ function transferAttributes(original:Boundary,m:Boundary) {
       const openings=e.openings.filter(o=>o.end>lo&&o.start<hi).map((o,i)=>{const a=Math.max(o.start,lo),b=Math.min(o.end,hi),offsets=[Math.abs(a-start),Math.abs(b-start)].sort((a,b)=>a-b);return {...o,id:`${m.edge.id}/retained_${i}`,start:offsets[0],end:offsets[1]};});
       const {id,from,to,...attributes}=e;Object.assign(m.edge,attributes,{openings});
 }
-function retainObjects(d:LevelDocument,source:LevelDocument,grid:number) {
+function retainObjects(d:LevelDocument,source:LevelDocument,grid:number,horizontal:LevelDocument) {
   // Source marker positions retain their actual floor association through native
   // inference after labels change. Their IDs are never rewritten by annotation.
-  const transformed=transformedNativeObjects(source,d,grid);d.markers.push(...transformed.markers);
+  const transformed=transformedNativeObjects(source,horizontal,grid);d.markers.push(...transformed.markers);
   d.routes.push(...structuredClone(source.routes));d.noSpawnLos.push(...structuredClone(source.noSpawnLos));d.covers.push(...transformed.covers);
   if(source.links.length)throw new Error('Native annotation cannot reinterpret authored traversal links; finalize this native document directly.');
   if(source.expectFail)d.expectFail=true;if(source.validation==='premap')d.validation='premap';
-  for(const material of source.materials){const old=d.materials.find(m=>m.id===material.id);if(old&&JSON.stringify(old)!==JSON.stringify(material))throw new Error(`Source material ${material.id} conflicts with annotation material.`);if(!old)d.materials.push(structuredClone(material));}
+  for(const material of source.materials){const old=d.materials.find(m=>m.id===material.id);if(old&&JSON.stringify({...old,source:undefined})!==JSON.stringify({...material,source:undefined}))throw new Error(`Source material ${material.id} conflicts with annotation material.`);if(!old)d.materials.push(structuredClone(material));}
   d.player=structuredClone(source.player);d.wallThickness=source.wallThickness;d.wallHeight=source.wallHeight;d.lights.push(...structuredClone(source.lights));
   d.props=mergeNamed(d.props,source.props);d.assets=mergeNamed(d.assets,source.assets);d.references=mergeNamed(d.references,source.references);d.sky=structuredClone(source.sky);d.boat=structuredClone(source.boat);d.curveTolerance=source.curveTolerance;
 }

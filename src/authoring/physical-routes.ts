@@ -5,7 +5,7 @@ import {pathAt,pathLength} from '../vector/geometry.ts';
 import {physicalComponents} from './physical-components.ts';
 import {aborted,type CompiledLevel,type Edge,type Link,type NavigationReport,type V3} from '../vector/types.ts';
 
-interface Run {areas:[string,string];a:V3;b:V3;length:number}
+interface Run {areas:[string,string];a:V3;b:V3;length:number;path:V3[]}
 function intervals(edge:Edge,length:number,level:CompiledLevel) {
   if(edge.kind==='open')return [[0,length]];
   const openings=[...edge.openings];
@@ -16,7 +16,7 @@ function intervals(edge:Edge,length:number,level:CompiledLevel) {
 }
 function boundaryOwners(level:CompiledLevel) {
   const areas=new Map(level.floors.map(f=>[f.region,f.area??f.region])),owners=new Map<string,string[]>();
-  for(const l of level.document.layers)for(const r of l.regions)for(const ref of r.boundary) {
+  for(const l of level.document.layers)for(const r of l.regions)for(const ref of [r.boundary,...r.holes].flat()) {
     const id=ref.replace(/^-/,'');owners.set(id,[...owners.get(id)??[],areas.get(r.id)??r.id]);
   }
   return owners;
@@ -32,7 +32,7 @@ function sharedRuns(level:CompiledLevel):Run[] {
   function add(a:string,b:string,edge:Edge) {
     const pair:[string,string]=a<b?[a,b]:[b,a],path=level.curves[edge.id];
     if(a===b||!path||!semantic.has(pair.join('|')))return;
-    for(const [start,end] of intervals(edge,pathLength(path),level))runs.push({areas:pair,a:pathAt(path,start),b:pathAt(path,end),length:end-start});
+    for(const [start,end] of intervals(edge,pathLength(path),level))runs.push({areas:pair,a:pathAt(path,start),b:pathAt(path,end),length:end-start,path:span(path,start,end)});
   }
   const edges=new Map<string,Edge>();
   for(const layer of level.document.layers)for(const edge of layer.edges)edges.set(edge.id,edge);
@@ -42,7 +42,18 @@ function sharedRuns(level:CompiledLevel):Run[] {
 }
 type Components=ReturnType<typeof physicalComponents>;
 interface Resource {kind:'mouth'|'link';from:string[];to:string[];bidirectional:boolean}
+function span(path:V3[],start:number,end:number):V3[] {
+  const points=[pathAt(path,start)];let distance=0;
+  for(let i=1;i<path.length;i++){
+    distance+=Math.hypot(...path[i].map((n,j)=>n-path[i-1][j]));
+    if(distance>start&&distance<end)points.push(path[i]);
+  }
+  points.push(pathAt(path,end));return points;
+}
 function crossings(run:Run,components:Components):[string,string][] {
+  return run.path.slice(1).flatMap((b,i)=>segmentCrossings({...run,a:run.path[i],b},components));
+}
+function segmentCrossings(run:Run,components:Components):[string,string][] {
   const dx=run.b[0]-run.a[0],dy=run.b[1]-run.a[1],length=Math.hypot(dx,dy),result:[string,string][]=[];
   if(!length)return result;
   for(const fraction of [0.5,0.25,0.75,0.125,0.875]) {

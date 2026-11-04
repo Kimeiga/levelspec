@@ -6,6 +6,7 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {parseLevelSvgx,serializeLevelSvgx} from '../../src/vector/format.ts';
 import {traceToDocument} from '../../src/tracing/native.ts';
+import {createSemantic} from '../../src/authoring/semantic.ts';
 
 const root=resolve(import.meta.dirname,'../..');
 const hook=`import {registerHooks} from 'node:module';
@@ -18,6 +19,20 @@ function run(tool:string,args:string[],isolate:boolean|'source'=true) {
 }
 const raster={format:'levelspec-raster/1' as const,id:'trace',name:'Trace',sourceImage:'fixture.png',grid:1,colors:[[80,90,100] as [number,number,number]],rows:Array.from({length:10},()=>Array(16).fill(0))};
 function directory(t:{after:(fn:()=>void)=>void}) {const dir=mkdtempSync(join(tmpdir(),'semantic-native-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));return dir;}
+
+test('native annotation rejects a hard wall conflicting with a source doorway before replacing output',t=>{
+  const dir=directory(t),spec=join(dir,'wall.py'),source=join(dir,'source.svgx'),out=join(dir,'output.svgx');writeFileSync(out,'prior artifact');
+  const d=createSemantic({format:'levelspec-semantic/2',id:'door_source',name:'Door source',grid:1,layers:[{id:'ground',height:4}],areas:[{id:'west',rects:[[0,0,10,12]]},{id:'east',rects:[[10,0,10,12]]}],portals:[{id:'door',between:['west','east'],kind:'door',width:2}]});writeFileSync(source,serializeLevelSvgx(d));
+  writeFileSync(spec,"ID='wall_annotation'\nNAME='Wall annotation'\nGRID=1\nAREAS=[{'id':'west','seeds':[(4,5,1,1)]},{'id':'east','seeds':[(15,5,1,1)]}]\nDIRECTIVES=['wall west east']\n");
+  const r=run('author',['wall','--spec',spec,'--traced',source,'--out',out]);assert.notEqual(r.status,0);assert.match(r.stderr,/conflicts.*boundary/);assert.equal(readFileSync(out,'utf8'),'prior artifact');
+});
+
+test('Python native annotation publishes a new physical ramp without legacy modules',t=>{
+  const dir=directory(t),spec=join(dir,'ramp.py'),source=join(dir,'source.svgx'),out=join(dir,'output.svgx');
+  const d=createSemantic({format:'levelspec-semantic/2',id:'flat_source',name:'Flat source',grid:1,layers:[{id:'ground',height:5}],areas:[{id:'west',rects:[[0,0,10,12]]},{id:'east',rects:[[10,0,10,12]],z:2}]});writeFileSync(source,serializeLevelSvgx(d));
+  writeFileSync(spec,"ID='ramp_annotation'\nNAME='Ramp annotation'\nGRID=1\nLAYERS=[{'id':'ground','z':0,'height':5}]\nAREAS=[{'id':'west','z':0,'seeds':[(4,5,1,1)]},{'id':'east','z':2,'seeds':[(15,5,1,1)]}]\nRAMPS=[{'id':'slope','at':[(7,4,6,3)]}]\nCOVER=[{'id':'blocked','label':'Blocked','height':1,'at':[(7,4,1,1)]}]\nDIRECTIVES=['mark spawn west','mark site east','route west east 1']\n");
+  const r=run('author',['ramp','--spec',spec,'--traced',source,'--out',out]);assert.equal(r.status,0,r.stderr);assert.match(r.stderr,/blocked: 0\/1/);const made=parseLevelSvgx(readFileSync(out,'utf8'));assert.equal(made.links.length,0);assert.ok(made.layers.flatMap(l=>l.regions).some(r=>r.fill==='ramp'));assert.equal(made.routes[0].minRoutes,1);
+});
 test('conflicting Python PLAYER cannot replace explicit plan or semantic source limits or prior output',t=>{
   const dir=directory(t),spec=join(dir,'labels.py'),out=join(dir,'output.svgx');writeFileSync(out,'prior artifact');
   writeFileSync(spec,"ID='labels'\nNAME='Labels'\nGRID=1\nPLAYER={'radius':0.35,'height':1.8,'step':0.45}\nAREAS=[{'id':'room','seeds':[(3,3,1,1)]}]\n");

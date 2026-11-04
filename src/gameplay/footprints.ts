@@ -38,14 +38,14 @@ export function floorPosition(point:V2,space:GameplaySpace,radius=0):boolean {
   });
 }
 /** Bounded interior search also handles concave polygons whose centroid is outside. */
-export function defaultPosition(space:GameplaySpace,radius:number):V2 {
+export function defaultPosition(space:GameplaySpace,radius:number,clear:(p:V2)=>boolean=()=>true):V2 {
   const points=footprint(space),xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);
   const minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);
   const centre:V2=[(minX+maxX)/2,(minY+maxY)/2];
-  if(floorPosition(centre,space,radius))return centre;
+  if(floorPosition(centre,space,radius)&&clear(centre))return centre;
   for(let y=1;y<32;y++)for(let x=1;x<32;x++) {
     const p:V2=[snapCoordinate(minX+(maxX-minX)*x/32),snapCoordinate(minY+(maxY-minY)*y/32)];
-    if(floorPosition(p,space,radius))return p;
+    if(floorPosition(p,space,radius)&&clear(p))return p;
   }
   throw new Error(`${space.id}: no safe default marker position; author an explicit position.`);
 }

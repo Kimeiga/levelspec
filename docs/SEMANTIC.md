@@ -93,7 +93,9 @@ floor without a seed fails. Ties retain the first declared seed owner.
 
 Historical Python cover rectangles are placement proposals: deterministic interior
 filtering happens before validation, including proposals placing zero cells. Every
-source ID gets proposed/placed/omitted counts. Historical Python portals are also
+source ID gets proposed/placed/omitted counts. The interior search excludes declared
+flight footprints, including flights in directives; exact semantic covers remain exact.
+Historical Python portals are also
 optional proposals. Source width is rounded/clamped to the available grid run;
 annotation retains its disjoint-boundary skip and full-width rules. Impossible
 proposals are diagnosed. A finite strict native candidate search may omit optional
@@ -102,6 +104,7 @@ portals, body limits, routes and LOS are never removed. CLI diagnostics print
 initial placements even when publication fails, plus candidate omissions on success.
 Both portal area IDs must resolve before proposal filtering; a typo is an error,
 including when the proposal would otherwise have no shared boundary.
+Structural IDs must be unique before optional placement or candidate omission.
 
 `author --spec` accepts Python, semantic JSON, gameplay JSON or SVGX. `--traced`
 accepts `levelspec-raster/1` JSON, actual `.plan`, or native SVGX. Actual `.plan`
@@ -121,6 +124,12 @@ Source floors must be horizontal, axis aligned and exactly grid aligned. Each
 annotation source must contain its matching single layer. Native curves, existing
 flights, water regions and authored traversal links should be finalized directly
 or edited with native geometry instead of projecting them into seed cells.
+Vertically overlapping floors in one source layer also require direct native
+finalization; grid projection rejects ambiguous XY ownership before overwriting it.
+New annotation ramps and stairs are supported. Only their declared footprints may
+remove source floor cells; all remaining source floor properties are retained.
+An authored marker, cover or barrier made ambiguous by a flight must be edited
+explicitly in the native source.
 
 Omitted area Z preserves its original floor elevation. Explicit area Z is relative
 to an explicitly declared `LAYERS[].z`, or to the uniform source floor base if no
@@ -134,6 +143,10 @@ requirements, player, flags, materials, lights, assets and references survive.
 Source seam barriers retain their kind, material and metadata. Matching uses the
 original floor ownership on each side, including when a seam becomes several
 pieces. Collapsed, overlapping or incompletely matched source seams fail explicitly.
+Explicit annotation walls and portals must agree with retained authored barriers
+and openings. Conflicts fail with native-edit guidance; raw open source boundaries
+can receive new walls and portals. Open source seams may be replaced within the
+exact footprint of a newly declared physical flight.
 
 Ambiguous transformations fail: a cover spanning different floor shifts, elevation
 changes with imported props, floor-anchored walls requiring old region IDs, and

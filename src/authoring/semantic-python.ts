@@ -2,7 +2,7 @@ import {fields,object,rect,list,finite} from './semantic-check.ts';
 import {semanticCells} from './semantic-cells.ts';
 import {assignSemanticFloor,type SeedArea} from './semantic-annotation.ts';
 import {applySemanticDirectives} from './semantic-directives.ts';
-import {placePythonObjects} from './semantic-python-objects.ts';
+import {placePythonObjects,placePythonCovers} from './semantic-python-objects.ts';
 import {key,unkey} from '../core/grid.ts';
 import type {NativeSemanticPlan,SemanticArea,SemanticLayer,CellRect,SemanticMarker} from './semantic-types.ts';
 
@@ -106,5 +106,5 @@ export function composePythonDeclarations(d:PythonDeclarations,source=new Map<st
     areas:composition?d.AREAS.map(({ceiling,seeds,...a})=>({...a,height:ceiling})):assignedAreas(d,source,layers),
     covers:[],expectFail:d.EXPECT_FAIL,validation:d.VALIDATION,placementDiagnostics:[]};
   if(!composition)inherited(p,source);
-  placePythonObjects(d,p,composition);applySemanticDirectives(p,d.DIRECTIVES??[]);return p;
+  placePythonObjects(d,p,composition);applySemanticDirectives(p,d.DIRECTIVES??[]);placePythonCovers(d,p,composition);return p;
 }

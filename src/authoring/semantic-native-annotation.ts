@@ -32,6 +32,6 @@ function retainSettings(plan:NativeSemanticPlan,sources:LevelDocument[]) {
 }
 export function createNativeAnnotation(plan:NativeSemanticPlan,sources:LevelDocument[]) {
   let document=createSemantic(plan,nativeFloorPatches(sources,plan.grid));
-  for(const source of sources)document=retainNativeAuthorship(document,source,plan.grid);
+  for(const source of sources)document=retainNativeAuthorship(document,source,plan.grid,plan);
   return document;
 }

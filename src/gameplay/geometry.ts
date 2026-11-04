@@ -86,13 +86,16 @@ function configureMouths(layer:Layer,mouths:ReturnType<typeof surfacesFor>['mout
   }
 }
 function furniture(plan:GameplayPlan,d:LevelDocument,spaces:ReturnType<typeof surfacesFor>['spaces'],layer:string,material:string) {
-  for(const m of plan.markers) {
-    const s=spaces.get(m.space)!,p=m.position??defaultPosition(s,d.player.radius+0.15);
-    d.markers.push({id:m.id,label:m.label,layer,region:m.space,kind:m.kind,team:m.team,position:[p[0],p[1],s.z??0]});
-  }
   for(const c of plan.covers??[]) {
     const s=spaces.get(c.space)!,[x,y,z]=c.position,[w,depth,height]=c.size;
     d.covers.push({id:c.id,label:c.label,layer,material,role:c.role??'cover',min:[x-w/2,y-depth/2,(s.z??0)+z],max:[x+w/2,y+depth/2,(s.z??0)+z+height]});
+  }
+  for(const m of plan.markers) {
+    const s=spaces.get(m.space)!,z=s.z??0;
+    const clear=(p:number[])=>d.covers.every(c=>c.max[2]<=z||c.min[2]>=z+d.player.height||
+      Math.hypot(Math.max(c.min[0]-p[0],0,p[0]-c.max[0]),Math.max(c.min[1]-p[1],0,p[1]-c.max[1]))>d.player.radius+0.15);
+    const p=m.position??defaultPosition(s,d.player.radius+0.15,clear);
+    d.markers.push({id:m.id,label:m.label,layer,region:m.space,kind:m.kind,team:m.team,position:[p[0],p[1],z]});
   }
 }
 /** A deterministic authoring proposal; only produceDocument can establish playability. */

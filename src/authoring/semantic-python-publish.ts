@@ -1,5 +1,6 @@
 import type {NativeSemanticPlan} from './semantic-types.ts';
 import type {ProducedLevel} from './native-producer.ts';
+import {checkSemantic} from './semantic-check.ts';
 
 interface Candidate<T> {plan:NativeSemanticPlan;result?:T;error?:unknown}
 function omit(plan:NativeSemanticPlan,ids:string[]) {
@@ -13,6 +14,7 @@ async function evaluate<T>(plan:NativeSemanticPlan,publish:(p:NativeSemanticPlan
 function reason(candidate:Candidate<unknown>) {return candidate.error instanceof Error?candidate.error.message:String(candidate.error);}
 /** Historical optional Python portals only. Every candidate retains every hard constraint and exact cover. */
 export async function publishPythonCandidates<T extends ProducedLevel>(plan:NativeSemanticPlan,optionalIds:string[],publish:(p:NativeSemanticPlan)=>Promise<T>) {
+  checkSemantic(plan);
   const source=structuredClone(plan),ids=optionalIds.filter(id=>source.portals?.some(p=>p.id===id));
   let skip:string[]=[],best=await evaluate(source,publish);
   for(let round=0;!best.result&&round<ids.length;round++){

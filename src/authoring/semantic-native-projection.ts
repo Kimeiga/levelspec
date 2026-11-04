@@ -31,9 +31,15 @@ export function projectNativeFloor(document:LevelDocument,grid:number):NativeSem
     const curves=Object.fromEntries(layer.edges.map(e=>{if(e.control?.length)throw new Error('Native annotation cannot project curves; provide raster evidence or aligned floor geometry.');return [e.id,tessellate(e,layer,document.curveTolerance)];}));
     plan.areas.push(...layer.regions.map(r=>projectRegion(document,layer,r,curves,grid)));
   }
+  const occupied=new Set<string>();
+  for(const area of plan.areas)for(const cell of area.cells!){
+    const key=`${area.layer}:${cell}`;
+    if(occupied.has(key))throw new Error(`${area.id}: overlapping native projected ownership at ${key}; finalize the native source directly.`);
+    occupied.add(key);
+  }
   return plan;
 }
-export function restoreNativeFloors(proposal:LevelDocument,source:LevelDocument,grid:number) {
+export function restoreNativeFloors(proposal:LevelDocument,source:LevelDocument,grid:number,punched=new Set<string>()) {
   const original=projectNativeFloor(source,grid),target=projectNativeFloor({...proposal,layers:proposal.layers.filter(l=>source.layers.some(s=>s.id===l.id))},grid),cells=new Map<string,SemanticArea>();
   for(const a of original.areas)for(const c of a.cells!)cells.set(`${a.layer}:${c}`,a);
   for(const area of target.areas){
@@ -45,7 +51,7 @@ export function restoreNativeFloors(proposal:LevelDocument,source:LevelDocument,
     const r=proposal.layers.flatMap(l=>l.regions).find(r=>r.id===area.id)!;restoreProperties(r,regions[0],source.floorThickness,(area.z??0)-(originals[0].z??0));
     for(const c of area.cells!)cells.delete(`${area.layer}:${c}`);
   }
-  if(cells.size)throw new Error('Annotation removed authored native floor cells.');
+  if([...cells.keys()].some(key=>!punched.has(key)))throw new Error('Annotation removed authored native floor cells outside its declared flights.');
 }
 function restoreProperties(target:Region,source:Region,thickness:number,shift:number) {
   target.ceiling=source.ceiling===undefined?undefined:source.ceiling+shift;target.thickness=source.thickness??thickness;target.material=source.material;

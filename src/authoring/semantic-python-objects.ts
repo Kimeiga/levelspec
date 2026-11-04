@@ -3,8 +3,10 @@ import {semanticCells,areaAt} from './semantic-cells.ts';
 import type {PythonDeclarations} from './semantic-python.ts';
 import type {NativeSemanticPlan,SemanticState,Cell} from './semantic-types.ts';
 import {placeSourcePortals} from './semantic-source-portals.ts';
+import {verticalFootprint} from '../core/vertical-footprint.ts';
 
-function covers(d:PythonDeclarations,p:NativeSemanticPlan,state:SemanticState,composition:boolean) {
+export function placePythonCovers(d:PythonDeclarations,p:NativeSemanticPlan,composition:boolean) {
+  const state=semanticCells(p);excludeFlights(state);
   const occupied=new Map([...state.layers].map(([id,l])=>[id,new Map(l.owner)]));
   for(const c of d.COVER??[]){
     const layer=c.layer??p.layers[0].id,owner=occupied.get(layer);if(!owner)throw new Error(`${c.id}: unknown layer ${layer}.`);
@@ -12,6 +14,13 @@ function covers(d:PythonDeclarations,p:NativeSemanticPlan,state:SemanticState,co
     const diagnostic={id:c.id,code:'COVER_PLACEMENT',proposed,placed:selected.size,omitted:proposed-selected.size,message:`${c.id}: ${selected.size}/${proposed} proposed cover cells satisfy the deterministic interior rule.`};
     p.placementDiagnostics!.push(diagnostic);
     emitCover(c,p,state,layer,selected);
+  }
+}
+function excludeFlights(state:SemanticState) {
+  for(const f of state.plan.flights??[]){
+    const footprint=verticalFootprint({id:f.id,kind:f.kind,from_layer:f.from.layer,to_layer:f.to.layer,from_cell:f.from.cell,to_cell:f.to.cell,width:f.width??2*state.plan.grid},state.plan.grid);
+    if(!footprint)throw new Error(`${f.id}: physical flight requires a footprint.`);
+    for(const layer of new Set([f.from.layer,f.to.layer]))for(const [x,y] of rectCells(footprint.footprint))state.layers.get(layer)?.owner.delete(key(x,y));
   }
 }
 type PythonCover=NonNullable<PythonDeclarations['COVER']>[number];
@@ -44,7 +53,7 @@ function placeRamp(r:NonNullable<PythonDeclarations['RAMPS']>[number],p:NativeSe
 }
 function elevation(state:SemanticState,layer:string,cell:Cell) {return areaAt(state,layer,cell).z??0;}
 export function placePythonObjects(d:PythonDeclarations,p:NativeSemanticPlan,composition:boolean) {
-  const state=semanticCells(p);ramps(d,p,state);covers(d,p,state,composition);
+  const state=semanticCells(p);ramps(d,p,state);
   const portals=(d.PORTALS??[]).map((portal,i)=>({id:portal.id??`portal/${i}`,between:portal.between,kind:portal.kind??'door',width:portal.width==='full'?'full' as const:(portal.width??2)*p.grid,at:portal.at?.map(n=>(n+.5)*p.grid) as Cell|undefined,head:portal.head,sill:portal.sill}));
   placeSourcePortals(p,portals,composition?'composition':'annotation');
   for(const f of d.STAIRS??[])(p.flights??=[]).push({id:`flight/${f.id}`,label:f.label,kind:f.kind??'stairs',from:{layer:f.from,cell:f.from_at},to:{layer:f.to,cell:f.to_at},width:f.width===undefined?undefined:Math.max(1,Math.round(f.width/p.grid))*p.grid,rise:f.rise});

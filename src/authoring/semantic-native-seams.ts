@@ -26,20 +26,39 @@ function matches(original:SourceSeam,target:SourceSeam) {
   const [a,b]=original.sides,[c,d]=target.sides;
   return matchesSide(a,c)&&matchesSide(b,d)||matchesSide(a,d)&&matchesSide(b,c);
 }
-function requireCoverage(original:SourceSeam,matched:SourceSeam[]) {
+function punchedSpans(original:SourceSeam,grid:number,punched:Set<string>) {
+  if(original.seam.kind!=='open'||!punched.size)return [];
+  const {a,b}=original.sides[0],axis=a[0]===b[0]?1:0,start=Math.min(a[axis],b[axis]),end=Math.max(a[axis],b[axis]),spans:number[][]=[];
+  for(let lo=start;lo<end;lo+=grid){
+    const hi=Math.min(end,lo+grid),point=[...a];point[axis]=(lo+hi)/2;
+    const removed=original.sides.every(side=>[...side.cells].some(cell=>{
+      if(!punched.has(`${side.layer}:${cell}`))return false;
+      const center=cell.split(',').map(n=>(Number(n)+.5)*grid);
+      return center.every((n,i)=>Math.abs(n-point[i])<=grid/2+1e-7);
+    }));
+    if(removed)spans.push([lo,hi]);
+  }
+  return spans;
+}
+function requireCoverage(original:SourceSeam,matched:SourceSeam[],grid:number,punched:Set<string>) {
   const {a,b}=original.sides[0],axis=a[0]===b[0]?1:0,end=Math.max(a[axis],b[axis]);let cursor=Math.min(a[axis],b[axis]);
-  const spans=matched.map(m=>m.sides[0]).map(s=>[Math.min(s.a[axis],s.b[axis]),Math.max(s.a[axis],s.b[axis])]).sort((a,b)=>a[0]-b[0]);
+  const spans=[...matched.map(m=>m.sides[0]).map(s=>[Math.min(s.a[axis],s.b[axis]),Math.max(s.a[axis],s.b[axis])]),...punchedSpans(original,grid,punched)].sort((a,b)=>a[0]-b[0]);
   for(const [start,stop] of spans){if(Math.abs(start-cursor)>1e-7)throw new Error(`${original.seam.id}: cannot retain seam through overlapping or incomplete transformed boundaries.`);cursor=stop;}
   if(Math.abs(cursor-end)>1e-7)throw new Error(`${original.seam.id}: cannot retain seam after annotation; preserve its two floor boundaries or edit it explicitly.`);
 }
 /** Source floor ownership disambiguates the two XY-coincident sides after Z edits. */
-export function retainNativeSeams(target:LevelDocument,source:LevelDocument,grid:number) {
+export function retainNativeSeams(target:LevelDocument,source:LevelDocument,grid:number,punched=new Set<string>(),required=new Set<string>()) {
   if(!source.seams.length)return;
   const relevant={...target,layers:target.layers.filter(l=>source.layers.some(s=>s.id===l.id))};
   const edgeIds=new Set(relevant.layers.flatMap(l=>l.edges.map(e=>e.id)));relevant.seams=target.seams.filter(s=>s.edges.every(id=>edgeIds.has(id)));
   const candidates=descriptors(relevant,grid),claimed=new Set<Seam>();
   for(const original of descriptors(source,grid)){
-    const matched=candidates.filter(candidate=>matches(original,candidate));requireCoverage(original,matched);
-    for(const {seam} of matched){if(claimed.has(seam))throw new Error(`${original.seam.id}: ambiguous overlapping source seams.`);claimed.add(seam);const {id,edges,...attributes}=original.seam;Object.assign(seam,structuredClone(attributes));}
+    const matched=candidates.filter(candidate=>matches(original,candidate));requireCoverage(original,matched,grid,punched);
+    for(const {seam} of matched){
+      if(claimed.has(seam))throw new Error(`${original.seam.id}: ambiguous overlapping source seams.`);claimed.add(seam);
+      const constrained=seam.edges.some(id=>required.has(id));
+      if(constrained&&original.seam.kind==='wall'&&seam.kind!=='wall')throw new Error(`${seam.id}: annotation conflicts with an authored native boundary seam.`);
+      const {id,edges,...attributes}=original.seam;Object.assign(seam,structuredClone(attributes),constrained?{kind:seam.kind}:{});
+    }
   }
 }
