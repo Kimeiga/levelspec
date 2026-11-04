@@ -85,10 +85,16 @@ test('the public native tracing API needs no legacy modules or Python interprete
   assert.equal(r.status,0,r.stderr);
 });
 
-test('legacy trace publication still produces a validated plan draft',{timeout:120000},t=>{
+test('native and legacy trace publication preserve user IDs and their output formats',{timeout:120000},t=>{
   const dir=mkdtempSync(join(tmpdir(),'legacy-trace-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const image=join(dir,'room.png'),out=join(dir,'room.plan');roomImage(image);
-  const r=spawnSync(process.execPath,[fileURLToPath(new URL('../../tools/trace.ts',import.meta.url)),image,
-    '--legacy','--cells','12','--bands','1','--grid','1','--out',out],{encoding:'utf8',timeout:110000});
-  assert.equal(r.status,0,r.stderr);assert.match(readFileSync(out,'utf8'),/\r?\nlegend\r?\n[\s\S]*\r?\nplan\r?\n/);
+  const image=join(dir,'room.png');roomImage(image);
+  for(const id of ['default','ground'])for(const legacy of [false,true]){
+    const out=join(dir,`${id}.${legacy?'plan':'level.svgx'}`);
+    const r=spawnSync(process.execPath,[fileURLToPath(new URL('../../tools/trace.ts',import.meta.url)),image,
+      '--id',id,...(legacy?['--legacy']:[]),'--cells','12','--bands','1','--grid','1','--out',out],{encoding:'utf8',timeout:110000});
+    assert.equal(r.status,0,r.stderr);
+    const text=readFileSync(out,'utf8');
+    if(legacy)assert.match(text,/\r?\nlegend\r?\n[\s\S]*\r?\nplan\r?\n/);
+    else assert.equal(parseLevelSvgx(text).id,id);
+  }
 });

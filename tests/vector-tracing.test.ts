@@ -54,6 +54,14 @@ test('native trace publication rejects disconnected and capsule-narrow floor wit
   await assert.rejects(()=>produceTrace(narrow),/NAV_/);
 });
 
+test('native tracing preserves document IDs that also name generated objects',async()=>{
+  for(const id of ['default','ground','band_0','area_0','trace/floor_0','trace/floor_0/v0','trace/floor_0/e0']){
+    const input=raster(Array.from({length:8},()=>Array(12).fill(0)));input.id=id;
+    const result=await produceTrace(input);
+    assert.equal(result.document.id,id);assert.equal(result.report.passed,true,id);
+  }
+});
+
 test('native trace constraints still pass through the unchanged runtime publication gate',async()=>{
   const d=traceToDocument(raster(Array.from({length:8},()=>Array(12).fill(0))));
   d.markers=[{id:'start',kind:'attacker_spawn',layer:'ground',position:[2.5,3.5,0]},

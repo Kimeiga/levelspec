@@ -71,19 +71,28 @@ function boundary({x,y,w,h}:Tile,grid:number):V3[] {
   return points;
 }
 
+function allocator(documentId:string) {
+  const used=new Set([documentId]);
+  return (base:string)=>{let id=base;while(used.has(id))id='_'+id;used.add(id);return id;};
+}
+
 /** Proposal only; use produceTrace to establish runtime readiness. */
 export function traceToDocument(input:RasterTrace) {
   const t=checked(input),id=t.id.replace(/[^\w.:/-]/g,'_');
   const scene=new SceneBuilder(/^[A-Za-z_]/.test(id)?id:'id_'+id),d=scene.document;
+  // The builder's unused default material can itself collide with a document
+  // named "default". Reserve the document ID before allocating trace objects.
+  d.materials=[];
+  const allocate=allocator(d.id),namespace=d.id.startsWith('trace/')?'_trace':'trace';
   d.name=t.name;d.description=`Footprint traced from ${t.sourceImage}. Color bands are provisional areas; elevations and gameplay require authoring.`;
   d.wallHeight=5;d.wallThickness=0.32;d.floorThickness=0.2;
   // Preserve the tracer's historical capsule, rather than the smaller native default.
   d.player={...d.player,radius:0.35,height:1.8,step:0.45,crouch:1.1,vault:0};
-  const group=scene.group('trace',{},'ground'),owners=new Map<string,number>(),floorTiles=tiles(t);
+  const group=scene.group(namespace,{},allocate('ground')),owners=new Map<string,number>(),floorTiles=tiles(t),materials=new Map<number,string>();
   for(const band of new Set(floorTiles.map(tile=>tile.band)))
-    scene.material(`band_${band}`,{color:'#'+t.colors[band].map(n=>Math.round(n).toString(16).padStart(2,'0')).join('')});
+    materials.set(band,scene.material(allocate(`band_${band}`),{color:'#'+t.colors[band].map(n=>Math.round(n).toString(16).padStart(2,'0')).join('')}));
   for(const [i,tile] of floorTiles.entries()){
-    const band=tile.band,region=group.polygon(`floor_${i}`,boundary(tile,t.grid),{material:`band_${band}`,thickness:d.floorThickness});
+    const band=tile.band,region=group.polygon(`floor_${i}`,boundary(tile,t.grid),{material:materials.get(band),thickness:d.floorThickness});
     region.area=`area_${band}`;region.label=`Area ${band+1}`;region.role='lane';
     for(const ref of region.boundary){const edge=ref.replace(/^-/,'');owners.set(edge,(owners.get(edge)??0)+1);}
   }
