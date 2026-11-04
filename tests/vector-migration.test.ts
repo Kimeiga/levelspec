@@ -7,6 +7,7 @@ import { compile } from "../src/vector/compiler.ts";
 import { validateForRuntime } from "../src/vector/validate.ts";
 import { planToSpec } from "../src/authoring/plan.ts";
 import { compile as compileLegacy } from "../src/core/compiler.ts";
+import { validateForRuntime as validateLegacy } from "../src/core/validate.ts";
 
 it("preserves the legacy capsule defaults when a JSON spec omits player settings", () => {
   const spec: LevelSpec = {
@@ -55,7 +56,8 @@ for (const source of ["levels/compiler_demo_hall.json", "levels/dust_three_lane_
 
 for (const source of ["maps/hand/interchange.plan", "maps/hand/kasbah.plan", "maps/hand/mirage.plan", "maps/hand/nuke.plan", "maps/hand/train.plan", "maps/hand/inferno.plan", "maps/hand/assembly_b.plan", "maps/hand/bathhouse.plan", "maps/hand/relay.plan", "maps/hand/riser.plan", "maps/hand/stacks_c.plan", "maps/hand/reserve.plan"]) {
   it(`retains the required independent approaches in ${source}`, async () => {
-    const { document } = migrateText(readFileSync(source, "utf8"));
+    const { document, legacy } = migrateText(readFileSync(source, "utf8"));
+    assert.equal(validateLegacy(legacy, { skipSealed: true }).passed, true, source);
     const report = await validateForRuntime(await compile(document));
     assert.equal(report.passed, true, JSON.stringify(report.diagnostics.filter(d => d.severity === "error")));
     for (const requested of document.routes)
@@ -83,6 +85,17 @@ for (const width of [1, 4]) it(`counts a single ${width} m doorway once after mi
   const report = await validateForRuntime(await compile(document));
   assert.equal(report.navigation!.routes[0].disjointRoutes, 1);
   assert.ok(report.diagnostics.some(d => d.code === "ROUTE_REQUIREMENT"));
+});
+
+for (const [second, expected] of [[5, 1], [6, 2]]) it(`counts touching portal IDs by their physical aperture, second hint ${second}`, async () => {
+  const spec = adjacentRooms();
+  spec.layers[0].portals = [
+    { id: "left", between: ["a", "b"], kind: "door", width_cells: 2, hint: [6, 3] },
+    { id: "right", between: ["a", "b"], kind: "door", width_cells: 2, hint: [6, second] },
+  ];
+  const report = await validateForRuntime(await compile(migrateSpec(spec).document));
+  assert.equal(report.navigation!.routes[0].disjointRoutes, expected);
+  assert.equal(report.passed, expected === 2, JSON.stringify(report.diagnostics));
 });
 
 it("retains two separate openings between the same areas", async () => {

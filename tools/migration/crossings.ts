@@ -6,7 +6,10 @@ function crossingGroups(level: CompiledLevel) {
   for (const e of level.nav.edges) {
     const a = level.nav.nodes[e.a], b = level.nav.nodes[e.b];
     if (a.space === b.space && a.layer === b.layer) continue;
-    const key = JSON.stringify([[`${a.layer}:${a.space}`, `${b.layer}:${b.space}`].sort(), e.kind, e.via]);
+    // Portal labels and kinds cannot turn one contiguous opening into two
+    // entrances. Only vertical connections keep their authored identity.
+    const identity = e.kind === "vertical" ? [e.kind, e.via] : ["boundary"];
+    const key = JSON.stringify([[`${a.layer}:${a.space}`, `${b.layer}:${b.space}`].sort(), identity]);
     const group = groups.get(key) ?? [];
     group.push(e);
     groups.set(key, group);
