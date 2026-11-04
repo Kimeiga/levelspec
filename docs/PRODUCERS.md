@@ -20,9 +20,12 @@ Native proposals have their own deterministic seed sequence and layouts; they
 do not promise identical drawings to the compatibility generator. The existing
 `generateLevel` API and `gen --legacy` retain their original algorithms and output
 formats. Radar tracing now constructs native regions directly from raster
-evidence, too. Plan/spec authored inputs, Python semantic annotation/composition,
-concept proposals and legacy-plan finalization still use explicit compatibility
-paths. No legacy APIs are retired.
+evidence, too. Python semantic annotation/composition and finalization now build
+native geometry directly. Actual `.plan` files are decoded only at an explicit,
+lazy source boundary; their native publication does not run the old compiler.
+Concept proposals and the public plan/spec compatibility producers retain their
+existing paths. No legacy APIs are retired. See [native semantic authoring](SEMANTIC.md)
+for the reusable API, source placement rules and SVGX annotation requirements.
 
 ```sh
 npm run gen -- 10 --keep             # generated/vector/levels/*.level.svgx

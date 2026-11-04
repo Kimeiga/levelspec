@@ -14,7 +14,8 @@
     "./export": "./src/export/vector/index.ts",
     "./authoring": "./src/vector/authoring.ts",
     "./reconstruction": "./src/reconstruction/index.ts",
-    "./gameplay": "./src/gameplay/index.ts"
+    "./gameplay": "./src/gameplay/index.ts",
+    "./semantic": "./src/authoring/semantic.ts"
   },
   "scripts": {
     "compile": "node tools/build.ts",
