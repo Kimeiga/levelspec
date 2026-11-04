@@ -37,6 +37,6 @@ export function createNativeAnnotation(plan:NativeSemanticPlan,sources:LevelDocu
   const {state,assembly}=createSemanticGeometry(plan,nativeFloorPatches(sources,plan.grid));
   const horizontal=horizontalAnnotation(assembly.document,plan),covers=sources.flatMap(source=>transformedNativeObjects(source,horizontal,plan.grid).covers);
   semanticFurniture(state,assembly,covers);let document=assembly.document;
-  for(const source of sources)document=retainNativeAuthorship(document,source,plan.grid,plan);
+  for(const source of sources)document=retainNativeAuthorship(document,source,plan.grid,plan,sources);
   return document;
 }

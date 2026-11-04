@@ -14,8 +14,8 @@ function boundaries(d:LevelDocument) {
 }
 function along(p:V3,a:V3,b:V3) {const axis=a[0]===b[0]?1:0;return p[1-axis]===a[1-axis]&&p[axis]>=Math.min(a[axis],b[axis])-1e-7&&p[axis]<=Math.max(a[axis],b[axis])+1e-7;}
 /** Retain source walls/openings and gameplay after exact floor reassignment. */
-export function retainNativeAuthorship(proposal:LevelDocument,source:LevelDocument,grid:number,plan?:NativeSemanticPlan):LevelDocument {
-  const d=structuredClone(proposal),allIds=new Set([d.id,...d.layers.flatMap(l=>[l.id,...l.vertices.map(v=>v.id),...l.edges.map(e=>e.id),...l.regions.map(r=>r.id)])]);
+export function retainNativeAuthorship(proposal:LevelDocument,source:LevelDocument,grid:number,plan?:NativeSemanticPlan,retainedSources:readonly LevelDocument[]=[]):LevelDocument {
+  const d=structuredClone(proposal),allIds=new Set([d,source,...retainedSources].flatMap(documentIds));
   const fresh=(base:string)=>{let i=0,id=base;while(allIds.has(id))id=`${base}.${++i}`;allIds.add(id);return id;};
   // Match the original exact segment endpoints before transferring attributes.
   // Trace output deliberately retains every cell boundary vertex.
@@ -23,9 +23,18 @@ export function retainNativeAuthorship(proposal:LevelDocument,source:LevelDocume
   restoreNativeFloors(horizontalAnnotation(d,plan),source,grid,punched);
   for(const old of boundaries(source))splitAtOriginal(d,old,fresh);
   const target=boundaries(d),required=requiredNativeBoundaries(d,plan),oldOwners=nativeBoundaryCells(source,grid),newOwners=nativeBoundaryCells(horizontalAnnotation(d,plan),grid);
-  for(const original of boundaries(source))transferBoundary(original,target,required,oldOwners,newOwners);
+  for(const original of boundaries(source))transferBoundary(original,target,required,oldOwners,newOwners,fresh);
   retainNativeSeams(horizontalAnnotation(d,plan),source,grid,punched,required);
   retainObjects(d,source,grid,horizontalAnnotation(d,plan));return d;
+}
+
+// Generated topology shares the canonical global namespace with metadata,
+// including authorship from sources that will be restored in later passes.
+function documentIds(d:LevelDocument):string[] {
+  return [d,...d.layers.flatMap(l=>[l,...l.vertices,...l.edges,...l.regions,...l.edges.flatMap(e=>e.openings)]),
+    ...d.seams,...d.covers,...(d.props??[]),...(d.assets??[]),
+    ...(d.references??[]).flatMap(r=>[r,...r.landmarks,...r.masks]),
+    ...d.materials,...d.markers,...d.links,...d.routes,...d.lights].map(o=>o.id);
 }
 type Boundary=ReturnType<typeof boundaries>[number];
 function splitAtOriginal(d:LevelDocument,old:Boundary,fresh:(s:string)=>string) {
@@ -39,19 +48,19 @@ function splitAtOriginal(d:LevelDocument,old:Boundary,fresh:(s:string)=>string) 
     subdivideNativeBoundary(d,target.edge,cuts,fresh);
   }
 }
-function transferBoundary(original:Boundary,target:Boundary[],required:Set<string>,oldOwners:Map<string,Set<string>>,newOwners:Map<string,Set<string>>) {
+function transferBoundary(original:Boundary,target:Boundary[],required:Set<string>,oldOwners:Map<string,Set<string>>,newOwners:Map<string,Set<string>>,fresh:(s:string)=>string) {
     const e=original.edge;if(e.kind==='open'&&!e.openings.length)return;
     const cells=oldOwners.get(e.id),sameOwner=(id:string)=>!cells||[...newOwners.get(id)??[]].some(c=>cells.has(c));
     const matches=target.filter(b=>b.layer===original.layer&&sameOwner(b.edge.id)&&along(b.a,original.a,original.b)&&along(b.b,original.a,original.b));
     const length=Math.hypot(original.b[0]-original.a[0],original.b[1]-original.a[1]);
     if(Math.abs(matches.reduce((n,b)=>n+Math.hypot(b.b[0]-b.a[0],b.b[1]-b.a[1]),0)-length)>1e-7)throw new Error(`${e.id}: annotation would alter an authored native boundary; align the new regions with its endpoints or use raster evidence for a new proposal.`);
-    for(const m of matches){const expected=structuredClone(m.edge);transferAttributes(original,m);if(required.has(m.edge.id))requireCompatibleBoundary(expected,m.edge);}
+    for(const m of matches){const expected=structuredClone(m.edge);transferAttributes(original,m,fresh);if(required.has(m.edge.id))requireCompatibleBoundary(expected,m.edge);}
 }
-function transferAttributes(original:Boundary,m:Boundary) {
+function transferAttributes(original:Boundary,m:Boundary,fresh:(s:string)=>string) {
       const e=original.edge;
       if(e.baseFloor||e.topFloor||e.spanFloors)throw new Error(`${e.id}: authored floor-anchored boundary needs an explicit native edit before annotation.`);
       const start=Math.hypot(m.a[0]-original.a[0],m.a[1]-original.a[1]),end=Math.hypot(m.b[0]-original.a[0],m.b[1]-original.a[1]),lo=Math.min(start,end),hi=Math.max(start,end);
-      const openings=e.openings.filter(o=>o.end>lo&&o.start<hi).map((o,i)=>{const a=Math.max(o.start,lo),b=Math.min(o.end,hi),offsets=[Math.abs(a-start),Math.abs(b-start)].sort((a,b)=>a-b);return {...o,id:`${m.edge.id}/retained_${i}`,start:offsets[0],end:offsets[1]};});
+      const openings=e.openings.filter(o=>o.end>lo&&o.start<hi).map((o,i)=>{const a=Math.max(o.start,lo),b=Math.min(o.end,hi),offsets=[Math.abs(a-start),Math.abs(b-start)].sort((a,b)=>a-b);return {...o,id:fresh(`${m.edge.id}/retained_${i}`),start:offsets[0],end:offsets[1]};});
       const {id,from,to,...attributes}=e;Object.assign(m.edge,attributes,{openings});
 }
 function retainObjects(d:LevelDocument,source:LevelDocument,grid:number,horizontal:LevelDocument) {

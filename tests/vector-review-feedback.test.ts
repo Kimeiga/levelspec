@@ -15,6 +15,41 @@ import type {Region} from '../src/vector/types.ts';
 
 const plan=():NativeSemanticPlan=>({format:'levelspec-semantic/2',id:'review',name:'Review',grid:1,layers:[{id:'ground',height:5}],areas:[{id:'west',rects:[[0,0,10,12]]},{id:'east',rects:[[10,0,10,12]]}]});
 
+test('native subdivision reserves retained and proposed metadata across every generated prefix',async()=>{
+  for(const prefix of ['split/vertex','split/edge','split/seam'])for(const retained of [true,false]){
+    const p=plan();p.areas[1].z=.3;p.portals=[{id:'step_door',between:['west','east'],kind:'door',width:4}];
+    const metadata={markers:[{id:prefix,kind:'spawn',area:'west',position:[3,3] as [number,number]},{id:'site',kind:'site',area:'east',position:[17,3] as [number,number]}],routes:[{id:prefix+'.1',from:prefix,to:'site',minRoutes:1}],covers:[{id:prefix+'.2',rect:[4,5,2,2] as [number,number,number,number],height:1}]};
+    if(retained)Object.assign(p,metadata);
+    const source=createSemantic(p),before=serializeLevelSvgx(source);await publishSemanticDocument(source);
+    const q=structuredClone(p);q.portals=[];q.markers=[];q.routes=[];q.covers=[];if(!retained)Object.assign(q,metadata);
+    const d=createNativeAnnotation(q,[source]),made=await publishSemanticDocument(d);
+    assert.equal(made.physical.routes[0].physicalDisjointRoutes,1);assert.equal(d.markers[0].id,prefix);assert.equal(d.routes[0].id,prefix+'.1');assert.equal(d.covers[0].id,prefix+'.2');
+    assert.equal(d.layers[0].edges.flatMap(e=>e.openings).reduce((sum,o)=>sum+o.end-o.start,0),4);
+    assert.equal(serializeLevelSvgx(source),before);assert.equal(serializeLevelSvgx(createNativeAnnotation(q,[source])),serializeLevelSvgx(d));
+    d.routes[0].minRoutes=2;await assert.rejects(publishSemanticDocument(d),/independent|route/i);
+    if(retained){Object.assign(q,metadata);await assert.rejects(publishSemanticDocument(createNativeAnnotation(q,[source])),/Duplicate id/);}
+  }
+});
+
+test('restored opening IDs also avoid the authored global namespace',async()=>{
+  const p=plan();p.areas[1].z=.3;p.portals=[{id:'step_door',between:['west','east'],kind:'door',width:4}];p.markers=[{id:'spawn',kind:'spawn',area:'west',position:[3,3]},{id:'site',kind:'site',area:'east',position:[17,3]}];p.routes=[{id:'through',from:'spawn',to:'site',minRoutes:1}];
+  const source=createSemantic(p),q=structuredClone(p);q.markers=[];q.routes=[];q.portals=[];
+  const opening=createNativeAnnotation(q,[source]).layers[0].edges.flatMap(e=>e.openings)[0].id;
+  source.markers[0].id=opening;source.routes[0].from=opening;await publishSemanticDocument(source);
+  const d=createNativeAnnotation(q,[source]),made=await publishSemanticDocument(d);assert.equal(d.markers[0].id,opening);assert.equal(d.routes[0].from,opening);assert.equal(made.physical.routes[0].physicalDisjointRoutes,1);
+  assert.notEqual(d.layers[0].edges.flatMap(e=>e.openings)[0].id,opening);
+});
+
+test('native subdivision reserves authorship from sources restored in later passes',async()=>{
+  const p=plan();p.areas[1].z=.3;p.portals=[{id:'step_door',between:['west','east'],kind:'door',width:4}];
+  const later:NativeSemanticPlan={format:'levelspec-semantic/2',id:'later',name:'Later',grid:1,layers:[{id:'annex',height:5}],areas:[{id:'room',layer:'annex',rects:[[20,0,12,12]],z:3}],markers:[{id:'split/seam',kind:'site',area:'room',position:[23,3]},{id:'split/edge',kind:'site',area:'room',position:[24,3]},{id:'split/vertex',kind:'site',area:'room',position:[25,3]}]};
+  const sources=[createSemantic(p),createSemantic(later)];
+  for(const source of sources){const l=source.layers[0];for(const e of l.edges)if([e.from,e.to].every(id=>l.vertices.find(v=>v.id===id)!.x===20))e.kind='open';await publishSemanticDocument(source);}
+  const q=structuredClone(p);q.portals=[];q.layers.push(...later.layers);q.areas.push(...later.areas);q.flights=[{id:'join',kind:'ramp',from:{layer:'ground',cell:[16,5]},to:{layer:'annex',cell:[23,5]},width:3}];
+  const d=createNativeAnnotation(q,sources);await publishSemanticDocument(d);assert.deepEqual(d.markers.map(m=>[m.id,m.kind,m.layer,m.position]),sources[1].markers.map(m=>[m.id,m.kind,m.layer,m.position]));
+  assert.equal(serializeLevelSvgx(createNativeAnnotation(q,sources.toReversed())),serializeLevelSvgx(d));
+});
+
 test('hard annotation walls and portals cannot be overwritten by retained source openings',async()=>{
   const p=plan();p.areas.push({id:'north',rects:[[0,12,20,5]]});p.portals=[{id:'original_door',between:['west','east'],kind:'door',width:2}];const source=createSemantic(p);
   const q=structuredClone(p);delete q.portals;q.boundaries=[{between:['west','east'],kind:'wall'}];

@@ -20,6 +20,15 @@ function run(tool:string,args:string[],isolate:boolean|'source'=true) {
 const raster={format:'levelspec-raster/1' as const,id:'trace',name:'Trace',sourceImage:'fixture.png',grid:1,colors:[[80,90,100] as [number,number,number]],rows:Array.from({length:10},()=>Array(16).fill(0))};
 function directory(t:{after:(fn:()=>void)=>void}) {const dir=mkdtempSync(join(tmpdir(),'semantic-native-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));return dir;}
 
+test('native annotation CLI preserves source metadata IDs that share generated split prefixes',t=>{
+  const dir=directory(t),spec=join(dir,'namespace.py'),source=join(dir,'source.svgx'),out=join(dir,'output.svgx');
+  const d=createSemantic({format:'levelspec-semantic/2',id:'namespace',name:'Namespace',grid:1,layers:[{id:'ground',height:5}],areas:[{id:'west',rects:[[0,0,10,12]]},{id:'east',rects:[[10,0,10,12]],z:.3}],portals:[{id:'step_door',between:['west','east'],kind:'door',width:4}],markers:[{id:'split/seam',kind:'spawn',area:'west',position:[3,3]},{id:'split/edge',kind:'site',area:'east',position:[17,3]}],routes:[{id:'split/vertex',from:'split/seam',to:'split/edge',minRoutes:1}]});
+  const original=serializeLevelSvgx(d);writeFileSync(source,original);
+  writeFileSync(spec,"ID='namespace_annotation'\nNAME='Namespace annotation'\nGRID=1\nAREAS=[{'id':'west','seeds':[(0,0,10,12)]},{'id':'east','seeds':[(10,0,10,12)]}]\n");
+  const result=run('author',['namespace','--spec',spec,'--traced',source,'--out',out]);assert.equal(result.status,0,result.stderr);
+  const made=parseLevelSvgx(readFileSync(out,'utf8'));assert.deepEqual(made.markers.map(m=>m.id),['split/seam','split/edge']);assert.equal(made.routes[0].id,'split/vertex');assert.equal(made.routes[0].minRoutes,1);assert.equal(readFileSync(source,'utf8'),original);
+});
+
 test('native annotation rejects a hard wall conflicting with a source doorway before replacing output',t=>{
   const dir=directory(t),spec=join(dir,'wall.py'),source=join(dir,'source.svgx'),out=join(dir,'output.svgx');writeFileSync(out,'prior artifact');
   const d=createSemantic({format:'levelspec-semantic/2',id:'door_source',name:'Door source',grid:1,layers:[{id:'ground',height:4}],areas:[{id:'west',rects:[[0,0,10,12]]},{id:'east',rects:[[10,0,10,12]]}],portals:[{id:'door',between:['west','east'],kind:'door',width:2}]});writeFileSync(source,serializeLevelSvgx(d));
