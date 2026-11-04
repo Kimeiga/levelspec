@@ -8,6 +8,7 @@
     "./generate": "./src/generate/index.ts",
     "./generate/vector": "./src/generate/vector.ts",
     "./producers": "./src/authoring/producers.ts",
+    "./trace": "./src/tracing/native.ts",
     "./vector": "./src/vector/index.ts",
     "./lighting": "./src/lighting/bake.ts",
     "./export": "./src/export/vector/index.ts",

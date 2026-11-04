@@ -99,16 +99,18 @@ Implemented and exercised:
   bodies; narrow-passage, headroom, excessive-step and route failures remain errors.
 - CI runs the complete migration corpus and rejects unexpected failures in either
   the legacy source or v2 output. Intentional invalid fixtures remain invalid.
+- Corpus reconciliation is complete: all 390 expected-valid sources pass both
+  validators and the intentionally invalid fixture remains rejected. The prior
+  71 failures and layouts relying on duplicate doorway connections were repaired
+  with physical layout changes, preserving player and gameplay requirements.
+  The full report is `generated/migration-report.json`; CI checks it on every PR.
+- Procedural generation and radar tracing construct native v2 documents directly.
+  Tracing shares image analysis with the legacy draft writer but no longer emits
+  or compiles an intermediate plan on its default path. See
+  [producer migration status and compatibility paths](PRODUCERS.md).
 
 Open release gates:
 
-- Corpus validation (`node tools/vector-migrate.ts --validate`) requires all
-  390 expected-valid sources to pass both validators, while the intentionally
-  invalid fixture must remain rejected. The preceding 3 November checkpoint had
-  71 legacy-valid maps failing v2 (319 passing). Reconciliation also exposed
-  layouts relying on duplicate doorway connections; those require separate
-  physical entrances rather than lower route requirements. The full report is
-  `generated/migration-report.json`; conversion alone does not satisfy the gate.
 - The narrow-ramp landing gap in the legacy compiler is repaired and tested
   through legacy triangles and exported collision GLBs in all four directions.
   Stepped/same-width landings and stacked guard/wall-cap cases retain the
@@ -122,8 +124,10 @@ Open release gates:
   acceptance fixtures, and installed Three.js GPU calibration still need coverage.
 - External material texture packaging and remaining source/export round trips
   need completion. The baker explicitly rejects unresolved external textures.
-- Existing generators/tracing tools still use the old authoring paths. They are
-  not retired. The public root API, CLI default and package version remain 1.x.
+- Python semantic annotation/composition, concept proposals and legacy-plan
+  finalization still use compatibility authoring paths. Native procedural and
+  radar tracing paths are complete; legacy APIs remain supported. The public
+  root API, `tools/build.ts` default and package version remain 1.x.
 
 Verification is recorded in `generated/dust2-refinement`: the full suite passed
 309 tests, and the final focused suite passed all 67 vector tests. Both runs have

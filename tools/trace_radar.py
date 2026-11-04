@@ -19,7 +19,7 @@ letters to start naming rather than one undifferentiated blob.
 The output is a draft, not a map. It has the footprint right and everything
 else provisional.
 """
-import argparse, colorsys, os, sys
+import argparse, colorsys, json, os, sys
 from collections import Counter
 
 import numpy as np
@@ -243,6 +243,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("image")
     ap.add_argument("--out", default=None)
+    ap.add_argument("--format", choices=("plan", "raster"), default="plan",
+                    help="plan draft (legacy default) or structured raster for native v2 authoring")
     ap.add_argument("--id", default=None)
     ap.add_argument("--name", default=None)
     ap.add_argument("--cells", type=int, default=46, help="cells along the longer side")
@@ -284,6 +286,25 @@ def main():
 
     grid = args.grid or round(args.span / max(occ.shape), 2)
     used = sorted({int(b) for b in band[occ]})
+
+    if args.format == "raster":
+        # Native callers receive image-analysis evidence directly. No legend,
+        # plan text, legacy parser or compiler is involved in this path.
+        payload = {
+            "format": "levelspec-raster/1", "id": map_id, "name": map_name,
+            "sourceImage": os.path.basename(args.image), "grid": grid,
+            "colors": centres.tolist(),
+            "rows": [[int(band[y, x]) if occ[y, x] else None
+                      for x in range(occ.shape[1])] for y in range(occ.shape[0])],
+        }
+        text = json.dumps(payload, allow_nan=False) + "\n"
+        if args.out:
+            os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+            with open(args.out, "w") as f:
+                f.write(text)
+        else:
+            sys.stdout.write(text)
+        return
 
     lines = []
     lines.append(f"id: {map_id}")
