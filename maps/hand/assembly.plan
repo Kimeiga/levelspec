@@ -86,7 +86,8 @@ plan
 end
 
 wall chamber division_lobby
-door chamber division_lobby 2
+door chamber division_lobby 2 at=28,3
+door chamber division_lobby 2 at=28,23
 wall committee division_lobby
 door committee division_lobby 2
 wall booths press_gallery

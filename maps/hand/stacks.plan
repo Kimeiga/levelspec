@@ -129,6 +129,10 @@ stairs level_two 8,7 -> level_three 8,14 2.4
 stairs level_one 12,5 -> level_two 12,12 2.4
 stairs level_two 27,7 -> level_three 27,14 2.4
 
+wall aisles_one issue_desk
+arch aisles_one issue_desk 2 at=26,3
+arch aisles_one issue_desk 2 at=26,23
+
 mark attacker_spawn issue_desk attack "Issue Desk"
 mark site aisles_three neutral "Aisles"
 

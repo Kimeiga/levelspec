@@ -89,6 +89,10 @@ door shelter terrace_top 2
 stairs machine_below 15,5 -> station_top 15,12 2.6
 stairs machine_below 6,5 -> station_top 6,12 2.4
 
+wall terrace_top arrival
+arch terrace_top arrival 2 at=23,3
+arch terrace_top arrival 2 at=23,19
+
 mark attacker_spawn arrival attack "Arrival"
 mark site bull_wheel neutral "Bull Wheel"
 

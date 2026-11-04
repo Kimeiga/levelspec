@@ -69,7 +69,8 @@ plan
 end
 
 wall gate stalls
-arch gate stalls 3
+arch gate stalls 3 at=15,7
+arch gate stalls 3 at=24,7
 wall riad caravanserai
 door riad caravanserai 2
 wall west_stair fountain_walk
@@ -77,7 +78,8 @@ door west_stair fountain_walk 2
 wall east_stair fountain_walk
 door east_stair fountain_walk 2
 wall terrace caravanserai
-arch terrace caravanserai 3
+arch terrace caravanserai 3 at=12,30
+arch terrace caravanserai 3 at=27,30
 
 mark attacker_spawn gate attack "Gate"
 mark defender_spawn caravanserai defend "Caravanserai"

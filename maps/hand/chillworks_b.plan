@@ -93,6 +93,10 @@ door despatch chill_room 2
 stairs drains 12,5 -> line 12,11 2.4
 stairs drains 25,17 -> line 31,17 2.4
 
+wall lairage kill_floor
+arch lairage kill_floor 2 at=11,3
+arch lairage kill_floor 2 at=11,21
+
 mark attacker_spawn lairage attack "Lairage"
 mark site chill_room neutral "Chill"
 

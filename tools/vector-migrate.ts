@@ -75,13 +75,13 @@ console.log(
     validationFailures: rows.filter(
       (r) => r.passed === false && !r.expectedFailure,
     ).length,
+    legacyValidationFailures: rows.filter(
+      (r) => r.legacyPassed === false && !r.expectedFailure,
+    ).length,
     regressions: rows.filter((r) => r.legacyPassed && r.passed === false)
       .length,
   }),
 );
-if (
-  rows.some(
-    (r) => r.error || (check && r.passed === false && !r.expectedFailure),
-  )
-)
+const unexpected = rows.filter(r => !r.expectedFailure);
+if (rows.some(r => r.error) || (check && unexpected.some(r => r.passed === false || r.legacyPassed === false)))
   process.exitCode = 1;

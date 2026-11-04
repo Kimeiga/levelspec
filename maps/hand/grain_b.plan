@@ -132,6 +132,10 @@ stairs quay_level 14,8 -> bridge_level 14,19 2.6
 stairs tunnel 15,5 -> quay_level 15,11 2.6
 stairs tunnel 30,5 -> quay_level 30,11 2.4
 
+wall weighbridge_grain silo_base
+arch weighbridge_grain silo_base 2 at=13,3
+arch weighbridge_grain silo_base 2 at=13,23
+
 mark attacker_spawn weighbridge_grain attack "Weighbridge"
 mark site barge_berth neutral "Barge Berth"
 

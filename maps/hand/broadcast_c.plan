@@ -94,6 +94,10 @@ door apparatus_bc control_gallery 2
 stairs studios 20,7 -> galleries_bc 20,16 2.4
 stairs studios 8,11 -> galleries_bc 8,20 2.4
 
+wall scene_dock foyer_bc
+arch scene_dock foyer_bc 2 at=31,3
+arch scene_dock foyer_bc 2 at=31,23
+
 mark attacker_spawn foyer_bc attack "Foyer"
 mark site studio_one neutral "Studio One"
 

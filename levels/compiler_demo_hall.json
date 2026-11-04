@@ -152,7 +152,7 @@
     "markers": [
       { "id": "attacker_front", "layer": "ground", "cell": [2, 2], "kind": "attacker_spawn", "team": "attack", "label": "Front entry" },
       { "id": "attacker_back", "layer": "ground", "cell": [11, 21], "kind": "attacker_spawn", "team": "attack", "label": "Stairwell entry" },
-      { "id": "defender_vault", "layer": "basement", "cell": [22, 3], "kind": "defender_spawn", "team": "defend", "label": "Vault anchor" },
+      { "id": "defender_vault", "layer": "basement", "cell": [23, 3], "kind": "defender_spawn", "team": "defend", "label": "Vault anchor" },
       { "id": "site_vault", "layer": "basement", "cell": [21, 2], "kind": "site", "team": "neutral", "label": "Objective" },
       { "id": "site_lounge", "layer": "upper", "cell": [20, 5], "kind": "site", "team": "neutral", "label": "Upper objective" }
     ],

@@ -91,6 +91,10 @@ door ops_radar generator_hall 2
 stairs machine_hall 19,9 -> head 19,18 2.6
 stairs machine_hall 11,9 -> head 11,18 2.4
 
+wall generator_hall guard_post
+arch generator_hall guard_post 2 at=28,3
+arch generator_hall guard_post 2 at=28,23
+
 mark attacker_spawn guard_post attack "Guard Post"
 mark site turning_gear neutral "Turning Gear"
 

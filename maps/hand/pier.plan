@@ -89,6 +89,10 @@ door pavilion promenade_pier 2
 stairs underdeck 30,5 -> deck_pier 30,11 2.4
 stairs underdeck 6,5 -> deck_pier 6,11 2.4
 
+wall promenade_pier shore_end
+arch promenade_pier shore_end 2 at=35,3
+arch promenade_pier shore_end 2 at=35,21
+
 mark attacker_spawn shore_end attack "Shore End"
 mark site pavilion neutral "Pavilion"
 

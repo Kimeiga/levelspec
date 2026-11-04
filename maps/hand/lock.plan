@@ -84,7 +84,8 @@ end
 wall culvert_lock chamber_floor_lock
 door culvert_lock chamber_floor_lock 2
 wall lock_house towpath
-door lock_house towpath 2
+door lock_house towpath 2 at=26,3
+door lock_house towpath 2 at=26,21
 
 stairs lower_pound 5,4 -> upper_pound 5,11 2.6
 stairs lower_pound 20,4 -> upper_pound 20,11 2.4

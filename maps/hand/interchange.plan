@@ -62,7 +62,8 @@ plan
 end
 
 wall concourse north_platform
-arch concourse north_platform 5
+arch concourse north_platform 5 at=4,21
+arch concourse north_platform 5 at=15,21
 wall ticket_hall north_platform
 arch ticket_hall north_platform 4
 wall south_platform service

@@ -32,6 +32,7 @@
  */
 
 import { decomposeToRects, key } from '../core/grid.ts';
+import { verticalFootprint } from '../core/vertical-footprint.ts';
 import type {
   CoverSpec,
   LayerSpec,
@@ -446,7 +447,37 @@ export function planToSpec(text: string, opts: PlanCompileOptions = {}): LevelSp
   };
 
   applyDirectives(spec, directives, index, grid);
+  avoidMarkerObstacles(spec, index, grid);
   return spec;
+}
+
+function addMarkerObstacle(blocked: Map<string, Set<string>>, layer: string, [x, y, w, h]: Rect): void {
+  const cells = blocked.get(layer) ?? new Set<string>();
+  for (let j = y; j < y + h; j++) for (let i = x; i < x + w; i++) cells.add(key(i, j));
+  blocked.set(layer, cells);
+}
+
+function markerObstacles(spec: LevelSpec, grid: number) {
+  const blocked = new Map<string, Set<string>>();
+  for (const cover of spec.covers ?? []) addMarkerObstacle(blocked, cover.layer, cover.rect);
+  for (const vc of spec.vertical_connections ?? []) {
+    const resolved = verticalFootprint(vc, grid);
+    if (!resolved) continue;
+    addMarkerObstacle(blocked, vc.from_layer, resolved.footprint);
+    addMarkerObstacle(blocked, vc.to_layer, resolved.footprint);
+  }
+  return blocked;
+}
+
+function avoidMarkerObstacles(spec: LevelSpec, index: Map<string, Map<string, Set<string>>>, grid: number): void {
+  const blocked = markerObstacles(spec, grid);
+  for (const marker of spec.gameplay?.markers ?? []) {
+    const obstacles = blocked.get(marker.layer), at = key(...marker.cell);
+    if (!obstacles?.has(at)) continue;
+    const area = [...(index.get(marker.layer)?.values() ?? [])].find(cells => cells.has(at));
+    const free = new Set([...(area ?? [])].filter(cell => !obstacles.has(cell)));
+    if (free.size) marker.cell = centroid(free);
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -699,21 +730,31 @@ function applyDirectives(
       case 'door':
       case 'window':
       case 'arch': {
-        // `door a b [width]` — a cut in a boundary that is otherwise solid.
-        const [a, b, w] = args;
+        // `door a b [width] [at=x,y]` — separate hints retain a wall pier
+        // between alternate entrances, rather than one wider opening.
+        const [a, b, w, position, ...extra] = args;
+        const match = position?.match(/^at=(-?\d+),(-?\d+)$/);
+        if (extra.length || (position && !match)) {
+          issues.push({ line, message: `${cmd} position must be at=x,y in grid cells` });
+          break;
+        }
         const layer = spec.layers.find((l) => l.id === layerOf(a));
         if (!layer) {
           issues.push({ line, message: `${cmd} references unknown area '${a}'` });
           break;
         }
-        (layer.portals ??= []).push({
-          id: `${cmd}_${a}_${b}`,
+        const portals = (layer.portals ??= []), base = `${cmd}_${a}_${b}`;
+        let portalId = base, suffix = 2;
+        while (portals.some(p => p.id === portalId)) portalId = `${base}.${suffix++}`;
+        portals.push({
+          id: portalId,
           between: [a, b],
           kind: cmd === 'arch' ? 'arch' : cmd === 'window' ? 'window' : 'door',
           // `full` opens the whole shared run, which is what you want when the
           // boundary is too short to cut a narrower hole in without stranding
           // the floor either side of it.
           width_cells: !w ? 2 : w === 'full' ? 'full' : Number(w),
+          hint: match ? [Number(match[1]), Number(match[2])] : undefined,
         });
         break;
       }

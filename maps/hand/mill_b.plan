@@ -91,6 +91,10 @@ door control_mill press_section 2
 stairs basement_mill 16,5 -> machine_floor 16,11 2.6
 stairs basement_mill 26,5 -> machine_floor 32,5 2.6
 
+wall wet_end press_section
+arch wet_end press_section 2 at=15,3
+arch wet_end press_section 2 at=15,21
+
 mark attacker_spawn wet_end attack "Wet End"
 mark site broke_pit neutral "Broke Pit"
 

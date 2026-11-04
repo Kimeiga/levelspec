@@ -86,7 +86,8 @@ end
 wall rendering drain_gallery
 door rendering drain_gallery 2
 wall despatch chill_room
-door despatch chill_room 2
+door despatch chill_room 2 at=32,3
+door despatch chill_room 2 at=32,21
 
 stairs drains 7,12 -> line 13,12 2.4
 stairs drains 26,5 -> line 26,11 2.4

@@ -92,6 +92,10 @@ arch side_gallery long_gallery 3
 stairs store 15,5 -> galleries 15,12 2.6
 stairs store 6,5 -> galleries 6,12 2.4
 
+wall long_gallery foyer
+arch long_gallery foyer 2 at=28,3
+arch long_gallery foyer 2 at=28,23
+
 mark attacker_spawn foyer attack "Foyer"
 mark site racking_store neutral "Reserve Store"
 

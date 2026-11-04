@@ -93,7 +93,8 @@ end
 wall valve_house holder_pit
 door valve_house holder_pit 2
 wall retort_house coal_road
-door retort_house coal_road 2
+door retort_house coal_road 2 at=27,5
+door retort_house coal_road 2 at=27,23
 
 stairs pit_level 7,6 -> ground_gas 7,13 2.6
 stairs pit_level 24,6 -> ground_gas 24,13 2.4
