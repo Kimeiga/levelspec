@@ -8,6 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {generateLevelV2} from '../../src/generate/vector.ts';
 import {proposeNative,NATIVE_ARCHETYPES} from '../../src/generate/native-archetypes.ts';
 import {produceDocument} from '../../src/authoring/native-producer.ts';
+import {THEMES} from '../../src/generate/themes.ts';
 
 const hook=`import {registerHooks} from 'node:module';
     registerHooks({resolve(s,c,next){const r=next(s,c);
@@ -42,6 +43,15 @@ test('every native family preserves depth progression without scaling the player
     const width=(d:typeof early.document)=>Math.max(...d.layers.flatMap(l=>l.vertices.map(v=>v.x)))-Math.min(...d.layers.flatMap(l=>l.vertices.map(v=>v.x)));
     assert.ok(width(late.document)>width(early.document),a.id);
     assert.deepEqual(late.document.player,early.document.player);
+  }
+});
+
+test('native materials preserve every selected theme palette',()=>{
+  for(const theme of THEMES) {
+    const {document:d}=proposeNative('palette-parity',4,2,'three_lane',theme.id);
+    for(const [id,role] of [['floor','floor'],['wall','static_hard'],['cover','cover']])
+      assert.equal(d.materials.find(m=>m.id===id)!.color,'#'+theme.palette.roles[role].toString(16).padStart(6,'0'),`${theme.id}/${id}`);
+    assert.equal(d.wallThickness,theme.wallThickness);
   }
 });
 

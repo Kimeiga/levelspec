@@ -38,7 +38,7 @@ export class NativeBuilder {
     d.player={...d.player,radius:0.35,height:1.8,step:0.45,crouch:1.1,vault:0};
     this.wallHeight=snapCoordinate(rng.float(...theme.ceiling));d.wallHeight=this.wallHeight;
     const roles=theme.palette.roles,finish=theme.surface??{roughness:0.8,metalness:0};
-    for(const [id,role] of [['floor','floor'],['wall','static_hard'],['cover','crate']] as const)
+    for(const [id,role] of [['floor','floor'],['wall','static_hard'],['cover','cover']] as const)
       this.scene.material(id,{color:color(roles[role]??0x82909a),...finish});
     d.sky={color:color(theme.palette.sky),intensity:theme.palette.hemiIntensity};
   }
