@@ -70,7 +70,8 @@ export function spreadPoints(points: Placement[], count: number, origin: V3, rng
 export function identifiers(d: LevelDocument) {
   const ids=new Set([d.id]);
   const groups: {id:string}[][]=[d.layers,d.markers,d.routes,d.links,d.covers,d.materials,d.seams,d.lights,d.props??[],d.assets??[],d.references??[]];
-  for(const l of d.layers)groups.push(l.vertices,l.edges,l.regions);
+  for(const l of d.layers){groups.push(l.vertices,l.edges,l.regions);for(const e of l.edges)groups.push(e.openings);}
+  for(const r of d.references??[])groups.push(r.landmarks,r.masks);
   for(const group of groups)for(const o of group)ids.add(o.id);
   return (base:string) => {let id=base,n=2;while(ids.has(id))id=`${base}.${n++}`;ids.add(id);return id;};
 }

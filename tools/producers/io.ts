@@ -7,10 +7,11 @@ import { execFileSync } from 'node:child_process';
 export function argumentsFor(argv: string[], names: string[]) {
   const values = new Map<string, string>(), rest: string[] = [];
   for (let i = 0; i < argv.length; i++) {
-    if (!names.includes(argv[i])) { rest.push(argv[i]); continue; }
-    const value = argv[++i];
-    if (!value || value.startsWith('--')) throw new Error(`Missing value for ${argv[i-1]}.`);
-    values.set(argv[i-1], value);
+    const equal=argv[i].indexOf('='),name=equal<0?argv[i]:argv[i].slice(0,equal);
+    if (!names.includes(name)) { rest.push(argv[i]); continue; }
+    const value = equal<0?argv[++i]:argv[i].slice(equal+1);
+    if (!value || value.startsWith('--')) throw new Error(`Missing value for ${name}.`);
+    values.set(name, value);
   }
   return { values, rest };
 }

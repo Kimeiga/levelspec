@@ -104,3 +104,25 @@ it("loads native authored SVGX with reachable run furniture", async () => {
   assert.ok(result.report.navigation!.routes.some(r => r.reachable));
   assert.deepEqual(result.report.navigation!.unreachableMarkers, []);
 });
+
+it('allocates run IDs across nested opening and reference objects',async()=>{
+  const base=await producers.producePlan(twoRooms('...rr.....'));
+  base.document.markers=[];
+  const layer=base.document.layers[0],vertices=new Map(layer.vertices.map(v=>[v.id,v]));
+  const wall=layer.edges.find(e=>{
+    const a=vertices.get(e.from)!,b=vertices.get(e.to)!;
+    return e.kind==='wall'&&(e.height??0)>=3&&Math.hypot(b.x-a.x,b.y-a.y)>2;
+  })!;
+  wall.openings.push({id:'run.exit',kind:'window',start:0.5,end:1,sill:0.5,head:1.5});
+  base.document.references=[{id:'reference',image:'room.png',width:100,height:100,scale:'assumed',scaleNote:'test',
+    camera:{position:[0,-10,5],target:[0,0,0],up:[0,0,1],fov:60,near:0.1,far:100},
+    landmarks:[{id:'run.spawn',position:[0,0,0],image:[0.5,0.5]}],masks:[{id:'run.pickup',points:[[0,0],[1,0],[1,1]]}]}];
+  const source=await producers.produceDocument(base.document);
+  const result=await generators.loadAuthoredV2({id:'nested-ids',text:source.text},{seed:'ids'});
+  assert.equal(result.report.passed,true);
+  assert.ok(result.document.markers.some(m=>m.kind==='attacker_spawn'&&m.id!=='run.spawn'));
+  assert.ok(result.pickups.every(p=>p.id!=='run.pickup'));
+  assert.ok(result.document.markers.some(m=>m.kind==='objective'&&m.id!=='run.exit'));
+  const again=await generators.loadAuthoredV2({id:'nested-ids',text:source.text},{seed:'ids'});
+  assert.equal(again.text,result.text,'same input and seed reproduce the canonical authored run');
+});

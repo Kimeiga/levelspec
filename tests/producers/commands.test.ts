@@ -54,6 +54,9 @@ test('radar tracing publishes real v2 geometry and reports Python failures witho
   const image=join(dir,'room.png'),out=join(dir,'room.level.svgx');writeFileSync(image,PNG.sync.write(png));
   let r=command('trace',[image,'--cells','12','--bands','1','--grid','1','--out',out]);assert.equal(r.status,0,r.stderr);
   await valid(out);const before=readFileSync(out,'utf8');
+  // Equals syntax is handled by Node; argparse abbreviations cannot reach a writer.
+  r=command('trace',[image,'--cells=12','--bands=1','--grid=1',`--out=${out}`]);assert.equal(r.status,0,r.stderr);await valid(out);
+  r=command('trace',[image,'--ou',out]);assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),before);
   r=command('trace',[image,'--python',join(dir,'missing-python'),'--out',out]);assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),before);
   assert.ok(r.stderr.includes('Set PYTHON'));
 });
@@ -67,4 +70,13 @@ test('Python compositions publish v2 and reject unsatisfied authored requirement
   const before=readFileSync(out,'utf8');writeFileSync(spec,source+`DIRECTIVES=['route absent nowhere 2']\n`);
   r=command('author',['room','--spec',spec,'--out',out]);assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),before);
   assert.equal(existsSync(join(dir,'room.plan')),false);
+});
+
+test('Python annotations retain the traced footprint while publishing v2',async t=>{
+  const dir=mkdtempSync(join(tmpdir(),'levelspec-annotate-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
+  const traced=join(dir,'room.plan'),spec=join(dir,'room.py'),out=join(dir,'room.level.svgx');
+  writeFileSync(traced,plan);
+  writeFileSync(spec,`ID='annotation'\nNAME='Annotation'\nDESCRIPTION='Trace test'\nGRID=1\nAREAS=[{'id':'room','label':'Room','seeds':[(3,3,1,1)],'ceiling':4}]\n`);
+  const r=command('author',['room','--spec',spec,'--traced',traced,'--out',out]);
+  assert.equal(r.status,0,r.stderr);await valid(out);
 });

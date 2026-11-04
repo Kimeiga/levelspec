@@ -7,4 +7,5 @@ test('value options do not become filters, including paths with spaces',()=>{
   assert.deepEqual(r.rest,['room','--legacy']);assert.equal(r.values.get('--out'),'a path');
   assert.throws(()=>argumentsFor(['--out'],['--out']),/Missing value/);
   assert.throws(()=>argumentsFor(['--out','--legacy'],['--out']),/Missing value/);
+  assert.equal(argumentsFor(['--out=a path'],['--out']).values.get('--out'),'a path');
 });
