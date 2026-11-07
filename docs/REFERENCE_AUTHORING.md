@@ -5,51 +5,39 @@ It does not infer a scene from an image automatically. A host or author estimate
 geometry and the reference camera, then compiles ordinary LevelSpec geometry.
 XML runtime validation remains authoritative; the legacy migration gate is retired.
 
-## Start from original evidence
+## Choose the workflow
 
-For substantial reference reconstruction, establish reviewed drawings before
-dependent production geometry. Inspect the raw originals and user annotations,
-then save a source-only feature inventory: visible shapes/openings/levels, view
-correspondence, source regions, dimension provenance and unresolved relationships.
-Keep observations, user explanations, estimates and inferred construction distinct.
-Unknown hidden corridors or stair connections remain unknown; do not complete them
-merely to make a plausible building.
+Use [level-authoring](../.agents/skills/level-authoring/SKILL.md) for both invented
+and reference-based maps: coherent layout, physical topology, circulation and
+common-sense review. Invented maps need no photographs or reconstruction runner.
+Add [reference-level-authoring](../.agents/skills/reference-level-authoring/SKILL.md)
+when images constrain the design.
 
-For difficult openings, overlapping storeys and junctions, author editable SVG
-traces in each original's native pixel coordinates with the unchanged photograph
-and separate observed, uncertain and inferred layers. Retain source hashes, stable
-path IDs, full-image context and readable crops. Perspective traces are observations,
-not measured plans. See [photo contour tracing](../.agents/skills/reference-level-authoring/references/photo-contour-tracing.md).
+Inspect originals before candidate interpretations. Record important structures,
+view correspondence and consequential unknowns; distinguish observations, user
+explanations and dimensional estimates. Do not invent hidden connections unless
+the brief authorizes them. Cross-check major layout and depth against relevant
+angles instead of optimizing a single photograph.
 
-Draw plans, elevations, sections and enlarged details with CAD-level specificity:
-actual supported profiles, opening rims/reveals, surrounding wall material, slab
-edges/thicknesses, stairs and landings. Label estimates, section cutting planes,
-removed cutaway regions and cross-view correspondences. Generic boxes and labels
-cannot replace visible geometry. Independently review the frozen drawings against
-originals before dependent XML detail; defer critical unresolved relationships while
-continuing independently supported work. The
-[schematic workflow](../.agents/skills/reference-level-authoring/references/schematic-workflow.md)
-defines this drawing standard and review gate.
+Use [native-pixel traces](../.agents/skills/reference-level-authoring/references/photo-contour-tracing.md)
+for ambiguous edges, [plans/sections](../.agents/skills/reference-level-authoring/references/schematic-workflow.md)
+for complex stacked relationships, and
+[paired contours](../.agents/skills/reference-level-authoring/references/paired-contour-review.md)
+for consequential alignment disputes. These are targeted aids, not universal gates
+before every trial. Model-derived drawings explain geometry but do not independently
+verify its source interpretation.
 
-Freeze XML/companions, compile them and capture actual renders of that revision.
-Fresh-context critics first save source-only observations, then inspect drawings
-and model renders and author their own paired original/candidate contours. Fit and
-lock cameras using stable distributed landmarks; test held-out openings and slab
-edges. Unmatched critical views stay diagnostic and cannot close fidelity acceptance.
-Original pixels remain authoritative: a schematic derived from the same wrong
-model cannot validate that model. Geometry and navigation checks do not establish
-source fidelity. See [paired contour review](../.agents/skills/reference-level-authoring/references/paired-contour-review.md)
-and [independent review prompts](../.agents/skills/reference-level-authoring/references/independent-review.md).
+An ordinary map uses one independent topology/circulation reviewer; reference-based
+reconstruction adds fidelity review. Escalate to specialists for complex work and
+honor stronger user-requested requirements. Review actual compiled views and claimed
+routes, repair major issues, then recheck affected interfaces. A score or screenshot
+does not prove physical reachability or source fidelity.
 
-The repository includes optional Python/Pillow
-[comparison helpers](../.agents/skills/reference-level-authoring/references/comparison-tools.md)
-for source-only packets, paginated reference/schematic/render boards and contextual
-contour pairs. They preserve native snapshots, crop/framing transforms and SHA256
-provenance, refuse to overwrite frozen packets, and require human inspection.
-They do not render models, fit cameras or infer hidden construction. Pillow can
-run in an isolated environment; no sibling checkout, Blender installation or main
-package dependency is required. Keep originals, editable drawings and review
-records with the project; place reproducible outputs under ignored `generated/`.
+Optional Python/Pillow [comparison helpers](../.agents/skills/reference-level-authoring/references/comparison-tools.md)
+compose source packets and reference/render boards with native snapshots and
+provenance. They do not calibrate cameras, infer construction or approve maps.
+Keep originals, editable source and review records with the project; reproducible
+outputs belong under ignored `generated/`.
 
 ## Build from architectural intent
 
@@ -160,6 +148,13 @@ explicit scale provenance. The image itself is not fetched or embedded.
 Coordinates in `landmark.image` and mask polygons are normalized from the top-left
 of the referenced image. Match the source crop to the declared image dimensions.
 
+Calibrated camera position, target, up vector and lens values preserve JavaScript
+number precision through XML parsing, saving and compilation. Camera position and
+target must remain finite and within the supported coordinate range. Authored
+geometry and landmark world positions still use the millimeter lattice; saving
+a camera does not quantize its viewing direction. FOV is vertical degrees, and
+world coordinates are meters in the right-handed Z-up frame.
+
 ```xml
 <reference id="photo" image="rooftop.png" width="1500" height="1000"
            position="0 -20 18" target="0 10 18" up="0 0 1" fov="55"
@@ -186,7 +181,7 @@ source and viewport aspect when comparing revisions. The CLI accepts the same
 values, for example:
 
 ```sh
-npm run --silent levelspec -- preview projects/dai2-daiban/level.level.svgx \
+npm run --silent levelspec -- preview projects/my-level/level.level.svgx \
   --camera "1.2 1.8 3" --target "3.4 4.9 5.2" --projection perspective --fov 82
 ```
 
@@ -194,11 +189,6 @@ The viewport dimensions show the compiled selected object or visible layout's
 XYZ extents, not measured passage clearance. See [review controls](WEBSITE.md).
 The reviewer does not calibrate a reference photograph or perform the API's
 landmark comparison automatically.
-
-The [Dai-2 Daiban courtyard study](../projects/dai2-daiban/BRIEF.md) is a real-photo
-authoring example with retained originals, estimated plans/sections, editable XML,
-local analytical aperture geometry, route checks and independent critique. Its
-unmeasured dimensions and provisional hidden connections are recorded explicitly.
 
 ## Verification and visual acceptance
 

@@ -5,7 +5,7 @@ import { ClippingError } from "./clipping.ts";
 import { repairWaterPrecision } from "./movement.ts";
 import { normalizeCoordinates } from "./precision.ts";
 import { emptyMesh, meshParts } from "./mesh.ts";
-import { auditFloorGaps } from "./floor-gaps.ts";
+import { auditFloorGaps, floorBoundarySpans } from "./floor-gaps.ts";
 import { auditSurfaceContacts } from "./surface-contacts.ts";
 import Module from "manifold-3d";
 import { resolveWallProfile, wallFootHeight } from "./wall-profile.ts";
@@ -94,8 +94,8 @@ export async function compile(
     }
     for (const r of l.regions) {
       try {
-        if (r.underside !== undefined && (r.fill !== "stairs" || !["filled", "sloped"].includes(r.underside)))
-          throw new Error("underside is only supported on stairs, with filled or sloped values.");
+        if (r.underside !== undefined && (r.fill !== "stairs" || !["filled", "sloped", "stepped"].includes(r.underside)))
+          throw new Error("underside is only supported on stairs, with filled, sloped or stepped values.");
         if (r.material && !materials.has(r.material))
           throw new Error(`Unknown material ${r.material}.`);
         if ((r.thickness ?? d.floorThickness) <= 0)
@@ -202,7 +202,7 @@ export async function compile(
           flight = flights.get(region.id);
         return {
           thickness,
-          ...(region.fill === "stairs"
+          ...(region.fill === "stairs" && region.underside !== "stepped"
             ? region.underside === "sloped" && flight
               ? {
                   bottom: (point: V2) =>
@@ -474,6 +474,19 @@ export async function compile(
           );
           const thickness = r.thickness ?? d.floorThickness;
           const bottom = Math.min(...flight.solid.points.map((p) => p[2]));
+          /** Retained export prisms use the same actual underside as the compiled collision solid. */
+          const exportBottom = (p: V3): V3 => {
+            let elevation = p[2] - thickness;
+            if (r.fill === "stairs" && r.underside !== "stepped") {
+              elevation = bottom;
+              if (r.underside === "sloped") {
+                const guide = heightAt(flight.guide, p[0], p[1]);
+                if (guide === undefined) throw new Error(`${r.id}: missing underside guide height.`);
+                elevation = guide - thickness;
+              }
+            }
+            return [p[0], p[1], elevation];
+          };
           add(
             flight.solid.points,
             flight.solid.triangles,
@@ -482,19 +495,7 @@ export async function compile(
               ? trianglePrisms(
                   flight.floor.points,
                   flight.floor.triangles,
-                  (p) => [
-                    p[0],
-                    p[1],
-                    r.fill === "stairs"
-                      ? r.underside === "sloped"
-                        ? (() => {
-                            const guide = heightAt(flight.guide, p[0], p[1]);
-                            if (guide === undefined) throw new Error(`${r.id}: missing underside guide height.`);
-                            return guide - thickness;
-                          })()
-                        : bottom
-                      : p[2] - thickness,
-                  ],
+                  exportBottom,
                   surface,
                 )
               : undefined,
@@ -865,6 +866,12 @@ export async function compile(
         upperRegion = d.layers
           .flatMap((l) => l.regions)
           .find((r) => r.id === owners.get(highEdge)?.[0]),
+        lowerRegion = d.layers.flatMap((l) => l.regions)
+          .find((r) => r.id === owners.get(lowEdge)?.[0]),
+        steppedUpper = seam.kind === "open" && upperRegion?.underside === "stepped"
+          ? floors.find(f => f.region === upperRegion.id) : undefined,
+        steppedLower = seam.kind === "open" && lowerRegion?.underside === "stepped"
+          ? floors.find(f => f.region === lowerRegion.id) : undefined,
         capInset =
           seam.kind === "open" && upperRegion
             ? (upperRegion.thickness ?? d.floorThickness)
@@ -872,7 +879,7 @@ export async function compile(
         filledStairUnderside =
           seam.kind === "open" &&
           upperRegion?.fill === "stairs" &&
-          upperRegion.underside !== "sloped"
+          (upperRegion.underside ?? "filled") === "filled"
             ? curves[upperRegion.lower!][0][2] - capInset
             : undefined;
       const layer = d.layers.find((l) =>
@@ -907,97 +914,118 @@ export async function compile(
         low,
       );
       for (let i = 1; i < low.length; i++) {
-        let startOffset = offsets[i - 1],
-          endOffset = offsets[i];
-        let A = low[i - 1],
-          B = low[i],
-          h0 = pathAt(high, pathLength(low.slice(0, i))),
-          h1 = pathAt(high, pathLength(low.slice(0, i + 1)));
-        if (
-          Math.hypot(A[0] - h0[0], A[1] - h0[1]) > 0.01 ||
-          Math.hypot(B[0] - h1[0], B[1] - h1[1]) > 0.01
-        )
-          throw new Error(`${seam.id}: seam XY positions differ.`);
-        let top0 =
-            filledStairUnderside ??
-            h0[2] + (seam.kind === "wall" ? d.wallHeight : -capInset),
-          top1 =
-            filledStairUnderside ??
-            h1[2] + (seam.kind === "wall" ? d.wallHeight : -capInset);
-        if (seam.kind === "open") {
-          // The upper slab itself seals shallow steps. A retaining riser fills
-          // only the exposed gap below that slab, never a coplanar floor cap.
-          const gap0 = top0 - A[2],
-            gap1 = top1 - B[2];
-          if (gap0 <= EPS && gap1 <= EPS) continue;
-          if (gap0 < 0) {
-            const t = gap0 / (gap0 - gap1);
-            A = lerp(A, B, t);
-            top0 = A[2];
-            startOffset = lerp(startOffset, endOffset, t);
-          } else if (gap1 < 0) {
-            const t = gap0 / (gap0 - gap1);
-            B = lerp(A, B, t);
-            top1 = B[2];
-            endOffset = lerp(startOffset, endOffset, t);
+        const segmentStart = low[i - 1];
+        const segmentEnd = low[i];
+        const upperStart = pathAt(high, pathLength(low.slice(0, i)));
+        const upperEnd = pathAt(high, pathLength(low.slice(0, i + 1)));
+        const lowerSpans = steppedLower ? floorBoundarySpans(steppedLower, segmentStart, segmentEnd) : [];
+        const upperSpans = steppedUpper ? floorBoundarySpans(steppedUpper, upperStart, upperEnd) : [];
+        const cuts = [
+          0, 1,
+          ...lowerSpans.flatMap(s => [s.start, s.end]),
+          ...upperSpans.flatMap(s => [s.start, s.end]),
+        ]
+          .map(t => Math.max(0, Math.min(1, t)))
+          .sort((a, b) => a - b)
+          .filter((t, index, all) => !index || t - all[index - 1] > 1e-9);
+        for (let section = 1; section < cuts.length; section++) {
+          const start = cuts[section - 1];
+          const end = cuts[section];
+          const middle = (start + end) / 2;
+          const lowerSpan = lowerSpans.find(s => middle >= s.start && middle <= s.end);
+          const upperSpan = upperSpans.find(s => middle >= s.start && middle <= s.end);
+          if ((steppedLower && !lowerSpan) || (steppedUpper && !upperSpan))
+            throw new Error(`${seam.id}: cannot resolve actual stepped stair contact profile.`);
+          let startOffset = lerp(offsets[i - 1], offsets[i], start),
+            endOffset = lerp(offsets[i - 1], offsets[i], end);
+          let A = lerp(segmentStart, segmentEnd, start), B = lerp(segmentStart, segmentEnd, end),
+            h0 = lerp(upperStart, upperEnd, start), h1 = lerp(upperStart, upperEnd, end);
+          if (lowerSpan) {
+            A[2] = lowerSpan.z0 + lowerSpan.dz * start;
+            B[2] = lowerSpan.z0 + lowerSpan.dz * end;
           }
-        }
-        // A riser closes the exposed gap above the lower walking surface.
-        // Extending it through the lower slab adds a redundant skirt whose
-        // end caps coincide with that slab's outer side faces.
-        // Curved strips with changing elevation have nonplanar cross-section
-        // quads. Keep the authored centerline as a triangulation edge, so the
-        // lower contact cannot float above a tread between curve stations.
-        for (const base of [
-          [
-            [A[0] + startOffset[0], A[1] + startOffset[1], A[2]],
-            A,
-            B,
-            [B[0] + endOffset[0], B[1] + endOffset[1], B[2]],
-          ],
-          [
-            A,
-            [A[0] - startOffset[0], A[1] - startOffset[1], A[2]],
-            [B[0] - endOffset[0], B[1] - endOffset[1], B[2]],
-            B,
-          ],
-        ] as V3[][])
-          prism(
-            base,
-            base.map((p, j) => [p[0], p[1], j < 2 ? top0 : top1]),
-            seamSurface,
-          );
-        for (const [point, adjacent, top, index] of [
-          [A, B, top0, i - 1],
-          [B, A, top1, i],
-        ] as const) {
-          if (index !== 0 && index !== low.length - 1) continue;
           if (
-            Math.hypot(point[0] - low[index][0], point[1] - low[index][1]) > EPS
+            Math.hypot(A[0] - h0[0], A[1] - h0[1]) > 0.01 ||
+            Math.hypot(B[0] - h1[0], B[1] - h1[1]) > 0.01
           )
-            continue;
-          const edge = edgesById.get(lowEdge)!;
-          const forward =
-            Math.hypot(
-              curves[lowEdge][0][0] - low[0][0],
-              curves[lowEdge][0][1] - low[0][1],
-            ) < EPS;
-          const key = endpointKey(
-            (index === 0) === forward ? edge.from : edge.to,
-          );
-          const node = junctions.get(key) ?? { point, incidents: [] };
-          node.incidents.push({
-            direction: norm([
-              adjacent[0] - point[0],
-              adjacent[1] - point[1],
-              0,
-            ]),
-            thickness: d.wallThickness,
-            bottom: point[2],
-            top,
-            surface: seamSurface,
-          });
-          junctions.set(key, node);
+            throw new Error(`${seam.id}: seam XY positions differ.`);
+          let top0 = filledStairUnderside ?? h0[2] + (seam.kind === "wall" ? d.wallHeight : -capInset),
+            top1 = filledStairUnderside ?? h1[2] + (seam.kind === "wall" ? d.wallHeight : -capInset);
+          if (upperSpan) {
+            top0 = upperSpan.z0 + upperSpan.dz * start - capInset;
+            top1 = upperSpan.z0 + upperSpan.dz * end - capInset;
+          }
+          if (seam.kind === "open") {
+            // The upper slab itself seals shallow steps. A retaining riser fills
+            // only the exposed gap below that slab, never a coplanar floor cap.
+            const gap0 = top0 - A[2],
+              gap1 = top1 - B[2];
+            if (gap0 <= EPS && gap1 <= EPS) continue;
+            if (gap0 < 0) {
+              const t = gap0 / (gap0 - gap1);
+              A = lerp(A, B, t);
+              top0 = A[2];
+              startOffset = lerp(startOffset, endOffset, t);
+            } else if (gap1 < 0) {
+              const t = gap0 / (gap0 - gap1);
+              B = lerp(A, B, t);
+              top1 = B[2];
+              endOffset = lerp(startOffset, endOffset, t);
+            }
+          }
+          // Retaining material starts at the actual lower walking surface.
+          // Split the strip at its centerline so curved contacts meet the treads.
+          for (const base of [
+            [
+              [A[0] + startOffset[0], A[1] + startOffset[1], A[2]],
+              A,
+              B,
+              [B[0] + endOffset[0], B[1] + endOffset[1], B[2]],
+            ],
+            [
+              A,
+              [A[0] - startOffset[0], A[1] - startOffset[1], A[2]],
+              [B[0] - endOffset[0], B[1] - endOffset[1], B[2]],
+              B,
+            ],
+          ] as V3[][])
+            prism(
+              base,
+              base.map((p, j) => [p[0], p[1], j < 2 ? top0 : top1]),
+              seamSurface,
+            );
+          for (const [point, adjacent, top, index] of [
+            [A, B, top0, i - 1],
+            [B, A, top1, i],
+          ] as const) {
+            if (index !== 0 && index !== low.length - 1) continue;
+            if (
+              Math.hypot(point[0] - low[index][0], point[1] - low[index][1]) > EPS
+            )
+              continue;
+            const edge = edgesById.get(lowEdge)!;
+            const forward =
+              Math.hypot(
+                curves[lowEdge][0][0] - low[0][0],
+                curves[lowEdge][0][1] - low[0][1],
+              ) < EPS;
+            const key = endpointKey(
+              (index === 0) === forward ? edge.from : edge.to,
+            );
+            const node = junctions.get(key) ?? { point, incidents: [] };
+            node.incidents.push({
+              direction: norm([
+                adjacent[0] - point[0],
+                adjacent[1] - point[1],
+                0,
+              ]),
+              thickness: d.wallThickness,
+              bottom: point[2],
+              top,
+              surface: seamSurface,
+            });
+            junctions.set(key, node);
+          }
         }
       }
       const A = owners.get(seam.edges[0])?.[0],
@@ -1297,7 +1325,7 @@ export async function compile(
       diagnostics.push(
         ...auditSurfaceContacts(
           level,
-          options.surfaceContacts ?? "error",
+          options.surfaceContacts ?? "warning",
           options.signal,
         ),
       );

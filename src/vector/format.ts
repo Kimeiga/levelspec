@@ -359,7 +359,7 @@ export function parseLevelSvgx(text: string): LevelDocument {
               lower: c.a.lower,
               upper: c.a.upper,
               rise: opt(c, "rise"),
-              underside: c.a.underside === undefined ? undefined : one(c, "underside", ["filled", "sloped"] as const, "filled"),
+              underside: c.a.underside === undefined ? undefined : one(c, "underside", ["filled", "sloped", "stepped"] as const, "filled"),
               area: c.a.area,
             })),
         });

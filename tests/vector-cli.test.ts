@@ -6,8 +6,10 @@ import { tmpdir } from "node:os";
 import { join, isAbsolute } from "node:path";
 import { createServer } from "node:net";
 import { fileURLToPath } from "node:url";
-import { SceneBuilder, parseLevelSvgx, serializeLevelSvgx } from "levelspec";
+import { SceneBuilder, parseLevelSvgx, serializeLevelSvgx } from "levelspec/vector";
 import { writeExportFiles } from "../src/export/vector/index.ts";
+import { NavigationSurface } from "../website/navigation.ts";
+import { navigationDoorway } from "./fixtures/navigation-doorway.ts";
 
 const launcher = fileURLToPath(new URL("../bin/levelspec.mjs", import.meta.url));
 /** Runs the real launcher with isolated working-directory and process boundaries. */
@@ -80,7 +82,7 @@ test("preview launcher carries a valid camera into its live URL and shuts down",
     const source = await sourceFile(temp);
     child = spawn(process.execPath, [launcher, "preview", source,
       "--camera", "11 -17 8", "--target", "2 3 1", "--projection", "perspective",
-      "--fov", "47", "--view-height", "14", "--roll=-21.49", "--appearance", "inspection", "--frame-aspect", "0.75"], { cwd: temp, stdio: ["ignore", "pipe", "pipe"] });
+      "--fov", "47", "--view-height", "14", "--roll=-21.49", "--appearance", "inspection", "--frame-aspect", "0.75", "--nav-cell", "0.0625"], { cwd: temp, stdio: ["ignore", "pipe", "pipe"] });
     const previewProcess = child;
     const stopped = new Promise<number | null>(done => {
       previewProcess.once("close", done);
@@ -106,6 +108,7 @@ test("preview launcher carries a valid camera into its live URL and shuts down",
       assert.equal(url.searchParams.get("roll"), "-21.49");
       assert.equal(url.searchParams.get("appearance"), "inspection");
       assert.equal(url.searchParams.get("frame-aspect"), "0.75");
+      assert.equal(url.searchParams.get("nav-cell"), "0.0625");
       assert.equal((await fetch(url)).status, 200, "Preview HTML must accept the view query");
       previewProcess.kill("SIGINT");
       assert.equal(await stopped, 130);
@@ -117,6 +120,66 @@ test("preview launcher carries a valid camera into its live URL and shuts down",
     if (child?.exitCode === null) child.kill("SIGKILL");
     await rm(temp, { recursive: true, force: true });
   }
+});
+
+test("navigation resolution survives CLI validation and build exports without changing geometry", async () => {
+  const temp = await mkdtemp(join(tmpdir(), "levelspec-nav-cell-"));
+  try {
+    const source = join(temp, "doorway.level.svgx"), output = join(temp, "output");
+    const xml = serializeLevelSvgx(navigationDoorway());
+    await writeFile(source, xml);
+    const cells = [undefined, 0.125, 0.0625, 0.025, 0.5];
+    let defaultKey: string | undefined;
+    for (const cell of cells) {
+      const flags = cell === undefined ? [] : ["--nav-cell", String(cell)];
+      const response = await run(["validate", source, "--json", ...flags], temp);
+      assert.equal(response.code, 0, response.stderr || response.stdout);
+      const navigation = result(response.stdout, "validate", true).report.navigation;
+      assert.equal(navigation.settings.cell, cell ?? 0.0625);
+      assert.equal(navigation.settings.player.radius, 0.25);
+      assert.equal(navigation.settings.player.height, 1.8);
+      if (cell === undefined) defaultKey = navigation.settings.cacheKey;
+      if (cell === 0.125) assert.notEqual(navigation.settings.cacheKey, defaultKey);
+      if (cell === 0.0625) {
+        assert.equal(navigation.settings.cacheKey, defaultKey);
+        const surface = new NavigationSurface(navigation, [3, 3, 0]);
+        assert.ok(Math.abs(surface.move([3, 3, 0], 2, 0)[0] - 5) < 0.01);
+      }
+    }
+    const built = await run(["build", source, "--out", output, "--json", "--no-uv", "--nav-cell", "0.0625"], temp);
+    assert.equal(built.code, 0, built.stderr || built.stdout);
+    const report = result(built.stdout, "build", true).report;
+    const runtime = JSON.parse(await readFile(join(output, "navigation-doorway.runtime.json"), "utf8"));
+    const savedReport = JSON.parse(await readFile(join(output, "navigation-doorway.report.json"), "utf8"));
+    assert.equal(runtime.navigation.settings.cell, 0.0625);
+    assert.deepEqual(savedReport.navigation.settings, report.navigation.settings);
+    assert.deepEqual(runtime.navigation.settings, report.navigation.settings);
+    const surface = new NavigationSurface(runtime.navigation, [3, 3, 0]);
+    assert.ok(Math.abs(surface.move([3, 3, 0], 2, 0)[0] - 5) < 0.01);
+    assert.equal(await readFile(source, "utf8"), xml);
+  } finally { await rm(temp, { recursive: true, force: true }); }
+});
+
+test("invalid navigation resolution is a usage error before preview startup or output replacement", async () => {
+  const temp = await mkdtemp(join(tmpdir(), "levelspec-nav-invalid-"));
+  try {
+    const source = await sourceFile(temp), output = join(temp, "output");
+    await mkdir(output);
+    await writeFile(join(output, "cli-contract.glb"), "existing-export");
+    for (const [index, value] of ["", "NaN", "Infinity", "0", "-0.1", "0.0249", "0.5001", "invalid"].entries()) {
+      const command = ["validate", "build", "preview"][index % 3];
+      const extra = command === "build" ? ["--out", output] : [];
+      const response = await run([command, source, ...extra, "--nav-cell", value], temp);
+      assert.equal(response.code, 2, `${command} ${value}: ${response.stderr || response.stdout}`);
+      assert.doesNotMatch(response.stderr, /Preview ready/);
+    }
+    const missing = await run(["validate", source, "--nav-cell"], temp);
+    assert.equal(missing.code, 2, missing.stderr);
+    assert.equal(await readFile(join(output, "cli-contract.glb"), "utf8"), "existing-export");
+    const recovered = await run(["validate", source, "--nav-cell", "0.0625", "--json"], temp);
+    assert.equal(recovered.code, 0, recovered.stderr || recovered.stdout);
+    assert.equal(result(recovered.stdout, "validate", true).report.navigation.settings.cell, 0.0625);
+  } finally { await rm(temp, { recursive: true, force: true }); }
 });
 
 test("init creates a usable project and refuses existing destinations without mutation", async () => {

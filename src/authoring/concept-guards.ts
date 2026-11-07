@@ -1,6 +1,6 @@
 /** Physical side guards keep walking capsules out of the low underside of a rising flight. */
-import {key,rectCells,decomposeToRects} from '../core/grid.ts';
-import {verticalFootprint} from '../core/vertical-footprint.ts';
+import {key,rectCells,decomposeToRects} from './cell-grid.ts';
+import {verticalFootprint} from './cell-flight-footprint.ts';
 import {semanticCells} from './semantic-cells.ts';
 import {semanticFlights} from './semantic-flights.ts';
 import type {NativeSemanticPlan,CellRect,SemanticState,SemanticFlight} from './semantic-types.ts';

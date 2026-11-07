@@ -1,7 +1,7 @@
 /** Optional image-capable OpenAI adapter. The core reconstruction loop has no model dependency. */
 import { readFile } from "node:fs/promises";
 import { PNG } from "pngjs";
-import { compile, parseLevelSvgx, renderReference } from "../src/vector/index.ts";
+import { compile, parseLevelSvgx, renderReference, type AssetResolver } from "../src/vector/index.ts";
 import type { ReconstructionReviser, RevisionRequest } from "../src/reconstruction/loop.ts";
 import type { ReconstructionViewReport, ReconstructionReport } from "../src/reconstruction/evaluate.ts";
 
@@ -21,6 +21,8 @@ export interface OpenAIReviserConfig {
   maxAttempts?: number;
   /** Base backoff between retries; doubles each time. */
   retryDelayMs?: number;
+  /** Frozen geometry resolver shared with candidate evaluation. */
+  resolveAsset?: AssetResolver;
 }
 function dataPng(width: number, height: number, pixels: Uint8Array): string {
   const png = new PNG({ width, height });
@@ -39,10 +41,11 @@ function renderedLevelViews(level: Awaited<ReturnType<typeof compile>>, ids: Set
   }
   return result;
 }
-async function renderedViews(source: string, ids: Set<string>): Promise<{ id: string; url: string }[]> {
+async function renderedViews(source: string, ids: Set<string>, resolveAsset?: AssetResolver): Promise<{ id: string; url: string }[]> {
   try {
     const level = await compile(parseLevelSvgx(source),
-      { navigation: false, floorGaps: false, surfaceContacts: false });
+      { navigation: false, floorGaps: false, surfaceContacts: false, resolveAsset });
+    if (level.diagnostics.some(item => item.severity === "error")) return [];
     return renderedLevelViews(level, ids);
   } catch {
     return [];
@@ -88,14 +91,16 @@ function candidatePrompt(request: RevisionRequest, photos: InputPhoto[]) {
     "Output a new complete SVGX document and preserve reference IDs.",
   ].filter(Boolean).join("\n\n");
 }
-async function userContent(request: RevisionRequest, photos: InputPhoto[], ids: Set<string>) {
+async function userContent(request: RevisionRequest, photos: InputPhoto[], ids: Set<string>, resolveAsset?: AssetResolver) {
   const content: Array<Record<string, unknown>> =
     [{ type: "input_text", text: candidatePrompt(request, photos) }];
   for (const photo of photos) {
     content.push({ type: "input_text", text: `Original photograph: ${photo.referenceId}` });
     content.push({ type: "input_image", image_url: photo.dataUrl, detail: "high" });
   }
-  const previews = request.previousSource ? await renderedViews(request.previousSource, ids) : [];
+  const previews = request.previousSource ? await renderedViews(request.previousSource, ids, resolveAsset) : [];
+  if (request.previousSource && previews.length === 0)
+    content.push({ type: "input_text", text: "CURRENT RENDER UNAVAILABLE: compilation or companion loading failed; no complete current view is supplied." });
   for (const render of previews) {
     content.push({ type: "input_text", text: `CURRENT COMPILED RENDER (not ground truth): ${render.id}` });
     content.push({ type: "input_image", image_url: render.url, detail: "high" });
@@ -231,7 +236,7 @@ export async function createOpenAIReviser(config: OpenAIReviserConfig): Promise<
     "PARTIAL SVGX EXAMPLE:", example,
   ].join("\n\n");
   return async function revise(request: RevisionRequest) {
-    const content = await userContent(request, config.photos, ids);
+    const content = await userContent(request, config.photos, ids, config.resolveAsset);
     return queryModel(config, instructions, content, request.signal);
   };
 }

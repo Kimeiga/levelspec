@@ -26,6 +26,8 @@ export interface RunOptions {
   formats?: ExportFormat[];
   noUV?: boolean;
   strictFloorGaps?: boolean;
+  /** Horizontal navigation grid size in meters; omitted uses the compiler default. */
+  navigationCell?: number;
   surfaceContacts?: false | "warning" | "error";
   blender?: string;
   qbsp?: string;
@@ -78,14 +80,23 @@ export async function runCommand(command: string, input: string, options: RunOpt
       retainExportSolids: command === 'build' && formats.includes('bsp'),
       floorGaps: options.strictFloorGaps ? 'error' : 'warning',
       surfaceContacts: options.surfaceContacts ?? 'error',
+      navigation: { cell: options.navigationCell },
       onProgress: options.progress,
     });
-    result.suggestions = level.suggestions.map(suggestion => ({ ...suggestion, review: { url: `?suggestion=${encodeURIComponent(suggestion.id)}`, arguments: ["preview", source, "--suggestion", suggestion.id] } }));
+    result.suggestions = level.suggestions.map(suggestion => {
+      const parameters = new URLSearchParams({ suggestion: suggestion.id });
+      const arguments_ = ["preview", source, "--suggestion", suggestion.id];
+      if (options.navigationCell !== undefined) {
+        parameters.set("nav-cell", String(options.navigationCell));
+        arguments_.push("--nav-cell", String(options.navigationCell));
+      }
+      return { ...suggestion, review: { url: `?${parameters}`, arguments: arguments_ } };
+    });
     result.stats = level.stats;
     result.repairs = level.repairs ?? [];
     result.diagnostics = level.diagnostics;
     stage = 'validate';
-    const report = await validateForRuntime(level,{sealed:true,signal:options.signal});
+    const report = await validateForRuntime(level,{sealed:true,signal:options.signal,cell:options.navigationCell});
     result.report = report;
     result.diagnostics = report.diagnostics;
     if (!report.passed) {

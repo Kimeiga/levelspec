@@ -1,5 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
+import { auditFloorGaps } from "../src/vector/floor-gaps.ts";
 import {
   compile,
   createDocument,
@@ -481,5 +482,75 @@ describe("unsealed adjacent floor boundaries", () => {
     const gaps = await inspect(d);
     assert.equal(gaps.length, 1);
     assertPair(gaps[0].objects);
+  });
+});
+
+
+/** The intermediate slab is on the lower floor's occupied side, not an underpass continuation. */
+function intermediateSeal(top = 0.9, bottom = 0.6, length = 4) {
+  const document = adjacent(1);
+  Object.assign(document.layers[0].edges[1], { kind: "wall", height: 0.6 });
+  const middle = rectangle("middle", 0, 0, 2, length, top);
+  middle.regions[0].thickness = top - bottom;
+  document.layers.push(middle);
+  return document;
+}
+
+describe("actual intermediate structural material seals floor boundaries", () => {
+  it("accepts a same-side slab that closes the .20m interval above a short wall", async () => {
+    const document = intermediateSeal();
+    const level = await compile(document, { navigation: false, floorGaps: "error", surfaceContacts: "error" });
+    assert.deepEqual(level.diagnostics, []);
+    const slabFaces = level.surfaces.filter(surface => surface.object === "middle.floor");
+    assert.ok(slabFaces.length > 0, "The intermediate seal must be actual compiled structural material");
+    assert.ok(slabFaces.every(surface => surface.kind === "floor" && !surface.dynamic));
+  });
+
+  it("retains independently sized lower, upper and partial-length gaps", async () => {
+    const noSlab = intermediateSeal();
+    noSlab.layers.pop();
+    const cases = [
+      { document: noSlab, length: 4, height: 0.2 },
+      { document: intermediateSeal(0.95, 0.65), length: 4, height: 0.05 },
+      { document: intermediateSeal(0.75, 0.45), length: 4, height: 0.05 },
+      { document: intermediateSeal(0.9, 0.6, 2), length: 2, height: 0.2 },
+    ];
+    for (const { document, length, height } of cases) {
+      const gaps = await inspect(document);
+      const gap = gaps.find(diagnostic => diagnostic.objects.includes("low.floor") && diagnostic.objects.includes("high.floor"));
+      assert.ok(gap, "A real remaining interval must not disappear behind another slab");
+      const reportedLength = Number(gap.message.match(/along ([\d.]+) m/)?.[1]);
+      const reportedHeight = Number(gap.message.match(/about ([\d.]+) m high/)?.[1]);
+      assert.equal(reportedLength, length);
+      assert.equal(reportedHeight, height);
+    }
+  });
+
+  it("uses actual native stair caps as intermediate sealing material", async () => {
+    const document = intermediateSeal();
+    const middle = document.layers[2];
+    middle.vertices.forEach(vertex => { vertex.z = vertex.x === 2 ? 0.8 : 1; });
+    Object.assign(middle.regions[0], {
+      fill: "stairs", lower: "middle.e1", upper: "middle.e3", rise: 0.1, thickness: 0.3, underside: "stepped",
+    });
+    const level = await compile(document, { navigation: false, floorGaps: "error", surfaceContacts: "error" });
+    assert.deepEqual(level.diagnostics, []);
+    assert.ok(level.surfaces.some(surface => surface.object === "middle.floor" && surface.kind === "stairs"));
+  });
+
+  it("counts hidden static collision but excludes dynamic or noncolliding material", async () => {
+    const compiled = await compile(intermediateSeal(), { navigation: false, floorGaps: false });
+    assert.deepEqual(compiled.diagnostics, []);
+    const targets = compiled.surfaces.filter(surface => surface.object === "middle.floor");
+    assert.ok(targets.length > 0, "The flag controls must modify real intermediate slab surfaces");
+    for (const [flag, value, expectedGap] of [
+      ["visible", false, false], ["collidable", false, true], ["dynamic", true, true],
+    ] as const) {
+      const level = structuredClone(compiled);
+      for (const surface of level.surfaces) if (surface.object === "middle.floor") surface[flag] = value;
+      const gaps = auditFloorGaps(level, "error");
+      assert.equal(gaps.some(diagnostic => diagnostic.objects.includes("low.floor") && diagnostic.objects.includes("high.floor")), expectedGap, flag);
+    }
+    assert.deepEqual(compiled.surfaces.filter(surface => surface.object === "middle.floor"), targets);
   });
 });

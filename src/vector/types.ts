@@ -112,8 +112,8 @@ export interface Region extends Named {
   lower?: string;
   upper?: string;
   rise?: number;
-  /** Stair body: filled to the lower landing by default, or a sloping slab. */
-  underside?: "filled" | "sloped";
+  /** Stair body: filled by default, a smooth sloping slab, or constant-thickness stepped treads. */
+  underside?: "filled" | "sloped" | "stepped";
   area?: string;
 }
 export interface Layer extends Named {

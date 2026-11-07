@@ -13,11 +13,10 @@ function rasterSemantic(t:RasterTrace):NativeSemanticPlan {
   }
   return {format:'levelspec-semantic/2',id:t.id,name:t.name,description:`Footprint traced from ${t.sourceImage}. Color bands are provisional areas.`,grid:t.grid,wallThickness:.32,floorThickness:.25,layers:[{id:'ground',height:5}],areas:[...areas.values()]};
 }
-/** Legacy decoding is deliberately lazy and only accepts a declared .plan source. */
+/** Decodes native XML or typed semantic/raster source data. */
 export async function decodeSemanticSource(text:string,extension:string):Promise<SemanticSource> {
-  if(extension==='.plan'){const {decodeLegacySemantic}=await import('./semantic-legacy-source.ts');return decodeLegacySemantic(text);}
   if(extension==='.svgx')return {kind:'native',document:parseLevelSvgx(text),provisional:false};
-  if(extension!=='.json')throw new Error(`Unsupported semantic source ${extension}; expected .plan, .svgx, or typed JSON.`);
+  if(extension!=='.json')throw new Error(`Unsupported semantic source ${extension}; expected .svgx or typed JSON.`);
   const value:unknown=JSON.parse(text),format=(value as {format?:string})?.format;
   if(format==='levelspec-raster/1')return {kind:'semantic',plan:rasterSemantic(parseRasterTrace(text)),provisional:true};
   checkSemantic(value);return {kind:'semantic',plan:value,provisional:false};

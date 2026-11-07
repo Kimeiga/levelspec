@@ -1,5 +1,5 @@
-import {key,rectCells} from '../core/grid.ts';
-import {verticalFootprint} from '../core/vertical-footprint.ts';
+import {key,rectCells} from './cell-grid.ts';
+import {verticalFootprint} from './cell-flight-footprint.ts';
 import {cellRectPoints,floorZ} from './semantic-cells.ts';
 import type {SemanticState,SemanticFlight,CellRect} from './semantic-types.ts';
 import type {V3} from '../vector/types.ts';

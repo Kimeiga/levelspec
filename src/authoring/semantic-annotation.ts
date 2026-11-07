@@ -1,4 +1,4 @@
-import {key,unkey,rectCells} from '../core/grid.ts';
+import {key,unkey,rectCells} from './cell-grid.ts';
 import type {Cell,CellRect,SemanticArea} from './semantic-types.ts';
 
 export interface SeedArea extends Omit<SemanticArea,'rects'|'cells'> {seeds:CellRect[]}

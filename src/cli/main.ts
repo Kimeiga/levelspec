@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { runCommand, type CommandResult } from './pipeline.ts';
 import type { ExportFormat } from '../export/vector/index.ts';
 import { parseViewOptions, type ReviewViewOptions } from "../../review/view.ts";
+import { parseNavigationCell } from "../../review/navigation-cell.ts";
 
 const commands = ['init','validate','build','preview'];
 const help = `Usage: levelspec <command> [options]
@@ -16,6 +17,7 @@ const help = `Usage: levelspec <command> [options]
     --camera "X Y Z" --target "X Y Z" --projection orthographic|perspective
     --fov DEGREES --view-height METERS --roll DEGREES --suggestion ID | --diagnostic ID
     --appearance illustrated|materials|inspection --frame-aspect RATIO
+  validate/build/preview: --nav-cell METERS (0.025–0.5; default 0.125)
   --help --version
 Preview is read-only and loopback-only. Native exporters require separately installed tools.`;
 /** Executes one invocation; the launcher owns the returned exit status. */
@@ -33,11 +35,13 @@ export async function main(args: string[]): Promise<number> {
   }
   let parsed: ReturnType<typeof parseArgs>;
   let view: ReviewViewOptions = {};
+  let navigationCell: number | undefined;
   try {
     if (!commands.includes(command)) {
       throw new Error('Expected init, validate, build, or preview.');
     }
     const flags: Record<string, {type:'string'|'boolean'}> = {};
+    if (command !== 'init') flags['nav-cell'] = { type: 'string' };
     if (command === 'preview') {
       for (const name of ["port", "camera", "target", "projection", "fov", "view-height", "roll", "appearance", "frame-aspect", "suggestion", "diagnostic"]) flags[name] = {type:"string"};
     }
@@ -53,6 +57,7 @@ export async function main(args: string[]): Promise<number> {
       flags['no-uv']={type:'boolean'};
     }
     parsed=parseArgs({args:args.slice(1),allowPositionals:true,options:flags});
+    navigationCell = parseNavigationCell(parsed.values['nav-cell'] as string | undefined);
     if(parsed.positionals.length!==1)throw new Error('Expected exactly one project directory or XML source file.');
     if (parsed.values['surface-contacts'] !== undefined && !['error','warning','off'].includes(String(parsed.values['surface-contacts']))) throw new Error('surface-contacts must be error, warning, or off.');
     if (parsed.values.diagnostic && parsed.values.suggestion) throw new Error('diagnostic and suggestion are mutually exclusive.');
@@ -92,6 +97,7 @@ export async function main(args: string[]): Promise<number> {
         port: values.port === undefined ? undefined : Number(values.port),
         signal: abort.signal,
         view,
+        navigationCell,
         suggestion: values.suggestion as string | undefined,
         diagnostic: values.diagnostic as string | undefined,
       });
@@ -114,6 +120,7 @@ export async function main(args: string[]): Promise<number> {
       formats: String(values.formats ?? 'glb').split(',') as ExportFormat[],
       noUV: Boolean(values['no-uv']),
       strictFloorGaps: Boolean(values['strict-floor-gaps']),
+      navigationCell,
       surfaceContacts: values['surface-contacts'] === 'off' ? false : (values['surface-contacts'] ?? 'error') as 'error'|'warning',
       blender: values.blender as string|undefined,
       qbsp: values.qbsp as string|undefined,

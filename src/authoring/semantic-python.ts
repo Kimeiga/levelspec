@@ -3,7 +3,7 @@ import {semanticCells} from './semantic-cells.ts';
 import {assignSemanticFloor,type SeedArea} from './semantic-annotation.ts';
 import {applySemanticDirectives} from './semantic-directives.ts';
 import {placePythonObjects,placePythonCovers} from './semantic-python-objects.ts';
-import {key,unkey} from '../core/grid.ts';
+import {key,unkey} from './cell-grid.ts';
 import type {NativeSemanticPlan,SemanticArea,SemanticLayer,CellRect,SemanticMarker} from './semantic-types.ts';
 
 export interface PythonArea extends Omit<SemanticArea,'height'|'cells'> {ceiling?:number;seeds?:CellRect[]}

@@ -4,6 +4,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { NavigationSurface } from "../website/navigation.ts";
 import { bindWalkInput } from "../website/walk-input.ts";
 import { navigationIndices } from "./navigation.ts";
+import { MAX_WALK_PITCH, prepareInspectionWalk, type WalkPose, type WalkStartResult } from "./walk.ts";
 import { WalkClock } from "../website/walk-clock.ts";
 import type { CompiledLevel, ReviewFinding, V3 } from "../src/vector/types.ts";
 import type { Appearance, ViewOptions, ViewState } from "./view.ts";
@@ -198,8 +199,8 @@ export class ReviewScene {
           this.yaw -= dx * 0.003;
           this.pitch = THREE.MathUtils.clamp(
             this.pitch - dy * 0.003,
-            -1.4,
-            1.4,
+            -THREE.MathUtils.degToRad(MAX_WALK_PITCH),
+            THREE.MathUtils.degToRad(MAX_WALK_PITCH),
           );
           this.invalidate();
         },
@@ -427,7 +428,7 @@ export class ReviewScene {
       object.castShadow = !transparent && options.appearance !== "inspection";
       object.receiveShadow = options.appearance !== "inspection";
       this.model.add(object);
-      if (!transparent) this.outlines.add(g, group.object, [this.plane]);
+      if (!transparent) this.outlines.add(g, [this.plane]);
     }
     this.box.setFromObject(this.model);
     if (this.box.isEmpty())
@@ -667,16 +668,45 @@ export class ReviewScene {
     this.controls.update();
     this.invalidate();
   }
-  /** Begins a land-navigation constrained walk from the authored spawn. */
-  enterWalk() {
-    if (!this.surface?.locate(this.point)) return false;
+  /** Places a collision-checked inspection body without changing authored markers or navigation. */
+  enterWalk(requested?: WalkPose): WalkStartResult {
+    if (!this.level) return { ok: false, message: "Load a layout before walking." };
+    if (this.renderer.getContext().isContextLost()) return { ok: false, message: "3D graphics are unavailable; restore the preview before walking." };
+    const spawn = this.level.document.markers.find(m => /(^|_)spawn$/.test(m.kind) && m.movement !== "water");
+    if (!requested && !spawn) return { ok: false, message: "No authored land spawn. Enter supported inspection feet coordinates instead." };
+    const prepared = prepareInspectionWalk(this.level, requested ?? { feet: spawn!.position, yaw: 0, pitch: 0 });
+    if (!prepared.ok) return prepared;
+    this.surface = prepared.surface;
+    this.point = [...prepared.pose.feet];
+    this.yaw = THREE.MathUtils.degToRad(prepared.pose.yaw);
+    this.pitch = THREE.MathUtils.degToRad(prepared.pose.pitch);
+    this.keys.clear();
     this.walking = true;
     this.controls.enabled = false;
     this.clock.reset(performance.now());
     this.onWalk(true);
+    this.publishWalk();
     this.renderer.domElement.focus();
     this.invalidate();
-    return true;
+    return { ok: true, pose: prepared.pose };
+  }
+  /** Reports actual feet/orientation; motion remains constrained by existing eroded land navigation. */
+  getWalk() {
+    return {
+      active: this.walking,
+      feet: [...this.point] as V3,
+      yaw: Number(THREE.MathUtils.radToDeg(this.yaw).toFixed(9)),
+      pitch: Number(THREE.MathUtils.radToDeg(this.pitch).toFixed(9)),
+      collision: "navigation" as const,
+      height: this.level?.navigation?.settings.player.height,
+      radius: this.level?.navigation?.settings.player.radius,
+    };
+  }
+  /** Publishes transition state even when a hidden viewport will not render another frame. */
+  private publishWalk() {
+    const walk = this.getWalk();
+    this.host.dataset.walk = JSON.stringify(walk);
+    this.host.dispatchEvent(new CustomEvent("review-walk-change", { detail: walk }));
   }
   /** Returns to the unchanged overview camera. */
   exitWalk() {
@@ -687,6 +717,7 @@ export class ReviewScene {
     if (document.pointerLockElement === this.renderer.domElement)
       document.exitPointerLock();
     this.onWalk(false);
+    this.publishWalk();
     this.invalidate();
   }
   /** Advances navigation using actual held-input time, subdivided by NavigationSurface. */
@@ -751,10 +782,11 @@ export class ReviewScene {
       this.camera.far,
     ].join(",");
     const view = this.getView();
-    this.host.dataset.projection = view.projection;
-    this.host.dataset.projectionMatrix = this.camera.projectionMatrix.toArray().join(",");
+    this.host.dataset.projection = this.walking ? "perspective" : view.projection;
+    this.host.dataset.projectionMatrix = renderCamera.projectionMatrix.toArray().join(",");
     this.host.dataset.viewMatrix = renderCamera.matrixWorldInverse.toArray().join(",");
     this.host.dataset.view = JSON.stringify(view);
+    this.publishWalk();
     this.host.dispatchEvent(new CustomEvent("review-view-change", { detail: view }));
     this.host.dataset.triangles = String(this.renderer.info.render.triangles);
     this.host.dataset.cut = String(this.plane.constant);

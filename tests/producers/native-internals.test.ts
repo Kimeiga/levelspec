@@ -79,19 +79,9 @@ test('native generated geometry and furniture reproduce exactly',async()=>{
   assert.ok(a.pickups.some(p=>p.kind==='weapon'&&p.variant));
 });
 
-test('the explicit legacy generator CLI still writes v1 artifacts',{timeout:120000},t=>{
-  const dir=mkdtempSync(join(tmpdir(),'legacy-generator-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const r=spawnSync(process.execPath,[fileURLToPath(new URL('../../tools/generate.ts',import.meta.url)),'1','--legacy','--keep','--out',dir],{encoding:'utf8',timeout:110000});
-  assert.equal(r.status,0,r.stderr);assert.ok(readdirSync(dir).some(p=>p.endsWith('.json')));
-  const file=readdirSync(dir).find(p=>p.endsWith('.json'))!;
-  assert.equal(JSON.parse(readFileSync(join(dir,file),'utf8')).schema_version,'1.1');
-  assert.ok(readdirSync(dir).some(p=>p.endsWith('.plan.svg')));
-});
-
 test('native proposals retain the generator player and route requirements',async()=>{
   const r=await generateLevelV2({seed:'native-requirements',archetype:'three_lane',minRoutes:3,attempts:4});
   assert.ok(r.ok,JSON.stringify(r));
-  assert.equal(r.legacy===undefined,true);
   assert.equal(r.document.player.radius,0.35);assert.equal(r.document.player.height,1.8);
   assert.equal(r.document.player.step,0.45);assert.equal(r.document.player.crouch,1.1);
   assert.equal(r.document.routes[0].minRoutes,3);assert.ok(r.disjointRoutes>=3);

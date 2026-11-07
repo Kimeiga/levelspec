@@ -46,6 +46,73 @@ describe("reference views",()=>{
       assert.ok(Math.abs(actual[0]-(expected.x+1)/2)<1e-12);assert.ok(Math.abs(actual[1]-(1-expected.y)/2)<1e-12);
     }
   });
+  it("preserves calibrated camera precision through raw XML, saving and compilation",async()=>{
+    const {document}=fixture(),r=reference();
+    r.camera={position:[4.123456789,-10.234567891,9.345678912],
+      target:[2.456789123,3.567891234,4.678912345],up:[0.153456789,0.203456789,1],
+      fov:53.123456789,near:0.051234567,far:2000.123456789};
+    r.landmarks=[{id:"survey",position:[1.23456,2.34567,3.45678],image:[0.45,0.55]}];
+    r.masks=[{id:"occluder",points:[[0.8,0.8],[0.9,0.8],[0.9,0.9]]}];
+    document.layers[0].vertices[0].x=0.123456789;
+    document.references=[r];
+    const before=structuredClone(document),xml=serializeLevelSvgx(document);
+    // Inject the original pose into XML independently of the serializer under test.
+    const raw=xml.replace(/<reference [^>]*>/,tag=>tag
+      .replace(/position="[^"]*"/,`position="${r.camera.position.join(" ")}"`)
+      .replace(/target="[^"]*"/,`target="${r.camera.target.join(" ")}"`))
+      .replace('x="0.123"','x="0.123456789"')
+      .replace('position="1.235 2.346 3.457"','position="1.23456 2.34567 3.45678"');
+    assert.match(raw,/position="4.123456789 -10.234567891 9.345678912"/);
+    const parsed=parseLevelSvgx(raw),saved=parseLevelSvgx(xml),compiled=await compile(document,{navigation:false});
+    assert.deepEqual(compiled.diagnostics,[]);
+    const camera=new PerspectiveCamera(r.camera.fov,r.width/r.height,r.camera.near,r.camera.far);
+    camera.up.fromArray(r.camera.up);camera.position.fromArray(r.camera.position);
+    camera.lookAt(...r.camera.target);camera.updateMatrixWorld();
+    const points:V3[]=[[0,0,2],[2,2,4],[5,4,6],[1,5,3]];
+    for(const candidate of [parsed,saved,compiled.document]){
+      const actual=candidate.references![0];
+      assert.deepEqual(actual.camera,r.camera);
+      for(const key of ["image","width","height","scale","scaleNote"] as const)
+        assert.deepEqual(actual[key],r[key]);
+      const maskValues=(masks:ReferenceView["masks"])=>masks.map(({id,label,points})=>({id,label,points}));
+      assert.deepEqual(maskValues(actual.masks),maskValues(r.masks));
+      assert.deepEqual(actual.landmarks[0].position,[1.235,2.346,3.457]);
+      assert.equal(candidate.layers[0].vertices[0].x,0.123);
+      for(const point of points){
+        const expected=new Vector3(...point).project(camera),projected=projectReference(actual,point);
+        assert.ok(projected.inFrame);assert.ok(projected.depth>1);
+        assert.ok(Math.abs(projected.image![0]-(expected.x+1)/2)*r.width<1e-8);
+        assert.ok(Math.abs(projected.image![1]-(1-expected.y)/2)*r.height<1e-8);
+      }
+    }
+    assert.equal(serializeLevelSvgx(saved),xml);
+    assert.deepEqual(document,before);
+    const other=structuredClone(document);other.references![0].camera.position[0]+=0.000123456;
+    const second=await compile(other,{navigation:false});
+    assert.equal(second.geometryHash,compiled.geometryHash);assert.deepEqual(second.mesh,compiled.mesh);
+  });
+  it("keeps legal submillimetre viewing directions distinct after saving and compiling",async()=>{
+    const {document}=fixture(),r=reference();r.camera.position=[0,0,0];r.camera.target=[0,0.0001,0];
+    document.references=[r];assert.deepEqual(validateReference(r),[]);
+    const saved=parseLevelSvgx(serializeLevelSvgx(document)),compiled=await compile(document,{navigation:false});
+    assert.deepEqual(saved.references![0].camera,r.camera);assert.deepEqual(compiled.document.references![0].camera,r.camera);
+    assert.deepEqual(compiled.diagnostics,[]);assert.equal(projectReference(saved.references![0],[0,2,0]).inFrame,true);
+    r.camera.target=[0,1e-10,0];assert.ok(validateReference(r).length);
+  });
+  it("retains finite and safe-range checks for unsnapped camera coordinates",async()=>{
+    const limit=(Number.MAX_SAFE_INTEGER-1)/1000;
+    for(const key of ["position","target"] as const){
+      for(const value of [Number.NaN,Infinity,-Infinity,limit+1,-limit-1,Number.MAX_VALUE]){
+        const {document}=fixture();document.references=[reference()];document.references[0].camera[key][0]=value;
+        const error=Number.isFinite(value)?/safe millimetre range/:/finite/;
+        assert.throws(()=>serializeLevelSvgx(document),error);
+        await assert.rejects(compile(document,{navigation:false}),error);
+      }
+      const {document}=fixture();document.references=[reference()];document.references[0].camera[key][0]=limit-1;
+      const saved=parseLevelSvgx(serializeLevelSvgx(document));
+      assert.equal(saved.references![0].camera[key][0],limit-1);
+    }
+  });
   it("does not report a zero-error fit with no observations or clipped points",()=>{
     const r=reference();assert.equal(compareReference(r).rmsPixels,null);
     r.landmarks=[{id:"behind",position:[0,-20,3],image:[0.5,0.5]}];

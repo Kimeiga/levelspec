@@ -1,9 +1,11 @@
 import "./style.css";
+import { parseWalkPose, walkURL, WALK_PARAMETERS, type WalkPose, type WalkStartResult } from "./walk.ts";
 import { diagnosticPanel } from "./diagnostics.ts";
 import { suggestionPanel } from "./suggestions.ts";
 import * as THREE from "three";
 import { toSVGPlan } from "../src/vector/export.ts";
 import { navigationIndices } from "./navigation.ts";
+import { parseNavigationCell } from "./navigation-cell.ts";
 import { ReviewScene, type ReviewOptions } from "./scene.ts";
 import type { CompiledLevel, ValidationReport, ReviewFinding } from "../src/vector/types.ts";
 import { FRAME_ASPECT_MIN, FRAME_ASPECT_MAX, parseAppearance, parseFrameAspect, parseViewOptions, viewURL, type ReviewViewOptions, type ReviewViewState, type ViewState } from "./view.ts";
@@ -22,8 +24,8 @@ export function mountReviewer(config: ReviewerConfig) {
     <main>
     <section class="reviewer" aria-label="Layout reviewer" data-view="3d" aria-busy="true">
       <div class="toolbar"><div class="tabs" role="group" aria-label="Review view"><button id="view-2d" aria-pressed="false">01 / 2D plan</button><button id="view-3d" aria-pressed="true">02 / 3D space</button></div><div class="tools"><label>Floor <select id="floor"><option value="">All floors</option></select></label><button id="fit">Fit view</button><button id="walk" disabled>Walk inside ↗</button><button id="exit-walk" hidden>Exit walk · Esc</button></div></div>
-      <div class="workspace"><div class="viewport"><div id="model"></div><div id="plan" hidden tabindex="0" aria-label="2D floor plan. Drag to pan, scroll to zoom, click to select."></div><p id="fallback" hidden>3D is unavailable. The 2D plan and validation remain available.</p><div class="view-label" id="view-label">ORTHOGRAPHIC / Z-UP METERS</div><p id="viewport-dimensions" aria-label="Geometry dimensions"></p><div class="compass" aria-label="3D camera presets"><button data-preset="iso">¾</button><button data-preset="top">Top</button><button data-preset="front">Front</button><button data-preset="side">Side</button><button id="turn" aria-label="Turn ninety degrees">↻ 90°</button></div><div id="walk-pad" hidden><button data-move="w" aria-label="Walk forward">↑</button><button data-move="a" aria-label="Walk left">←</button><button data-move="s" aria-label="Walk backward">↓</button><button data-move="d" aria-label="Walk right">→</button></div></div>
-      <aside aria-label="Review layers"><p class="eyebrow">REVIEW LAYERS</p><label>Projection <select id="projection"><option value="orthographic">Orthographic</option><option value="perspective">Perspective</option></select></label><details id="camera-controls"><summary>Camera / Z-up meters</summary><form id="camera-form"><label>Position XYZ <input id="camera-position" type="text" required></label><label>Target XYZ <input id="camera-target" type="text" required></label><label>Vertical FOV (degrees) <input id="camera-fov" type="number" min="0.01" max="149.99" step="any" value="55" required></label><label>Orthographic view height (m) <input id="camera-height" type="number" min="0.000001" step="any" value="40" required></label><label>Roll (degrees) <input id="camera-roll" type="number" step="any" value="0" required></label><button type="submit">Apply camera</button><p id="camera-error" role="status"></p></form><p id="view-description"></p><a id="view-link">Open this view ↗</a></details><label>Appearance <select id="appearance"><option value="illustrated">Illustrated</option><option value="materials">Authored materials</option><option value="inspection">Neutral inspection</option></select></label><details id="frame-controls"><summary>Image frame</summary><label>Frame <select id="frame-mode"><option value="viewport">Viewport</option><option value="0.75">Portrait 3:4</option><option value="1">Square</option><option value="1.3333333333333333">Landscape 4:3</option><option value="custom">Custom</option></select></label><form id="frame-form" novalidate><label>Width / height <input id="frame-aspect" type="number" min="0.1" max="10" step="any" placeholder="Responsive viewport"></label><button type="submit">Apply frame</button></form><button id="frame-reference" disabled>Use selected reference ratio</button><p id="frame-description"></p><p id="frame-error" role="status"></p></details><label class="check"><input id="roofs" type="checkbox"> Show roofs</label><label>Section height <input id="cut" type="range" min="0" max="1" step="0.01" value="1"></label><label>Navigation <select id="navigation"><option value="">Off</option><option value="land">Land</option><option value="water">Boat</option></select></label><label class="check"><input id="issues" type="checkbox"> Spatial issues</label><label class="check"><input id="dimensions" type="checkbox" checked> Dimensions</label><details id="references"><summary>References</summary><select id="reference" aria-label="Reference image"><option value="">No reference</option></select><p id="reference-note"></p><img id="reference-image" alt="Architectural reference" hidden></details><hr><p class="eyebrow">SELECTION</p><p id="selection">Select a floor or wall in either view.</p><p id="dimensions-value"></p><p id="navigation-summary"></p><details id="suggestion-panel" open><summary>Suggestions</summary><div id="suggestions"></div></details><details id="validation"><summary>Validation <span id="issue-count"></span></summary><p id="validation-mode"></p><div id="diagnostics"></div></details></aside></div>
+      <div class="workspace"><div class="viewport"><div id="model" data-mode="overview"></div><div id="plan" hidden tabindex="0" aria-label="2D floor plan. Drag to pan, scroll to zoom, click to select."></div><p id="fallback" hidden>3D is unavailable. The 2D plan and validation remain available.</p><div class="view-label" id="view-label">ORTHOGRAPHIC / Z-UP METERS</div><p id="viewport-dimensions" aria-label="Geometry dimensions"></p><div class="compass" aria-label="3D camera presets"><button data-preset="iso">¾</button><button data-preset="top">Top</button><button data-preset="front">Front</button><button data-preset="side">Side</button><button id="turn" aria-label="Turn ninety degrees">↻ 90°</button></div><div id="walk-pad" hidden><button data-move="w" aria-label="Walk forward">↑</button><button data-move="a" aria-label="Walk left">←</button><button data-move="s" aria-label="Walk backward">↓</button><button data-move="d" aria-label="Walk right">→</button></div></div>
+      <aside aria-label="Review layers"><p class="eyebrow">REVIEW LAYERS</p><label>Projection <select id="projection"><option value="orthographic">Orthographic</option><option value="perspective">Perspective</option></select></label><details id="camera-controls"><summary>Camera / Z-up meters</summary><form id="camera-form"><label>Position XYZ <input id="camera-position" type="text" required></label><label>Target XYZ <input id="camera-target" type="text" required></label><label>Vertical FOV (degrees) <input id="camera-fov" type="number" min="0.01" max="149.99" step="any" value="55" required></label><label>Orthographic view height (m) <input id="camera-height" type="number" min="0.000001" step="any" value="40" required></label><label>Roll (degrees) <input id="camera-roll" type="number" step="any" value="0" required></label><button type="submit">Apply camera</button><p id="camera-error" role="status"></p></form><p id="view-description"></p><a id="view-link">Open this view ↗</a></details><details id="walk-controls"><summary>Walk from coordinates</summary><form id="walk-form" novalidate><label>Feet XYZ (Z-up meters) <input id="walk-feet" type="text" value="0 0 0" required></label><label>Yaw degrees (+X=0, +Y=90) <input id="walk-yaw" type="number" step="any" value="0" required></label><label>Pitch degrees (−80 to 80) <input id="walk-pitch" type="number" step="any" min="-80" max="80" value="0" required></label><button id="walk-start" type="submit" disabled>Start inspection walk</button></form><p id="walk-error" role="status"></p><p id="walk-description">Uses existing land navigation and standing-body collision checks. Unsupported feet are rejected; nearby feet resolve within 0.10m.</p><a id="walk-link">Open this walking pose ↗</a></details><label>Appearance <select id="appearance"><option value="illustrated">Illustrated</option><option value="materials">Authored materials</option><option value="inspection">Neutral inspection</option></select></label><details id="frame-controls"><summary>Image frame</summary><label>Frame <select id="frame-mode"><option value="viewport">Viewport</option><option value="0.75">Portrait 3:4</option><option value="1">Square</option><option value="1.3333333333333333">Landscape 4:3</option><option value="custom">Custom</option></select></label><form id="frame-form" novalidate><label>Width / height <input id="frame-aspect" type="number" min="0.1" max="10" step="any" placeholder="Responsive viewport"></label><button type="submit">Apply frame</button></form><button id="frame-reference" disabled>Use selected reference ratio</button><p id="frame-description"></p><p id="frame-error" role="status"></p></details><label class="check"><input id="roofs" type="checkbox"> Show roofs</label><label>Section height <input id="cut" type="range" min="0" max="1" step="0.01" value="1"></label><label>Navigation <select id="navigation"><option value="">Off</option><option value="land">Land</option><option value="water">Boat</option></select></label><details id="navigation-grid"><summary>Walking grid</summary><form id="nav-cell-form" novalidate><label>Horizontal cell size (m) <input id="nav-cell" type="number" min="0.025" max="0.5" step="any" value="0.125" required></label><button type="submit">Rebuild navigation</button></form><p>Smaller cells can resolve narrow passages. Player dimensions stay unchanged.</p><p id="nav-cell-status" role="status"></p><p id="nav-cell-error" role="status"></p></details><label class="check"><input id="issues" type="checkbox"> Spatial issues</label><label class="check"><input id="dimensions" type="checkbox" checked> Dimensions</label><details id="references"><summary>References</summary><select id="reference" aria-label="Reference image"><option value="">No reference</option></select><p id="reference-note"></p><img id="reference-image" alt="Architectural reference" hidden></details><hr><p class="eyebrow">SELECTION</p><p id="selection">Select a floor or wall in either view.</p><p id="dimensions-value"></p><p id="navigation-summary"></p><details id="suggestion-panel" open><summary>Suggestions</summary><div id="suggestions"></div></details><details id="validation"><summary>Validation <span id="issue-count"></span></summary><p id="validation-mode"></p><div id="diagnostics"></div></details></aside></div>
       <footer><span id="status" role="status" aria-live="polite">Loading layout…</span><button id="cancel">Cancel loading</button><button id="retry" hidden>Retry loading</button><span id="help">Drag to orbit · Right drag to pan · Scroll to zoom</span></footer>
     </section></main>`;
   const get = <T extends HTMLElement = HTMLElement>(id: string) =>
@@ -98,8 +100,25 @@ export function mountReviewer(config: ReviewerConfig) {
   };
   const suggestions = suggestionPanel(get("suggestions"), inspectionActions);
   const spatialDiagnostics = diagnosticPanel(get("diagnostics"), inspectionActions);
+  let navigationCell: number | undefined;
+  let navigationConfigurationError: string | undefined;
+  try {
+    navigationCell = parseNavigationCell(new URL(location.href).searchParams.get("nav-cell"));
+    get<HTMLInputElement>("nav-cell").value = String(navigationCell ?? 0.125);
+  } catch (error) {
+    navigationConfigurationError = (error as Error).message;
+    get("nav-cell-error").textContent = navigationConfigurationError;
+    get<HTMLDetailsElement>("navigation-grid").open = true;
+  }
   let initialView: ReviewViewOptions = {};
   let viewApplied = false;
+  let initialWalk: WalkPose | undefined;
+  let walkApplied = false;
+  try { initialWalk = parseWalkPose(new URL(location.href).searchParams); }
+  catch (error) {
+    get("walk-error").textContent = (error as Error).message;
+    get<HTMLDetailsElement>("walk-controls").open = true;
+  }
   let frameAspectLock: number | undefined;
   let lastFrameAspect = 1;
   try {
@@ -233,14 +252,29 @@ export function mountReviewer(config: ReviewerConfig) {
     clearTimeout(timeout);
     scene?.exitWalk();
     get<HTMLButtonElement>("walk").disabled = true;
+    get<HTMLButtonElement>("walk-start").disabled = true;
     get("status").textContent =
       `${level ? "Previous preview is stale. " : ""}${message}`;
     get("status").dataset.state = "error";
+    get("nav-cell-status").textContent = "Navigation is unavailable for the current source/settings. Retry after resolving the loading error.";
     get("retry").hidden = false;
     get("cancel").hidden = true;
     get("model").dataset.stale = String(Boolean(level));
     get("plan").dataset.stale = String(Boolean(level));
     document.querySelector(".reviewer")!.setAttribute("aria-busy", "false");
+  }
+  /** Labels the visible plan or active render camera while preserving the saved overview pose. */
+  function updateViewLabel() {
+    let label: string;
+    if (view === "2d") {
+      label = "PLAN / METERS";
+    } else if (scene?.getWalk().active) {
+      label = "FIRST PERSON / PERSPECTIVE / Z-UP METERS";
+    } else {
+      const projection = scene?.getView().projection ?? "orthographic";
+      label = `${projection.toUpperCase()} / Z-UP METERS`;
+    }
+    get("view-label").textContent = label;
   }
   /** Combines actual camera state with reviewer-owned appearance for exact view replay. */
   function currentView(camera: ViewState): ReviewViewState {
@@ -267,7 +301,9 @@ export function mountReviewer(config: ReviewerConfig) {
     get("model").dataset.view = JSON.stringify(presentation);
     const link = get<HTMLAnchorElement>("view-link");
     try {
-      link.href = viewURL(location.href, presentation);
+      const overviewURL = new URL(location.href);
+      for (const key of WALK_PARAMETERS) overviewURL.searchParams.delete(key);
+      link.href = viewURL(overviewURL.href, presentation);
       link.textContent = "Open this view ↗";
       link.removeAttribute("aria-disabled");
       link.removeAttribute("title");
@@ -277,13 +313,13 @@ export function mountReviewer(config: ReviewerConfig) {
       link.setAttribute("aria-disabled", "true");
       link.title = (error as Error).message;
     }
-    if (view === "3d") get("view-label").textContent = `${state.projection.toUpperCase()} / Z-UP METERS`;
+    updateViewLabel();
   }
   get("model").addEventListener("review-view-change", event => updateCamera((event as CustomEvent<ViewState>).detail));
   /** Keeps one viewport visible, preserving each view's camera and selection. */
-  function setView(next: string) {
+  function setView(next: string, keepWalk = false) {
     view = next;
-    scene?.exitWalk();
+    if (!keepWalk) scene?.exitWalk();
     get("model").hidden = next !== "3d";
     get("plan").hidden = next !== "2d";
     layoutFrame();
@@ -291,8 +327,7 @@ export function mountReviewer(config: ReviewerConfig) {
     document.querySelector<HTMLElement>(".reviewer")!.dataset.view = next;
     get("view-2d").setAttribute("aria-pressed", String(next === "2d"));
     get("view-3d").setAttribute("aria-pressed", String(next === "3d"));
-    get("view-label").textContent =
-      next === "2d" ? "PLAN / METERS" : `${(scene?.getView().projection ?? "orthographic").toUpperCase()} / Z-UP METERS`;
+    updateViewLabel();
     get("help").textContent =
       next === "2d"
         ? "Drag to pan · Scroll to zoom · Click to select"
@@ -314,6 +349,7 @@ export function mountReviewer(config: ReviewerConfig) {
         get("walk-pad").hidden = !walking;
         get("walk").hidden = walking;
         get("model").dataset.mode = walking ? "walk" : "overview";
+        updateViewLabel();
         get("help").textContent = walking
           ? "WASD / arrows to walk · Drag to look · Esc to exit"
           : "Drag to orbit · Right drag to pan · Scroll to zoom";
@@ -322,6 +358,7 @@ export function mountReviewer(config: ReviewerConfig) {
         get<HTMLButtonElement>("view-3d").disabled = !available;
         get<HTMLButtonElement>("walk").disabled =
           !available || !ready || !level?.navigation;
+        get<HTMLButtonElement>("walk-start").disabled = !available || !ready || !level?.navigation;
         get("fallback").hidden = available;
         if (available) redraw();
         if (!available) {
@@ -461,6 +498,11 @@ export function mountReviewer(config: ReviewerConfig) {
   }
   /** Loads source in an isolated worker; revision checks reject superseded replies. */
   function load() {
+    if (navigationConfigurationError) {
+      fail(navigationConfigurationError);
+      return;
+    }
+    get("nav-cell-status").textContent = `Rebuilding with ${navigationCell ?? 0.125} m horizontal cells…`;
     suggestions.setEnabled(false);
     spatialDiagnostics.setEnabled(false);
     worker?.terminate();
@@ -469,6 +511,7 @@ export function mountReviewer(config: ReviewerConfig) {
     ready = false;
     clearTimeout(timeout);
     get<HTMLButtonElement>("walk").disabled = true;
+    get<HTMLButtonElement>("walk-start").disabled = true;
     get("cancel").hidden = false;
     get("retry").hidden = true;
     get("status").textContent = level
@@ -513,6 +556,9 @@ export function mountReviewer(config: ReviewerConfig) {
         const first = currentDocument !== next.document.id;
         level = next;
         report = data.report;
+        if (next.navigation) {
+          get("nav-cell-status").textContent = `Applied: ${next.navigation.settings.cell} m horizontal cells / body ${next.navigation.settings.player.height} m tall, ${2 * next.navigation.settings.player.radius} m wide.`;
+        }
         currentDocument = next.document.id;
         if (first) {
           options.selected = "";
@@ -564,6 +610,9 @@ export function mountReviewer(config: ReviewerConfig) {
           data.stage === "Geometry needs attention"
         ) {
           ready = true;
+          if (!level.navigation) {
+            get("nav-cell-status").textContent = "Navigation is unavailable for this layout. Resolve the geometry diagnostics before walking.";
+          }
           clearTimeout(timeout);
           worker?.terminate();
           get("status").textContent = report?.passed
@@ -574,16 +623,38 @@ export function mountReviewer(config: ReviewerConfig) {
           get("plan").dataset.stale = "false";
           get("cancel").hidden = true;
           get<HTMLButtonElement>("walk").disabled = !scene || !level.navigation;
+          get<HTMLButtonElement>("walk-start").disabled = !scene || !level.navigation;
+          if (!walkApplied) {
+            walkApplied = true;
+            if (initialWalk) startWalk(initialWalk);
+          }
           document
             .querySelector(".reviewer")!
             .setAttribute("aria-busy", "false");
         }
       };
-      worker.postMessage({ id, text: source, uvs: false, assetFiles: files });
+      worker.postMessage({ id, text: source, uvs: false, assetFiles: files, navigationCell });
     } catch (error) {
       fail(error instanceof Error ? error.message : String(error));
     }
   }
+  get<HTMLFormElement>("nav-cell-form").onsubmit = event => {
+    event.preventDefault();
+    try {
+      const cell = parseNavigationCell(get<HTMLInputElement>("nav-cell").value);
+      const url = new URL(location.href);
+      url.searchParams.set("nav-cell", String(cell));
+      navigationCell = cell;
+      navigationConfigurationError = undefined;
+      get("nav-cell-error").textContent = "";
+      history.replaceState(null, "", url);
+      get<HTMLAnchorElement>("walk-link").removeAttribute("href");
+      if (scene) updateCamera(scene.getView());
+      load();
+    } catch (error) {
+      get("nav-cell-error").textContent = (error as Error).message;
+    }
+  };
   get("projection").onchange = () => {
     scene?.setView({ projection: get<HTMLSelectElement>("projection").value as ViewState["projection"] });
   };
@@ -619,13 +690,43 @@ export function mountReviewer(config: ReviewerConfig) {
     "[data-preset]",
   ))
     button.onclick = () => scene?.preset(button.dataset.preset!);
-  get("walk").onclick = () => {
-    if (!ready) return;
-    setView("3d");
-    if (!scene?.enterWalk())
-      get("status").textContent =
-        "No reachable land spawn available for walking.";
+  /** Shared UI/API/URL entry; failures preserve the previous mode and pose. */
+  function startWalk(pose?: WalkPose): WalkStartResult {
+    const result = ready && scene
+      ? scene.enterWalk(pose)
+      : { ok: false as const, message: "Wait for a current layout and land navigation before walking." };
+    get("walk-error").textContent = result.ok ? "" : result.message;
+    if (!result.ok) get<HTMLDetailsElement>("walk-controls").open = true;
+    if (result.ok) {
+      for (const [id, value] of Object.entries({ "walk-feet": result.pose.feet.join(" "), "walk-yaw": String(result.pose.yaw), "walk-pitch": String(result.pose.pitch) })) {
+        get<HTMLInputElement>(id).value = value;
+      }
+      setView("3d", true);
+      get("help").textContent = "WASD / arrows to walk · Drag to look · Esc to exit";
+    }
+    return result;
+  }
+  get("walk").onclick = () => { startWalk(); };
+  get<HTMLFormElement>("walk-form").onsubmit = event => {
+    event.preventDefault();
+    try {
+      const pose = parseWalkPose(new URLSearchParams({
+        "walk-feet": get<HTMLInputElement>("walk-feet").value,
+        "walk-yaw": get<HTMLInputElement>("walk-yaw").value,
+        "walk-pitch": get<HTMLInputElement>("walk-pitch").value,
+      }));
+      startWalk(pose);
+    } catch (error) {
+      get("walk-error").textContent = (error as Error).message;
+      get<HTMLDetailsElement>("walk-controls").open = true;
+    }
   };
+  get("model").addEventListener("review-walk-change", event => {
+    const walk = (event as CustomEvent<ReturnType<ReviewScene["getWalk"]>>).detail;
+    if (!walk.active) return;
+    get("walk-description").textContent = `Actual feet ${walk.feet.map(v => v.toFixed(3)).join(" ")}m / yaw ${walk.yaw}° / pitch ${walk.pitch}° / body ${walk.height}m × ${2 * (walk.radius ?? 0)}m / movement constrained to land navigation.`;
+    get<HTMLAnchorElement>("walk-link").href = walkURL(location.href, walk);
+  });
   get("exit-walk").onclick = () => scene?.exitWalk();
   get("floor").onchange = () => {
     options.layer = get<HTMLSelectElement>("floor").value;
@@ -830,6 +931,9 @@ export function mountReviewer(config: ReviewerConfig) {
   );
   if (!config.deferLoad) load();
   return {
+    startWalk,
+    /** Returns the actual read-only inspection pose, if a 3D scene is available. */
+    getWalk: () => scene?.getWalk(),
     /** Rebuilds without resetting inspection state for the same document identity. */
     updateSource(text: string, assetFiles: Record<string, Uint8Array> = {}) {
       source = text;

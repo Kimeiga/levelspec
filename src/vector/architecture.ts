@@ -147,6 +147,8 @@ export interface StairFlightOptions {
   material: string;
   thickness?: number;
   rise?: number;
+  /** Defaults to sloped; stepped requires thickness greater than the actual equalized riser. */
+  underside?: Region["underside"];
 }
 /** One independently positioned playable stair flight between two level edges. */
 export function addStairFlight(group: AuthoringGroup, id: string, options: StairFlightOptions): Region {
@@ -155,6 +157,6 @@ export function addStairFlight(group: AuthoringGroup, id: string, options: Stair
     throw new Error("A stair flight needs level landing edges and a positive climb.");
   return group.polygon(id, [a, b, d, c], {
     fill: "stairs", material: options.material, thickness: options.thickness ?? 0.15,
-    rise: options.rise ?? 0.18, underside: "sloped",
+    rise: options.rise ?? 0.18, underside: options.underside ?? "sloped",
   });
 }

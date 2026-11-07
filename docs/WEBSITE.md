@@ -32,7 +32,7 @@ or Playwright Chromium elsewhere. See `.github/workflows/website.yml` and
 - Review floors, roofs, section height, dimensions, navigation and spatial issues.
   Dimensions report axis-aligned bounds in meters, not arbitrary point-to-point
   measurements. Navigation and issues are optional read-only overlays.
-- Walk uses the authored land spawn and compiler-derived land navigation. WASD,
+- Walk uses an authored land spawn or explicit inspection coordinates and compiler-derived land navigation. WASD,
   arrows or touch buttons move; drag looks; Escape returns to the unchanged
   overview. It is constrained inspection, not full gameplay physics.
 - Illustrated grayscale is a presentation layer. Authored-material inspection
@@ -56,8 +56,10 @@ connectivity. Font and imagery are local, with no runtime CDN requirement.
 The layout uses SuperRec's pale gray surfaces and structural rails, Snap Engine's
 modular grid and compact typography, and a new shared Three.js renderer adapting
 orthographic lighting, screen-space charcoal outlines and fine, deterministic randomized dithering
-(2 CSS-pixel cells with seven tonal steps). Visible depth, surface normals and authored-part boundaries generate roughly
+(2 CSS-pixel cells with seven tonal steps). Visible depth, surface normals and background silhouettes generate roughly
 1.5 CSS-pixel outlines in image space, including visible contacts and intersections.
+Flush coplanar mesh partitions do not create false structural seams. Paint-only
+details remain material/texture features; the illustrated palette may omit them.
 Illumination, shadows and dithering do not generate contour lines. No Svelte dependency,
 category models or sibling runtime imports were introduced.
 
@@ -149,7 +151,46 @@ For browser automation, `#viewport-dimensions` exposes `data-min`, `data-max`,
 actual `frameAspect` separately from the optional `frameAspectLock` preference. `data-view-matrix` is the actual
 rendered camera's column-major world-to-camera matrix, including roll; during
 walking it describes the separate walk camera while `data-view` retains the
-overview pose. These do not change authored XML, collision or navigation.
+overview pose. `data-projection-matrix` also describes the actual rendered camera.
+These do not change authored XML, collision or navigation.
+
+**Walk from coordinates** starts an inspection body at feet XYZ in right-handed
+Z-up meters. Yaw0 faces+X, yaw90 faces+Y; positive pitch looks up, bounded to±80°.
+Feet must be within0.10m of an existing land-navigation surface and resolve to its
+actual elevation, shown with the actual body dimensions. The placement checks the
+standing capsule against compiled collision geometry; visual-only scenery does not
+block it, while hidden solid geometry does. Unsupported height, gaps and blocked
+body placements produce feedback without changing the previous mode or pose.
+Stale/unready geometry cannot start a walk. No authored marker or nav seed changes.
+
+A reproducible link uses `?walk-feet=3,2,0&walk-yaw=90&walk-pitch=-15` and starts
+only after the current layout/navigation is ready. Invalid links stay in overview;
+they do not fall back to an authored spawn. **Open this walking pose** encodes the
+actual resolved feet and current orientation. `#model.dataset.walk` publishes JSON
+with `active`, `feet`, `yaw`, `pitch`, body `height`/`radius` and `collision:"navigation"`.
+The returned reviewer API also exposes `startWalk(pose)` and `getWalk()`.
+The visible view caption identifies first-person perspective while walking. Leaving
+walk restores the saved overview projection caption; the camera form retains that
+overview pose throughout.
+
+**Walking grid** changes the horizontal navigation cell size and rebuilds the
+current source. The default is 0.125 m; the control accepts 0.025–0.5 m. Smaller
+cells can retain narrow physically clear passages that the coarse grid excludes.
+Player dimensions and physical geometry remain unchanged. Walking is disabled
+while the previous result is stale, and the control reports the actual applied
+grid and body size. Invalid edits leave the applied result unchanged.
+
+The setting survives source refreshes, retry, and shared view/walk links through
+`nav-cell=0.0625`. CLI preview uses `--nav-cell 0.0625`. A malformed URL reports an
+error until corrected. Finer grids can cost more memory and time; existing build
+failures remain visible. Record the setting alongside a walkthrough and use it for
+the matching CLI validation and reconstruction run.
+
+Movement retains the existing eroded Recast constraints, including component and
+edge boundaries. This is not free flight, a new physics engine, a continuous swept
+capsule proof, or validation of connections that are absent from navigation.
+Starting inspection on another existing component does not make it reachable from
+an authored spawn. Run `npm run test:walk:browser` for the real-browser contract.
 
 The compact [Suggestions panel](SUGGESTIONS.md) opens source-linked geometry findings
 in either view, with highlights, cutaway, copyable review links and XML suppression

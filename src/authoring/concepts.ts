@@ -17,7 +17,7 @@
  * have.
  */
 
-import type { SpatialConcept } from './concept.ts';
+import type { SpatialConcept } from './concept-layout.ts';
 
 /**
  * A freight terminus: platforms either side of a track trench, an overhead

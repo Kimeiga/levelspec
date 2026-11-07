@@ -72,8 +72,8 @@ describe("compiled capsule navigation and independent floor coverage", () => {
     spawn(d, "low-start", [1, 3, 0]);
     spawn(d, "high-start", [5, 3, 0.84]);
     const l = d.layers[0];
-    l.vertices.push({ id: "wall.a", x: 4, y: 0, z: 0 }, { id: "wall.b", x: 4, y: 6, z: 0 });
-    l.edges.push({ id: "retaining", from: "wall.a", to: "wall.b", kind: "wall", height: 0.84, thickness: 0.32, openings: [] });
+    l.vertices.push({ id: "wall.a", x: 4, y: 0.05, z: 0 }, { id: "wall.b", x: 4, y: 5.95, z: 0 });
+    l.edges.push({ id: "retaining", from: "wall.a", to: "wall.b", kind: "wall", height: 0.83, thickness: 0.32, openings: [] });
     const level = await compile(d);
     assert.equal(level.navigation!.passed, true, JSON.stringify(level.navigation!.coverage.uncovered));
     d.routes.push({ id: "cannot-climb", from: "low-start", to: "high-start", minRoutes: 1 });
@@ -235,7 +235,7 @@ describe("compiled capsule navigation and independent floor coverage", () => {
     const d = createDocument("aligned-narrow");
     floor(d, "narrow", 0, -.25, 4, .4);
     spawn(d, "start", [2, -.05, 0]);
-    const level = await compile(d), nav = level.navigation!;
+    const level = await compile(d, { navigation: { cell: .125 } }), nav = level.navigation!;
     assert.deepEqual(level.diagnostics, []);
     assert.equal(nav.passed, false);
     assert.ok(nav.coverage.uncovered.some(sample => sample.reason === "width" && Math.abs(sample.position[1] + .25) < 1e-6), JSON.stringify(nav.coverage));
@@ -586,5 +586,22 @@ describe("compiled capsule navigation and independent floor coverage", () => {
       name: "AbortError",
     });
     await assert.rejects(() => bakeNavmesh(level, { cell: 0 }), /positive/);
+  });
+});
+
+
+describe("native XML declared link areas", () => {
+  it("round-trips explicit endpoint areas and rejects an unknown area", async () => {
+    const d=createDocument("link-areas");
+    floor(d,"a",0,0,4,4);
+    floor(d,"b",6,0,4,4);
+    d.links.push({id:"jump",kind:"jump",ability:"jump",bidirectional:true,from:[2,2,0],to:[8,2,0],fromArea:"a",toArea:"b"});
+    const parsed=parseLevelSvgx(serializeLevelSvgx(d));
+    assert.deepEqual(parsed.links.map(link=>[link.fromArea,link.toArea]),[["a","b"]]);
+    const valid=await compile(parsed,{navigation:false});
+    assert.ok(!valid.diagnostics.some(item=>item.code === "LINK_AREA"));
+    parsed.links[0].toArea="missing";
+    const invalid=await compile(parsed,{navigation:false});
+    assert.ok(invalid.diagnostics.some(item=>item.code === "LINK_AREA" && item.severity === "error"));
   });
 });

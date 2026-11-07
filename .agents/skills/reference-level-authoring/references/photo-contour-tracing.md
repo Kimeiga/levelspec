@@ -12,7 +12,8 @@ is missing, seek another original angle or readable closeup of the same building
 and variant. Repeated crops do not add depth evidence. Record unsuccessful searches;
 do not invent a corridor or stair connection to make a coherent plan.
 
-Before deriving camera angles or metric stations from a published thumbnail,
+Before counting stairs, assigning landing boundaries, or deriving camera angles
+and metric stations from a published thumbnail,
 check whether its source page provides a higher-resolution original. Preserve
 that file and its provenance separately. Inspect EXIF focal length, sensor
 information and XMP crop/perspective settings when present. Establish frame
@@ -20,6 +21,10 @@ correspondence before transferring annotations between versions. Metadata gives
 an intrinsics prior; resizing, lens correction and unknown edits can still leave
 uncertainty. A camera fit that absorbs a wrong focal length can falsely suggest a
 skewed wall or misplaced recess.
+Inspect consequential small features at the available original resolution. A
+thumbnail's dark bands can merge or split apparent treads; label actual risers,
+nosings and the final landing separately before turning a count into geometry.
+Upscaling a thumbnail does not supply the missing evidence.
 
 Create an editable SVG whose `viewBox="0 0 WIDTH HEIGHT"` matches the native image.
 Embed the unchanged original pixels (for example a data URI) at `x=0,y=0` with
@@ -42,6 +47,13 @@ a dark patch may be shadow. Separate observed boundaries (solid), ambiguous line
 (dashed) and proposed continuations (distinct dotted/color treatment). Hidden edges
 are not automatically known edges. Stop observed paths where evidence stops;
 convenient polygon closure cannot establish an unseen wall or route.
+
+Establish whether adjoining patches are horizontal caps, vertical faces or sloped
+surfaces before interpreting their separation as wall thickness or height. A tiled
+band beside visible flooring is not automatically a vertical wall face or its foot.
+Check edge/grout directions and continuity across original views; a conditional
+camera can expose an inconsistent classification, but cannot independently certify
+one by fitting the same assumed labels.
 
 Establish feature identity across views with distinctive neighboring details:
 vents, pipe bends, frame divisions or wall transitions. Similar circles and repeated
@@ -73,9 +85,27 @@ unsupported connections. Findings name source regions/path IDs. Revise and re-re
 supported repairs before deriving dependent schematic detail. If independent review
 is unavailable, record self-review and its limit.
 
+Apply that ownership review to camera-fit controls before estimating a pose. Plot
+every consumed point over the original at readable native scale; a front opening
+rim, its rear reveal and a background edge are different controls even when a
+numerical fit is good. If a control is later misidentified, preserve the failed
+calibration, correct and review the source labels, then recheck held-out features
+before attributing its discrepancies to the building geometry.
+Inspect complete projected features and whole-view overlays even when fit and
+reserved samples pass. Points clustered on one arc or wall cannot validate the
+rest of a circle, camera or building; a visible contour disagreement remains a
+failure and must not be converted into a structural repair elsewhere.
+
+When reusing a camera, inspect its original fitting inputs, including any geometry
+estimated jointly with the pose. A stair edge or doorway used to infer that pose
+is not an independent check of the same stair or doorway later. Preserve fixed-pose
+comparisons as useful regression evidence, but distinguish them from unused source
+checks. Resolve consequential camera/geometry ambiguity with independently reviewed
+controls on stable features; do not refit the camera to rescue a preferred model.
+
 Give the drawing author originals, reviewed trace revisions and unresolved questions.
 Perspective traces are observations, not orthographic measurements or meshes.
 Carry retained material and local details into the
-[schematic](schematic-workflow.md). Later critics independently trace both source
+[schematic](schematic-workflow.md). When alignment needs closer testing, critics independently trace source
 and candidate following [paired contour review](paired-contour-review.md); a copied
 builder overlay does not supply fresh observations.

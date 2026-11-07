@@ -169,6 +169,12 @@ differ. Cross-sections pair equal normalized horizontal arc-length fractions.
 `ceil(totalRise/rise)` equal risers and create horizontal wedge treads. Ramp
 elevation is linear in normalized travel. Intermediate authored rail heights
 must agree with that profile within 1 mm. The shared curve tolerance is 0.01 m.
+Authored landing coordinates and `rise` are normalized to millimeters, including
+when serialized. A computed half-millimeter maximum can round differently from
+the intended equalized rise and add a tread. When reproducing a counted flight,
+choose a representable maximum for the normalized total climb, then verify the
+saved XML's actual compiled tread count and landing profile. The maximum is a
+bound; it is not the resulting tread-to-tread height.
 Holes, interior height vertices, crease constraints, folded/intersecting rails,
 zero-width sections and overlapping turns produce source-located `FLIGHT`
 diagnostics. Split multi-revolution flights into separate single-valued XY regions.
@@ -252,14 +258,23 @@ explicitly because its brush-volume representation is not implemented.
 Compilation also reports `FLOOR_EDGE_GAP` when two floor boundaries coincide in
 XY, have filled regions on opposite sides, and leave an unsealed vertical gap
 larger than 1 mm. It checks partial and curved boundaries, actual stair heights,
-slab thickness and the final static wall mesh, including openings. A wall starting
-on the upper floor or covering only part of the interval does not silence it.
+slab thickness and the final static collidable walls, floors and stairs, including
+openings. An intermediate slab can physically seal part of the interval even on
+the lower floor's side of the boundary. Hidden collision geometry still counts;
+dynamic or noncolliding surfaces do not. Material above the gap or covering only
+part of its length does not silence the remaining gap.
 Warnings include both region/edge IDs, a source location and the affected span.
 
-Stacked perimeters and crossing overpasses are not adjacent floor joins. A lower
+Same-side stacked perimeters and crossing overpasses are not candidate joins. A lower
 floor continuing through an underpass is also exempt, including contact through
 the first stair riser. Headroom and traversal remain separate navigation checks.
 The audit neither adds walls nor connects coincident source IDs automatically.
+
+Opposite-side boundaries from separate storeys can still coincide in plan and be
+reported. This conservative material-closure check does not establish that the
+floors should connect or that the intervening space needs a wall. Verify the intended
+relationship before adding geometry; occupied-edge protection and architectural
+fidelity require separate review. Intentional open space can still fail strict mode.
 
 The default is a warning so an intentional open edge stays inspectable. Use
 `compile(document, { floorGaps: "error" })` to make it a build error, or
@@ -278,6 +293,15 @@ exercise unsealed and correctly supported boundaries.
 and 0.5 m in diameter (`radius=0.25`); explicit `<player>` settings still override it.
 Default Recast cells are 0.0625 m horizontally and 0.01 m vertically. These are a
 conservative voxel approximation, not an exact continuous capsule collision proof.
+
+The repository CLI accepts `--nav-cell METERS` on `validate`, `build` and `preview`.
+The shared reviewer exposes the same horizontal grid size under **Walking grid**;
+`?nav-cell=0.0625` reproduces that choice. Public tool inputs allow 0.025–0.5 m,
+defaulting to 0.125 m. Finer grids can resolve narrow passages at greater cost;
+they preserve the authored player, geometry, vertical grid and validation rules.
+The core `NavigationOptions.cell` API continues to accept finite positive values.
+Pass the same `cell` to compilation and `validateForRuntime` when using the API,
+because runtime validation can rebuild navigation with its own options.
 
 ```ts
 const level = await compile(document, {
@@ -348,9 +372,37 @@ longer a release gate; retained XML contracts are the acceptance standard.
 
 ## Reference-aware authoring preview
 
+Reference-camera pose and lens values retain number precision through parse, save
+and compile. Camera position and target retain finite/safe-range checks without
+millimeter snapping. Geometry and landmark world positions remain on the
+millimeter lattice.
+
 The source format also accepts root-level `reference` (with `landmark` and `mask`
 children), `asset`, and `prop` declarations. Stairs accept optional
-`underside="filled"` (the existing default) or `underside="sloped"`.
+`underside="filled"` (the existing default), `underside="sloped"`, or
+`underside="stepped"`. Filled material extends down to the lower landing minus
+thickness. Sloped material follows the smooth guide minus thickness. Stepped
+material keeps each tread's horizontal bottom at its actual tread height minus
+the vertical thickness, with real vertical underside risers and closed side faces.
+The existing tread convention is unchanged: the first cell is one equalized riser
+above the lower landing, and the last cell reaches the upper landing. Choosing an
+underside does not move those cells or change their horizontal walking surfaces.
+
+Stepped thickness must exceed the **actual equalized riser** by the numerical
+geometry tolerance (1e−7 m), so adjacent tread bands share positive material.
+Equality or thinner material produces a source-linked `FLIGHT` diagnostic; no
+thickness is silently increased. For example, climb 1 m with maximum rise .34 m
+uses 3 risers of 1/3 m: thickness .334 m retains a valid submillimeter overlap.
+Sloped/filled modes retain their existing thickness contracts. Authoring dimensions
+are normalized to millimeters before this derived-riser check; actual invalid
+geometry remains an error rather than a reason to discard faces.
+
+`addStairFlight(group, id, { ..., underside: "stepped", thickness: .20, rise: .18 })`
+selects the same native behavior. The helper still defaults to sloped/.15 m, while
+ordinary XML stairs still default to filled. Collision geometry, retained export
+solids, floor-volume overlap and retaining-seam profiles use the same underside.
+Navigation samples actual top treads; clearance below the flight depends on its
+chosen physical underside. Navigation success is not a continuous traversal proof.
 See [Reference authoring](REFERENCE_AUTHORING.md) for examples, collision behavior,
 host asset-resolution requirements and reference controls.
 

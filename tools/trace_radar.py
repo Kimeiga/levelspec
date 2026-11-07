@@ -243,8 +243,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("image")
     ap.add_argument("--out", default=None)
-    ap.add_argument("--format", choices=("plan", "raster"), default="plan",
-                    help="plan draft (legacy default) or structured raster for native v2 authoring")
+    ap.add_argument("--format", choices=("raster",), default="raster",
+                    help="structured raster evidence for native authoring")
     ap.add_argument("--id", default=None)
     ap.add_argument("--name", default=None)
     ap.add_argument("--cells", type=int, default=46, help="cells along the longer side")
@@ -287,74 +287,23 @@ def main():
     grid = args.grid or round(args.span / max(occ.shape), 2)
     used = sorted({int(b) for b in band[occ]})
 
-    if args.format == "raster":
-        # Native callers receive image-analysis evidence directly. No legend,
-        # plan text, legacy parser or compiler is involved in this path.
-        payload = {
-            "format": "levelspec-raster/1", "id": map_id, "name": map_name,
-            "sourceImage": os.path.basename(args.image), "grid": grid,
-            "colors": centres.tolist(),
-            "rows": [[int(band[y, x]) if occ[y, x] else None
-                      for x in range(occ.shape[1])] for y in range(occ.shape[0])],
-        }
-        text = json.dumps(payload, allow_nan=False) + "\n"
-        if args.out:
-            os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
-            with open(args.out, "w") as f:
-                f.write(text)
-        else:
-            sys.stdout.write(text)
-        return
-
-    lines = []
-    lines.append(f"id: {map_id}")
-    lines.append(f"name: {map_name}")
-    lines.append(
-        f"description: Layout reconstruction of {map_name}, traced from the public radar "
-        f"image and then hand-corrected. Topology and proportions only - no assets from "
-        f"the original game are used."
-    )
-    lines.append(f"source_image: {os.path.basename(args.image)}")
-    lines.append(f"grid: {grid}")
-    lines.append("wall_thickness: 0.32")
-    lines.append("")
-    lines.append("// TRACED DRAFT. The footprint is read from the radar; everything below")
-    lines.append("// needs a human: rename the areas, set their elevations, mark the spawns")
-    lines.append("// and sites, and delete any band that is really just shading.")
-    lines.append("")
-    lines.append("layer ground z=0 height=5 roof=no")
-    lines.append("")
-    lines.append("legend")
-    for b in used:
-        c = centres[b]
-        h, s, v = colorsys.rgb_to_hsv(*(c / 255.0))
-        lines.append(
-            f"  {LETTERS[b]}  area_{LETTERS[b].lower()}  \"Area {LETTERS[b]}\"  lane"
-            f"   // rgb {int(c[0])},{int(c[1])},{int(c[2])}  value {v:.2f}"
-        )
-    lines.append("end")
-    lines.append("")
-    lines.append("plan")
-    gh, gw = occ.shape
-    for y in range(gh):
-        row = "".join(LETTERS[band[y, x]] if occ[y, x] else "." for x in range(gw))
-        lines.append(row.rstrip())
-    lines.append("end")
-    lines.append("")
-
-    text = "\n".join(lines) + "\n"
+    # Native callers receive image-analysis evidence directly. No legend,
+    # plan text, legacy parser or compiler is involved in this path.
+    payload = {
+        "format": "levelspec-raster/1", "id": map_id, "name": map_name,
+        "sourceImage": os.path.basename(args.image), "grid": grid,
+        "colors": centres.tolist(),
+        "rows": [[int(band[y, x]) if occ[y, x] else None
+                  for x in range(occ.shape[1])] for y in range(occ.shape[0])],
+    }
+    text = json.dumps(payload, allow_nan=False) + "\n"
     if args.out:
         os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
         with open(args.out, "w") as f:
             f.write(text)
-        cells = int(occ.sum())
-        print(
-            f"{map_name}: {gw}x{gh} cells, {cells} floor "
-            f"({cells * grid * grid:.0f} m2 at {grid} m/cell), {len(used)} bands -> {args.out}"
-        )
     else:
-        print(text)
-
+        sys.stdout.write(text)
+    return
 
 if __name__ == "__main__":
     main()

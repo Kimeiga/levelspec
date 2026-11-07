@@ -141,6 +141,20 @@ describe("multi-view reference evaluation", () => {
     assert.equal(result.status, "stopped");
     assert.equal(result.attempts.length, 1);
   });
+  it("keeps the reconstruction API's finite-positive grid contract independent of tool bounds", async () => {
+    const { scene } = fixture();
+    const source = serializeLevelSvgx(scene.document);
+    const result = await runReconstruction(source, [], async () => null,
+      { maxRevisions: 0, navigationCell: 0.75 });
+    assert.equal(result.attempts[0].valid, true);
+    assert.equal(result.level?.navigation?.settings.cell, 0.75);
+    assert.equal(result.accepted, false, "Grid selection cannot replace independent photo evidence.");
+    for (const navigationCell of [0, -1, NaN, Infinity]) {
+      await assert.rejects(runReconstruction(source, [], async () => {
+        assert.fail("Invalid settings must fail before requesting a revision.");
+      }, { navigationCell }), /finite and positive/);
+    }
+  });
 });
 
 describe("review regressions: independently trusted evidence", () => {
@@ -233,13 +247,15 @@ describe("review regressions: navigation and candidate retention", () => {
     const scene = dynamicallyBlockedFixture();
     const raw = await compile(scene.document, { navigation: false });
     const evidence = silhouetteEvidence(raw);
-    const ordinary = await validateForRuntime(raw, { sealed: true });
+    const ordinary = await validateForRuntime(raw, { sealed: true, cell: 0.0625 });
     assert.equal(ordinary.passed, true);
+    assert.equal(ordinary.navigation?.settings.cell, 0.0625);
+    assert.equal(ordinary.sealed?.settings.cell, 0.0625);
     assert.equal(ordinary.navigation?.routes.find(route => route.id === "gate-route")?.reachable, true);
     assert.equal(ordinary.sealed?.routes.find(route => route.id === "gate-route")?.reachable, false);
     const source = serializeLevelSvgx(scene.document);
     const result = await runReconstruction(source, evidence, async () => null, {
-      maxRevisions: 0, evaluationDimension: 80,
+      maxRevisions: 0, evaluationDimension: 80, navigationCell: 0.0625,
     });
     assert.equal(result.attempts.length, 1);
     const attempt = result.attempts[0];

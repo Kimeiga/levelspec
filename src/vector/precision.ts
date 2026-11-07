@@ -1,10 +1,14 @@
 import type {LevelDocument,V3} from './types.ts';
 /** Authored linear dimensions use a millimetre lattice; derived mesh values do not. */
 export const COORDINATE_STEP = 0.001;
-export function millimetres(value:number):number {
+/** Reject nonfinite or unsupported coordinate magnitudes without reducing precision. */
+function validateCoordinate(value:number):void {
   if(!Number.isFinite(value))throw new RangeError('Coordinates must be finite.');
+  if(Math.abs(value)*1000>Number.MAX_SAFE_INTEGER-1)throw new RangeError('Coordinate exceeds the safe millimetre range.');
+}
+export function millimetres(value:number):number {
+  validateCoordinate(value);
   const scaled=Math.abs(value)*1000;
-  if(scaled>Number.MAX_SAFE_INTEGER-1)throw new RangeError('Coordinate exceeds the safe millimetre range.');
   // Symmetric half-away-from-zero, including decimal ties represented just below .5.
   const units=Math.floor(scaled+.5+Number.EPSILON*Math.max(1,scaled));
   return units===0?0:Math.sign(value)*units;
@@ -12,7 +16,7 @@ export function millimetres(value:number):number {
 export const snapCoordinate=(value:number)=>millimetres(value)/1000;
 export const coordinateKey=(point:readonly number[])=>point.map(millimetres).join(',');
 export const sameCoordinate=(a:readonly number[],b:readonly number[])=>a.length===b.length&&a.every((v,i)=>millimetres(v)===millimetres(b[i]));
-/** Does not weld IDs. Coincident vertices can belong to disconnected storeys. */
+/** Snap authored geometry without welding IDs or quantizing calibrated reference cameras. */
 export function normalizeCoordinates(document:LevelDocument):LevelDocument {
  const d=structuredClone(document),q=snapCoordinate;
  const optional=(o:any,keys:string[])=>{for(const k of keys)if(o[k]!==undefined)o[k]=q(o[k]);};
@@ -31,7 +35,7 @@ export function normalizeCoordinates(document:LevelDocument):LevelDocument {
  for(const c of d.covers){c.min=vector(c.min);c.max=vector(c.max);}
  for(const p of d.props??[]){p.position=vector(p.position);if(p.shape!=='asset')p.scale=vector(p.scale);}
  for(const ref of d.references??[]){
-  ref.camera.position=vector(ref.camera.position);ref.camera.target=vector(ref.camera.target);
+  ref.camera.position.forEach(validateCoordinate);ref.camera.target.forEach(validateCoordinate);
   for(const landmark of ref.landmarks)landmark.position=vector(landmark.position);
  }
  for(const r of d.routes)optional(r,['minDistance','maxDistance']);

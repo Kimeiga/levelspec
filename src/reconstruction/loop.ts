@@ -28,7 +28,11 @@ export interface ReconstructionLoopOptions {
   maxRevisions?: number;
   maxSourceCharacters?: number;
   evaluationDimension?: number;
+  /** Horizontal navigation grid in meters, applied to compilation and open/closed validation. */
+  navigationCell?: number;
   thresholds?: ReconstructionThresholds;
+  /** Resolves frozen mesh/texture companions relative to the authored source. */
+  resolveAsset?: import("../vector/types.ts").CompileOptions["resolveAsset"];
   signal?: AbortSignal;
   onAttempt?: (attempt: ReconstructionAttempt) => void | Promise<void>;
 }
@@ -55,6 +59,8 @@ function score(report: ReconstructionReport) {
     (report.navigationPassed ? 0 : 1000);
 }
 function validateLimits(options: ReconstructionLoopOptions) {
+  if (options.navigationCell !== undefined && (!Number.isFinite(options.navigationCell) || options.navigationCell <= 0))
+    throw new Error("navigationCell must be finite and positive.");
   const revisions = options.maxRevisions ?? 4, limit = options.maxSourceCharacters ?? 2_000_000;
   if (!Number.isInteger(revisions) || revisions < 0 || revisions > 30)
     throw new Error("maxRevisions must be an integer from 0 to 30.");
@@ -87,7 +93,7 @@ function closedStateDiagnostics(runtime: ValidationReport, required: boolean, pa
 }
 async function inspectCompiled(level: CompiledLevel, source: string, evidence: PhotoEvidence[],
   options: ReconstructionLoopOptions, iteration: number) {
-  const runtime = await validateForRuntime(level, { sealed: true, signal: options.signal });
+  const runtime = await validateForRuntime(level, { sealed: true, signal: options.signal, cell: options.navigationCell });
   const sealed = sealedState(level, runtime);
   const openPassed = runtime.passed && runtime.navigation?.passed === true;
   const report = evaluateReconstruction(level, evidence, {
@@ -116,7 +122,8 @@ async function inspectSource(source: string, evidence: PhotoEvidence[],
     const document = parseLevelSvgx(source);
     const level = await compile(document, {
       floorGaps: "error", surfaceContacts: "error",
-      navigation: { sealed: true, signal: options.signal },
+      resolveAsset: options.resolveAsset,
+      navigation: { sealed: true, signal: options.signal, cell: options.navigationCell },
       signal: options.signal,
     });
     return await inspectCompiled(level, source, evidence, options, iteration);

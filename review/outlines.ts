@@ -11,7 +11,6 @@ export class ScreenOutlines {
   private compositeScene = new THREE.Scene();
   private camera = new THREE.Camera();
   private materials: THREE.ShaderMaterial[] = [];
-  private partIds = new Map<string, number>();
   private composite: THREE.ShaderMaterial;
   private fullscreen: THREE.Mesh;
 
@@ -50,10 +49,9 @@ export class ScreenOutlines {
           n.xy+=vec2(n.x>=0.0?-t:t,n.y>=0.0?-t:t);
           return normalize(n);
         }
-        float objectId(vec4 packed){return floor(packed.b*255.0+0.5)*256.0+floor(packed.a*255.0+0.5);}
         void main(){
           vec4 center=texture2D(geometryImage,uvScreen);
-          float id=objectId(center);
+          float occupied=step(0.5,center.a);
           vec3 normal=decodeNormal(center.rg);
           float depth=texture2D(depthImage,uvScreen).x;
           vec3 point=viewPoint(uvScreen,depth);
@@ -64,9 +62,8 @@ export class ScreenOutlines {
             vec2 direction=normalize(vec2(float(x),float(y)));
             vec2 uv=clamp(uvScreen+direction*texel*radius,texel*0.5,vec2(1.0)-texel*0.5);
             vec4 other=texture2D(geometryImage,uv);
-            float otherId=objectId(other);
-            if(abs(id-otherId)>0.5){edge=1.0;continue;}
-            if(id<0.5)continue;
+            if(occupied!=step(0.5,other.a)){edge=1.0;continue;}
+            if(occupied<0.5)continue;
             if(dot(normal,decodeNormal(other.rg))<0.88){edge=1.0;continue;}
             vec3 neighbor=viewPoint(uv,texture2D(depthImage,uv).x);
             if(abs(dot(normal,neighbor-point))>max(pixelSize*0.75,0.0001))edge=1.0;
@@ -85,23 +82,13 @@ export class ScreenOutlines {
     this.compositeScene.add(this.fullscreen);
   }
   /** Adds an opaque surface sharing source-owned buffers; only the pass material is owned here. */
-  add(geometry: THREE.BufferGeometry, object: string, clipping: THREE.Plane[]) {
-    let id = this.partIds.get(object);
-    if (id === undefined) {
-      id = this.partIds.size + 1;
-      this.partIds.set(object, id);
-    }
-    if (id > 65535)
-      throw new Error(
-        "Preview outline pass supports at most 65,535 distinct opaque parts.",
-      );
+  add(geometry: THREE.BufferGeometry, clipping: THREE.Plane[]) {
     const material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
       clipping: true,
       clippingPlanes: clipping,
       toneMapped: false,
       blending: THREE.NoBlending,
-      uniforms: { partId: { value: id } },
       vertexShader: `
         #include <clipping_planes_pars_vertex>
         varying vec3 surfaceNormal;
@@ -114,14 +101,13 @@ export class ScreenOutlines {
       fragmentShader: `
         #include <clipping_planes_pars_fragment>
         varying vec3 surfaceNormal;
-        uniform float partId;
         void main(){
           #include <clipping_planes_fragment>
           vec3 n=normalize(gl_FrontFacing?surfaceNormal:-surfaceNormal);
           n/=abs(n.x)+abs(n.y)+abs(n.z);
           vec2 packed=n.xy;
           if(n.z<0.0)packed=(1.0-abs(packed.yx))*vec2(packed.x>=0.0?1.0:-1.0,packed.y>=0.0?1.0:-1.0);
-          gl_FragColor=vec4(packed*0.5+0.5,floor(partId/256.0)/255.0,mod(partId,256.0)/255.0);
+          gl_FragColor=vec4(packed*0.5+0.5,0.0,1.0);
         }`,
     });
     this.materials.push(material);
@@ -132,7 +118,6 @@ export class ScreenOutlines {
     this.geometryScene.clear();
     this.materials.forEach((material) => material.dispose());
     this.materials = [];
-    this.partIds.clear();
   }
   /** Releases context-bound targets while retaining the reusable fullscreen CPU geometry. */
   resetTargets() {
@@ -141,7 +126,7 @@ export class ScreenOutlines {
     this.composite.dispose();
     this.fullscreen.geometry.dispose();
   }
-  /** Composites constant CSS-pixel ink using opaque depth, normals and authored part identities. */
+  /** Composites constant CSS-pixel ink from opaque silhouettes, depth and normals, independent of mesh ownership. */
   render(
     renderer: THREE.WebGLRenderer,
     scene: THREE.Scene,

@@ -1,17 +1,18 @@
-/** Async v2 producers. Legacy synchronous APIs remain in ./index.ts. */
-import type { GenerateOptions, GenerateFailure, Pickup, AuthoredOptions } from "./index.ts";
+/** Native XML producers and procedural generation. */
+export interface GenerateOptions {seed?: string | number; depth?: number; theme?: string; archetype?: string; attempts?: number; minRoutes?: number}
+export interface GenerateFailure {ok: false; attempts: number; reasons: string[]}
+export interface Pickup {id: string; kind: 'health' | 'ammo' | 'weapon' | 'armor'; variant?: string; at: [number, number, number]}
+export interface AuthoredOptions {depth?: number; seed?: string | number; theme?: string}
 import {NATIVE_ARCHETYPES,proposeNative} from './native-archetypes.ts';
 import { Rng } from "./rng.ts";
 import { THEMES } from "./themes.ts";
 import {produceDocument,ProducerValidationError,type ProducerOptions,type ProducedLevel} from '../authoring/native-producer.ts';
-import type {ProducedSource} from '../authoring/producers.ts';
 import { parseLevelSvgx } from "../vector/format.ts";
 import { aborted, type V3, type NavigationReport, type LevelDocument, type Marker } from "../vector/types.ts";
 import { placementPool, roomyPoint, spreadPoints, identifiers, facing, distance, type Placement } from "./placement.ts";
 
 export type GenerateV2Options = GenerateOptions & ProducerOptions;
 export interface GeneratedLevelV2 extends ProducedLevel {
-  legacy?: ProducedSource["legacy"];
   theme: (typeof THEMES)[number];
   archetype: string;
   seed: string;
@@ -26,7 +27,7 @@ export interface GeneratedLevelV2 extends ProducedLevel {
   disjointRoutes: number;
 }
 export type GenerateV2Result = ({ ok:true } & GeneratedLevelV2) | GenerateFailure;
-export interface AuthoredV2Source { id: string; text: string; format?: "plan" | "spec" | "svgx" }
+export interface AuthoredV2Source { id: string; text: string; format?: "svgx" }
 
 function positiveInteger(name:string,value:number) {
   if(!Number.isSafeInteger(value)||value<1)throw new RangeError(`${name} must be a positive integer.`);
@@ -94,12 +95,9 @@ export async function generateLevelV2(options: GenerateV2Options = {}): Promise<
   return {ok:false,attempts,reasons};
 }
 
-async function readSource(source:AuthoredV2Source,options:ProducerOptions):Promise<ProducedLevel & {legacy?:ProducedSource['legacy']}> {
-  const trimmed=source.text.trimStart(),format=source.format??(trimmed.startsWith('<')?'svgx':trimmed.startsWith('{')?'spec':'plan');
-  if(format==='svgx')return produceDocument(parseLevelSvgx(source.text),options);
-  const {produceSpec,producePlan}=await import('../authoring/producers.ts');
-  if(format==='spec')return produceSpec(JSON.parse(source.text),options);
-  return producePlan(source.text,options);
+/** Publishes authored XML using the same strict native gates as generated candidates. */
+async function readSource(source:AuthoredV2Source,options:ProducerOptions):Promise<ProducedLevel> {
+  return produceDocument(parseLevelSvgx(source.text),options);
 }
 
 function placedMarker(d:LevelDocument,id:string,kind:string,p:Placement):Marker {
@@ -166,7 +164,7 @@ export async function loadAuthoredV2(source: AuthoredV2Source, options: Authored
   const route=identifiers(d)('run.route');d.routes.push({id:route,from:spawn.id,to:exit.id,minRoutes:1});
   const published=await produceDocument(d,options),actual=published.report.navigation!.routes.find(r=>r.id===route)!;
   const marker=(id:string)=>published.document.markers.find(m=>m.id===id)!;
-  return {...published,legacy:made.legacy,theme:selectedTheme,archetype:"authored",seed:source.id,depth,spawn:marker(spawn.id).position,
+  return {...published,theme:selectedTheme,archetype:"authored",seed:source.id,depth,spawn:marker(spawn.id).position,
     spawnFacing:facing(published.level,spawn.position,pool.points),exit:marker(exit.id).position,pickups:pickups.map(p=>({...p,at:marker(p.id).position})),
     enemyPosts:runEnemyPosts(published.document,enemyIds),attempts:1,ms:performance.now()-start,disjointRoutes:actual.disjointRoutes};
 }

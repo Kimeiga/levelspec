@@ -1,9 +1,9 @@
-import {key,unkey,rectCells,decomposeToRects} from '../core/grid.ts';
+import {key,unkey,rectCells,decomposeToRects} from './cell-grid.ts';
 import {semanticCells,areaAt} from './semantic-cells.ts';
 import type {PythonDeclarations} from './semantic-python.ts';
 import type {NativeSemanticPlan,SemanticState,Cell} from './semantic-types.ts';
 import {placeSourcePortals} from './semantic-source-portals.ts';
-import {verticalFootprint} from '../core/vertical-footprint.ts';
+import {verticalFootprint} from './cell-flight-footprint.ts';
 
 export function placePythonCovers(d:PythonDeclarations,p:NativeSemanticPlan,composition:boolean) {
   const state=semanticCells(p);excludeFlights(state);

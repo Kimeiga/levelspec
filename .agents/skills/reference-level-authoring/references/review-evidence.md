@@ -5,8 +5,9 @@ landmarks and uncertainties. Different crops of one image are not independent vi
 For ambiguous openings or overlapping storeys, compare materially different angles
 or an explicit section; shadows alone do not prove a passage or recess.
 
-Pair a frozen XML revision with its compiled plan, representative orthographic view,
-relevant sections, diagnostics and navigation report. Label camera orientation and
+For acceptance, retain the frozen XML revision with representative actual views,
+relevant diagnostics and navigation results. Include plans/sections when they
+resolve consequential layout or clearance questions. Label camera orientation and
 scale mismatches. Preserve full-image context for focused crops. Do not stretch or
 mirror one view to manufacture agreement. Inspect actual images, not just filenames.
 
@@ -25,18 +26,18 @@ captures, including their corners and lower edge; isolate review chrome without
 hiding scene geometry. Retain contaminated captures as failed evidence and
 recapture after correcting the layout or capture tool.
 
-For substantial reconstruction use the [drawing-first workflow](schematic-workflow.md),
-[native-pixel observations](photo-contour-tracing.md), [independent staged review](independent-review.md)
-and [reviewer-owned paired contours](paired-contour-review.md). Build immutable
-[local comparison packets](comparison-tools.md), retaining originals, drawing and
-XML hashes, companion identities, actual render hashes, camera parameters and
-review revisions. Drawings derived from a model cannot independently verify it.
+Choose evidence proportionally: [plans/sections](schematic-workflow.md),
+[native-pixel observations](photo-contour-tracing.md),
+[independent review](independent-review.md) and
+[paired contours](paired-contour-review.md) answer different questions. No complete
+package of all four is required for every reconstruction. Comparison packets are
+useful for large or repeated reviews; small tasks can retain direct comparisons.
 
-Keep one row per source/feature relationship: source ID/hash and region; visible
-feature; observed/user-supplied/estimated/inferred status; drawing view/path; frozen
-model/render; matched/diagnostic camera; critic trace paths; finding/unknown and
-review status. Account for excluded/duplicate views explicitly. Keep source-only
-critic inventories frozen separately from later candidate interpretations.
+For consequential source/feature relationships record source identity and region,
+observation/estimate status, candidate revision/view, finding and review status.
+Add camera or trace details when used. Keep source-only critic observations distinct
+from later candidate interpretations. Account for deliberately excluded views and
+retain material evidence gaps.
 
 Record each finding with location, evidence, consequence, proposed correction and
 verification. Separate reference discrepancy, geometry defect, circulation defect
@@ -44,10 +45,9 @@ and art-direction preference. An uncertain estimate must not be reported as a
 measured fact. After repairs regenerate affected views and reports from the same
 revision; explicitly list unresolved or unexamined relationships.
 
-For a full reconstruction review, put the lead structural challenge first. Retain
-its source/model evidence, the implementer's explicit defense or structural repair,
-and the critic's adjudication. Track its status separately from local detail passes;
-many accepted small fixes do not resolve an incompatible plan or depth/level order.
-Retain the main human-route trace as part of that evidence: threshold/floor/flight/
-landing transitions, headroom, open-edge boundaries and observed/inferred/blocked/
-unknown status. Distinguish intentional voids from unexplained breaks in the route.
+Prioritize structural findings over local detail. Retain source/model evidence,
+the author's defense or repair and the critic's adjudication. Main-route evidence
+should identify actual floor/threshold/flight/landing transitions and their
+observed/inferred/blocked/unknown status. Do not manufacture a challenge when the
+structure is supported, or turn a collection of accepted small fixes into proof
+of a coherent whole building.

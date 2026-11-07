@@ -4,7 +4,8 @@
 
 - For TypeScript creation/refactoring/review, apply [write-readable-typescript](.agents/skills/write-readable-typescript/SKILL.md).
 - For test design, review or consolidation, apply [maintain-tests](.agents/skills/maintain-tests/SKILL.md).
-- For substantial architectural authoring/review, apply [reference-level-authoring](.agents/skills/reference-level-authoring/SKILL.md).
+- For map layout, topology and circulation authoring/review, apply [level-authoring](.agents/skills/level-authoring/SKILL.md).
+- For maps constrained by reference images, also apply [reference-level-authoring](.agents/skills/reference-level-authoring/SKILL.md).
 - For illustrated preview rendering/review, apply [level-preview-art](.agents/skills/level-preview-art/SKILL.md).
 
 ## Current contracts
@@ -24,6 +25,8 @@ not continuous proof; static premap success does not verify gameplay reachabilit
 - `npm run --silent levelspec -- preview projects/my-level/level.level.svgx` starts read-only live review.
 - `npm run --silent levelspec -- build projects/my-level/level.level.svgx --out generated/my-level --json` publishes validated artifacts.
 - CLI progress goes to stderr; finite --json commands emit one stdout result. Exit codes are 0/1/2/130 for success/failure/usage/cancel.
+
+- `npm run reconstruct -- --source <file.level.svgx> --evidence <annotations.json> --out generated/<new-run>` optionally evaluates frozen candidates against independent image evidence; see [reconstruction](docs/RECONSTRUCTION.md). It is not required for ordinary authoring.
 
 - `npm run compile -- <file.level.svgx> --out <directory>` compiles/exports XML.
 - `npm run dev` starts the local reviewer; `npm run dev:site` starts the curated reviewer.

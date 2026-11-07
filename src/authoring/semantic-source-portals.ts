@@ -1,4 +1,4 @@
-import {key,unkey} from '../core/grid.ts';
+import {key,unkey} from './cell-grid.ts';
 import {semanticCells} from './semantic-cells.ts';
 import {checkSemantic} from './semantic-check.ts';
 import type {NativeSemanticPlan,SemanticPortal} from './semantic-types.ts';
@@ -39,13 +39,13 @@ function selectedRun(parts:Segment[],portal:SemanticPortal,grid:number) {
   return runs(parts).sort((a,b)=>score(a)-score(b))[0];
 }
 /** Historical desired-size portal hints become exact native geometry BEFORE validation. */
-export function placeSourcePortals(plan:NativeSemanticPlan,portals:SemanticPortal[],mode:'annotation'|'composition'|'legacy') {
+export function placeSourcePortals(plan:NativeSemanticPlan,portals:SemanticPortal[],mode:'annotation'|'composition') {
   checkSemantic({...plan,portals:[...plan.portals??[],...portals]});
   const areas=new Set(plan.areas.map(a=>a.id));
   for(const portal of portals)for(const id of portal.between)if(!areas.has(id))throw new Error(`${portal.id}: unknown area ${id}.`);
   for(const proposal of portals)placeProposal(plan,proposal,mode);
 }
-function placeProposal(plan:NativeSemanticPlan,proposal:SemanticPortal,mode:'annotation'|'composition'|'legacy') {
+function placeProposal(plan:NativeSemanticPlan,proposal:SemanticPortal,mode:'annotation'|'composition') {
     const parts=segments(plan,proposal.between),id=proposal.id;
     const skip=skipProposal(mode,parts);
     if(skip){(plan.placementDiagnostics??=[]).push({id,code:'PORTAL_PLACEMENT',proposed:1,placed:0,omitted:1,message:`${id}: optional Python portal omitted before validation (${parts.length?'disjoint boundaries':'no shared boundary'}).`});return;}
@@ -53,7 +53,7 @@ function placeProposal(plan:NativeSemanticPlan,proposal:SemanticPortal,mode:'ann
     const placed=placement(plan,proposal,parts,mode);(plan.portals??=[]).push(placed);
     (plan.placementDiagnostics??=[]).push({id,code:'PORTAL_PLACEMENT',proposed:1,placed:1,omitted:0,message:`${id}: desired ${proposal.width} m; placed ${placed.width} m on its physical shared run.`});
 }
-function skipProposal(mode:string,parts:Segment[]) {return mode!=='legacy'&&!parts.length||mode==='annotation'&&pieces(parts)>1;}
+function skipProposal(mode:string,parts:Segment[]) {return !parts.length||mode==='annotation'&&pieces(parts)>1;}
 function placement(plan:NativeSemanticPlan,proposal:SemanticPortal,parts:Segment[],mode:string):SemanticPortal {
     const run=selectedRun(parts,proposal,plan.grid),requested=proposal.width==='full'?Infinity:proposal.width/plan.grid;
     const full=proposal.width==='full'||mode==='annotation'&&parts.length-requested<3,width=Math.min(full?Infinity:Math.max(1,Math.round(requested)),run.end-run.start);

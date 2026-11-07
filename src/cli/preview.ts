@@ -6,10 +6,15 @@ import { randomUUID } from "node:crypto";
 import { createServer } from "vite";
 import { parseLevelSvgx } from "../vector/format.ts";
 import { parseViewOptions, type ReviewViewOptions } from "../../review/view.ts";
+import { parseNavigationCell } from "../../review/navigation-cell.ts";
 
 /** Starts a file-watching reviewer; the caller owns closing the returned server. */
-export async function startPreview(file: string, options: {port?:number;signal?:AbortSignal;view?:ReviewViewOptions;suggestion?:string;diagnostic?:string} = {}) {
+export async function startPreview(file: string, options: {port?:number;signal?:AbortSignal;view?:ReviewViewOptions;suggestion?:string;diagnostic?:string;navigationCell?:number} = {}) {
   const viewParameters = new URLSearchParams();
+  if (options.navigationCell !== undefined) {
+    const cell = parseNavigationCell(String(options.navigationCell));
+    viewParameters.set("nav-cell", String(cell));
+  }
   if (options.view?.position) viewParameters.set("camera", options.view.position.join(" "));
   if (options.view?.target) viewParameters.set("target", options.view.target.join(" "));
   if (options.view?.projection) viewParameters.set("projection", options.view.projection);

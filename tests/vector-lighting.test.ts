@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, writeFile, readFile, rm, access, readdir } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { compile, parseLevelSvgx } from "levelspec";
+import { compile, parseLevelSvgx } from "levelspec/vector";
 import { bakeLighting } from "levelspec/lighting";
 
 test("failed native lighting publication preserves a retryable destination and successful revisions", async () => {

@@ -1,4 +1,4 @@
-import {key,unkey,rectCells} from '../core/grid.ts';
+import {key,unkey,rectCells} from './cell-grid.ts';
 import type {CellRect,NativeSemanticPlan,SemanticState,SemanticArea} from './semantic-types.ts';
 
 function insideCanvas(plan:NativeSemanticPlan,x:number,y:number) {return (plan.width===undefined||x>=0&&x<plan.width)&&(plan.height===undefined||y>=0&&y<plan.height);}

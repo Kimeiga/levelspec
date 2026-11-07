@@ -37,10 +37,11 @@ viewport, camera and evidence paths. For substantial changes use an independent
 appearance critic against the requested style; distinguish aesthetic findings from
 geometry defects. No screenshot is proof of runtime navigation correctness.
 
-For source fidelity, follow [reference-level-authoring](../reference-level-authoring/SKILL.md):
-review originals before candidate interpretations, retain actual frozen renders and
-matched-camera paired contours. Attractive shading or a drawing derived from the
-same model cannot establish architectural fidelity; unmatched views stay diagnostic.
+For structural layout, topology and circulation use
+[level-authoring](../level-authoring/SKILL.md). For source fidelity, follow [reference-level-authoring](../reference-level-authoring/SKILL.md):
+review originals before candidate interpretations, retain actual frozen renders
+and use matched-camera paired contours where needed. Attractive shading or a
+drawing derived from the same model cannot establish architectural fidelity; unmatched views stay diagnostic.
 
 Adapt techniques into the existing Three.js/Vite renderer; no Svelte or sibling
 runtime dependency is required. Resource disposal and responsiveness matter at large

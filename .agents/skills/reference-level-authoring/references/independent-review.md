@@ -1,143 +1,51 @@
-# Source-first independent review
+# Independent reference-fidelity review
 
-Use fresh-context critics for substantial drawings and model fidelity when delegation
-is available and authorized. Give originals first, without inherited builder history,
-suspected defects, author rationale or previous verdicts. A self-review is useful
-but must be disclosed as reduced independence. A small reviewed repair can reuse
-accepted source interpretation while rechecking affected evidence.
+Use the general [structural reviewer](../../level-authoring/references/structural-review.md)
+for construction and circulation. Add a fidelity reviewer when reconstructing
+from visual references. Complex projects can split construction/circulation and
+use regional specialists; this is proportional to the task, not a fixed three-agent
+requirement. Honor stronger user-requested review gates.
 
-Keep stages separate: freeze the critic's source-only inventory before revealing
-the candidate. Then provide the frozen editable source, hashes, reviewed drawings
-and actual corresponding renders. Use
-[local packets](comparison-tools.md), all-original overviews and focused details;
-inspect actual images rather than treating a successful script run as review.
-The critic follows [paired contours](paired-contour-review.md) and supplies their
-own observations on both sides.
+## Source-first intake
 
-For substantial architecture use complementary fidelity/proportion and
-construction/circulation scopes, sequentially if slots are limited. Fidelity checks
-silhouettes, openings, profiles, levels, surface ownership and source-specific detail.
-Construction checks actual geometry, stair/landing relationships, passage width and
-headroom, wall/slab junctions and support. Land/boat navigation is a separate working
-geometry check, not proof of the photographed building or gameplay reachability.
-For presentation review, use the sibling `level-preview-art` skill after source
-relationships are established; appearance cannot override contrary originals.
+On first intake give the critic originals and the brief before author rationale,
+traces, candidate renders or prior verdicts. Ask for a compact source-only inventory:
+major layout, visible levels/openings, view correspondence and uncertainties.
+Then provide the candidate identity, editable source and actual compiled views.
+Returning critics reuse their own observations and inspect affected source regions.
+Keep an independent initial assessment before reconciling other reviewers' findings.
+Disclose missing independent review rather than relabeling self-review.
 
-## Lead with the structural challenge
+## Compare the spatial structure
 
-For a full reconstruction review, be demanding about the building as a coherent
-spatial structure before inspecting trim and surface finish. Review the overall
-plan, depth/occlusion order, stacked levels, main stair/landing relationships and
-the way major walls, bridges and floors meet. Independently fitted facades can
-look plausible in one image while forming an incompatible building.
+Prioritize overall plan, depth order, stacked levels, main stairs/landings and
+wall/floor ownership. A plausible main view cannot outweigh a contradictory
+secondary view. Inspect the complete images and candidate, then readable crops
+for difficult junctions. Use [paired contours](paired-contour-review.md) where
+alignment is consequential; a full trace package for every image is unnecessary.
+Keep unavailable angles and uncertain hidden continuations explicit.
 
-Lead the review with at least one general structural challenge and concentrate
-the next iteration on the most consequential supported flaw. Identify the affected
-relationships, source evidence, actual-model evidence, consequence and a concrete
-repair target. A list of small guard, grout or frame fixes is insufficient when
-the overall structure has not been examined. A component-level pass does not close
-this structural gate. Do not manufacture a defect: when the structure appears to
-stand, present the strongest testable structural challenge and the evidence that
-could confirm or reject it, explicitly distinguishing a hypothesis from a finding.
+Require findings to identify source and model evidence, consequence and a concrete
+repair target. Do not demand a fabricated flaw or a forced structural challenge
+when the model is supported. The author can defend the relationship with original
+and actual-geometry evidence or revise it; the critic adjudicates the response.
+Resolve conflicts against evidence rather than majority vote. Re-review changed
+assemblies and neighboring relationships; do not repeat unrelated accepted audits.
 
-The implementer responds explicitly to the lead challenge:
+## Large images and collections
 
-- **Defend:** explain why the existing structure is correct using original-source
-  relationships and actual geometry/sections. Agreement with the implementer's own
-  drawings, passing compilation, or an uncertainty label is not a defense.
-- **Revise:** acknowledge the structural error, update the relevant source-backed
-  plan/sections and implement the coherent repair. Avoid accumulating local patches
-  around the disputed structure.
+When whole-image display hides consequential features, use overlapping readable
+crops with full-image locators and original-pixel bounds. Assign focused reviewers
+only when the workload warrants it and keep whole-structure coverage. A crop must
+not cut away the landing or adjoining wall under review. Regional passes cannot
+certify cross-region consistency on their own. For large continuing projects use
+[persistent teams](specialist-teams.md) with durable observations.
 
-The critic evaluates the defense or repaired revision against originals and records
-whether the challenge is resolved, rejected with evidence, or still open. Prioritize
-that resolution over smaller dependent refinements. If the evidence cannot decide
-a critical relationship, state the structural uncertainty and the evidence needed;
-continue useful structural work elsewhere rather than polishing its dependent parts.
-This gate applies to full reconstruction reviews, not every small repair of an
-already reviewed structure.
+## Handoff and signoff
 
-## Follow the human route
-
-Review inhabited or walkable areas from the perspective of a person moving through
-them. Start at a source-visible or intended entry/landing and follow the main route
-through doors, halls, rooms and stairs. At each transition identify the floor under
-the person's feet, the next reachable surface, clearance above, and the walls,
-parapets or guards at the sides. A plausible facade does not establish this route.
-Distinguish floors from bench tops, parapet caps and soffits before assigning a
-walkable surface; color or horizontal appearance alone does not establish access.
-
-- Check that a door meets an actual threshold and landing, and that its proposed
-  passage reaches the correct room or hall rather than a wall, void or wrong level.
-- Follow each main flight to both ends. Verify its direction, upper/lower landings,
-  elevation transitions and relationship to the next corridor or floor. Stairs
-  ending in space or against an incompatible wall are structural findings.
-- Inspect floor continuity and open edges. An unexplained hallway hole or unbounded
-  drop can reveal a missing floor, wall, parapet or guard. Distinguish an intentional
-  courtyard, service pit or stairwell from an accidental gap using source evidence
-  and its actual access/boundary arrangement.
-- Check usable width and headroom at the transition, including under bridges and
-  hanging masonry. Individually plausible parts can leave no space for a person.
-  Evaluate the actual soffit along the actual route footprint. A thin front
-  parapet or hanging screen does not describe the full depth of the stair/slab
-  behind it; a person may pass around its end and beneath a different owner.
-  Apply clearance checks to every proposed occupied surface, including the tops
-  of overhead stairs. A clear lower passage does not certify the upper stair run.
-
-Record route segments as observed, inferred, blocked or unknown, with the relevant
-plan/section and actual model evidence. Missing source-visible landings remain
-missing structure even when labeled provisional. Do not invent unseen rooms or
-connections to complete the route; expose the unresolved segment and seek evidence.
-When references establish a connection but hide its exact dimensions, author and
-test a coherent estimated junction or bounded alternatives. Preserve the estimate;
-unknown dimensions do not justify leaving an observed route unsupported.
-Inspect actual walking behavior when available, but retain the geometric checks:
-navigation sampling or a compile pass alone cannot establish correct circulation.
-
-## Staged critic prompts
-
-Fill paths and the user brief without adding an answer key or suspected defects.
-
-**Originals first:**
-
-> Study only originals at [paths/manifest] and the user brief [brief]. Do not open
-> traces, schematics, renders, implementation, author notes or earlier reviews yet.
-> Save a source-only inventory at [path]: view correspondence, building-defining
-> shapes/openings/levels, visible relationships, difficult-region questions and
-> uncertainty. Cite source regions and distinguish photographic observations from
-> user-supplied annotations. Return the inventory and wait for the candidate.
-
-**Drawing review:**
-
-> Compare your saved inventory and originals with frozen drawing [revision/hash],
-> editable source [path] and actual rendered sheets [paths]. Apply the schematic
-> drawing standard and assigned scope [scope]. Inspect all relevant views and
-> enlarged junctions. Create your own paired contours where boundaries matter.
-> Record supported discrepancies, unknowns and unexamined regions at [path]. Do
-> not read author explanations or other critics' findings before saving your own.
-> Distinguish missing visible detail from unknown hidden connections. Re-review
-> supported repairs before dependent model detail.
-
-**Compiled-model review:**
-
-> Compare your inventory and originals with frozen XML/companions [paths/hashes],
-> reviewed drawing [revision] and actual compiled renders [paths]. Use read-only
-> geometry/section checks as needed. Follow paired contour review: account for all
-> geometry-informing sources, fit/lock cameras with stable landmarks, test held-out
-> boundaries, and independently trace both originals and actual renders. Preserve
-> SVGs, native transparent PNG contours, residual observations and hashes. Diagnostic
-> unmatched views cannot close critical fidelity claims. Save evidenced findings,
-> limits and coverage at [path] before reading other reviews or builder rationale.
-> Begin with the whole spatial structure and lead with its most consequential
-> structural challenge. Require the implementer to defend it with source evidence
-> or revise the structure, then adjudicate that response before dependent detail.
-> Include a person's walkthrough of the main route: continuous floors, thresholds,
-> both stair landings, headroom and bounded edges. Identify stranded stairs,
-> incompatible transitions and unexplained gaps as structural findings.
-
-The coordinator reconciles findings against originals, not majority agreement.
-Record source-inventory corrections openly. Revise, freeze and regenerate affected
-evidence, then re-review until supported actionable discrepancies are resolved.
-Maintain unknowns rather than inventing connections to silence the critic. If
-evidence cannot decide a critical relationship, defer its dependent detail and
-report the incomplete scope. A schematic remains a claim against original pixels.
+Give each reviewer the brief, modeled extent, current revision, intended fidelity,
+deferred elements and assigned scope. For an initial source pass withhold candidate
+interpretations; then supply actual candidate views/results. Record inspected
+images, consequential findings, repair adjudications, unknowns and unexamined scope.
+Signoff covers that revision and scope only. Numerical image scores, navigation
+passes and attractive shading do not close unresolved fidelity findings.

@@ -59,22 +59,20 @@ test('Python native annotation publishes a new physical ramp without legacy modu
   writeFileSync(spec,"ID='ramp_annotation'\nNAME='Ramp annotation'\nGRID=1\nLAYERS=[{'id':'ground','z':0,'height':5}]\nAREAS=[{'id':'west','z':0,'seeds':[(4,5,1,1)]},{'id':'east','z':2,'seeds':[(15,5,1,1)]}]\nRAMPS=[{'id':'slope','at':[(7,4,6,3)]}]\nCOVER=[{'id':'blocked','label':'Blocked','height':1,'at':[(7,4,1,1)]}]\nDIRECTIVES=['mark spawn west','mark site east','route west east 1']\n");
   const r=run('author',['ramp','--spec',spec,'--traced',source,'--out',out]);assert.equal(r.status,0,r.stderr);assert.match(r.stderr,/blocked: 0\/1/);const made=parseLevelSvgx(readFileSync(out,'utf8'));assert.equal(made.links.length,0);assert.ok(made.layers.flatMap(l=>l.regions).some(r=>r.fill==='ramp'));assert.equal(made.routes[0].minRoutes,1);
 });
-test('conflicting Python PLAYER cannot replace explicit plan or semantic source limits or prior output',t=>{
+test('conflicting Python PLAYER cannot replace semantic source limits or prior output',t=>{
   const dir=directory(t),spec=join(dir,'labels.py'),out=join(dir,'output.svgx');writeFileSync(out,'prior artifact');
   writeFileSync(spec,"ID='labels'\nNAME='Labels'\nGRID=1\nPLAYER={'radius':0.35,'height':1.8,'step':0.45}\nAREAS=[{'id':'room','seeds':[(3,3,1,1)]}]\n");
-  const legacy='id: body\ngrid: 1\nradius: 0.42\nheight: 1.9\nstep: 0.3\nlayer ground z=0 height=5 roof=no\nlegend\n A room "Room" lane\nend\nplan\n'+Array(12).fill('AAAAAAAAAAAA').join('\n')+'\nend\n';
   const semantic={format:'levelspec-semantic/2',id:'body',name:'Body',grid:1,player:{radius:.42,height:1.9,step:.3},layers:[{id:'ground',height:5}],areas:[{id:'room',rects:[[0,0,12,12]]}]};
-  for(const [extension,text] of [['plan',legacy],['json',JSON.stringify(semantic)]]){
-    const source=join(dir,'body.'+extension);writeFileSync(source,text);const r=run('author',['labels','--spec',spec,'--traced',source,'--out',out],extension==='plan'?'source':true);
+  for(const [extension,text] of [['json',JSON.stringify(semantic)]]){
+    const source=join(dir,'body.'+extension);writeFileSync(source,text);const r=run('author',['labels','--spec',spec,'--traced',source,'--out',out],true);
     assert.notEqual(r.status,0);assert.match(r.stderr,/preserve.*PLAYER/i);assert.equal(readFileSync(out,'utf8'),'prior artifact');
   }
 });
 test('finalization preflights suffix collisions without replacing prior output and respects filtering',t=>{
   const dir=directory(t),src=join(dir,'src'),out=join(dir,'out');mkdirSync(src);mkdirSync(out);
   const native=serializeLevelSvgx(traceToDocument(raster));
-  const legacy='id: legacy_source\ngrid: 1\nlayer ground z=0 height=5 roof=no\nlegend\n A room "Room" lane\nend\nplan\n'+Array(10).fill('A'.repeat(16)).join('\n')+'\nend\n';
-  for(const names of [['shared.json','shared.svgx'],['foo.svgx','foo.level.svgx'],['mixed.plan','mixed.json']]){
-    for(const name of names)writeFileSync(join(src,name),name.endsWith('.svgx')?native:name.endsWith('.plan')?legacy:JSON.stringify(raster));
+  for(const names of [['shared.json','shared.svgx'],['foo.svgx','foo.level.svgx']]){
+    for(const name of names)writeFileSync(join(src,name),name.endsWith('.svgx')?native:JSON.stringify(raster));
     const destination=join(out,names[0].split('.')[0]+'.level.svgx');writeFileSync(destination,'prior artifact');
     const r=run('finalize',[names[0].split('.')[0],'--src',src,'--out',out]);assert.notEqual(r.status,0);assert.match(r.stderr,/collision/i);for(const name of names)assert.ok(r.stderr.includes(name));assert.equal(readFileSync(destination,'utf8'),'prior artifact');
   }
@@ -118,13 +116,13 @@ test('default finalize publishes native raster and SVGX without loading compatib
   const result=run('finalize',['--src',src,'--out',out]);assert.equal(result.status,0,result.stderr);
   for(const id of ['raster','native'])assert.equal(parseLevelSvgx(readFileSync(join(out,id+'.level.svgx'),'utf8')).version,'2');
 });
-test('Python seed annotations accept native SVGX, raster and an explicit legacy footprint boundary',t=>{
+test('Python seed annotations accept native SVGX and raster',t=>{
   const dir=directory(t),spec=join(dir,'labels.py'),out=join(dir,'labels.svgx');
   writeFileSync(spec,`ID='labels'\nNAME='Labels'\nGRID=1\nAREAS=[{'id':'west','label':'West Hall','seeds':[(2,3,1,1)],'ceiling':5},{'id':'east','label':'East Hall','seeds':[(12,3,1,1)],'ceiling':5}]\nDIRECTIVES=['mark attacker_spawn west attack "West Spawn"','mark site east neutral "East Site"','route west east 1 minDistance=2 maxDistance=40']\n`);
   const plan=`id: trace\ngrid: 1\nlayer ground z=0 height=5 roof=no\nlegend\n A room "Room" room\nend\nplan\n${Array(10).fill('A'.repeat(16)).join('\n')}\nend\n`;
-  for(const [extension,source] of [['json',JSON.stringify(raster)],['svgx',serializeLevelSvgx(traceToDocument(raster))],['plan',plan]]){
+  for(const [extension,source] of [['json',JSON.stringify(raster)],['svgx',serializeLevelSvgx(traceToDocument(raster))]]){
     const path=join(dir,`trace.${extension}`);writeFileSync(path,source);
-    const r=run('author',['labels',`--spec=${spec}`,`--traced=${path}`,`--out=${out}`],extension==='plan'?'source':true);assert.equal(r.status,0,r.stderr);
+    const r=run('author',['labels',`--spec=${spec}`,`--traced=${path}`,`--out=${out}`],true);assert.equal(r.status,0,r.stderr);
     const d=parseLevelSvgx(readFileSync(out,'utf8'));assert.equal(d.markers[0].label,'West Spawn');assert.equal(d.routes[0].minDistance,2);assert.equal(d.routes[0].maxDistance,40);assert.equal(d.routes[0].minRoutes,1);
   }
 });
@@ -142,19 +140,9 @@ test('SVGX annotation without explicit grid and invalid seeds fail with actionab
   writeFileSync(spec,body);let r=run('author',['labels','--spec',spec,'--traced',source,'--out',out]);assert.notEqual(r.status,0);assert.match(r.stderr,/requires explicit GRID/);
   writeFileSync(spec,body+'GRID=1\n');r=run('author',['labels','--spec',spec,'--traced',source,'--out',out]);assert.notEqual(r.status,0);assert.match(r.stderr,/seed missed the floor entirely; nearest floor/);assert.equal(readFileSync(out,'utf8'),'previous');
 });
-test('explicit legacy author and finalize retain plan output and raw Python draft APIs',t=>{
-  const dir=directory(t),spec=join(dir,'room.py'),out=join(dir,'room.plan'),src=join(dir,'src'),dst=join(dir,'dst');mkdirSync(src);
-  writeFileSync(spec,`ID='legacy_room'\nNAME='Room'\nDESCRIPTION='Legacy'\nGRID=1\nAREAS=[{'id':'floor','label':'Floor','rects':[(0,0,12,12)],'ceiling':4}]\n`);
-  let r=run('author',['room','--spec',spec,'--legacy','--out',out],false);assert.equal(r.status,0,r.stderr);assert.match(readFileSync(out,'utf8'),/\r?\nlegend\r?\n/);
-  const raw=spawnSync(process.env.PYTHON??'python3',[join(root,'tools/compose.py'),spec],{encoding:'utf8'});assert.equal(raw.status,0,raw.stderr);assert.equal(raw.stdout,readFileSync(out,'utf8'));
-  writeFileSync(join(src,'room.plan'),raw.stdout);r=run('finalize',['room','--legacy','--src',src,'--out',dst],false);assert.equal(r.status,0,r.stderr);assert.match(readFileSync(join(dst,'room.plan'),'utf8'),/\r?\nlegend\r?\n/);
-  const annotation=join(dir,'annotation.py');writeFileSync(annotation,`ID='raw_annotation'\nNAME='Room'\nDESCRIPTION='Legacy'\nAREAS=[{'id':'floor','label':'Floor','seeds':[(2,2,1,1)],'ceiling':4}]\n`);
-  const annotated=spawnSync(process.env.PYTHON??'python3',[join(root,'tools/annotate.py'),out,annotation],{encoding:'utf8'});assert.equal(annotated.status,0,annotated.stderr);assert.match(annotated.stdout,/\r?\nplan\r?\n/);
-});
 test('an impossible optional Python composition portal is reported while its hard route survives',t=>{
   const dir=directory(t),spec=join(dir,'optional.py'),out=join(dir,'optional.svgx');
   writeFileSync(spec,`ID='optional_source'\nNAME='Optional source'\nDESCRIPTION='Three rooms'\nGRID=1\nWIDTH=24\nHEIGHT=10\nAREAS=[{'id':'a','label':'A','rects':[(0,0,8,10)],'ceiling':4},{'id':'c','label':'C','rects':[(8,0,8,10)],'ceiling':4},{'id':'b','label':'B','rects':[(16,0,8,10)],'ceiling':4}]\nPORTALS=[{'between':('a','b'),'width':2}]\nDIRECTIVES=['mark spawn a','mark site b','route a b 1']\n`);
-  const legacy=run('author',['optional','--spec',spec,'--legacy','--out',join(dir,'optional.plan')],false);assert.equal(legacy.status,0,legacy.stderr);assert.match(legacy.stdout,/Omitted optional portal proposals: 0/);
   const native=run('author',['optional','--spec',spec,'--out',out]);assert.equal(native.status,0,native.stderr);assert.match(native.stderr,/optional Python portal omitted before validation.*no shared boundary/);
   assert.equal(parseLevelSvgx(readFileSync(out,'utf8')).routes[0].minRoutes,1);
 });

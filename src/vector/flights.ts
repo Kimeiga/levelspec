@@ -53,8 +53,8 @@ export function buildFlight(
       throw new Error(`${name} landing must be a straight, horizontal edge.`);
   }
   if (region.underside !== undefined &&
-      (region.fill !== "stairs" || !["filled", "sloped"].includes(region.underside)))
-    throw new Error("underside is only supported on stairs, with filled or sloped values.");
+      (region.fill !== "stairs" || !["filled", "sloped", "stepped"].includes(region.underside)))
+    throw new Error("underside is only supported on stairs, with filled, sloped or stepped values.");
   const bottom = low[0][2],
     rise = high[0][2] - bottom;
   if (rise <= EPS)
@@ -66,6 +66,9 @@ export function buildFlight(
     region.fill === "stairs" ? Math.ceil(rise / maximumRise - 1e-9) : 1;
   if (steps < 1 || steps > 10000)
     throw new Error("A flight must contain between one and 10000 steps.");
+  const stepped = region.fill === "stairs" && region.underside === "stepped";
+  if (stepped && thickness - rise / steps <= EPS)
+    throw new Error(`Stepped stair thickness ${thickness} m must exceed the actual equalized riser ${rise / steps} m to keep positive material overlap.`);
   const oriented = (ref: string) =>
     ref.startsWith("-") ? [...curves[ref.slice(1)]].reverse() : curves[ref];
   const between = (start: number, end: number) => {
@@ -128,6 +131,10 @@ export function buildFlight(
     solid = meshBuilder();
   let projectedArea = 0;
   let previous: [V3, V3] | undefined;
+  let previousBase: [V3, V3] | undefined;
+  /** Returns the actual tread elevation inside a station interval, including split curved rails. */
+  const treadHeight = (u: number, v: number) => bottom +
+    ((Math.min(steps - 1, Math.floor(((u + v) / 2) * steps)) + 1) * rise) / steps;
   for (let i = 1; i < stations.length; i++) {
     const u = stations[i - 1],
       v = stations[i];
@@ -148,20 +155,15 @@ export function buildFlight(
     guide.face(planar, diagonal);
     const z =
       region.fill === "stairs"
-        ? bottom +
-          ((Math.min(steps - 1, Math.floor(((u + v) / 2) * steps)) + 1) *
-            rise) /
-            steps
+        ? treadHeight(u, v)
         : undefined;
     const roof = planar.map((p) => [p[0], p[1], z ?? p[2]] as V3);
-    const base = planar.map(
-      (p) =>
-        [
-          p[0],
-          p[1],
-          (region.fill === "stairs" && region.underside !== "sloped" ? bottom : p[2]) - thickness,
-        ] as V3,
-    );
+    const base = planar.map((p): V3 => {
+      let elevation = p[2];
+      if (stepped) elevation = z!;
+      else if (region.fill === "stairs" && region.underside !== "sloped") elevation = bottom;
+      return [p[0], p[1], elevation - thickness];
+    });
     top.face(roof, diagonal);
     solid.face(roof, diagonal);
     solid.face(
@@ -170,8 +172,12 @@ export function buildFlight(
     );
     // The two outer rails. Internal sections add faces only at actual risers.
     const riser = previous && Math.abs(previous[0][2] - roof[0][2]) > EPS;
+    const nextZ = stepped && i < stations.length - 1 ? treadHeight(v, stations[i + 1]) : undefined;
+    const nextBase = nextZ !== undefined && z !== undefined && nextZ - z > EPS
+      ? [base[3], base[2]].map((p): V3 => [p[0], p[1], nextZ - thickness]) : undefined;
     solid.polygon([
       roof[3],
+      ...(nextBase ? [nextBase[0]] : []),
       base[3],
       base[0],
       ...(riser ? [previous![0]] : []),
@@ -182,13 +188,17 @@ export function buildFlight(
       ...(riser ? [previous![1]] : []),
       base[1],
       base[2],
+      ...(nextBase ? [nextBase[1]] : []),
       roof[2],
     ]);
     if (i === 1) solid.quad([roof[0], base[0], base[1], roof[1]]);
     else if (riser) solid.quad([roof[0], previous![0], previous![1], roof[1]]);
+    if (stepped && riser)
+      solid.quad([base[0], base[1], previousBase![1], previousBase![0]]);
     if (i === stations.length - 1)
       solid.quad([roof[2], base[2], base[3], roof[3]]);
     previous = [roof[3], roof[2]];
+    previousBase = [base[3], base[2]];
   }
   if (
     Math.abs(projectedArea - Math.abs(area(loop))) >

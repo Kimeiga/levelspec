@@ -1,4 +1,5 @@
 import { ClippingError } from "../src/vector/clipping.ts";
+import { parseNavigationCell } from "../review/navigation-cell.ts";
 import {
   compile,
   parseLevelSvgx,
@@ -8,13 +9,15 @@ import {
   createGLBAssetResolver,
 } from "../src/vector/index.ts";
 self.onmessage = async (event: MessageEvent) => {
-  const { id, text, uvs, assetFiles = {} } = event.data as {
+  const { id, text, uvs, assetFiles = {}, navigationCell } = event.data as {
     id: number;
     text: string;
     uvs: boolean;
     assetFiles?: Record<string, Uint8Array>;
+    navigationCell?: number;
   };
   try {
+    const cell = parseNavigationCell(navigationCell === undefined ? undefined : String(navigationCell));
     const resolveAsset = createGLBAssetResolver(async (reference) => {
         const normalized = reference.replaceAll("\\", "/").replace(/^\.\//, ""),
           basename = normalized.split("/").at(-1)!,
@@ -25,6 +28,7 @@ self.onmessage = async (event: MessageEvent) => {
       }),
       level = await compile(parseLevelSvgx(text), {
       resolveAsset,
+      navigation: { cell },
       onProgress: (stage) => self.postMessage({ id, stage }),
       onGeometry: (geometry) =>
         self.postMessage({ id, level: geometry, stage: "Geometry ready" }),
@@ -41,7 +45,7 @@ self.onmessage = async (event: MessageEvent) => {
       });
       return;
     }
-    const report = await validateForRuntime(level, { sealed: true });
+    const report = await validateForRuntime(level, { sealed: true, cell });
     self.postMessage({ id, level, report, stage: "Navigation ready" });
     if (uvs) {
       self.postMessage({ id, stage: "Generating lightmap atlas" });

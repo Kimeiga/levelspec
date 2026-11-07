@@ -7,7 +7,7 @@ import {join,resolve} from 'node:path';
 import {parseConcept,createConcept,produceConcept,selectConceptCandidates} from '../../src/authoring/native-concept.ts';
 import {parseLevelSvgx} from '../../src/vector/format.ts';
 import {CONCEPTS} from '../../src/authoring/concepts.ts';
-import {layout as legacyLayout} from '../../src/authoring/concept.ts';
+import {layout} from '../../src/authoring/concept-layout.ts';
 import {conceptOptions} from '../../tools/producers/concept-options.ts';
 import {nativeConceptCommand} from '../../tools/producers/concept-native.ts';
 import {produceSemantic} from '../../src/authoring/semantic.ts';
@@ -39,7 +39,7 @@ test('prototype-named zone IDs accept unrelated reverse seals but reject conflic
   }
 });
 test('silo v0 retains its three source flights and publishes with real side guards',async()=>{
-  const c=CONCEPTS.find(c=>c.id==='silo')!,proposal=createConcept(c,'v0');assert.deepEqual(proposal.placed,legacyLayout(c,'v0'));
+  const c=CONCEPTS.find(c=>c.id==='silo')!,proposal=createConcept(c,'v0');assert.deepEqual(proposal.placed,layout(c,'v0'));
   const result=await produceConcept(c,'v0');assert.equal(result.report.passed,true);assert.equal(result.plan.flights!.length,3);assert.equal(result.document.routes[0].minRoutes,1);assert.equal(result.document.links.length,0);
   assert.ok(result.plan.covers!.some(c=>c.label==='Flight side guard'));assert.ok(result.placementDiagnostics.some(d=>d.code==='FLIGHT_SIDE_GUARDS'));
   assert.equal((await produceSemantic(result.plan)).text,result.text,'the retained source reproduces all added geometry');
@@ -108,9 +108,4 @@ test('command options preserve defaults and direct native command writes only se
   await nativeConceptCommand(conceptOptions(['--spec',spec,'--out',dir,'--attempts','2','--variants','1','--write','--why','--plan']));
   assert.ok(messages.some(m=>m.includes('1 map(s) written')));assert.match(readFileSync(join(dir,encodeURIComponent(custom.id)+'.level.svgx'),'utf8'),/version="2"/);
   await assert.rejects(nativeConceptCommand(conceptOptions(['missing_catalog'])),/Unknown concept/);
-});
-test('explicit legacy concept CLI retains draw/score and dual-validated plan output',t=>{
-  const dir=mkdtempSync(join(tmpdir(),'concept-legacy-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const r=run(['tools/concept.ts','silo','--legacy','--attempts=1','--variants=1','--write','--plan',`--out=${dir}`],false);
-  assert.equal(r.status,0,r.stderr);const plan=readFileSync(join(dir,'silo.plan'),'utf8');assert.match(plan,/id: og_silo/);assert.match(plan,/\nplan\n/);assert.match(r.stdout,/rhythm.*mystery/);assert.match(plan,/route hardstand launch_floor 1/);
 });

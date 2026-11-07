@@ -4,12 +4,14 @@ import { readFile, writeFile } from "node:fs/promises";
 import { basename, dirname, extname, join, resolve } from "node:path";
 import { PNG } from "pngjs";
 import jpeg from "jpeg-js";
-import { toGLB, toRuntime } from "../src/vector/index.ts";
+import { toGLB, toRuntime, parseLevelSvgx, resolveExportAssets } from "../src/vector/index.ts";
 import { runReconstruction, type ReconstructionReviser,
   type ReconstructionAttempt, type ReconstructionLoopResult } from "../src/reconstruction/loop.ts";
 import type { PhotoEvidence, ReconstructionThresholds } from "../src/reconstruction/evaluate.ts";
 import { createOpenAIReviser, type InputPhoto } from "./reconstruct-openai.ts";
 import { prepareRunOutput } from "./reconstruct-output.ts";
+import { createCompanionStore, companionHash, type CompanionStore } from "./reconstruct-assets.ts";
+import { parseNavigationCell } from "../review/navigation-cell.ts";
 
 interface Args {
   images: string[];
@@ -18,12 +20,16 @@ interface Args {
   evidence?: string;
   out: string;
   revisions: number;
+  maxSourceCharacters?: number;
+  navigationCell?: number;
 }
 const usage = `LevelSpec photo reconstruction
   node tools/reconstruct.ts --image view1=/path/to/cropped-photo.jpg
     [--image view2=/path/to/cropped-oblique.png] [--model VISION_MODEL]
     [--source existing.level.svgx] [--evidence annotations.json]
-    [--max-revisions 4] [--out generated/reconstruction]
+    [--max-revisions 4] [--max-source-characters 2000000]
+    [--nav-cell METERS] (0.025–0.5; default 0.125)
+    [--out generated/reconstruction]
 
 With --model, supply OPENAI_API_KEY as an environment variable.
 Without --model, --source performs read-only evaluation (no model calls).
@@ -53,6 +59,8 @@ function parseArgs(argv: string[]): Args | null {
     "--evidence": value => { args.evidence = value; },
     "--out": value => { args.out = value; },
     "--max-revisions": value => { args.revisions = Number(value); },
+    "--max-source-characters": value => { args.maxSourceCharacters = Number(value); },
+    "--nav-cell": value => { args.navigationCell = parseNavigationCell(value); },
   };
   for (let i = 0; i < argv.length; i += 2) {
     if (argv[i] === "--help" || argv[i] === "-h") return null;
@@ -90,25 +98,48 @@ function parseImageArg(value: string, index: number) {
     throw new Error(`Invalid reference id ${referenceId}.`);
   return { referenceId, path };
 }
-async function loadPhoto(value: string, index: number) {
+/** Bind explicit input pixels to an existing logical reference without basename aliasing. */
+async function referenceFilename(referenceId: string, path: string, bytes: Buffer,
+  names: Map<string, string>, store: CompanionStore): Promise<string> {
+  const declared = names.get(referenceId);
+  if (!declared) return basename(path);
+  let local: Buffer;
+  try { local = await store.read(declared); }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT" && declared === basename(path))
+      return declared;
+    throw new Error(`Reference ${referenceId}: cannot verify declared image ${declared}: ${String(error)}`);
+  }
+  if (!local.equals(bytes))
+    throw new Error(`Reference ${referenceId}: supplied photo differs from declared image ${declared}.`);
+  return declared;
+}
+
+async function loadPhoto(value: string, index: number, names: Map<string, string>, store: CompanionStore) {
   const { referenceId, path } = parseImageArg(value, index);
   const bytes = await readFile(path);
   if (bytes.length > 16 * 1024 * 1024) throw new Error(`Image ${path} exceeds 16 MB.`);
   const decoded = decodeImage(bytes, path);
-  const input: InputPhoto = { referenceId, filename: basename(path),
+  const filename = await referenceFilename(referenceId, path, bytes, names, store);
+  await store.bind(filename, bytes);
+  const input: InputPhoto = { referenceId, filename,
     width: decoded.width, height: decoded.height,
     dataUrl: `data:${decoded.mime};base64,${bytes.toString("base64")}` };
-  const evidence: PhotoEvidence = { referenceId, imageFilename: basename(path), photo: {
+  const evidence: PhotoEvidence = { referenceId, imageFilename: filename, photo: {
     width: decoded.width, height: decoded.height, rgba: decoded.rgba,
   } };
-  return { input, evidence };
+  return { input, evidence, identity: { referenceId, filename, path: resolve(path), sha256: companionHash(bytes) } };
 }
-async function loadPhotos(paths: string[]) {
-  const records = await Promise.all(paths.map((value, index) => loadPhoto(value, index)));
+async function loadPhotos(paths: string[], source: string, store: CompanionStore) {
+  let names = new Map<string, string>();
+  try { names = new Map((parseLevelSvgx(source).references ?? []).map(item => [item.id, item.image])); }
+  catch { /* The loop retains parse failures as rejected attempts. */ }
+  const records: Awaited<ReturnType<typeof loadPhoto>>[] = [];
+  for (const [index, path] of paths.entries()) records.push(await loadPhoto(path, index, names, store));
   const inputs = records.map(r => r.input), evidence = records.map(r => r.evidence);
   if (new Set(inputs.map(v => v.referenceId)).size !== inputs.length)
     throw new Error("Duplicate reference image id.");
-  return { inputs, evidence };
+  return { inputs, evidence, identities: records.map(record => record.identity) };
 }
 interface ManifestView {
   referenceId: string;
@@ -158,82 +189,97 @@ async function attachAnnotations(filename: string | undefined, evidence: PhotoEv
   for (const view of source.views) await attachView(view, filename, evidence);
   return source.thresholds;
 }
-async function resolveReviser(args: Args, photos: InputPhoto[]): Promise<ReconstructionReviser> {
+async function resolveReviser(args: Args, photos: InputPhoto[], store: CompanionStore): Promise<ReconstructionReviser> {
   if (!args.model) return async () => null;
   const key = process.env.OPENAI_API_KEY;
   if (!key) throw new Error("OPENAI_API_KEY is required to call the chosen vision model.");
-  return createOpenAIReviser({ model: args.model, apiKey: key, photos });
+  return createOpenAIReviser({ model: args.model, apiKey: key, photos, resolveAsset: store.resolveAsset });
 }
-async function recordAttempt(out: string, attempt: ReconstructionAttempt) {
+async function recordAttempt(out: string, attempt: ReconstructionAttempt, store: CompanionStore, cell: number) {
   const stem = `iteration-${String(attempt.iteration).padStart(2, "0")}`;
   await writeFile(join(out, stem + ".level.svgx"), attempt.source);
+  const portable = await store.archive(attempt.source, out, stem);
+  if (portable) await writeFile(join(out, stem + ".portable.level.svgx"), portable);
   await writeFile(join(out, stem + ".json"), JSON.stringify({
     iteration: attempt.iteration, valid: attempt.valid, accepted: attempt.accepted,
     diagnostics: attempt.diagnostics, report: attempt.report,
+    navigation: { cell },
   }, null, 2));
   console.log(`${stem}: ${attempt.valid ? "geometry/navigation passed" : "invalid"}; ${attempt.accepted ? "accepted" : "not accepted"}`);
 }
 function portableExportable(result: ReconstructionLoopResult) {
   return Boolean(result.level && result.report?.geometryPassed && result.report.navigationPassed);
 }
-async function writePortableExports(out: string, result: ReconstructionLoopResult) {
+async function writePortableExports(out: string, result: ReconstructionLoopResult, store: CompanionStore, portable: string) {
   if (!portableExportable(result)) return;
   const level = result.level!;
-  await writeFile(join(out, "best.glb"), toGLB(level));
-  await writeFile(join(out, "best-collision.glb"), toGLB(level, { purpose: "collision" }));
-  await writeFile(join(out, "best.runtime.json"), JSON.stringify(toRuntime(level)));
+  const assets = await resolveExportAssets(level, store.read);
+  const archived = { ...level, document: parseLevelSvgx(portable) };
+  const archivedAssets: typeof assets = {};
+  for (const material of archived.document.materials) {
+    const original = level.document.materials.find(item => item.id === material.id);
+    if (material.texture && original?.texture) archivedAssets[material.texture] = assets[original.texture];
+  }
+  const visual = toGLB(archived, { assets: archivedAssets });
+  const collision = toGLB(archived, { purpose: "collision" });
+  await writeFile(join(out, "best.glb"), visual);
+  await writeFile(join(out, "best-collision.glb"), collision);
+  await writeFile(join(out, "best.runtime.json"), JSON.stringify(toRuntime(archived)));
 }
-function resultSummary(result: ReconstructionLoopResult) {
-  return {
+async function recordResult(out: string, result: ReconstructionLoopResult, store: CompanionStore, cell: number) {
+  if (result.source) {
+    const portable = await store.archive(result.source, out, "best");
+    if (!portable) throw new Error("Valid best candidate could not be archived.");
+    await writePortableExports(out, result, store, portable);
+    await writeFile(join(out, "best.level.svgx"), portable);
+    console.log(`Saved best candidate: ${join(out, "best.level.svgx")}`);
+  }
+  await writeFile(join(out, "result.json"), JSON.stringify({
     accepted: result.accepted, status: result.status, error: result.error ?? null,
     attempts: result.attempts.map(a => ({ iteration: a.iteration, valid: a.valid,
       accepted: a.accepted, score: a.score, diagnostics: a.diagnostics })),
     report: result.report,
-  };
-}
-async function writeBestSource(out: string, source: string | null) {
-  if (!source) return;
-  await writeFile(join(out, "best.level.svgx"), source);
-  console.log(`Saved best candidate: ${join(out, "best.level.svgx")}`);
-}
-function logStatus(result: ReconstructionLoopResult) {
-  if (result.error) console.error(`Reviser error: ${result.error}`);
+    navigation: { cell },
+  }, null, 2));
   console.log(`Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`);
 }
-async function recordResult(out: string, result: ReconstructionLoopResult) {
-  await writeFile(join(out, "result.json"), JSON.stringify(resultSummary(result), null, 2));
-  await writeBestSource(out, result.source);
-  await writePortableExports(out, result);
-  logStatus(result);
-}
-async function readSourceAndResetOutput(args: Args): Promise<string> {
+async function readSourceAndResetOutput(args: Args, store: CompanionStore): Promise<string> {
   try {
     // Allow an earlier best.level.svgx to serve as the next run's input.
-    return args.source ? await readFile(args.source, "utf8") : "";
+    const source = args.source ? await readFile(args.source, "utf8") : "";
+    await store.capture(source);
+    return source;
   } finally {
     // Even a failed input read must not leave previous success artifacts behind.
     await prepareRunOutput(args.out);
+    await writeFile(join(args.out, "run-config.json"), JSON.stringify({
+      navigation: { cell: args.navigationCell ?? 0.125, source: args.navigationCell === undefined ? "default" : "explicit" },
+    }, null, 2));
   }
 }
 async function execute(args: Args) {
-  const source = await readSourceAndResetOutput(args);
-  const { inputs, evidence } = await loadPhotos(args.images);
+  const store = createCompanionStore(args.source ? dirname(resolve(args.source)) : process.cwd());
+  const source = await readSourceAndResetOutput(args, store);
+  const { inputs, evidence, identities } = await loadPhotos(args.images, source, store);
+  await writeFile(join(args.out, "input-photos.json"), JSON.stringify(identities, null, 2));
   const thresholds = await attachAnnotations(args.evidence, evidence);
-  const revise = await resolveReviser(args, inputs);
-  // Ctrl+C cancels model requests but still records what was produced so far.
+  const revise = await resolveReviser(args, inputs, store);
   const controller = new AbortController();
   const cancel = () => controller.abort(new Error("Cancelled by user."));
   process.once("SIGINT", cancel);
   let result: ReconstructionLoopResult;
   try {
     result = await runReconstruction(source, evidence, revise, {
-      maxRevisions: args.model ? args.revisions : 0, thresholds, signal: controller.signal,
-      onAttempt: attempt => recordAttempt(args.out, attempt),
+      maxRevisions: args.model ? args.revisions : 0, thresholds, resolveAsset: store.resolveAsset,
+      maxSourceCharacters: args.maxSourceCharacters,
+      navigationCell: args.navigationCell ?? 0.125, signal: controller.signal,
+      onAttempt: attempt => recordAttempt(args.out, attempt, store, args.navigationCell ?? 0.125),
     });
   } finally {
     process.off("SIGINT", cancel);
   }
-  await recordResult(args.out, result);
+  if (result.error) console.error(`Reviser error: ${result.error}`);
+  await recordResult(args.out, result, store, args.navigationCell ?? 0.125);
   process.exitCode = Number(!result.accepted);
 }
 async function main() {

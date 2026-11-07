@@ -63,6 +63,34 @@ byte-identical native image snapshots, an HTML index, input-manifest copy and
 same pixels does not count as a distinct original. Inspect the actual output images.
 The output directory must be new or empty; never overwrite an inspected revision.
 
+## Capture actual model views
+
+From the repository root:
+
+```sh
+node tools/capture-level.mjs projects/my-level/level.level.svgx \
+  generated/my-level/capture-01 projects/my-level/views.json
+```
+
+The output directory must be new. The view file is a nonempty JSON array:
+
+```json
+[
+  {"id":"overview", "position":[12,-16,12], "target":[0,0,2],
+   "projection":"orthographic", "viewHeight":20}
+]
+```
+
+Each view requires a unique safe `id`, finite XYZ `position` and `target`, and
+`projection` (`perspective` or `orthographic`). Optional fields are `fov`,
+`viewHeight`, `roll`, `appearance` and `frameAspect`; appearance defaults to
+`inspection` (`illustrated` is available for presentation). Positions and targets
+use Z-up meters; FOV and roll use degrees. A frozen capture includes actual PNGs,
+loaded source and companion buffers/hashes, camera/canvas state and browser errors.
+Inputs must remain consistent across its views. A failed capture retains diagnostics
+without a success manifest. Inspect the images; provenance does not establish
+camera correspondence or architectural accuracy.
+
 ## Capture provenance
 
 Before composing model comparisons, establish which bytes produced the actual

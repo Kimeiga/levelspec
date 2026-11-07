@@ -1,5 +1,5 @@
 /** Source-neutral concept declarations and deterministic cell/flight placement. */
-import type { SpaceRole } from '../core/types.ts';
+type SpaceRole = 'room' | 'corridor' | 'lane' | 'stairwell' | 'site' | 'spawn' | 'exterior' | 'balcony' | 'roof';
 
 /** Cells: x, y, width, depth. */
 export type Cells = [number, number, number, number];

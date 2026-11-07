@@ -20,30 +20,6 @@ async function valid(path:string) {
   assert.equal((await validateForRuntime(await compile(document))).passed,true);
 }
 
-test('plan publishing preserves prior output on failure and retains legacy output',async t=>{
-  const dir=mkdtempSync(join(tmpdir(),'levelspec-plans-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const src=join(dir,'src'),out=join(dir,'out');mkdirSync(src);mkdirSync(out);
-  writeFileSync(join(src,'room.plan'),plan);
-  let r=command('plans',['room','--src',src,'--out',out]);assert.equal(r.status,0,r.stderr);
-  const path=join(out,'room.level.svgx');await valid(path);const before=readFileSync(path,'utf8');
-  writeFileSync(join(src,'room.plan'),plan+'route absent nowhere 2\n');
-  r=command('plans',['room','--src',src,'--out',out]);assert.notEqual(r.status,0);assert.equal(readFileSync(path,'utf8'),before);
-  writeFileSync(join(src,'room.plan'),plan);
-  r=command('plans',['room','--legacy','--src',src,'--out',out]);assert.equal(r.status,0,r.stderr);
-  assert.equal(JSON.parse(readFileSync(join(out,'room.json'),'utf8')).schema_version,'1.1');
-});
-
-test('filtered finalization keeps unselected files and never overwrites with an invalid plan',async t=>{
-  const dir=mkdtempSync(join(tmpdir(),'levelspec-finalize-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const src=join(dir,'src'),out=join(dir,'out');mkdirSync(src);mkdirSync(out);
-  writeFileSync(join(src,'selected.plan'),plan);writeFileSync(join(out,'unselected.plan'),'keep me');
-  let r=command('finalize',['selected','--src',src,'--out',out]);assert.equal(r.status,0,r.stderr);
-  const path=join(out,'selected.level.svgx');await valid(path);const before=readFileSync(path,'utf8');
-  writeFileSync(join(src,'selected.plan'),plan+'route absent nowhere 2\n');
-  r=command('finalize',['selected','--src',src,'--out',out]);assert.notEqual(r.status,0);
-  assert.equal(readFileSync(path,'utf8'),before);assert.equal(readFileSync(join(out,'unselected.plan'),'utf8'),'keep me');
-});
-
 test('radar tracing publishes real v2 geometry and reports Python failures without writing',async t=>{
   const dir=mkdtempSync(join(tmpdir(),'levelspec-trace-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
   const png=new PNG({width:40,height:40});
@@ -74,11 +50,3 @@ test('Python compositions publish v2 and reject unsatisfied authored requirement
   assert.equal(existsSync(join(dir,'room.plan')),false);
 });
 
-test('Python annotations retain the traced footprint while publishing v2',async t=>{
-  const dir=mkdtempSync(join(tmpdir(),'levelspec-annotate-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const traced=join(dir,'room.plan'),spec=join(dir,'room.py'),out=join(dir,'room.level.svgx');
-  writeFileSync(traced,plan);
-  writeFileSync(spec,`ID='annotation'\nNAME='Annotation'\nDESCRIPTION='Trace test'\nGRID=1\nAREAS=[{'id':'room','label':'Room','seeds':[(3,3,1,1)],'ceiling':4}]\n`);
-  const r=command('author',['room','--spec',spec,'--traced',traced,'--out',out]);
-  assert.equal(r.status,0,r.stderr);await valid(out);
-});

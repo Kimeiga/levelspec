@@ -1,78 +1,54 @@
 ---
 name: reference-level-authoring
-description: Author or review architectural levels from references using XML LevelSpec, plans, sections, compiled geometry and circulation checks. Use for buildings, corridors, stairs, bridges and overpasses.
+description: Reconstruct or review LevelSpec maps from reference images, photographs or drawings using source interpretation, cross-view correspondence and fidelity comparison. Add to level-authoring when visual references constrain the map.
 ---
 
-# Reference-first architectural authoring
+# Reference-based map authoring
 
-Preserve the requested subject, style and output. XML `.level.svgx` is editable
-source; runtime JSON and meshes are outputs. Use meters and right-handed Z-up.
-Use the repository-local `levelspec` commands in root AGENTS.md. Native exporters
-may have optional prerequisites; authoring and this workflow do not require Blender.
+Use [level-authoring](../level-authoring/SKILL.md) for layout, topology, collision
+and circulation. This skill adds evidence interpretation and fidelity checks;
+it does not apply to invented maps without visual constraints.
 
-Treat inhabited buildings as places people move through. Use a person's route
-through rooms, doors, halls, stairs and landings to test the spatial structure.
-For each claimed passage, identify the supporting floor on both sides of the
-threshold or stair connection. Stranded stairs and unexplained holes or exposed
-drops are structural findings; stop at closed or unknown interiors rather than
-inventing a connection.
+Inspect original images and user annotations before candidate interpretations.
+Record source identities, important visible structures, correspondence across
+views and consequential unknowns. Keep observations, user explanations, estimates
+and inferred construction distinct. Photographs rarely establish exact dimensions;
+keep unseen rooms and connections unknown unless the user authorizes invention.
 
-For substantial reconstruction or a restart after a fidelity failure, establish
-source-grounded drawings **before dependent production geometry**. A schematic
-generated from the same mistaken model cannot validate that model. Reuse reviewed
-evidence for a small repair; do not restart unrelated accepted work.
+Build the simplest coherent layout explaining the important available views.
+Cross-check overall depth order, stacked levels, stairs and landings before
+polishing a main-photo match. A crop boundary is not a physical building edge.
+Use [cross-view review](references/multiview-walkthrough.md) for difficult
+relationships. Reuse observations across revisions rather than restarting intake.
 
-1. Personally inspect raw originals and user-supplied annotations. Save a source-only
-   feature inventory, provenance/hashes, view correspondence and difficult-region
-   questions before opening model-derived drawings or previous conclusions. Keep
-   direct observations, user explanations, estimates and inferred construction
-   distinct. Original pixels remain authoritative for visible geometry.
-2. For ambiguous openings, overlapping storeys, stairs and junctions, read
-   [photo contour tracing](references/photo-contour-tracing.md). Make editable
-   native-pixel SVG observations over unchanged originals; keep observed,
-   uncertain and inferred paths separate. Unknown hidden connections stay unknown.
-   Seek materially different original views when they could settle a critical issue.
-   For clutter, deep shadows or difficult stair/window overlaps, optionally use
-   [generated reference aids](references/generated-reference-aids.md): a simplified
-   CAD-like view, conservative decluttering, or qualitative depth plus outlines.
-   Inspect these against originals before review; generated geometry and depth are
-   hypotheses, never independent source evidence or measured dimensions.
-3. Read [schematic workflow](references/schematic-workflow.md). Draw the plans,
-   elevations, sections and enlarged details needed to explain supported building
-   relationships, with CAD-level geometric specificity. Generic masses and labels
-   cannot replace visible openings, profiles, rims, landings or thickness cues.
-   Follow a person's route through the relevant doors, halls, stairs and landings;
-   check continuous floors, usable transitions, headroom and bounded open edges.
-   Independently review the frozen drawings against originals before modeling
-   dependent detail. Unsupported critical relationships defer that detail; continue
-   independently supported work elsewhere.
-4. Build XML from reviewed relationships. Keep render visibility, collision and
-   navigation separate. Compile and inspect source-linked diagnostics, actual
-   geometry/sections and land/boat reports as relevant. Check widths, headroom,
-   stair rise/run/landings, slab thickness, wall junctions and stacked floors on
-   every proposed occupied surface, including the walking tops of overhead stairs.
-   Static premap/navigation success does not prove source fidelity,
-   gameplay reachability, structural adequacy or building-code compliance.
-5. Freeze XML/companions and capture actual renders of that revision. Read
-   [paired contour review](references/paired-contour-review.md) and
-   [independent review](references/independent-review.md). Critics first record
-   source-only observations in fresh context, then author their own paired original
-   and candidate contours. For a full reconstruction review, lead with a general
-   structural challenge: courtyard/building layout, depth order, stacked levels or
-   stair/landing relationships. The implementer must defend it with source evidence
-   or revise the structure, and the critic adjudicates that response before smaller
-   refinements proceed. Fit and lock cameras with stable landmarks; test held-out
-   boundaries. Unmatched critical views remain diagnostic and cannot close fidelity
-   acceptance. Regenerate affected evidence after repairs.
+Choose tools for the uncertainty:
 
-Keep originals, editable traces/drawings and review records in the user's chosen
-project layout (`projects/<name>/` is supported). Put reproducible outputs under
-ignored `generated/`. Hash frozen inputs and retain actual inspected images,
-findings, repairs and unexamined regions. Use local
-[comparison helpers](references/comparison-tools.md) for source-only packets,
-reference/schematic/render boards and contextual contour comparisons. Helpers
-compose evidence; they do not infer cameras, extract independent traces or approve
-geometry. Disclose self-review when independent review is unavailable.
+- [Native-pixel tracing](references/photo-contour-tracing.md) for ambiguous edges,
+  overlaps or ownership; clear features need no tracing ceremony.
+- [Plans and sections](references/schematic-workflow.md) for stacked or ambiguous
+  spatial relationships. Simple maps and diagnostic trials need no preapproved
+  drawing package.
+- [Paired contours](references/paired-contour-review.md) for consequential alignment
+  disputes; matched camera overlays are useful measurements, not universal gates.
+- [Comparison helpers](references/comparison-tools.md) for source packets and
+  reference/render boards. They compose evidence, not architectural judgments.
+- [Bounded reconstruction](references/reconstruction-workflow.md) when independent
+  image annotations and repeatable numerical evaluation are useful. Ordinary
+  revisions can use native validate/build/preview without that runner.
+- [Generated reading aids](references/generated-reference-aids.md) optionally;
+  generated geometry/depth remains a hypothesis checked against originals.
 
-See [review evidence](references/review-evidence.md) for the evidence ledger and
+Add an independent fidelity reviewer to the general structural review for
+reference-based reconstruction. Use [independent review](references/independent-review.md)
+for source-first intake and affected-scope rechecks. Escalate to
+[persistent specialists](references/specialist-teams.md) only when complexity or
+reference volume warrants it; retain stronger requirements explicitly requested
+by the user. No reviewer must manufacture a defect to satisfy a challenge quota.
+
+Freeze source/companions for acceptance captures and inspect actual renders of
+that revision. Keep camera mismatch separate from geometry disagreement. A derived
+schematic or pleasing render cannot independently establish source fidelity;
+geometry/navigation success and fidelity are separate conclusions. Record decisive
+comparisons, supported repairs, assumptions and unexamined regions with the project.
+See [review evidence](references/review-evidence.md) for capture provenance and
 [provenance](references/provenance.md) for adaptation sources.

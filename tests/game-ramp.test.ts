@@ -1,17 +1,11 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { planToSpec } from "../src/authoring/plan.ts";
-import { compile as compileLegacy } from "../src/core/compiler.ts";
-import { mergeBoxes } from "../src/core/mesh.ts";
-import { DEFAULTS } from "../src/core/types.ts";
-import { migrateText } from "../tools/migration/convert.ts";
-import { compile } from "../src/vector/compiler.ts";
+import { SceneBuilder, compile, serializeLevelSvgx, parseLevelSvgx } from "../src/vector/index.ts";
 import { toGLB } from "../src/vector/export.ts";
 import { validateForRuntime } from "../src/vector/validate.ts";
 import { CollisionWorld, type Vec3 } from "../game/collision.ts";
 import { readGlbTriangles } from "../game/glb.ts";
 import { stepPlayer, type PlayerShape, type PlayerState } from "../game/controller.ts";
-import { twoRooms, turnPlan } from "./fixtures/ramp.ts";
 
 function turnPoint([x, y, z]: Vec3, turns: number): Vec3 {
   let width = 16, height = 19.2;
@@ -30,7 +24,7 @@ function assertLandingSupport(world: CollisionWorld, edges: number[], turns: num
     const hit = world.raycast(p, [0, -1, 0], 1.1);
     assert.ok(hit, `missing landing floor at ${p}`);
     assert.ok(hit.normal[1] > 0.99, `not a floor at ${p}`);
-    assert.ok(hit.point[1] >= 0 && hit.point[1] <= 0.601);
+    assert.ok(hit.point[1] >= -0.001 && hit.point[1] <= 0.601);
   }
 }
 
@@ -57,24 +51,35 @@ function checkRamp(world: CollisionWorld, shape: PlayerShape, strip: string, tur
   }
 }
 
-describe("ramp landing collision", () => {
+/** Explicit XML geometry retains the old regression's wide landings and narrower ramps. */
+function nativeRamp(strip: string, turns: number) {
+  const scene = new SceneBuilder("ramp-landings");
+  const group = scene.group("walk");
+  const left = strip.indexOf("r") * 1.6;
+  const right = (strip.lastIndexOf("r") + 1) * 1.6;
+  const rotate = ([x,y,z]: Vec3): Vec3 => {
+    let width=16, height=19.2;
+    for(let i=0;i<turns;i++) { [x,y]=[y,width-x]; [width,height]=[height,width]; }
+    return [x,y,z];
+  };
+  group.polygon("low", [[1.6,1.6,0],[14.4,1.6,0],[14.4,4.8,0],[right,4.8,0],[left,4.8,0],[1.6,4.8,0]].map(point => rotate(point as Vec3)));
+  group.polygon("ramp", [[left,4.8,0],[right,4.8,0],[right,12.8,.6],[left,12.8,.6]].map(point => rotate(point as Vec3)), {fill:"ramp"});
+  group.polygon("high", [[1.6,12.8,.6],[left,12.8,.6],[right,12.8,.6],[14.4,12.8,.6],[14.4,17.6,.6],[1.6,17.6,.6]].map(point => rotate(point as Vec3)));
+  scene.document.markers.push({id:"spawn",kind:"spawn",layer:group.layer.id,position:rotate([8,3,0])});
+  return parseLevelSvgx(serializeLevelSvgx(scene.document));
+}
+
+describe("native XML ramp landing collision", () => {
   for (const strip of ["...rr.....", "...rrr....", "..rrrr...."]) {
-    for (const turns of [0, 1, 2, 3]) {
-      it(`supports legacy ${strip} rotated ${turns} quarter turns`, () => {
-        const text = turnPlan(twoRooms(strip), turns);
-        const old = compileLegacy(planToSpec(text));
-        const mesh = mergeBoxes(old.solids.filter((s) => !s.dynamic).map((s) => s.box));
-        const positions = mesh.positions.flatMap((_, i, p) => i % 3 === 0 ? [p[i], p[i + 2], -p[i + 1]] : []);
-        checkRamp(new CollisionWorld(positions, mesh.indices), { ...DEFAULTS.player, slope: 45 }, strip, turns);
-      });
+    for (const turns of [0,1,2,3]) {
       it(`supports exported ${strip} rotated ${turns} quarter turns`, async () => {
-        const { document } = migrateText(turnPlan(twoRooms(strip), turns));
-        const level = await compile(document);
-        const report = await validateForRuntime(level);
-        assert.deepEqual(report.diagnostics.filter((d) => d.severity === "error"), []);
-        const bytes = toGLB(level, { purpose: "collision" });
-        const glb = readGlbTriangles(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) as ArrayBuffer);
-        checkRamp(new CollisionWorld(glb.positions, glb.indices), document.player, strip, turns);
+        const document=nativeRamp(strip,turns);
+        const level=await compile(document);
+        const report=await validateForRuntime(level);
+        assert.deepEqual(report.diagnostics.filter(d=>d.severity === "error"), []);
+        const bytes=toGLB(level,{purpose:"collision"});
+        const glb=readGlbTriangles(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength) as ArrayBuffer);
+        checkRamp(new CollisionWorld(glb.positions,glb.indices),document.player,strip,turns);
       });
     }
   }

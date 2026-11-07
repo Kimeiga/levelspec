@@ -4,8 +4,6 @@ import {generateLevelV2} from '../../src/generate/vector.ts';
 import {parseLevelSvgx} from '../../src/vector/format.ts';
 import {compile} from '../../src/vector/compiler.ts';
 import {validateForRuntime} from '../../src/vector/validate.ts';
-import {generateLevel} from '../../src/generate/index.ts';
-import {produceSpec} from '../../src/authoring/producers.ts';
 
 // Exercise each topology explicitly; a random sweep alone can omit one entirely.
 for(const archetype of ['three_lane','ring','stacked','compound','bridges','sky_islands','fightyard']) {
@@ -14,7 +12,6 @@ for(const archetype of ['three_lane','ring','stacked','compound','bridges','sky_
       const r=await generateLevelV2({archetype,depth,seed,attempts:14,minRoutes:2});
       assert.ok(r.ok,JSON.stringify(r));
       assert.ok(r.disjointRoutes>=2);
-      assert.equal(r.legacy,undefined);
       const report=await validateForRuntime(await compile(parseLevelSvgx(r.text)));
       assert.equal(report.passed,true);
       assert.equal(r.document.routes[0].minRoutes,2);
@@ -34,10 +31,3 @@ test('cancellation and invalid budgets fail before producing geometry',async()=>
   await assert.rejects(()=>generateLevelV2({attempts:0}),RangeError);
 });
 
-test('bridge ramps retain their supporting plane after SVGX millimetre rounding',async()=>{
-  const source=generateLevel({seed:'producer-migration',depth:4,archetype:'bridges',attempts:3});
-  assert.ok(source.ok);
-  const produced=await produceSpec(source.spec);
-  assert.equal(produced.report.passed,true);
-  assert.equal(produced.document.player.height,source.spec.player!.height);
-});

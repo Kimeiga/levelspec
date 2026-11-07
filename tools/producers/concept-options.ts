@@ -2,7 +2,7 @@ import {conceptBudget} from '../../src/authoring/native-concept.ts';
 function readOption(args:string[],i:number,values:Map<string,string>,flags:Set<string>) {
   const [name,...parts]=args[i].split('=');
   if(values.has(name)||flags.has(name))throw new Error(`Duplicate option ${name}.`);
-  if(['--write','--plan','--why','--legacy'].includes(name)){if(parts.length)throw new Error(`${name} takes no value.`);flags.add(name);return i;}
+  if(['--write','--plan','--why'].includes(name)){if(parts.length)throw new Error(`${name} takes no value.`);flags.add(name);return i;}
   if(!['--attempts','--variants','--out','--spec'].includes(name))throw new Error(`Unknown concept option ${name}.`);
   const value=parts.length?parts.join('='):args[++i];if(!value||value.startsWith('--'))throw new Error(`Missing value for ${name}.`);values.set(name,value);return i;
 }
@@ -18,6 +18,6 @@ function parseArguments(args:string[]) {
 export function conceptOptions(args:string[]) {
   const {values,flags,filters}=parseArguments(args);
   const {attempts,variants}=conceptBudget(values.has('--attempts')?Number(values.get('--attempts')):undefined,values.has('--variants')?Number(values.get('--variants')):undefined);
-  if(values.has('--spec')&&(filters.length||flags.has('--legacy')))throw new Error('--spec conflicts with catalog filters and --legacy.');
+  if(values.has('--spec')&&filters.length)throw new Error('--spec conflicts with catalog filters.');
   return {values,flags,filters,attempts,variants};
 }

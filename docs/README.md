@@ -9,12 +9,22 @@ original revision and are not current acceptance claims.
 | Task | Guide |
 | --- | --- |
 | XML syntax, geometry, navigation, premaps and water | [XML authoring](SVGX.md) |
-| Architectural construction helpers, references and props | [Reference authoring](REFERENCE_AUTHORING.md) |
+| Architectural construction helpers, reference workflow and props | [Reference authoring](REFERENCE_AUTHORING.md) |
 | Formats, textures and optional native exporters | [Exports](EXPORTS.md) |
 | Non-blocking geometry suggestions and review suppressions | [Suggestions](SUGGESTIONS.md) |
 | Orthographic reviewer and browser acceptance setup | [Reviewer](WEBSITE.md) |
 | Implemented capabilities and remaining limits | [Implementation](IMPLEMENTATION.md) |
 | End-to-end sample | [Corridor and overpass project](../projects/corridor-overpass/README.md) |
+
+## Authoring workflows
+
+Use [level-authoring](../.agents/skills/level-authoring/SKILL.md) for invented or
+reference-based maps: structural blockout, clean physical topology and usable routes.
+Add [reference-level-authoring](../.agents/skills/reference-level-authoring/SKILL.md)
+for image interpretation and fidelity. Plans, tracing, matched cameras and the
+[reconstruction runner](RECONSTRUCTION.md) are targeted tools for difficult
+reconstruction, not requirements for every map or revision. Ordinary maps use
+proportional independent structural review; complex projects can add specialists.
 
 ## Commands and contracts
 

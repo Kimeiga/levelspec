@@ -1,5 +1,5 @@
 import {SceneBuilder,type AuthoringGroup} from '../vector/authoring.ts';
-import {components,decomposeToRects,key} from '../core/grid.ts';
+import {components,decomposeToRects,key} from './cell-grid.ts';
 import {cellRectPoints,areaCells} from './semantic-cells.ts';
 import {junctions} from './native-junctions.ts';
 import type {SemanticState,SemanticArea} from './semantic-types.ts';

@@ -1,6 +1,6 @@
 import { it } from "node:test";
 import assert from "node:assert/strict";
-import { compile, parseLevelSvgx, validateForRuntime, toRuntime, toGLB } from "levelspec";
+import { compile, parseLevelSvgx, validateForRuntime, toRuntime, toGLB } from "levelspec/vector";
 
 it("authors, validates and exports an XML level through the package root", async () => {
   const document = parseLevelSvgx(`<level version="2" id="public-room" validation="premap">

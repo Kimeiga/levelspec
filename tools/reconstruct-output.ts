@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 const results = new Set([
   "best.level.svgx", "best.glb", "best-collision.glb",
-  "best.runtime.json", "result.json",
+  "best.runtime.json", "result.json", "best.companions.json", "input-photos.json", "run-config.json",
 ]);
 
 export function isRunArtifact(name: string): boolean {
