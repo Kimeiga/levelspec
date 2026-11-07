@@ -24,7 +24,7 @@ before committing extensive dependent geometry. Diagnostic 3D studies can help
 resolve them. Do not demand a full drawing package before every trial or repair.
 
 Validate, build and inspect actual compiled geometry. For repeatable browser views
-use [capture-level](../../../../docs/WEBSITE.md#repeatable-captures). Follow claimed routes with
+use [capture-level](references/structural-review.md#repeatable-captures). Follow claimed routes with
 the unchanged player body; inspect the whole volume beyond the selected route.
 Use [structural review](references/structural-review.md) for stairs, landings,
 headroom, floor continuity, wall junctions and plan/model conformance. Navigation

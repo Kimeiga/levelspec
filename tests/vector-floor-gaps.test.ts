@@ -322,7 +322,7 @@ describe("unsealed adjacent floor boundaries", () => {
         upper: "low.e2",
       });
       d.seams.push({ id: "stair-side-riser", edges, kind: "open" });
-      const level = await compile(d, { navigation: false });
+      const level = await compile(d, { navigation: false, surfaceContacts: "error" });
       assert.deepEqual(
         level.diagnostics.map(({ severity, code, objects }) => ({
           severity,

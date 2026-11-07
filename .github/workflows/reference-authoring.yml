@@ -1,8 +1,17 @@
-name: Reference authoring
+name: Map authoring
 
 on:
   pull_request:
     paths:
+      - ".agents/skills/**"
+      - "AGENTS.md"
+      - "docs/REFERENCE_AUTHORING.md"
+      - "docs/README.md"
+      - "src/cli/**"
+      - "bin/**"
+      - "review/**"
+      - "tools/capture-level.mjs"
+      - "tests/capture-level-browser.mjs"
       - "src/vector/**"
       - "src/reconstruction/**"
       - "tools/reconstruct*.ts"
@@ -27,6 +36,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -37,3 +47,10 @@ jobs:
       - run: npm run check
       - run: npm test
       - run: npm run build:viewer
+      - name: Verify reference comparison helpers
+        run: |
+          python3 -m venv /tmp/levelspec-comparison-env
+          /tmp/levelspec-comparison-env/bin/pip install Pillow==12.3.0
+          /tmp/levelspec-comparison-env/bin/python .agents/skills/reference-level-authoring/scripts/test-comparison-review.py
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:capture:browser

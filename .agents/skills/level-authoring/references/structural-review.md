@@ -65,3 +65,25 @@ repair target. An author can defend an intentional relationship with evidence or
 revise it; the reviewer then adjudicates the response. After repairs inspect the
 changed interfaces and rerun relevant checks. Keep unresolved limitations explicit;
 passing one selected path does not certify the whole modeled volume.
+
+## Repeatable captures
+
+```sh
+node tools/capture-level.mjs projects/my-level/level.level.svgx \
+  generated/my-level/capture-01 projects/my-level/views.json
+```
+
+Use a new output directory and a JSON array of views. Each requires unique `id`,
+XYZ `position`/`target` in Z-up meters and `projection` (`perspective` or
+`orthographic`). Optional fields: `fov` and `roll` in degrees, `viewHeight` in meters,
+`frameAspect`, and `appearance` (`inspection` default, or `illustrated`). Example:
+
+```json
+[{"id":"overview","position":[12,-16,12],"target":[0,0,2],
+  "projection":"orthographic","viewHeight":20}]
+```
+
+The helper archives actual PNGs and verified loaded source/companion buffers with
+hashes, camera/canvas state and browser errors. Inputs must remain consistent across
+views. Inspect images as well as metadata; capture provenance is not architectural
+acceptance. Failures retain diagnostics without a success capture manifest.

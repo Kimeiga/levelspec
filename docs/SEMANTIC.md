@@ -82,9 +82,8 @@ const published = await produceSemantic(plan);
 Default `author` loads a Python declaration module using `tools/producers/semantic.py`.
 The helper emits `levelspec-python/1` JSON data and cannot choose the artifact path.
 TypeScript performs composition or four-neighbour seed annotation and builds the
-native document. Raw `compose.py`/`annotate.py` and `author --legacy` retain their
-old interfaces and plan output. `producePlan` and `produceSpec` remain dual-gated
-compatibility APIs.
+native document. Publication writes canonical XML; retired plan writers and
+`--legacy` output paths are not supported.
 
 Python `AREAS` consistently use `rects` or `seeds`. The existing fields `RAMPS`,
 `COVER`, `PORTALS`, `STAIRS`, `DIRECTIVES`, layer metadata and explicit player/gameplay
@@ -110,14 +109,9 @@ placement omitted the proposal. Retry eligibility also requires a successful
 optional-placement record; a required directive cannot become optional by name.
 
 `author --spec` accepts Python, semantic JSON, gameplay JSON or SVGX. `--traced`
-accepts `levelspec-raster/1` JSON, actual `.plan`, or native SVGX. Actual `.plan`
-decoding lazily loads the legacy parser as an explicit source boundary, never its
-compiler or adapter. Missing/disjoint required plan portals remain errors. Raw
-ladder/hatch traversal and custom railing-height syntax need `--legacy` or an
-explicit native authoring implementation; they fail rather than disappear.
-Legacy `floor_holes` data must be expressed as semantic area holes. Seed annotation
-of an already-authored legacy source containing boundaries/flights fails explicitly;
-publish that source directly or provide its native SVGX for supported reassignment.
+accepts `levelspec-raster/1` JSON or native SVGX. There is no `.plan` reader.
+Unsupported transformations fail explicitly; express floor holes as semantic area
+holes and edit unsupported traversal/geometry directly in native XML.
 
 ## Native SVGX annotation and finalization
 
@@ -163,9 +157,9 @@ No unsupported data is stripped to obtain a pass. Native document publication an
 finalization preserve arbitrary supported geometry, props and water/boat routes;
 they do not use this grid projection.
 
-Default `finalize` accepts `.plan`, `.svgx`, and raster/semantic JSON. Native SVGX
+Default `finalize` accepts `.svgx` and raster/semantic JSON. Native SVGX
 is authored geometry and is validated once, unchanged, without GRID. Provisional
 raster/flat trace evidence may try the seven deterministic elevation profiles.
 Every candidate passes unchanged native gates. `--src`, `--out`, substring filters,
-equals-form flags and explicit `--legacy` remain supported. Failed publication
+and equals-form flags remain supported. Failed publication
 preserves the existing artifact; filtering preserves unselected files.

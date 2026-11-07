@@ -1,150 +1,75 @@
 # LevelSpec
 
-The **LevelSpec 2 vector preview** adds `.level.svgx` authoring, a local 2D/3D
-inspector (`npm run dev`), separate wall/floor/stair meshes, automatic UVs and an
-optional Blender bake. See [the SVGX guide](docs/SVGX.md) and [release gates](docs/IMPLEMENTATION.md).
-The v1 interfaces described below remain available for compatibility.
+An agent authoring harness for architectural levels. Write XML `.level.svgx`,
+validate geometry and circulation, inspect the read-only illustrated reviewer,
+and export meshes with runtime metadata. XML is the editable source; generated
+JSON and meshes are outputs.
 
-Default generate, trace, author, concept and finalize commands now construct native
-geometry and publish validated v2 SVGX. Custom proportional declarations use the
-[native concept API](docs/CONCEPTS.md). See
-[producer APIs, commands and legacy compatibility](docs/PRODUCERS.md).
+Use [general map authoring](.agents/skills/level-authoring/SKILL.md) for invented or reference-based maps. Add [reference reconstruction](.agents/skills/reference-level-authoring/SKILL.md) when matching images; tracing, camera fitting and scored reconstruction are targeted tools for difficult comparisons.
 
-Reference-aware architectural authoring is an additional preview. See the
-[authoring guide](docs/REFERENCE_AUTHORING.md) for buildings, façade repetitions,
-roof attachments, GLB props, saved reference cameras, image overlays, and the
-checked-in multi-view rooftop acceptance fixture.
-For experimental **image-to-playable reconstruction**, including photo comparison,
-independent acceptance evidence, an optional vision model and explicit collision
-exports, see the [reconstruction guide](docs/RECONSTRUCTION.md).
+## Start here
 
-LevelSpec 2 exports **GLB, glTF, FBX and Quake BSP2** from the CLI and workbench;
-see [export formats and tool setup](docs/EXPORTS.md).
+Use Node 24. From this checkout:
 
-A level is a **program**, not a mesh. You write down what a place *is* — rooms,
-what is next to what, where the walls and doors and stairs go — and a
-deterministic compiler owns every coordinate that comes out of it.
-
-The point is that the compiler can then be held to a standard no hand-built
-geometry meets. Across the 9 authored levels and 380 floor plans in this repo,
-the compiled output has **0 coplanar-same-normal face pairs and 0 intersecting
-volumes**, and its navmesh is **100% reachable with 0 playable islands**. A
-naive build of the identical specs — each box individually watertight, correctly
-wound, and passing every half-space test — produces hundreds of both.
-
-```
-spec (JSON or a drawn plan)
-  → compile()        11 passes; every coordinate decided here
-  → validate()       geometry, navigation, tactical gates
-  → bakeNavmesh()    independent re-derivation from the solids
-  → geometry / OBJ / Quake .map / OpenSCAD / CadQuery / DXF / SVG
+```sh
+npm ci
+npm run --silent levelspec -- init projects/my-level
+npm run --silent levelspec -- validate projects/my-level/level.level.svgx --json
+npm run --silent levelspec -- preview projects/my-level/level.level.svgx
+# In another terminal, after editing and validating XML:
+npm run --silent levelspec -- build projects/my-level/level.level.svgx --out generated/my-level --json
 ```
 
-## Drawing a map
+Edit with your normal file tools. Preview watches XML and declared companions,
+retains visibly stale geometry on errors, and recovers after repair. Stop it with
+Ctrl+C. Use `preview --camera "11 -17 8" --target "2 3 1" --projection perspective`
+for a repeatable Z-up view. The reviewer provides camera controls, a view URL and
+viewport dimensions; see [review controls](docs/WEBSITE.md). The browser cannot edit or save XML or publish exports. For an existing
+worked project, use `projects/corridor-overpass/level.level.svgx`.
 
-Writing a LevelSpec by hand means converting shapes into rectangles in your
-head, and you cannot tell whether you got it right until you compile and walk
-it. So there is a layer above: you draw the map, one character per cell.
+Start with [agent instructions](AGENTS.md), then use the
+[documentation index](docs/README.md) for XML syntax, references, CLI behavior,
+review controls, exports, and current limits. `npm run --silent levelspec -- --help`
+lists commands. The CLI is repository-local; standalone installation/publication
+is not supported. The silent npm wrapper keeps JSON stdout free of npm banners.
 
-```
-layer ground z=0 height=5 roof=no
+## Source and output
 
-legend
-  T  t_spawn   "T Spawn"   spawn
-  L  long_a    "Long A"    lane   +0.8
-  /  ramp_up   "Ramp"      ramp
-end
+Keep XML, references, editable plans/sections and review notes under `projects/`.
+Keep reproducible output under ignored `generated/`. Existing examples and the
+worked project demonstrate multilevel circulation, references, props and water
+coverage; focused tests protect their contracts.
 
-plan
-##################
-#TTTTTT#####LLLLL#
-#TTTTTT///////LLL#
-##################
-end
-```
+Coordinates are right-handed Z-up meters. Render visibility, physical collision,
+and navigation are distinct. Navigation is sampled/voxelized gameplay validation,
+not structural or building-code certification. Static premap success leaves gameplay
+reachability unverified.
 
-Two rules do most of the work:
+## Development and checks
 
-- A letter is floor; `#`, `.` and space are not.
-- **Where two different areas touch, that is a doorway** — exactly as wide as
-  the run of cells that touch. Where they do not touch, there is a wall.
-
-Openings need no declaration, because a gap you draw in a wall *is* the
-opening. Areas are not rectangles either — each letter's cells are decomposed
-into maximal rectangles on the way out, so an L-shaped site costs nothing.
-
-Use a wall and separately positioned openings when a route needs independent
-entrances. Position hints use grid cells; repeated directives receive unique IDs:
-
-```text
-wall entry hall
-arch entry hall 2 at=4,8
-arch entry hall 2 at=12,8
+```sh
+npm run check
+npm test
+npm run test:site
+npm run build:viewer
+npm run build:site
+npm run test:preview:browser
 ```
 
-One wide doorway counts as one semantic entrance after v2 migration. Two
-entrances need a wall pier or separate paths between them.
+`npm run dev` opens the local reviewer; `npm run dev:site` opens the curated
+reviewer. [Browser acceptance setup](docs/WEBSITE.md) describes production servers
+and browser prerequisites. Native Blender/Quake exporter checks need optional tools;
+a skipped integration is not evidence that a native export passed.
 
-## The map library
-
-380 floor plans in three sets. `maps/cs/` holds 111 real competitive layouts
-and `maps/traced/` another 110: their footprints are traced from published
-radar images and their elevation comes from the radar's own shading.
-`maps/hand/` holds 159 originals authored directly in the DSL. Every one of
-them passes the same gates as a hand-authored level, because that is what they
-are.
-
-```bash
-python3 tools/trace_radar.py "reference/cs-maps/Mirage/Mirage - Radar.png" \
-    --cells 48 --bands 5 --out maps/traced/mirage.plan   # footprint
-node tools/finalize.ts                                    # elevation + gates
-node tools/plans.ts                                       # compile + report
-```
-
-`reference/cs-maps/` is the complete source archive the traces came from — 475
-images across 234 map pages, covering CS 1.6 through CS2, official and
-community, including cut and unreleased maps. 140 of those are radars (122
-single, plus 9 upper/lower pairs for the two-storey maps); the rest are
-screenshots and logos kept as provenance rather than as inputs. `index.tsv`
-records which map each file belongs to and where it came from.
-
-Not every radar becomes a map. 17 are Danger Zone or open-terrain layouts whose
-radars have no distinguishable background, so a trace of them is one solid
-rectangle — they are excluded rather than shipped as a filled square.
-
-These are **topology reconstructions, not measured copies** — proportions are
-approximate, and no assets, textures, models or map files from any shipped game
-are used or reproduced.
-
-## Commands
-
-```bash
-npm run compile   # build + validate every authored level, write artifacts
-npm run gen       # the procedural generator, still used as a fallback
-npm test          # 244 assertions
-```
-
-## Why it holds together
-
-Two rules, applied everywhere:
-
-- **One owner per boundary edge.** A wall between two rooms belongs to exactly
-  one of them. Overlaps are impossible rather than cleaned up afterwards.
-- **One owner per junction square** — the same rule, one dimension down.
-
-Everything else follows. Ramps inset for a wall that already exists rather than
-burying a stringer inside it; risers seal every open elevation change so you
-cannot walk off a ledge into the void; a flight's ends live in the two areas it
-joins so the compiler can read their real heights.
-
-The validators are not warnings. `generateLevel` and `loadAuthored` both throw
-rather than hand back a level that fails one, so a broken floor cannot reach a
-player.
+The package root exposes the XML API. `levelspec/vector`, `levelspec/authoring`,
+`levelspec/export`, and `levelspec/lighting` are supported entry points. ASCII/JSON
+authoring and the old root API were retired without compatibility readers.
+[Retirement evidence](docs/reviews/phase-two-retirement-ledger.md) is historical.
 
 ## License
 
-LevelSpec source code and original documentation are licensed under the
-[MIT License](LICENSE). Third-party dependencies and any retained third-party
-notices remain subject to their own licenses. Reference photographs, game
-radars, screenshots, logos, and other third-party assets are not relicensed
-by this license; their inclusion as references does not grant reuse rights.
+Source and original documentation use the [MIT License](LICENSE). Third-party
+assets/dependencies retain their own rights and notices. Retained reference images
+are not a grant of reuse rights.
+
+Native gameplay, semantic, concept, generation and tracing producers remain available through `levelspec/gameplay`, `levelspec/semantic`, `levelspec/concept`, `levelspec/generate` and `levelspec/trace`. They publish native XML; no ASCII plan or legacy JSON reader is retained. `npm run game:export -- SOURCE.level.svgx --out generated/game` exports visual/collision GLBs and gameplay metadata.

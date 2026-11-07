@@ -70,7 +70,7 @@ function fixture(): LevelDocument {
 }
 
 async function inspect(d: LevelDocument, options: CompileOptions = {}) {
-  const level = await compile(d, { navigation: false, ...options });
+  const level = await compile(d, { navigation: false, surfaceContacts: "error", ...options });
   assert.deepEqual(
     level.diagnostics.filter((diagnostic) => diagnostic.severity === "error" && diagnostic.code !== "SURFACE_COPLANAR"),
     [],

@@ -6,6 +6,8 @@ on:
       - "src/vector/architecture.ts"
       - "src/vector/index.ts"
       - "tools/reconstruct*.ts"
+      - ".agents/skills/reference-level-authoring/**"
+      - "src/vector/reference*.ts"
       - "tests/vector-reconstruction*.test.ts"
       - "docs/RECONSTRUCTION.md"
       - ".github/workflows/reconstruction.yml"
@@ -27,5 +29,5 @@ jobs:
       - run: npm ci
       - run: npm run check
       - name: Reference and reconstruction regression
-        run: node --test tests/vector-reference-fit.test.ts tests/vector-reconstruction.test.ts tests/vector-reconstruction-openai.test.ts tests/vector-reconstruction-output.test.ts
+        run: node --test --test-concurrency=2 tests/vector-reference-fit.test.ts tests/vector-reference-raster.test.ts tests/vector-reconstruction*.test.ts
       - run: npm run build:viewer

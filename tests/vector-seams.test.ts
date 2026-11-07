@@ -229,7 +229,7 @@ describe("separate floor/riser contact", () => {
     assert.ok(Math.abs(Math.max(...wallHeights(l)) - 1.8) < 1e-6);
   });
   it("retains explicit wall-height seam behavior", async () => {
-    const l = await compile(fixture(1, 0.3, "wall"), { navigation: false });
+    const l = await compile(fixture(1, 0.3, "wall"), { navigation: false, surfaceContacts: "error" });
     expectSideContacts(l, ["high.floor"]);
     assert.equal(Math.max(...wallHeights(l)), 4);
   });

@@ -28,6 +28,7 @@ self.onmessage = async (event: MessageEvent) => {
       }),
       level = await compile(parseLevelSvgx(text), {
       resolveAsset,
+      surfaceContacts: "error",
       navigation: { cell },
       onProgress: (stage) => self.postMessage({ id, stage }),
       onGeometry: (geometry) =>

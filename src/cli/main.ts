@@ -17,7 +17,7 @@ const help = `Usage: levelspec <command> [options]
     --camera "X Y Z" --target "X Y Z" --projection orthographic|perspective
     --fov DEGREES --view-height METERS --roll DEGREES --suggestion ID | --diagnostic ID
     --appearance illustrated|materials|inspection --frame-aspect RATIO
-  validate/build/preview: --nav-cell METERS (0.025–0.5; default 0.125)
+  validate/build/preview: --nav-cell METERS (0.025–0.5; default 0.0625)
   --help --version
 Preview is read-only and loopback-only. Native exporters require separately installed tools.`;
 /** Executes one invocation; the launcher owns the returned exit status. */

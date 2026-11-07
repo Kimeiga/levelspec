@@ -59,18 +59,6 @@ jobs:
           npm run test:site:browser
         env:
           SITE_BASE: /levelspec/
-  migration:
-    name: Legacy and v2 migration corpus
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
-        with:
-          node-version: "24"
-          cache: npm
-      - run: npm ci
-      - run: node tools/vector-migrate.ts --validate
   producers:
     name: V2 generator and tracing tools
     runs-on: ubuntu-latest
@@ -86,7 +74,7 @@ jobs:
       - run: npm run test:producers
   verify:
     # Keep the existing required check name; both independent suites must pass.
-    needs: [core, browser, migration, producers]
+    needs: [core, browser, producers]
     if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 2
@@ -95,10 +83,8 @@ jobs:
         env:
           CORE_RESULT: ${{ needs.core.result }}
           BROWSER_RESULT: ${{ needs.browser.result }}
-          MIGRATION_RESULT: ${{ needs.migration.result }}
           PRODUCERS_RESULT: ${{ needs.producers.result }}
         run: |
           test "$CORE_RESULT" = success
           test "$BROWSER_RESULT" = success
-          test "$MIGRATION_RESULT" = success
           test "$PRODUCERS_RESULT" = success

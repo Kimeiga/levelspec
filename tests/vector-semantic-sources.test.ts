@@ -6,17 +6,17 @@ import {parsePythonDeclarations,composePythonDeclarations} from '../src/authorin
 import {decodeSemanticSource} from '../src/authoring/semantic-sources.ts';
 import {projectNativeFloor,retainNativeAuthorship} from '../src/authoring/semantic-native-source.ts';
 import {semanticProfile} from '../src/authoring/semantic-profiles.ts';
-import {withProfile} from '../tools/producers/legacy-profiles.ts';
 import {SceneBuilder} from '../src/vector/authoring.ts';
 import {boxGeometry} from '../src/vector/props.ts';
 import {publishPythonCandidates} from '../src/authoring/semantic-python-publish.ts';
 import {prepareNativeAnnotation,createNativeAnnotation} from '../src/authoring/semantic-native-annotation.ts';
 
 const plan=():NativeSemanticPlan=>({format:'levelspec-semantic/2',id:'source',name:'Source',grid:1,layers:[{id:'ground',height:4}],areas:[{id:'west',rects:[[0,0,10,12]]},{id:'east',rects:[[10,0,10,12]]}]});
-test('annotation preserves explicit plan and semantic player limits and rejects conflicting sources',async()=>{
-  const text='id: body\ngrid: 1\nradius: 0.42\nheight: 1.9\nstep: 0.3\nladder: false\nrappel: true\nlayer ground z=0 height=5 roof=no\nlegend\n A room "Room" lane\nend\nplan\n'+Array(12).fill('AAAAAAAAAAAA').join('\n')+'\nend\n';
-  const decoded=await decodeSemanticSource(text,'.plan');assert.equal(decoded.kind,'semantic');if(decoded.kind!=='semantic')return;
-  for(const source of [decoded.plan,{...plan(),player:{radius:.42,height:1.9,step:.3,ladder:false,rappel:true}}]){
+test('annotation preserves semantic player limits and rejects conflicting sources',async()=>{
+  const input={...plan(),player:{radius:.42,height:1.9,step:.3,ladder:false,rappel:true}};
+  const decoded=await decodeSemanticSource(JSON.stringify(input),'.json');
+  assert.equal(decoded.kind,'semantic');if(decoded.kind!=='semantic')return;
+  for(const source of [decoded.plan,input]){
     const d={ID:'annotation',NAME:'Annotation',AREAS:[{id:'room',seeds:[[3,3,1,1]] as [number,number,number,number][]}]};
     for(const [field,value] of Object.entries(source.player!)) {
       assert.throws(()=>composePythonDeclarations({...d,PLAYER:{[field]:typeof value==='boolean'?!value:value!+.1}},new Map([['ground',source]])),/preserve.*PLAYER.*(radius|height|step|crouch|ladder|rappel)/i);
@@ -55,22 +55,21 @@ test('native source annotation retains authored player, covers, markers, routes,
   assert.deepEqual(native.player,source.player);assert.deepEqual(native.routes,source.routes);assert.deepEqual(native.noSpawnLos,source.noSpawnLos);assert.deepEqual(native.covers,source.covers);assert.equal(native.expectFail,true);assert.equal(native.validation,'premap');
   assert.throws(()=>projectNativeFloor(source,.7),/not aligned/);
 });
-test('explicit legacy source headers and extended hard route grammar survive native decoding',async()=>{
-  const text=`id: actual_source\nname: Actual legacy source\ngrid: 1\nexpect_fail: true\nvalidation: premap\nmove_speed: 3.7\nradius: 0.42\nheight: 1.9\nstep: 0.3\nlayer ground z=0 height=5 roof=no\nlegend\n A west "West" lane\n B east "East" lane\nend\nplan\n${Array(10).fill('AAAAAAAAAABBBBBBBBBB').join('\n')}\nend\nmark spawn west\nmark site east\nroute west east 2 minDistance=3 maxDistance=60 movement=land\nno_spawn_los west east\n`;
-  const source=await decodeSemanticSource(text,'.plan');assert.equal(source.kind,'semantic');if(source.kind!=='semantic')return;
-  assert.equal(source.plan.expectFail,true);assert.equal(source.plan.validation,'premap');assert.equal(source.plan.player!.radius,.42);assert.equal(source.plan.moveSpeed,3.7);assert.equal(source.plan.routes![0].maxDistance,60);assert.equal(source.plan.noSpawnLos!.length,1);
-  await assert.rejects(decodeSemanticSource(text+'mystery a b\n','.plan'),/unknown directive/);
+test('typed semantic source retains metadata and hard route grammar',async()=>{
+  const input=plan();input.id='actual_source';input.expectFail=true;input.validation='premap';input.moveSpeed=3.7;
+  input.player={radius:.42,height:1.9,step:.3};
+  applySemanticDirectives(input,['mark spawn west','mark site east','route west east 2 minDistance=3 maxDistance=60 movement=land','no_spawn_los west east']);
+  const source=await decodeSemanticSource(JSON.stringify(input),'.json');
+  assert.equal(source.kind,'semantic');if(source.kind!=='semantic')return;
+  assert.equal(source.plan.expectFail,true);assert.equal(source.plan.validation,'premap');assert.equal(source.plan.player!.radius,.42);assert.equal(source.plan.moveSpeed,3.7);
+  assert.equal(source.plan.routes![0].minRoutes,2);assert.equal(source.plan.routes![0].minDistance,3);assert.equal(source.plan.routes![0].maxDistance,60);assert.equal(source.plan.routes![0].movement,'land');assert.equal(source.plan.noSpawnLos!.length,1);
+  assert.throws(()=>applySemanticDirectives(source.plan,['mystery a b']),/unknown.*directive/i);
   const profile=semanticProfile(plan(),0);assert.equal(profile.areas[1].z,.44);
 });
 test('annotation tie ownership follows first seed and cannot discard disconnected unseeded floor',()=>{
   const source=plan(),d={ID:'assigned',NAME:'Assigned',AREAS:[{id:'first',seeds:[[3,3,1,1]] as [number,number,number,number][]},{id:'second',seeds:[[3,3,1,1],[15,3,1,1]] as [number,number,number,number][]}]};
   const assigned=composePythonDeclarations(d,new Map([['ground',source]]));assert.ok(assigned.areas[0].cells!.some(c=>c[0]===3&&c[1]===3));
   source.areas.push({id:'island',rects:[[30,0,4,4]]});assert.throws(()=>composePythonDeclarations(d,new Map([['ground',source]])),/unreachable from all seeds/);
-});
-test('retained legacy profile formatting preserves comments, signed heights and header substitution',()=>{
-  const source='id: sample\nwall_thickness: 0.3\nlegend\n A low "Low" lane +0.35 h=4 // retained\n B high "High" lane\nend\nplan\nAB\nend\n';
-  const changed=withProfile(source,['A','B'],i=>i*.44,{wall_thickness:'0.34'},i=>5-i);
-  assert.match(changed,/wall_thickness: 0.34/);assert.match(changed,/A low "Low" lane  h=5.0  \/\/ retained/);assert.match(changed,/B high "High" lane  \+0.44  h=4.0/);assert.match(changed,/plan\nAB\nend/);
 });
 test('native publication preserves boat routes and imported assets without land-only route evidence',async()=>{
   const scene=new SceneBuilder('water_native'),g=scene.group('water',{},'lake');

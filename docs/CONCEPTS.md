@@ -10,12 +10,10 @@ is a separate custom declaration with two physical circulation branches.
 npm run concept -- --spec examples/concepts/workshop.concept.json --attempts=4 --variants=2 --plan
 npm run concept -- --spec examples/concepts/workshop.concept.json --write --out generated/workshop
 npm run concept -- silo --attempts=1 --variants=1 --write --why
-npm run concept -- silo --attempts=1 --variants=1 --legacy --plan
 ```
 
 `--plan` prints the native `levelspec-semantic/2` source used by publication, including
-any real flight-side guards. `--legacy` retains old drawing/scoring and dual-validated
-`.plan` output. It cannot be combined with `--spec`. Catalog positional filters,
+any real flight-side guards. Catalog positional filters,
 `--attempts` (default 24, bounded 1–256), `--variants` (default 3, maximum 5), `--write`,
 `--out` and `--why` accept the documented forms; valued options also accept `=`.
 Unknown, duplicate, conflicting or malformed options fail before writes. A search

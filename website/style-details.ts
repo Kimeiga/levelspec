@@ -121,7 +121,7 @@ export function addStyleDetails(
     );
     box("chalk.garden.soil", [5.21, 4.21, 0.14], [7.79, 6.79, 0.21], "wood");
     box("chalk.garden.trunk", [6.3, 5.32, 0.21], [6.5, 5.54, 2.65], "wood");
-    // Rounded canopy clusters are curved source wall solids, not imported scenery.
+    // Keep half-width below the quadratic bend radius so the inner offset cannot fold.
     for (const [i, x, y, z, r] of [
       [0, 6.2, 5.45, 2.1, 0.37],
       [1, 6.75, 5.67, 2.4, 0.36],
@@ -144,7 +144,7 @@ export function addStyleDetails(
           `chalk.canopy.${i}.${j}`,
           pts[j],
           pts[(j + 1) % 4],
-          r * 1.6,
+          r * 1.2,
           0.65,
           "foliage",
           corners[j].join(" "),

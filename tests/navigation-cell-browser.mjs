@@ -71,7 +71,7 @@ async function coarseWalk(page) {
       }
       return positions;
     });
-    assert.ok(Math.max(...sample) < 3.85, 'Default grid must not carry the standing body through the throat');
+    assert.ok(Math.max(...sample) < 3.85, 'Coarse grid must not carry the standing body through the throat');
     assert.ok(Math.abs(sample.at(-1) - sample.at(-10)) < 0.001, 'Continued input settles at the blocked throat');
     results.push({ scenario: 'coarse blocked', x: sample.at(-1) });
   } finally { await page.keyboard.up('w'); }
@@ -90,7 +90,7 @@ async function fineWalk(page) {
 }
 
 try {
-  server = await startPreview(file, { port: 0 });
+  server = await startPreview(file, { port: 0, navigationCell: 0.125 });
   browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 1400, height: 1000 } });
   page.on('pageerror', error => errors.push(error.message));

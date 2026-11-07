@@ -174,7 +174,7 @@ walk restores the saved overview projection caption; the camera form retains tha
 overview pose throughout.
 
 **Walking grid** changes the horizontal navigation cell size and rebuilds the
-current source. The default is 0.125 m; the control accepts 0.025–0.5 m. Smaller
+current source. The default is 0.0625 m; the control accepts 0.025–0.5 m. Smaller
 cells can retain narrow physically clear passages that the coarse grid excludes.
 Player dimensions and physical geometry remain unchanged. Walking is disabled
 while the previous result is stale, and the control reports the actual applied

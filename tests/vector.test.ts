@@ -467,8 +467,8 @@ describe("independent structural meshes and connected charts", () => {
       );
   });
   it("keeps stair-side walls as parallelograms independent of tread count", async () => {
-    const coarse = await compile(stairs(0.3)),
-      fine = await compile(stairs(0.1));
+    const coarse = await compile(stairs(0.3), {surfaceContacts: "error"}),
+      fine = await compile(stairs(0.1), {surfaceContacts: "error"});
     const triangles = (l: Awaited<ReturnType<typeof compile>>, kind: string) =>
       l.parts
         .filter((p) => p.kind === kind)

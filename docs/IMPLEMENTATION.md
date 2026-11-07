@@ -1,214 +1,89 @@
-# LevelSpec 2 implementation ledger
+# Implemented capabilities and current limits
 
-This is an integrated preview, not the completed 2.0 release. The accepted
-retirement gate remains in force: legacy production APIs and tools stay available
-until corpus validation parity and producer migration pass.
+XML `.level.svgx` is the editable map format. The package root and
+`levelspec/vector` expose the XML compiler/domain API; Node export orchestration
+lives in `levelspec/export`. The repository-local CLI is supported. Standalone
+installation and publishing are not supported yet. ASCII plans, legacy JSON levels
+and their migration/compiler APIs are retired; historical conversion reports do
+not define the current release contract.
 
-Implemented and exercised:
+## Authoring and geometry
 
-- Strict SVGX parsing/serialization with source locations and explicit topology.
-- cdt2d floors/holes/creases, shared curve tessellation, Manifold wall junctions,
-  straight/curved stairs and ramps, mesh exports and independent Recast navigation.
-- Sharp wall corners by default; explicit `join="round"` for rounded corners.
-- Wall paths consistently describe centerlines. Final-mesh overlap auditing
-  reports same-facing wall/floor or stair patches as `WALL_FLOOR_COPLANAR`, with
-  source IDs, locations and thickness-aware repair guidance. Point/line contact
-  and opposing slab-support faces are valid. Warnings can be promoted to errors
-  using `surfaceContacts: "error"` / `--strict-surface-contacts`.
-  Wall feet fit the supporting floor plane across their width; height-anchor
-  subdivisions preserve the original curve offsets. Open retaining seams start
-  on the lower walking surface and preserve their centerline during triangulation.
-- Walls, floors and stairs remain separate mesh parts in compilation, exports,
-  the inspector and Blender. Stair-side walls follow the overall slope as simple
-  panels. Increasing tread count does not subdivide those wall panels.
-- Static walls on coincident XY boundaries unite across storeys/layers when their
-  volumes touch or overlap. Source-face ownership survives; real vertical gaps and
-  dynamic walls remain independent. Runtime mesh parts carry all source layers.
-- Floor-relative interior walls support `base-floor` with fixed `height`, or
-  `span-floors` with optional `base-floor`/`top-floor` references. Upper slab
-  thickness and centreline slope breaks are preserved; ambiguous references and
-  gaps in floor support produce source-located diagnostics.
-- Curved flights pair side rails by horizontal arc length, with real horizontal
-  wedge treads or continuous ramp strips. Landings may taper; folded rails and
-  incompatible height constraints have source-located diagnostics. Open retaining
-  seams end beneath upper slabs instead of duplicating their visible top faces.
-  Retaining seams have continuous curve offsets and sharp endpoint joins with
-  related walls; joins use shared IDs and overlapping height spans, preserving
-  genuine gaps between stacked structures.
-- Ordinary compilation builds navigation for a 2 m tall, 0.5 m diameter player.
-  The report records effective voxel settings, reusable build identity, required
-  routes and sampled coverage of declared floors, including stacked surfaces.
-  Low ceilings, narrow passages, steep floors, excessive steps and disconnected
-  areas are diagnosed; occupied wall/prop footprints and normal capsule margins
-  are accounted for separately. Coverage is sampled, not a continuous proof.
-- Ordinary compilation also audits adjacent floor boundaries for unsealed height
-  gaps against final static wall geometry, including partial spans and openings.
-  `FLOOR_EDGE_GAP` warnings contain both floor/edge IDs and source locations;
-  callers can promote them to errors with `floorGaps: "error"` or the CLI flag
-  `--strict-floor-gaps`. Intentional stacked floors and continuing underpasses
-  remain valid. The audit found and fixed retaining seams whose first endpoint
-  tied in elevation, previously allowing the wrong lower side to be selected.
-- Dust II uses deliberately simplified polygonal boundaries and native curves.
-  The tunnel winders occupy the outer half of the bend, around a flat raised
-  center; the following Mid hallway stays level. Separate entrance/exit flights,
-  CT ramp/side stairs, A Short, shallow Goose steps, T-side and Pit transitions are
-  documented in `reference/dust2/README.md`. Dimensions remain blockout estimates.
-  The overlay inspector checks authored coverage, landmarks, passage widths,
-  physical interior wall presence and navigation. Raster similarity is informational.
-  T Spawn descends east into a low landing, with level northern approaches and
-  its original western tunnel ramp. A Short connects level to the site, while
-  the CT ramp and parallel stairs climb east below it toward Cross. Current
-  Dust II has 8,739 triangles (22,141 before), 51 regions, eleven passing routes
-  and zero uncovered samples; the ordinary 0.5 m coverage audit checks 20,101
-  samples, excluding 740 occupied/margin samples. The restored lower route and
-  its north support resolve the former Long A / CT floor gap. Long climbs north
-  to Goose above the site; the shallow stairs descend south onto A. Independent
-  direct routes reject detours that previously masked the disconnected approach.
-  Both strict surface-contact and floor-gap checks pass with zero diagnostics.
-  Authored overlap warnings remain active; walls/floors/stairs stay separate.
-- Physical material UVs and connected xatlas charts preserve corner identity.
-  Curved ramp strips unfold across shared edges to preserve scale and checker
-  continuity. Bounded subpixel float32 UV repairs retain connected charts and
-  record their magnitude. Dust II draft/final atlas audits and actual mesh checker
-  renders are retained under `generated/uv-inspection`, including editable Blender
-  sources. Floors, ramps, treads, risers and retaining walls are inspected separately.
-- The viewer opens with a 45% plan / 55% 3D workspace; utility panels are closed.
-  Both views pan, touch controls and independent Fit actions work, and selections
-  do not reveal source. Cameras persist across recompilation and panel changes.
-  Plan tread lines come from compiled geometry. Navigation shows selectable failure
-  markers and region coverage. Workers publish geometry, navigation, then optional
-  atlases; cancellation and errors retain a clearly marked last valid preview.
-- Optional isolated Cycles bake; actual Blender 5.1.2 unit-light, colored-bounce,
-  HDR/alpha and packed-reload calibration passes. Exact compiled mesh parts,
-  global padding with independent coverage, chart-aware mips, raw EXRs and `.blend`
-  sources are retained. The viewer verifies hashes and rejects stale lighting.
-  An earlier six-mesh showcase was baked and loaded in the viewer. Reloading its `.blend`
-  preserved all positions exactly and both UV channels within float32 precision.
-  Geometry/UV changes in this refinement invalidate those earlier lighting manifests;
-  they require a fresh bake before use with the new meshes.
-- All 382 ASCII plans and nine JSON levels have SVGX conversion candidates under
-  `maps/vector`. The one-shot adapter lives under `tools/migration`.
-- Migration preserves v1 player defaults, keeps separate physical crossing runs,
-  and prevents independent wall strips from acquiring phantom connections through
-  shared open floor edges. Automatic plan markers avoid stair footprints and
-  punched floor holes. Repeated portal directives accept explicit `at=x,y` hints.
-- Navigation now defaults to 0.0625 m horizontal / 0.01 m vertical voxels while
-  retaining the authored player limits and independent 0.5 m coverage audit.
-  Half-open solid-ray ownership resolves shared stringer seams. Capsule margins
-  require local closed-solid occupancy at step height, including filled stair
-  bodies; narrow-passage, headroom, excessive-step and route failures remain errors.
-- CI runs the complete migration corpus and rejects unexpected failures in either
-  the legacy source or v2 output. Intentional invalid fixtures remain invalid.
-- Corpus reconciliation is complete: all 390 expected-valid sources pass both
-  validators and the intentionally invalid fixture remains rejected. The prior
-  71 failures and layouts relying on duplicate doorway connections were repaired
-  with physical layout changes, preserving player and gameplay requirements.
-  The full report is `generated/migration-report.json`; CI checks it on every PR.
-- Procedural generation and radar tracing construct native v2 documents directly.
-  Tracing shares image analysis with the legacy draft writer but no longer emits
-  or compiles an intermediate plan on its default path. See
-  [producer migration status and compatibility paths](PRODUCERS.md).
-- Default author, concept and finalize paths also construct native geometry.
-  Concepts use shared source-neutral layout helpers and native semantic publication;
-  custom JSON declarations are supported independently of the catalog. Failed
-  candidates cannot rank as valid or write. Physical flight-side guards can repair
-  low-underside clearance without changing source elevations or hard constraints.
-  Native producer/internal migration is complete for these supported source paths.
-  Actual `.plan` decoding remains an intentional compatibility source boundary;
-  public `producePlan`/`produceSpec` and explicit `--legacy` commands retain their
-  original compiler/adapter contracts. See [concepts](CONCEPTS.md) for finite-search
-  and advisory-scoring limitations, and [semantic authoring](SEMANTIC.md) for explicit
-  unsupported source transformations.
+- Source-located XML parsing/serialization, explicit topology, floors with holes
+  and creases, shared curves, wall openings and junctions, stairs and ramps.
+- Native stair undersides support filled, sloped and stepped construction.
+  Stepped thickness must exceed the actual equalized rise to preserve positive
+  material overlap. Floors, walls and flights retain their source identities.
+- Native generation, gameplay, semantic, concept and tracing producers remain
+  available through their package entry points. They publish XML documents.
+  Typed producer inputs and raster observations are distinct from retired legacy
+  JSON level authoring; there is no `.plan` compatibility reader.
+- Domain coordinates are meters in right-handed Z-up. Exporters own axis conversion.
+  Render visibility, physical collision and navigation are independent contracts.
+- Geometry audits report floor gaps, overlaps and same-facing coplanar patches
+  with source IDs. Library compilation defaults floor-gap and surface-contact
+  findings to warnings. The XML CLI and reconstruction runner explicitly require
+  strict geometry checks. Review warnings rather than treating them as acceptance.
 
-Open release gates:
+Use [general map authoring](../.agents/skills/level-authoring/SKILL.md) for invented
+or reference-based layouts. Add [reference authoring](REFERENCE_AUTHORING.md) when
+images constrain fidelity. Tracing, camera fitting, formal reviewed plans and the
+[reconstruction runner](RECONSTRUCTION.md) are targeted tools for difficult cases.
 
-- The narrow-ramp landing gap in the legacy compiler is repaired and tested
-  through legacy triangles and exported collision GLBs in all four directions.
-  Stepped/same-width landings and stacked guard/wall-cap cases retain the
-  existing overlap, coplanar and clearance gates. See `docs/HANDOFF.md` for the
-  3 November regression, corpus, browser and finite-sweep evidence; this does
-  not close the continuous-traversal or v2 parity release gates.
-- Complete semantic/physical graph comparison, special traversal semantics and
-  legacy pocket/marker tolerances require corpus reconciliation. The new sampled
-  clearance checks do not by themselves establish legacy validation parity.
-- Complete gutter and distortion audits, asymmetric orientation and distant-mip
-  acceptance fixtures, and installed Three.js GPU calibration still need coverage.
-- External material texture packaging and remaining source/export round trips
-  need completion. The baker explicitly rejects unresolved external textures.
-- Legacy APIs remain supported despite the completed native producer migration.
-  The public root API, `tools/build.ts` default and package version remain 1.x;
-  migration completion does not close unrelated corpus/parity or release gates.
+## Navigation and review
 
-Verification is recorded in `generated/dust2-refinement`: the full suite passed
-309 tests, and the final focused suite passed all 67 vector tests. Both runs have
-zero failures. Type checking,
-the viewer build and overlay acceptance pass after the final corner
-repair. Draft/final atlas audits pass at 8/32 texels per metre (2/8 pages). Actual
-Dust II browser/Node geometry and UV hashes match. Coverage
-includes curved/tapered/reversed flights, malformed rails, separate mesh parts,
-stair-wall complexity, actual tread navigation, stacked low ceilings, narrow
-corridors, dynamic state/cache invalidation, GLB channels and stale bake rejection.
-Browser acceptance and actual-mesh checker evidence accompany the generated map.
+Navigation uses authored player limits, Recast geometry and independent sampled
+floor coverage. The native library defaults to 0.0625 m horizontal / 0.01 m vertical
+voxels with 0.5 m coverage spacing. The reviewer shares that horizontal default;
+the reconstruction CLI defaults to 0.125 m. Both expose resolution separately and
+record the effective settings. Sampling is not a
+continuous proof, and static premap success does not verify gameplay reachability.
 
-The subsequent floor-gap audit is recorded in `generated/floor-gap-qa`: type
-checking, the viewer build, default compilation/export and strict-mode rejection
-pass. The browser shows the warning and opens its source location. The existing
-checker renders above predate the additional retaining seam faces; compiler
-revision `levelspec-2-preview-5` rejects earlier lighting manifests.
+The shared read-only browser reviewer provides plans, sections/inspection views,
+source-linked diagnostics, camera controls and collision/navigation-constrained
+walkthroughs. Live preview watches XML and declared companions, retains visibly
+stale geometry on failure and recovers after repair. Separate valid starts can
+inspect disconnected islands; they do not establish a connecting route.
 
-The T Spawn correction is recorded in `generated/t-spawn-correction`: the
-compiled ramp falls east from Z=3 to Z=2, with no north/south height gradient.
-All 88 vector tests, type checking, viewer build, navigation, UV generation and
-overlay acceptance pass. Matched top, oblique and low-angle renders use the
-compiled triangles, and the running viewer loads the revised 49-region map.
+`npm run capture:level -- SOURCE.level.svgx NEW_OUTPUT VIEWS.json` captures named
+browser views from frozen loaded inputs and records source/companion identities,
+camera state and browser errors. Captures establish provenance, not photographic
+correspondence or architectural acceptance. Reference comparisons and whole-volume
+structural review remain separate checks.
 
-The subsequent wall/floor contact audit is recorded in `generated/wall-contact-qa`.
-All 102 vector tests pass, including 14 new contact fixtures; type checking,
-viewer build, ordinary export and strict-mode rejection pass. The viewer displays
-24 new wall/slab overlap warnings plus the prior floor gap, and selecting a
-warning reveals its exact XML edge. The audit leaves the geometry hash unchanged.
+## Exports and checks
 
-The A Short / CT / Long A correction is recorded in `generated/a-ct-correction`.
-The upper site connection is flat; the CT ramp and adjacent stairs rise east
-below it, through a landing into Long A. All 104 vector tests, type checking,
-viewer build, strict floor-gap compilation/export and overlay acceptance pass.
-All eight required routes pass with zero uncovered navigation samples and no
-floor-gap warnings. There are 21 remaining wall/slab contact warnings. Matched
-actual-mesh renders and CS2 reference observations accompany the correction.
-The browser displays the revised 8,594-triangle, 52-region map and keeps utility
-panels closed during selection. This remains the LevelSpec 2 preview.
+The XML CLI validates, previews and builds portable runtime/mesh artifacts; see
+[the quickstart](../README.md), [XML syntax](SVGX.md) and [exports](EXPORTS.md).
+GLB/glTF material packaging, source metadata and collision exports are supported.
+FBX, BSP and lighting bakes have optional native prerequisites and their own limits.
+Unavailable native checks must be reported rather than treated as passed.
 
-The final Long/Goose and wall-contact pass is recorded in
-`generated/long-a-correction`. Same-provider CS2 lineup coordinates confirm
-Goose above A Site. Long now reaches A directly in about 47 m instead of a 111 m
-detour. All 108 vector tests, type checking, viewer build, overlay acceptance,
-and strict compilation with UVs/export pass. Final Dust II has zero compiler or
-runtime diagnostics and eleven passing routes. Matched overview, oblique,
-CT-exit, Long approach and Goose stair views use exact compiled triangles.
-Compiler revision `levelspec-2-preview-6` invalidates older lighting manifests.
+`npm run game:export -- SOURCE.level.svgx --out generated/game` writes visual and
+collision GLBs plus gameplay metadata in glTF Y-up meters. Physical route and
+barrier tests supplement navigation reports; balance and fun require playtesting.
 
-Local commands and XML grammar are documented in [SVGX.md](SVGX.md).
+Use Node 24. Current verification commands are:
 
-Implementation references: the installed `blender-uv-textures`,
-`blender-threejs-baked-gi`, and `blender-threejs-asset-pipeline` skills guided the UV
-and lighting contracts. The calibration and linear EXR helpers under
-`tools/lighting` were adapted from the baked-GI skill's calibration/I/O fixtures.
+```sh
+npm run check
+npm test
+npm run test:producers
+npm run test:site
+npm run build:viewer
+npm run build:site
+npm run test:preview:browser
+npm run test:capture:browser
+```
 
+Production reviewer acceptance uses `npm run test:site:browser`; server setup is
+in [the reviewer guide](WEBSITE.md) and `.github/workflows/website.yml`. Producer
+tracing checks additionally require NumPy and Pillow. Keep reproducible artifacts
+under ignored `generated/`; keep source, references and review evidence separately.
 
-The multi-format export update is documented in [EXPORTS.md](EXPORTS.md).
-GLB and glTF now package material images, retain marker/source metadata, and
-convert UV orientation consistently. The optional Node backend adds binary FBX
-through Blender and Quake BSP2 through checked brushes plus ericw-tools. The
-CLI and viewer offer format selection, staged publication, progress and
-cancellation. The local viewer service accepts uploaded image bytes, not client
-filesystem/tool paths. Legacy authoring APIs remain unchanged.
-
-Export acceptance under `generated/export-qa` includes Khronos validation,
-Three.js loading, exact serialized attributes, Blender FBX/GLB triangle-corner
-round trips, matched textured renders, Godot import, actual BSP collision and
-visibility/light lumps, all-format viewer downloads, and Dust II brush-volume
-comparisons. This closes base-color PNG/JPEG export packaging, but does not add
-external texture support to the lighting baker or automatically bind baked light
-in destination engines. Unity and in-game Quake rendering still need acceptance
-on installations with those applications/assets. Clipped-portal warnings from
-ericw 0.18.1 are preserved in the BSP export report.
+Revision-scoped acceptance and unavailable checks belong in [review records](reviews/).
+Historical test counts, converted-map totals and generated screenshots are evidence
+for their recorded revisions, not guarantees for the current tree. Remaining
+limits include sampled navigation, estimated photographic dimensions, hidden source
+geometry, and destination-engine/native-tool acceptance outside installed test
+configurations.
