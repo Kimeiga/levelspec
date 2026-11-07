@@ -22,7 +22,7 @@ not define the current release contract.
   Render visibility, physical collision and navigation are independent contracts.
 - Geometry audits report floor gaps, overlaps and same-facing coplanar patches
   with source IDs. Library compilation defaults floor-gap and surface-contact
-  findings to warnings. The XML CLI and reconstruction runner explicitly require
+  findings to warnings. The XML CLI and reconstruction runner default to
   strict geometry checks. Review warnings rather than treating them as acceptance.
 
 Use [general map authoring](../.agents/skills/level-authoring/SKILL.md) for invented

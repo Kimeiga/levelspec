@@ -16,7 +16,7 @@ producer inputs, not compatibility level formats. Their output is native XML.
 npm run gen -- 10 --keep
 npm run trace -- radar.png --cells 46 --bands 4 --out generated/radar.level.svgx
 npm run author -- atrium
-npm run finalize -- mirage
+npm run finalize -- cli-starter --src examples --out generated/finalized
 npm run concept -- silo --attempts=1 --write --variants=1
 ```
 

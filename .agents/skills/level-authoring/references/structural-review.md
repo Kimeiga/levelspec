@@ -30,8 +30,12 @@ rise/run, turns and usable landing width. Use the actual body radius/height and
 step/slope settings; a clear centerline or vertical ray can miss shoulder/head
 contact with an adjacent slab or next risen tread.
 
-Exercise continuous collision-aware movement, not merely plotted points or
-teleports. Use valid separate starts for intentionally disconnected portions and
+Exercise continuous collision-aware movement when the available runtime supports it.
+The reviewer inspection walker checks the standing capsule at placement, then
+follows eroded navigation; it does not continuously sweep the body against meshes.
+Pair that inspection with actual support/headroom/obstacle checks at consequential
+transitions, and disclose its sampling limits. Plotted points or teleports alone
+are not a walkthrough. Use valid separate starts for intentionally disconnected portions and
 label them as separate route audits. Check that closed barriers block and intended
 openings pass. Guard/drop requirements follow gameplay intent and declared scope;
 do not hide an accidental hole under an uncertainty label. Include upper walking
@@ -39,8 +43,9 @@ tops of overhead stairs when they are claimed occupied surfaces.
 
 Record meaningful starts/stops and results. A screenshot, static premap or extra
 navigation seed cannot demonstrate physical reachability. If a tool cannot
-exercise the route, retain that limitation and repair the tool or geometry rather
-than declaring a virtual pass. Do not claim structural engineering adequacy or
+exercise the route, retain that limitation and choose appropriate additional
+checks; do not declare an unperformed pass or expand into movement-engine work
+without a concrete need. Do not claim structural engineering adequacy or
 building-code compliance from these checks.
 
 ## When drawings are used

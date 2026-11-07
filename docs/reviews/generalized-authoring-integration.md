@@ -64,3 +64,30 @@ metric fidelity or full building acceptance.
 - Native XML game export succeeds for the invented-map fixture.
 
 Final site/browser and independent forward-test results are appended below.
+
+### Final checks and workflow limits
+
+- Production reviewer browser suite passes, including offline service-worker reload,
+  keyboard/camera controls, real walking, source recovery, large-map load,
+  cancellation, graphics-context recovery and WebGL-unavailable plan/diagnostics.
+  The diagnostic assertion now waits for a visible diagnostic, not the panel's
+  empty hidden status paragraph; positive issue-count/text/recovery checks remain.
+- Preview browser components pass: source watching/cameras, suggestions, inspection,
+  outlines/DPR, frame aspect, strict overlap diagnostics, inspection walking and
+  coarse/fine navigation with unchanged body settings.
+- Python reference compositor behavioral suite:17 passed.
+- The existing chalk canopy used a quadratic wall offset wider than its local
+  curvature radius, creating folded duplicate faces. Reducing its authored width
+  fixes the source geometry without lowering audit severity. Independent test and
+  implementation reviews accepted the fix.
+- A fresh-context forward tester exercised invented and reference-based requests
+  without reading earlier exercise notes. Its inspection walk also exposed a
+  capability boundary: the reviewer checks the body at placement, then follows
+  eroded navigation. The general skill now explicitly distinguishes this from
+  continuous physical collision sweeps and asks for additional actual clearance
+  checks at consequential transitions, with sampling limits disclosed. Implementing
+  a new movement engine is outside this workflow cleanup.
+- Final affected site suite passes4/4:350 chalk/slate curve/elevation combinations,
+  all Lantern Court trim/capital elevations, style differentiation and overlap-audit
+  control. The earlier complete site run passed its other23 tests; its one failed
+  canopy sweep is superseded by this corrected-geometry run.

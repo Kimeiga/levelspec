@@ -442,7 +442,7 @@ try {
     if (!(await page.locator('#validation').evaluate(element => element.open)))
       await page.locator('#validation summary').click();
     await page.waitForFunction(()=>Number(document.querySelector('#issue-count').textContent)>0);
-    await page.locator('#diagnostics p').first().waitFor();
+    await page.locator('#diagnostics p:visible').first().waitFor();
     assert.ok((await page.locator('#diagnostics').innerText()).trim(), 'A controlled clearance failure must expose diagnostics without WebGL');
     await page.locator('#file').setInputFiles({name:'repaired.level.svgx',mimeType:'application/xml',buffer:Buffer.from(valid)});
     await ready(page,false);
