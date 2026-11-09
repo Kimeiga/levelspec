@@ -1,3 +1,4 @@
+import {validateCoordinate} from "./precision.ts";
 import type { Diagnostic, Named, V2, V3 } from "./types.ts";
 import { cross, dot, norm, sub } from "./geometry.ts";
 
@@ -39,6 +40,8 @@ export function validateReference(reference: ReferenceView): Diagnostic[] {
     severity: "error", code: "REFERENCE", message, objects: [o.id], source: o.source,
   });
   const c = reference.camera;
+  try { c.position.forEach(validateCoordinate);c.target.forEach(validateCoordinate); }
+  catch(error){fail(reference,(error as Error).message);}
   if (![reference.width, reference.height].every((n) => Number.isSafeInteger(n) && n > 0 && n <= 16384))
     fail(reference, "Reference width and height must be integers between 1 and 16384.");
   if (!reference.image.trim()) fail(reference, "A reference needs an image name.");

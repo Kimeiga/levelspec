@@ -1,6 +1,6 @@
-import type { SceneProp, MeshAsset, AssetResolver } from "./props.ts";
+import type { MeshAsset, AssetResolver } from "./props.ts";
 import type { ReferenceView } from "./reference.ts";
-/** LevelSpec 2. Canonical coordinates are right-handed Z-up metres. */
+/** Shared geometry and output contracts use right-handed Z-up meters. */
 export type V2 = [number, number];
 export type V3 = [number, number, number];
 export interface SourceLocation {
@@ -18,7 +18,16 @@ export interface DiagnosticReview {
   direction: V3;
   patches: V3[][];
 }
-export type ReviewFinding = Pick<Suggestion, "id" | "objects" | "layers" | "bounds" | "position" | "direction" | "navigation"> & { code?: string; patches?: V3[][] };
+export type ReviewFinding = Pick<
+  Suggestion,
+  | "id"
+  | "objects"
+  | "layers"
+  | "bounds"
+  | "position"
+  | "direction"
+  | "navigation"
+> & { code?: string; patches?: V3[][] };
 export interface Diagnostic {
   review?: DiagnosticReview;
   relatedSources?: { object: string; source?: SourceLocation }[];
@@ -31,7 +40,12 @@ export interface Diagnostic {
 /** Non-blocking architectural review finding. Distances and targets use Z-up meters. */
 export interface Suggestion {
   id: string;
-  code: "WALL_ALIGNMENT" | "FLIGHT_WALL_GAP" | "FLIGHT_OPEN_SIDE" | "NAV_ISLAND" | "FLIGHT_NAV_MISSING";
+  code:
+    | "WALL_ALIGNMENT"
+    | "FLIGHT_WALL_GAP"
+    | "FLIGHT_OPEN_SIDE"
+    | "NAV_ISLAND"
+    | "FLIGHT_NAV_MISSING";
   message: string;
   objects: string[];
   sources: { object: string; source?: SourceLocation }[];
@@ -39,7 +53,13 @@ export interface Suggestion {
   position: V3;
   bounds: { min: V3; max: V3 };
   direction: V3;
-  evidence: { offset?: number; length: number; area?: number; small?: boolean; disconnected?: boolean };
+  evidence: {
+    offset?: number;
+    length: number;
+    area?: number;
+    small?: boolean;
+    disconnected?: boolean;
+  };
   navigation?: { component: string };
   fingerprint: string;
   state: "active" | "suppressed";
@@ -212,14 +232,13 @@ export interface Boat {
   height: number;
 }
 export const DEFAULT_BOAT: Boat = { radius: 2, draft: 0.5, height: 2 };
-export interface LevelDocument extends Named {
+/** Derived semantic context for geometry backends; never an authoring document. */
+export interface RuntimeContext extends Named {
   reviewSuppressions?: ReviewSuppression[];
-  props?: SceneProp[];
   assets?: MeshAsset[];
   references?: ReferenceView[];
   validation?: "premap" | "playable";
   boat?: Boat;
-  version: "2";
   name: string;
   description?: string;
   units: "meters";
@@ -229,18 +248,16 @@ export interface LevelDocument extends Named {
   curveTolerance: number;
   player: Player;
   layers: Layer[];
-  seams: Seam[];
   materials: Material[];
   lights: Light[];
   markers: Marker[];
   routes: Route[];
   links: Link[];
-  covers: Cover[];
   noSpawnLos: [string, string][];
   sky: { color: string; intensity: number };
-  expectFail?: boolean;
 }
-export type MeshKind = "wall" | "floor" | "stairs" | "ceiling" | "prop" | "water";
+export type MeshKind =
+  "wall" | "floor" | "stairs" | "ceiling" | "prop" | "water";
 export interface MeshPart {
   collidable?: boolean;
   visible?: boolean;
@@ -254,8 +271,12 @@ export interface MeshPart {
   triangles: number[];
 }
 export interface Surface {
+  /** AML separates architectural checks, permissive terrain, and unchecked visualization assets. */
+  domain?: "architecture" | "terrain" | "visualization";
   /** Omitted means true, preserving legacy surface semantics. */
   collidable?: boolean;
+  /** True for checked native solid faces; false for intentionally open physical patches. */
+  closed?: boolean;
   visible?: boolean;
   mesh: string;
   kind: MeshKind;
@@ -266,6 +287,9 @@ export interface Surface {
   material: string;
   dynamic: boolean;
   path?: V3[];
+  /** AML source contributors and optional nonphysical face assignment. */
+  contributors?: string[];
+  assignment?: string;
 }
 export interface MeshData {
   positions: number[];
@@ -276,10 +300,14 @@ export interface MeshData {
   tangents?: number[];
   /** One surface index per triangle. */
   surfaces: number[];
+  /** Final physical-solid identity per triangle, independent of face ownership; empty for open patches. */
+  solidIds?: string[];
   atlasPages?: number[];
   chartIds?: number[];
 }
 export interface FloorPatch {
+  /** False permits terrain outside explicit playable-area coverage assertions. */
+  navigationRequired?: boolean;
   area?: string;
   region: string;
   layer: string;
@@ -310,11 +338,64 @@ export interface UVManifest {
   }[];
 }
 export interface ExportSolid {
+  purpose?: "physical" | "visual";
   positions: V3[];
   triangles: number[][];
   surface: Surface;
+  /** Final exposed material faces remain separate from the closed CSG operand topology. */
+  materialFaces?: { points: V3[]; surface: Surface }[];
 }
+/** Native spatial metadata has world-space base geometry and an explicit world extrusion vector. */
+export interface SpatialVolume {
+  id: string;
+  kind: "room" | "zone" | "volume" | "clearance";
+  role?: string;
+  movement?: "land" | "water";
+  points: V3[];
+  triangles: [number, number, number][];
+  loops: V3[][];
+  extrusion: V3;
+  height: number;
+  requireSupport?: boolean;
+  properties?: Record<string, string>;
+  source?: SourceLocation;
+  bounds: { min: V3; max: V3 };
+}
+
+/** Deterministic spatial ownership of final physical terrain triangles; bounds include the complete triangles. */
+export interface TerrainTile {
+  id: string;
+  terrain: string;
+  index: [number, number];
+  /** Triangle range in physicalMesh, before render partitions or collision filtering. */
+  triangleStart: number;
+  triangleCount: number;
+  bounds: { min: V3; max: V3 };
+  hash: string;
+}
+
 export interface CompiledLevel {
+  terrainTiles?: TerrainTile[];
+  spatialVolumes?: SpatialVolume[];
+  /** Optional native-source lookup supplements the shared runtime semantic view. */
+  provenance?: Record<
+    string,
+    {
+      source?: SourceLocation;
+      host?: string;
+      assembly?: string;
+      assemblies?: string[];
+      instances?: string[];
+      contributors?: string[];
+    }
+  >;
+  /** Read-only authored profile sketches; labels identify their coordinate projection. */
+  sourceProfiles?: {
+    object: string;
+    role: string;
+    points: V3[];
+    closed: boolean;
+  }[];
   navigationSuggestionsStatus: "pending" | "complete" | "unavailable";
   suggestions: Suggestion[];
   repairs?: RepairRecord[];
@@ -323,9 +404,12 @@ export interface CompiledLevel {
   waterNavigation?: NavigationReport;
   /** Optional closed, pre-union solids for brush exporters. */
   exportSolids?: ExportSolid[];
-  version: "2";
-  document: LevelDocument;
+  document: RuntimeContext;
   mesh: MeshData;
+  /** Composed physical mesh retained before render-only material partitioning. */
+  physicalMesh?: MeshData;
+  /** Native continuous flight guides prevent legacy reconstruction of authored circulation. */
+  flightGuides?: Record<string, FloorPatch>;
   parts: MeshPart[];
   surfaces: Surface[];
   floors: FloorPatch[];
@@ -355,6 +439,8 @@ export interface CompileOptions {
   uv?: UVOptions;
 }
 export interface UVOptions {
+  /** Maximum admitted source chart groups and resulting packed charts. Defaults to 16,384. */
+  maximumCharts?: number;
   density?: number;
   resolution?: number;
   padding?: number;
@@ -375,15 +461,15 @@ export interface NavigationOptions {
   sampleSpacing?: number;
 }
 export type NavigationBlockReason =
-  | "headroom"
-  | "width"
-  | "slope"
-  | "step"
-  | "disconnected"
-  | "uncovered";
+  "headroom" | "width" | "slope" | "step" | "disconnected" | "uncovered";
 export interface NavigationCoverage {
   blockedCount?: number;
-  blocked?: { region: string; position: V3; reason: NavigationBlockReason; clearance?: number }[];
+  blocked?: {
+    region: string;
+    position: V3;
+    reason: NavigationBlockReason;
+    clearance?: number;
+  }[];
   blockedByReason?: Partial<Record<NavigationBlockReason, number>>;
   sampleSpacing: number;
   sampled: number;
@@ -420,7 +506,7 @@ export interface NavigationReport {
   componentDetails: NavigationComponent[];
   /** One component ID for each triangle of indices; empty means disabled polygon. */
   triangleComponents: string[];
-  componentSeeds?: {id:string;position:V3}[];
+  componentSeeds?: { id: string; position: V3 }[];
   repairs?: RepairRecord[];
   /** Navigation failures remain separate from geometry compilation diagnostics. */
   diagnostics: Diagnostic[];
@@ -451,6 +537,8 @@ export interface NavigationReport {
     reachable: boolean;
     distance: number;
     disjointRoutes: number;
+    /** Copied Recast straight-path points in world Z-up meters; absent if unreachable. */
+    path?: V3[];
   }[];
 }
 export interface ValidationReport {
@@ -473,9 +561,8 @@ export const DEFAULT_PLAYER: Player = {
   rappel: false,
   ladder: false,
 };
-export function createDocument(id = "untitled"): LevelDocument {
+export function createRuntimeContext(id = "untitled"): RuntimeContext {
   return {
-    version: "2",
     id,
     name: id,
     units: "meters",
@@ -485,13 +572,11 @@ export function createDocument(id = "untitled"): LevelDocument {
     curveTolerance: 0.01,
     player: { ...DEFAULT_PLAYER },
     layers: [],
-    seams: [],
     materials: [],
     lights: [],
     markers: [],
     routes: [],
     links: [],
-    covers: [],
     noSpawnLos: [],
     sky: { color: "#dce8f5", intensity: 0.5 },
   };

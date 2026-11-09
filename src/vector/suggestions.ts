@@ -13,6 +13,7 @@ type Face = {
   normal: V3;
   points: V3[];
   triangles: V3[][];
+  enclosure: boolean;
 };
 
 /** Canonical coordinates absorb float32 construction noise without hiding millimeter edits. */
@@ -31,7 +32,8 @@ function wallFaces(level: CompiledLevel): Face[] {
     if (surface.kind !== "wall" || surface.visible === false) continue;
     const edge = edges.get(surface.object);
     const path = level.curves[surface.object];
-    if (!edge || !path) continue;
+    const enclosure = ["parapet", "curb", "railing"].includes(surface.role);
+    if ((!edge || !path) && !enclosure) continue;
     const points = level.mesh.indices
       .slice(t * 3, t * 3 + 3)
       .map((i) => level.mesh.positions.slice(i * 3, i * 3 + 3) as V3);
@@ -41,6 +43,7 @@ function wallFaces(level: CompiledLevel): Face[] {
     if (Math.abs(normal[2]) > 0.0001) continue;
     // End caps are not wall continuations or flight-side boundaries.
     if (
+      path &&
       !path.slice(1).some((p, i) => {
         const tangent = norm([p[0] - path[i][0], p[1] - path[i][1], 0]);
         return Math.abs(dot(tangent, normal)) < 0.02;
@@ -60,6 +63,7 @@ function wallFaces(level: CompiledLevel): Face[] {
         normal,
         points: [],
         triangles: [],
+        enclosure,
       };
       faces.set(key, face);
     }
@@ -87,9 +91,45 @@ function coverage(
   b: V3,
   triangle: V3[],
   normal: V3,
+  verticalRange = 0,
 ): Interval | undefined {
   const tangent: V3 = [-normal[1], normal[0], 0];
   const project = (p: V3) => [dot(p, tangent), p[2]];
+  if (verticalRange > 0) {
+    const start = project(a),
+      end = project(b),
+      run = end[0] - start[0];
+    if (Math.abs(run) < 1e-10) return;
+    let polygon = triangle
+      .map(project)
+      .map((p) => [
+        (p[0] - start[0]) / run,
+        p[1] - start[1] - ((p[0] - start[0]) / run) * (end[1] - start[1]),
+      ]);
+    for (const [axis, boundary, sign] of [
+      [0, 0, -1],
+      [0, 1, 1],
+      [1, 0, -1],
+      [1, verticalRange, 1],
+    ]) {
+      const clipped: number[][] = [];
+      for (let i = 0; i < polygon.length; i++) {
+        const p = polygon[i],
+          q = polygon[(i + 1) % polygon.length];
+        const dp = sign * (p[axis] - boundary),
+          dq = sign * (q[axis] - boundary);
+        if (dp <= NOISE) clipped.push(p);
+        if (dp * dq < 0)
+          clipped.push(p.map((n, k) => n + (dp / (dp - dq)) * (q[k] - n)));
+      }
+      polygon = clipped;
+    }
+    if (!polygon.length) return;
+    const lo = Math.min(...polygon.map((p) => p[0])),
+      hi = Math.max(...polygon.map((p) => p[0]));
+    if (hi > lo + 1e-8) return [lo, hi];
+    return;
+  }
   const vertices = triangle.map(project),
     start = project(a),
     end = project(b);
@@ -316,6 +356,7 @@ export async function auditSuggestions(
                   [b[0], b[1], b[2] + 0.05],
                   triangle,
                   face.normal,
+                  face.enclosure ? level.document.player.height - 0.05 : 0,
                 );
                 if (!interval) continue;
                 local.add(face);
@@ -330,7 +371,7 @@ export async function auditSuggestions(
                   .flatMap((l) => l.edges)
                   .find((e) => e.id === face.object)!;
                 const thickness =
-                  edge.thickness ?? level.document.wallThickness;
+                  edge?.thickness ?? level.document.wallThickness;
                 const touching =
                   offset <= CONTACT + NOISE ||
                   (da < 0 &&

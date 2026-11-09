@@ -1,10 +1,12 @@
+import { localHeightmaps } from "./heightmaps.ts";
 /** Read-only loopback preview of one XML source and its declared local companions. */
 import { readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import { createServer } from "vite";
-import { parseLevelSvgx } from "../vector/format.ts";
+import { parseAml } from "../architecture/format.ts";
+import { architectureCompanions, heightmapCompanions } from "../architecture/assets.ts";
 import { parseViewOptions, type ReviewViewOptions } from "../../review/view.ts";
 import { parseNavigationCell } from "../../review/navigation-cell.ts";
 
@@ -57,15 +59,16 @@ export async function startPreview(file: string, options: {port?:number;signal?:
           res.setHeader("Content-Type","application/json");
           try {
             const text=await readFile(source,"utf8"), files:Record<string,number[]>={};
-            let references:string[]=[];
+            let references:string[]=[], heightmaps=new Set<string>();
+            const rasterLoader=localHeightmaps(source);
             try {
-              const document=parseLevelSvgx(text);
-              references=[...(document.assets??[]).map(a=>a.src),...document.materials.flatMap(m=>m.texture ? [m.texture]:[]),...(document.references??[]).map(r=>r.image)];
+              const document=parseAml(text);
+              references=architectureCompanions(document);heightmaps=heightmapCompanions(document);
             } catch { /* Send malformed text to the normal source-linked worker diagnostics. */ }
             for(const reference of new Set(references)) {
               if(/^[a-z]+:/i.test(reference))throw new Error(`Preview requires a local asset: ${reference}`);
               const path=resolve(dirname(source),reference);tracked.add(path);vite.watcher.add(dirname(path));
-              files[reference.replaceAll("\\","/").replace(/^\.\//,"")]=Array.from(await readFile(path));
+              files[reference.replaceAll("\\","/").replace(/^\.\//,"")]=Array.from(heightmaps.has(reference) ? await rasterLoader.load({src:reference}) : await readFile(path));
             }
             res.end(JSON.stringify({text,files,revision}));
           } catch(error) {res.end(JSON.stringify({error:(error as Error).message,revision}));}

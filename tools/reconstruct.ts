@@ -4,13 +4,29 @@ import { readFile, writeFile } from "node:fs/promises";
 import { basename, dirname, extname, join, resolve } from "node:path";
 import { PNG } from "pngjs";
 import jpeg from "jpeg-js";
-import { toGLB, toRuntime, parseLevelSvgx, resolveExportAssets } from "../src/vector/index.ts";
-import { runReconstruction, type ReconstructionReviser,
-  type ReconstructionAttempt, type ReconstructionLoopResult } from "../src/reconstruction/loop.ts";
-import type { PhotoEvidence, ReconstructionThresholds } from "../src/reconstruction/evaluate.ts";
+import {
+  toGLB,
+  toRuntime,
+  parseAml,
+  resolveExportAssets,
+} from "../src/architecture/index.ts";
+import {
+  runReconstruction,
+  type ReconstructionReviser,
+  type ReconstructionAttempt,
+  type ReconstructionLoopResult,
+} from "../src/reconstruction/loop.ts";
+import type {
+  PhotoEvidence,
+  ReconstructionThresholds,
+} from "../src/reconstruction/evaluate.ts";
 import { createOpenAIReviser, type InputPhoto } from "./reconstruct-openai.ts";
 import { prepareRunOutput } from "./reconstruct-output.ts";
-import { createCompanionStore, companionHash, type CompanionStore } from "./reconstruct-assets.ts";
+import {
+  createCompanionStore,
+  companionHash,
+  type CompanionStore,
+} from "./reconstruct-assets.ts";
 import { parseNavigationCell } from "../review/navigation-cell.ts";
 
 interface Args {
@@ -26,7 +42,7 @@ interface Args {
 const usage = `LevelSpec photo reconstruction
   node tools/reconstruct.ts --image view1=/path/to/cropped-photo.jpg
     [--image view2=/path/to/cropped-oblique.png] [--model VISION_MODEL]
-    [--source existing.level.svgx] [--evidence annotations.json]
+    [--source existing.aml] [--evidence annotations.json]
     [--max-revisions 4] [--max-source-characters 2000000]
     [--nav-cell METERS] (0.025–0.5; default 0.125)
     [--out generated/reconstruction]
@@ -37,30 +53,57 @@ Photographs stay local except when explicitly sent to the model API.
 `;
 function requireSource(args: Args) {
   if (!args.source && !args.model)
-    throw new Error("Specify --source for evaluation or --model to generate a model.");
+    throw new Error(
+      "Specify --source for evaluation or --model to generate a model.",
+    );
 }
 function requireImagesForModel(args: Args) {
   if (args.model && !args.images.length)
     throw new Error("Model reconstruction requires at least one --image.");
 }
-function setOption(argv: string[], index: number, setters: Record<string, (value: string) => void>) {
-  const flag = argv[index], setter = setters[flag];
+function setOption(
+  argv: string[],
+  index: number,
+  setters: Record<string, (value: string) => void>,
+) {
+  const flag = argv[index],
+    setter = setters[flag];
   if (!setter) throw new Error(`Unknown option ${flag}\n${usage}`);
   const value = argv[index + 1];
   if (!value) throw new Error(`Missing value for ${flag}`);
   setter(value);
 }
 function parseArgs(argv: string[]): Args | null {
-  const args: Args = { images: [], out: "generated/reconstruction", revisions: 4 };
+  const args: Args = {
+    images: [],
+    out: "generated/reconstruction",
+    revisions: 4,
+  };
   const setters: Record<string, (value: string) => void> = {
-    "--image": value => { args.images.push(value); },
-    "--source": value => { args.source = value; },
-    "--model": value => { args.model = value; },
-    "--evidence": value => { args.evidence = value; },
-    "--out": value => { args.out = value; },
-    "--max-revisions": value => { args.revisions = Number(value); },
-    "--max-source-characters": value => { args.maxSourceCharacters = Number(value); },
-    "--nav-cell": value => { args.navigationCell = parseNavigationCell(value); },
+    "--image": (value) => {
+      args.images.push(value);
+    },
+    "--source": (value) => {
+      args.source = value;
+    },
+    "--model": (value) => {
+      args.model = value;
+    },
+    "--evidence": (value) => {
+      args.evidence = value;
+    },
+    "--out": (value) => {
+      args.out = value;
+    },
+    "--max-revisions": (value) => {
+      args.revisions = Number(value);
+    },
+    "--max-source-characters": (value) => {
+      args.maxSourceCharacters = Number(value);
+    },
+    "--nav-cell": (value) => {
+      args.navigationCell = parseNavigationCell(value);
+    },
   };
   for (let i = 0; i < argv.length; i += 2) {
     if (argv[i] === "--help" || argv[i] === "-h") return null;
@@ -81,12 +124,21 @@ function decodeImage(bytes: Buffer, filename: string): Decoded {
   const suffix = extname(filename).toLowerCase();
   if (suffix === ".png") {
     const decoded = PNG.sync.read(bytes);
-    return { width: decoded.width, height: decoded.height, rgba: new Uint8Array(decoded.data),
-      mime: "image/png" };
+    return {
+      width: decoded.width,
+      height: decoded.height,
+      rgba: new Uint8Array(decoded.data),
+      mime: "image/png",
+    };
   }
   if (suffix === ".jpg" || suffix === ".jpeg") {
     const decoded = jpeg.decode(bytes, { useTArray: true });
-    return { width: decoded.width, height: decoded.height, rgba: decoded.data, mime: "image/jpeg" };
+    return {
+      width: decoded.width,
+      height: decoded.height,
+      rgba: decoded.data,
+      mime: "image/jpeg",
+    };
   }
   throw new Error(`Unsupported image type ${suffix}. Use PNG or JPEG.`);
 }
@@ -99,54 +151,117 @@ function parseImageArg(value: string, index: number) {
   return { referenceId, path };
 }
 /** Bind explicit input pixels to an existing logical reference without basename aliasing. */
-async function referenceFilename(referenceId: string, path: string, bytes: Buffer,
-  names: Map<string, string>, store: CompanionStore): Promise<string> {
+async function referenceFilename(
+  referenceId: string,
+  path: string,
+  bytes: Buffer,
+  names: Map<string, string>,
+  store: CompanionStore,
+): Promise<string> {
   const declared = names.get(referenceId);
   if (!declared) return basename(path);
   let local: Buffer;
-  try { local = await store.read(declared); }
-  catch (error) {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT" && declared === basename(path))
+  try {
+    local = await store.read(declared);
+  } catch (error) {
+    if (
+      (error as NodeJS.ErrnoException).code === "ENOENT" &&
+      declared === basename(path)
+    )
       return declared;
-    throw new Error(`Reference ${referenceId}: cannot verify declared image ${declared}: ${String(error)}`);
+    throw new Error(
+      `Reference ${referenceId}: cannot verify declared image ${declared}: ${String(error)}`,
+    );
   }
   if (!local.equals(bytes))
-    throw new Error(`Reference ${referenceId}: supplied photo differs from declared image ${declared}.`);
+    throw new Error(
+      `Reference ${referenceId}: supplied photo differs from declared image ${declared}.`,
+    );
   return declared;
 }
 
-async function loadPhoto(value: string, index: number, names: Map<string, string>, store: CompanionStore) {
+async function loadPhoto(
+  value: string,
+  index: number,
+  names: Map<string, string>,
+  store: CompanionStore,
+) {
   const { referenceId, path } = parseImageArg(value, index);
   const bytes = await readFile(path);
-  if (bytes.length > 16 * 1024 * 1024) throw new Error(`Image ${path} exceeds 16 MB.`);
+  if (bytes.length > 16 * 1024 * 1024)
+    throw new Error(`Image ${path} exceeds 16 MB.`);
   const decoded = decodeImage(bytes, path);
-  const filename = await referenceFilename(referenceId, path, bytes, names, store);
+  const filename = await referenceFilename(
+    referenceId,
+    path,
+    bytes,
+    names,
+    store,
+  );
   await store.bind(filename, bytes);
-  const input: InputPhoto = { referenceId, filename,
-    width: decoded.width, height: decoded.height,
-    dataUrl: `data:${decoded.mime};base64,${bytes.toString("base64")}` };
-  const evidence: PhotoEvidence = { referenceId, imageFilename: filename, photo: {
-    width: decoded.width, height: decoded.height, rgba: decoded.rgba,
-  } };
-  return { input, evidence, identity: { referenceId, filename, path: resolve(path), sha256: companionHash(bytes) } };
+  const input: InputPhoto = {
+    referenceId,
+    filename,
+    width: decoded.width,
+    height: decoded.height,
+    dataUrl: `data:${decoded.mime};base64,${bytes.toString("base64")}`,
+  };
+  const evidence: PhotoEvidence = {
+    referenceId,
+    imageFilename: filename,
+    photo: {
+      width: decoded.width,
+      height: decoded.height,
+      rgba: decoded.rgba,
+    },
+  };
+  return {
+    input,
+    evidence,
+    identity: {
+      referenceId,
+      filename,
+      path: resolve(path),
+      sha256: companionHash(bytes),
+    },
+  };
 }
-async function loadPhotos(paths: string[], source: string, store: CompanionStore) {
+async function loadPhotos(
+  paths: string[],
+  source: string,
+  store: CompanionStore,
+) {
   let names = new Map<string, string>();
-  try { names = new Map((parseLevelSvgx(source).references ?? []).map(item => [item.id, item.image])); }
-  catch { /* The loop retains parse failures as rejected attempts. */ }
+  try {
+    names = new Map(
+      (parseAml(source).references ?? []).map((item) => [item.id, item.image]),
+    );
+  } catch {
+    /* The loop retains parse failures as rejected attempts. */
+  }
   const records: Awaited<ReturnType<typeof loadPhoto>>[] = [];
-  for (const [index, path] of paths.entries()) records.push(await loadPhoto(path, index, names, store));
-  const inputs = records.map(r => r.input), evidence = records.map(r => r.evidence);
-  if (new Set(inputs.map(v => v.referenceId)).size !== inputs.length)
+  for (const [index, path] of paths.entries())
+    records.push(await loadPhoto(path, index, names, store));
+  const inputs = records.map((r) => r.input),
+    evidence = records.map((r) => r.evidence);
+  if (new Set(inputs.map((v) => v.referenceId)).size !== inputs.length)
     throw new Error("Duplicate reference image id.");
-  return { inputs, evidence, identities: records.map(record => record.identity) };
+  return {
+    inputs,
+    evidence,
+    identities: records.map((record) => record.identity),
+  };
 }
 interface ManifestView {
   referenceId: string;
   /** Trusted original crop size when --image is not supplied. */
   imageDimensions?: [number, number];
   /** Trusted, independently measured 3D-to-image point correspondences. */
-  landmarks?: { id: string; position: [number, number, number]; image: [number, number] }[];
+  landmarks?: {
+    id: string;
+    position: [number, number, number];
+    image: [number, number];
+  }[];
   /** Only externally supplied masks can exclude evidence from acceptance. */
   masks?: { id: string; points: [number, number][] }[];
   strokes?: { id: string; points: [number, number][] }[];
@@ -157,16 +272,26 @@ interface Manifest {
   views?: ManifestView[];
 }
 async function loadSilhouette(filename: string) {
-  const bytes = await readFile(filename), decoded = decodeImage(bytes, filename);
-  return { width: decoded.width, height: decoded.height,
-    pixels: Uint8Array.from({ length: decoded.width * decoded.height }, (_, i) => {
-      const j = 4 * i;
-      return decoded.rgba[j + 3] > 127 &&
-        (decoded.rgba[j] + decoded.rgba[j + 1] + decoded.rgba[j + 2]) / 3 > 127 ? 1 : 0;
-    }) };
+  const bytes = await readFile(filename),
+    decoded = decodeImage(bytes, filename);
+  return {
+    width: decoded.width,
+    height: decoded.height,
+    pixels: Uint8Array.from(
+      { length: decoded.width * decoded.height },
+      (_, i) => {
+        const j = 4 * i;
+        return decoded.rgba[j + 3] > 127 &&
+          (decoded.rgba[j] + decoded.rgba[j + 1] + decoded.rgba[j + 2]) / 3 >
+            127
+          ? 1
+          : 0;
+      },
+    ),
+  };
 }
 function evidenceForView(referenceId: string, evidence: PhotoEvidence[]) {
-  const existing = evidence.find(item => item.referenceId === referenceId);
+  const existing = evidence.find((item) => item.referenceId === referenceId);
   if (existing) return existing;
   const created: PhotoEvidence = { referenceId };
   evidence.push(created);
@@ -176,92 +301,204 @@ function applyViewObservations(item: PhotoEvidence, view: ManifestView) {
   const { imageDimensions, landmarks, masks, strokes } = view;
   Object.assign(item, { imageDimensions, landmarks, masks, strokes });
 }
-async function attachView(view: ManifestView, manifestPath: string, evidence: PhotoEvidence[]) {
+async function attachView(
+  view: ManifestView,
+  manifestPath: string,
+  evidence: PhotoEvidence[],
+) {
   const item = evidenceForView(view.referenceId, evidence);
   applyViewObservations(item, view);
   if (view.silhouettePath)
-    item.silhouette = await loadSilhouette(resolve(dirname(manifestPath), view.silhouettePath));
+    item.silhouette = await loadSilhouette(
+      resolve(dirname(manifestPath), view.silhouettePath),
+    );
 }
-async function attachAnnotations(filename: string | undefined, evidence: PhotoEvidence[]) {
+async function attachAnnotations(
+  filename: string | undefined,
+  evidence: PhotoEvidence[],
+) {
   if (!filename) return undefined;
   const source = JSON.parse(await readFile(filename, "utf8")) as Manifest;
-  if (!Array.isArray(source.views)) throw new Error("Evidence manifest needs a views array.");
+  if (!Array.isArray(source.views))
+    throw new Error("Evidence manifest needs a views array.");
   for (const view of source.views) await attachView(view, filename, evidence);
   return source.thresholds;
 }
-async function resolveReviser(args: Args, photos: InputPhoto[], store: CompanionStore): Promise<ReconstructionReviser> {
+async function resolveReviser(
+  args: Args,
+  photos: InputPhoto[],
+  store: CompanionStore,
+): Promise<ReconstructionReviser> {
   if (!args.model) return async () => null;
   const key = process.env.OPENAI_API_KEY;
-  if (!key) throw new Error("OPENAI_API_KEY is required to call the chosen vision model.");
-  return createOpenAIReviser({ model: args.model, apiKey: key, photos, resolveAsset: store.resolveAsset });
+  if (!key)
+    throw new Error(
+      "OPENAI_API_KEY is required to call the chosen vision model.",
+    );
+  return createOpenAIReviser({
+    model: args.model,
+    apiKey: key,
+    photos,
+    resolveAsset: store.resolveAsset,
+    resolveHeightmap: store.resolveHeightmap,
+  });
 }
-async function recordAttempt(out: string, attempt: ReconstructionAttempt, store: CompanionStore, cell: number) {
+async function recordAttempt(
+  out: string,
+  attempt: ReconstructionAttempt,
+  store: CompanionStore,
+  cell: number,
+) {
   const stem = `iteration-${String(attempt.iteration).padStart(2, "0")}`;
-  await writeFile(join(out, stem + ".level.svgx"), attempt.source);
+  await writeFile(join(out, stem + ".aml"), attempt.source);
   const portable = await store.archive(attempt.source, out, stem);
-  if (portable) await writeFile(join(out, stem + ".portable.level.svgx"), portable);
-  await writeFile(join(out, stem + ".json"), JSON.stringify({
-    iteration: attempt.iteration, valid: attempt.valid, accepted: attempt.accepted,
-    diagnostics: attempt.diagnostics, report: attempt.report,
-    navigation: { cell },
-  }, null, 2));
-  console.log(`${stem}: ${attempt.valid ? "geometry/navigation passed" : "invalid"}; ${attempt.accepted ? "accepted" : "not accepted"}`);
+  if (portable) await writeFile(join(out, stem + ".portable.aml"), portable);
+  await writeFile(
+    join(out, stem + ".json"),
+    JSON.stringify(
+      {
+        iteration: attempt.iteration,
+        valid: attempt.valid,
+        accepted: attempt.accepted,
+        diagnostics: attempt.diagnostics,
+        report: attempt.report,
+        navigation: { cell },
+      },
+      null,
+      2,
+    ),
+  );
+  console.log(
+    `${stem}: ${attempt.valid ? "geometry/navigation passed" : "invalid"}; ${attempt.accepted ? "accepted" : "not accepted"}`,
+  );
 }
 function portableExportable(result: ReconstructionLoopResult) {
-  return Boolean(result.level && result.report?.geometryPassed && result.report.navigationPassed);
+  return Boolean(
+    result.level &&
+    result.report?.geometryPassed &&
+    result.report.navigationPassed,
+  );
 }
-async function writePortableExports(out: string, result: ReconstructionLoopResult, store: CompanionStore, portable: string) {
+async function writePortableExports(
+  out: string,
+  result: ReconstructionLoopResult,
+  store: CompanionStore,
+  portable: string,
+) {
   if (!portableExportable(result)) return;
   const level = result.level!;
   const assets = await resolveExportAssets(level, store.read);
-  const archived = { ...level, document: parseLevelSvgx(portable) };
+  const architecture = parseAml(portable);
+  const archived = {
+    ...level,
+    architecture,
+    document: {
+      ...level.document,
+      materials: architecture.materials,
+      references: architecture.references,
+      assets: (level.document.assets ?? []).map((asset) => ({
+        ...asset,
+        src: store.archivedReference(asset.src),
+      })),
+    },
+  };
   const archivedAssets: typeof assets = {};
   for (const material of archived.document.materials) {
-    const original = level.document.materials.find(item => item.id === material.id);
-    if (material.texture && original?.texture) archivedAssets[material.texture] = assets[original.texture];
+    const original = level.document.materials.find(
+      (item) => item.id === material.id,
+    );
+    if (material.texture && original?.texture)
+      archivedAssets[material.texture] = assets[original.texture];
   }
   const visual = toGLB(archived, { assets: archivedAssets });
   const collision = toGLB(archived, { purpose: "collision" });
   await writeFile(join(out, "best.glb"), visual);
   await writeFile(join(out, "best-collision.glb"), collision);
-  await writeFile(join(out, "best.runtime.json"), JSON.stringify(toRuntime(archived)));
+  await writeFile(
+    join(out, "best.runtime.json"),
+    JSON.stringify(toRuntime(archived)),
+  );
 }
-async function recordResult(out: string, result: ReconstructionLoopResult, store: CompanionStore, cell: number) {
+async function recordResult(
+  out: string,
+  result: ReconstructionLoopResult,
+  store: CompanionStore,
+  cell: number,
+) {
   if (result.source) {
     const portable = await store.archive(result.source, out, "best");
-    if (!portable) throw new Error("Valid best candidate could not be archived.");
+    if (!portable)
+      throw new Error("Valid best candidate could not be archived.");
     await writePortableExports(out, result, store, portable);
-    await writeFile(join(out, "best.level.svgx"), portable);
-    console.log(`Saved best candidate: ${join(out, "best.level.svgx")}`);
+    await writeFile(join(out, "best.aml"), portable);
+    console.log(`Saved best candidate: ${join(out, "best.aml")}`);
   }
-  await writeFile(join(out, "result.json"), JSON.stringify({
-    accepted: result.accepted, status: result.status, error: result.error ?? null,
-    attempts: result.attempts.map(a => ({ iteration: a.iteration, valid: a.valid,
-      accepted: a.accepted, score: a.score, diagnostics: a.diagnostics })),
-    report: result.report,
-    navigation: { cell },
-  }, null, 2));
-  console.log(`Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`);
+  await writeFile(
+    join(out, "result.json"),
+    JSON.stringify(
+      {
+        accepted: result.accepted,
+        status: result.status,
+        error: result.error ?? null,
+        attempts: result.attempts.map((a) => ({
+          iteration: a.iteration,
+          valid: a.valid,
+          accepted: a.accepted,
+          score: a.score,
+          diagnostics: a.diagnostics,
+        })),
+        report: result.report,
+        navigation: { cell },
+      },
+      null,
+      2,
+    ),
+  );
+  console.log(
+    `Status: ${result.status}. Independently verified reference views: ${result.report?.verifiedViews ?? 0}.`,
+  );
 }
-async function readSourceAndResetOutput(args: Args, store: CompanionStore): Promise<string> {
+async function readSourceAndResetOutput(
+  args: Args,
+  store: CompanionStore,
+): Promise<string> {
   try {
-    // Allow an earlier best.level.svgx to serve as the next run's input.
+    // Allow an earlier best.aml to serve as the next run's input.
     const source = args.source ? await readFile(args.source, "utf8") : "";
     await store.capture(source);
     return source;
   } finally {
     // Even a failed input read must not leave previous success artifacts behind.
     await prepareRunOutput(args.out);
-    await writeFile(join(args.out, "run-config.json"), JSON.stringify({
-      navigation: { cell: args.navigationCell ?? 0.125, source: args.navigationCell === undefined ? "default" : "explicit" },
-    }, null, 2));
+    await writeFile(
+      join(args.out, "run-config.json"),
+      JSON.stringify(
+        {
+          navigation: {
+            cell: args.navigationCell ?? 0.125,
+            source: args.navigationCell === undefined ? "default" : "explicit",
+          },
+        },
+        null,
+        2,
+      ),
+    );
   }
 }
 async function execute(args: Args) {
-  const store = createCompanionStore(args.source ? dirname(resolve(args.source)) : process.cwd());
+  const store = createCompanionStore(
+    args.source ? dirname(resolve(args.source)) : process.cwd(),
+  );
   const source = await readSourceAndResetOutput(args, store);
-  const { inputs, evidence, identities } = await loadPhotos(args.images, source, store);
-  await writeFile(join(args.out, "input-photos.json"), JSON.stringify(identities, null, 2));
+  const { inputs, evidence, identities } = await loadPhotos(
+    args.images,
+    source,
+    store,
+  );
+  await writeFile(
+    join(args.out, "input-photos.json"),
+    JSON.stringify(identities, null, 2),
+  );
   const thresholds = await attachAnnotations(args.evidence, evidence);
   const revise = await resolveReviser(args, inputs, store);
   const controller = new AbortController();
@@ -270,10 +507,15 @@ async function execute(args: Args) {
   let result: ReconstructionLoopResult;
   try {
     result = await runReconstruction(source, evidence, revise, {
-      maxRevisions: args.model ? args.revisions : 0, thresholds, resolveAsset: store.resolveAsset,
+      maxRevisions: args.model ? args.revisions : 0,
+      thresholds,
+      resolveAsset: store.resolveAsset,
+      resolveHeightmap: store.resolveHeightmap,
       maxSourceCharacters: args.maxSourceCharacters,
-      navigationCell: args.navigationCell ?? 0.125, signal: controller.signal,
-      onAttempt: attempt => recordAttempt(args.out, attempt, store, args.navigationCell ?? 0.125),
+      navigationCell: args.navigationCell ?? 0.125,
+      signal: controller.signal,
+      onAttempt: (attempt) =>
+        recordAttempt(args.out, attempt, store, args.navigationCell ?? 0.125),
     });
   } finally {
     process.off("SIGINT", cancel);
@@ -284,11 +526,14 @@ async function execute(args: Args) {
 }
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  if (!args) { console.log(usage); return; }
+  if (!args) {
+    console.log(usage);
+    return;
+  }
   await execute(args);
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error(error instanceof Error ? error.message : String(error));
   process.exitCode = 1;
 });

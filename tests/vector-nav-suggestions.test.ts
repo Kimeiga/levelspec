@@ -1,21 +1,17 @@
 import assert from "node:assert/strict";
+import type {CompiledLevel} from "../src/vector/types.ts";
 import { describe, it } from "node:test";
-import { compile, createDocument, parseLevelSvgx, serializeLevelSvgx, bakeNavmesh, type CompiledLevel, type LevelDocument, type V3 } from "../src/vector/index.ts";
+import { compile, createArchitecture, parseAml, serializeAml, bakeNavmesh, type ArchitectureDocument, type V3 } from "levelspec";
 
 /** Adds an axis-aligned source floor with open edges in canonical Z-up meters. */
-function floor(document: LevelDocument, id: string, x: number, width: number, height = width) {
+function floor(document: ArchitectureDocument, id: string, x: number, width: number, height = width) {
   const points: V3[] = [[x, 0, 0], [x + width, 0, 0], [x + width, height, 0], [x, height, 0]];
-  document.layers.push({
-    id: `${id}.layer`,
-    vertices: points.map(([x, y, z], i) => ({ id: `${id}.v${i}`, x, y, z })),
-    edges: points.map((_, i) => ({ id: `${id}.e${i}`, from: `${id}.v${i}`, to: `${id}.v${(i + 1) % 4}`, kind: "open", openings: [] })),
-    regions: [{ id, fill: "floor", boundary: points.map((_, i) => `${id}.e${i}`), holes: [], interior: [], creases: [] }],
-  });
+  document.profiles.push({id:id+':profile',outer:{points},holes:[],interior:[],breaklines:[]});document.elements.push({kind:'slab',id,profile:id+':profile',elevation:0,thickness:.2,group:id+'.layer'});
 }
 
 /** A large main floor and a distant sizable platform, both retaining real navigation. */
 function islands() {
-  const document = createDocument("navigation-suggestions");
+  const document = createArchitecture("navigation-suggestions");
   floor(document, "main", 0, 10);
   floor(document, "platform", 20, 4);
   return document;
@@ -23,19 +19,15 @@ function islands() {
 
 /** Creates a valid source flight that can optionally be entirely headroom-blocked. */
 function flight(fill: "stairs" | "ramp", blocked = false) {
-  const document = createDocument("flight-navigation");
-  const points: V3[] = [[0, 0, 0], [2, 0, 0], [2, 4, 1.2], [0, 4, 1.2]];
-  document.layers = [{
-    id: "flight.layer",
-    vertices: points.map(([x, y, z], i) => ({ id: `v${i}`, x, y, z })),
-    edges: points.map((_, i) => ({ id: `e${i}`, from: `v${i}`, to: `v${(i + 1) % 4}`, kind: "open", openings: [] })),
-    regions: [{ id: "flight", fill, lower: "e0", upper: "e2", boundary: ["e0", "e1", "e2", "e3"], holes: [], interior: [], creases: [], ...(blocked ? { ceiling: 1.5 } : {}) }],
-  }];
+  const document = createArchitecture("flight-navigation");
+  document.paths.push({id:'axis',points:[[1,0,0],[1,4,1.2]],segments:[],closed:false});document.elements.push({kind:fill,id:'flight',path:'axis',width:2,thickness:.2,underside:'filled',...(fill==='stairs'?{maximumRiser:.18}:{}),group:'flight.layer'});
+  if(blocked)ceiling(document,1.5);
   return document;
 }
+function ceiling(document:ArchitectureDocument,height:number){document.profiles.push({id:'ceiling-plan',outer:{points:[[0,0,0],[2,0,0],[2,4,0],[0,4,0]]},holes:[],interior:[],breaklines:[]});document.elements.push({kind:'canopy',id:'ceiling',profile:'ceiling-plan',elevation:height+.2,thickness:.2});}
 
 /** Runs the real compiler and Recast bake without unrelated geometric audits. */
-async function inspect(document: LevelDocument) {
+async function inspect(document: ArchitectureDocument) {
   const level = await compile(document, { floorGaps: false, surfaceContacts: false });
   assert.ok(!level.diagnostics.some((d) => d.severity === "error"), JSON.stringify(level.diagnostics));
   return level;
@@ -57,7 +49,7 @@ describe("navigation review suggestions", () => {
   it("reports a large disconnected platform even when it exceeds the small-area threshold and has a spawn", async () => {
     const document = islands();
     document.markers.push({ id: "platform-start", layer: "platform.layer", region: "platform", position: [22, 2, 0], kind: "spawn" });
-    const level = await inspect(parseLevelSvgx(serializeLevelSvgx(document)));
+    const level = await inspect(parseAml(serializeAml(document)));
     const findings = navSuggestions(level);
     assert.equal(findings.length, 1);
     const suggestion = findings[0];
@@ -73,7 +65,7 @@ describe("navigation review suggestions", () => {
   });
 
   it("suggests reviewing a sub-2-square-meter component even when it is the only network", async () => {
-    const document = createDocument("tiny-network");
+    const document = createArchitecture("tiny-network");
     floor(document, "tiny", 0, 1.5);
     const level = await inspect(document);
     assert.equal(level.navigation!.components, 1, "The fixture must retain actual walkable triangles.");
@@ -108,7 +100,7 @@ describe("navigation review suggestions", () => {
   });
 
   it("preserves connected membership across navigation tiles", async () => {
-    const document = createDocument("tiled-navigation");
+    const document = createArchitecture("tiled-navigation");
     floor(document, "long-corridor", 0, 40, 4);
     floor(document, "detached", 50, 4);
     const level = await inspect(document), nav = level.navigation!;
@@ -133,7 +125,7 @@ describe("navigation review suggestions", () => {
   });
 
   it("uses deterministic component identities and largest-network tie-breaking", async () => {
-    const document = createDocument("equal-networks");
+    const document = createArchitecture("equal-networks");
     floor(document, "one", 0, 5);
     floor(document, "two", 20, 5);
     const first = await inspect(document), second = await inspect(document);
@@ -143,7 +135,7 @@ describe("navigation review suggestions", () => {
   });
 
   it("counts an enabled one-way traversal link as weak connectivity", async () => {
-    const document = createDocument("linked-networks");
+    const document = createArchitecture("linked-networks");
     floor(document, "one", 0, 5);
     floor(document, "two", 10, 5);
     document.player.ladder = true;
@@ -155,7 +147,7 @@ describe("navigation review suggestions", () => {
 
   for (const fill of ["stairs", "ramp"] as const) {
     it(`reports ${fill} with zero walkable coverage, but accepts a navigable isolated flight`, async () => {
-      const blocked = await inspect(parseLevelSvgx(serializeLevelSvgx(flight(fill, true))));
+      const blocked = await inspect(parseAml(serializeAml(flight(fill, true))));
       const missing = navSuggestions(blocked).filter((s) => s.code === "FLIGHT_NAV_MISSING");
       assert.equal(missing.length, 1);
       assert.ok(missing[0].objects.includes("flight"));
@@ -182,7 +174,7 @@ describe("navigation review suggestions", () => {
 
   it("does not classify partially headroom-blocked ramps as entirely missing navigation", async () => {
     const document = flight("ramp");
-    document.layers[0].regions[0].ceiling = 2.5;
+    ceiling(document,2.5);
     const level = await inspect(document);
     const coverage = level.navigation!.coverage.regions.find((row) => row.region === "flight")!;
     assert.ok(coverage.covered > 0 && coverage.uncovered > 0,
@@ -204,12 +196,12 @@ describe("navigation review suggestions", () => {
     const initial = navSuggestions(await inspect(document))[0];
     document.reviewSuppressions = [{ suggestion: initial.id, fingerprint: initial.fingerprint, reason: "Intentional detached lookout" }];
     document.materials.push({ id: "paint", color: "#abcdef", repeat: 1, roughness: 1, metalness: 0 });
-    document.layers[1].regions[0].material = "paint";
-    const suppressed = navSuggestions(await inspect(parseLevelSvgx(serializeLevelSvgx(document))))[0];
+    document.elements[1].material = "paint";
+    const suppressed = navSuggestions(await inspect(parseAml(serializeAml(document))))[0];
     assert.equal(suppressed.state, "suppressed");
     assert.equal(suppressed.fingerprint, initial.fingerprint);
-    document.layers[1].vertices[1].x += 1;
-    document.layers[1].vertices[2].x += 1;
+    document.profiles[1].outer.points![1][0] += 1;
+    document.profiles[1].outer.points![2][0] += 1;
     const changed = navSuggestions(await inspect(document))[0];
     assert.equal(changed.id, initial.id);
     assert.notEqual(changed.fingerprint, initial.fingerprint);

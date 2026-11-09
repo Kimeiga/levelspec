@@ -8,8 +8,10 @@ original revision and are not current acceptance claims.
 
 | Task | Guide |
 | --- | --- |
-| XML syntax, geometry, navigation, premaps and water | [XML authoring](SVGX.md) |
-| Architectural construction helpers, reference workflow and props | [Reference authoring](REFERENCE_AUTHORING.md) |
+| AML syntax, native geometry, migration, and delivery status | [AML authoring](AML.md) |
+| Terrain, grading, playable zones, metadata, and tile limits | [Terrain](TERRAIN.md) |
+| Native architectural authoring, references and visualization assets | [Reference authoring](REFERENCE_AUTHORING.md) |
+| Seeded generation and image tracing | [Producers](PRODUCERS.md) |
 | Formats, textures and optional native exporters | [Exports](EXPORTS.md) |
 | Non-blocking geometry suggestions and review suppressions | [Suggestions](SUGGESTIONS.md) |
 | Orthographic reviewer and browser acceptance setup | [Reviewer](WEBSITE.md) |
@@ -28,7 +30,9 @@ proportional independent structural review; complex projects can add specialists
 
 ## Commands and contracts
 
-Use `npm run --silent levelspec -- --help` for authoritative CLI flags. `init`
+Use `npm run --silent levelspec -- --help` for authoritative CLI flags. `migrate`
+explicitly translates SVGX into a new AML project; normal commands accept AML.
+`init`
 creates XML/projects without overwriting, `validate` writes no artifacts, `build`
 requires `--out`, and `preview` is read-only and long-running. Finite `--json`
 commands return one stdout result with diagnostics/report and available artifact
@@ -47,6 +51,10 @@ prerequisites and unavailable checks must be reported explicitly.
 - [Review records](reviews/): revision-scoped audits, test dispositions and validation.
 - [Phase-three validation](reviews/phase-three-validation.md) records its run, not a promise about later edits.
 
-The [final harness review](reviews/final-harness-review.md) records current findings,
-corrections, validation and limitations. Plans do not supersede the commands and
-contracts in the current guides.
+The [final harness review](reviews/final-harness-review.md) is revision-scoped
+historical evidence. The [AML phase 5 record](reviews/aml-phase5.md) describes
+the current cutover checks and limitations. Plans do not supersede the commands
+and contracts in the current guides.
+
+The [AML phase 6 acceptance record](reviews/aml-phase6.md) covers the Dust II local
+viewer default and consolidated compiler/reviewer verification.

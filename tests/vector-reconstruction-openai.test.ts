@@ -6,8 +6,8 @@ import { fileURLToPath } from "node:url";
 import { createOpenAIReviser } from "../tools/reconstruct-openai.ts";
 
 describe("reconstruction model adapter", () => {
-  it("sends the source photograph to a compatible Responses API and accepts structured SVGX", async () => {
-    const svgx = "<level version=\"2\" id=\"test\"></level>";
+  it("sends the source photograph to a compatible Responses API and accepts structured AML", async () => {
+    const aml = "<architecture version=\"1\" id=\"test\"></architecture>";
     let request: Record<string, any> | undefined;
     const server = createServer(async (incoming, response) => {
       const chunks: Buffer[] = [];
@@ -18,7 +18,7 @@ describe("reconstruction model adapter", () => {
         status: "completed",
         output: [{ type: "message", content: [{
           type: "output_text",
-          text: JSON.stringify({ svgx, rationale: "Synthetic test candidate." }),
+          text: JSON.stringify({ aml, rationale: "Synthetic test candidate." }),
         }] }],
       }));
     });
@@ -35,7 +35,7 @@ describe("reconstruction model adapter", () => {
       const source = await revise({
         iteration: 0, previousSource: "", lastAttempt: null, attempts: [],
       });
-      assert.equal(source, svgx);
+      assert.equal(source, aml);
       assert.equal(request?.model, "synthetic-vision-test");
       assert.equal(request?.store, false);
       const input = request?.input?.[0]?.content ?? [];
@@ -71,7 +71,7 @@ async function withServer(replies: Reply[], run: (url: string, count: () => numb
 }
 const okReply: Reply = { status: 200, body: JSON.stringify({ status: "completed", output: [{
   type: "message", content: [{ type: "output_text",
-    text: JSON.stringify({ svgx: "<level/>", rationale: "retry test" }) }] }] }) };
+    text: JSON.stringify({ aml: "<architecture/>", rationale: "retry test" }) }] }] }) };
 const photos = [{ referenceId: "front", filename: "front.png", width: 8, height: 6,
   dataUrl: "data:image/png;base64,dGVzdA==" }];
 const request = { iteration: 0, previousSource: "", lastAttempt: null, attempts: [] };
@@ -83,7 +83,7 @@ describe("reconstruction model adapter failures", () => {
     async (apiUrl, count) => {
       const revise = await createOpenAIReviser({ model: "m", apiKey: "k", apiUrl, photos,
         retryDelayMs: 1 });
-      assert.equal(await revise(request), "<level/>");
+      assert.equal(await revise(request), "<architecture/>");
       assert.equal(count(), 3);
     });
   });
@@ -107,7 +107,7 @@ describe("reconstruction model adapter failures", () => {
   it("reports truncated structured output instead of a JSON parse crash", async () => {
     const truncated: Reply = { status: 200, body: JSON.stringify({ status: "incomplete",
       incomplete_details: { reason: "max_output_tokens" },
-      output: [{ type: "message", content: [{ type: "output_text", text: "{\"svgx\": \"<lev" }] }] }) };
+      output: [{ type: "message", content: [{ type: "output_text", text: "{\"aml\": \"<arch" }] }] }) };
     await withServer([truncated], async apiUrl => {
       const revise = await createOpenAIReviser({ model: "m", apiKey: "k", apiUrl, photos });
       await assert.rejects(revise(request), /incomplete.*max_output_tokens/);

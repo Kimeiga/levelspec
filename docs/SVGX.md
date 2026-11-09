@@ -1,3 +1,14 @@
+> Historical SVGX authoring reference. New sources use [AML](AML.md).
+> Use the explicit migration command for retained SVGX; normal authoring APIs are retired.
+
+# Legacy SVGX vocabulary
+
+Normal CLI/reviewer authoring now uses [AML](AML.md). This document describes the
+explicit migration input and retained historical fixtures. Use `levelspec migrate`
+to create a new AML project; do not change frozen reconstruction evidence.
+
+The commands and public API descriptions below describe the former format.
+
 # XML LevelSpec authoring
 
 The XML compiler is available through `levelspec` and `levelspec/vector`. Its

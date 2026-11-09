@@ -4,16 +4,17 @@ import { mkdtemp, readFile, writeFile, rename, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import assert from "node:assert/strict";
+import { Matrix4, Vector3 } from "three";
 import { startPreview } from "../src/cli/preview.ts";
 const directory=await mkdtemp(join(tmpdir(),"levelspec-preview-"));
-const file=join(directory,"level.level.svgx");
-let original=await readFile(new URL("../examples/showcase.level.svgx",import.meta.url),"utf8");
-const {SceneBuilder,compile,toGLB}=await import("../src/vector/index.ts");
-const fixture=new SceneBuilder("crate-asset");
-fixture.group("mesh").box("crate",{position:[0,0,0],size:[1,1,1],material:"default",collision:"none"});
+const file=join(directory,"level.aml");
+let original=await readFile(new URL("../examples/showcase.aml",import.meta.url),"utf8");
+const {ArchitectureBuilder,compile,toGLB,serializeAml}=await import("levelspec");
+const fixture=new ArchitectureBuilder("crate-asset");
+fixture.box("crate",{position:[0,0,0],width:1,depth:1,height:1,material:"default",collidable:false});
 await writeFile(join(directory,"crate.glb"),toGLB(await compile(fixture.document,{navigation:false})));
-original=original.replace("</level>",'<asset id="crate-mesh" src="crate.glb"/><prop id="preview-crate" layer="ground" shape="asset" asset="crate-mesh" position="2 2 0" rotation="0 0 0" scale="1 1 1" collision="none"/></level>');
-await writeFile(file,original);
+original=original.replace("</architecture>",'<visual-mesh id="preview-crate" src="crate.glb" position="2 2 0"/></architecture>');
+await writeFile(file, original);
 let server, browser;
 try {
 browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_PATH || (process.platform==="darwin"?"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome":undefined)});
@@ -26,6 +27,18 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   const viewState=()=>page.locator('#model').getAttribute('data-view').then(JSON.parse);
   const viewMatrix=target=>target.locator('#model').getAttribute('data-view-matrix').then(text=>text.split(',').map(Number));
   const closeVector=(actual,expected)=>{assert.equal(actual.length,expected.length);actual.forEach((value,i)=>assert.ok(Math.abs(value-expected[i])<1e-6,`${actual} differs from ${expected}`));};
+  /** Samples the delivered pivot and verifies it remains centered without moving the starting view. */
+  async function centeredPivot(target, before) {
+    await target.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    const state=JSON.parse(await target.locator('#model').getAttribute('data-view'));
+    closeVector(state.position,before.position);
+    closeVector([state.roll],[before.roll]);
+    const view=new Matrix4().fromArray(await viewMatrix(target));
+    const projection=new Matrix4().fromArray((await target.locator('#model').getAttribute('data-projection-matrix')).split(',').map(Number));
+    const projected=new Vector3(...state.target).applyMatrix4(view).applyMatrix4(projection);
+    closeVector([projected.x,projected.y],[0,0]);
+    return state;
+  }
   assert.equal(await page.locator("#appearance").inputValue(),"inspection");
   const initialView=await viewState();
   assert.equal(initialView.appearance,"inspection");
@@ -44,7 +57,7 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   closeVector(await viewMatrix(page),initialMatrix);
   assert.equal(ortho.viewHeight,14);
   assert.equal(JSON.parse('['+await page.locator('#model').getAttribute('data-projection-matrix')+']')[15],1,'Orthographic must use a parallel projection matrix');
-  await page.locator('#camera-controls > summary').click();
+  if(await page.locator('#camera-controls').getAttribute('open')===null)await page.locator('#camera-controls > summary').click();
   await page.locator('#camera-target').fill(ortho.position.join(' '));
   await page.locator('#camera-form button').click();
   assert.match(await page.locator('#camera-error').textContent(),/distinct/);
@@ -73,7 +86,7 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   const invalidAppearance=new URL(server.url);invalidAppearance.searchParams.set('appearance','unlit');
   await replay.goto(invalidAppearance.href);await replay.waitForFunction(()=>document.querySelector('#status')?.dataset.state==='ready');
   assert.match(await replay.locator('#camera-error').textContent(),/appearance must be/);
-  assert.equal(await replay.locator('#appearance').inputValue(),'illustrated');
+  assert.equal(await replay.locator('#appearance').inputValue(),'flat');
   assert.equal(JSON.parse(await replay.locator('#model').getAttribute('data-view')).projection,'orthographic','Invalid initial options reject atomically and retain usable defaults');
   await page.locator('#appearance').selectOption('inspection');
 
@@ -87,6 +100,37 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   assert.equal(JSON.parse(await replay.locator('#model').getAttribute('data-view')).viewHeight,14);
   closeVector([JSON.parse(await replay.locator('#model').getAttribute('data-view')).roll],[31]);
   await replay.locator('#camera-controls > summary').click();
+  await replay.locator('#camera-position').fill('8 -12 7');
+  await replay.locator('#camera-target').fill('4 -6 3.5');
+  await replay.locator('#camera-roll').fill('0');
+  await replay.locator('#camera-form button').click();
+  await replay.waitForFunction(()=>Math.abs(JSON.parse(document.querySelector('#model').dataset.view).position[2]-7)<1e-6);
+  const beforeOrbit=JSON.parse(await replay.locator('#model').getAttribute('data-view'));
+  const orbitBox=await replay.locator('#model canvas').boundingBox();
+  const orbitX=orbitBox.x+orbitBox.width*.5,orbitY=orbitBox.y+orbitBox.height*.5;
+  const beforeVerticalMatrix=await viewMatrix(replay);
+  await replay.mouse.move(orbitX,orbitY);await replay.mouse.down();
+  const verticalPivot=await centeredPivot(replay,beforeOrbit);
+  closeVector(await viewMatrix(replay),beforeVerticalMatrix);
+  assert.ok(Math.hypot(...verticalPivot.target.map((v,i)=>v-beforeOrbit.target[i]))>.1,
+    'Orbit anchors to model depth instead of retaining an arbitrary camera aim distance');
+  await replay.mouse.move(orbitX,orbitY+orbitBox.height*.1,{steps:8});await replay.mouse.up();
+  await replay.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  const afterVertical=JSON.parse(await replay.locator('#model').getAttribute('data-view'));
+  closeVector(afterVertical.position,beforeOrbit.position);
+  closeVector(afterVertical.target,verticalPivot.target);
+  closeVector([afterVertical.roll],[beforeOrbit.roll]);
+  await replay.mouse.move(orbitX,orbitY);await replay.mouse.down();
+  const horizontalPivot=await centeredPivot(replay,afterVertical);
+  await replay.mouse.move(orbitX+orbitBox.width*.1,orbitY+orbitBox.height*.07,{steps:8});await replay.mouse.up();
+  await replay.waitForFunction(before=>JSON.parse(document.querySelector('#model').dataset.view).position[0]!==before,beforeOrbit.position[0]);
+  const afterHorizontal=JSON.parse(await replay.locator('#model').getAttribute('data-view'));
+  closeVector([afterHorizontal.position[2]],[beforeOrbit.position[2]]);
+  closeVector(afterHorizontal.target,horizontalPivot.target);
+  closeVector([Math.hypot(...afterHorizontal.position.map((v,i)=>v-afterHorizontal.target[i]))],
+    [Math.hypot(...horizontalPivot.position.map((v,i)=>v-horizontalPivot.target[i]))]);
+  closeVector([afterHorizontal.roll],[beforeOrbit.roll]);
+  assert.ok(Math.hypot(afterHorizontal.position[0]-beforeOrbit.position[0],afterHorizontal.position[1]-beforeOrbit.position[1])>.1,'Dragging still rotates horizontally');
   await replay.locator('#camera-position').fill('0 -10 0');
   await replay.locator('#camera-target').fill('0 0 0');
   await replay.locator('#camera-roll').fill('90');
@@ -96,12 +140,24 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   closeVector([cardinal[0],cardinal[4],cardinal[8]],[0,0,-1]);
   closeVector([cardinal[1],cardinal[5],cardinal[9]],[1,0,0]);
   closeVector([cardinal[2],cardinal[6],cardinal[10]],[0,-1,0]);
+  await replay.locator('#camera-position').fill('8 -12 7');
+  await replay.locator('#camera-roll').fill('37');
+  await replay.locator('#camera-form button').click();
+  await replay.waitForFunction(()=>Math.abs(JSON.parse(document.querySelector('#model').dataset.view).roll-37)<1e-6);
+  const beforeRolledOrbit=JSON.parse(await replay.locator('#model').getAttribute('data-view'));
+  const beforeRolledMatrix=await viewMatrix(replay);
   const canvasBox=await replay.locator('#model canvas').boundingBox();
   await replay.mouse.move(canvasBox.x+canvasBox.width*.5,canvasBox.y+canvasBox.height*.5);
   await replay.mouse.down();
+  const rolledPivot=await centeredPivot(replay,beforeRolledOrbit);
+  closeVector(await viewMatrix(replay),beforeRolledMatrix);
   await replay.mouse.move(canvasBox.x+canvasBox.width*.6,canvasBox.y+canvasBox.height*.57,{steps:8});
   await replay.mouse.up();
-  await replay.waitForFunction(before=>document.querySelector('#model').dataset.viewMatrix!==before,cardinal.join(','));
+  await replay.waitForFunction(before=>document.querySelector('#model').dataset.viewMatrix!==before,beforeRolledMatrix.join(','));
+  const rolledOrbit=JSON.parse(await replay.locator('#model').getAttribute('data-view'));
+  closeVector([rolledOrbit.position[2]],[beforeRolledOrbit.position[2]]);
+  closeVector([rolledOrbit.roll],[beforeRolledOrbit.roll]);
+  closeVector(rolledOrbit.target,rolledPivot.target);
   const orbited=await viewMatrix(replay);
   const orbitReplay=await browser.newPage();
   await orbitReplay.goto(await replay.locator('#view-link').getAttribute('href'));
@@ -113,19 +169,19 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   closeVector(await viewMatrix(replay),orbited);
   await replay.close();
 
-  await page.locator('#camera-controls > summary').click();
+  if(await page.locator('#camera-controls').getAttribute('open')===null)await page.locator('#camera-controls > summary').click();
   const beforeCamera=await page.locator('#model').getAttribute('data-camera');
   await page.locator('[data-preset="top"]').click();
   await page.waitForFunction(before=>document.querySelector('#model')?.getAttribute('data-camera')!==before,beforeCamera);
   closeVector([(await viewState()).roll],[0]);
-  await page.locator('#camera-controls > summary').click();
+  if(await page.locator('#camera-controls').getAttribute('open')===null)await page.locator('#camera-controls > summary').click();
   await page.locator('#camera-roll').fill('37');
   await page.locator('#camera-form button').click();
   await page.waitForFunction(()=>Math.abs(JSON.parse(document.querySelector('#model').dataset.view).roll-37)<1e-6);
   const camera=await page.locator('#model').getAttribute('data-camera');
   const beforeEditMatrix=await viewMatrix(page);
   const revisionFrame=Number(await page.locator('#model').getAttribute('data-frames'));
-  await writeFile(file,original.replace('Elevation laboratory','Edited corridor'));
+  await writeFile(file, original.replace('Elevation laboratory','Edited corridor'));
   await page.waitForFunction(()=>document.querySelector('#title')?.textContent==='Edited corridor');
   await ready();await page.waitForFunction(before=>Number(document.querySelector('#model')?.dataset.frames)>before,revisionFrame);assert.equal(await page.locator('#model').getAttribute('data-camera'),camera);
   closeVector(await viewMatrix(page),beforeEditMatrix);
@@ -142,16 +198,20 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   closeVector([(await viewState()).roll],[37]);
   const walkingFrame=Number(await page.locator('#model').getAttribute('data-frames'));
   await page.keyboard.press('Escape');
-  await page.waitForFunction(before=>document.querySelector('#model').dataset.mode!=='walk'&&Number(document.querySelector('#model').dataset.frames)>before,walkingFrame);
+  // Walking frames can advance before Escape; wait for the rendered camera transition.
+  await page.waitForFunction(({frame,matrix})=>{
+    const model=document.querySelector('#model');
+    return model.dataset.mode!=='walk'&&Number(model.dataset.frames)>frame&&model.dataset.viewMatrix!==matrix;
+  },{frame:walkingFrame,matrix:walkingMatrix.join(',')});
   closeVector(await viewMatrix(page),beforeEditMatrix);
-  await writeFile(file,'<level broken');
+  await writeFile(file,'<architecture broken');
   await page.waitForFunction(()=>document.querySelector('#status')?.dataset.state==='error');
   assert.equal(await page.locator('#model').getAttribute('data-stale'),'true');
   assert.equal((await viewState()).frameAspectLock,0.75);
   const replacement=join(directory,'replacement.xml');await writeFile(replacement,original.replace('Elevation laboratory','Atomic recovery'));await rename(replacement,file);
   await page.waitForFunction(()=>document.querySelector('#title')?.textContent==='Atomic recovery');await ready();
-  await writeFile(file,original.replace('Elevation laboratory','Older revision'));
-  await writeFile(file,original.replace('Elevation laboratory','Newest revision'));
+  await writeFile(file, original.replace('Elevation laboratory','Older revision'));
+  await writeFile(file, original.replace('Elevation laboratory','Newest revision'));
   await page.waitForFunction(()=>document.querySelector('#title')?.textContent==='Newest revision');await ready();
   const asset=await readFile(join(directory,'crate.glb'));
   await rm(join(directory,'crate.glb'));
@@ -167,7 +227,7 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
     const response = await route.fetch();
     releaseResponse({ route, response });
   }, { times: 1 });
-  await writeFile(file,original.replace('Elevation laboratory','Disconnected revision'));
+  await writeFile(file, original.replace('Elevation laboratory','Disconnected revision'));
   const pending = await held;
   const disconnectedUrl = server.url;
   await server.close();
@@ -187,10 +247,11 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   await page.goto(server.url);
   await ready();
   assert.equal(await page.locator('#title').textContent(),'Disconnected revision');
-  const dimensionFixture=new SceneBuilder('dimension-fixture');
-  dimensionFixture.group('floor').platform('measured',{width:4,depth:3,thickness:0.2,material:'default'});
+  const dimensionFixture=new ArchitectureBuilder('dimension-fixture');
+  dimensionFixture.profile('plan',[[0,0,0],[4,0,0],[4,3,0],[0,3,0]]);
+  dimensionFixture.slab('floor/measured','plan',{thickness:.2});
   dimensionFixture.document.markers.push({id:'spawn',layer:'architecture',region:'floor/measured',kind:'attacker_spawn',position:[1,1,0]});
-  await writeFile(file,(await import('../src/vector/index.ts')).serializeLevelSvgx(dimensionFixture.document));
+  await writeFile(file,serializeAml(dimensionFixture.document));
   await page.waitForFunction(()=>document.querySelector('#title')?.textContent==='dimension-fixture');await ready();
   assert.equal(await page.locator('#viewport-dimensions').textContent(),'Layout bounds XYZ / 4.00 × 3.00 × 0.20 m');
   const dimensionBox=await page.locator('#viewport-dimensions').boundingBox(),viewportBox=await page.locator('.viewport').boundingBox();

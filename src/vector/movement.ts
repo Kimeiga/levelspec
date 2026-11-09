@@ -1,3 +1,4 @@
+import { restrictNavigationAreas } from "./navigation-areas.ts";
 /** Build movement-specific geometry without changing the rendered solids. */
 import { DEFAULT_BOAT, type CompiledLevel, type Diagnostic, type FloorPatch, type MeshData, type NavigationOptions, type V3 } from "./types.ts";
 import { ClipContext, polygonArea as area, counterclockwise as ccw, ClippingError } from "./clipping.ts";
@@ -198,18 +199,19 @@ function emitWaterTriangles(mesh: MeshData, level: CompiledLevel, floors: FloorP
 }
 function buildMovementMesh(level: CompiledLevel, movement: "land"|"water", floors: FloorPatch[], regions: Map<string, CompiledLevel["document"]["layers"][number]["regions"][number]>, waterIndex: Index, context: ClipContext) {
   const mesh:MeshData={positions:[],indices:[],normals:[],uv:[],surfaces:[]};
-  for(let t=0;t<level.mesh.surfaces.length;t++) {
-    const si=level.mesh.surfaces[t],surface=level.surfaces[si];
+  const physical = level.physicalMesh ?? level.mesh;
+  for(let t=0;t<physical.surfaces.length;t++) {
+    const si=physical.surfaces[t],surface=level.surfaces[si];
     if(surface.kind==="water" || surface.collidable===false)continue;
     context.begin(surface.object,regions.get(surface.object)?.source);
-    const poly=level.mesh.indices.slice(t*3,t*3+3).map(i=>level.mesh.positions.slice(i*3,i*3+3) as V3);
+    const poly=physical.indices.slice(t*3,t*3+3).map(i=>physical.positions.slice(i*3,i*3+3) as V3);
     emitSolidTriangle(mesh,poly,si,movement,waterIndex,context);
   }
   if(movement==="water")emitWaterTriangles(mesh,level,floors,regions,context);
   return mesh;
 }
 
-export function movementLevel(level: CompiledLevel, options: NavigationOptions): CompiledLevel & { movementDiagnostics?: Diagnostic[] } {
+function movementGeometry(level: CompiledLevel, options: NavigationOptions): CompiledLevel & { movementDiagnostics?: Diagnostic[] } {
   const context = new ClipContext(options);
   const movement = options.movement ?? "land", boat = level.document.boat ?? DEFAULT_BOAT;
   const document = { ...level.document,
@@ -228,7 +230,7 @@ export function movementLevel(level: CompiledLevel, options: NavigationOptions):
   const mesh=buildMovementMesh(level,movement,floors,regions,waterIndex,context);
   // Boat navigation rasterizes water as support; keep this flag local to its temporary geometry.
   const surfaces=movement === "water" ? level.surfaces.map(s=>s.kind === "water" ? {...s,collidable:true} : s) : level.surfaces;
-  return { ...level, document, floors, mesh, surfaces, navigation: movement === "water" ? level.waterNavigation : level.navigation,
+  return { ...level, document, floors, mesh, physicalMesh: undefined, terrainTiles:undefined, surfaces, navigation: movement === "water" ? level.waterNavigation : level.navigation,
     repairs: [...(level.repairs ?? []).filter(r => r.movement !== movement), ...context.repairs],
     movementDiagnostics: [
       ...unknownRegions.map(({region,area}):Diagnostic=>({severity:"error",code:"WATER_DEPTH_UNKNOWN",message:`Excluded ${area.toPrecision(4)} m² of water without supporting seabed geometry; boat depth is unknown there.`,objects:[region],source:regions.get(region)?.source})),
@@ -236,4 +238,9 @@ export function movementLevel(level: CompiledLevel, options: NavigationOptions):
     ],
     semantic: { nodes: [...new Set(floors.map(f => f.area ?? f.region))], edges: level.semantic.edges },
   };
+}
+
+/** Applies explicitly authored navigation domains after medium-specific physical clipping. */
+export function movementLevel(level: CompiledLevel, options: NavigationOptions): CompiledLevel & { movementDiagnostics?: Diagnostic[] } {
+  return restrictNavigationAreas(movementGeometry(level,options),options);
 }

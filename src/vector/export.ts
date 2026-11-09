@@ -1,6 +1,6 @@
 import { collisionMesh, selectMesh } from "./collision.ts";
 import type { CompiledLevel, V3 } from "./types.ts";
-import { escapeXML } from "./format.ts";
+import { escapeXML } from "./xml.ts";
 import {
   assertExportable,
   exportName,
@@ -11,18 +11,24 @@ import {
 /** Generated transport, not an authoring format. */
 export function toRuntime(level: CompiledLevel) {
   return {
-    version: "2",
+    version: "4",
+    ...(level.provenance
+      ? {
+          architecturalProvenance: level.provenance,
+          sourceProfiles: level.sourceProfiles,
+        }
+      : {}),
     id: level.document.id,
     name: level.document.name,
     coordinateSystem: "right-handed Z-up",
     geometryHash: level.geometryHash,
     mesh: level.mesh,
+    ...(level.physicalMesh ? { collision: collisionMesh(level, true) } : {}),
     meshes: level.parts,
     surfaces: level.surfaces,
     materials: level.document.materials,
     layers: level.document.layers.map((l) => ({ id: l.id, label: l.label })),
     markers: level.document.markers,
-    props: level.document.props,
     assets: level.document.assets,
     references: level.document.references,
     lights: level.document.lights,
@@ -33,6 +39,9 @@ export function toRuntime(level: CompiledLevel) {
     validation: level.document.validation ?? "playable",
     repairs: level.repairs ?? [],
     water: level.water,
+    terrainTiles: level.terrainTiles,
+    ...(level.terrainTiles?.length ? { physicalMesh: level.physicalMesh } : {}),
+    spatialVolumes: level.spatialVolumes,
     boat: level.document.boat,
     diagnostics: level.diagnostics,
     stats: level.stats,
@@ -77,23 +86,41 @@ function stairPlanPaths(level: CompiledLevel, floors: CompiledLevel["floors"]) {
     ),
   );
   for (const floor of floors.filter((f) => stairIds.has(f.region))) {
-    const edges = new Map<string, { a: V3; b: V3; low: number; high: number }>();
-    const xy = (p: V3) => p.slice(0, 2).map((n) => Math.round(n * 1e6)).join(",");
+    const edges = new Map<
+      string,
+      { a: V3; b: V3; low: number; high: number }
+    >();
+    const xy = (p: V3) =>
+      p
+        .slice(0, 2)
+        .map((n) => Math.round(n * 1e6))
+        .join(",");
     for (const tri of floor.triangles)
       for (let i = 0; i < 3; i++) {
-        const a = floor.points[tri[i]], b = floor.points[tri[(i + 1) % 3]];
+        const a = floor.points[tri[i]],
+          b = floor.points[tri[(i + 1) % 3]];
         if (Math.abs(a[2] - b[2]) > 1e-5) continue;
-        const key = [xy(a), xy(b)].sort().join("/"), previous = edges.get(key);
-        edges.set(key, { a, b, low: Math.min(a[2], previous?.low ?? a[2]), high: Math.max(a[2], previous?.high ?? a[2]) });
+        const key = [xy(a), xy(b)].sort().join("/"),
+          previous = edges.get(key);
+        edges.set(key, {
+          a,
+          b,
+          low: Math.min(a[2], previous?.low ?? a[2]),
+          high: Math.max(a[2], previous?.high ?? a[2]),
+        });
       }
     const risers = [...edges.values()].filter((e) => e.high - e.low > 1e-4);
     if (risers.length)
-      body.push(`<path class="stair-treads" data-object="${escapeXML(floor.region)}" data-layer="${escapeXML(floor.layer)}" d="${risers.map(({ a, b }) => `M ${a[0]} ${-a[1]} L ${b[0]} ${-b[1]}`).join(" ")}" fill="none" stroke="#526d80" stroke-width="0.06" pointer-events="none"/>`);
+      body.push(
+        `<path class="stair-treads" data-object="${escapeXML(floor.region)}" data-layer="${escapeXML(floor.layer)}" d="${risers.map(({ a, b }) => `M ${a[0]} ${-a[1]} L ${b[0]} ${-b[1]}`).join(" ")}" fill="none" stroke="#526d80" stroke-width="0.06" pointer-events="none"/>`,
+      );
   }
   return body;
 }
 export function toSVGPlan(level: CompiledLevel, layer?: string): string {
-  const floors = [...level.floors, ...(level.water ?? [])].filter((f) => !layer || f.layer === layer),
+  const floors = [...level.floors, ...(level.water ?? [])].filter(
+      (f) => !layer || f.layer === layer,
+    ),
     points = floors.flatMap((f) => f.points),
     xs = points.map((p) => p[0]),
     ys = points.map((p) => p[1]),
@@ -103,20 +130,24 @@ export function toSVGPlan(level: CompiledLevel, layer?: string): string {
     maxY = Math.max(1, ...ys) + 1;
   const loop = (p: V3[]) =>
     `M ${p.map((v) => `${v[0]} ${-v[1]}`).join(" L ")} Z`;
-  const waterIds = new Set((level.water ?? []).map(f => f.region));
+  const waterIds = new Set((level.water ?? []).map((f) => f.region));
   const body = floors.map(
     (f, i) =>
-      `<path data-object="${escapeXML(f.region)}" data-layer="${escapeXML(f.layer)}" d="${f.loops.map(loop).join(" ")}" fill="${waterIds.has(f.region) ? '#398cc9' : `hsl(${205 + ((i * 19) % 85)} 28% 79%)`}" fill-rule="evenodd" stroke="#829cae" stroke-width="0.04"><title>${escapeXML(f.region)}</title></path>`,
+      `<path data-object="${escapeXML(f.region)}" data-layer="${escapeXML(f.layer)}" d="${f.loops.map(loop).join(" ")}" fill="${waterIds.has(f.region) ? "#398cc9" : `hsl(${205 + ((i * 19) % 85)} 28% 79%)`}" fill-rule="evenodd" stroke="#829cae" stroke-width="0.04"><title>${escapeXML(f.region)}</title></path>`,
   );
-  body.push(...stairPlanPaths(level,floors));
-  const retainingEdges = new Set(level.document.seams.flatMap(s => s.edges));
+  body.push(...stairPlanPaths(level, floors));
+  const retainingEdges = new Set(
+    level.surfaces
+      .filter((surface) => surface.role === "retaining-wall")
+      .map((surface) => surface.object),
+  );
   for (const l of level.document.layers.filter((l) => !layer || l.id === layer))
     for (const e of l.edges) {
       const p = level.curves[e.id];
       if (!p) continue;
       const retaining = retainingEdges.has(e.id);
       body.push(
-        `<polyline data-object="${escapeXML(e.id)}" data-layer="${escapeXML(l.id)}" points="${p.map((v) => `${v[0]},${-v[1]}`).join(" ")}" fill="none" stroke="${retaining ? '#776451' : e.kind === "open" ? "#79adba" : e.kind === "door" ? "#bc690d" : "#233749"}" stroke-linejoin="${e.join ?? "miter"}" stroke-linecap="${e.join === "round" ? "round" : "butt"}" stroke-width="${e.kind === "open" && !retaining ? 0.045 : (e.thickness ?? level.document.wallThickness)}"${e.kind === "open" && !retaining ? ' stroke-dasharray=".2 .2"' : ""}/>`,
+        `<polyline data-object="${escapeXML(e.id)}" data-layer="${escapeXML(l.id)}" points="${p.map((v) => `${v[0]},${-v[1]}`).join(" ")}" fill="none" stroke="${retaining ? "#776451" : e.kind === "open" ? "#79adba" : e.kind === "door" ? "#bc690d" : "#233749"}" stroke-linejoin="${e.join ?? "miter"}" stroke-linecap="${e.join === "round" ? "round" : "butt"}" stroke-width="${e.kind === "open" && !retaining ? 0.045 : (e.thickness ?? level.document.wallThickness)}"${e.kind === "open" && !retaining ? ' stroke-dasharray=".2 .2"' : ""}/>`,
       );
     }
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${minX} ${-maxY} ${maxX - minX} ${maxY - minY}" role="img" aria-label="Floor plan"><g>${body.join("")}</g></svg>`;
@@ -199,13 +230,14 @@ function buildGLTF(
   const groups = new Map<string, number[]>();
   for (let t = 0; t < m.surfaces.length; t++) {
     const s = level.surfaces[m.surfaces[t]];
-    if (purpose === "collision" ? s.collidable === false : s.visible === false) continue;
+    if (purpose === "collision" ? s.collidable === false : s.visible === false)
+      continue;
     const key = JSON.stringify([
-        s.mesh,
-        s.object,
-        s.material,
-        m.atlasPages?.[t] ?? -1,
-      ]);
+      s.mesh,
+      s.object,
+      s.material,
+      m.atlasPages?.[t] ?? -1,
+    ]);
     const triangles = groups.get(key) ?? [];
     triangles.push(t);
     groups.set(key, triangles);
@@ -354,12 +386,9 @@ function buildGLTF(
     bufferViews: views,
     accessors,
     extras: {
-      levelspec: exportMetadata(
-        level,
-        [embedded ? "glb" : "gltf"],
-        purpose,
-        [...new Set(m.surfaces)],
-      ),
+      levelspec: exportMetadata(level, [embedded ? "glb" : "gltf"], purpose, [
+        ...new Set(m.surfaces),
+      ]),
     },
   };
   const binary = new Uint8Array(byteLength);

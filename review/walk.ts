@@ -1,5 +1,4 @@
-import { Ray, Triangle, Vector3 } from "three";
-import { collisionMesh } from "../src/vector/collision.ts";
+import { physicalWalk, supportWindow } from "./physical-walk.ts";
 import type { CompiledLevel, V3 } from "../src/vector/types.ts";
 import { NavigationSurface } from "../website/navigation.ts";
 
@@ -41,63 +40,22 @@ export function walkURL(base: string, pose: WalkPose): string {
   return url.href;
 }
 
-/** Returns distance between finite segments, including parallel and degenerate endpoints. */
-function segmentDistance(p: Vector3, q: Vector3, a: Vector3, b: Vector3): number {
-  const d = q.clone().sub(p), e = b.clone().sub(a), r = p.clone().sub(a);
-  const dd = d.dot(d), ee = e.dot(e), er = e.dot(r), dr = d.dot(r), de = d.dot(e);
-  let s = 0, t = 0;
-  if (dd <= 1e-16 && ee <= 1e-16) return p.distanceTo(a);
-  if (dd <= 1e-16) t = Math.max(0, Math.min(1, er / ee));
-  else if (ee <= 1e-16) s = Math.max(0, Math.min(1, -dr / dd));
-  else {
-    const denominator = dd * ee - de * de;
-    s = denominator ? Math.max(0, Math.min(1, (de * er - dr * ee) / denominator)) : 0;
-    t = (de * s + er) / ee;
-    if (t < 0) { t = 0; s = Math.max(0, Math.min(1, -dr / dd)); }
-    else if (t > 1) { t = 1; s = Math.max(0, Math.min(1, (de - dr) / dd)); }
-  }
-  return p.clone().addScaledVector(d, s).distanceTo(a.clone().addScaledVector(e, t));
-}
-
-/** Measures the capsule center segment against actual collision triangles, with tangency allowed. */
-function bodyBlocked(level: CompiledLevel, feet: V3, height: number, radius: number): boolean {
-  const a = new Vector3(feet[0], feet[1], feet[2] + radius);
-  const b = new Vector3(feet[0], feet[1], feet[2] + height - radius);
-  const ray = new Ray(a, new Vector3(0, 0, 1)), mesh = collisionMesh(level);
-  const interiorRay = new Ray(a.clone().add(b).multiplyScalar(0.5), new Vector3(1, .173, .319).normalize());
-  const crossings = new Map<string, number[]>();
-  for (let i = 0; i < mesh.indices.length; i += 3) {
-    const triangle = new Triangle(...mesh.indices.slice(i, i + 3).map(index => new Vector3(...mesh.positions.slice(index * 3, index * 3 + 3))) as [Vector3, Vector3, Vector3]);
-    const crossing = interiorRay.intersectTriangle(triangle.a, triangle.b, triangle.c, false, new Vector3());
-    if (crossing) {
-      const distance = crossing.distanceTo(interiorRay.origin);
-      const shell = level.surfaces[mesh.surfaces[i / 3]].mesh;
-      const hits = crossings.get(shell) ?? [];
-      if (distance > 1e-8 && !hits.some(hit => Math.abs(hit - distance) < 1e-6)) hits.push(distance);
-      crossings.set(shell, hits);
-    }
-    const hit = ray.intersectTriangle(triangle.a, triangle.b, triangle.c, false, new Vector3());
-    if (hit && hit.z <= b.z + 1e-9) return true;
-    const distance = Math.min(a.distanceTo(triangle.closestPointToPoint(a, new Vector3())), b.distanceTo(triangle.closestPointToPoint(b, new Vector3())), segmentDistance(a, b, triangle.a, triangle.b), segmentDistance(a, b, triangle.b, triangle.c), segmentDistance(a, b, triangle.c, triangle.a));
-    if (distance < radius - 1e-5) return true;
-  }
-  return [...crossings.values()].some(hits => hits.length % 2 === 1);
-}
-
 /**
  * Prepares a read-only constrained walk on any existing land navigation component.
- * Feet within .10m resolve to its actual elevation; other unsupported starts fail.
- * Actual standing-capsule placement is checked, but subsequent motion retains the
- * existing eroded-navigation walker, not a new physics or reachability proof.
+ * Requested feet must be within .10m of real capsule support. Navigation heights
+ * may be smoothed across steps; physical support and standing clearance are checked
+ * at each bounded movement substep. This is inspection movement, not gameplay proof.
  */
 export function prepareInspectionWalk(level: CompiledLevel, requested: WalkPose): PreparedWalk {
   if (!validPose(requested)) return { ok: false, message: `Invalid feet/orientation. Pitch must be between −${MAX_WALK_PITCH} and ${MAX_WALK_PITCH} degrees.` };
   const navigation = level.navigation;
   if (!navigation?.indices.length) return { ok: false, message: "Land navigation is unavailable; inspection walking requires an existing navigable surface." };
-  const surface = new NavigationSurface(navigation, requested.feet);
-  const location = surface.locate(requested.feet, false, SUPPORT_TOLERANCE);
+  const player = navigation.settings.player, physical = physicalWalk(level);
+  const surface = new NavigationSurface(navigation, requested.feet, (candidate, previous) => physical.resolve(candidate, previous, player));
+  const location = surface.locate(requested.feet, false, Math.max(SUPPORT_TOLERANCE, supportWindow(player)));
   if (!location) return { ok: false, message: "No land navigation surface within 0.10m of those feet. Choose supported floor coordinates; no teleport across gaps or heights." };
-  const { height, radius } = navigation.settings.player;
-  if (bodyBlocked(level, location.point, height, radius)) return { ok: false, message: "The standing player body intersects collision geometry at those feet. Choose a clear placement." };
-  return { ok: true, pose: { feet: [...location.point], yaw: requested.yaw, pitch: requested.pitch }, surface };
+  const feet = physical.resolve(location.point, requested.feet, player);
+  if (!feet) return { ok: false, message: "The standing player body intersects collision geometry at those feet. Choose a clear placement." };
+  if (Math.abs(feet[2] - requested.feet[2]) > SUPPORT_TOLERANCE + 1e-6) return { ok: false, message: "No physical support within 0.10m of those feet. Choose supported floor coordinates." };
+  return { ok: true, pose: { feet, yaw: requested.yaw, pitch: requested.pitch }, surface };
 }

@@ -1,3 +1,4 @@
+import { appendTerrainScene } from "./terrain.ts";
 import * as THREE from "three";
 import { ScreenOutlines } from "./outlines.ts";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -7,7 +8,7 @@ import { navigationIndices } from "./navigation.ts";
 import { MAX_WALK_PITCH, prepareInspectionWalk, type WalkPose, type WalkStartResult } from "./walk.ts";
 import { WalkClock } from "../website/walk-clock.ts";
 import type { CompiledLevel, ReviewFinding, V3 } from "../src/vector/types.ts";
-import type { Appearance, ViewOptions, ViewState } from "./view.ts";
+import { type Appearance, type ViewOptions, type ViewState } from "./view.ts";
 
 /** Returns the screen-up direction of Three's canonical Z-up camera, including its pole fallback. */
 function zeroRollUp(position: THREE.Vector3, target: THREE.Vector3) {
@@ -102,9 +103,9 @@ export class ReviewScene {
     onContext: (available: boolean) => void,
   ) {
     this.onWalk = onWalk;
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    this.renderer.setPixelRatio(1);
     this.renderer.localClippingEnabled = true;
-    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.enabled = false;
     this.renderer.shadowMap.type = THREE.PCFShadowMap;
     this.scene.background = new THREE.Color("#f7f7f7");
     this.scene.add(
@@ -123,10 +124,30 @@ export class ReviewScene {
     this.renderer.domElement.tabIndex = 0;
     this.renderer.domElement.setAttribute(
       "aria-label",
-      "3D layout. Drag to orbit, right drag to pan, scroll to zoom.",
+      "3D layout. Drag to rotate horizontally, right drag to pan, scroll to zoom.",
     );
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.addEventListener("change", () => this.invalidate());
+    this.renderer.domElement.addEventListener("pointerdown", (event) => {
+      if (!this.level || !event.isPrimary || this.walking || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      this.centerOrbitPivot();
+    }, { capture: true, signal: this.abort.signal });
+    let interactionRoll: number | undefined;
+    this.controls.addEventListener("start", () => {
+      interactionRoll = this.getView().roll;
+      const angle = this.controls.getPolarAngle();
+      this.controls.minPolarAngle = angle;
+      this.controls.maxPolarAngle = angle;
+    });
+    this.controls.addEventListener("end", () => {
+      interactionRoll = undefined;
+      this.controls.minPolarAngle = 0;
+      this.controls.maxPolarAngle = Math.PI;
+    });
+    this.controls.addEventListener("change", () => {
+      // Recompute image-up as the camera moves so a fixed world vector cannot roll the horizon.
+      if (interactionRoll !== undefined) this.orientCamera(interactionRoll);
+      this.invalidate();
+    });
     this.size = new ResizeObserver(() => this.resize());
     this.size.observe(host);
     this.resize();
@@ -229,6 +250,30 @@ export class ReviewScene {
     );
     this.renderer.setAnimationLoop((now) => this.render(now));
   }
+  /** Anchors orbit depth to the visible screen center without changing the camera pose. */
+  private centerOrbitPivot() {
+    this.camera.updateMatrixWorld();
+    this.model.updateMatrixWorld(true);
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(new THREE.Vector2(0, 0), this.camera);
+    const hit = raycaster.intersectObjects(this.model.children).find(hit =>
+      hit.object instanceof THREE.Mesh && hit.object.userData.object && hit.point.z <= this.plane.constant,
+    );
+    const pivot = hit?.point.clone();
+    if (pivot) {
+      this.controls.target.copy(pivot);
+    } else {
+      const plane = new THREE.Plane().setFromNormalAndCoplanarPoint(
+        this.camera.getWorldDirection(new THREE.Vector3()),
+        this.box.getCenter(new THREE.Vector3()),
+      );
+      const point = raycaster.ray.intersectPlane(plane, new THREE.Vector3());
+      if (!point) return;
+      this.controls.target.copy(point);
+    }
+    this.controls.update();
+    this.invalidate();
+  }
   /** Resolves authored image names from bundled or explicitly supplied companion assets. */
   setAssets(urls: Record<string, string>) {
     if (this.assetURLs === urls) return;
@@ -328,6 +373,12 @@ export class ReviewScene {
       this.invalidate();
       return;
     }
+    this.renderer.shadowMap.enabled = options.appearance !== "flat";
+    const pixelRatio = options.appearance === "flat" ? 1 : Math.min(devicePixelRatio, 2);
+    if (this.renderer.getPixelRatio() !== pixelRatio) {
+      this.renderer.setPixelRatio(pixelRatio);
+      this.resize();
+    }
     this.displayKey = displayKey;
     this.exitWalk();
     this.level = level;
@@ -413,7 +464,7 @@ export class ReviewScene {
           opacity: transparent ? 0.48 : 1,
           side: THREE.DoubleSide,
         };
-        material = options.appearance === "inspection"
+        material = (options.appearance === "inspection" || options.appearance === "flat")
           ? new THREE.MeshBasicMaterial({ ...authored, toneMapped: false })
           : new THREE.MeshStandardMaterial({
               ...authored,
@@ -425,8 +476,8 @@ export class ReviewScene {
       material.clipShadows = true;
       const object = new THREE.Mesh(g, material);
       object.userData.object = group.object;
-      object.castShadow = !transparent && options.appearance !== "inspection";
-      object.receiveShadow = options.appearance !== "inspection";
+      object.castShadow = !transparent && options.appearance !== "inspection" && options.appearance !== "flat";
+      object.receiveShadow = options.appearance !== "inspection" && options.appearance !== "flat";
       this.model.add(object);
       if (!transparent) this.outlines.add(g, [this.plane]);
     }
@@ -462,6 +513,7 @@ export class ReviewScene {
       );
       this.model.add(overlay);
     }
+    if (options.issues) appendTerrainScene(this.model, level, options.selected);
     if (options.issues && nav) {
       const samples = [
         ...(nav.coverage.uncovered ?? []),
@@ -697,7 +749,7 @@ export class ReviewScene {
       feet: [...this.point] as V3,
       yaw: Number(THREE.MathUtils.radToDeg(this.yaw).toFixed(9)),
       pitch: Number(THREE.MathUtils.radToDeg(this.pitch).toFixed(9)),
-      collision: "navigation" as const,
+      collision: "physical" as const,
       height: this.level?.navigation?.settings.player.height,
       radius: this.level?.navigation?.settings.player.radius,
     };
@@ -765,11 +817,7 @@ export class ReviewScene {
     this.renderer.info.autoReset = false;
     this.renderer.info.reset();
     const renderCamera = this.walking ? this.walkCamera : this.camera;
-    this.outlines.render(
-      this.renderer,
-      this.scene,
-      renderCamera,
-    );
+    this.outlines.render(this.renderer, this.scene, renderCamera);
     this.dirty = false;
     this.frame++;
     this.host.dataset.frames = String(this.frame);

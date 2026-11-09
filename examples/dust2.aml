@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="dust2_vector" name="Dust II · CS2 blockout" description="Authored CS2 approximation registered at 0.1 m/pixel. Curved tunnel stairs, distinct entrance flights, estimated elevations; see reference/dust2/README.md." units="meters" validation="playable" curve-tolerance="0.01">
+  <datum id="goose" elevation="4.54"/>
+  <datum id="a-short" elevation="4"/>
+  <datum id="long-catwalk" elevation="2"/>
+  <datum id="pit-platform" elevation="3.2"/>
+  <datum id="pit-bottom" elevation="0.2"/>
+  <datum id="t-platform" elevation="3"/>
+  <datum id="b-courtyard" elevation="1.46"/>
+  <datum id="ct-ground" elevation="0"/>
+  <path id="e0:path" closed="false" points="74.2 89.5 4.54; 74.2 87.3 4"/>
+  <path id="e1:path" closed="false" points="74.2 87.3 4; 79.8 87.3 4"/>
+  <path id="e2:path" closed="false" points="79.8 87.3 4; 79.8 89.5 4.54"/>
+  <path id="e3:path" closed="false" points="79.8 89.5 4.54; 74.2 89.5 4.54"/>
+  <path id="e4:path" closed="false" points="88.2 90.3 4.54; 87.5 90.3 4.54"/>
+  <path id="e5:path" closed="false" points="87.5 90.3 4.54; 87.5 97 4.54"/>
+  <path id="e6:path" closed="false" points="87.5 97 4.54; 74.2 97 4.54"/>
+  <path id="e7:path" closed="false" points="74.2 97 4.54; 74.2 90.3 4.54"/>
+  <path id="e8:path" closed="false" points="74.2 90.3 4.54; 74.2 89.5 4.54"/>
+  <path id="e9:path" closed="false" points="79.8 89.5 4.54; 88.2 89.5 4.54"/>
+  <path id="e10:path" closed="false" points="88.2 89.5 4.54; 88.2 90.3 4.54"/>
+  <path id="e11:path" closed="false" points="91.8 79 2.115; 88.2 79 2.115"/>
+  <path id="e12:path" closed="false" points="88.2 79 2.115; 88.2 89.5 4.54"/>
+  <path id="e13:path" closed="false" points="79.8 89.5 4.54; 79.8 87.3 4.032"/>
+  <path id="e14:path" closed="false" points="79.8 87.3 4.032; 79.8 87.161 4"/>
+  <path id="e15:path" closed="false" points="79.8 87.161 4; 79.8 79.7 2.277"/>
+  <path id="e16:path" closed="false" points="79.8 79.7 2.277; 79.8 78.5 2"/>
+  <path id="e17:path" closed="false" points="79.8 78.5 2; 91.846 78.5 2"/>
+  <path id="e18:path" closed="false" points="91.846 78.5 2; 91.8 79 2.115"/>
+  <path id="e24:path" closed="false" points="74.2 87.3 4; 74.2 89.5 4"/>
+  <path id="e25:path" closed="false" points="74.2 89.5 4; 74.2 90.3 4"/>
+  <path id="e26:path" closed="false" points="74.2 90.3 4; 63.1 90.3 4"/>
+  <path id="e27:path" closed="false" points="63.1 90.3 4; 63.1 85.1 4"/>
+  <path id="e28:path" closed="false" points="63.1 85.1 4; 63.1 81.8 4"/>
+  <path id="e29:path" closed="false" points="63.1 81.8 4; 71.2 81.8 4"/>
+  <path id="e30:path" closed="false" points="71.2 81.8 4; 73 81.8 4"/>
+  <path id="e31:path" closed="false" points="73 81.8 4; 74.7 81.8 4"/>
+  <path id="e32:path" closed="false" points="74.7 81.8 4; 74.7 79.7 4"/>
+  <path id="e33:path" closed="false" points="74.7 79.7 4; 79.5 79.7 4"/>
+  <path id="e34:path" closed="false" points="79.5 79.7 4; 79.8 79.7 4"/>
+  <path id="e35:path" closed="false" points="79.8 79.7 4; 79.8 87.161 4"/>
+  <path id="e36:path" closed="false" points="79.8 87.161 4; 79.8 87.3 4"/>
+  <path id="e75:path" closed="false" points="63.1 73.1 0; 71.2 73.1 2"/>
+  <path id="e76:path" closed="false" points="71.2 73.1 2; 71.2 74.5 2"/>
+  <path id="e77:path" closed="false" points="71.2 74.5 2; 63.1 74.5 0"/>
+  <path id="e78:path" closed="false" points="63.1 74.5 0; 63.1 73.1 0"/>
+  <path id="e79:path" closed="false" points="63.1 81.8 0; 63.1 74.5 0"/>
+  <path id="e80:path" closed="false" points="71.2 74.5 2; 71.2 81.8 2"/>
+  <path id="e81:path" closed="false" points="71.2 81.8 2; 63.1 81.8 0"/>
+  <path id="e82:path" closed="false" points="71.2 73.1 2; 71.2 72.3 2"/>
+  <path id="e83:path" closed="false" points="71.2 72.3 2; 73 72.3 2"/>
+  <path id="e84:path" closed="false" points="73 72.3 2; 73 81.8 2"/>
+  <path id="e85:path" closed="false" points="73 81.8 2; 71.2 81.8 2"/>
+  <path id="e86:path" closed="false" points="79.8 79.7 2.277; 79.5 79.7 2.265"/>
+  <path id="e87:path" closed="false" points="79.5 79.7 2.265; 74.7 79.7 2.069"/>
+  <path id="e88:path" closed="false" points="74.7 79.7 2.069; 74.7 81.8 2.191"/>
+  <path id="e89:path" closed="false" points="74.7 81.8 2.191; 73 81.8 2"/>
+  <path id="e90:path" closed="false" points="73 72.3 2; 79.1 72.3 2"/>
+  <path id="e91:path" closed="false" points="79.1 72.3 2; 79.8 72.3 2"/>
+  <path id="e92:path" closed="false" points="79.8 72.3 2; 79.8 78.5 2"/>
+  <path id="e93:path" closed="false" points="87.8 64.9 2; 89.2 67.6 2"/>
+  <path id="e94:path" closed="false" points="89.2 67.6 2; 90.3 67.6 2"/>
+  <path id="e95:path" closed="false" points="90.3 67.6 2; 90.3 68.7 2"/>
+  <path id="e96:path" closed="false" points="90.3 68.7 2; 92.3 68.7 2"/>
+  <path id="e97:path" closed="false" points="92.3 68.7 2; 92.3 73.5 2"/>
+  <path id="e98:path" closed="false" points="92.3 73.5 2; 91.846 78.5 2"/>
+  <path id="e99:path" closed="false" points="79.1 72.3 2; 79.1 64 2"/>
+  <path id="e100:path" closed="false" points="79.1 64 2; 87.781 64 2"/>
+  <path id="e101:path" closed="false" points="87.781 64 2; 87.8 64.9 2"/>
+  <path id="e102:path" closed="false" points="91.8 44.5 2; 87.7 44.5 2"/>
+  <path id="e103:path" closed="false" points="87.7 44.5 2; 87.7 41.3 3.2"/>
+  <path id="e104:path" closed="false" points="87.7 41.3 3.2; 91.8 41.3 3.2"/>
+  <path id="e105:path" closed="false" points="91.8 41.3 3.2; 91.8 44.5 2"/>
+  <path id="e106:path" closed="false" points="91.8 33.6 3.2; 91.8 41.3 3.2"/>
+  <path id="e107:path" closed="false" points="87.7 41.3 3.2; 87.7 35.5 3.2"/>
+  <path id="e108:path" closed="false" points="87.7 35.5 3.2; 87.7 33.6 3.2"/>
+  <path id="e109:path" closed="false" points="87.7 33.6 3.2; 91.8 33.6 3.2"/>
+  <path id="e110:path" closed="false" points="79.8 30.7 0.2; 87.7 30.7 0.2"/>
+  <path id="e111:path" closed="false" points="87.7 30.7 0.2; 87.7 33.6 0.2"/>
+  <path id="e112:path" closed="false" points="87.7 33.6 0.2; 87.7 35.5 0.2"/>
+  <path id="e113:path" closed="false" points="87.7 35.5 0.2; 79.8 35.5 0.2"/>
+  <path id="e114:path" closed="false" points="79.8 35.5 0.2; 79.8 31.4 0.2"/>
+  <path id="e115:path" closed="false" points="79.8 31.4 0.2; 79.8 30.7 0.2"/>
+  <path id="e116:path" closed="false" points="87.7 35.5 0.2; 87.7 41.3 1.36"/>
+  <path id="e117:path" closed="false" points="87.7 41.3 1.36; 87.7 44.5 2"/>
+  <path id="e118:path" closed="false" points="87.7 44.5 2; 79.8 44.5 2"/>
+  <path id="e119:path" closed="false" points="79.8 44.5 2; 79.8 35.5 0.2"/>
+  <path id="e120:path" closed="false" points="71.2 44.5 2; 79.6 44.5 2"/>
+  <path id="e121:path" closed="false" points="79.6 44.5 2; 79.8 44.5 2"/>
+  <path id="e122:path" closed="false" points="91.8 44.5 2; 91.8 50.5 2"/>
+  <path id="e123:path" closed="false" points="91.8 50.5 2; 87.5 50.9 2"/>
+  <path id="e124:path" closed="false" points="87.5 50.9 2; 87.781 64 2"/>
+  <path id="e125:path" closed="false" points="79.1 64 2; 79.1 54.9 2"/>
+  <path id="e126:path" closed="false" points="79.1 54.9 2; 67.3 54.9 2"/>
+  <path id="e127:path" closed="false" points="67.3 54.9 2; 62.2 53.8 2"/>
+  <path id="e128:path" closed="false" points="62.2 53.8 2; 62.2 44.9 2"/>
+  <path id="e129:path" closed="false" points="62.2 44.9 2; 63 44.5 2"/>
+  <path id="e130:path" closed="false" points="63 44.5 2; 68 44.5 2"/>
+  <path id="e131:path" closed="false" points="68 44.5 2; 71.2 44.5 2"/>
+  <path id="e132:path" closed="false" points="72.6 31.4 2; 79.8 31.4 2"/>
+  <path id="e133:path" closed="false" points="79.8 31.4 2; 79.8 35.5 2"/>
+  <path id="e134:path" closed="false" points="79.8 35.5 2; 79.8 44.5 2"/>
+  <path id="e135:path" closed="false" points="71.2 44.5 2; 72.6 43.2 2"/>
+  <path id="e136:path" closed="false" points="72.6 43.2 2; 72.6 31.4 2"/>
+  <path id="e137:path" closed="false" points="68.8 43.7 2; 68 43.7 2"/>
+  <path id="e138:path" closed="false" points="68 43.7 2; 68 44.5 2"/>
+  <path id="e139:path" closed="false" points="63 44.5 2; 63.8 44.1 2"/>
+  <path id="e140:path" closed="false" points="63.8 44.1 2; 62.9 43.5 2"/>
+  <path id="e141:path" closed="false" points="62.9 43.5 2; 62.9 34.1 2"/>
+  <path id="e142:path" closed="false" points="62.9 34.1 2; 63.8 33.7 2"/>
+  <path id="e143:path" closed="false" points="63.8 33.7 2; 63.8 33.1 2"/>
+  <path id="e144:path" closed="false" points="63.8 33.1 2; 62.5 33.1 2"/>
+  <path id="e145:path" closed="false" points="62.5 33.1 2; 62.5 31.5 2"/>
+  <path id="e146:path" closed="false" points="62.5 31.5 2; 68.8 31.5 2"/>
+  <path id="e147:path" closed="false" points="68.8 31.5 2; 68.8 43.7 2"/>
+  <path id="e148:path" closed="false" points="60 18.1 2; 63.5 18.1 2"/>
+  <path id="e149:path" closed="false" points="63.5 18.1 2; 63.5 17.6 2"/>
+  <path id="e150:path" closed="false" points="63.5 17.6 2; 68.8 17.6 2"/>
+  <path id="e151:path" closed="false" points="68.8 17.6 2; 68.8 31.5 2"/>
+  <path id="e153:path" closed="false" points="62.5 31.5 2; 53.9 31.5 2"/>
+  <path id="e154:path" closed="false" points="53.9 31.5 2; 53.9 21.5 2"/>
+  <path id="e155:path" closed="false" points="53.9 21.5 2; 53.2 21.5 2"/>
+  <path id="e156:path" closed="false" points="53.2 21.5 2; 53.2 17.8 2"/>
+  <path id="e157:path" closed="false" points="53.2 17.8 2; 53 17.614 2"/>
+  <path id="e158:path" closed="false" points="53 17.614 2; 53 17 2"/>
+  <path id="e159:path" closed="false" points="53 17 2; 60 17 2"/>
+  <path id="e160:path" closed="false" points="60 17 2; 60 18.1 2"/>
+  <path id="e161:path" closed="false" points="53 17 2; 53 12.9 2"/>
+  <path id="e162:path" closed="false" points="53 12.9 2; 55.7 12.9 2"/>
+  <path id="e163:path" closed="false" points="55.7 12.9 2; 60 12.9 2"/>
+  <path id="e164:path" closed="false" points="60 12.9 2; 60 17 2"/>
+  <path id="e165:path" closed="false" points="44 0.2 3; 44 11.5 3"/>
+  <path id="e166:path" closed="false" points="44 11.5 3; 44 12.9 3"/>
+  <path id="e167:path" closed="false" points="44 12.9 3; 39.7 12.9 3"/>
+  <path id="e168:path" closed="false" points="39.7 12.9 3; 39.5 12.9 3"/>
+  <path id="e169:path" closed="false" points="39.5 12.9 3; 30 12.9 3"/>
+  <path id="e170:path" closed="false" points="30 12.9 3; 30 11.5 3"/>
+  <path id="e171:path" closed="false" points="30 11.5 3; 10.9 11.5 3"/>
+  <path id="e172:path" closed="false" points="10.9 11.5 3; 0.6 11.5 3"/>
+  <path id="e173:path" closed="false" points="0.6 11.5 3; 0.6 3.1 3"/>
+  <path id="e174:path" closed="false" points="0.6 3.1 3; 10 3.1 3"/>
+  <path id="e175:path" closed="false" points="10 3.1 3; 10.2 2.5 3"/>
+  <path id="e176:path" closed="false" points="10.2 2.5 3; 43.7 2.5 3"/>
+  <path id="e177:path" closed="false" points="43.7 2.5 3; 43.9 0.2 3"/>
+  <path id="e178:path" closed="false" points="43.9 0.2 3; 44 0.2 3"/>
+  <path id="e179:path" closed="false" points="55.7 4 2; 55.7 12.9 2"/>
+  <path id="e180:path" closed="false" points="55.7 12.9 2; 53 12.9 2.231"/>
+  <path id="e181:path" closed="false" points="53 12.9 2.231; 51.2 12.9 2.385"/>
+  <path id="e182:path" closed="false" points="51.2 12.9 2.385; 44 12.9 3"/>
+  <path id="e183:path" closed="false" points="44 0.2 3; 55.7 0.2 2"/>
+  <path id="e184:path" closed="false" points="55.7 0.2 2; 55.7 4 2"/>
+  <path id="e185:path" closed="false" points="61.7 12.8 2; 60 12.8 2"/>
+  <path id="e186:path" closed="false" points="60 12.8 2; 60 12.9 2"/>
+  <path id="e187:path" closed="false" points="55.7 4 2; 61.7 4 2"/>
+  <path id="e188:path" closed="false" points="61.7 4 2; 61.7 12.8 2"/>
+  <path id="e189:path" closed="false" points="30 12.9 3; 29.8 12.9 3"/>
+  <path id="e190:path" closed="false" points="29.8 12.9 3; 29.8 23.5 3"/>
+  <path id="e191:path" closed="false" points="29.8 23.5 3; 25 23.5 3"/>
+  <path id="e192:path" closed="false" points="25 23.5 3; 25 21.5 3"/>
+  <path id="e193:path" closed="false" points="25 21.5 3; 21 21.5 3"/>
+  <path id="e194:path" closed="false" points="21 21.5 3; 19.5 23 3"/>
+  <path id="e195:path" closed="false" points="19.5 23 3; 19.5 24 3"/>
+  <path id="e196:path" closed="false" points="19.5 24 3; 10.9 24 3"/>
+  <path id="e197:path" closed="false" points="10.9 24 3; 10.9 12.9 3"/>
+  <path id="e198:path" closed="false" points="10.9 12.9 3; 10.9 11.5 3"/>
+  <path id="e199:path" closed="false" points="4 15.9 2.545; 0.6 12.5 3"/>
+  <path id="e200:path" closed="false" points="0.6 12.5 3; 0.6 11.5 3"/>
+  <path id="e201:path" closed="false" points="10.9 11.5 3; 10.9 12.9 2.946"/>
+  <path id="e202:path" closed="false" points="10.9 12.9 2.946; 10.9 24 1.46"/>
+  <path id="e203:path" closed="false" points="10.9 24 1.46; 4 24 1.46"/>
+  <path id="e204:path" closed="false" points="4 24 1.46; 4 15.9 2.545"/>
+  <path id="e205:path" closed="false" points="4.4 25 1.46; 4 25 1.46"/>
+  <path id="e206:path" closed="false" points="4 25 1.46; 4 24 1.46"/>
+  <path id="e207:path" closed="false" points="10.9 24 1.46; 19.5 24 1.46"/>
+  <path id="e208:path" closed="false" points="19.5 24 1.46; 19.5 26.3 1.46"/>
+  <path id="e209:path" closed="false" points="19.5 26.3 1.46; 20.7 27.5 1.46"/>
+  <path id="e210:path" closed="false" points="20.7 27.5 1.46; 23 27.5 1.46"/>
+  <path id="e211:path" closed="false" points="23 27.5 1.46; 22.104 38.5 1.46"/>
+  <path id="e212:path" closed="false" points="22.104 38.5 1.46; 4.4 38.5 1.46"/>
+  <path id="e213:path" closed="false" points="4.4 38.5 1.46; 4.4 25 1.46"/>
+  <path id="e214:path" closed="false" points="22.104 38.5 1.46; 22.063 39 1.61"/>
+  <path id="e215:path" closed="false" points="22.063 39 1.61; 21.957 40.3 2"/>
+  <path id="e216:path" closed="false" points="21.957 40.3 2; 4.4 40.3 2"/>
+  <path id="e217:path" closed="false" points="4.4 40.3 2; 4.4 39 1.61"/>
+  <path id="e218:path" closed="false" points="4.4 39 1.61; 4.4 38.5 1.46"/>
+  <path id="e219:path" closed="false" points="29.2 56.5 0; 26.2 56.5 0"/>
+  <path id="e220:path" closed="false" elevation="0 2" points="26.2 56.5 0">
+    <bezier to="23.2 53.5 2" controls="26.2 54.843 0; 24.857 53.5 0"/>
+  </path>
+  <path id="e221:path" closed="false" points="23.2 53.5 2; 23.2 50.5 2"/>
+  <path id="e222:path" closed="false" elevation="2 0" points="23.2 50.5 2">
+    <bezier to="29.2 56.5 0" controls="26.514 50.5 0; 29.2 53.186 0"/>
+  </path>
+  <path id="e223:path" closed="false" points="23.2 56.1 2; 23.2 56.5 2"/>
+  <path id="e224:path" closed="false" points="23.2 56.5 2; 26.2 56.5 2"/>
+  <path id="e225:path" closed="false" elevation="2 2" points="26.2 56.5 2">
+    <bezier to="23.2 53.5 2" controls="26.2 54.843 0; 24.857 53.5 0"/>
+  </path>
+  <path id="e226:path" closed="false" points="23.2 53.5 2; 23.2 56.1 2"/>
+  <path id="e227:path" closed="false" points="1.6 59.1 2; 1.6 50.1 2"/>
+  <path id="e228:path" closed="false" points="1.6 50.1 2; 9.1 50.1 2"/>
+  <path id="e229:path" closed="false" points="9.1 50.1 2; 9.1 48.7 2"/>
+  <path id="e230:path" closed="false" points="9.1 48.7 2; 11.9 48.7 2"/>
+  <path id="e231:path" closed="false" points="11.9 48.7 2; 11.9 43 2"/>
+  <path id="e232:path" closed="false" points="11.9 43 2; 7.4 43 2"/>
+  <path id="e233:path" closed="false" points="7.4 43 2; 7.4 41 2"/>
+  <path id="e234:path" closed="false" points="7.4 41 2; 4.4 41 2"/>
+  <path id="e235:path" closed="false" points="4.4 41 2; 4.4 40.3 2"/>
+  <path id="e236:path" closed="false" points="21.957 40.3 2; 21.9 41 2"/>
+  <path id="e237:path" closed="false" points="21.9 41 2; 19.6 41 2"/>
+  <path id="e238:path" closed="false" points="19.6 41 2; 19.6 43 2"/>
+  <path id="e239:path" closed="false" points="19.6 43 2; 15.1 43 2"/>
+  <path id="e240:path" closed="false" points="15.1 43 2; 15.1 48.7 2"/>
+  <path id="e241:path" closed="false" points="15.1 48.7 2; 16.3 48.7 2"/>
+  <path id="e242:path" closed="false" points="16.3 48.7 2; 16.3 50.2 2"/>
+  <path id="e243:path" closed="false" points="16.3 50.2 2; 23.2 50.5 2"/>
+  <path id="e244:path" closed="false" points="23.2 56.1 2; 16.2 56.1 2"/>
+  <path id="e245:path" closed="false" points="16.2 56.1 2; 13.5 56.3 2"/>
+  <path id="e246:path" closed="false" points="13.5 56.3 2; 13.5 59.1 2"/>
+  <path id="e247:path" closed="false" points="13.5 59.1 2; 8 59.1 2"/>
+  <path id="e248:path" closed="false" points="8 59.1 2; 4.7 59.1 2"/>
+  <path id="e249:path" closed="false" points="4.7 59.1 2; 1.6 59.1 2"/>
+  <path id="e250:path" closed="false" points="38.8 60.9 0; 38.8 62 0"/>
+  <path id="e251:path" closed="false" points="38.8 62 0; 23.2 62 0"/>
+  <path id="e252:path" closed="false" points="23.2 62 0; 23.2 56.5 0"/>
+  <path id="e254:path" closed="false" points="23.2 56.5 0; 26.2 56.5 0"/>
+  <path id="e255:path" closed="false" points="29.2 56.5 0; 39 56.5 0"/>
+  <path id="e256:path" closed="false" points="39 56.5 0; 39.6 56.5 0"/>
+  <path id="e257:path" closed="false" points="39.6 56.5 0; 39.6 60.9 0"/>
+  <path id="e258:path" closed="false" points="39.6 60.9 0; 38.8 60.9 0"/>
+  <path id="e259:path" closed="false" points="4.7 65.9 2; 8 65.9 2"/>
+  <path id="e260:path" closed="false" points="8 65.9 2; 8 67.7 1.46"/>
+  <path id="e261:path" closed="false" points="8 67.7 1.46; 4.7 67.7 1.46"/>
+  <path id="e262:path" closed="false" points="4.7 67.7 1.46; 4.7 65.9 2"/>
+  <path id="e263:path" closed="false" points="8 59.1 2; 8 65.9 2"/>
+  <path id="e264:path" closed="false" points="4.7 65.9 2; 4.7 59.1 2"/>
+  <path id="e265:path" closed="false" points="20.6 88.7 1.46; 20.6 90.4 1.46"/>
+  <path id="e266:path" closed="false" points="20.6 90.4 1.46; 16.8 92.5 1.46"/>
+  <path id="e267:path" closed="false" points="16.8 92.5 1.46; 8.5 92.5 1.46"/>
+  <path id="e268:path" closed="false" points="8.5 92.5 1.46; 8.5 98.9 1.46"/>
+  <path id="e269:path" closed="false" points="8.5 98.9 1.46; 2.8 98.9 1.46"/>
+  <path id="e270:path" closed="false" points="2.8 98.9 1.46; 2.8 82.2 1.46"/>
+  <path id="e271:path" closed="false" points="2.8 82.2 1.46; 1.6 82.2 1.46"/>
+  <path id="e272:path" closed="false" points="1.6 82.2 1.46; 1.6 67.7 1.46"/>
+  <path id="e273:path" closed="false" points="1.6 67.7 1.46; 4.7 67.7 1.46"/>
+  <path id="e274:path" closed="false" points="8 67.7 1.46; 12 67.7 1.46"/>
+  <path id="e275:path" closed="false" points="12 67.7 1.46; 18.151 67.7 1.46"/>
+  <path id="e276:path" closed="false" points="18.151 67.7 1.46; 20.4 70 1.46"/>
+  <path id="e277:path" closed="false" points="20.4 70 1.46; 20.4 73.9 1.46"/>
+  <path id="e278:path" closed="false" points="20.4 73.9 1.46; 21.7 75 1.46"/>
+  <path id="e279:path" closed="false" points="21.7 75 1.46; 21.7 88.7 1.46"/>
+  <path id="e280:path" closed="false" points="21.7 88.7 1.46; 20.6 88.7 1.46"/>
+  <path id="e281:path" closed="false" points="27.2 85.5 1.006; 27.2 88.7 1.006"/>
+  <path id="e282:path" closed="false" points="27.2 88.7 1.006; 21.7 88.7 1.46"/>
+  <path id="e283:path" closed="false" points="21.7 75 1.46; 23 74 1.353"/>
+  <path id="e284:path" closed="false" points="23 74 1.353; 27.7 74 0.965"/>
+  <path id="e285:path" closed="false" points="27.7 74 0.965; 27.7 73.3 0.965"/>
+  <path id="e286:path" closed="false" points="27.7 73.3 0.965; 34.4 73.3 0.412"/>
+  <path id="e287:path" closed="false" points="34.4 73.3 0.412; 34.4 74 0.412"/>
+  <path id="e288:path" closed="false" points="34.4 74 0.412; 37.7 74 0.14"/>
+  <path id="e289:path" closed="false" points="37.7 74 0.14; 37.7 67.7 0.14"/>
+  <path id="e290:path" closed="false" points="37.7 67.7 0.14; 39.4 67.7 0"/>
+  <path id="e291:path" closed="false" points="39.4 67.7 0; 39.4 85.5 0"/>
+  <path id="e292:path" closed="false" points="39.4 85.5 0; 27.2 85.5 1.006"/>
+  <path id="e293:path" closed="false" points="45.4 62.1 0; 44 62.1 0"/>
+  <path id="e294:path" closed="false" points="44 62.1 0; 44 71.9 0"/>
+  <path id="e295:path" closed="false" points="44 71.9 0; 51.3 71.9 0"/>
+  <path id="e296:path" closed="false" points="51.3 71.9 0; 53.4 73.1 0"/>
+  <path id="e297:path" closed="false" points="53.4 73.1 0; 56.8 73.1 0"/>
+  <path id="e298:path" closed="false" points="56.8 73.1 0; 56.8 63 0"/>
+  <path id="e299:path" closed="false" points="56.8 63 0; 56.9 63 0"/>
+  <path id="e300:path" closed="false" points="56.9 63 0; 56.9 67 0"/>
+  <path id="e301:path" closed="false" points="56.9 67 0; 56.9 73.1 0"/>
+  <path id="e302:path" closed="false" points="56.9 73.1 0; 56.9 85.1 0"/>
+  <path id="e303:path" closed="false" points="56.9 85.1 0; 56.8 85.1 0"/>
+  <path id="e304:path" closed="false" points="56.8 85.1 0; 52.4 85.1 0"/>
+  <path id="e305:path" closed="false" points="52.4 85.1 0; 52.4 81.3 0"/>
+  <path id="e306:path" closed="false" points="52.4 81.3 0; 50.5 79.4 0"/>
+  <path id="e307:path" closed="false" points="50.5 79.4 0; 44 79.4 0"/>
+  <path id="e308:path" closed="false" points="44 79.4 0; 44 85.5 0"/>
+  <path id="e309:path" closed="false" points="44 85.5 0; 39.4 85.5 0"/>
+  <path id="e310:path" closed="false" points="39.4 67.7 0; 39.4 64.321 0"/>
+  <path id="e311:path" closed="false" points="39.4 64.321 0; 39.6 64.3 0"/>
+  <path id="e312:path" closed="false" points="39.6 64.3 0; 39.6 62 0"/>
+  <path id="e314:path" closed="false" points="39.6 62 0; 45.4 62 0"/>
+  <path id="e315:path" closed="false" points="45.4 62 0; 45.4 62.1 0"/>
+  <path id="e316:path" closed="false" points="48.2 63 0; 53 63 0"/>
+  <path id="e317:path" closed="false" points="53 63 0; 53 63.3 0"/>
+  <path id="e318:path" closed="false" points="53 63.3 0; 48.2 63.3 0"/>
+  <path id="e319:path" closed="false" points="48.2 63.3 0; 48.2 63 0"/>
+  <path id="e320:path" closed="false" points="45.4 57.2 0; 45.4 62 0"/>
+  <path id="e321:path" closed="false" points="39.6 62 0; 39.6 60.9 0"/>
+  <path id="e322:path" closed="false" points="39 56.5 0; 39 56 0"/>
+  <path id="e323:path" closed="false" points="39 56 0; 45.4 56 0"/>
+  <path id="e324:path" closed="false" points="45.4 56 0; 45.4 57.2 0"/>
+  <path id="e325:path" closed="false" points="39 56 0; 39 52.8 0"/>
+  <path id="e326:path" closed="false" points="39 52.8 0; 38.8 52.8 0"/>
+  <path id="e327:path" closed="false" points="38.8 52.8 0; 38.8 52 0"/>
+  <path id="e328:path" closed="false" points="38.8 52 0; 44 52 0"/>
+  <path id="e329:path" closed="false" points="44 52 0; 45.4 52 0"/>
+  <path id="e330:path" closed="false" points="45.4 52 0; 45.4 56 0"/>
+  <path id="e331:path" closed="false" points="44 52 0; 44 46 2"/>
+  <path id="e332:path" closed="false" points="44 46 2; 45.4 46 2"/>
+  <path id="e333:path" closed="false" points="45.4 46 2; 45.4 52 0"/>
+  <path id="e334:path" closed="false" points="38.8 52 0; 38.8 46.9 1.7"/>
+  <path id="e335:path" closed="false" points="38.8 46.9 1.7; 39.6 46.9 1.7"/>
+  <path id="e336:path" closed="false" points="39.6 46.9 1.7; 39.6 46 2"/>
+  <path id="e337:path" closed="false" points="39.6 46 2; 44 46 2"/>
+  <path id="e338:path" closed="false" points="39.6 46 2; 39.6 43.7 2"/>
+  <path id="e339:path" closed="false" points="39.6 43.7 2; 37 43.7 2"/>
+  <path id="e340:path" closed="false" points="37 43.7 2; 37 38.1 2"/>
+  <path id="e341:path" closed="false" points="37 38.1 2; 45.4 38.1 2"/>
+  <path id="e342:path" closed="false" points="45.4 38.1 2; 45.4 46 2"/>
+  <path id="e343:path" closed="false" points="35.5 31.3 2; 39.5 31.3 2"/>
+  <path id="e344:path" closed="false" points="39.5 31.3 2; 39.5 17 2"/>
+  <path id="e345:path" closed="false" points="39.5 17 2; 50 17 2"/>
+  <path id="e346:path" closed="false" points="50 17 2; 50 17.2 2"/>
+  <path id="e347:path" closed="false" points="50 17.2 2; 44.1 17.2 2"/>
+  <path id="e348:path" closed="false" points="44.1 17.2 2; 43.1 18.5 2"/>
+  <path id="e349:path" closed="false" points="43.1 18.5 2; 42.9 32.1 2"/>
+  <path id="e350:path" closed="false" points="42.9 32.1 2; 44.1 33.3 2"/>
+  <path id="e351:path" closed="false" points="44.1 33.3 2; 52.5 33.3 2"/>
+  <path id="e352:path" closed="false" points="52.5 33.3 2; 53 32.8 2"/>
+  <path id="e353:path" closed="false" points="53 32.8 2; 53 38.1 2"/>
+  <path id="e354:path" closed="false" points="53 38.1 2; 45.4 38.1 2"/>
+  <path id="e355:path" closed="false" points="37 38.1 2; 34.412 38.1 2"/>
+  <path id="e356:path" closed="false" points="34.412 38.1 2; 35.5 31.3 2"/>
+  <path id="e357:path" closed="false" points="53 17.614 2; 52.339 17 2"/>
+  <path id="e358:path" closed="false" points="52.339 17 2; 53 17 2"/>
+  <path id="e359:path" closed="false" points="44 12.9 2; 51.2 12.9 2"/>
+  <path id="e360:path" closed="false" points="51.2 12.9 2; 53 12.9 2"/>
+  <path id="e361:path" closed="false" points="52.339 17 2; 51.8 16.5 2"/>
+  <path id="e362:path" closed="false" points="51.8 16.5 2; 50 16.5 2"/>
+  <path id="e363:path" closed="false" points="50 16.5 2; 50 17 2"/>
+  <path id="e364:path" closed="false" points="39.5 17 2; 39.5 12.9 2"/>
+  <path id="e365:path" closed="false" points="39.5 12.9 2; 39.7 12.9 2"/>
+  <path id="e366:path" closed="false" points="39.7 12.9 2; 44 12.9 2"/>
+  <path id="e367:path" closed="false" points="34.3 38.8 2; 34.412 38.1 2"/>
+  <path id="e368:path" closed="false" points="37 43.7 2; 36.6 43.7 2"/>
+  <path id="e369:path" closed="false" points="36.6 43.7 2; 36.6 38.8 2"/>
+  <path id="e370:path" closed="false" points="36.6 38.8 2; 34.3 38.8 2"/>
+  <path id="e371:path" closed="false" points="62.5 33.1 2; 62 33.1 2"/>
+  <path id="e372:path" closed="false" points="62 33.1 2; 62 38.2 2"/>
+  <path id="e373:path" closed="false" points="62 38.2 2; 56.9 38.2 2"/>
+  <path id="e374:path" closed="false" points="56.9 38.2 2; 56.9 38.1 2"/>
+  <path id="e375:path" closed="false" points="56.9 38.1 2; 53 38.1 2"/>
+  <path id="e376:path" closed="false" points="53 32.8 2; 53.9 31.9 2"/>
+  <path id="e377:path" closed="false" points="53.9 31.9 2; 53.9 31.5 2"/>
+  <path id="e378:path" closed="false" points="39.4 67.7 0; 37.7 67.7 0"/>
+  <path id="e379:path" closed="false" points="37.7 67.7 0; 37.7 64.5 0"/>
+  <path id="e380:path" closed="false" points="37.7 64.5 0; 39.4 64.321 0"/>
+  <path id="e381:path" closed="false" points="12 67.7 1.46; 12 63.3 1.46"/>
+  <path id="e382:path" closed="false" points="12 63.3 1.46; 14.8 63.3 1.46"/>
+  <path id="e383:path" closed="false" points="14.8 63.3 1.46; 16 65.5 1.46"/>
+  <path id="e384:path" closed="false" points="16 65.5 1.46; 18.151 67.7 1.46"/>
+  <path id="wall.b_back.0:path" closed="false" points="26.7 88.65 1.048; 26.7 85.9 1.048"/>
+  <path id="wall.a_platform.0:path" closed="false" points="63.1 73.1 4; 63.1 81.8 4"/>
+  <path id="wall.a_platform.2:path" closed="false" points="63.1 81.8 4; 74.7 81.8 4"/>
+  <path id="wall.a_platform.5:path" closed="false" points="74.7 81.8 4; 74.7 79.7 4"/>
+  <path id="wall.a_platform.6:path" closed="false" points="74.7 79.7 4; 79.5 79.7 4"/>
+  <path id="wall.a_platform.7:path" closed="false" points="79.5 79.7 4; 79.5 87.3 4"/>
+  <path id="wall.a_platform.8:path" closed="false" points="79.5 87.3 4; 79.5 89.5 4.54"/>
+  <path id="wall.a_platform.9:path" closed="false" points="79.5 89.5 4.54; 79.5 90.8 4.54"/>
+  <path id="wall.a_short_abutment.0:path" closed="false" points="63.1 85.1 0; 63.1 81.8 0"/>
+  <path id="wall.upper_tunnel_west.0:path" closed="false" points="4.35 39 1.61; 4.4 39 1.61"/>
+  <path id="wall.upper_tunnel_west.1:path" closed="false" points="4.4 39 1.61; 10.6 39 1.61"/>
+  <path id="wall.upper_tunnel_east.0:path" closed="false" points="16.5 39 1.61; 22.063 39 1.61"/>
+  <path id="wall.upper_tunnel_east.1:path" closed="false" points="22.063 39 1.61; 22.1 39 1.61"/>
+  <path id="wall.tunnel_entry.0:path" closed="false" points="10.9 12.9 2.946; 10.9 24 1.46"/>
+  <path id="wall.tunnel_entry.1:path" closed="false" points="10.9 24 1.46; 19.5 24 1.46"/>
+  <path id="wall.t_spawn.0:path" closed="false" points="39.7 12.9 3; 44 12.9 3"/>
+  <path id="wall.t_spawn.1:path" closed="false" points="44 12.9 3; 51.2 12.9 2.385"/>
+  <path id="wall.long_pit.0:path" closed="false" points="79.6 44.6 2; 79.6 44.5 2"/>
+  <path id="wall.long_pit.1:path" closed="false" points="79.6 44.5 2; 79.6 34.2 2"/>
+  <path id="wall.pit_stairs.0:path" closed="false" points="87.98 44.6 2; 87.98 44.5 2"/>
+  <path id="wall.pit_stairs.1:path" closed="false" points="87.98 44.5 2; 87.98 41.3 3.2"/>
+  <path id="wall.pit_stairs.2:path" closed="false" points="87.98 41.3 3.2; 87.98 34.3 3.2"/>
+  <path id="wall.b_divider.0:path" closed="false" points="21.7 88.7 1.46; 21.7 75 1.46"/>
+  <path id="e19:path" closed="false" points="56.8 90.3 4; 56.8 85.1 4"/>
+  <path id="e20:path" closed="false" points="56.8 85.1 4; 56.9 85.1 4"/>
+  <path id="e21:path" closed="false" points="56.9 85.1 4; 63.1 85.1 4"/>
+  <path id="e22:path" closed="false" points="63.1 85.1 4; 63.1 90.3 4"/>
+  <path id="e23:path" closed="false" points="63.1 90.3 4; 56.8 90.3 4"/>
+  <path id="e38:path" closed="false" points="56.9 73.1 4; 56.9 67 4"/>
+  <path id="e39:path" closed="false" points="56.9 67 4; 63 67 4"/>
+  <path id="e40:path" closed="false" points="63 67 4; 63 73.1 4"/>
+  <path id="e41:path" closed="false" points="63 73.1 4; 63.1 73.1 4"/>
+  <path id="e44:path" closed="false" points="63.1 81.8 4; 63.1 85.1 4"/>
+  <path id="e45:path" closed="false" points="56.9 67 4; 56.9 63 2"/>
+  <path id="e46:path" closed="false" points="56.9 63 2; 63 63 2"/>
+  <path id="e47:path" closed="false" points="63 63 2; 63 67 4"/>
+  <path id="e48:path" closed="false" points="49.8 38.2 2; 48.5 39.5 2"/>
+  <path id="e49:path" closed="false" points="48.5 39.5 2; 48.5 55.7 2"/>
+  <path id="e50:path" closed="false" points="48.5 55.7 2; 49.8 57 2"/>
+  <path id="e51:path" closed="false" points="49.8 57 2; 56.9 57 2"/>
+  <path id="e52:path" closed="false" points="56.9 57 2; 56.9 57.2 2"/>
+  <path id="e53:path" closed="false" points="56.9 57.2 2; 45.7 57.2 2"/>
+  <path id="e54:path" closed="false" points="45.7 57.2 2; 45.4 57.2 2"/>
+  <path id="e55:path" closed="false" points="45.4 57.2 2; 45.4 56 2"/>
+  <path id="e56:path" closed="false" points="45.4 56 2; 45.4 52 2"/>
+  <path id="e57:path" closed="false" points="45.4 52 2; 45.4 46 2"/>
+  <path id="e58:path" closed="false" points="45.4 46 2; 45.4 38.1 2"/>
+  <path id="e59:path" closed="false" points="45.4 38.1 2; 53 38.1 2"/>
+  <path id="e60:path" closed="false" points="53 38.1 2; 56.9 38.1 2"/>
+  <path id="e61:path" closed="false" points="56.9 38.1 2; 56.9 38.2 2"/>
+  <path id="e62:path" closed="false" points="56.9 38.2 2; 49.8 38.2 2"/>
+  <path id="e63:path" closed="false" points="56.9 57 2; 63 57 2"/>
+  <path id="e64:path" closed="false" points="63 57 2; 63 63 2"/>
+  <path id="e65:path" closed="false" points="56.9 63 2; 56.8 63 2"/>
+  <path id="e66:path" closed="false" points="56.8 63 2; 56.8 62.1 2"/>
+  <path id="e67:path" closed="false" points="56.8 62.1 2; 53 62.1 2"/>
+  <path id="e68:path" closed="false" points="53 62.1 2; 53 63 2"/>
+  <path id="e69:path" closed="false" points="53 63 2; 48.2 63 2"/>
+  <path id="e70:path" closed="false" points="48.2 63 2; 48.2 62.1 2"/>
+  <path id="e71:path" closed="false" points="48.2 62.1 2; 45.7 62.1 2"/>
+  <path id="e72:path" closed="false" points="45.7 62.1 2; 45.4 62.1 2"/>
+  <path id="e73:path" closed="false" points="45.4 62.1 2; 45.4 62 2"/>
+  <path id="e74:path" closed="false" points="45.4 62 2; 45.4 57.2 2"/>
+  <path id="wall.catwalk.0:path" closed="false" points="45.7 62.1 2; 45.7 57.2 2"/>
+  <path id="wall.catwalk.1:path" closed="false" points="45.7 57.2 2; 45.7 44.7 2"/>
+  <path id="e385:path" closed="false" points="63.1 85.1 0; 56.9 85.1 0"/>
+  <path id="e386:path" closed="false" points="56.9 85.1 0; 56.9 73.1 0"/>
+  <path id="e388:path" closed="false" points="63 73.1 0; 63.1 73.1 0"/>
+  <path id="e389:path" closed="false" points="63.1 73.1 0; 63.1 74.5 0"/>
+  <path id="e390:path" closed="false" points="63.1 74.5 0; 63.1 81.8 0"/>
+  <path id="a_north_stairs:left" paths="e2:path" closed="false" points=""/>
+  <path id="a_north_stairs:right" paths="-e0:path" closed="false" points=""/>
+  <path id="ct_a_stairs:left" paths="e75:path" closed="false" points=""/>
+  <path id="ct_a_stairs:right" paths="-e77:path" closed="false" points=""/>
+  <path id="pit_stairs:left" paths="e103:path" closed="false" points=""/>
+  <path id="pit_stairs:right" paths="-e105:path" closed="false" points=""/>
+  <path id="tunnel_entry_stairs:left" paths="e214:path e215:path" closed="false" points=""/>
+  <path id="tunnel_entry_stairs:right" paths="-e218:path -e217:path" closed="false" points=""/>
+  <path id="lower_tunnels_stairs:left" paths="e220:path" closed="false" points=""/>
+  <path id="lower_tunnels_stairs:right" paths="-e222:path" closed="false" points=""/>
+  <path id="b_exit_stairs:left" paths="e262:path" closed="false" points=""/>
+  <path id="b_exit_stairs:right" paths="-e260:path" closed="false" points=""/>
+  <path id="mid_stairs:left" paths="e331:path" closed="false" points=""/>
+  <path id="mid_stairs:right" paths="-e333:path" closed="false" points=""/>
+  <path id="a_short_stairs:left" paths="e47:path" closed="false" points=""/>
+  <path id="a_short_stairs:right" paths="-e45:path" closed="false" points=""/>
+  <profile id="a_back_platform:profile" dimensions="3" points="88.2 90.3 0; 87.5 90.3 0; 87.5 97 0; 74.2 97 0; 74.2 90.3 0; 74.2 89.5 0; 79.8 89.5 0; 88.2 89.5 0"/>
+  <profile id="a_goose_side:profile" dimensions="3" points="91.8 79 2.115; 88.2 79 2.115; 88.2 89.5 4.54; 79.8 89.5 4.54; 79.8 87.3 4.032; 79.8 87.161 4; 79.8 79.7 2.277; 79.8 78.5 2; 91.846 78.5 2"/>
+  <profile id="a_site:profile" dimensions="3" points="79.8 87.3 0; 74.2 87.3 0; 74.2 89.5 0; 74.2 90.3 0; 63.1 90.3 0; 63.1 85.1 0; 63.1 81.8 0; 71.2 81.8 0; 73 81.8 0; 74.7 81.8 0; 74.7 79.7 0; 79.5 79.7 0; 79.8 79.7 0; 79.8 87.161 0"/>
+  <profile id="ct_a_ramp:profile" dimensions="3" points="63.1 81.8 0; 63.1 74.5 0; 71.2 74.5 2; 71.2 81.8 2"/>
+  <profile id="ct_a_landing:profile" dimensions="3" points="71.2 81.8 0; 71.2 74.5 0; 71.2 73.1 0; 71.2 72.3 0; 73 72.3 0; 73 81.8 0"/>
+  <profile id="ct_cross_transition:profile" dimensions="3" points="79.8 79.7 2.277; 79.5 79.7 2.265; 74.7 79.7 2.069; 74.7 81.8 2.191; 73 81.8 2; 73 72.3 2; 79.1 72.3 2; 79.8 72.3 2; 79.8 78.5 2"/>
+  <profile id="a_ramp:profile" dimensions="3" points="87.8 64.9 0; 89.2 67.6 0; 90.3 67.6 0; 90.3 68.7 0; 92.3 68.7 0; 92.3 73.5 0; 91.846 78.5 0; 79.8 78.5 0; 79.8 72.3 0; 79.1 72.3 0; 79.1 64 0; 87.781 64 0"/>
+  <profile id="pit_platform:profile" dimensions="3" points="91.8 33.6 0; 91.8 41.3 0; 87.7 41.3 0; 87.7 35.5 0; 87.7 33.6 0"/>
+  <profile id="pit:profile" dimensions="3" points="79.8 30.7 0; 87.7 30.7 0; 87.7 33.6 0; 87.7 35.5 0; 79.8 35.5 0; 79.8 31.4 0"/>
+  <profile id="pit_ramp:profile" dimensions="3" points="87.7 35.5 0.2; 87.7 41.3 1.36; 87.7 44.5 2; 79.8 44.5 2; 79.8 35.5 0.2"/>
+  <profile id="long_a:profile" dimensions="3" points="71.2 44.5 0; 79.6 44.5 0; 79.8 44.5 0; 87.7 44.5 0; 91.8 44.5 0; 91.8 50.5 0; 87.5 50.9 0; 87.781 64 0; 79.1 64 0; 79.1 54.9 0; 67.3 54.9 0; 62.2 53.8 0; 62.2 44.9 0; 63 44.5 0; 68 44.5 0"/>
+  <profile id="long_corner:profile" dimensions="3" points="72.6 31.4 0; 79.8 31.4 0; 79.8 35.5 0; 79.8 44.5 0; 79.6 44.5 0; 71.2 44.5 0; 72.6 43.2 0"/>
+  <profile id="long_doors:profile" dimensions="3" points="68.8 43.7 0; 68 43.7 0; 68 44.5 0; 63 44.5 0; 63.8 44.1 0; 62.9 43.5 0; 62.9 34.1 0; 63.8 33.7 0; 63.8 33.1 0; 62.5 33.1 0; 62.5 31.5 0; 68.8 31.5 0"/>
+  <profile id="outside_long:profile" dimensions="3" points="60 18.1 0; 63.5 18.1 0; 63.5 17.6 0; 68.8 17.6 0; 68.8 28.5 0; 68.8 31.5 0; 62.5 31.5 0; 53.9 31.5 0; 53.9 21.5 0; 53.2 21.5 0; 53.2 17.8 0; 53 17.614 0; 53 17 0; 60 17 0"/>
+  <profile id="t_long_ramp:profile" dimensions="3" points="60 17 0; 53 17 0; 53 12.9 0; 55.7 12.9 0; 60 12.9 0"/>
+  <profile id="t_spawn:profile" dimensions="3" points="44 0.2 0; 44 11.5 0; 44 12.9 0; 39.7 12.9 0; 39.5 12.9 0; 30 12.9 0; 30 11.5 0; 10.9 11.5 0; 0.6 11.5 0; 0.6 3.1 0; 10 3.1 0; 10.2 2.5 0; 43.7 2.5 0; 43.9 0.2 0"/>
+  <profile id="t_spawn_ramp:profile" dimensions="3" points="55.7 4 2; 55.7 12.9 2; 53 12.9 2.231; 51.2 12.9 2.385; 44 12.9 3; 44 11.5 3; 44 0.2 3; 55.7 0.2 2"/>
+  <profile id="t_spawn_low:profile" dimensions="3" points="61.7 12.8 0; 60 12.8 0; 60 12.9 0; 55.7 12.9 0; 55.7 4 0; 61.7 4 0"/>
+  <profile id="t_platform:profile" dimensions="3" points="30 11.5 0; 30 12.9 0; 29.8 12.9 0; 29.8 23.5 0; 25 23.5 0; 25 21.5 0; 21 21.5 0; 19.5 23 0; 19.5 24 0; 10.9 24 0; 10.9 12.9 0; 10.9 11.5 0"/>
+  <profile id="outside_tunnels_ramp:profile" dimensions="3" points="4 15.9 2.545; 0.6 12.5 3; 0.6 11.5 3; 10.9 11.5 3; 10.9 12.9 2.946; 10.9 24 1.46; 4 24 1.46"/>
+  <profile id="outside_tunnels:profile" dimensions="3" points="4.4 25 0; 4 25 0; 4 24 0; 10.9 24 0; 19.5 24 0; 19.5 26.3 0; 20.7 27.5 0; 23 27.5 0; 22.104 38.5 0; 4.4 38.5 0"/>
+  <profile id="tunnel_entry_stairs:profile" dimensions="3" points="4.4 38.5 1.46; 22.104 38.5 1.46; 22.063 39 1.61; 21.957 40.3 2; 4.4 40.3 2; 4.4 39 1.61"/>
+  <profile id="lower_tunnels_stairs:profile" paths="e219:path e220:path e221:path e222:path"/>
+  <profile id="tunnel_center_platform:profile" paths="e223:path e224:path e225:path e226:path"/>
+  <profile id="upper_tunnels:profile" dimensions="3" points="1.6 59.1 0; 1.6 50.1 0; 9.1 50.1 0; 9.1 48.7 0; 11.9 48.7 0; 11.9 43 0; 7.4 43 0; 7.4 41 0; 4.4 41 0; 4.4 40.3 0; 21.957 40.3 0; 21.9 41 0; 19.6 41 0; 19.6 43 0; 15.1 43 0; 15.1 48.7 0; 16.3 48.7 0; 16.3 50.2 0; 23.2 50.5 0; 23.2 53.5 0; 23.2 56.1 0; 16.2 56.1 0; 13.5 56.3 0; 13.5 59.1 0; 8 59.1 0; 4.7 59.1 0"/>
+  <profile id="lower_tunnels:profile" dimensions="3" points="38.8 60.9 0; 38.8 62 0; 23.2 62 0; 23.2 59.1 0; 23.2 56.5 0; 26.2 56.5 0; 29.2 56.5 0; 39 56.5 0; 39.6 56.5 0; 39.6 60.9 0"/>
+  <profile id="b_exit_stairs:profile" dimensions="3" points="4.7 65.9 2; 8 65.9 2; 8 67.7 1.46; 4.7 67.7 1.46"/>
+  <profile id="b_tunnel:profile" dimensions="3" points="8 59.1 0; 8 65.9 0; 4.7 65.9 0; 4.7 59.1 0"/>
+  <profile id="b_site:profile" dimensions="3" points="20.6 88.7 0; 20.6 90.4 0; 16.8 92.5 0; 8.5 92.5 0; 8.5 98.9 0; 2.8 98.9 0; 2.8 82.2 0; 1.6 82.2 0; 1.6 67.7 0; 4.7 67.7 0; 8 67.7 0; 12 67.7 0; 18.151 67.7 0; 20.4 70 0; 20.4 73.9 0; 21.7 75 0; 21.7 88.7 0"/>
+  <profile id="b_approach:profile" dimensions="3" points="27.2 85.5 1.006; 27.2 88.7 1.006; 21.7 88.7 1.46; 21.7 75 1.46; 23 74 1.353; 27.7 74 0.965; 27.7 73.3 0.965; 34.4 73.3 0.412; 34.4 74 0.412; 37.7 74 0.14; 37.7 67.7 0.14; 39.4 67.7 0; 39.4 85.5 0"/>
+  <profile id="ct_mid:profile" dimensions="3" points="45.4 62.1 0; 44 62.1 0; 44 71.9 0; 51.3 71.9 0; 53.4 73.1 0; 56.8 73.1 0; 56.8 63 0; 56.9 63 0; 56.9 67 0; 56.9 73.1 0; 56.9 85.1 0; 56.8 85.1 0; 52.4 85.1 0; 52.4 81.3 0; 50.5 79.4 0; 44 79.4 0; 44 85.5 0; 39.4 85.5 0; 39.4 67.7 0; 39.4 64.321 0; 39.6 64.3 0; 39.6 62.5 0; 39.6 62 0; 45.4 62 0"/>
+  <profile id="ct_mid.1:profile" dimensions="3" points="48.2 63 0; 53 63 0; 53 63.3 0; 48.2 63.3 0"/>
+  <profile id="lower_mid:profile" dimensions="3" points="45.4 57.2 0; 45.4 62 0; 39.6 62 0; 39.6 60.9 0; 39.6 56.5 0; 39 56.5 0; 39 56 0; 45.4 56 0"/>
+  <profile id="mid_low_landing:profile" dimensions="3" points="45.4 56 0; 39 56 0; 39 52.8 0; 38.8 52.8 0; 38.8 52 0; 44 52 0; 45.4 52 0"/>
+  <profile id="mid:profile" dimensions="3" points="44 52 0; 38.8 52 0; 38.8 46.9 1.7; 39.6 46.9 1.7; 39.6 46 2; 44 46 2"/>
+  <profile id="mid_upper_landing:profile" dimensions="3" points="45.4 46 0; 44 46 0; 39.6 46 0; 39.6 43.7 0; 37 43.7 0; 37 38.1 0; 45.4 38.1 0"/>
+  <profile id="top_mid:profile" dimensions="3" points="35.5 31.3 0; 39.5 31.3 0; 39.5 17 0; 50 17 0; 50 17.2 0; 44.1 17.2 0; 43.1 18.5 0; 42.9 32.1 0; 44.1 33.3 0; 52.5 33.3 0; 53 32.8 0; 53 38.1 0; 45.4 38.1 0; 37 38.1 0; 34.412 38.1 0"/>
+  <profile id="top_mid.1:profile" dimensions="3" points="53 17.614 0; 52.339 17 0; 53 17 0"/>
+  <profile id="t_mid_ramp:profile" dimensions="3" points="44 12.9 0; 51.2 12.9 0; 53 12.9 0; 53 17 0; 52.339 17 0; 51.8 16.5 0; 50 16.5 0; 50 17 0; 39.5 17 0; 39.5 12.9 0; 39.7 12.9 0"/>
+  <profile id="connector.0:profile" dimensions="3" points="34.3 38.8 0; 34.412 38.1 0; 37 38.1 0; 37 43.7 0; 36.6 43.7 0; 36.6 38.8 0"/>
+  <profile id="connector.1:profile" dimensions="3" points="53.9 31.5 0; 62.5 31.5 0; 62.5 33.1 0; 62 33.1 0; 62 38.2 0; 56.9 38.2 0; 56.9 38.1 0; 53 38.1 0; 53 32.8 0; 53.9 31.9 0"/>
+  <profile id="connector.2:profile" dimensions="3" points="39.4 67.7 0; 37.7 67.7 0; 37.7 64.5 0; 39.4 64.321 0"/>
+  <profile id="connector.3:profile" dimensions="3" points="12 67.7 0; 12 63.3 0; 14.8 63.3 0; 16 65.5 0; 18.151 67.7 0"/>
+  <profile id="a_short_site_connection:profile" dimensions="3" points="56.8 90.3 0; 56.8 85.1 0; 56.9 85.1 0; 63.1 85.1 0; 63.1 90.3 0"/>
+  <profile id="a_short:profile" dimensions="3" points="63.1 85.1 0; 56.9 85.1 0; 56.9 73.1 0; 56.9 67 0; 63 67 0; 63 73.1 0; 63.1 73.1 0; 63.1 74.5 0; 63.1 81.8 0"/>
+  <profile id="catwalk_approach:profile" dimensions="3" points="49.8 38.2 0; 48.5 39.5 0; 48.5 55.7 0; 49.8 57 0; 56.9 57 0; 56.9 57.2 0; 45.7 57.2 0; 45.4 57.2 0; 45.4 56 0; 45.4 52 0; 45.4 46 0; 45.4 38.1 0; 53 38.1 0; 56.9 38.1 0; 56.9 38.2 0"/>
+  <profile id="catwalk:profile" dimensions="3" points="56.9 57.2 0; 56.9 57 0; 63 57 0; 63 63 0; 56.9 63 0; 56.8 63 0; 56.8 62.1 0; 53 62.1 0; 53 63 0; 48.2 63 0; 48.2 62.1 0; 45.7 62.1 0; 45.4 62.1 0; 45.4 62 0; 45.4 57.2 0; 45.7 57.2 0"/>
+  <profile id="ct_underpass:profile" dimensions="3" points="63.1 85.1 0; 56.9 85.1 0; 56.9 73.1 0; 63 73.1 0; 63.1 73.1 0; 63.1 74.5 0; 63.1 81.8 0"/>
+  <material id="mat.ground" color="#bda982" repeat="1" roughness="0.92" metalness="0"/>
+  <material id="mat.stone" color="#c6b992" repeat="1" roughness="0.92" metalness="0"/>
+  <material id="mat.site" color="#d6bd88" repeat="1" roughness="0.92" metalness="0"/>
+  <material id="mat.spawn" color="#aeaa80" repeat="1" roughness="0.92" metalness="0"/>
+  <material id="mat.tunnel" color="#948a72" repeat="1" roughness="0.92" metalness="0"/>
+  <material id="mat.wall" color="#dbc89d" repeat="1" roughness="0.92" metalness="0"/>
+  <material id="mat.crate" color="#88714e" repeat="1" roughness="0.92" metalness="0"/>
+  <group id="ground" label="Main routes">
+    <stairs id="a_north_stairs" label="Goose to A · shallow descending steps" material="mat.stone" group="ground" left="a_north_stairs:left" right="a_north_stairs:right" maximum-riser="0.18" thickness="0.2" underside="filled" area="a_north_stairs"/>
+    <slab id="a_back_platform" label="Goose · upper landing" material="mat.site" group="ground" profile="a_back_platform:profile" thickness="0.2" area="a_back_platform" playable="true" datum="goose"/>
+    <slab id="a_goose_side" label="Long A · upper road to Goose" material="mat.ground" group="ground" profile="a_goose_side:profile" thickness="0.2" area="a_goose_side" playable="true" elevation="0"/>
+    <slab id="a_site" label="Bombsite A" material="mat.site" group="ground" profile="a_site:profile" thickness="0.2" area="a_site" playable="true" datum="a-short"/>
+    <stairs id="ct_a_stairs" label="CT to Cross · eastbound side stairs" material="mat.stone" group="ground" left="ct_a_stairs:left" right="ct_a_stairs:right" maximum-riser="0.18" thickness="0.2" underside="filled" area="ct_a_stairs"/>
+    <slab id="ct_a_ramp" label="CT to Cross · eastbound ramp" material="mat.stone" group="ground" profile="ct_a_ramp:profile" thickness="0.2" area="ct_a_ramp" playable="true" elevation="0"/>
+    <slab id="ct_a_landing" label="CT to Cross · level landing" material="mat.stone" group="ground" profile="ct_a_landing:profile" thickness="0.2" area="ct_a_landing" playable="true" datum="long-catwalk"/>
+    <slab id="ct_cross_transition" label="Cross · merge with Long A" material="mat.ground" group="ground" profile="ct_cross_transition:profile" thickness="0.2" area="ct_cross_transition" playable="true" elevation="0"/>
+    <slab id="a_ramp" label="Long A · Cross approach" material="mat.ground" group="ground" profile="a_ramp:profile" thickness="0.2" area="a_ramp" playable="true" datum="long-catwalk"/>
+    <stairs id="pit_stairs" label="Pit Plat · ascending south steps" material="mat.stone" group="ground" left="pit_stairs:left" right="pit_stairs:right" maximum-riser="0.15" thickness="0.2" underside="filled" area="pit_stairs"/>
+    <slab id="pit_platform" label="Pit Plat · raised side platform" material="mat.stone" group="ground" profile="pit_platform:profile" thickness="0.2" area="pit_platform" playable="true" datum="pit-platform"/>
+    <slab id="pit" label="Pit · central depression" material="mat.stone" group="ground" profile="pit:profile" thickness="0.2" area="pit" playable="true" datum="pit-bottom"/>
+    <slab id="pit_ramp" label="Pit · descending approach" material="mat.ground" group="ground" profile="pit_ramp:profile" thickness="0.2" area="pit_ramp" playable="true" elevation="0"/>
+    <slab id="long_a" label="Long A" material="mat.ground" group="ground" profile="long_a:profile" thickness="0.2" area="long_a" playable="true" datum="long-catwalk"/>
+    <slab id="long_corner" label="Long doors · corner" material="mat.ground" group="ground" profile="long_corner:profile" thickness="0.2" area="long_corner" playable="true" datum="long-catwalk"/>
+    <slab id="long_doors" label="Long doors" material="mat.stone" group="ground" profile="long_doors:profile" thickness="0.2" area="long_doors" playable="true" datum="long-catwalk"/>
+    <slab id="outside_long" label="Outside Long" material="mat.ground" group="ground" profile="outside_long:profile" thickness="0.2" area="outside_long" playable="true" datum="long-catwalk"/>
+    <slab id="t_long_ramp" label="T side · level Long approach" material="mat.ground" group="ground" profile="t_long_ramp:profile" thickness="0.2" area="t_long_ramp" playable="true" datum="long-catwalk"/>
+    <slab id="t_spawn" label="T spawn · upper western landing" material="mat.spawn" group="ground" profile="t_spawn:profile" thickness="0.2" area="t_spawn" playable="true" datum="t-platform"/>
+    <slab id="t_spawn_ramp" label="T spawn · east-descending ramp" material="mat.spawn" group="ground" profile="t_spawn_ramp:profile" thickness="0.2" area="t_spawn_ramp" playable="true" elevation="0"/>
+    <slab id="t_spawn_low" label="T spawn · lower eastern landing" material="mat.spawn" group="ground" profile="t_spawn_low:profile" thickness="0.2" area="t_spawn_low" playable="true" datum="long-catwalk"/>
+    <slab id="t_platform" label="T Plat" material="mat.spawn" group="ground" profile="t_platform:profile" thickness="0.2" area="t_platform" playable="true" datum="t-platform"/>
+    <slab id="outside_tunnels_ramp" label="T ramp · down to Outside Tunnels" material="mat.spawn" group="ground" profile="outside_tunnels_ramp:profile" thickness="0.2" area="outside_tunnels_ramp" playable="true" elevation="0"/>
+    <slab id="outside_tunnels" label="Outside Tunnels · lower approach" material="mat.ground" group="ground" profile="outside_tunnels:profile" thickness="0.2" area="outside_tunnels" playable="true" datum="b-courtyard"/>
+    <stairs id="tunnel_entry_stairs" label="T-side tunnel entrance steps" material="mat.stone" group="ground" left="tunnel_entry_stairs:left" right="tunnel_entry_stairs:right" maximum-riser="0.18" thickness="0.2" underside="filled" area="tunnel_entry_stairs"/>
+    <roof id="tunnel_entry_stairs:ceiling" label="T-side tunnel entrance steps" material="mat.stone" group="ground" profile="tunnel_entry_stairs:profile" thickness="0.2" flat="true" playable="false" elevation="6.7"/>
+    <stairs id="lower_tunnels_stairs" label="Tunnel stairs · curved bend" material="mat.tunnel" group="ground" left="lower_tunnels_stairs:left" right="lower_tunnels_stairs:right" maximum-riser="0.18" thickness="0.2" underside="filled" area="lower_tunnels_stairs"/>
+    <roof id="lower_tunnels_stairs:ceiling" label="Tunnel stairs · curved bend" material="mat.tunnel" group="ground" profile="lower_tunnels_stairs:profile" thickness="0.2" flat="true" playable="false" elevation="6.7"/>
+    <slab id="tunnel_center_platform" label="Tunnel bend · flat central platform" material="mat.tunnel" group="ground" profile="tunnel_center_platform:profile" thickness="0.2" area="tunnel_center_platform" playable="true" elevation="0"/>
+    <roof id="tunnel_center_platform:ceiling" label="Tunnel bend · flat central platform" material="mat.tunnel" group="ground" profile="tunnel_center_platform:profile" thickness="0.2" flat="true" playable="false" elevation="6.7"/>
+    <slab id="upper_tunnels" label="Upper tunnels" material="mat.tunnel" group="ground" profile="upper_tunnels:profile" thickness="0.2" area="upper_tunnels" playable="true" datum="long-catwalk"/>
+    <roof id="upper_tunnels:ceiling" label="Upper tunnels" material="mat.tunnel" group="ground" profile="upper_tunnels:profile" thickness="0.2" flat="true" playable="false" elevation="6.7"/>
+    <slab id="lower_tunnels" label="Lower tunnels · level hall to Mid" material="mat.tunnel" group="ground" profile="lower_tunnels:profile" thickness="0.2" area="lower_tunnels" playable="true" datum="ct-ground"/>
+    <roof id="lower_tunnels:ceiling" label="Lower tunnels · level hall to Mid" material="mat.tunnel" group="ground" profile="lower_tunnels:profile" thickness="0.2" flat="true" playable="false" elevation="4.4"/>
+    <stairs id="b_exit_stairs" label="B courtyard to tunnel · ascending doorway steps" material="mat.stone" group="ground" left="b_exit_stairs:left" right="b_exit_stairs:right" maximum-riser="0.18" thickness="0.2" underside="filled" area="b_exit_stairs"/>
+    <roof id="b_exit_stairs:ceiling" label="B courtyard to tunnel · ascending doorway steps" material="mat.stone" group="ground" profile="b_exit_stairs:profile" thickness="0.2" flat="true" playable="false" elevation="6.7"/>
+    <slab id="b_tunnel" label="B tunnel entrance" material="mat.tunnel" group="ground" profile="b_tunnel:profile" thickness="0.2" area="b_tunnel" playable="true" datum="long-catwalk"/>
+    <roof id="b_tunnel:ceiling" label="B tunnel entrance" material="mat.tunnel" group="ground" profile="b_tunnel:profile" thickness="0.2" flat="true" playable="false" elevation="6.7"/>
+    <slab id="b_site" label="Bombsite B" material="mat.site" group="ground" profile="b_site:profile" thickness="0.2" area="b_site" playable="true" datum="b-courtyard"/>
+    <slab id="b_approach" label="Mid to B" material="mat.ground" group="ground" profile="b_approach:profile" thickness="0.2" area="b_approach" playable="true" elevation="0"/>
+    <slab id="ct_mid" label="CT mid" material="mat.ground" group="ground" profile="ct_mid:profile" thickness="0.2" area="ct_mid" playable="true" datum="ct-ground"/>
+    <slab id="ct_mid.1" label="CT mid" material="mat.ground" group="ground" profile="ct_mid.1:profile" thickness="0.2" area="ct_mid" playable="true" datum="ct-ground"/>
+    <slab id="lower_mid" label="Lower Mid · level tunnel exit" material="mat.ground" group="ground" profile="lower_mid:profile" thickness="0.2" area="lower_mid" playable="true" datum="ct-ground"/>
+    <slab id="mid_low_landing" label="Lower Mid · ramp landing" material="mat.ground" group="ground" profile="mid_low_landing:profile" thickness="0.2" area="mid_low_landing" playable="true" datum="ct-ground"/>
+    <stairs id="mid_stairs" label="Mid · Catwalk-side stair strip" material="mat.stone" group="ground" left="mid_stairs:left" right="mid_stairs:right" maximum-riser="0.125" thickness="0.2" underside="filled" area="mid_stairs"/>
+    <slab id="mid" label="Middle · central incline" material="mat.ground" group="ground" profile="mid:profile" thickness="0.2" area="mid" playable="true" elevation="0"/>
+    <slab id="mid_upper_landing" label="Top Mid · ramp landing" material="mat.ground" group="ground" profile="mid_upper_landing:profile" thickness="0.2" area="mid_upper_landing" playable="true" datum="long-catwalk"/>
+    <slab id="top_mid" label="Top mid" material="mat.ground" group="ground" profile="top_mid:profile" thickness="0.2" area="top_mid" playable="true" datum="long-catwalk"/>
+    <slab id="top_mid.1" label="Top mid" material="mat.ground" group="ground" profile="top_mid.1:profile" thickness="0.2" area="top_mid" playable="true" datum="long-catwalk"/>
+    <slab id="t_mid_ramp" label="T side · level Mid approach" material="mat.ground" group="ground" profile="t_mid_ramp:profile" thickness="0.2" area="t_mid_ramp" playable="true" datum="long-catwalk"/>
+    <slab id="connector.0" label="Top Mid · ramp landing · boundary extension" material="mat.ground" group="ground" profile="connector.0:profile" thickness="0.2" area="mid_upper_landing" playable="true" datum="long-catwalk"/>
+    <slab id="connector.1" label="Catwalk · approach · boundary extension" material="mat.ground" group="ground" profile="connector.1:profile" thickness="0.2" area="catwalk_approach" playable="true" datum="long-catwalk"/>
+    <slab id="connector.2" label="CT mid · boundary extension" material="mat.ground" group="ground" profile="connector.2:profile" thickness="0.2" area="ct_mid" playable="true" datum="ct-ground"/>
+    <slab id="connector.3" label="Bombsite B · boundary extension" material="mat.ground" group="ground" profile="connector.3:profile" thickness="0.2" area="b_site" playable="true" datum="b-courtyard"/>
+  </group>
+  <group id="short" label="A Short bridge">
+    <slab id="a_short_site_connection" label="A Short · level site connection" material="mat.stone" group="short" profile="a_short_site_connection:profile" thickness="0.2" area="a_short_site_connection" playable="true" datum="a-short"/>
+    <slab id="a_short" label="A Short · bridge" material="mat.stone" group="short" profile="a_short:profile" thickness="0.2" area="a_short" playable="true" datum="a-short"/>
+    <stairs id="a_short_stairs" label="A Short stairs" material="mat.stone" group="short" left="a_short_stairs:left" right="a_short_stairs:right" maximum-riser="0.18" thickness="0.2" underside="filled" area="a_short_stairs"/>
+    <slab id="catwalk_approach" label="Catwalk · approach" material="mat.stone" group="short" profile="catwalk_approach:profile" thickness="0.2" area="catwalk_approach" playable="true" datum="long-catwalk"/>
+    <slab id="catwalk" label="Catwalk" material="mat.stone" group="short" profile="catwalk:profile" thickness="0.2" area="catwalk" playable="true" datum="long-catwalk"/>
+  </group>
+  <group id="underpass" label="CT underpass">
+    <slab id="ct_underpass" label="CT spawn · under A Short" material="mat.ground" group="underpass" profile="ct_underpass:profile" thickness="0.2" area="ct_underpass" playable="true" datum="ct-ground"/>
+  </group>
+  <assembly id="dust2-boundary-walls" material="mat.wall" coincident-material="retained-face">
+    <wall id="e4" group="ground" path="e4:path" thickness="0.24" height="4.5" fit-floor="a_back_platform"/>
+    <wall id="e5" group="ground" path="e5:path" thickness="0.24" height="4.5" fit-floor="a_back_platform"/>
+    <wall id="e6" group="ground" path="e6:path" thickness="0.24" height="4.5" fit-floor="a_back_platform"/>
+    <wall id="e7" group="ground" path="e7:path" thickness="0.24" height="4.5" fit-floor="a_back_platform"/>
+    <wall id="e10" group="ground" path="e10:path" thickness="0.24" height="4.5" fit-floor="a_back_platform"/>
+    <wall id="e11" group="ground" path="e11:path" thickness="0.24" height="4.5" fit-floor="a_goose_side"/>
+    <wall id="e12" group="ground" path="e12:path" thickness="0.24" height="4.5" fit-floor="a_goose_side"/>
+    <wall id="e18" group="ground" path="e18:path" thickness="0.24" height="4.5" fit-floor="a_goose_side"/>
+    <wall id="e26" group="ground" path="e26:path" thickness="0.24" height="4.5" fit-floor="a_site"/>
+    <wall id="e75" group="ground" path="e75:path" thickness="0.24" height="4.5"/>
+    <wall id="e82" group="ground" path="e82:path" thickness="0.24" height="4.5" fit-floor="ct_a_landing"/>
+    <wall id="e83" group="ground" path="e83:path" thickness="0.24" height="4.5" fit-floor="ct_a_landing"/>
+    <wall id="e90" group="ground" path="e90:path" thickness="0.24" height="4.5" fit-floor="ct_cross_transition"/>
+    <wall id="e93" group="ground" path="e93:path" thickness="0.24" height="4.5" fit-floor="a_ramp"/>
+    <wall id="e94" group="ground" path="e94:path" thickness="0.24" height="4.5" fit-floor="a_ramp"/>
+    <wall id="e95" group="ground" path="e95:path" thickness="0.24" height="4.5" fit-floor="a_ramp"/>
+    <wall id="e96" group="ground" path="e96:path" thickness="0.24" height="4.5" fit-floor="a_ramp"/>
+    <wall id="e97" group="ground" path="e97:path" thickness="0.24" height="4.5" fit-floor="a_ramp"/>
+    <wall id="e98" group="ground" path="e98:path" thickness="0.24" height="4.5" fit-floor="a_ramp"/>
+    <wall id="e99" group="ground" path="e99:path" thickness="0.24" height="4.5" fit-floor="a_ramp"/>
+    <wall id="e101" group="ground" path="e101:path" thickness="0.24" height="4.5" fit-floor="a_ramp"/>
+    <wall id="e105" group="ground" path="e105:path" thickness="0.24" height="4.5"/>
+    <wall id="e106" group="ground" path="e106:path" thickness="0.24" height="4.5" fit-floor="pit_platform"/>
+    <wall id="e109" group="ground" path="e109:path" thickness="0.24" height="4.5" fit-floor="pit_platform"/>
+    <wall id="e110" group="ground" path="e110:path" thickness="0.24" height="4.5" fit-floor="pit"/>
+    <wall id="e111" group="ground" path="e111:path" thickness="0.24" height="4.5" fit-floor="pit"/>
+    <wall id="e115" group="ground" path="e115:path" thickness="0.24" height="4.5" fit-floor="pit"/>
+    <wall id="e122" group="ground" path="e122:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e123" group="ground" path="e123:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e124" group="ground" path="e124:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e125" group="ground" path="e125:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e126" group="ground" path="e126:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e127" group="ground" path="e127:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e128" group="ground" path="e128:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e129" group="ground" path="e129:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e131" group="ground" path="e131:path" thickness="0.24" height="4.5" fit-floor="long_a"/>
+    <wall id="e132" group="ground" path="e132:path" thickness="0.24" height="4.5" fit-floor="long_corner"/>
+    <wall id="e135" group="ground" path="e135:path" thickness="0.24" height="4.5" fit-floor="long_corner"/>
+    <wall id="e136" group="ground" path="e136:path" thickness="0.24" height="4.5" fit-floor="long_corner"/>
+    <wall id="e137" group="ground" path="e137:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e138" group="ground" path="e138:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e139" group="ground" path="e139:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e140" group="ground" path="e140:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e141" group="ground" path="e141:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e142" group="ground" path="e142:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e143" group="ground" path="e143:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e144" group="ground" path="e144:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e147" group="ground" path="e147:path" thickness="0.24" height="4.5" fit-floor="long_doors"/>
+    <wall id="e148" group="ground" path="e148:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e149" group="ground" path="e149:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e150" group="ground" path="e150:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e151" group="ground" path="e151:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e154" group="ground" path="e154:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e155" group="ground" path="e155:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e156" group="ground" path="e156:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e157" group="ground" path="e157:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e160" group="ground" path="e160:path" thickness="0.24" height="4.5" fit-floor="outside_long"/>
+    <wall id="e164" group="ground" path="e164:path" thickness="0.24" height="4.5" fit-floor="t_long_ramp"/>
+    <wall id="e169" group="ground" path="e169:path" thickness="0.24" height="4.5" fit-floor="t_spawn"/>
+    <wall id="e173" group="ground" path="e173:path" thickness="0.24" height="4.5" fit-floor="t_spawn"/>
+    <wall id="e174" group="ground" path="e174:path" thickness="0.24" height="4.5" fit-floor="t_spawn"/>
+    <wall id="e175" group="ground" path="e175:path" thickness="0.24" height="4.5" fit-floor="t_spawn"/>
+    <wall id="e176" group="ground" path="e176:path" thickness="0.24" height="4.5" fit-floor="t_spawn"/>
+    <wall id="e177" group="ground" path="e177:path" thickness="0.24" height="4.5" fit-floor="t_spawn"/>
+    <wall id="e178" group="ground" path="e178:path" thickness="0.24" height="4.5" fit-floor="t_spawn"/>
+    <wall id="e183" group="ground" path="e183:path" thickness="0.24" height="4.5" fit-floor="t_spawn_ramp"/>
+    <wall id="e184" group="ground" path="e184:path" thickness="0.24" height="4.5" fit-floor="t_spawn_ramp"/>
+    <wall id="e185" group="ground" path="e185:path" thickness="0.24" height="4.5" fit-floor="t_spawn_low"/>
+    <wall id="e186" group="ground" path="e186:path" thickness="0.24" height="4.5" fit-floor="t_spawn_low"/>
+    <wall id="e187" group="ground" path="e187:path" thickness="0.24" height="4.5" fit-floor="t_spawn_low"/>
+    <wall id="e188" group="ground" path="e188:path" thickness="0.24" height="4.5" fit-floor="t_spawn_low"/>
+    <wall id="e189" group="ground" path="e189:path" thickness="0.24" height="4.5" fit-floor="t_platform"/>
+    <wall id="e190" group="ground" path="e190:path" thickness="0.24" height="4.5" fit-floor="t_platform"/>
+    <wall id="e191" group="ground" path="e191:path" thickness="0.24" height="4.5" fit-floor="t_platform"/>
+    <wall id="e192" group="ground" path="e192:path" thickness="0.24" height="4.5" fit-floor="t_platform"/>
+    <wall id="e193" group="ground" path="e193:path" thickness="0.24" height="4.5" fit-floor="t_platform"/>
+    <wall id="e194" group="ground" path="e194:path" thickness="0.24" height="4.5" fit-floor="t_platform"/>
+    <wall id="e195" group="ground" path="e195:path" thickness="0.24" height="4.5" fit-floor="t_platform"/>
+    <wall id="e199" group="ground" path="e199:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels_ramp"/>
+    <wall id="e200" group="ground" path="e200:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels_ramp"/>
+    <wall id="e204" group="ground" path="e204:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels_ramp"/>
+    <wall id="e205" group="ground" path="e205:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels"/>
+    <wall id="e206" group="ground" path="e206:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels"/>
+    <wall id="e208" group="ground" path="e208:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels"/>
+    <wall id="e209" group="ground" path="e209:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels"/>
+    <wall id="e210" group="ground" path="e210:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels"/>
+    <wall id="e211" group="ground" path="e211:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels"/>
+    <wall id="e213" group="ground" path="e213:path" thickness="0.24" height="4.5" fit-floor="outside_tunnels"/>
+    <wall id="e214" group="ground" path="e214:path" thickness="0.24" height="4.5"/>
+    <wall id="e215" group="ground" path="e215:path" thickness="0.24" height="4.5"/>
+    <wall id="e217" group="ground" path="e217:path" thickness="0.24" height="4.5"/>
+    <wall id="e218" group="ground" path="e218:path" thickness="0.24" height="4.5"/>
+    <wall id="e222" group="ground" path="e222:path" thickness="0.24" height="4.5"/>
+    <wall id="e223" group="ground" path="e223:path" thickness="0.24" height="4.5" fit-floor="tunnel_center_platform"/>
+    <wall id="e227" group="ground" path="e227:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e228" group="ground" path="e228:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e229" group="ground" path="e229:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e230" group="ground" path="e230:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e231" group="ground" path="e231:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e232" group="ground" path="e232:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e233" group="ground" path="e233:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e234" group="ground" path="e234:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e235" group="ground" path="e235:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e236" group="ground" path="e236:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e237" group="ground" path="e237:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e238" group="ground" path="e238:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e239" group="ground" path="e239:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e240" group="ground" path="e240:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e241" group="ground" path="e241:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e242" group="ground" path="e242:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e243" group="ground" path="e243:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e244" group="ground" path="e244:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e245" group="ground" path="e245:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e246" group="ground" path="e246:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e247" group="ground" path="e247:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e249" group="ground" path="e249:path" thickness="0.24" height="4.5" fit-floor="upper_tunnels"/>
+    <wall id="e250" group="ground" path="e250:path" thickness="0.24" height="4.5" fit-floor="lower_tunnels"/>
+    <wall id="e251" group="ground" path="e251:path" thickness="0.24" height="4.5" fit-floor="lower_tunnels"/>
+    <wall id="e252" group="ground" path="e252:path" thickness="0.24" height="4.5" fit-floor="lower_tunnels"/>
+    <wall id="e255" group="ground" path="e255:path" thickness="0.24" height="4.5" fit-floor="lower_tunnels"/>
+    <wall id="e258" group="ground" path="e258:path" thickness="0.24" height="4.5" fit-floor="lower_tunnels"/>
+    <wall id="e260" group="ground" path="e260:path" thickness="0.24" height="4.5"/>
+    <wall id="e262" group="ground" path="e262:path" thickness="0.24" height="4.5"/>
+    <wall id="e263" group="ground" path="e263:path" thickness="0.24" height="4.5" fit-floor="b_tunnel"/>
+    <wall id="e264" group="ground" path="e264:path" thickness="0.24" height="4.5" fit-floor="b_tunnel"/>
+    <wall id="e265" group="ground" path="e265:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e266" group="ground" path="e266:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e267" group="ground" path="e267:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e268" group="ground" path="e268:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e269" group="ground" path="e269:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e270" group="ground" path="e270:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e271" group="ground" path="e271:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e272" group="ground" path="e272:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e273" group="ground" path="e273:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e274" group="ground" path="e274:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e276" group="ground" path="e276:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e277" group="ground" path="e277:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e278" group="ground" path="e278:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e280" group="ground" path="e280:path" thickness="0.24" height="4.5" fit-floor="b_site"/>
+    <wall id="e281" group="ground" path="e281:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e282" group="ground" path="e282:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e283" group="ground" path="e283:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e284" group="ground" path="e284:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e285" group="ground" path="e285:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e286" group="ground" path="e286:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e287" group="ground" path="e287:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e288" group="ground" path="e288:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e289" group="ground" path="e289:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e292" group="ground" path="e292:path" thickness="0.24" height="4.5" fit-floor="b_approach"/>
+    <wall id="e293" group="ground" path="e293:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e294" group="ground" path="e294:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e295" group="ground" path="e295:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e296" group="ground" path="e296:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e297" group="ground" path="e297:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e298" group="ground" path="e298:path" thickness="0.2" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e304" group="ground" path="e304:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e305" group="ground" path="e305:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e306" group="ground" path="e306:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e307" group="ground" path="e307:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e308" group="ground" path="e308:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e309" group="ground" path="e309:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e311" group="ground" path="e311:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e312" group="ground" path="e312:path" thickness="0.24" height="4.5" fit-floor="ct_mid"/>
+    <wall id="e317" group="ground" path="e317:path" thickness="0.24" height="4.5" fit-floor="ct_mid.1"/>
+    <wall id="e318" group="ground" path="e318:path" thickness="0.24" height="4.5" fit-floor="ct_mid.1"/>
+    <wall id="e319" group="ground" path="e319:path" thickness="0.24" height="4.5" fit-floor="ct_mid.1"/>
+    <wall id="e321" group="ground" path="e321:path" thickness="0.24" height="4.5" fit-floor="lower_mid"/>
+    <wall id="e322" group="ground" path="e322:path" thickness="0.24" height="4.5" fit-floor="lower_mid"/>
+    <wall id="e325" group="ground" path="e325:path" thickness="0.24" height="4.5" fit-floor="mid_low_landing"/>
+    <wall id="e326" group="ground" path="e326:path" thickness="0.24" height="4.5" fit-floor="mid_low_landing"/>
+    <wall id="e327" group="ground" path="e327:path" thickness="0.24" height="4.5" fit-floor="mid_low_landing"/>
+    <wall id="e334" group="ground" path="e334:path" thickness="0.24" height="4.5" fit-floor="mid"/>
+    <wall id="e335" group="ground" path="e335:path" thickness="0.24" height="4.5" fit-floor="mid"/>
+    <wall id="e336" group="ground" path="e336:path" thickness="0.24" height="4.5" fit-floor="mid"/>
+    <wall id="e338" group="ground" path="e338:path" thickness="0.24" height="4.5" fit-floor="mid_upper_landing"/>
+    <wall id="e339" group="ground" path="e339:path" thickness="0.24" height="4.5" fit-floor="mid_upper_landing"/>
+    <wall id="e343" group="ground" path="e343:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e344" group="ground" path="e344:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e346" group="ground" path="e346:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e347" group="ground" path="e347:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e348" group="ground" path="e348:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e349" group="ground" path="e349:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e350" group="ground" path="e350:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e351" group="ground" path="e351:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e352" group="ground" path="e352:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e356" group="ground" path="e356:path" thickness="0.24" height="4.5" fit-floor="top_mid"/>
+    <wall id="e357" group="ground" path="e357:path" thickness="0.24" height="4.5" fit-floor="top_mid.1"/>
+    <wall id="e361" group="ground" path="e361:path" thickness="0.24" height="4.5" fit-floor="t_mid_ramp"/>
+    <wall id="e362" group="ground" path="e362:path" thickness="0.24" height="4.5" fit-floor="t_mid_ramp"/>
+    <wall id="e363" group="ground" path="e363:path" thickness="0.24" height="4.5" fit-floor="t_mid_ramp"/>
+    <wall id="e364" group="ground" path="e364:path" thickness="0.24" height="4.5" fit-floor="t_mid_ramp"/>
+    <wall id="e367" group="ground" path="e367:path" thickness="0.24" height="4.5" fit-floor="connector.0"/>
+    <wall id="e368" group="ground" path="e368:path" thickness="0.24" height="4.5" fit-floor="connector.0"/>
+    <wall id="e369" group="ground" path="e369:path" thickness="0.24" height="4.5" fit-floor="connector.0"/>
+    <wall id="e370" group="ground" path="e370:path" thickness="0.24" height="4.5" fit-floor="connector.0"/>
+    <wall id="e371" group="ground" path="e371:path" thickness="0.24" height="4.5" fit-floor="connector.1"/>
+    <wall id="e372" group="ground" path="e372:path" thickness="0.24" height="4.5" fit-floor="connector.1"/>
+    <wall id="e373" group="ground" path="e373:path" thickness="0.24" height="4.5" fit-floor="connector.1"/>
+    <wall id="e376" group="ground" path="e376:path" thickness="0.24" height="4.5" fit-floor="connector.1"/>
+    <wall id="e377" group="ground" path="e377:path" thickness="0.24" height="4.5" fit-floor="connector.1"/>
+    <wall id="e379" group="ground" path="e379:path" thickness="0.24" height="4.5" fit-floor="connector.2"/>
+    <wall id="e380" group="ground" path="e380:path" thickness="0.24" height="4.5" fit-floor="connector.2"/>
+    <wall id="e381" group="ground" path="e381:path" thickness="0.24" height="4.5" fit-floor="connector.3"/>
+    <wall id="e382" group="ground" path="e382:path" thickness="0.24" height="4.5" fit-floor="connector.3"/>
+    <wall id="e383" group="ground" path="e383:path" thickness="0.24" height="4.5" fit-floor="connector.3"/>
+    <wall id="e384" group="ground" path="e384:path" thickness="0.24" height="4.5" fit-floor="connector.3"/>
+    <wall id="wall.b_back.0" label="B back partition" group="ground" path="wall.b_back.0:path" thickness="1" height="4.5" base-floor="b_approach" fit-floor="b_approach"/>
+    <wall id="wall.a_platform.0" label="A platform retaining wall" group="ground" path="wall.a_platform.0:path" thickness="0.64" height="0.8" base-floor="a_short" fit-floor="a_short"/>
+    <wall id="wall.a_platform.2" label="A platform retaining wall" group="ground" path="wall.a_platform.2:path" thickness="0.64" height="0.8" base-floor="a_site" fit-floor="a_site"/>
+    <wall id="wall.a_platform.5" label="A platform retaining wall" group="ground" path="wall.a_platform.5:path" thickness="0.64" height="0.8" base-floor="a_site" fit-floor="a_site"/>
+    <wall id="wall.a_platform.6" label="A platform retaining wall" group="ground" path="wall.a_platform.6:path" thickness="0.64" height="0.8" base-floor="a_site" fit-floor="a_site"/>
+    <wall id="wall.a_platform.7" label="A platform retaining wall" group="ground" path="wall.a_platform.7:path" thickness="0.64" height="0.8" base-floor="a_site" fit-floor="a_site"/>
+    <wall id="wall.a_platform.8" label="A platform retaining wall" group="ground" path="wall.a_platform.8:path" thickness="0.64" height="0.8"/>
+    <wall id="wall.a_platform.9" label="A platform retaining wall" group="ground" path="wall.a_platform.9:path" thickness="0.64" height="0.8" base-floor="a_back_platform" fit-floor="a_back_platform"/>
+    <wall id="wall.a_short_abutment.0" label="A platform support north of CT exit" group="ground" path="wall.a_short_abutment.0:path" thickness="0.6" height="3.8" base-floor="ct_underpass" fit-floor="ct_underpass"/>
+    <wall id="wall.upper_tunnel_west.0" label="Upper tunnel west partition" group="ground" path="wall.upper_tunnel_west.0:path" thickness="0.6" height="4.5"/>
+    <wall id="wall.upper_tunnel_west.1" label="Upper tunnel west partition" group="ground" path="wall.upper_tunnel_west.1:path" thickness="0.6" height="4.5"/>
+    <wall id="wall.upper_tunnel_east.0" label="Upper tunnel east partition" group="ground" path="wall.upper_tunnel_east.0:path" thickness="0.6" height="4.5"/>
+    <wall id="wall.upper_tunnel_east.1" label="Upper tunnel east partition" group="ground" path="wall.upper_tunnel_east.1:path" thickness="0.6" height="4.5"/>
+    <wall id="wall.tunnel_entry.0" label="Tunnel entry L wall" group="ground" path="wall.tunnel_entry.0:path" thickness="0.7" height="2.4" base-floor="outside_tunnels_ramp" fit-floor="outside_tunnels_ramp"/>
+    <wall id="wall.tunnel_entry.1" label="Tunnel entry L wall" group="ground" path="wall.tunnel_entry.1:path" thickness="0.7" height="2.4" base-floor="outside_tunnels" fit-floor="outside_tunnels"/>
+    <wall id="wall.t_spawn.0" label="T spawn divider" group="ground" path="wall.t_spawn.0:path" thickness="0.6" height="0.8" base-floor="t_spawn" fit-floor="t_spawn"/>
+    <wall id="wall.t_spawn.1" label="T spawn divider" group="ground" path="wall.t_spawn.1:path" thickness="0.6" height="0.8" base-floor="t_spawn_ramp" fit-floor="t_spawn_ramp"/>
+    <wall id="wall.long_pit.0" label="Long pit divider" group="ground" path="wall.long_pit.0:path" thickness="0.5" height="1.4" base-floor="long_a" fit-floor="long_a"/>
+    <wall id="wall.long_pit.1" label="Long pit divider" group="ground" path="wall.long_pit.1:path" thickness="0.5" height="1.4" base-floor="long_corner" fit-floor="long_corner"/>
+    <wall id="wall.pit_stairs.0" label="Pit stair side wall" group="ground" path="wall.pit_stairs.0:path" thickness="0.6" height="0.9" base-floor="long_a" fit-floor="long_a"/>
+    <wall id="wall.pit_stairs.1" label="Pit stair side wall" group="ground" path="wall.pit_stairs.1:path" thickness="0.6" height="0.9"/>
+    <wall id="wall.pit_stairs.2" label="Pit stair side wall" group="ground" path="wall.pit_stairs.2:path" thickness="0.6" height="0.9" base-floor="pit_platform" fit-floor="pit_platform"/>
+    <wall id="wall.b_divider.0" label="B Doors and raised Window divider" group="ground" path="wall.b_divider.0:path" thickness="0.5" height="4.5" base-floor="b_site" fit-floor="b_site"/>
+    <wall id="e19" group="short" path="e19:path" thickness="0.24" height="4.5" fit-floor="a_short_site_connection"/>
+    <wall id="e23" group="short" path="e23:path" thickness="0.24" height="4.5" fit-floor="a_short_site_connection"/>
+    <wall id="e40" group="short" path="e40:path" thickness="0.24" height="4.5" fit-floor="a_short"/>
+    <wall id="e41" group="short" path="e41:path" thickness="0.24" height="4.5" fit-floor="a_short"/>
+    <wall id="e47" group="short" path="e47:path" thickness="0.24" height="4.5"/>
+    <wall id="e48" group="short" path="e48:path" thickness="0.24" height="4.5" fit-floor="catwalk_approach"/>
+    <wall id="e49" group="short" path="e49:path" thickness="0.24" height="4.5" fit-floor="catwalk_approach"/>
+    <wall id="e50" group="short" path="e50:path" thickness="0.24" height="4.5" fit-floor="catwalk_approach"/>
+    <wall id="e51" group="short" path="e51:path" thickness="0.24" height="4.5" fit-floor="catwalk_approach"/>
+    <wall id="e62" group="short" path="e62:path" thickness="0.24" height="4.5" fit-floor="catwalk_approach"/>
+    <wall id="e63" group="short" path="e63:path" thickness="0.24" height="4.5" fit-floor="catwalk"/>
+    <wall id="e64" group="short" path="e64:path" thickness="0.24" height="4.5" fit-floor="catwalk"/>
+    <wall id="e66" group="short" path="e66:path" thickness="0.2" height="4.5" fit-floor="catwalk"/>
+    <wall id="e67" group="short" path="e67:path" thickness="0.24" height="4.5" fit-floor="catwalk"/>
+    <wall id="e68" group="short" path="e68:path" thickness="0.24" height="4.5" fit-floor="catwalk"/>
+    <wall id="e70" group="short" path="e70:path" thickness="0.24" height="4.5" fit-floor="catwalk"/>
+    <wall id="e71" group="short" path="e71:path" thickness="0.24" height="4.5" fit-floor="catwalk"/>
+    <wall id="e72" group="short" path="e72:path" thickness="0.24" height="4.5" fit-floor="catwalk"/>
+    <wall id="wall.catwalk.0" label="Catwalk divider" group="short" path="wall.catwalk.0:path" thickness="0.6" height="0.8" base-floor="catwalk" fit-floor="catwalk"/>
+    <wall id="wall.catwalk.1" label="Catwalk divider" group="short" path="wall.catwalk.1:path" thickness="0.6" height="0.8" base-floor="catwalk_approach" fit-floor="catwalk_approach"/>
+    <wall id="e388" group="underpass" path="e388:path" thickness="0.24" height="4.5" fit-floor="ct_underpass"/>
+    <retaining-wall id="seam0" group="ground" lower="e24:path" upper="e0:path" lower-floor="a_site" upper-floor="a_north_stairs" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam1" group="ground" lower="e2:path" upper="e13:path" lower-floor="a_north_stairs" upper-floor="a_goose_side" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam2" group="ground" lower="e25:path" upper="e8:path" lower-floor="a_site" upper-floor="a_back_platform" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam3" group="ground" lower="e36:path" upper="e14:path" lower-floor="a_site" upper-floor="a_goose_side" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam4" group="ground" lower="e15:path" upper="e35:path" lower-floor="a_goose_side" upper-floor="a_site" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam5" group="ground" lower="e303:path" upper="e20:path" lower-floor="ct_mid" upper-floor="a_short_site_connection" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam6" group="underpass" lower="e385:path" upper="e21:path" lower-floor="ct_underpass" upper-floor="a_short_site_connection" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam7" group="short" lower="e22:path" upper="e27:path" lower-floor="a_short_site_connection" upper-floor="a_site" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam8" group="ground" lower="e28:path" upper="e44:path" lower-floor="a_site" upper-floor="a_short" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam9" group="ground" lower="e81:path" upper="e29:path" lower-floor="ct_a_ramp" upper-floor="a_site" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam10" group="ground" lower="e85:path" upper="e30:path" lower-floor="ct_a_landing" upper-floor="a_site" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam11" group="ground" lower="e89:path" upper="e31:path" lower-floor="ct_cross_transition" upper-floor="a_site" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam12" group="ground" lower="e88:path" upper="e32:path" lower-floor="ct_cross_transition" upper-floor="a_site" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam13" group="ground" lower="e87:path" upper="e33:path" lower-floor="ct_cross_transition" upper-floor="a_site" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam14" group="ground" lower="e86:path" upper="e34:path" lower-floor="ct_cross_transition" upper-floor="a_site" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam15" group="ground" lower="e302:path" upper="e386:path" lower-floor="ct_mid" upper-floor="ct_underpass" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam16" group="ground" lower="e301:path" upper="e38:path" lower-floor="ct_mid" upper-floor="a_short" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam17" group="ground" lower="e78:path" upper="e389:path" lower-floor="ct_a_stairs" upper-floor="ct_underpass" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam18" group="ground" lower="e79:path" upper="e390:path" lower-floor="ct_a_ramp" upper-floor="ct_underpass" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam19" group="ground" lower="e300:path" upper="e45:path" lower-floor="ct_mid" upper-floor="a_short_stairs" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam20" group="ground" lower="e324:path" upper="e55:path" lower-floor="lower_mid" upper-floor="catwalk_approach" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam21" group="ground" lower="e330:path" upper="e56:path" lower-floor="mid_low_landing" upper-floor="catwalk_approach" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam22" group="ground" lower="e333:path" upper="e57:path" lower-floor="mid_stairs" upper-floor="catwalk_approach" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam23" group="short" lower="e58:path" upper="e342:path" lower-floor="catwalk_approach" upper-floor="mid_upper_landing" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam24" group="short" lower="e59:path" upper="e354:path" lower-floor="catwalk_approach" upper-floor="top_mid" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam25" group="short" lower="e60:path" upper="e375:path" lower-floor="catwalk_approach" upper-floor="connector.1" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam26" group="short" lower="e61:path" upper="e374:path" lower-floor="catwalk_approach" upper-floor="connector.1" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam27" group="ground" lower="e299:path" upper="e65:path" lower-floor="ct_mid" upper-floor="catwalk" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam28" group="ground" lower="e316:path" upper="e69:path" lower-floor="ct_mid.1" upper-floor="catwalk" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam29" group="ground" lower="e315:path" upper="e73:path" lower-floor="ct_mid" upper-floor="catwalk" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam30" group="ground" lower="e320:path" upper="e74:path" lower-floor="lower_mid" upper-floor="catwalk" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam31" group="ground" lower="e117:path" upper="e103:path" lower-floor="pit_ramp" upper-floor="pit_stairs" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam32" group="ground" lower="e116:path" upper="e107:path" lower-floor="pit_ramp" upper-floor="pit_platform" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam33" group="ground" lower="e112:path" upper="e108:path" lower-floor="pit" upper-floor="pit_platform" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam34" group="ground" lower="e114:path" upper="e133:path" lower-floor="pit" upper-floor="long_corner" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam35" group="ground" lower="e119:path" upper="e134:path" lower-floor="pit_ramp" upper-floor="long_corner" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam36" group="ground" lower="e162:path" upper="e180:path" lower-floor="t_long_ramp" upper-floor="t_spawn_ramp" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam37" group="ground" lower="e366:path" upper="e167:path" lower-floor="t_mid_ramp" upper-floor="t_spawn" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam38" group="ground" lower="e365:path" upper="e168:path" lower-floor="t_mid_ramp" upper-floor="t_spawn" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam39" group="ground" lower="e360:path" upper="e181:path" lower-floor="t_mid_ramp" upper-floor="t_spawn_ramp" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam40" group="ground" lower="e359:path" upper="e182:path" lower-floor="t_mid_ramp" upper-floor="t_spawn_ramp" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam41" group="ground" lower="e207:path" upper="e196:path" lower-floor="outside_tunnels" upper-floor="t_platform" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam42" group="ground" lower="e202:path" upper="e197:path" lower-floor="outside_tunnels_ramp" upper-floor="t_platform" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam43" group="ground" lower="e201:path" upper="e198:path" lower-floor="outside_tunnels_ramp" upper-floor="t_platform" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam44" group="ground" lower="e220:path" upper="e225:path" lower-floor="lower_tunnels_stairs" upper-floor="tunnel_center_platform" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam45" group="ground" lower="e254:path" upper="e224:path" lower-floor="lower_tunnels" upper-floor="tunnel_center_platform" thickness="0.24" height="4.5" mode="open"/>
+    <retaining-wall id="seam46" group="ground" lower="e378:path" upper="e290:path" lower-floor="connector.2" upper-floor="b_approach" thickness="0.24" height="4.5" mode="open"/>
+  </assembly>
+  <opening id="wall.b_divider.window.0" group="ground" host="wall.b_divider.0" shape="rectangle" mode="through" center="1.9 1.95" width="2.2" height="2.1" radius="0.5" radii="0.5 0.5"/>
+  <opening id="wall.b_divider.doors.0" group="ground" host="wall.b_divider.0" shape="rectangle" mode="through" center="11.5 1.6" width="3.8" height="3.2" radius="0.5" radii="0.5 0.5"/>
+  <player radius="0.25" height="2" step="0.4" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <marker id="t_spawn_mark" label="T spawn" position="32 7 3" team="attack" movement="land" kind="attacker_spawn" group="ground" element="t_spawn"/>
+  <marker id="ct_spawn_mark" label="CT spawn" position="54 77 0" team="defend" movement="land" kind="defender_spawn" group="ground" element="ct_mid"/>
+  <marker id="site_a" label="Bombsite A" position="76.1 83.5 4" team="neutral" movement="land" kind="objective" group="ground" element="a_site"/>
+  <marker id="site_b" label="Bombsite B" position="15.7 88.1 1.46" team="neutral" movement="land" kind="objective" group="ground" element="b_site"/>
+  <marker id="a_back_mark" label="Goose · upper landing" position="82.5 93.5 4.54" team="neutral" movement="land" kind="poi" group="ground" element="a_back_platform"/>
+  <marker id="pit_mark" label="Pit" position="83.5 33 0.2" team="neutral" movement="land" kind="poi" group="ground" element="pit"/>
+  <marker id="pit_platform_mark" label="Pit Plat" position="89.9 36.1 3.2" team="neutral" movement="land" kind="poi" group="ground" element="pit_platform"/>
+  <marker id="tunnel_upper_mark" label="Upper tunnel landing" position="22.2 53 2" team="neutral" movement="land" kind="poi" group="ground" element="upper_tunnels"/>
+  <marker id="tunnel_lower_mark" label="Lower tunnel landing" position="26 58.6 0" team="neutral" movement="land" kind="poi" group="ground" element="lower_tunnels"/>
+  <marker id="short_mark" label="A Short" position="60 71 4" team="neutral" movement="land" kind="poi" group="short" element="a_short"/>
+  <marker id="ct_cross_mark" label="CT ramp · Cross landing" position="72 76.5 2" team="neutral" movement="land" kind="poi" group="ground" element="ct_a_landing"/>
+  <marker id="long_mark" label="Long A · direct site approach" position="83.5 53.5 2" team="neutral" movement="land" kind="poi" group="ground" element="long_a"/>
+  <marker id="goose_mark" label="Goose · upper stair landing" position="77 90.4 4.54" team="neutral" movement="land" kind="poi" group="ground" element="a_back_platform"/>
+  <marker id="b_doors_route.from" label="B Doors · near landing" position="20 77.3 1.46" team="neutral" movement="land" kind="poi" group="ground" element="b_site"/>
+  <marker id="b_doors_route.to" label="B Doors · far landing" position="23.5 77.3 1.312" team="neutral" movement="land" kind="poi" group="ground" element="b_approach"/>
+  <marker id="b_tunnel_threshold_route.from" label="B tunnel threshold · near landing" position="6.3 68.7 1.46" team="neutral" movement="land" kind="poi" group="ground" element="b_site"/>
+  <marker id="b_tunnel_threshold_route.to" label="B tunnel threshold · far landing" position="6.3 65 2" team="neutral" movement="land" kind="poi" group="ground" element="b_tunnel"/>
+  <marker id="short_stair_route.from" label="Short stairs · near landing" position="60 62.3 2" team="neutral" movement="land" kind="poi" group="short" element="catwalk"/>
+  <marker id="short_stair_route.to" label="Short stairs · far landing" position="60 67.7 4" team="neutral" movement="land" kind="poi" group="short" element="a_short"/>
+  <marker id="mid_stair_route.from" label="Mid side stairs · near landing" position="44.7 52.7 0" team="neutral" movement="land" kind="poi" group="ground" element="mid_low_landing"/>
+  <marker id="mid_stair_route.to" label="Mid side stairs · far landing" position="44.7 45.3 2" team="neutral" movement="land" kind="poi" group="ground" element="mid_upper_landing"/>
+  <marker id="pit_platform_route.from" label="Pit Plat stairs · near landing" position="89.9 45.3 2" team="neutral" movement="land" kind="poi" group="ground" element="long_a"/>
+  <marker id="pit_platform_route.to" label="Pit Plat stairs · far landing" position="89.9 40 3.2" team="neutral" movement="land" kind="poi" group="ground" element="pit_platform"/>
+  <route id="b_doors_route" from="b_doors_route.from" to="b_doors_route.to" min-routes="1" max-distance="10" movement="land"/>
+  <route id="b_tunnel_threshold_route" from="b_tunnel_threshold_route.from" to="b_tunnel_threshold_route.to" min-routes="1" max-distance="10" movement="land"/>
+  <route id="short_stair_route" from="short_stair_route.from" to="short_stair_route.to" min-routes="1" max-distance="12" movement="land"/>
+  <route id="mid_stair_route" from="mid_stair_route.from" to="mid_stair_route.to" min-routes="1" max-distance="12" movement="land"/>
+  <route id="pit_platform_route" from="pit_platform_route.from" to="pit_platform_route.to" min-routes="1" max-distance="10" movement="land"/>
+  <route id="t_to_site_a" from="t_spawn_mark" to="site_a" min-routes="1" max-distance="250" movement="land"/>
+  <route id="t_to_site_b" from="t_spawn_mark" to="site_b" min-routes="1" max-distance="250" movement="land"/>
+  <route id="t_to_a_back_mark" from="t_spawn_mark" to="a_back_mark" min-routes="1" max-distance="250" movement="land"/>
+  <route id="t_to_pit_mark" from="t_spawn_mark" to="pit_mark" min-routes="1" max-distance="250" movement="land"/>
+  <route id="t_to_short_mark" from="t_spawn_mark" to="short_mark" min-routes="1" max-distance="250" movement="land"/>
+  <route id="tunnel_bend_route" from="tunnel_upper_mark" to="tunnel_lower_mark" min-routes="1" max-distance="15" movement="land"/>
+  <route id="ct_to_cross" from="ct_spawn_mark" to="ct_cross_mark" min-routes="1" max-distance="28" movement="land"/>
+  <route id="short_to_site" from="short_mark" to="site_a" min-routes="1" max-distance="32" movement="land"/>
+  <route id="long_to_site" from="long_mark" to="site_a" min-routes="1" max-distance="55" movement="land"/>
+  <route id="long_to_goose" from="long_mark" to="goose_mark" min-routes="1" max-distance="48" movement="land"/>
+  <route id="goose_to_site" from="goose_mark" to="site_a" min-routes="1" max-distance="12" movement="land"/>
+  <connection id="e1:connection" from="a_north_stairs" to="a_site" path="e1:path"/>
+  <connection id="e3:connection" from="a_north_stairs" to="a_back_platform" path="e3:path"/>
+  <connection id="e9:connection" from="a_back_platform" to="a_goose_side" path="e9:path"/>
+  <connection id="e16:connection" from="a_goose_side" to="ct_cross_transition" path="e16:path"/>
+  <connection id="e17:connection" from="a_goose_side" to="a_ramp" path="e17:path"/>
+  <connection id="e76:connection" from="ct_a_stairs" to="ct_a_landing" path="e76:path"/>
+  <connection id="e77:connection" from="ct_a_stairs" to="ct_a_ramp" path="e77:path"/>
+  <connection id="e80:connection" from="ct_a_ramp" to="ct_a_landing" path="e80:path"/>
+  <connection id="e84:connection" from="ct_a_landing" to="ct_cross_transition" path="e84:path"/>
+  <connection id="e91:connection" from="ct_cross_transition" to="a_ramp" path="e91:path"/>
+  <connection id="e92:connection" from="ct_cross_transition" to="a_ramp" path="e92:path"/>
+  <connection id="e100:connection" from="a_ramp" to="long_a" path="e100:path"/>
+  <connection id="e102:connection" from="pit_stairs" to="long_a" path="e102:path"/>
+  <connection id="e104:connection" from="pit_stairs" to="pit_platform" path="e104:path"/>
+  <connection id="e113:connection" from="pit" to="pit_ramp" path="e113:path"/>
+  <connection id="e118:connection" from="pit_ramp" to="long_a" path="e118:path"/>
+  <connection id="e120:connection" from="long_a" to="long_corner" path="e120:path"/>
+  <connection id="e121:connection" from="long_a" to="long_corner" path="e121:path"/>
+  <connection id="e130:connection" from="long_a" to="long_doors" path="e130:path"/>
+  <connection id="e145:connection" from="long_doors" to="connector.1" path="e145:path"/>
+  <connection id="e146:connection" from="long_doors" to="outside_long" path="e146:path"/>
+  <connection id="e153:connection" from="outside_long" to="connector.1" path="e153:path"/>
+  <connection id="e158:connection" from="outside_long" to="top_mid.1" path="e158:path"/>
+  <connection id="e159:connection" from="outside_long" to="t_long_ramp" path="e159:path"/>
+  <connection id="e161:connection" from="t_long_ramp" to="t_mid_ramp" path="e161:path"/>
+  <connection id="e163:connection" from="t_long_ramp" to="t_spawn_low" path="e163:path"/>
+  <connection id="e165:connection" from="t_spawn" to="t_spawn_ramp" path="e165:path"/>
+  <connection id="e166:connection" from="t_spawn" to="t_spawn_ramp" path="e166:path"/>
+  <connection id="e170:connection" from="t_spawn" to="t_platform" path="e170:path"/>
+  <connection id="e171:connection" from="t_spawn" to="t_platform" path="e171:path"/>
+  <connection id="e172:connection" from="t_spawn" to="outside_tunnels_ramp" path="e172:path"/>
+  <connection id="e179:connection" from="t_spawn_ramp" to="t_spawn_low" path="e179:path"/>
+  <connection id="e203:connection" from="outside_tunnels_ramp" to="outside_tunnels" path="e203:path"/>
+  <connection id="e212:connection" from="outside_tunnels" to="tunnel_entry_stairs" path="e212:path"/>
+  <connection id="e216:connection" from="tunnel_entry_stairs" to="upper_tunnels" path="e216:path"/>
+  <connection id="e219:connection" from="lower_tunnels_stairs" to="lower_tunnels" path="e219:path"/>
+  <connection id="e221:connection" from="lower_tunnels_stairs" to="upper_tunnels" path="e221:path"/>
+  <connection id="e226:connection" from="tunnel_center_platform" to="upper_tunnels" path="e226:path"/>
+  <connection id="e248:connection" from="upper_tunnels" to="b_tunnel" path="e248:path"/>
+  <connection id="e256:connection" from="lower_tunnels" to="lower_mid" path="e256:path"/>
+  <connection id="e257:connection" from="lower_tunnels" to="lower_mid" path="e257:path"/>
+  <connection id="e259:connection" from="b_exit_stairs" to="b_tunnel" path="e259:path"/>
+  <connection id="e261:connection" from="b_exit_stairs" to="b_site" path="e261:path"/>
+  <connection id="e275:connection" from="b_site" to="connector.3" path="e275:path"/>
+  <connection id="e279:connection" from="b_site" to="b_approach" path="e279:path"/>
+  <connection id="e291:connection" from="b_approach" to="ct_mid" path="e291:path"/>
+  <connection id="e310:connection" from="ct_mid" to="connector.2" path="e310:path"/>
+  <connection id="e314:connection" from="ct_mid" to="lower_mid" path="e314:path"/>
+  <connection id="e323:connection" from="lower_mid" to="mid_low_landing" path="e323:path"/>
+  <connection id="e328:connection" from="mid_low_landing" to="mid" path="e328:path"/>
+  <connection id="e329:connection" from="mid_low_landing" to="mid_stairs" path="e329:path"/>
+  <connection id="e331:connection" from="mid_stairs" to="mid" path="e331:path"/>
+  <connection id="e332:connection" from="mid_stairs" to="mid_upper_landing" path="e332:path"/>
+  <connection id="e337:connection" from="mid" to="mid_upper_landing" path="e337:path"/>
+  <connection id="e340:connection" from="mid_upper_landing" to="connector.0" path="e340:path"/>
+  <connection id="e341:connection" from="mid_upper_landing" to="top_mid" path="e341:path"/>
+  <connection id="e345:connection" from="top_mid" to="t_mid_ramp" path="e345:path"/>
+  <connection id="e353:connection" from="top_mid" to="connector.1" path="e353:path"/>
+  <connection id="e355:connection" from="top_mid" to="connector.0" path="e355:path"/>
+  <connection id="e358:connection" from="top_mid.1" to="t_mid_ramp" path="e358:path"/>
+  <connection id="e21:connection" from="a_short_site_connection" to="a_short" path="e21:path"/>
+  <connection id="e39:connection" from="a_short" to="a_short_stairs" path="e39:path"/>
+  <connection id="e46:connection" from="a_short_stairs" to="catwalk" path="e46:path"/>
+  <connection id="e52:connection" from="catwalk_approach" to="catwalk" path="e52:path"/>
+  <connection id="e53:connection" from="catwalk_approach" to="catwalk" path="e53:path"/>
+  <connection id="e54:connection" from="catwalk_approach" to="catwalk" path="e54:path"/>
+  <connection id="seam1:connection" from="a_north_stairs" to="a_goose_side" path="e2:path"/>
+  <connection id="seam3:connection" from="a_site" to="a_goose_side" path="e36:path"/>
+  <connection id="seam7:connection" from="a_short_site_connection" to="a_site" path="e22:path"/>
+  <connection id="seam8:connection" from="a_site" to="a_short" path="e28:path"/>
+  <connection id="seam15:connection" from="ct_mid" to="ct_underpass" path="e302:path"/>
+  <connection id="seam17:connection" from="ct_a_stairs" to="ct_underpass" path="e78:path"/>
+  <connection id="seam18:connection" from="ct_a_ramp" to="ct_underpass" path="e79:path"/>
+  <connection id="seam23:connection" from="catwalk_approach" to="mid_upper_landing" path="e58:path"/>
+  <connection id="seam24:connection" from="catwalk_approach" to="top_mid" path="e59:path"/>
+  <connection id="seam25:connection" from="catwalk_approach" to="connector.1" path="e60:path"/>
+  <connection id="seam26:connection" from="catwalk_approach" to="connector.1" path="e61:path"/>
+  <connection id="seam36:connection" from="t_long_ramp" to="t_spawn_ramp" path="e162:path"/>
+  <connection id="seam39:connection" from="t_mid_ramp" to="t_spawn_ramp" path="e360:path"/>
+  <connection id="seam43:connection" from="outside_tunnels_ramp" to="t_platform" path="e201:path"/>
+  <connection id="seam46:connection" from="connector.2" to="b_approach" path="e378:path"/>
+  <light id="sun" position="-30 -15 90" target="40 50 0" color="#fff1d5" intensity="2.2" kind="directional"/>
+  <light id="tunnel_light0" position="12 35.5 4.8" target="0 0 0" color="#ffe5b9" intensity="12" kind="point"/>
+  <light id="tunnel_light1" position="12.6 54.8 4.8" target="0 0 0" color="#ffe5b9" intensity="12" kind="point"/>
+  <light id="tunnel_light2" position="6 63.6 4.8" target="0 0 0" color="#ffe5b9" intensity="12" kind="point"/>
+  <light id="tunnel_light3" position="59.4 76.8 2.2" target="0 0 0" color="#ffe5b9" intensity="12" kind="point"/>
+  <sky color="#e6efff" intensity="0.55"/>
+</architecture>

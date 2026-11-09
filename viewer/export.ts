@@ -1,3 +1,4 @@
+import type { CompiledLevel } from "../src/vector/types.ts";
 import { zipSync, strToU8 } from "fflate";
 import {
   toGLB,
@@ -5,10 +6,9 @@ import {
   exportName,
   exportMetadata,
   resolveExportAssets,
-  type CompiledLevel,
   type ExportFormat,
   type ExportFiles,
-} from "../src/vector/index.ts";
+} from "../src/architecture/index.ts";
 type Snapshot = {
   level: CompiledLevel;
   source: string;
@@ -27,7 +27,7 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
       <label><input type="checkbox" name="format" value="bsp" disabled> Quake BSP2 <small>Modern Quake ports · requires compiler and palette</small></label>
     </fieldset>
     <p class="export-dependencies" role="status">Checking local export tools…</p>
-    <details><summary>Companion assets</summary><p>Select referenced PNG/JPEG material images and GLB meshes, or their parent folder. Paths are relative to the SVGX file.</p>
+    <details><summary>Companion assets</summary><p>Select referenced PNG/JPEG material images and GLB meshes, or their parent folder. Paths are relative to the AML file.</p>
       <label>Files <input id="export-images" type="file" accept=".png,.jpg,.jpeg,.glb" multiple></label>
       <label>Asset folder <input id="export-folder" type="file" webkitdirectory multiple></label>
       <p id="export-assets">No companion files selected.</p>
@@ -104,7 +104,7 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
       ].join(" ");
     } catch {
       dependencies.textContent =
-        "Native export is available through the local viewer (npm run dev) or CLI: npm run compile:vector -- map.level.svgx --formats fbx,bsp. Set BLENDER_PATH, QBSP_PATH, VIS_PATH, LIGHT_PATH and QUAKE_PALETTE_PATH as needed.";
+        "Native export is available through the local viewer (npm run dev) or CLI: npm run compile -- map.aml --formats fbx,bsp. Set BLENDER_PATH, QBSP_PATH, VIS_PATH, LIGHT_PATH and QUAKE_PALETTE_PATH as needed.";
     }
     busy(false);
   };
@@ -149,8 +149,11 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
           encoded[ref] = btoa(binary);
         }
         for (const asset of snapshot.level.document.assets ?? []) {
-          const normalized = asset.src.replaceAll("\\", "/").replace(/^\.\//, ""),
-            file = files.get(normalized) ?? files.get(normalized.split("/").at(-1)!);
+          const normalized = asset.src
+              .replaceAll("\\", "/")
+              .replace(/^\.\//, ""),
+            file =
+              files.get(normalized) ?? files.get(normalized.split("/").at(-1)!);
           if (!file) throw new Error(`Select companion GLB "${asset.src}".`);
           const bytes = new Uint8Array(await file.arrayBuffer());
           let binary = "";

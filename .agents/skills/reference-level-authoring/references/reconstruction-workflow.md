@@ -9,7 +9,7 @@ the normal authoring path. Do not fabricate annotations merely to run an evaluat
 For agent-authored source, evaluation mode needs no model API:
 
 ```sh
-npm run reconstruct -- --source projects/my-level/level.level.svgx \
+npm run reconstruct -- --source projects/my-level/level.aml \
   --image main=projects/my-level/references/main.png \
   --image reverse=projects/my-level/references/reverse.png \
   --evidence projects/my-level/evidence/annotations.json \
@@ -31,7 +31,7 @@ Use a fresh output directory because the runner clears its owned previous output
 Retain command, exit status, result/attempt reports and inspected actual captures.
 Inspect per-view errors and geometry/navigation diagnostics, not just aggregate score.
 A successful image score cannot waive failed navigation or wrong architectural
-ownership. `best.level.svgx` can be a valid draft when acceptance failed; read
+ownership. `best.aml` can be a valid draft when acceptance failed; read
 `result.json`. Invalid candidates stay diagnostic and must not become valid best.
 
 ## Decide the next revision

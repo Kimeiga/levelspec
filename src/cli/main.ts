@@ -6,17 +6,18 @@ import type { ExportFormat } from '../export/vector/index.ts';
 import { parseViewOptions, type ReviewViewOptions } from "../../review/view.ts";
 import { parseNavigationCell } from "../../review/navigation-cell.ts";
 
-const commands = ['init','validate','build','preview'];
+const commands = ['init','validate','build','preview','migrate'];
 const help = `Usage: levelspec <command> [options]
   init <directory> [--json]
-  validate <file.level.svgx> [--json] [--strict-floor-gaps] [--surface-contacts error|warning|off]
-  build <file.level.svgx> --out <directory> [--formats glb,gltf,fbx,bsp] [--json]
+  migrate <file.level.svgx> --out <new-project-directory> [--json]
+  validate <file.aml|file.xml> [--json] [--strict-floor-gaps] [--surface-contacts error|warning|off]
+  build <file.aml|file.xml> --out <directory> [--formats glb,gltf,fbx,bsp] [--json]
     --no-uv --strict-floor-gaps --surface-contacts error|warning|off
     --blender PATH --qbsp PATH --vis PATH --light PATH --quake-palette PATH
-  preview <file.level.svgx> [--port NUMBER]
+  preview <file.aml|file.xml> [--port NUMBER]
     --camera "X Y Z" --target "X Y Z" --projection orthographic|perspective
     --fov DEGREES --view-height METERS --roll DEGREES --suggestion ID | --diagnostic ID
-    --appearance illustrated|materials|inspection --frame-aspect RATIO
+    --appearance flat|illustrated|materials|inspection --frame-aspect RATIO
   validate/build/preview: --nav-cell METERS (0.025–0.5; default 0.0625)
   --help --version
 Preview is read-only and loopback-only. Native exporters require separately installed tools.`;
@@ -38,10 +39,11 @@ export async function main(args: string[]): Promise<number> {
   let navigationCell: number | undefined;
   try {
     if (!commands.includes(command)) {
-      throw new Error('Expected init, validate, build, or preview.');
+      throw new Error('Expected init, migrate, validate, build, or preview.');
     }
     const flags: Record<string, {type:'string'|'boolean'}> = {};
-    if (command !== 'init') flags['nav-cell'] = { type: 'string' };
+    if (['validate','build','preview'].includes(command)) flags['nav-cell'] = { type: 'string' };
+    if (command === 'migrate') flags.out = { type: 'string' };
     if (command === 'preview') {
       for (const name of ["port", "camera", "target", "projection", "fov", "view-height", "roll", "appearance", "frame-aspect", "suggestion", "diagnostic"]) flags[name] = {type:"string"};
     }
@@ -61,7 +63,7 @@ export async function main(args: string[]): Promise<number> {
     if(parsed.positionals.length!==1)throw new Error('Expected exactly one project directory or XML source file.');
     if (parsed.values['surface-contacts'] !== undefined && !['error','warning','off'].includes(String(parsed.values['surface-contacts']))) throw new Error('surface-contacts must be error, warning, or off.');
     if (parsed.values.diagnostic && parsed.values.suggestion) throw new Error('diagnostic and suggestion are mutually exclusive.');
-    if(command==='build'&&!parsed.values.out)throw new Error('build requires --out <directory>.');
+    if((command==='build'||command==='migrate')&&!parsed.values.out)throw new Error(`${command} requires --out <directory>.`);
     if (command === 'build') {
       const formats = String(parsed.values.formats ?? 'glb').split(',');
       if (formats.some(format => !['glb','gltf','fbx','bsp'].includes(format))) {

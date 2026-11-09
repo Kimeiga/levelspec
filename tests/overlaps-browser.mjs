@@ -1,3 +1,4 @@
+import { amlSource } from './fixtures/aml-source.mjs';
 /** Real CLI failure and source-linked inspection of invalid but renderable overlaps. */
 import assert from "node:assert/strict";
 import { mkdtemp, writeFile, readFile, rm } from "node:fs/promises";
@@ -11,12 +12,12 @@ import {
   waitForFrames,
 } from "../website/tests/browser-helpers.mjs";
 const directory = await mkdtemp(join(tmpdir(), "levelspec-overlaps-")),
-  file = join(directory, "level.level.svgx");
+  file = join(directory, "level.aml");
 const source = `<level version="2" id="overlap-demo" name="Overlap acceptance" validation="premap"><layer id="objects"/><prop id="first" layer="objects" shape="box" position="0 0 0" rotation="0 0 0" scale="2 2 2" material="default" collision="none"/><prop id="second" layer="objects" shape="box" position="0.5 0 0" rotation="0 0 0" scale="2 2 2" material="default" collision="none"/></level>`;
 const run = promisify(execFile);
 let server, browser;
 try {
-  await writeFile(file, source);
+  await writeFile(file, await amlSource(source));
   let failed;
   try {
     await run(process.execPath, [
@@ -134,9 +135,7 @@ try {
   await waitForFrames(page);
   assert.ok(await page.locator("#model canvas").count());
   await writeFile(
-    file,
-    source.replace('position="0.5 0 0"', 'position="0.5 0 2"'),
-  );
+    file, await amlSource(source.replace('position="0.5 0 0"', 'position="0.5 0 2"')));
   await page.waitForFunction(() =>
     document
       .querySelector("#diagnostics")

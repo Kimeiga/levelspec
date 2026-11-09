@@ -30,16 +30,16 @@ test("view URLs replay roll with pose and framing while retaining unrelated para
 
 test("appearance parsing is explicit while callers retain their own omitted default", () => {
   assert.equal(parseViewOptions(new URLSearchParams()).appearance, undefined);
-  for (const appearance of ["illustrated", "materials", "inspection"] as const)
+  for (const appearance of ["flat", "illustrated", "materials", "inspection"] as const)
     assert.equal(parseViewOptions(new URLSearchParams({ appearance })).appearance, appearance);
   for (const appearance of ["", " ", "unlit", "Inspection"])
     assert.throws(() => parseViewOptions(new URLSearchParams({ appearance })), /appearance must be/);
 });
 
 test("view URLs replace stale appearance while preserving unrelated context", () => {
-  const state: ReviewViewState = { projection: "orthographic", position: [0,-10,10], target: [0,0,0], fov: 55, viewHeight: 8, roll: 0, appearance: "materials", frameAspect: 1.5 };
+  const state: ReviewViewState = { projection: "orthographic", position: [0,-10,10], target: [0,0,0], fov: 55, viewHeight: 8, roll: 0, appearance: "flat", frameAspect: 1.5 };
   const url = new URL(viewURL("https://example.test/?appearance=inspection&source=local#detail", state));
-  assert.equal(parseViewOptions(url.searchParams).appearance, "materials");
+  assert.equal(parseViewOptions(url.searchParams).appearance, "flat");
   assert.equal(url.searchParams.get("source"), "local");
   assert.equal(url.hash, "#detail");
 });

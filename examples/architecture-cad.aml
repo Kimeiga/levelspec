@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="architecture-cad" name="Architecture and CAD study" validation="premap" curve-tolerance="0.003">
+  <material id="plaster" color="#d6d0be"/>
+  <material id="stone" color="#888a82"/>
+  <material id="accent" color="#a85435"/>
+  <material id="metal" color="#455c61" metalness="0.5"/>
+  <profile id="floor-plan" points="0 0; 10 0; 10 6; 0 6"/>
+  <profile id="border" points="0 0; 10 0; 10 6; 0 6">
+    <hole points="0.3 0.3; 0.3 5.7; 9.7 5.7; 9.7 0.3"/>
+  </profile>
+  <profile id="panel-outline" points="-0.55 -0.55; 0.55 -0.55; 0.55 0.55; -0.55 0.55"/>
+  <profile id="tube-section" points="-0.12 -0.12; 0.12 -0.12; 0.12 0.12; -0.12 0.12">
+    <hole points="-0.08 -0.08; -0.08 0.08; 0.08 0.08; 0.08 -0.08"/>
+  </profile>
+  <path id="back-axis" points="0 6 0; 10 6 0"/>
+  <path id="screen-axis" points="0 0 0; 4 0 0; 4 1.5 0"/>
+  <path id="screen-top" points="0 2.8 0; 2 3.4 0; 4 2.8 0; 5.5 2.8 0"/>
+  <path id="pipe-axis" points="0 0 0; 0 0 2; 1.5 0 2"/>
+  <assembly id="shell" material="plaster">
+    <slab id="floor" profile="floor-plan" thickness="0.25" material="stone"/>
+    <wall id="back" path="back-axis" height="3.2" thickness="0.25" base-floor="floor"/>
+    <wall id="screen" path="screen-axis" thickness="0.25" top="screen-top"/>
+  </assembly>
+  <opening id="porthole" host="screen" shape="circle" center="2 1.7" radius="0.7" reveal-material="accent"/>
+  <opening id="corner-notch" host="screen" mode="notch" center="5.3 1" width="0.8" height="2"/>
+  <opening id="panel-recess" host="back" mode="recess" shape="profile" profile="panel-outline" center="3 1.8" depth="0.08" reveal-material="accent"/>
+  <panel id="recess-panel" opening="panel-recess" depth="0.025" offset="-0.065" material="metal"/>
+  <frame id="porthole-frame" opening="porthole" border="0.08" depth="0.04" offset="-0.125" material="metal"/>
+  <face-material id="floor-border" host="floor" face="top" profile="border" material="accent"/>
+  <sweep id="pipe" path="pipe-axis" profile="tube-section" position="8 5.5 0" material="metal"/>
+  <subtract id="display-base" material="stone" position="7 2 0">
+    <box id="plinth" width="1.5" depth="1.5" height="0.6"/>
+    <cylinder id="plinth-void" radius="0.35" height="1" position="0.75 0.75 -0.2"/>
+  </subtract>
+  <cone id="display" radius="0.45" top-radius="0.15" height="0.8" position="7.75 2.75 0.6" material="accent"/>
+  <marker id="start" kind="spawn" element="floor" position="1 3 0"/>
+  <marker id="finish" kind="objective" element="floor" position="9 3 0"/>
+  <route id="cross-study" from="start" to="finish" min-routes="1" max-distance="11"/>
+</architecture>

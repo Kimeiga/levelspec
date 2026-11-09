@@ -1,3 +1,4 @@
+import { parseAml, serializeAml } from "../src/architecture/index.ts";
 import { buildCourtyard } from "./architecture.ts";
 /** Bounded, shareable demo inputs. These never execute visitor-supplied code. */
 export interface DemoState {
@@ -43,11 +44,20 @@ export function readState(search: string): DemoState {
 }
 export function sourceForCurve(template: string, curve: number): string {
   const value = normalizeCurve(curve);
-  const marker = 'control="4 -3; 10 -3"';
-  if (template.split(marker).length !== 2)
+  const document = parseAml(template),
+    path = document.paths.find((path) => path.id === "courtyard.e0:path");
+  if (
+    !path ||
+    path.segments.length !== 1 ||
+    path.segments[0].kind !== "bezier" ||
+    path.segments[0].controls.length !== 2
+  )
     throw new Error("Demo fixture must have exactly one courtyard curve.");
-  const coord = value === 0 ? "0" : `-${value}`;
-  return template.replace(marker, `control="4 ${coord}; 10 ${coord}"`);
+  path.segments[0].controls = [
+    [4, -value, 0],
+    [10, -value, 0],
+  ];
+  return serializeAml(document);
 }
 export function writeState(url: URL, state: DemoState): URL {
   const result = new URL(url);

@@ -195,7 +195,7 @@ and do not claim the required reviews are complete.
 
 ## LevelSpec application
 
-XML (`.level.svgx`) is the architectural authoring direction. The package root exposes the XML API in `src/vector/index.ts`. Runtime JSON is an output, not a legacy authoring format.
+AML XML (`.aml`, or identical `.xml`) is the architectural authoring direction. The package root exposes the native API in `src/architecture/index.ts`. Explicit SVGX migration and phased-delivery limits are documented in `docs/AML.md`. Runtime JSON is an output, not a legacy authoring format.
 
 Document meters and right-handed Z-up at domain boundaries; exporters own axis
 conversion. State what a tolerance bounds and preserve meaningful precision.

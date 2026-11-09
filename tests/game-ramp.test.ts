@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { SceneBuilder, compile, serializeLevelSvgx, parseLevelSvgx } from "../src/vector/index.ts";
+import { ArchitectureBuilder, compile, serializeAml, parseAml } from "levelspec";
 import { toGLB } from "../src/vector/export.ts";
 import { validateForRuntime } from "../src/vector/validate.ts";
 import { CollisionWorld, type Vec3 } from "../game/collision.ts";
@@ -53,8 +53,8 @@ function checkRamp(world: CollisionWorld, shape: PlayerShape, strip: string, tur
 
 /** Explicit XML geometry retains the old regression's wide landings and narrower ramps. */
 function nativeRamp(strip: string, turns: number) {
-  const scene = new SceneBuilder("ramp-landings");
-  const group = scene.group("walk");
+  const scene = new ArchitectureBuilder("ramp-landings");
+  scene.document.validation="premap";scene.document.player.radius=.3;scene.document.player.height=1.8;
   const left = strip.indexOf("r") * 1.6;
   const right = (strip.lastIndexOf("r") + 1) * 1.6;
   const rotate = ([x,y,z]: Vec3): Vec3 => {
@@ -62,11 +62,12 @@ function nativeRamp(strip: string, turns: number) {
     for(let i=0;i<turns;i++) { [x,y]=[y,width-x]; [width,height]=[height,width]; }
     return [x,y,z];
   };
-  group.polygon("low", [[1.6,1.6,0],[14.4,1.6,0],[14.4,4.8,0],[right,4.8,0],[left,4.8,0],[1.6,4.8,0]].map(point => rotate(point as Vec3)));
-  group.polygon("ramp", [[left,4.8,0],[right,4.8,0],[right,12.8,.6],[left,12.8,.6]].map(point => rotate(point as Vec3)), {fill:"ramp"});
-  group.polygon("high", [[1.6,12.8,.6],[left,12.8,.6],[right,12.8,.6],[14.4,12.8,.6],[14.4,17.6,.6],[1.6,17.6,.6]].map(point => rotate(point as Vec3)));
-  scene.document.markers.push({id:"spawn",kind:"spawn",layer:group.layer.id,position:rotate([8,3,0])});
-  return parseLevelSvgx(serializeLevelSvgx(scene.document));
+  const low=scene.profile("low-profile", [[1.6,1.6,0],[14.4,1.6,0],[14.4,4.8,0],[right,4.8,0],[left,4.8,0],[1.6,4.8,0]].map(point => rotate(point as Vec3)));
+  const leftRail=scene.path("left",[rotate([left,4.8,0]),rotate([left,12.8,.6])]),rightRail=scene.path("right",[rotate([right,4.8,0]),rotate([right,12.8,.6])]);scene.ramp("ramp",{left:leftRail.id,right:rightRail.id});
+  const high=scene.profile("high-profile", [[1.6,12.8,.6],[left,12.8,.6],[right,12.8,.6],[14.4,12.8,.6],[14.4,17.6,.6],[1.6,17.6,.6]].map(point => rotate(point as Vec3)));
+  scene.slab("low",low.id);scene.slab("high",high.id);scene.assembly("walk",[...scene.document.elements]);
+  scene.document.markers.push({id:"spawn",kind:"spawn",layer:"architecture",position:rotate([8,3,0])});
+  return parseAml(serializeAml(scene.document));
 }
 
 describe("native XML ramp landing collision", () => {

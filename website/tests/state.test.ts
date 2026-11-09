@@ -9,11 +9,12 @@ import {
 } from "../state.ts";
 import {
   compile,
-  parseLevelSvgx,
+  parseAml,
+  serializeAml,
   validateForRuntime,
-} from "../../src/vector/index.ts";
+} from "levelspec";
 const template = readFileSync(
-  new URL("../demo.level.svgx", import.meta.url),
+  new URL("../demo.aml", import.meta.url),
   "utf8",
 );
 test("URL inputs are bounded, finite and quantized", () => {
@@ -48,15 +49,19 @@ test("URL inputs are bounded, finite and quantized", () => {
   assert.equal(normalizeCurve(2.63), 2.75);
   assert.equal(normalizeCurve(NaN), 3);
 });
-test("the fixture changes only one attribute", () => {
-  assert.equal(sourceForCurve(template, 3), template);
-  assert.equal(
-    sourceForCurve(template, 6),
-    template.replace('control="4 -3; 10 -3"', 'control="4 -6; 10 -6"'),
-  );
-  assert.ok(sourceForCurve(template, 0).includes('control="4 0; 10 0"'));
-  assert.throws(() => sourceForCurve("no marker", 2));
-  assert.throws(() => sourceForCurve(template + template, 2));
+test("curve editing changes only the typed native courtyard control points",()=>{
+  const original=parseAml(template),curve=original.paths.filter(path=>path.segments.some(segment=>segment.kind==='bezier'&&segment.controls.length===2&&segment.controls[0][0]===4&&segment.controls[1][0]===10));
+  assert.equal(curve.length,1);
+  const clean=(value:unknown)=>JSON.parse(JSON.stringify(value,(key,value)=>key==='source'?undefined:value));
+  for(const value of [0,3,6]){
+    const expected=structuredClone(original),path=expected.paths.find(path=>path.id===curve[0].id)!;
+    const segment=path.segments.find(segment=>segment.kind==='bezier')!;assert.equal(segment.kind,'bezier');if(segment.kind!=='bezier')throw new Error('Expected authored Bezier');
+    segment.controls=[[4,-value,0],[10,-value,0]];
+    assert.deepEqual(clean(parseAml(sourceForCurve(template,value))),clean(expected));
+  }
+  const missing=structuredClone(original);missing.paths=missing.paths.filter(path=>path.id!==curve[0].id);
+  assert.throws(()=>sourceForCurve(serializeAml(missing),2));
+  const duplicate=structuredClone(original);duplicate.paths.push(structuredClone(curve[0]));assert.throws(()=>sourceForCurve(serializeAml(duplicate),2));
 });
 test("shared state round-trips without losing the base path", () => {
   const url = writeState(
@@ -85,7 +90,7 @@ test("shared state round-trips without losing the base path", () => {
 test("all 25 slider positions pass unchanged runtime validation", async () => {
   for (let curve = 0; curve <= 6; curve += 0.25) {
     const level = await compile(
-      parseLevelSvgx(sourceForCurve(template, curve)),
+      parseAml(sourceForCurve(template, curve)),
     );
     const result = await validateForRuntime(level, { sealed: true });
     assert.equal(
@@ -95,10 +100,7 @@ test("all 25 slider positions pass unchanged runtime validation", async () => {
     );
     assert.ok(level.mesh.indices.length > 0);
     assert.equal(
-      level.document.layers.reduce(
-        (sum, layer) => sum + layer.regions.length,
-        0,
-      ),
+      new Set(level.floors.map(floor=>floor.region)).size,
       15,
     );
   }

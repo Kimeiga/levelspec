@@ -1,14 +1,14 @@
 # Layout reviewer
 
 Both browser entry points use the shared `review/` implementation. The local
-viewer opens `.level.svgx` and companion assets; the static deployment opens the
+viewer opens `.aml` (or identical `.xml`) and companion assets; the static deployment opens the
 curated Lantern Court snapshot. Both are read-only, full-window review tools.
 XML authoring, repairs and exports belong in external editors and CLI workflows.
 
 ## Run and verify
 
-Use Node 24 and `npm ci`. `npm run dev` opens the local viewer;
-`npm run dev:site` opens the curated reviewer. Build with `npm run build:viewer`
+Use Node 24 and `npm ci`. `npm run dev` opens the local viewer with Dust II;
+`npm run dev:site` opens the curated reviewer with Lantern Court. Build with `npm run build:viewer`
 and `SITE_BASE=/levelspec/ npm run build:site` (use `/` for root hosting).
 
 Production acceptance needs both servers, with the same site base used at build:
@@ -91,7 +91,7 @@ server is running; the ordinary local viewer still needs its source opened.
 Start a live review at a known view directly:
 
 ```sh
-npm run --silent levelspec -- preview projects/my-level/level.level.svgx \
+npm run --silent levelspec -- preview projects/my-level/level.aml \
   --camera "11 -17 8" --target "2 3 1" --projection perspective --fov 47 --roll 21.49 \
   --appearance inspection --frame-aspect 0.75
 ```
@@ -101,7 +101,7 @@ meters; FOV is greater than zero and below 150 degrees. `--view-height 14` sets
 orthographic vertical framing in meters, independent of camera distance. Omitted
 pose uses automatic fit; omitted projection uses orthographic.
 
-Appearance is `illustrated` (the default), `materials`, or `inspection`, selected
+Appearance is `flat` (the default), `illustrated`, `materials`, or `inspection`, selected
 with the Appearance control, `appearance` URL parameter or `--appearance` CLI flag.
 Neutral inspection displays authored colors and textures without lighting or
 shadows, retaining structural outlines, section clipping and selection cues.
@@ -198,4 +198,14 @@ annotations. It remains separate from validation and never edits the XML.
 
 Spatial Validation errors provide Inspect and Copy review link, with exact overlap
 patches highlighted in 2D/3D. Invalid but renderable geometry remains inspectable;
-see [surface overlap errors](SVGX.md#visible-surface-overlap-errors).
+see [surface overlap errors](AML.md).
+
+The default appearance is **Flat**: unlit authored colors and textures at CSS-pixel
+resolution, with structural contour lines and no shadows. Use the Appearance control or
+`--appearance flat` to select it explicitly. Illustrated, Authored materials, and
+Neutral inspection remain available for detailed review.
+
+Dragging the 3D view orbits horizontally around the model at the screen center,
+while preserving its current tilt. If the center has no visible surface, orbit
+depth follows the model center.
+Explicit camera poses, named views, and roll controls can still set tilted review views.

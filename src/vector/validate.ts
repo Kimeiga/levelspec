@@ -22,7 +22,7 @@ import { auditNavigationCoverage } from "./navigation-coverage.ts";
 import { ClipContext, ClippingError, clippingLimits } from "./clipping.ts";
 import { movementLevel } from "./movement.ts";
 let initialized: Promise<void> | undefined;
-const NAVIGATION_REVISION = 13;
+const NAVIGATION_REVISION = 14;
 const up = (p: V3) => ({ x: p[0], y: p[2], z: -p[1] });
 const down = (p: { x: number; y: number; z: number }): V3 => [p.x, -p.z, p.y];
 function disjoint(
@@ -67,7 +67,7 @@ export function rayBlocked(
   sealed = false,
 ): boolean {
   const dir = sub(b, a),
-    m = level.mesh;
+    m = level.physicalMesh ?? level.mesh;
   for (let t = 0; t < m.surfaces.length; t++) {
     const surface = level.surfaces[m.surfaces[t]];
     if (
@@ -123,7 +123,7 @@ function sourceDiagnostic(
     message,
     objects,
     source:
-      sources.find((o) => objects.includes(o.id))?.source ??
+      objects.map(id => level.provenance?.[id]?.source).find(Boolean) ?? sources.find((o) => objects.includes(o.id))?.source ??
       sources.find((o) => areaRegions.has(o.id))?.source,
   };
 }
@@ -215,6 +215,13 @@ async function bakeNavigationForMovement(
   report.repairs = prepared.repairs?.filter(r => r.movement === movement);
   level.repairs = [...(level.repairs ?? []).filter(r=>r.movement!==movement), ...(report.repairs ?? [])];
   report.diagnostics = [...report.diagnostics.filter(d => d.code !== "WATER_DEPTH_UNKNOWN"), ...(prepared.movementDiagnostics ?? [])];
+  const excluded = new Set((prepared.movementDiagnostics ?? []).filter(d => d.code === 'NAV_PLAYABLE_ENDPOINT').flatMap(d => d.objects));
+  for (const route of report.routes) {
+    const authored = level.document.routes.find(r => r.id === route.id);
+    if (authored && (excluded.has(authored.from) || excluded.has(authored.to))) {
+      route.reachable = false; route.path = undefined; route.disjointRoutes = 0;
+    }
+  }
   report.passed = report.passed && !report.diagnostics.some(d=>d.severity==="error");
   if (!options.sealed) {
     if (movement === "water") level.waterNavigation = report;
@@ -251,6 +258,8 @@ async function bakeNavmesh(
     movement: options.movement ?? "land",
     boat: options.movement === "water" ? level.document.boat ?? DEFAULT_BOAT : undefined,
     geometryHash: level.geometryHash,
+    playableDomains: level.spatialVolumes?.filter(v => v.kind === "zone" && v.role === "playable"),
+    water: level.water?.map(({ region, points, triangles }) => ({ region, points, triangles })),
     player: p,
     cell,
     ch,
@@ -286,10 +295,11 @@ async function bakeNavmesh(
       }),
     ),
     semantic: level.semantic,
-    floors: level.floors.map(({ area, region, layer }) => ({
+    floors: level.floors.map(({ area, region, layer, navigationRequired }) => ({
       area,
       region,
       layer,
+      navigationRequired,
     })),
   });
   aborted(options.signal);
@@ -564,6 +574,7 @@ async function bakeNavmesh(
       return {
         id: r.id,
         reachable: !!walk,
+        ...(walk ? { path: walk.map(down) } : {}),
         distance,
         disjointRoutes: walk
           ? disjoint(
@@ -659,6 +670,7 @@ function auditRuntimeGeometry(level: CompiledLevel, diagnostics: Diagnostic[]) {
   if (!level.mesh.indices.length)
     diagnostics.push(sourceDiagnostic(level,"EMPTY_GEOMETRY","No geometry was produced."));
   for(let t=0;t<level.mesh.indices.length;t+=3) {
+    if (level.surfaces[level.mesh.surfaces[t / 3]].domain === "visualization") continue;
     const p=level.mesh.indices.slice(t,t+3).map(i=>level.mesh.positions.slice(i*3,i*3+3) as V3);
     if(p.flat().some(v=>!Number.isFinite(v)) || Math.hypot(...cross(sub(p[1],p[0]),sub(p[2],p[0])))<1e-10) {
       diagnostics.push(sourceDiagnostic(level,"INVALID_TRIANGLE","Nonfinite or degenerate triangle."));
@@ -667,7 +679,7 @@ function auditRuntimeGeometry(level: CompiledLevel, diagnostics: Diagnostic[]) {
   }
 }
 function auditFloorSlopes(level: CompiledLevel, floors: CompiledLevel["floors"], diagnostics: Diagnostic[]) {
-  for(const f of floors)for(const t of f.triangles) {
+  for(const f of floors)for(const t of f.navigationRequired === false ? [] : f.triangles) {
     const [a,b,c]=t.map(i=>f.points[i]),n=cross(sub(b,a),sub(c,a));
     const slope=Math.atan2(Math.hypot(n[0],n[1]),Math.abs(n[2]))*180/Math.PI;
     if(slope<level.document.player.slope)continue;

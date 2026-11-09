@@ -1,18 +1,20 @@
+import { localHeightmaps } from "../src/cli/heightmaps.ts";
 import { readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import {
-  parseLevelSvgx,
+  parseAml,
   compile,
   resolveExportAssets,
-} from "../src/vector/index.ts";
+} from "../src/architecture/index.ts";
 import { bakeLighting } from "../src/lighting/bake.ts";
 const [
-  file = "examples/showcase.level.svgx",
+  file = "examples/showcase.aml",
   output = "generated/lighting/showcase",
   samples = "32",
 ] = process.argv.slice(2);
-const level = await compile(parseLevelSvgx(await readFile(file, "utf8")), {
+const level = await compile(parseAml(await readFile(file, "utf8")), {
   uvs: true,
+  resolveHeightmap: localHeightmaps(file).load,
 });
 const assets = await resolveExportAssets(level, (reference) =>
   readFile(resolve(dirname(resolve(file)), reference)),

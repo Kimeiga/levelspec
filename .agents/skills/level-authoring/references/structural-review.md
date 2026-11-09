@@ -74,7 +74,7 @@ passing one selected path does not certify the whole modeled volume.
 ## Repeatable captures
 
 ```sh
-node tools/capture-level.mjs projects/my-level/level.level.svgx \
+node tools/capture-level.mjs projects/my-level/level.aml \
   generated/my-level/capture-01 projects/my-level/views.json
 ```
 

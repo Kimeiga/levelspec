@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="rooftop-reference" name="Rooftop reference acceptance" units="meters" validation="playable" curve-tolerance="0.01">
+  <path id="district/main/roof-deck/e0:path" closed="false" points="-6 -5 8; 6 -5 8"/>
+  <path id="district/main/roof-deck/e1:path" closed="false" points="6 -5 8; 6 5 8"/>
+  <path id="district/main/roof-deck/e2:path" closed="false" points="6 5 8; -6 5 8"/>
+  <path id="district/main/roof-deck/e3:path" closed="false" points="-6 5 8; -6 -5 8"/>
+  <profile id="district/main/roof-deck:profile" paths="district/main/roof-deck/e0:path district/main/roof-deck/e1:path district/main/roof-deck/e2:path district/main/roof-deck/e3:path"/>
+  <material id="default" color="#b9c7d1" repeat="1" roughness="0.8" metalness="0"/>
+  <material id="concrete" color="#a9aaa4" repeat="1" roughness="0.92" metalness="0"/>
+  <material id="glass" color="#385762" repeat="1" roughness="0.2" metalness="0.05"/>
+  <material id="metal" color="#6e7880" repeat="1" roughness="0.45" metalness="0.65"/>
+  <material id="paint" color="#c17f47" repeat="1" roughness="0.72" metalness="0"/>
+  <group id="architecture">
+    <slab id="district/main/roof-deck" group="architecture" material="concrete" profile="district/main/roof-deck:profile" thickness="0.25" elevation="0"/>
+  </group>
+  <box id="district/main/mass" group="architecture" material="concrete" position="0 0 0" rotation="0 0 0" anchor="bottom-center" width="12" depth="10" height="7.75" radius="0.5" top-radius="0" collidable="true"/>
+  <box id="district/main/facade/south/r0/c0" group="architecture" material="glass" position="-4.417 -5.022 0.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r0/c1" group="architecture" material="glass" position="-2.65 -5.022 0.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r0/c2" group="architecture" material="glass" position="-0.883 -5.022 0.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r0/c3" group="architecture" material="glass" position="0.883 -5.022 0.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r0/c4" group="architecture" material="glass" position="2.65 -5.022 0.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r0/c5" group="architecture" material="glass" position="4.417 -5.022 0.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r1/c0" group="architecture" material="glass" position="-4.417 -5.022 2.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r1/c1" group="architecture" material="glass" position="-2.65 -5.022 2.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r1/c2" group="architecture" material="glass" position="-0.883 -5.022 2.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r1/c3" group="architecture" material="glass" position="0.883 -5.022 2.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r1/c4" group="architecture" material="glass" position="2.65 -5.022 2.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r1/c5" group="architecture" material="glass" position="4.417 -5.022 2.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r2/c0" group="architecture" material="glass" position="-4.417 -5.022 4.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r2/c1" group="architecture" material="glass" position="-2.65 -5.022 4.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r2/c2" group="architecture" material="glass" position="-0.883 -5.022 4.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r2/c3" group="architecture" material="glass" position="0.883 -5.022 4.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r2/c4" group="architecture" material="glass" position="2.65 -5.022 4.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r2/c5" group="architecture" material="glass" position="4.417 -5.022 4.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r3/c0" group="architecture" material="glass" position="-4.417 -5.022 6.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r3/c1" group="architecture" material="glass" position="-2.65 -5.022 6.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r3/c2" group="architecture" material="glass" position="-0.883 -5.022 6.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r3/c3" group="architecture" material="glass" position="0.883 -5.022 6.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r3/c4" group="architecture" material="glass" position="2.65 -5.022 6.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/facade/south/r3/c5" group="architecture" material="glass" position="4.417 -5.022 6.375" rotation="0 0 0" anchor="bottom-center" width="1.1" depth="0.04" height="1.25" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="district/main/roof/stairhead" group="architecture" material="concrete" position="-3 -2 8" rotation="0 0 0" anchor="bottom-center" width="2.4" depth="2.1" height="2.2" radius="0.5" top-radius="0" collidable="true"/>
+  <box id="district/main/roof/hvac" group="architecture" material="metal" position="2.3 -2.4 8" rotation="0 0 8" anchor="bottom-center" width="2.2" depth="1.5" height="1.2" radius="0.5" top-radius="0" collidable="true"/>
+  <cylinder id="district/main/roof/tank" group="architecture" material="paint" position="3.4 2.2 8" rotation="0 0 0" scale="1.8 1.8 2.5" width="1" depth="1" height="1" radius="0.5" top-radius="0.5" segments="20" collidable="false"/>
+  <faceted-solid id="district/main/roof/tank:collision" group="architecture" material="paint" position="3.4 2.2 8" rotation="0 0 0" scale="1.8 1.8 2.5" visible="false" collidable="true" points="-0.5 -0.5 0; 0.5 -0.5 0; 0.5 0.5 0; -0.5 0.5 0; -0.5 -0.5 1; 0.5 -0.5 1; 0.5 0.5 1; -0.5 0.5 1" triangles="0 2 1; 0 3 2; 4 5 6; 4 6 7; 0 1 5; 0 5 4; 1 2 6; 1 6 5; 2 3 7; 2 7 6; 3 0 4; 3 4 7"/>
+  <cylinder id="district/main/roof/mast" group="architecture" material="metal" position="0.2 1.4 8" rotation="0 0 0" scale="0.14 0.14 4.2" width="1" depth="1" height="1" radius="0.5" top-radius="0.5" segments="12" collidable="false"/>
+  <cylinder id="district/main/roof/mast-arm" group="architecture" material="metal" position="0.2 1.4 11.6" rotation="0 90 0" scale="0.1 0.1 1.6" width="1" depth="1" height="1" radius="0.5" top-radius="0.5" segments="12" collidable="false"/>
+  <player radius="0.25" height="2" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <marker id="spawn" position="-4.8 -3.8 8" kind="attacker_spawn" group="architecture" element="district/main/roof-deck"/>
+  <reference id="oblique" label="Oblique" image="rooftop-oblique.png" width="640" height="400" scale="measured" scale-note="Synthetic acceptance fixture authored directly in metres." position="22 -25 18" target="0 0 7.5" up="0 0 1" fov="46" near="0.05" far="200">
+    <landmark id="oblique-roof-sw" position="-6 -5 8" image="0.3356247653492349 0.48180733669195475"/>
+    <landmark id="oblique-roof-ne" position="6 5 8" image="0.6662818239507741 0.4859041876824175"/>
+    <landmark id="oblique-stairhead-top" position="-3 -2 10.2" image="0.42388778236830055 0.4073204144407485"/>
+    <landmark id="oblique-tank-top" position="3.4 2.2 10.5" image="0.5881678560569477 0.4055379535546997"/>
+    <landmark id="oblique-mast-tip" position="0.2 1.4 12.2" image="0.5230196949412338 0.33695859823137897"/>
+  </reference>
+  <reference id="south" label="South" image="rooftop-south.png" width="640" height="400" scale="measured" scale-note="Synthetic acceptance fixture authored directly in metres." position="0 -31 10.5" target="0 0 7.2" up="0 0 1" fov="43" near="0.05" far="200">
+    <landmark id="south-roof-sw" position="-6 -5 8" image="0.31775545779925424 0.48706123577892924"/>
+    <landmark id="south-roof-ne" position="6 5 8" image="0.6319925447960483 0.45337062126264804"/>
+    <landmark id="south-stairhead-top" position="-3 -2 10.2" image="0.4175587403821391 0.3781435470475249"/>
+    <landmark id="south-tank-top" position="3.4 2.2 10.5" image="0.5817034108782962 0.3648784184565772"/>
+    <landmark id="south-mast-tip" position="0.2 1.4 12.2" image="0.5049524130360055 0.2971450569659605"/>
+  </reference>
+  <reference id="east" label="East" image="rooftop-east.png" width="640" height="400" scale="measured" scale-note="Synthetic acceptance fixture authored directly in metres." position="30 0 12.5" target="0 0 7.6" up="0 0 1" fov="43" near="0.05" far="200">
+    <landmark id="east-roof-sw" position="-6 -5 8" image="0.39058936660307936 0.4523161277253744"/>
+    <landmark id="east-roof-ne" position="6 5 8" image="0.6624903827708057 0.5297638119968728"/>
+    <landmark id="east-stairhead-top" position="-3 -2 10.2" image="0.45183077949600947 0.3824829167317101"/>
+    <landmark id="east-tank-top" position="3.4 2.2 10.5" image="0.5656764483231413 0.3894723366049595"/>
+    <landmark id="east-mast-tip" position="0.2 1.4 12.2" image="0.5377022979997336 0.30577488097651323"/>
+  </reference>
+  <sky color="#dce8f5" intensity="0.5"/>
+</architecture>

@@ -6,7 +6,7 @@ description: Author or review invented or reference-based LevelSpec maps for coh
 # Map structure and circulation
 
 Preserve the requested extent, style and gameplay intent. Use editable XML
-`.level.svgx` and native authoring helpers where appropriate; runtime JSON and
+`.aml` and native authoring helpers where appropriate; runtime JSON and
 meshes are outputs. Domain coordinates are meters and right-handed Z-up;
 exporters own axis conversion. Read current root AGENTS.md for commands.
 

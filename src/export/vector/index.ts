@@ -1,4 +1,5 @@
-/** Node-only export orchestration. Browser users import levelspec/vector instead. */
+import { createHash } from "node:crypto";
+/** Node-only export orchestration. Browser users import levelspec instead. */
 import {
   readFile,
   writeFile,
@@ -34,6 +35,8 @@ export interface ExportLevelOptions extends BSPOptions {
   blender?: string;
   /** Additional compile reports/legacy artifacts included in the same transaction. */
   additionalFiles?: ExportFiles;
+  /** Immutable authoring heightmap snapshots retained by a host during compilation. */
+  heightmaps?: Record<string, Uint8Array>;
 }
 /** Rejects redirected destination parents; this is not a concurrent filesystem sandbox. */
 async function checkDestination(directory: string) {
@@ -166,11 +169,16 @@ export async function exportLevel(
     backup = join(work, "backup");
   await mkdir(stage);
   await mkdir(backup);
+  const heightmapSnapshots = Object.fromEntries(Object.entries(options.heightmaps ?? {}).map(([source,bytes]) => {
+    const sourceSha256 = createHash("sha256").update(bytes).digest("hex");
+    return [source,{sourceSha256,file:`heightmaps/${sourceSha256}.png`,size:bytes.byteLength}];
+  }));
   const report: Record<string, unknown> = {
     version: 1,
     geometryHash: level.geometryHash,
     formats,
     warnings: [],
+    heightmaps: heightmapSnapshots,
     textures: Object.fromEntries(
       Object.entries(assets).map(([ref, a]) => [
         ref,
@@ -184,6 +192,7 @@ export async function exportLevel(
   };
   try {
     const files: ExportFiles = { ...options.additionalFiles };
+    for (const [source, bytes] of Object.entries(options.heightmaps ?? {})) files[heightmapSnapshots[source].file] = bytes;
     if (formats.includes("glb")) {
       options.onProgress?.("Writing GLB");
       files[`${name}.glb`] = toGLB(level, { assets });

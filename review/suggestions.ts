@@ -1,5 +1,5 @@
 import type { CompiledLevel, Suggestion } from "../src/vector/types.ts";
-import { escapeXML } from "../src/vector/format.ts";
+import { escapeXML } from "../src/vector/xml.ts";
 
 interface SuggestionActions {
   inspect: (suggestion: Suggestion, frame: boolean) => void;

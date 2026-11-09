@@ -6,15 +6,9 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {PNG} from 'pngjs';
-import {parseLevelSvgx} from '../../src/vector/format.ts';
-import {parseRasterTrace,produceTrace} from '../../src/tracing/native.ts';
+import {parseAml} from 'levelspec';
+import {produceTrace} from '../../src/tracing/native.ts';
 import {python} from '../../tools/producers/io.ts';
-
-const hook=`import {registerHooks} from 'node:module';
-registerHooks({resolve(s,c,next){const r=next(s,c);
-  if(['/core/compiler.ts','/authoring/plan.ts','/authoring/producers.ts','/authoring/legacy-convert.ts','/authoring/legacy-geometry.ts','/authoring/legacy-crossings.ts'].some(p=>r.url.endsWith(p)))
-    throw new Error('Legacy tracing implementation loaded: '+r.url);
-  return r;}});`;
 
 function roomImage(path:string) {
   const png=new PNG({width:32,height:32});
@@ -40,43 +34,49 @@ function evidenceImage(path:string,background:string) {
   writeFileSync(path,PNG.sync.write(png));
 }
 
-test('default radar tracing constructs native v2 without loading a legacy plan implementation',{timeout:120000},t=>{
+test('default radar tracing constructs native AML with validated player dimensions',{timeout:120000},t=>{
   const dir=mkdtempSync(join(tmpdir(),'native-trace-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const image=join(dir,'room.png'),out=join(dir,'room.level.svgx');roomImage(image);
-  const r=spawnSync(process.execPath,['--import','data:text/javascript,'+encodeURIComponent(hook),
+  const image=join(dir,'room.png'),out=join(dir,'room.aml');roomImage(image);
+  const r=spawnSync(process.execPath,[
     fileURLToPath(new URL('../../tools/trace.ts',import.meta.url)),image,'--cells=12','--bands=1','--grid=1',`--out=${out}`],
     {encoding:'utf8',timeout:110000});
   assert.equal(r.status,0,r.stderr);
-  const d=parseLevelSvgx(readFileSync(out,'utf8'));
-  assert.equal(d.version,'2');assert.equal(d.player.radius,0.35);assert.equal(d.player.height,1.8);
+  const d=parseAml(readFileSync(out,'utf8'));
+  assert.equal(d.version,'1');assert.equal(d.player.radius,0.35);assert.equal(d.player.height,1.8);
   assert.equal(d.links.length,0,'adjacent traced floors must connect through real shared boundaries');
+  const before=readFileSync(out,'utf8'),script=fileURLToPath(new URL('../../tools/trace.ts',import.meta.url));
+  for(const extra of [['--grid','0.02'],['--python',join(dir,'missing-python')]]){
+    const failed=spawnSync(process.execPath,[script,image,'--cells','12','--bands','1','--out',out,...extra],{encoding:'utf8',timeout:110000});
+    assert.notEqual(failed.status,0,extra.join(' '));assert.equal(readFileSync(out,'utf8'),before,'Failed tracing preserves the prior validated AML artifact');
+    if(extra[0]==='--python')assert.match(failed.stderr,/Set PYTHON/);
+  }
 });
 
-test('the public native tracing API needs no legacy modules or Python interpreter',{timeout:120000},()=>{
+test('the public native tracing API accepts raster evidence without a Python interpreter',{timeout:120000},()=>{
   const code=`import assert from 'node:assert/strict';
     const {produceTrace}=await import('levelspec/trace');
     const r=await produceTrace({format:'levelspec-raster/1',id:'public_trace',name:'Public trace',sourceImage:'test.png',grid:1,
       colors:[[80,90,100]],rows:Array.from({length:8},()=>Array(12).fill(0))});
-    assert.equal(r.report.passed,true);assert.equal(r.legacy,undefined);`;
-  const r=spawnSync(process.execPath,['--import','data:text/javascript,'+encodeURIComponent(hook),'--input-type=module','--eval',code],
+    assert.equal(r.report.passed,true);`;
+  const r=spawnSync(process.execPath,['--input-type=module','--eval',code],
     {cwd:fileURLToPath(new URL('../..',import.meta.url)),env:{...process.env,PYTHON:'unavailable-python'},encoding:'utf8',timeout:110000});
   assert.equal(r.status,0,r.stderr);
 });
 
 test('native trace writes exact validated raster evidence without forwarding the output flag to Python',async t=>{
   const dir=mkdtempSync(join(tmpdir(),'trace-retained-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const image=join(dir,'room.png'),out=join(dir,'room.svgx'),evidence=join(dir,'room.raster.json');roomImage(image);
+  const image=join(dir,'room.png'),out=join(dir,'room.aml'),evidence=join(dir,'room.raster.json');roomImage(image);
   const script=fileURLToPath(new URL('../../tools/trace.ts',import.meta.url));
-  const r=spawnSync(process.execPath,['--import','data:text/javascript,'+encodeURIComponent(hook),script,image,'--cells=12','--bands=1','--grid=1',`--out=${out}`,`--evidence=${evidence}`],{encoding:'utf8'});
-  assert.equal(r.status,0,r.stderr);const raw=readFileSync(evidence,'utf8'),raster=parseRasterTrace(raw);assert.equal(raster.grid,1);
+  const r=spawnSync(process.execPath,[script,image,'--cells=12','--bands=1','--grid=1',`--out=${out}`,`--evidence=${evidence}`],{encoding:'utf8'});
+  assert.equal(r.status,0,r.stderr);const raw=readFileSync(evidence,'utf8'),raster=JSON.parse(raw);assert.equal(raster.grid,1);
   const direct=python(fileURLToPath(new URL('../../tools/trace_radar.py',import.meta.url)),[image,'--cells','12','--bands','1','--grid','1','--format','raster']);assert.equal(raw,direct);assert.equal((await produceTrace(raster)).text,readFileSync(out,'utf8'));
 });
-test('trace rejects evidence conflicts, legacy combination and invalid source before either output write',t=>{
+test('trace rejects evidence conflicts, unsupported options and invalid source before either output write',t=>{
   const dir=mkdtempSync(join(tmpdir(),'trace-retained-failure-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
-  const image=join(dir,'room.png'),out=join(dir,'room.svgx'),evidence=join(dir,'room.json');roomImage(image);writeFileSync(out,'old map');writeFileSync(evidence,'old evidence');
+  const image=join(dir,'room.png'),out=join(dir,'room.aml'),evidence=join(dir,'room.json');roomImage(image);writeFileSync(out,'old map');writeFileSync(evidence,'old evidence');
   const script=fileURLToPath(new URL('../../tools/trace.ts',import.meta.url));
-  const aliases=process.platform==='win32'?[[image,'--out',out,'--evidence',join(dir,'ROOM.SVGX')]]:[];
-  for(const args of [[image,'--out',out,'--evidence',join(dir,'.','room.svgx')],...aliases,[image,'--out',out,'--evidence',evidence,'--legacy'],[join(dir,'missing.png'),'--out',out,'--evidence',evidence]]){
+  const aliases=process.platform==='win32'?[[image,'--out',out,'--evidence',join(dir,'ROOM.AML')]]:[];
+  for(const args of [[image,'--out',out,'--evidence',join(dir,'.','room.aml')],...aliases,[image,'--out',out,'--evidence',evidence,'--legacy'],[join(dir,'missing.png'),'--out',out,'--evidence',evidence]]){
     const r=spawnSync(process.execPath,[script,...args],{encoding:'utf8'});assert.notEqual(r.status,0);assert.equal(readFileSync(out,'utf8'),'old map');assert.equal(readFileSync(evidence,'utf8'),'old evidence');
   }
   const badRasters=['{"format":"wrong"}',JSON.stringify({format:'levelspec-raster/1',id:'disconnected',name:'Disconnected',sourceImage:'fixture',grid:1,colors:[[0,0,0]],rows:Array.from({length:8},()=>[...Array(8).fill(0),...Array(4).fill(null),...Array(8).fill(0)])})];

@@ -41,105 +41,44 @@ outputs belong under ignored `generated/`.
 
 ## Build from architectural intent
 
-Import `SceneBuilder` from `levelspec/authoring`, or the local source during
-repository development. All lengths are metres; world coordinates are Z-up.
-User-named operation and generated object IDs identify their parent group and
-operation, and remain stable when dimensions change. Deduplicated vertex and edge
-IDs are topology implementation details: they may change when edits cause formerly
-shared boundaries to connect or disconnect. Each builder operation generates
-ordinary source objects, not an opaque final mesh.
+Use `ArchitectureBuilder` from `levelspec`, or write AML XML directly. All lengths
+are meters; domain coordinates are right-handed Z-up. Named paths, profiles,
+datums, assemblies, and instances remain editable source objects. See [AML](AML.md)
+for walls, hosted apertures, profiles, stairs, and explicit side enclosures.
 
 ```ts
-import { SceneBuilder } from "../src/vector/authoring.ts";
-import { compile, serializeLevelSvgx, validateForRuntime } from "../src/vector/index.ts";
-
-const scene = new SceneBuilder("rooftop");
-scene.material("concrete", { color: "#aaa99d", roughness: 0.9 });
-scene.material("glass", { color: "#263d43", roughness: 0.25 });
-const district = scene.group("district", { origin: [0, 0, 0], yaw: 15 });
-const building = district.building("main", {
-  size: [12, 10, 18], material: "concrete", usage: "roof",
-});
-building.facade("south", { rows: 6, columns: 4, material: "glass" });
-building.roof.cylinder("tank", {
-  position: [8, 7, 0], size: [1.5, 1.5, 2],
-  material: "concrete", collision: "box",
-});
-scene.document.markers.push({
-  id: "spawn", kind: "attacker_spawn", layer: building.group.layer.id,
-  region: "district/main/roof-deck", position: building.roof.world([2, 2, 0]),
-});
-const level = await compile(scene.document, {
-  floorGaps: "error", surfaceContacts: "error",
-});
-const report = await validateForRuntime(level, { sealed: true });
-if (!report.passed) throw new Error(JSON.stringify(report.diagnostics));
-const editableSource = serializeLevelSvgx(scene.document);
+import { ArchitectureBuilder, compile, serializeAml } from 'levelspec';
+const scene = new ArchitectureBuilder('roof');
+scene.profile('deck-plan', [[0,0,8],[12,0,8],[12,10,8],[0,10,8]]);
+scene.slab('deck', 'deck-plan', { thickness: .2 });
+const level = await compile(scene.document);
+const editableSource = serializeAml(scene.document);
 ```
 
-A `roof` building creates a collidable mass ending below a declared playable roof
-slab. A `scenery` building is visual-only and creates no playable floor. Façade
-windows are surface panels, not carved openings or enterable rooms. Use existing
-wall openings for architectural doors and windows that must affect traversal.
+Assemblies compose intentional architectural intersections. Groups organize objects.
+Authored stair walking tops and undersides remain independent; side enclosures are
+opt-in and leave entrances open. A semantic connection cannot replace support.
 
-`staircase` creates switchback flights and landings. In `playable` mode these are
-shared-topology stair regions, with `underside="sloped"` to preserve headroom
-between storeys. Existing stairs retain the `filled` underside default. In
-`scenery` mode the flights are visual-only props. Optional handrails are visual
-geometry, not a promise of player fall protection. Add deliberate physical
-barriers where gameplay requires them; do not disable navigation checks.
-
-## Props and imported geometry
-
-SVGX supports root-level `asset` and `prop` declarations:
+## Imported visualization assets and physical outputs
 
 ```xml
-<asset id="tank-mesh" src="tank.glb"/>
-<prop id="tank" layer="architecture" shape="asset" asset="tank-mesh"
-      position="3 4 18" rotation="0 0 30" scale="1 1 1"
-      material="metal" collision="box"/>
+<visual-mesh id="tank-art" src="tank.glb" position="3 4 18"/>
+<box id="tank-proxy" position="3 4 18" width="2" depth="2" height="3"
+     visible="false"/>
 ```
 
-A prop's collision intent is required: `solid` uses the mesh, `none` is
-visual-only, and `box` creates an invisible bounds proxy. Primitive shapes are
-`box` and `cylinder`; cylinder tessellation is bounded. Primitive origins are at
-the bottom centre, with `scale` giving XYZ dimensions. Asset origins and units
-come from the host resolver. Rotations are degrees, applied X, then Y, then Z.
-Negative or zero scale is rejected.
+Imported meshes support placement, materials, and rendering. Only loading/data
+safety is validated. They never enter architectural overlap, topology, collision,
+navigation, or checked CSG. Author a native proxy for physical behavior. The host
+supplies `resolveAsset`; the compiler never fetches URLs itself. The provided GLB
+resolver applies scene/node transforms and converts glTF Y-up to Z-up meters.
 
-For an imported asset, pass `resolveAsset(asset, signal)` to `compile`. It must
-return finite XYZ positions and indexed triangles in canonical Z-up metres.
-The compiler caches each asset within a compilation, validates the supplied
-geometry, and applies instance transforms without mutating the resolver's data.
-Solid collision needs closed manifold geometry. Visual-only meshes need not be
-closed. The bounds proxy needs nonzero extent on all axes.
-
-LevelSpec includes a concrete GLB geometry resolver. The vector CLI resolves
-relative `.glb` files beside the SVGX automatically, and the workbench accepts
-GLB companion files through **Companions…** or drag-and-drop. The resolver reads
-the default glTF scene, applies node transforms, converts standard glTF Y-up
-coordinates to LevelSpec Z-up metres, and imports triangle POSITION/index data.
-It deliberately does not import source materials, UVs, skins, animations, Draco
-compression or external buffers. The prop uses its declared LevelSpec material.
-The compiler still never fetches asset URLs itself; custom hosts may continue to
-supply their own `resolveAsset` callback.
-
-Physics selection is explicit throughout navigation and line-of-sight checks.
-Visual-only vertices are compacted out before navigation, so a distant skyline
-does not enlarge Recast's build bounds. Collision proxies are excluded from the
-viewer, visual GLB/OBJ output, lightmap atlas receivers and Blender bake geometry.
-`collisionMesh(level, sealed)` returns a compact physics mesh;
-`toGLB(level, { purpose: "collision" })` exports collision geometry separately,
-without requiring or embedding visual textures. It rejects levels with no collision
-geometry rather than producing an invalid empty GLB. Runtime data and export
-metadata retain the surface visibility/collision flags and identify the surfaces
-actually included in each GLB.
-Destination engines must consume the separate collision output or those flags;
-visual GLB metadata alone does not configure engine physics automatically. BSP2
-maps closed visual-only solids to `func_detail_illusionary` and invisible
-collision proxies to solid `skip` brushes. A visual-only imported mesh that is
-not a closed brush-convertible solid is rejected by BSP export rather than being
-silently omitted.
+Render visibility and collision are independent. `collisionMesh(level, sealed)`
+returns compact physics geometry; `toGLB(level, { purpose: 'collision' })` exports it
+separately. Destination engines must consume that geometry or the exported flags.
+Native closed visual-only solids can become BSP illusionary brushes; hidden native
+collision solids use `skip`. Imported visualization meshes cannot become checked
+BSP brush operands; use another visual export or replace them with native solids.
 
 ## Record the reference camera and evidence
 
@@ -181,7 +120,7 @@ source and viewport aspect when comparing revisions. The CLI accepts the same
 values, for example:
 
 ```sh
-npm run --silent levelspec -- preview projects/my-level/level.level.svgx \
+npm run --silent levelspec -- preview projects/my-level/level.aml \
   --camera "1.2 1.8 3" --target "3.4 4.9 5.2" --projection perspective --fov 82
 ```
 
@@ -199,13 +138,13 @@ IDs, navigable multi-storey stairs, and rejection of disconnected playable floor
 `tests/vector-glb-cli.test.ts` exercises real relative-file GLB resolution through
 the CLI.
 
-`examples/rooftop-reference.level.svgx` is the checked-in end-to-end reference
+`examples/rooftop-reference.aml` is the checked-in end-to-end reference
 fixture. It has three saved 640×400 cameras and exact projected landmarks.
 `tests/vector-reference-acceptance.test.ts` recompiles that source, validates
 runtime navigation, software-renders the actual final visible triangle mesh with
 a z-buffer and flat material colors, and pixel-compares all three views against
-the original synthetic goldens in `reference/rooftop/`. Regenerate those assets
-only intentionally with `node tools/vector-rooftop-reference.ts`.
+the original synthetic goldens in `reference/rooftop/`. Frozen reference images remain unchanged. `npm run reference:rooftop -- generated/rooftop-new-run`
+writes fresh compiler captures into a separate output directory.
 
 Run `npm run check`, `npm test` and `npm run build:viewer` before release.
 These gates establish deterministic geometry/camera agreement for the synthetic

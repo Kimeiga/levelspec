@@ -4,9 +4,9 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import {
   compile,
-  parseLevelSvgx,
+  parseAml,
   validateForRuntime,
-} from "../../src/vector/index.ts";
+} from "levelspec";
 import { buildCourtyard } from "../architecture.ts";
 import { sourceForCurve } from "../state.ts";
 import { overlappingSurfaces } from "../surface-audit.ts";
@@ -44,7 +44,7 @@ test("styles use genuinely different images and authored features, not just reco
       ),
     );
     const level = await compile(
-      parseLevelSvgx(buildCourtyard({ look, height: 3 })),
+      parseAml(buildCourtyard({ look, height: 3 })),
     );
     assert.ok(
       level.surfaces.some((s) =>
@@ -67,7 +67,7 @@ test("all additional 350 chalk/slate curve-elevation combinations validate witho
     for (let height = 3; height <= 6; height += 0.5) {
       for (let curve = 0; curve <= 6; curve += 0.25) {
         const level = await compile(
-          parseLevelSvgx(
+          parseAml(
             sourceForCurve(buildCourtyard({ look, height }), curve),
           ),
         );
@@ -97,7 +97,7 @@ test("Lantern Court trim and capitals have no same-facing coplanar conflicts at 
   for (let height = 3; height <= 6; height += 0.5) {
     for (const curve of [0, 3, 6]) {
       const level = await compile(
-        parseLevelSvgx(sourceForCurve(buildCourtyard({ height }), curve)),
+        parseAml(sourceForCurve(buildCourtyard({ height }), curve)),
       );
       assert.deepEqual(
         overlappingSurfaces(level),

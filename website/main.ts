@@ -1,6 +1,6 @@
 import { mountReviewer } from "../review/app.ts";
 import { materialURLs } from "./materials.ts";
-import courtyard from "./demo.level.svgx?raw";
+import courtyard from "./demo.aml?raw";
 mountReviewer({
   source: courtyard,
   assets: { ...materialURLs },

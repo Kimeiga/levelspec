@@ -24,8 +24,9 @@ export function meshParts(mesh: MeshData, surfaces: Surface[]) {
   >();
   for (let t = 0; t < mesh.surfaces.length; t++) {
     const s = surfaces[mesh.surfaces[t]],
-      part = parts.get(s.mesh) ?? {
-        id: s.mesh,
+      id = `${s.mesh}:${s.kind}:${s.dynamic ? "dynamic" : "static"}:${s.collidable === false ? "visual" : "collision"}:${s.visible === false ? "hidden" : "visible"}`,
+      part = parts.get(id) ?? {
+        id,
         kind: s.kind,
         layer: s.layer,
         layers: [],
@@ -37,7 +38,7 @@ export function meshParts(mesh: MeshData, surfaces: Surface[]) {
     part.triangles.push(t);
     if (!part.layers.includes(s.layer)) part.layers.push(s.layer);
     part.layer = part.layers.length === 1 ? part.layers[0] : "";
-    parts.set(s.mesh, part);
+    parts.set(id, part);
   }
   return [...parts.values()];
 }

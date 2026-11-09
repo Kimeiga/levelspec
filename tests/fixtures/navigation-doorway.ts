@@ -1,19 +1,6 @@
-import { SceneBuilder } from "../../src/vector/index.ts";
-
-/** An 8 × 6 m deck bisected by a 0.30 m wall with a centered 0.70 m opening. */
-export function navigationDoorway(clearWidth = 0.7, lowHeadroom = false) {
-  const scene = new SceneBuilder("navigation-doorway");
-  scene.document.validation = "premap";
-  scene.document.player.radius = 0.25;
-  scene.document.player.height = 1.8;
-  const group = scene.group("ground");
-  group.platform("deck", { width: 8, depth: 6, material: "default" });
-  const jambLength = (6 - clearWidth) / 2;
-  group.box("south-jamb", { position: [4, jambLength / 2, 0],
-    size: [0.3, jambLength, 3], material: "default", collision: "solid" });
-  group.box("north-jamb", { position: [4, 6 - jambLength / 2, 0],
-    size: [0.3, jambLength, 3], material: "default", collision: "solid" });
-  if (lowHeadroom) group.box("low-lintel", { position: [4, 3, 1.2],
-    size: [0.3, clearWidth, 0.3], material: "default", collision: "solid" });
-  return scene.document;
+import {parseAml} from 'levelspec';
+/** An 8×6m native deck with a 0.30m wall and independently dimensioned clear opening. */
+export function navigationDoorway(clearWidth=.7,lowHeadroom=false){
+  const jamb=(6-clearWidth)/2;
+  return parseAml(`<architecture version="1" id="navigation-doorway" validation="premap"><player radius="0.25" height="1.8"/><profile id="plan" points="0 0;8 0;8 6;0 6"/><slab id="deck" profile="plan"/><box id="south-jamb" width="0.3" depth="${jamb}" height="3" position="3.85 0 0"/><box id="north-jamb" width="0.3" depth="${jamb}" height="3" position="3.85 ${6-jamb} 0"/>${lowHeadroom?`<box id="low-lintel" width="0.3" depth="${clearWidth}" height="0.3" position="3.85 ${jamb} 1.2"/>`:''}</architecture>`);
 }

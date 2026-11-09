@@ -2,10 +2,10 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import {
   compile,
-  parseLevelSvgx,
+  parseAml,
   generateUVs,
   resolveExportAssets,
-} from "../src/vector/index.ts";
+} from "../src/architecture/index.ts";
 import { sourceForState, readState } from "../website/state.ts";
 import { bakeLighting } from "../src/lighting/bake.ts";
 import { createHash } from "node:crypto";
@@ -19,7 +19,7 @@ const [style = "clay", destination = "website-qa/bakes", sampleText = "32"] =
 if (!(style in presets)) throw new Error("Use clay, chalk, or night.");
 const look = style as keyof typeof presets;
 const source = sourceForState({ ...readState(""), look, ...presets[look] });
-const level = await compile(parseLevelSvgx(source));
+const level = await compile(parseAml(source));
 await generateUVs(level, { density: 8, resolution: 1024, padding: 8 });
 console.log("ATLAS", JSON.stringify(level.atlas?.pages));
 const assets = await resolveExportAssets(level, (ref) =>
@@ -33,7 +33,7 @@ const manifest = await bakeLighting(level, {
   assets,
   onProgress: (s) => process.stdout.write(s),
 });
-await writeFile(resolve(output, "source.level.svgx"), source);
+await writeFile(resolve(output, "source.aml"), source);
 await writeFile(resolve(output, "compiled.json"), JSON.stringify(level));
 await writeFile(
   resolve(output, "receipt.json"),

@@ -6,15 +6,15 @@ import {
   compile,
   compareReference,
   compareReferenceRasters,
-  parseLevelSvgx,
+  parseAml,
   renderReference,
   validateForRuntime,
-} from "../src/vector/index.ts";
+} from "levelspec";
 
 describe("rooftop multi-view reference acceptance", () => {
   it("matches all checked-in views using the actual compiled mesh", async () => {
-    const source = await readFile("examples/rooftop-reference.level.svgx", "utf8"),
-      level = await compile(parseLevelSvgx(source), {
+    const source = await readFile("examples/rooftop-reference.aml", "utf8"),
+      level = await compile(parseAml(source), {
         navigation: false,
         floorGaps: "error",
         surfaceContacts: "error",

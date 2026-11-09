@@ -9,11 +9,11 @@ import { randomUUID } from "node:crypto";
 import { zipSync } from "fflate";
 import {
   compile,
-  parseLevelSvgx,
+  parseAml,
   validateForRuntime,
   resolveExportAssets,
   createGLBAssetResolver,
-} from "../../src/vector/index.ts";
+} from "../../src/architecture/index.ts";
 import {
   exportLevel,
   type ExportFormat,
@@ -172,7 +172,7 @@ export function vectorExportService(): Plugin {
                       );
                     return Buffer.from(encoded, "base64");
                   }),
-                  level = await compile(parseLevelSvgx(input.source), {
+                  level = await compile(parseAml(input.source), {
                   ...options,
                   resolveAsset,
                   uvs: Boolean(input.uvs),

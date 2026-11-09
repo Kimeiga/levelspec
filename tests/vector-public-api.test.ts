@@ -1,21 +1,9 @@
 import { it } from "node:test";
 import assert from "node:assert/strict";
-import { compile, parseLevelSvgx, validateForRuntime, toRuntime, toGLB } from "levelspec/vector";
+import { compile, parseAml, validateForRuntime, toRuntime, toGLB } from "levelspec";
 
 it("authors, validates and exports an XML level through the package root", async () => {
-  const document = parseLevelSvgx(`<level version="2" id="public-room" validation="premap">
-    <layer id="ground">
-      <vertex id="a" x="0" y="0" z="0"/>
-      <vertex id="b" x="6" y="0" z="0"/>
-      <vertex id="c" x="6" y="6" z="0"/>
-      <vertex id="d" x="0" y="6" z="0"/>
-      <edge id="ab" from="a" to="b" kind="open"/>
-      <edge id="bc" from="b" to="c" kind="open"/>
-      <edge id="cd" from="c" to="d" kind="open"/>
-      <edge id="da" from="d" to="a" kind="open"/>
-      <region id="floor" boundary="ab bc cd da" fill="floor"/>
-    </layer>
-  </level>`);
+  const document = parseAml(`<architecture version="1" id="public-room" validation="premap"><profile id="plan" points="0 0;6 0;6 6;0 6"/><slab id="floor" profile="plan"/></architecture>`);
   const level = await compile(document);
   const report = await validateForRuntime(level);
   assert.deepEqual(report.diagnostics.filter(diagnostic => diagnostic.severity === "error"), []);

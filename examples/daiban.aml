@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="daiban-courtyard" name="Daiban — bounded native courtyard study" validation="premap" curve-tolerance="0.003" description="Source-led capability study; dimensions estimated. Unknown exits are study cuts. Historical R19 fidelity hold unchanged.">
+  <material id="tile" color="#c8c7b7" roughness="0.8"/>
+  <material id="walk" color="#b49b50" roughness="0.8"/>
+  <material id="panel" color="#bcc7b6"/>
+  <material id="metal" color="#788a83" metalness="0.5"/>
+  <material id="dark-pocket" color="#36413d"/>
+  <material id="soil" color="#4e5747"/>
+  <datum id="ground" elevation="0"/>
+  <datum id="lower-gallery" elevation="2.4"/>
+  <datum id="middle-gallery" elevation="4.8"/>
+  <datum id="upper-gallery" elevation="7.4"/>
+  <datum id="upper-cut" elevation="9.3"/>
+  <profile id="court" points="0 0; 6.4 0; 6.4 7.8; 0 7.8"><hole points="1.8 1.3; 1.8 4.3; 4.2 4.3; 4.2 1.3"/></profile>
+  <profile id="lower-receiver" points="0 5.8; 6.4 5.8; 6.4 7.8; 0 7.8"/>
+  <profile id="middle-near" points="0 0; 6.4 0; 6.4 1.3; 0 1.3"/>
+  <profile id="middle-west" points="0 1.3; 1.2 1.3; 1.2 7.8; 0 7.8"/>
+  <profile id="column-slab" points="0 2; 1.8 2; 1.8 5.8; 0 5.8"/>
+  <profile id="north-backing" points="1.4 7.8; 4.2 7.8; 4.2 9; 1.4 9"/>
+  <profile id="east-receiver" points="5 5.8; 6.4 5.8; 6.4 7.8; 5 7.8"/>
+  <profile id="incline-entry" points="6.6 2.5; 8 2.5; 8 3.5; 6.6 3.5"/>
+  <profile id="incline-exit" points="6.6 7.3; 8 7.3; 8 8.3; 6.6 8.3"/>
+  <path id="lower-axis" points="0.7 1 0; 0.7 5.8 2.4"/>
+  <path id="near-axis" points="5.7 1.3 4.8; 5.7 5.8 7.4"/>
+  <path id="incline-axis" points="7.3 3.5 7.4; 7.3 7.3 9.3"/>
+  <path id="north-backing-axis" points="1.4 9 4.8; 4.2 9 4.8"/>
+  <path id="north-screen-axis" points="0 7.8 0; 6.4 7.8 0"/>
+  <path id="east-screen-axis" points="6.4 0 0; 6.4 7.8 0"/>
+  <path id="north-screen-top" points="0 8.6 0; 1.2 8.6 0; 1.2 9 0; 6.4 9 0"/>
+  <path id="east-screen-top" points="0 7.8 0; 1.3 7.8 0; 1.3 9.7 0; 7.8 9.7 0"/>
+  <path id="lower-panel-arc" closed="true"><arc center="0 0 0" radii="1.15 1.15" start="180" sweep="180"/></path>
+  <profile id="semicircular-panel" paths="lower-panel-arc"/>
+  <profile id="rail-section" points="-0.025 -0.025; 0.025 -0.025; 0.025 0.025; -0.025 0.025"/>
+  <path id="north-panel-diameter" points="1.65 7.79 6; 3.95 7.79 6"/>
+  <path id="north-panel-spoke-left" points="2.8 7.79 6; 1.987 7.79 5.187"/>
+  <path id="north-panel-spoke-right" points="2.8 7.79 6; 3.613 7.79 5.187"/>
+  <path id="north-panel-spoke-bottom" points="2.8 7.79 6; 2.8 7.79 4.85"/>
+  <path id="east-aperture-rail" points="6.38 3.4 7.35; 6.38 5.8 7.35"/>
+  <path id="service-pipe" points="0.12 0.5 0; 0.12 0.5 8.6; 0.12 6.5 8.6"/>
+  <profile id="pipe-section" points="-0.04 -0.04; 0.04 -0.04; 0.04 0.04; -0.04 0.04"/>
+  <definition id="planter-module">
+    <assembly id="planter">
+      <subtract id="rim" material="tile"><box id="outer" width="0.32" depth="2" height="0.55"/><box id="inner" width="0.2" depth="1.88" height="0.6" position="0.06 0.06 0.1"/></subtract>
+      <box id="soil" width="0.2" depth="1.88" height="0.12" position="0.06 0.06 0.1" material="soil"/>
+    </assembly>
+  </definition>
+  <assembly id="courtyard-structure" material="tile" material-owner="screens">
+    <slab id="ground-floor" profile="court" datum="ground" thickness="0.2" material="walk"/>
+    <slab id="lower-landing" profile="lower-receiver" datum="lower-gallery" thickness="0.2" material="walk"/>
+    <slab id="middle-near-floor" profile="middle-near" datum="middle-gallery" thickness="0.2" material="walk"/>
+    <slab id="middle-west-floor" profile="middle-west" datum="middle-gallery" thickness="0.2" material="walk"/>
+    <canopy id="overhead-slab" profile="column-slab" datum="middle-gallery" thickness="0.2" material="walk"/>
+    <slab id="north-backing-floor" profile="north-backing" datum="middle-gallery" thickness="0.2" material="walk"/>
+    <slab id="east-landing" profile="east-receiver" datum="upper-gallery" thickness="0.2" material="walk"/>
+    <slab id="incline-lower-landing" profile="incline-entry" datum="upper-gallery" thickness="0.2" material="walk"/>
+    <slab id="incline-upper-landing" profile="incline-exit" datum="upper-cut" thickness="0.2" material="walk"/>
+    <stairs id="lower-flight" path="lower-axis" width="1.4" count="15" underside="filled" thickness="0.22" material="walk"/>
+    <stairs id="near-flight" path="near-axis" width="1.4" count="15" underside="stepped" thickness="0.22" material="walk"/>
+    <stairs id="inclined-flight" path="incline-axis" width="1.4" count="12" underside="sloped" thickness="0.2" material="walk"/>
+    <group id="screens">
+    <wall id="north-screen" path="north-screen-axis" top="north-screen-top" thickness="0.25"/>
+    <wall id="north-backing-surface" path="north-backing-axis" base-floor="north-backing-floor" height="2.8" thickness="0.2"/>
+    <wall id="east-screen" path="east-screen-axis" top="east-screen-top" thickness="0.25"/>
+    </group>
+    <canopy id="north-backing-soffit" profile="north-backing" elevation="7.4" thickness="0.2"/>
+    <box id="planted-recess-base" width="2.4" depth="3" height="0.15" position="1.8 1.3 -0.95" material="soil"/>
+    <cylinder id="column" radius="0.32" height="4.6" position="1.45 3.4 0"/>
+    <enclosure id="lower-left-parapet" host="lower-flight" side="left" height="1.05" thickness="0.16" offset="0.08"/>
+    <enclosure id="near-inner-parapet" host="near-flight" side="left" height="1.05" thickness="0.16" offset="0.08"/>
+    <enclosure id="north-landing-parapet" host="lower-landing" edge="0" start="1.5" height="1.05" thickness="0.12" offset="0.06"/>
+    <enclosure id="middle-gallery-parapet" host="middle-near-floor" edge="2" start="1.5" end="5.1" height="1.05" thickness="0.12" offset="0.06"/>
+    <enclosure id="west-gallery-rail" host="middle-west-floor" edge="1" construction="railing" height="1.1" material="metal">
+      <rail profile="rail-section"/><posts profile="rail-section" maximum-spacing="1"/>
+    </enclosure>
+    <instance id="west-planter-one" ref="planter-module" position="0 2 4.8"/>
+    <instance id="west-planter-two" ref="planter-module" position="0 5 4.8"/>
+    <extrusion id="north-lower-infill" profile="semicircular-panel" distance="0.04" rotation="90 0 0" position="2.8 7.82 6" material="panel"/>
+    <beam id="panel-diameter" profile="rail-section" path="north-panel-diameter" material="metal"/>
+    <beam id="panel-left-spoke" profile="rail-section" path="north-panel-spoke-left" material="metal"/>
+    <beam id="panel-right-spoke" profile="rail-section" path="north-panel-spoke-right" material="metal"/>
+    <beam id="panel-bottom-spoke" profile="rail-section" path="north-panel-spoke-bottom" material="metal"/>
+    <beam id="higher-aperture-rail" profile="rail-section" path="east-aperture-rail" material="metal"/>
+    <sweep id="pipe" profile="pipe-section" path="service-pipe" material="metal"/>
+  </assembly>
+  <opening id="backing-arch-recess" host="north-backing-surface" shape="arch" mode="recess" center="1.4 1.15" width="1" height="2.2" depth="0.08"/>
+  <panel id="backing-dark-pocket" opening="backing-arch-recess" depth="0.02" offset="-0.035" material="dark-pocket"/>
+  <opening id="lower-circle" host="north-screen" shape="circle" center="2.8 6" radius="1.2"/>
+  <opening id="higher-circle" host="east-screen" shape="circle" center="4.6 7.5" radius="1.2"/>
+  <opening id="north-panel-recess" host="north-screen" mode="recess" center="5.4 3.5" width="0.8" height="1.8" depth="0.08"/>
+  <panel id="recessed-green-panel" opening="north-panel-recess" depth="0.025" offset="-0.07" material="panel"/>
+  <frame id="lower-circle-frame" opening="lower-circle" border="0.05" depth="0.04" offset="-0.125" material="metal"/>
+  <connection id="lower-entry" from="ground-floor" to="lower-flight"/>
+  <connection id="lower-exit" from="lower-flight" to="lower-landing"/>
+  <connection id="near-entry" from="middle-near-floor" to="near-flight"/>
+  <connection id="near-exit" from="near-flight" to="east-landing"/>
+  <connection id="middle-turn" from="middle-near-floor" to="middle-west-floor"/>
+  <connection id="incline-entry-join" from="incline-lower-landing" to="inclined-flight"/>
+  <connection id="incline-exit-join" from="inclined-flight" to="incline-upper-landing"/>
+  <marker id="lower-start" kind="spawn" element="ground-floor" position="0.7 0.5 0"/>
+  <marker id="lower-finish" kind="objective" element="lower-landing" position="0.7 6.5 2.4"/>
+  <marker id="near-start" kind="poi" element="middle-near-floor" position="5.7 0.6 4.8"/>
+  <marker id="near-finish" kind="poi" element="east-landing" position="5.7 6.5 7.4"/>
+  <marker id="middle-start" kind="poi" element="middle-near-floor" position="2 0.65 4.8"/>
+  <marker id="middle-finish" kind="poi" element="middle-west-floor" position="0.7 6 4.8"/>
+  <marker id="incline-start" kind="poi" element="incline-lower-landing" position="7.3 3 7.4"/>
+  <marker id="incline-finish" kind="poi" element="incline-upper-landing" position="7.3 7.8 9.3"/>
+  <route id="lower-flight-route" from="lower-start" to="lower-finish" min-routes="1" max-distance="9"/>
+  <route id="near-flight-route" from="near-start" to="near-finish" min-routes="1" max-distance="9"/>
+  <route id="middle-gallery-route" from="middle-start" to="middle-finish" min-routes="1" max-distance="9"/>
+  <route id="incline-route" from="incline-start" to="incline-finish" min-routes="1" max-distance="7"/>
+  <reference id="primary" image="../reference/daiban/user-03-porthole-oblique.png" width="683" height="1024" scale="assumed" scale-note="Approximate source outline registration; not calibrated or fidelity accepted." position="0.3 1.4 6.503110090378388" target="5.302948773583882 7.385140917320271 4.728682924019003" up="0.06448171679293625 -0.05496606545072695 0.9964039541512779" fov="88.80728866892655" near="0.05" far="100"/>
+  <reference id="high" image="../reference/daiban/user-01-porthole-court.png" width="387" height="516" scale="assumed" scale-note="Estimated bounded source-led study; camera is an initial comparison registration, not a calibrated survey." position="2 -1 10.5" target="3.2 4 3.2" up="0 0 1" fov="70" near="0.05" far="100"/>
+  <reference id="overhead" image="../reference/daiban/user-02-porthole-overhead.png" width="683" height="1024" scale="assumed" scale-note="Estimated bounded source-led study; camera is an initial comparison registration, not a calibrated survey." position="4.8 0.4 11.5" target="2.7 4.4 1.9" up="0 0 1" fov="65" near="0.05" far="100"/>
+</architecture>

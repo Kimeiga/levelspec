@@ -1,3 +1,4 @@
+import { amlSource } from './fixtures/aml-source.mjs';
 /** Real CLI and browser acceptance for non-blocking, source-bound review suggestions. */
 import assert from "node:assert/strict";
 import { mkdtemp, writeFile, readFile, rm, mkdir } from "node:fs/promises";
@@ -11,12 +12,12 @@ import {
   waitForFrames,
 } from "../website/tests/browser-helpers.mjs";
 const directory = await mkdtemp(join(tmpdir(), "levelspec-suggestions-"));
-const file = join(directory, "level.level.svgx");
+const file = join(directory, "level.aml");
 const xml = `<level version="2" id="review-flight" name="Suggestion acceptance" validation="premap"><layer id="stairs"><vertex id="a" x="0" y="0" z="0"/><vertex id="b" x="2" y="0" z="0"/><vertex id="c" x="2" y="4" z="1.2"/><vertex id="d" x="0" y="4" z="1.2"/><edge id="lower" from="a" to="b" kind="open"/><edge id="right" from="b" to="c" kind="open"/><edge id="upper" from="c" to="d" kind="open"/><edge id="left" from="d" to="a" kind="open"/><region id="flight" boundary="lower right upper left" fill="stairs" lower="lower" upper="upper"/></layer><layer id="barriers"><vertex id="wall-a" x="-0.21" y="0" z="0"/><vertex id="wall-b" x="-0.21" y="4" z="0"/><edge id="side-wall" from="wall-a" to="wall-b" kind="wall" height="3" thickness="0.22"/></layer><cover id="overhead" layer="stairs" min="-1 -1 6" max="3 5 6.2"/></level>`;
 const exec = promisify(execFile);
 let server, browser;
 try {
-  await writeFile(file, xml);
+  await writeFile(file, await amlSource(xml));
   const cli = async (...args) =>
     JSON.parse(
       (
@@ -190,15 +191,13 @@ try {
   await mkdir("website-qa/suggestions", { recursive: true });
   await page.screenshot({ path: "website-qa/suggestions/inspection.png" });
   await writeFile(
-    file,
-    xml.replace(
+    file, await amlSource(xml.replace(
       "</level>",
       annotation.replace(
         "REPLACE WITH REVIEW REASON",
         "Intentional courtyard stair",
       ) + "</level>",
-    ),
-  );
+    )));
   await page.waitForFunction(
     (count) =>
       document
@@ -214,7 +213,7 @@ try {
   const edited = xml
     .replaceAll('z="1.2"', 'z="1.3"')
     .replace("</level>", annotation + "</level>");
-  await writeFile(file, edited);
+  await writeFile(file, await amlSource(edited));
   await page.waitForFunction(() =>
     document
       .querySelector("#suggestions")
@@ -226,7 +225,7 @@ try {
     () => document.querySelector("#status")?.dataset.state === "error",
   );
   assert.equal(await page.locator("#suggestions button:enabled").count(), 0);
-  await writeFile(file, xml);
+  await writeFile(file, await amlSource(xml));
   await ready();
   const floorXML = (id, x, size) =>
     `<layer id="${id}">${[
@@ -240,7 +239,7 @@ try {
         "",
       )}${[0, 1, 2, 3].map((i) => `<edge id="${id}e${i}" from="${id}v${i}" to="${id}v${(i + 1) % 4}" kind="open"/>`).join("")}<region id="${id}floor" boundary="${[0, 1, 2, 3].map((i) => id + "e" + i).join(" ")}" fill="floor"/></layer>`;
   const islandsXML = `<level version="2" id="nav-review" name="Navigation review" validation="premap">${floorXML("main", 0, 6)}${floorXML("tiny", 10, 1.5)}</level>`;
-  await writeFile(file, islandsXML);
+  await writeFile(file, await amlSource(islandsXML));
   const islandResult = await cli("validate", file);
   const island = islandResult.suggestions.find((s) => s.code === "NAV_ISLAND");
   assert.ok(island);
@@ -263,9 +262,7 @@ try {
   await page.getByRole("button", { name: "Restore previous view" }).click();
   assert.equal(await page.locator("#navigation").inputValue(), "");
   await writeFile(
-    file,
-    xml.replace('fill="stairs"', 'fill="stairs" ceiling="1.5"'),
-  );
+    file, await amlSource(xml.replace('fill="stairs"', 'fill="stairs" ceiling="1.5"')));
   const missingResult = await cli("validate", file);
   const missing = missingResult.suggestions.find(
     (s) => s.code === "FLIGHT_NAV_MISSING",

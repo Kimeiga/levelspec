@@ -2,13 +2,18 @@
 
 LevelSpec remains a deterministic **source-to-geometry compiler**. This workflow
 provides the missing layer around it: an image-capable author produces a complete
-editable `.level.svgx` document, the compiler validates it, a multi-view evaluator
+editable `.aml` document, the compiler validates it, a multi-view evaluator
 compares its *actual rendered geometry* with independent observations, and the
 author can revise the source.
 
 This is an experimental authoring pipeline. It is **not** a turnkey photogrammetry
 system and does not claim to recover hidden geometry or exact dimensions from
 photographs. A successful runtime validator does not imply photographic accuracy.
+
+Historical SVGX studies remain unchanged. Before evaluating one with current tools,
+run `levelspec migrate <study.level.svgx> --out <new-project>` and use the emitted
+AML project. Exact historical compiler replay requires its recorded repository
+revision; current reconstruction does not implicitly migrate source.
 
 ## Agent workflow
 
@@ -62,10 +67,10 @@ npm run reconstruct -- \
 
 The first proposal and subsequent revisions pass through the same compiler,
 runtime navigation checks, and multi-view evaluator. Each iteration saves its
-SVGX source and diagnostic report. A **successful** run always outputs the
+AML source and diagnostic report. A **successful** run always outputs the
 candidate that actually satisfied acceptance, even when an earlier rejected
 candidate had a numerically better score. When no candidate is accepted,
-`best.level.svgx` may contain the best geometry- and navigation-valid draft;
+`best.aml` may contain the best geometry- and navigation-valid draft;
 `result.json` states clearly that acceptance failed. Invalid drafts stay in
 the iteration files.
 
@@ -85,7 +90,7 @@ source or GLB is emitted. The command exits nonzero if acceptance fails.
 To evaluate a candidate without a model or API key:
 
 ```sh
-npm run reconstruct -- --source path/to/candidate.level.svgx \
+npm run reconstruct -- --source path/to/candidate.aml \
   --image view1=/path/to/cropped-front.jpg \
   --image view2=/path/to/cropped-oblique.jpg \
   --evidence path/to/annotations.json \
@@ -93,8 +98,8 @@ npm run reconstruct -- --source path/to/candidate.level.svgx \
 ```
 
 The reference IDs in `--image id=path` must exactly match the root-level
-`<reference id="id" ...>` declarations in the SVGX. Without an explicit ID,
-images are named `view1`, `view2`, etc. Open `best.level.svgx` in the normal
+`<reference id="id" ...>` declarations in the AML. Without an explicit ID,
+images are named `view1`, `view2`, etc. Open `best.aml` in the normal
 workbench to use the existing registered image overlay and walkability inspector.
 
 ## Local companions and saved candidates
@@ -107,7 +112,7 @@ their storage boundary. An unresolved geometry asset rejects the candidate.
 
 Each attempt keeps its exact proposed XML plus a portable XML copy and a
 `*.companions.json` manifest recording its source directory, source hash and
-companion identities. `best.level.svgx` uses content-addressed paths under
+companion identities. `best.aml` uses content-addressed paths under
 `companions/`; keep that directory beside the saved source when moving it.
 Visual GLB exports embed resolved textures. Missing declared textures or archive
 write/integrity errors fail publication. A symbolic reference image may be absent
@@ -130,7 +135,7 @@ the edges. To certify a reconstruction, supply a human-reviewed
 Landmarks help calibrate the camera and detect projection errors but cannot
 prove the compiled geometry matches the building. Exclusion masks likewise
 do not count as positive reconstruction evidence. These must be independently supplied by the caller,
-never generated alongside the SVGX or reverse-engineered from its projections.
+never generated alongside the AML or reverse-engineered from its projections.
 Acceptance uses the original cropped image dimensions from `--image`, or
 `imageDimensions: [width, height]` in the independent manifest when image
 pixels are omitted. Without those independent dimensions, annotated geometry
@@ -185,7 +190,7 @@ Example `annotations.json`:
   obstructions (people, vehicles, trees) from acceptance comparisons.
   Occluded or invisible structures are not assumed to be present or absent.
 - The manifest's `landmarks` are trusted 3D world coordinates paired with
-  normalized, photo-observed 2D locations. Source SVGX landmarks are ignored
+  normalized, photo-observed 2D locations. Source AML landmarks are ignored
   for acceptance even when they yield zero reprojection error. Independently
   validate image correspondence and the assumed physical scale.
 - A photo view cannot be certified by natural-photo edge similarity, landmark
@@ -251,7 +256,7 @@ coordinates, never share vertex or edge IDs implicitly.
 - `src/reconstruction/loop.ts`: model-agnostic async revision callback, bounded
   attempts, strict compile + sealed traversal, errors fed back to the caller.
 - `tools/reconstruct-openai.ts`: optional Responses API image input, structured
-  SVGX response, previous compiled renders and feedback; no hard-coded model.
+  AML response, previous compiled renders and feedback; no hard-coded model.
 - `tools/reconstruct.ts`: local-file entrypoint and durable iteration artifacts.
 - `src/vector/architecture.ts`: physical walls, apertures, irregular enterable
   shells and individual playable flights.

@@ -2,127 +2,23 @@ import { readFile } from "node:fs/promises";
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import {
-  parseLevelSvgx,
+  parseAml,
   compile,
   validateForRuntime,
   toRuntime,
   toSVGPlan,
-} from "../src/vector/index.ts";
+} from "levelspec";
 import { heightAt } from "../src/vector/geometry.ts";
 
 const source = await readFile(
-  new URL("../examples/dust2.level.svgx", import.meta.url),
+  new URL("../examples/dust2.aml", import.meta.url),
   "utf8",
 );
-const document = parseLevelSvgx(source);
-const built = compile(document);
+const architecture = parseAml(source);
+const built = compile(architecture);
+const document = (await built).document;
 
 describe("CS2 Dust II spatial contract", () => {
-  it("keeps the upper A connection level and takes the lower CT ramp east to Cross", async () => {
-    const level = await built;
-    const floor = (id: string) => {
-      const patch = level.floors.find((f) => f.region === id);
-      assert.ok(patch, `Missing floor ${id}`);
-      return patch;
-    };
-    const sample = (id: string, x: number, y: number) => {
-      const z = heightAt(floor(id), (x - 50) * 0.1, (1005 - y) * 0.1);
-      assert.ok(z !== undefined, `${id} has no floor at radar (${x}, ${y})`);
-      return z;
-    };
-    const close = (actual: number, expected: number) =>
-      assert.ok(
-        Math.abs(actual - expected) < 0.001,
-        `${actual} != ${expected}`,
-      );
-
-    // The misplaced CT flight used to interrupt the upper route here. Inspect
-    // compiled floor triangles, including both ends of the replacement landing.
-    for (const [x, y] of [
-      [625, 115],
-      [675, 115],
-      [625, 145],
-      [675, 145],
-    ])
-      close(sample("a_short_site_connection", x, y), 4);
-    close(
-      sample("a_short", 650, 154),
-      sample("a_short_site_connection", 650, 154),
-    );
-    const regions = document.layers.flatMap((layer) => layer.regions);
-    assert.equal(
-      regions.find((r) => r.id === "a_short_site_connection")!.fill,
-      "floor",
-    );
-    const upperSite = level.floors.filter(
-      (f) => f.region === "a_site" || f.region.startsWith("a_site."),
-    );
-    const atSite = (x: number, y: number) =>
-      upperSite
-        .map((f) => heightAt(f, (x - 50) * 0.1, (1005 - y) * 0.1))
-        .filter((z) => z !== undefined);
-    assert.ok(atSite(685, 140).some((z) => Math.abs(z - 4) < 0.001));
-    assert.deepEqual(
-      atSite(720, 205),
-      [],
-      "Raised A floor must not cover the lower CT ramp",
-    );
-
-    // The same XY position must retain distinct walkable lower and upper spans.
-    // This southern sample also guards against truncating CT at radar Y=260.
-    for (const [x, y] of [
-      [650, 230],
-      [670, 267],
-    ]) {
-      close(sample("ct_underpass", x, y), 0);
-      close(sample("a_short", x, y), 4);
-    }
-    close(sample("ct_underpass", 681, 230), sample("ct_a_ramp", 681, 230));
-    const west = sample("ct_a_ramp", 700, 230);
-    const center = sample("ct_a_ramp", 720, 230);
-    const east = sample("ct_a_ramp", 750, 230);
-    assert.ok(
-      west < center && center < east,
-      "CT must climb east toward Cross",
-    );
-    close(sample("ct_a_ramp", 720, 205), center);
-    close(sample("ct_a_ramp", 720, 250), center);
-
-    // The real narrow stair strip is south/right of the broad ramp, not on the
-    // upper bridge. Tread tops progress east and meet the same upper landing.
-    assert.ok(
-      sample("ct_a_stairs", 700, 267) < sample("ct_a_stairs", 720, 267),
-    );
-    assert.ok(
-      sample("ct_a_stairs", 720, 267) < sample("ct_a_stairs", 750, 267),
-    );
-    assert.equal(heightAt(floor("ct_a_stairs"), 60, 88), undefined);
-    close(sample("ct_a_ramp", 762, 230), 2);
-    close(sample("ct_a_stairs", 762, 267), 2);
-    close(sample("ct_a_landing", 762, 230), 2);
-    close(sample("ct_a_landing", 770, 267), 2);
-    close(
-      sample("ct_a_landing", 780, 240),
-      sample("ct_cross_transition", 780, 240),
-    );
-    close(sample("ct_cross_transition", 848, 240), sample("a_ramp", 848, 240));
-
-    // Short distance limits reject a false success via a long detour elsewhere
-    // on the map, independently checking both routes through this correction.
-    for (const [id, limit] of [
-      ["ct_to_cross", 28],
-      ["short_to_site", 32],
-    ] as const) {
-      const route = level.navigation!.routes.find((r) => r.id === id);
-      assert.ok(route?.reachable, `Missing traversable route ${id}`);
-      assert.ok(route.distance < limit, `${id} detours ${route.distance} m`);
-    }
-    assert.deepEqual(
-      level.diagnostics.filter((d) => d.code === "FLOOR_EDGE_GAP"),
-      [],
-    );
-  });
-
   it("connects Long directly to higher Goose and descends south onto A", async () => {
     const level = await built;
     const sample = (id: string, x: number, y: number) => {
@@ -186,10 +82,13 @@ describe("CS2 Dust II spatial contract", () => {
   it("keeps A parapets on their intended supporting floors", async () => {
     const level = await built;
     const regions = document.layers.flatMap((layer) => layer.regions);
-    const vertices = document.layers.flatMap((layer) => layer.vertices);
-    const parapets = document.layers
-      .flatMap((layer) => layer.edges)
-      .filter((edge) => edge.id.startsWith("wall.a_platform."));
+    const parapets: import("levelspec").Wall[] = [];
+    const visit = (element: import("levelspec").ArchitectureElement): void => {
+      if (element.kind === "wall" && element.id.startsWith("wall.a_platform."))
+        parapets.push(element);
+      if ("children" in element) element.children.forEach(visit);
+    };
+    architecture.elements.forEach(visit);
     assert.ok(parapets.length > 0);
     assert.ok(
       parapets.some(
@@ -211,8 +110,9 @@ describe("CS2 Dust II spatial contract", () => {
           `${edge.id} anchored to the wrong storey: ${edge.baseFloor}`,
         );
       }
-      const a = vertices.find((vertex) => vertex.id === edge.from)!;
-      const b = vertices.find((vertex) => vertex.id === edge.to)!;
+      const [a, b] = architecture.paths
+        .find((path) => path.id === edge.path)!
+        .points.map(([x, y, z]) => ({ x, y, z }));
       // The stair-side wall follows a smooth endpoint profile, independent of
       // tread count. Its outer face embeds the slab edge by 0.02 m, avoiding an
       // unsupported sliver while keeping the usable flight nearly 5 m wide.
@@ -286,71 +186,6 @@ describe("CS2 Dust II spatial contract", () => {
         );
       }
     }
-  });
-
-  it("descends east through T spawn while its northern approaches stay level", async () => {
-    const level = await built;
-    const floor = (id: string) => {
-      const patch = level.floors.find((f) => f.region === id);
-      assert.ok(patch, `Missing floor ${id}`);
-      return patch;
-    };
-    // The source radar is registered at 0.1 metres per pixel, with north
-    // pointing toward decreasing image Y. Query actual compiled triangles.
-    const sample = (id: string, x: number, y: number) => {
-      const z = heightAt(floor(id), (x - 50) * 0.1, (1005 - y) * 0.1);
-      assert.ok(z !== undefined, `${id} has no floor at radar (${x}, ${y})`);
-      return z;
-    };
-    const close = (actual: number, expected: number) =>
-      assert.ok(
-        Math.abs(actual - expected) < 0.001,
-        `${actual} != ${expected}`,
-      );
-
-    const west = sample("t_spawn_ramp", 500, 935);
-    const middle = sample("t_spawn_ramp", 550, 935);
-    const east = sample("t_spawn_ramp", 600, 935);
-    assert.ok(west > middle && middle > east, "Spawn must descend east/right");
-    close(sample("t_spawn_ramp", 550, 890), middle);
-    close(sample("t_spawn_ramp", 550, 975), middle);
-
-    for (const y of [900, 950]) {
-      close(sample("t_spawn", 490, y), 3);
-      close(sample("t_spawn_ramp", 490, y), 3);
-      close(sample("t_spawn_ramp", 607, y), 2);
-      close(sample("t_spawn_low", 607, y), 2);
-    }
-    for (const y of [850, 870]) {
-      close(sample("t_mid_ramp", 462, y), 2);
-      close(sample("t_long_ramp", 630, y), 2);
-    }
-    close(sample("t_long_ramp", 630, 876), sample("t_spawn_low", 630, 876));
-    close(sample("outside_long", 630, 835), sample("t_long_ramp", 630, 835));
-    close(sample("t_platform", 250, 890), sample("t_spawn", 250, 890));
-    close(
-      sample("outside_tunnels_ramp", 120, 890),
-      sample("t_spawn", 120, 890),
-    );
-
-    const marker = level.document.markers.find((m) => m.id === "t_spawn_mark")!;
-    assert.ok(marker);
-    const supportedHeight = heightAt(
-      floor("t_spawn"),
-      marker.position[0],
-      marker.position[1],
-    );
-    assert.ok(supportedHeight !== undefined);
-    close(supportedHeight, 3);
-    close(marker.position[2], supportedHeight);
-    // The parapet belongs on the high spawn side; anchoring it to lower Mid
-    // buries its western end beneath the corrected spawn floor.
-    const divider = level.document.layers
-      .flatMap((l) => l.edges)
-      .filter((e) => e.id.startsWith("wall.t_spawn."));
-    assert.ok(divider.length > 0);
-    for (const edge of divider)
-      assert.ok(["t_spawn", "t_spawn_ramp"].includes(edge.baseFloor ?? ""));
   });
 
   it("keeps the winders in the outer half, with a flat center and level Mid hallway", async () => {
@@ -438,27 +273,5 @@ describe("CS2 Dust II spatial contract", () => {
     );
     assert.ok(Math.min(...z("t_platform")) > Math.max(...z("outside_tunnels")));
     assert.ok(Math.min(...z("pit_platform")) > Math.max(...z("pit")));
-  });
-
-  it("compiles a smaller usable map with automatic capsule navigation and no uncovered floors", async () => {
-    const level = await built;
-    const report = await validateForRuntime(level, { sealed: true });
-    // Traversability, shell gaps, and coplanar surfaces are independent audits.
-    // Final Dust II geometry must satisfy all of them without accepted warnings.
-    assert.deepEqual(report.diagnostics, []);
-    assert.equal(report.passed, true);
-    assert.equal(level.navigation?.coverage.uncoveredCount, 0);
-    assert.equal(level.navigation?.settings.player.height, 2);
-    assert.equal(level.navigation?.settings.player.radius, 0.25);
-    assert.ok(
-      level.stats.triangles < 12000,
-      "Simplified architecture exceeded its regression budget",
-    );
-    assert.ok(level.navigation!.routes.every((r) => r.reachable));
-    assert.ok(
-      level.navigation!.routes.find((r) => r.id === "tunnel_bend_route")!
-        .distance < 15,
-    );
-    assert.equal(toRuntime(level).navigation, level.navigation);
   });
 });

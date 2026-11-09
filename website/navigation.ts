@@ -1,16 +1,17 @@
+import { navigationNeighbors } from "./navigation-edges.ts";
 import type { NavigationReport, V3 } from "../src/vector/types.ts";
 interface Triangle {
   p: V3[];
   center: V3;
   neighbors: number[];
 }
-/** A constrained inspection walk, not a physics engine. Uses the eroded Recast mesh. */
+/** Eroded-navigation movement with an optional physical support/clearance resolver per substep. */
 export class NavigationSurface {
   readonly triangles: Triangle[] = [];
   readonly reachable = new Set<number>();
-  constructor(nav: Pick<NavigationReport, "positions" | "indices">, spawn: V3) {
-    const edges = new Map<string, number[]>();
-    const key = (p: V3) => p.map((n) => Math.round(n * 10000)).join(",");
+  private readonly resolveCandidate?: (candidate: V3, previous: V3) => V3 | undefined;
+  constructor(nav: Pick<NavigationReport, "positions" | "indices">, spawn: V3, resolveCandidate?: (candidate: V3, previous: V3) => V3 | undefined) {
+    this.resolveCandidate = resolveCandidate;
     for (let i = 0; i < nav.indices.length; i += 3) {
       const p = nav.indices
         .slice(i, i + 3)
@@ -21,17 +22,9 @@ export class NavigationSurface {
         center: [0, 1, 2].map((a) => (p[0][a] + p[1][a] + p[2][a]) / 3) as V3,
         neighbors: [],
       });
-      for (let j = 0; j < 3; j++) {
-        const k = [key(p[j]), key(p[(j + 1) % 3])].sort().join("|");
-        const owners = edges.get(k) ?? [];
-        owners.push(id);
-        edges.set(k, owners);
-      }
     }
-    for (const owners of edges.values())
-      for (const a of owners)
-        for (const b of owners)
-          if (a !== b) this.triangles[a].neighbors.push(b);
+    const neighbors = navigationNeighbors(this.triangles);
+    this.triangles.forEach((triangle, i) => { triangle.neighbors = neighbors[i]; });
     const seed = this.locate(spawn, false);
     if (seed) {
       const queue = [seed.index];
@@ -83,14 +76,15 @@ export class NavigationSurface {
       const x = dx / count,
         y = dy / count;
       const full = this.locate([p[0] + x, p[1] + y, p[2]], true, 0.46);
-      if (full) {
-        p = full.point;
+      const resolved = full && (this.resolveCandidate ? this.resolveCandidate(full.point, p) : full.point);
+      if (resolved) {
+        p = resolved;
         continue;
       }
       const slideX = this.locate([p[0] + x, p[1], p[2]], true, 0.46);
-      if (slideX) p = slideX.point;
+      if (slideX) p = this.resolveCandidate ? this.resolveCandidate(slideX.point, p) ?? p : slideX.point;
       const slideY = this.locate([p[0], p[1] + y, p[2]], true, 0.46);
-      if (slideY) p = slideY.point;
+      if (slideY) p = this.resolveCandidate ? this.resolveCandidate(slideY.point, p) ?? p : slideY.point;
     }
     return p;
   }

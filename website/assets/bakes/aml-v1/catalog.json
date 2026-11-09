@@ -1,0 +1,20 @@
+[
+  {
+    "style": "clay",
+    "sourceHash": "634732568ed12504b5a7d75946cac08ac84855272b202ff40af8014d3ddb236d",
+    "binding": "clay/binding.json.gz",
+    "samples": 32
+  },
+  {
+    "style": "chalk",
+    "sourceHash": "4e3307ba9ccc2500e28ea70ecdc162215c3ae3bb3d0d313c950e7cbfebd13425",
+    "binding": "chalk/binding.json.gz",
+    "samples": 32
+  },
+  {
+    "style": "night",
+    "sourceHash": "142ed422ef203d399707d9248cb84bd5d9b92cdf87d7caa3786d2d0c999fd701",
+    "binding": "night/binding.json.gz",
+    "samples": 32
+  }
+]

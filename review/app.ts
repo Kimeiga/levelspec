@@ -1,4 +1,7 @@
+import { DEFAULT_APPEARANCE } from "./view.ts";
+import { appendTerrainPlan } from "./terrain.ts";
 import "./style.css";
+import { renderArchitectureInspection } from "./architecture.ts";
 import { parseWalkPose, walkURL, WALK_PARAMETERS, type WalkPose, type WalkStartResult } from "./walk.ts";
 import { diagnosticPanel } from "./diagnostics.ts";
 import { suggestionPanel } from "./suggestions.ts";
@@ -20,13 +23,13 @@ interface ReviewerConfig {
 /** Mounts the shared read-only reviewer. File access belongs to the local adapter. */
 export function mountReviewer(config: ReviewerConfig) {
   document.body.innerHTML = `
-    <header><a class="brand" href="./">LevelSpec</a><span id="title">Layout review</span><span id="summary"></span><nav aria-label="Project"><span id="offline"></span>${config.local ? '<button id="open">Open layout</button><button id="companions">Companion assets</button><input id="file" type="file" accept=".svgx" hidden><input id="assets" type="file" multiple accept=".glb,.png,.jpg,.jpeg,.webp" hidden>' : '<a href="https://github.com/Kimeiga/levelspec">GitHub ↗</a>'}</nav></header>
+    <header><a class="brand" href="./">LevelSpec</a><span id="title">Layout review</span><span id="summary"></span><nav aria-label="Project"><span id="offline"></span>${config.local ? '<button id="open">Open layout</button><button id="companions">Companion assets</button><input id="file" type="file" accept=".aml,.xml" hidden><input id="assets" type="file" multiple accept=".glb,.png,.jpg,.jpeg,.webp" hidden>' : '<a href="https://github.com/Kimeiga/levelspec">GitHub ↗</a>'}</nav></header>
     <main>
     <section class="reviewer" aria-label="Layout reviewer" data-view="3d" aria-busy="true">
       <div class="toolbar"><div class="tabs" role="group" aria-label="Review view"><button id="view-2d" aria-pressed="false">01 / 2D plan</button><button id="view-3d" aria-pressed="true">02 / 3D space</button></div><div class="tools"><label>Floor <select id="floor"><option value="">All floors</option></select></label><button id="fit">Fit view</button><button id="walk" disabled>Walk inside ↗</button><button id="exit-walk" hidden>Exit walk · Esc</button></div></div>
       <div class="workspace"><div class="viewport"><div id="model" data-mode="overview"></div><div id="plan" hidden tabindex="0" aria-label="2D floor plan. Drag to pan, scroll to zoom, click to select."></div><p id="fallback" hidden>3D is unavailable. The 2D plan and validation remain available.</p><div class="view-label" id="view-label">ORTHOGRAPHIC / Z-UP METERS</div><p id="viewport-dimensions" aria-label="Geometry dimensions"></p><div class="compass" aria-label="3D camera presets"><button data-preset="iso">¾</button><button data-preset="top">Top</button><button data-preset="front">Front</button><button data-preset="side">Side</button><button id="turn" aria-label="Turn ninety degrees">↻ 90°</button></div><div id="walk-pad" hidden><button data-move="w" aria-label="Walk forward">↑</button><button data-move="a" aria-label="Walk left">←</button><button data-move="s" aria-label="Walk backward">↓</button><button data-move="d" aria-label="Walk right">→</button></div></div>
-      <aside aria-label="Review layers"><p class="eyebrow">REVIEW LAYERS</p><label>Projection <select id="projection"><option value="orthographic">Orthographic</option><option value="perspective">Perspective</option></select></label><details id="camera-controls"><summary>Camera / Z-up meters</summary><form id="camera-form"><label>Position XYZ <input id="camera-position" type="text" required></label><label>Target XYZ <input id="camera-target" type="text" required></label><label>Vertical FOV (degrees) <input id="camera-fov" type="number" min="0.01" max="149.99" step="any" value="55" required></label><label>Orthographic view height (m) <input id="camera-height" type="number" min="0.000001" step="any" value="40" required></label><label>Roll (degrees) <input id="camera-roll" type="number" step="any" value="0" required></label><button type="submit">Apply camera</button><p id="camera-error" role="status"></p></form><p id="view-description"></p><a id="view-link">Open this view ↗</a></details><details id="walk-controls"><summary>Walk from coordinates</summary><form id="walk-form" novalidate><label>Feet XYZ (Z-up meters) <input id="walk-feet" type="text" value="0 0 0" required></label><label>Yaw degrees (+X=0, +Y=90) <input id="walk-yaw" type="number" step="any" value="0" required></label><label>Pitch degrees (−80 to 80) <input id="walk-pitch" type="number" step="any" min="-80" max="80" value="0" required></label><button id="walk-start" type="submit" disabled>Start inspection walk</button></form><p id="walk-error" role="status"></p><p id="walk-description">Uses existing land navigation and standing-body collision checks. Unsupported feet are rejected; nearby feet resolve within 0.10m.</p><a id="walk-link">Open this walking pose ↗</a></details><label>Appearance <select id="appearance"><option value="illustrated">Illustrated</option><option value="materials">Authored materials</option><option value="inspection">Neutral inspection</option></select></label><details id="frame-controls"><summary>Image frame</summary><label>Frame <select id="frame-mode"><option value="viewport">Viewport</option><option value="0.75">Portrait 3:4</option><option value="1">Square</option><option value="1.3333333333333333">Landscape 4:3</option><option value="custom">Custom</option></select></label><form id="frame-form" novalidate><label>Width / height <input id="frame-aspect" type="number" min="0.1" max="10" step="any" placeholder="Responsive viewport"></label><button type="submit">Apply frame</button></form><button id="frame-reference" disabled>Use selected reference ratio</button><p id="frame-description"></p><p id="frame-error" role="status"></p></details><label class="check"><input id="roofs" type="checkbox"> Show roofs</label><label>Section height <input id="cut" type="range" min="0" max="1" step="0.01" value="1"></label><label>Navigation <select id="navigation"><option value="">Off</option><option value="land">Land</option><option value="water">Boat</option></select></label><details id="navigation-grid"><summary>Walking grid</summary><form id="nav-cell-form" novalidate><label>Horizontal cell size (m) <input id="nav-cell" type="number" min="0.025" max="0.5" step="any" value="0.0625" required></label><button type="submit">Rebuild navigation</button></form><p>Smaller cells can resolve narrow passages. Player dimensions stay unchanged.</p><p id="nav-cell-status" role="status"></p><p id="nav-cell-error" role="status"></p></details><label class="check"><input id="issues" type="checkbox"> Spatial issues</label><label class="check"><input id="dimensions" type="checkbox" checked> Dimensions</label><details id="references"><summary>References</summary><select id="reference" aria-label="Reference image"><option value="">No reference</option></select><p id="reference-note"></p><img id="reference-image" alt="Architectural reference" hidden></details><hr><p class="eyebrow">SELECTION</p><p id="selection">Select a floor or wall in either view.</p><p id="dimensions-value"></p><p id="navigation-summary"></p><details id="suggestion-panel" open><summary>Suggestions</summary><div id="suggestions"></div></details><details id="validation"><summary>Validation <span id="issue-count"></span></summary><p id="validation-mode"></p><div id="diagnostics"></div></details></aside></div>
-      <footer><span id="status" role="status" aria-live="polite">Loading layout…</span><button id="cancel">Cancel loading</button><button id="retry" hidden>Retry loading</button><span id="help">Drag to orbit · Right drag to pan · Scroll to zoom</span></footer>
+      <aside aria-label="Review layers"><p class="eyebrow">REVIEW LAYERS</p><label>Projection <select id="projection"><option value="orthographic">Orthographic</option><option value="perspective">Perspective</option></select></label><details id="camera-controls"><summary>Camera / Z-up meters</summary><form id="camera-form"><label>Position XYZ <input id="camera-position" type="text" required></label><label>Target XYZ <input id="camera-target" type="text" required></label><label>Vertical FOV (degrees) <input id="camera-fov" type="number" min="0.01" max="149.99" step="any" value="55" required></label><label>Orthographic view height (m) <input id="camera-height" type="number" min="0.000001" step="any" value="40" required></label><label>Roll (degrees) <input id="camera-roll" type="number" step="any" value="0" required></label><button type="submit">Apply camera</button><p id="camera-error" role="status"></p></form><p id="view-description"></p><a id="view-link">Open this view ↗</a></details><details id="walk-controls"><summary>Walk from coordinates</summary><form id="walk-form" novalidate><label>Feet XYZ (Z-up meters) <input id="walk-feet" type="text" value="0 0 0" required></label><label>Yaw degrees (+X=0, +Y=90) <input id="walk-yaw" type="number" step="any" value="0" required></label><label>Pitch degrees (−80 to 80) <input id="walk-pitch" type="number" step="any" min="-80" max="80" value="0" required></label><button id="walk-start" type="submit" disabled>Start inspection walk</button></form><p id="walk-error" role="status"></p><p id="walk-description">Uses existing land navigation with physical step support and standing-body collision checks. Nearby supported feet resolve within 0.10m.</p><a id="walk-link">Open this walking pose ↗</a></details><label>Appearance <select id="appearance"><option value="flat">Flat</option><option value="illustrated">Illustrated</option><option value="materials">Authored materials</option><option value="inspection">Neutral inspection</option></select></label><details id="frame-controls"><summary>Image frame</summary><label>Frame <select id="frame-mode"><option value="viewport">Viewport</option><option value="0.75">Portrait 3:4</option><option value="1">Square</option><option value="1.3333333333333333">Landscape 4:3</option><option value="custom">Custom</option></select></label><form id="frame-form" novalidate><label>Width / height <input id="frame-aspect" type="number" min="0.1" max="10" step="any" placeholder="Responsive viewport"></label><button type="submit">Apply frame</button></form><button id="frame-reference" disabled>Use selected reference ratio</button><p id="frame-description"></p><p id="frame-error" role="status"></p></details><label class="check"><input id="roofs" type="checkbox"> Show roofs</label><label>Section height <input id="cut" type="range" min="0" max="1" step="0.01" value="1"></label><label>Navigation <select id="navigation"><option value="">Off</option><option value="land">Land</option><option value="water">Boat</option></select></label><details id="navigation-grid"><summary>Walking grid</summary><form id="nav-cell-form" novalidate><label>Horizontal cell size (m) <input id="nav-cell" type="number" min="0.025" max="0.5" step="any" value="0.0625" required></label><button type="submit">Rebuild navigation</button></form><p>Smaller cells can resolve narrow passages. Player dimensions stay unchanged.</p><p id="nav-cell-status" role="status"></p><p id="nav-cell-error" role="status"></p></details><label class="check"><input id="issues" type="checkbox"> Spatial issues</label><label class="check"><input id="dimensions" type="checkbox" checked> Dimensions</label><details id="references"><summary>References</summary><select id="reference" aria-label="Reference image"><option value="">No reference</option></select><p id="reference-note"></p><img id="reference-image" alt="Architectural reference" hidden></details><hr><p class="eyebrow">SELECTION</p><p id="selection">Select a floor or wall in either view.</p><details id="architecture-inspection" hidden open></details><p id="dimensions-value"></p><p id="navigation-summary"></p><details id="suggestion-panel" open><summary>Suggestions</summary><div id="suggestions"></div></details><details id="validation"><summary>Validation <span id="issue-count"></span></summary><p id="validation-mode"></p><div id="diagnostics"></div></details></aside></div>
+      <footer><span id="status" role="status" aria-live="polite">Loading layout…</span><button id="cancel">Cancel loading</button><button id="retry" hidden>Retry loading</button><span id="help">Drag to rotate horizontally · Right drag to pan · Scroll to zoom</span></footer>
     </section></main>`;
   const get = <T extends HTMLElement = HTMLElement>(id: string) =>
     document.getElementById(id) as T;
@@ -34,7 +37,7 @@ export function mountReviewer(config: ReviewerConfig) {
     layer: "",
     roofs: false,
     cut: 1,
-    appearance: "illustrated",
+    appearance: DEFAULT_APPEARANCE,
     movement: "",
     selected: "",
     issues: false,
@@ -123,7 +126,7 @@ export function mountReviewer(config: ReviewerConfig) {
   let lastFrameAspect = 1;
   try {
     initialView = parseViewOptions(new URL(location.href).searchParams);
-    options.appearance = initialView.appearance ?? "illustrated";
+    options.appearance = initialView.appearance ?? DEFAULT_APPEARANCE;
     frameAspectLock = initialView.frameAspect;
     get<HTMLSelectElement>("appearance").value = options.appearance;
   } catch (error) {
@@ -243,12 +246,17 @@ export function mountReviewer(config: ReviewerConfig) {
     get("status").textContent =
       `Unable to decode companion image: ${(event as CustomEvent<string>).detail}`;
   });
+  /** Cancels in-flight work and discards its worker-owned native and tile-cache state. */
+  function stopWorker() {
+    worker?.terminate();
+    worker = undefined;
+  }
   /** Announces loading failures while explicitly retaining stale geometry. */
   function fail(message: string) {
     ready = false;
     suggestions.setEnabled(false);
     spatialDiagnostics.setEnabled(false);
-    worker?.terminate();
+    stopWorker();
     clearTimeout(timeout);
     scene?.exitWalk();
     get<HTMLButtonElement>("walk").disabled = true;
@@ -331,7 +339,7 @@ export function mountReviewer(config: ReviewerConfig) {
     get("help").textContent =
       next === "2d"
         ? "Drag to pan · Scroll to zoom · Click to select"
-        : "Drag to orbit · Right drag to pan · Scroll to zoom";
+        : "Drag to rotate horizontally · Right drag to pan · Scroll to zoom";
   }
   /** Reflects geometry selection without exposing XML or editing controls. */
   function select(id: string) {
@@ -352,7 +360,7 @@ export function mountReviewer(config: ReviewerConfig) {
         updateViewLabel();
         get("help").textContent = walking
           ? "WASD / arrows to walk · Drag to look · Esc to exit"
-          : "Drag to orbit · Right drag to pan · Scroll to zoom";
+          : "Drag to rotate horizontally · Right drag to pan · Scroll to zoom";
       },
       (available) => {
         get<HTMLButtonElement>("view-3d").disabled = !available;
@@ -388,6 +396,7 @@ export function mountReviewer(config: ReviewerConfig) {
       for (const node of svg.querySelectorAll<SVGElement>("[data-object]"))
         if (node.dataset.object === floor.region) node.classList.add("water");
     }
+    if (options.issues) appendTerrainPlan(svg, level);
     for (const node of svg.querySelectorAll<SVGElement>("[data-object]")) {
       node.dataset.selected = String(node.dataset.object === options.selected || options.suggestion?.objects.includes(node.dataset.object!));
       node.setAttribute("tabindex", "0");
@@ -488,6 +497,7 @@ export function mountReviewer(config: ReviewerConfig) {
     const dimensions = get<HTMLInputElement>("dimensions").checked;
     const text = box.isEmpty() ? "No visible geometry in this selection." : `${options.selected ? "Selected" : "Layout"} bounds / ${extent.x.toFixed(2)} × ${extent.y.toFixed(2)} × ${extent.z.toFixed(2)} m`;
     get("dimensions-value").textContent = dimensions ? text : "";
+    renderArchitectureInspection(get("architecture-inspection"), level, options.selected ?? "");
     const overlay = get("viewport-dimensions");
     overlay.hidden = !dimensions;
     overlay.textContent = text.replace("bounds /", "bounds XYZ /");
@@ -505,7 +515,7 @@ export function mountReviewer(config: ReviewerConfig) {
     get("nav-cell-status").textContent = `Rebuilding with ${navigationCell ?? 0.0625} m horizontal cells…`;
     suggestions.setEnabled(false);
     spatialDiagnostics.setEnabled(false);
-    worker?.terminate();
+    if (!ready) stopWorker();
     scene?.exitWalk();
     const id = ++revision;
     ready = false;
@@ -522,7 +532,7 @@ export function mountReviewer(config: ReviewerConfig) {
     get("plan").dataset.stale = String(Boolean(level));
     document.querySelector(".reviewer")!.setAttribute("aria-busy", "true");
     try {
-      worker = config.worker();
+      worker ??= config.worker();
       timeout = setTimeout(
         () => fail("Loading timed out. Retry or open another layout."),
         120000,
@@ -548,7 +558,7 @@ export function mountReviewer(config: ReviewerConfig) {
         if (!next.mesh.indices.length && errors.length) {
           fail(
             errors
-              .map((diagnostic) => `${diagnostic.code}: ${diagnostic.message}`)
+              .map((diagnostic) => `${diagnostic.code} [${diagnostic.objects.join(", ")}]${diagnostic.source ? ` line ${diagnostic.source.line}` : ""}: ${diagnostic.message}`)
               .join(" "),
           );
           return;
@@ -614,7 +624,6 @@ export function mountReviewer(config: ReviewerConfig) {
             get("nav-cell-status").textContent = "Navigation is unavailable for this layout. Resolve the geometry diagnostics before walking.";
           }
           clearTimeout(timeout);
-          worker?.terminate();
           get("status").textContent = report?.passed
             ? "Ready / validated layout"
             : "Ready / review validation issues";
@@ -875,7 +884,7 @@ export function mountReviewer(config: ReviewerConfig) {
       const file = get<HTMLInputElement>("file").files?.[0];
       if (!file) return;
       const request = ++revision;
-      worker?.terminate();
+      stopWorker();
       try {
         const text = await file.text();
         if (request !== revision) return;
@@ -889,7 +898,7 @@ export function mountReviewer(config: ReviewerConfig) {
     };
     get("assets").onchange = async () => {
       const request = ++revision;
-      worker?.terminate();
+      stopWorker();
       try {
         const next: Record<string, Uint8Array> = {};
         for (const file of get<HTMLInputElement>("assets").files ?? [])
@@ -921,7 +930,7 @@ export function mountReviewer(config: ReviewerConfig) {
     (event) => {
       if (event.persisted) return;
       revision++;
-      worker?.terminate();
+      stopWorker();
       clearTimeout(timeout);
       frameObserver.disconnect();
       scene?.dispose();
@@ -949,7 +958,7 @@ export function mountReviewer(config: ReviewerConfig) {
     /** Releases resources owned by this reviewer instance. */
     dispose() {
       revision++;
-      worker?.terminate();
+      stopWorker();
       clearTimeout(timeout);
       frameObserver.disconnect();
       scene?.dispose();

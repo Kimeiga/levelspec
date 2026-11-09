@@ -6,8 +6,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import { PNG } from "pngjs";
-import { SceneBuilder, compile, createGLBAssetResolver, parseLevelSvgx,
-  renderReference, serializeLevelSvgx, toGLB } from "../src/vector/index.ts";
+import { ArchitectureBuilder, compile, createGLBAssetResolver, parseAml, serializeAml, toGLB } from "levelspec";
+import {renderReference} from "../src/vector/reference-raster.ts";
 import { runReconstruction } from "../src/reconstruction/loop.ts";
 import { createCompanionStore } from "../tools/reconstruct-assets.ts";
 
@@ -15,22 +15,17 @@ const cli = fileURLToPath(new URL("../tools/reconstruct.ts", import.meta.url));
 
 /** A native floor and two independently loaded, transformed visual companions. */
 async function fixture(root: string) {
-  const scene = new SceneBuilder("asset-reconstruction");
-  const group = scene.group("court");
-  const floor = group.platform("floor", { width: 8, depth: 8, material: "default" });
-  scene.document.markers.push({ id: "spawn", kind: "attacker_spawn", layer: group.layer.id,
-    region: floor.id, position: [1, 1, 0] });
-  scene.document.assets = [{ id: "a", src: "meshes/a/crate.glb" }, { id: "b", src: "meshes/b/crate.glb" }];
-  group.asset("first", "a", { position: [4, 4, 1], size: [2, 1, 3], rotation: [0, 0, 90],
-    material: "default", collision: "none" });
-  group.asset("second", "b", { position: [6, 4, 1], size: [1, 1, 1],
-    material: "default", collision: "none" });
+  const scene = new ArchitectureBuilder("asset-reconstruction");scene.document.validation="premap";scene.document.materials.push({id:"default",color:"#aaaaaa",repeat:1,roughness:.8,metalness:0});
+  scene.profile("floor-plan",[[0,0,0],[8,0,0],[8,8,0],[0,8,0]]);scene.slab("floor","floor-plan");
+  scene.document.markers.push({id:"spawn",layer:"architecture",kind:"spawn",position:[1,1,0]});
+  const assets=[{src:"meshes/a/crate.glb"},{src:"meshes/b/crate.glb"}];
+  scene.add({kind:"visual-mesh",id:"first",src:assets[0].src,position:[4,4,1],scale:[2,1,3],rotation:[0,0,90]});
+  scene.add({kind:"visual-mesh",id:"second",src:assets[1].src,position:[6,4,1],scale:[1,1,.5]});
   scene.document.references = [{ id: "front", image: "photos/front.png", width: 80, height: 60,
     scale: "assumed", scaleNote: "Synthetic integration fixture.", landmarks: [], masks: [],
     camera: { position: [4, -8, 6], target: [4, 4, 2], up: [0, 0, 1], fov: 55, near: 0.1, far: 100 } }];
-  for (const [index, asset] of scene.document.assets.entries()) {
-    const mesh = new SceneBuilder("mesh");
-    mesh.group("box").box("box", { position: [0, 0, 0], size: [1, 1, index + 1], material: "default", collision: "none" });
+  for (const [index, asset] of assets.entries()) {
+    const mesh = new ArchitectureBuilder("mesh");mesh.box("box",{position:[-.5,-.5,0],width:1,depth:1,height:index+1});
     const bytes = toGLB(await compile(mesh.document, { navigation: false }));
     const path = join(root, asset.src);
     await mkdir(dirname(path), { recursive: true });
@@ -42,8 +37,8 @@ async function fixture(root: string) {
   await mkdir(dirname(photo), { recursive: true });
   await writeFile(photo, PNG.sync.write(png));
   scene.document.materials[0].texture = "photos/front.png";
-  const source = serializeLevelSvgx(scene.document);
-  await writeFile(join(root, "level.level.svgx"), source);
+  const source = serializeAml(scene.document);
+  await writeFile(join(root, "level.aml"), source);
   return { scene, source, photo };
 }
 
@@ -64,11 +59,11 @@ test("reconstruction includes transformed GLB geometry and rejects unresolved ge
     assert.equal(result.accepted, false, "No independent image observations were supplied.");
     assert.ok(result.level);
     const positions = result.level.mesh.positions;
-    assert.equal(Math.max(...positions.filter((_, i) => i % 3 === 2)), 4);
+    assert.ok(Math.abs(Math.max(...positions.filter((_, i) => i % 3 === 2)) - 4) < 1e-6);
     assert.ok(Array.from({ length: positions.length / 3 }, (_, i) => positions.slice(3 * i, 3 * i + 3))
       .some(p => Math.abs(p[0] - 3.5) < 1e-6 && Math.abs(p[1] - 3) < 1e-6 && Math.abs(p[2] - 4) < 1e-6));
-    const without = parseLevelSvgx(source);
-    without.props = [];
+    const without = parseAml(source);
+    without.elements=without.elements.filter(element=>element.kind!=="visual-mesh");
     const floorOnly = await compile(without, { navigation: false });
     const view = result.level.document.references![0];
     const fullRaster = renderReference(result.level, view), floorRaster = renderReference(floorOnly, view);
@@ -92,7 +87,7 @@ test("CLI bundles exact companions, survives relocation and same-output reuse, a
     const sourceDir = join(root, "source"), out = join(root, "output");
     await mkdir(sourceDir);
     const { photo } = await fixture(sourceDir);
-    const first = evaluate(join(sourceDir, "level.level.svgx"), out, root, [photo]);
+    const first = evaluate(join(sourceDir, "level.aml"), out, root, [photo]);
     assert.equal(first.status, 1, first.stderr || first.stdout);
     assert.equal(first.stderr, "", first.stderr);
     const report = JSON.parse(await readFile(join(out, "result.json"), "utf8"));
@@ -101,8 +96,8 @@ test("CLI bundles exact companions, survives relocation and same-output reuse, a
     assert.equal(manifest.portableComplete, true);
     for (const item of manifest.companions)
       assert.deepEqual(await readFile(join(out, item.snapshot)), await readFile(join(sourceDir, item.source)));
-    const doc = parseLevelSvgx(await readFile(join(out, "best.level.svgx"), "utf8"));
-    assert.notEqual(doc.assets![0].src, doc.assets![1].src, "Same basenames must preserve distinct mesh bytes.");
+    const doc = parseAml(await readFile(join(out, "best.aml"), "utf8"));
+    assert.notEqual(doc.elements.filter(e=>e.kind==="visual-mesh")[0].src, doc.elements.filter(e=>e.kind==="visual-mesh")[1].src, "Same basenames must preserve distinct mesh bytes.");
     const runtime = JSON.parse(await readFile(join(out, "best.runtime.json"), "utf8"));
     for (const reference of [...runtime.assets.map((item: any) => item.src),
       ...runtime.references.map((item: any) => item.image),
@@ -115,24 +110,24 @@ test("CLI bundles exact companions, survives relocation and same-output reuse, a
     const different = new PNG({ width: 80, height: 60 });
     different.data.fill(0);
     await writeFile(join(badDir, "front.png"), PNG.sync.write(different));
-    const wrongPhoto = evaluate(join(sourceDir, "level.level.svgx"), join(root, "wrong"), root, [join(badDir, "front.png")]);
+    const wrongPhoto = evaluate(join(sourceDir, "level.aml"), join(root, "wrong"), root, [join(badDir, "front.png")]);
     assert.equal(wrongPhoto.status, 1);
     assert.match(wrongPhoto.stderr, /differs from declared image/);
     await rm(sourceDir, { recursive: true });
     const moved = join(root, "moved");
     await rename(out, moved);
     await writeFile(join(moved, "notes.txt"), "preserve");
-    const second = evaluate(join(moved, "best.level.svgx"), moved, root);
+    const second = evaluate(join(moved, "best.aml"), moved, root);
     assert.equal(second.status, 1, second.stderr || second.stdout);
-    const movedDoc = parseLevelSvgx(await readFile(join(moved, "best.level.svgx"), "utf8"));
+    const movedDoc = parseAml(await readFile(join(moved, "best.aml"), "utf8"));
     const reloaded = await compile(movedDoc, { navigation: false,
       resolveAsset: createGLBAssetResolver(path => readFile(join(moved, path))) });
     assert.deepEqual(reloaded.mesh.positions, original.mesh.positions);
     assert.deepEqual(reloaded.mesh.indices, original.mesh.indices);
     assert.equal(await readFile(join(moved, "notes.txt"), "utf8"), "preserve");
-    await writeFile(join(root, "bad.level.svgx"), "<invalid>");
-    evaluate(join(root, "bad.level.svgx"), moved, root);
-    await assert.rejects(readFile(join(moved, "best.level.svgx")), { code: "ENOENT" });
+    await writeFile(join(root, "bad.aml"), "<invalid>");
+    evaluate(join(root, "bad.aml"), moved, root);
+    await assert.rejects(readFile(join(moved, "best.aml")), { code: "ENOENT" });
     assert.equal(await readFile(join(moved, "notes.txt"), "utf8"), "preserve");
   } finally { await rm(root, { recursive: true, force: true }); }
 });
@@ -151,9 +146,9 @@ test("archival uses the exact bytes already read by compilation", async () => {
     await mkdir(out);
     const portable = await store.archive(source, out, "best");
     assert.ok(portable);
-    const document = parseLevelSvgx(portable);
-    assert.deepEqual(await readFile(join(out, document.assets![0].src)), original);
-    assert.equal(result.level.document.assets![0].src, "meshes/a/crate.glb", "Archiving must not mutate the compiled document.");
+    const document = parseAml(portable);
+    assert.deepEqual(await readFile(join(out, document.elements.find(e=>e.kind==="visual-mesh")!.src)), original);
+    assert.equal(result.level.architecture.elements.find(e=>e.kind==="visual-mesh")!.src, "meshes/a/crate.glb", "Archiving must not mutate the compiled document.");
   } finally { await rm(root, { recursive: true, force: true }); }
 });
 
@@ -164,14 +159,14 @@ test("a corrupted companion snapshot aborts publication without reporting succes
     const sourceDir = join(root, "source"), out = join(root, "output");
     await mkdir(sourceDir);
     await fixture(sourceDir);
-    evaluate(join(sourceDir, "level.level.svgx"), out, root);
+    evaluate(join(sourceDir, "level.aml"), out, root);
     const manifest = JSON.parse(await readFile(join(out, "best.companions.json"), "utf8"));
     const asset = manifest.companions.find((item: any) => item.kind === "asset");
     await writeFile(join(out, asset.snapshot), "unrelated conflicting bytes");
-    const failed = evaluate(join(sourceDir, "level.level.svgx"), out, root);
+    const failed = evaluate(join(sourceDir, "level.aml"), out, root);
     assert.equal(failed.status, 1);
     assert.match(failed.stderr, /does not match its content hash/);
-    await assert.rejects(readFile(join(out, "best.level.svgx")), { code: "ENOENT" });
+    await assert.rejects(readFile(join(out, "best.aml")), { code: "ENOENT" });
     await assert.rejects(readFile(join(out, "result.json")), { code: "ENOENT" });
     assert.equal(await readFile(join(out, asset.snapshot), "utf8"), "unrelated conflicting bytes");
   } finally { await rm(root, { recursive: true, force: true }); }

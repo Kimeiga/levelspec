@@ -199,7 +199,8 @@ export function auditSurfaceContacts(
   for (let t = 0; t < level.mesh.surfaces.length; t++) {
     aborted(signal);
     const surface = level.surfaces[level.mesh.surfaces[t]];
-    if (surface.visible === false) continue;
+    if (surface.visible === false || surface.domain === "visualization")
+      continue;
     const points = level.mesh.indices
       .slice(t * 3, t * 3 + 3)
       .map(
@@ -285,14 +286,12 @@ export function auditSurfaceContacts(
         ...layer.edges,
         ...layer.regions,
       ]),
-      ...level.document.seams,
-      ...level.document.covers,
-      ...(level.document.props ?? []),
       ...(level.document.assets ?? []),
+      ...Object.entries(level.provenance ?? {}).map(([id, entry]) => ({
+        id,
+        source: entry.source,
+      })),
     ].map((object) => [object.id, object]),
-  );
-  const props = new Map(
-    (level.document.props ?? []).map((prop) => [prop.id, prop]),
   );
   return [...contacts.values()]
     .sort((a, b) => a.objects.join("|").localeCompare(b.objects.join("|")))
@@ -318,19 +317,7 @@ export function auditSurfaceContacts(
           }
         }
       const objects = contact.objects;
-      const relatedIds = [
-        ...new Set([
-          ...objects,
-          ...objects.flatMap((id) => {
-            const prop = props.get(id);
-            return prop?.shape === "asset" &&
-              prop.asset &&
-              sources.has(prop.asset)
-              ? [prop.asset]
-              : [];
-          }),
-        ]),
-      ];
+      const relatedIds = [...new Set(objects)];
       const relatedSources = relatedIds.map((object) => ({
         object,
         source: sources.get(object)?.source,

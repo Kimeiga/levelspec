@@ -1,8 +1,8 @@
 import {
   compile,
-  parseLevelSvgx,
+  parseAml,
   validateForRuntime,
-} from "../src/vector/index.ts";
+} from "../src/architecture/index.ts";
 import { toSVGPlan } from "../src/vector/export.ts";
 import type { CompiledLevel, ValidationReport } from "../src/vector/types.ts";
 export type BuildReply =
@@ -21,7 +21,7 @@ self.onmessage = async (
   const { id, source } = event.data;
   const send = (message: BuildReply) => self.postMessage(message);
   try {
-    const document = parseLevelSvgx(source);
+    const document = parseAml(source);
     const level = await compile(document, {
       onProgress: (stage) => send({ id, type: "progress", stage }),
     });

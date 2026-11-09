@@ -1,4 +1,6 @@
+import { seedUnassignedCharts } from "./uv-unassigned.ts";
 import createXAtlas from "xatlas-wasm";
+import { repairPackedSeams, uvVertexIdentities } from "./uv-seams.ts";
 import {
   aborted,
   type CompiledLevel,
@@ -20,8 +22,11 @@ export async function generateUVs(
     throw new Error("Cannot unwrap invalid geometry.");
   const density = options.density ?? 8,
     resolution = options.resolution ?? 2048,
-    padding = options.padding ?? 8;
+    padding = options.padding ?? 8,
+    maximumCharts = options.maximumCharts ?? 16_384;
   if (
+    !Number.isInteger(maximumCharts) ||
+    maximumCharts < 1 ||
     !Number.isFinite(density) ||
     density <= 0 ||
     !Number.isInteger(resolution) ||
@@ -40,7 +45,10 @@ export async function generateUVs(
   let atlas = x.createAtlas();
   try {
     for (let t = 0; t < src.surfaces.length; t++)
-      if (!level.surfaces[src.surfaces[t]].dynamic && level.surfaces[src.surfaces[t]].visible !== false) {
+      if (
+        !level.surfaces[src.surfaces[t]].dynamic &&
+        level.surfaces[src.surfaces[t]].visible !== false
+      ) {
         inputTris.push(t);
         indices.push(...src.indices.slice(t * 3, t * 3 + 3));
       }
@@ -50,6 +58,10 @@ export async function generateUVs(
     {
       // Supply real shared-vertex topology to chart growth. Original corner
       // attributes are restored by face/corner identity after parameterization.
+      const sourceIdentities = uvVertexIdentities(
+        src.positions,
+        options.signal,
+      );
       const positions: number[] = [],
         weld = new Map<string, number>(),
         groups = new Map<string, number>();
@@ -58,11 +70,26 @@ export async function generateUVs(
       for (const t of inputTris) {
         const surface = level.surfaces[src.surfaces[t]],
           group = `${surface.mesh}:${surface.object}:${surface.material}`;
-        if (!groups.has(group)) groups.set(group, groups.size);
-        faceGroups.push(groups.get(group)!);
+        const corners = src.indices
+          .slice(t * 3, t * 3 + 3)
+          .map((i) => src.positions.slice(i * 3, i * 3 + 3) as V3);
+        const normal = norm(
+          cross(sub(corners[1], corners[0]), sub(corners[2], corners[0])),
+        );
+        // Group terrain facets by approximate normal, bounding distortion on curved and graded surfaces.
+        const chartGroup =
+          surface.domain === "terrain"
+            ? `${group}:${normal.map((n) => Math.round(n * 1e6)).join(",")}`
+            : group;
+        if (!groups.has(chartGroup)) {
+          if (groups.size >= maximumCharts)
+            throw new Error("UV chart budget exceeded.");
+          groups.set(chartGroup, groups.size);
+        }
+        faceGroups.push(groups.get(chartGroup)!);
         for (const old of src.indices.slice(t * 3, t * 3 + 3)) {
           const p = src.positions.slice(old * 3, old * 3 + 3),
-            key = `${surface.mesh}:${p.join(",")}`;
+            key = `${surface.mesh}:${sourceIdentities[old]}`;
           let index = weld.get(key);
           if (index === undefined) {
             index = positions.length / 3;
@@ -99,7 +126,18 @@ export async function generateUVs(
     }
     aborted(options.signal);
     let result = atlas.getMesh(0);
+    if (result.charts.length > maximumCharts)
+      throw new Error("UV chart budget exceeded.");
     const charts = [];
+    const seeded = seedUnassignedCharts(
+      result,
+      src,
+      inputTris,
+      density,
+      resolution,
+      maximumCharts,
+      options.signal,
+    );
     const precisionRepair = guardSubpixelTriangles(
       result,
       src,
@@ -108,8 +146,10 @@ export async function generateUVs(
       atlas.width,
       atlas.height,
       padding,
+      0.125 - seeded.maxExpansionTexels,
     );
-    if (precisionRepair.vertices > 0) {
+    let packedDisplacements = precisionRepair.displacements;
+    if (precisionRepair.vertices > 0 || seeded.triangles > 0) {
       // Zero-area input charts may have occupied no raster cells in the initial
       // pack. Repack the repaired connected charts, in local UV coordinates.
       const previous = result,
@@ -156,9 +196,30 @@ export async function generateUVs(
       atlas.destroy();
       atlas = repaired;
       result = atlas.getMesh(0);
+      if (result.charts.length > maximumCharts)
+        throw new Error("UV chart budget exceeded.");
+      packedDisplacements = result.vertices.map(
+        (v) => precisionRepair.displacements[v.xref],
+      );
       for (const v of result.vertices) v.xref = previous.vertices[v.xref].xref;
       aborted(options.signal);
     }
+    const seamRepair = repairPackedSeams(
+      result,
+      src,
+      inputTris,
+      atlas.width,
+      atlas.height,
+      Math.max(
+        0,
+        Math.min(0.125, padding / 16) -
+          precisionRepair.maxTexelDisplacement -
+          seeded.maxExpansionTexels,
+      ),
+      options.signal,
+      packedDisplacements,
+      result.vertices.map((v) => v.xref),
+    );
     const copy = (old: number, uv: [number, number]) => {
       const i = out.positions.length / 3;
       out.positions.push(...src.positions.slice(old * 3, old * 3 + 3));
@@ -189,7 +250,10 @@ export async function generateUVs(
       out.chartIds!.push(vs[0].chartIndex);
     }
     for (let t = 0; t < src.surfaces.length; t++)
-      if (level.surfaces[src.surfaces[t]].dynamic || level.surfaces[src.surfaces[t]].visible === false) {
+      if (
+        level.surfaces[src.surfaces[t]].dynamic ||
+        level.surfaces[src.surfaces[t]].visible === false
+      ) {
         for (const old of src.indices.slice(t * 3, t * 3 + 3))
           out.indices.push(copy(old, [0, 0]));
         out.surfaces.push(src.surfaces[t]);
@@ -238,9 +302,15 @@ export async function generateUVs(
     level.mesh = out;
     level.parts = meshParts(out, level.surfaces);
     level.atlas = manifest;
-    level.stats.uvPrecisionAdjustedVertices = precisionRepair.vertices;
+    level.stats.uvPrecisionAdjustedVertices =
+      precisionRepair.vertices + seamRepair.vertices;
+    level.stats.uvSeamAdjustedVertices = seamRepair.vertices;
+    level.stats.uvSeededTriangles = seeded.triangles;
+    level.stats.uvSeedMaxExpansionTexels = seeded.maxExpansionTexels;
     level.stats.uvPrecisionMaxAdjustmentTexels =
-      precisionRepair.maxTexelDisplacement;
+      precisionRepair.maxTexelDisplacement +
+      seamRepair.maxTexelDisplacement +
+      seeded.maxExpansionTexels;
     level.diagnostics.push(...issues);
     return level;
   } finally {
@@ -264,6 +334,7 @@ function guardSubpixelTriangles(
   width: number,
   height: number,
   padding: number,
+  maximumAdjustment = 0.125,
 ) {
   const original = result.vertices.map((v) => [...v.uv]);
   const signs = result.charts.map((chart) => {
@@ -294,7 +365,7 @@ function guardSubpixelTriangles(
     const precision = Math.max(width, height) * 2 ** -22;
     return Math.max(worldArea * density * density * 0.81, longest * precision);
   });
-  const limit = Math.min(0.125, padding / 16);
+  const limit = Math.min(maximumAdjustment, padding / 16);
   for (let iteration = 0; iteration < 64; iteration++) {
     let adjusted = false;
     for (let t = 0; t < inputTris.length; t++) {
@@ -337,6 +408,7 @@ function guardSubpixelTriangles(
     Math.hypot(v.uv[0] - original[i][0], v.uv[1] - original[i][1]),
   );
   return {
+    displacements,
     vertices: displacements.filter((d) => d > 1e-12).length,
     maxTexelDisplacement: displacements.reduce(
       (largest, d) => Math.max(largest, d),
@@ -427,7 +499,7 @@ export function auditUVs(level: CompiledLevel): Diagnostic[] {
       fail(
         "UV_DENSITY",
         t,
-        `Atlas density ${actual.toFixed(2)} is below requested ${a.density}; increase resolution or split the surface.`,
+        `Atlas density ${actual.toFixed(2)} is below requested ${a.density} on ${level.surfaces[m.surfaces[t]].object} triangle ${t} (area ${area}); increase resolution or split the surface.`,
       );
     const minX = Math.floor(Math.min(...uv.map((p) => p[0])) * 64),
       maxX = Math.floor(Math.max(...uv.map((p) => p[0])) * 64),

@@ -1,23 +1,20 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { bakeNavmesh, compile, SceneBuilder, validateForRuntime } from "../src/vector/index.ts";
+import { bakeNavmesh, compile, ArchitectureBuilder, validateForRuntime } from "levelspec";
 import { parseWalkPose, walkURL, prepareInspectionWalk, MAX_WALK_PITCH } from "../review/walk.ts";
 import { navigationDoorway } from "./fixtures/navigation-doorway.ts";
 
 /** Two disconnected real floors expose inspection-component selection without authored seed edits. */
 async function fixture(obstruction?: "wall" | "ceiling" | "visual" | "hidden") {
-  const scene = new SceneBuilder("walk-inspection");
-  scene.material("stone", { color: "#aaaaaa" });
-  const group = scene.group("rooms");
-  group.platform("left", { origin: [-6, -3, 0], width: 5, depth: 6, material: "stone" });
-  group.platform("right", { origin: [1, -3, 0], width: 5, depth: 6, material: "stone" });
-  group.platform("right-upper", { origin: [1, -3, 3], width: 5, depth: 6, material: "stone" });
-  scene.document.markers.push({ id: "spawn", layer: group.layer.id, region: "rooms/left", position: [-3, 0, 0], kind: "attacker_spawn" });
+  const scene = new ArchitectureBuilder("walk-inspection");scene.document.validation="premap";scene.document.player.radius=.3;scene.document.player.height=1.8;
+  scene.document.materials.push({id:"stone",color:"#aaaaaa",repeat:1,roughness:.8,metalness:0});
+  for(const [id,x,z] of [["left",-6,0],["right",1,0],["right-upper",1,3]] as const){const profile=scene.profile(id+":profile",[[x,-3,z],[x+5,-3,z],[x+5,3,z],[x,3,z]]);scene.slab("rooms/"+id,profile.id,{material:"stone"});}
+  scene.document.markers.push({id:"spawn",layer:"architecture",region:"rooms/left",position:[-3,0,0],kind:"attacker_spawn"});
   const baseline = await compile(scene.document, { navigation: false });
   const report = await validateForRuntime(baseline);
   assert.ok(report.navigation);
   if (obstruction) {
-    group.box(obstruction, { position: [3, 0, obstruction === "ceiling" ? 1.4 : 0], size: obstruction === "ceiling" ? [3, 3, .2] : [1, 1, 3], material: "stone", collision: obstruction === "visual" ? "none" : "solid" });
+    const ceiling=obstruction==="ceiling";scene.box("rooms/"+obstruction,{position:ceiling?[1.5,-1.5,1.4]:[2.5,-.5,0],width:ceiling?3:1,depth:ceiling?3:1,height:ceiling?.2:3,material:"stone",collidable:obstruction!=="visual"});
   }
   const level = obstruction ? await compile(scene.document, { navigation: false }) : baseline;
   level.navigation = report.navigation;

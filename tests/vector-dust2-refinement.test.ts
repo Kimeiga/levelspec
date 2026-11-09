@@ -1,21 +1,14 @@
 import { readFile } from "node:fs/promises";
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import {
-  compile,
-  parseLevelSvgx,
-  type CompiledLevel,
-  type V3,
-} from "../src/vector/index.ts";
+import { compile, parseAml, type CompiledLevel, type V3 } from "levelspec";
 import { cross, dot, heightAt, sub } from "../src/vector/geometry.ts";
 
-const document = parseLevelSvgx(
-  await readFile(
-    new URL("../examples/dust2.level.svgx", import.meta.url),
-    "utf8",
-  ),
+const architecture = parseAml(
+  await readFile(new URL("../examples/dust2.aml", import.meta.url), "utf8"),
 );
-const built = compile(document);
+const built = compile(architecture);
+const document = (await built).document;
 const point = (x: number, y: number, z = 0): V3 => [
   (x - 50) * 0.1,
   (1005 - y) * 0.1,
@@ -95,54 +88,6 @@ function treads(level: CompiledLevel, id: string) {
 }
 
 describe("Dust II visual-refinement geometry acceptance", () => {
-  it("climbs from B into the tunnel, while Dog/Close stays flat", async () => {
-    const level = await built;
-    close(sample(level, "b_site", 110, 327), 1.46);
-    close(sample(level, "b_tunnel", 110, 347), 2);
-    const levels = treads(level, "b_exit_stairs");
-    assert.equal(levels.length, 3);
-    levels.forEach((z, i) => close(z, 1.46 + (i + 1) * 0.18));
-    assert.ok(
-      sample(level, "b_exit_stairs", 110, 330) <
-        sample(level, "b_exit_stairs", 110, 344),
-    );
-    close(
-      sample(level, "b_exit_stairs", 110, 346),
-      sample(level, "b_tunnel", 110, 346),
-    );
-    close(
-      sample(level, "b_exit_stairs", 110, 328) -
-        sample(level, "b_site", 110, 328),
-      0.18,
-    );
-    for (const [x, y] of [
-      [145, 318],
-      [155, 310],
-    ])
-      close(sample(level, "b_site", x, y), 1.46);
-  });
-
-  it("joins the B approach to CT Mid without the former tapered floor lip", async () => {
-    const level = await built;
-    for (const x of [450, 460, 475]) {
-      const north = groundAt(level, x, 327.95),
-        south = groundAt(level, x, 328.05);
-      north.concat(south).forEach(({ z }) => close(z, 0));
-    }
-    for (const y of [200, 240, 300]) {
-      close(sample(level, "b_approach", 444, y), 0);
-      groundAt(level, 444.05, y).forEach(({ z }) => close(z, 0));
-    }
-    close(
-      sample(level, "b_approach", 267, 235),
-      sample(level, "b_site", 267, 235),
-    );
-    assert.ok(
-      sample(level, "b_approach", 290, 235) >
-        sample(level, "b_approach", 420, 235),
-    );
-  });
-
   it("constructs a real B divider with separate Doors and raised Window openings", async () => {
     const level = await built;
     const base = sample(level, "b_site", 260, 180);
@@ -242,24 +187,6 @@ describe("Dust II visual-refinement geometry acceptance", () => {
     close(sample(level, "catwalk_approach", 520, 520), 2);
   });
 
-  it("climbs eight stairs from Long onto raised Pit Plat while preserving the central depression", async () => {
-    const level = await built;
-    const levels = treads(level, "pit_stairs");
-    assert.equal(levels.length, 8);
-    levels.forEach((z, i) => close(z, 2 + (i + 1) * 0.15));
-    close(sample(level, "long_a", 949, 559), 2);
-    assert.ok(
-      sample(level, "pit_stairs", 949, 590) >
-        sample(level, "pit_stairs", 949, 562),
-    );
-    close(
-      sample(level, "pit_stairs", 949, 592),
-      sample(level, "pit_platform", 949, 592),
-    );
-    close(sample(level, "pit_platform", 949, 644), 3.2);
-    close(sample(level, "pit", 885, 675), 0.2);
-  });
-
   it("uses the corrected nearby passages instead of passing via remote detours", async () => {
     const level = await built;
     for (const [id, limit] of [
@@ -281,4 +208,52 @@ describe("Dust II visual-refinement geometry acceptance", () => {
       );
     }
   });
+});
+
+it("retains final-collision B thresholds, B approach grade and Pit elevation joins", async () => {
+  const level = await built,
+    mesh = level.physicalMesh ?? level.mesh;
+  const { Ray, Vector3 } = await import("three");
+  /** Samples the actual nearest collision surface below an independently placed probe. */
+  const top = (x: number, y: number) => {
+    const ray = new Ray(new Vector3(...point(x, y, 5)), new Vector3(0, 0, -1));
+    let highest = -Infinity;
+    for (let i = 0; i < mesh.indices.length; i += 3) {
+      if (level.surfaces[mesh.surfaces[i / 3]].collidable === false) continue;
+      const triangle = mesh.indices
+        .slice(i, i + 3)
+        .map(
+          (index) =>
+            new Vector3(...mesh.positions.slice(index * 3, index * 3 + 3)),
+        );
+      const hit = ray.intersectTriangle(
+        triangle[0],
+        triangle[1],
+        triangle[2],
+        false,
+        new Vector3(),
+      );
+      if (hit) highest = Math.max(highest, hit.z);
+    }
+    return highest;
+  };
+  for (const [x, y, z] of [
+    [110, 327, 1.46],
+    [110, 330, 1.64],
+    [110, 344, 2],
+    [110, 346, 2],
+    [110, 347, 2],
+    [290, 235, 1.27],
+    [420, 235, 0.198],
+    [444, 235, 0],
+    [949, 559, 2],
+    [949, 562, 2.15],
+    [949, 590, 3.2],
+    [949, 592, 3.2],
+    [949, 644, 3.2],
+    [885, 675, 0.2],
+  ])
+    close(top(x, y), z);
+  assert.deepEqual(treads(level, "b_exit_stairs"), [1.64, 1.82, 2]);
+  assert.equal(treads(level, "pit_stairs").length, 8);
 });

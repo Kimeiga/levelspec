@@ -1,3 +1,4 @@
+import { amlSource } from './fixtures/aml-source.mjs';
 /** Real composition, framing and input acceptance for reviewer-owned image aspect. */
 import assert from 'node:assert/strict';
 import { mkdir,mkdtemp,writeFile,rm } from 'node:fs/promises';
@@ -11,10 +12,10 @@ import { launchBrowser,waitForFrames } from '../website/tests/browser-helpers.mj
 await mkdir('generated',{recursive:true});
 const output=await mkdtemp(join('generated','frame-aspect-browser-'));
 const directory=await mkdtemp(join(tmpdir(),'levelspec-frame-'));
-const file=join(directory,'level.level.svgx');
+const file=join(directory,'level.aml');
 const image=new PNG({width:2,height:2});image.data.fill(255);
 await writeFile(join(directory,'reference.png'),PNG.sync.write(image));
-await writeFile(file,`<level version="2" id="frame-calibration" name="Frame calibration" validation="premap">
+await writeFile(file, await amlSource(`<level version="2" id="frame-calibration" name="Frame calibration" validation="premap">
  <material id="blue" color="#508090"/><material id="red" color="#c85040"/>
  <layer id="ground">
   <vertex id="a" x="-3" y="-3" z="0"/><vertex id="b" x="3" y="-3" z="0"/>
@@ -28,7 +29,7 @@ await writeFile(file,`<level version="2" id="frame-calibration" name="Frame cali
  <marker id="spawn" layer="ground" region="floor" kind="attacker_spawn" position="2 -2 0"/>
  <reference id="portrait" image="reference.png" width="600" height="800" position="8 -12 9" target="0 0 .6" up="0 0 1" fov="47" near=".05" far="100" scale="assumed" scale-note="Frame fixture portrait"/>
  <reference id="landscape" image="reference.png" width="800" height="600" position="8 -12 9" target="0 0 .6" up="0 0 1" fov="47" near=".05" far="100" scale="assumed" scale-note="Frame fixture landscape"/>
-</level>`);
+</level>`));
 let server,browser;
 const errors=[],measurements=[];
 const initial={projection:'perspective',position:[8,-12,9],target:[0,0,.6],fov:47,viewHeight:9,roll:31,appearance:'inspection'};
@@ -109,7 +110,7 @@ try {
  await page.goto(invalidURL.href);await page.locator('#status[data-state="ready"]').waitFor({timeout:60000});
  assert.match(await page.locator('#camera-error').textContent(),/frame-aspect/);
  assert.equal((await frameReady(page)).view.frameAspectLock,undefined);
- assert.equal(await page.locator('#appearance').inputValue(),'illustrated','Invalid initial group retains a usable default');
+ assert.equal(await page.locator('#appearance').inputValue(),'flat','Invalid initial group retains a usable default');
  await page.goto(server.url);await page.locator('#status[data-state="ready"]').waitFor({timeout:60000});
  const responsiveWide=await frameReady(page);assert.equal(responsiveWide.view.frameAspectLock,undefined);
  await page.setViewportSize({width:800,height:1000});const responsiveNarrow=await frameReady(page);sameCamera(responsiveWide,responsiveNarrow);

@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { PNG } from 'pngjs';
 import { createRequire } from 'node:module';
 import { launchBrowser, testContext, waitForFrames } from './browser-helpers.mjs';
+import { amlSource } from '../../tests/fixtures/aml-source.mjs';
 
 const SITE = process.env.BASE_URL || 'http://127.0.0.1:48217/levelspec/';
 const VIEWER = process.env.VIEWER_URL || 'http://127.0.0.1:48218/';
@@ -130,9 +131,18 @@ try {
       const requestURL = new URL(request.url());
       if (requestURL.protocol.startsWith('http') && requestURL.origin !== new URL(url).origin) external.add(requestURL.origin);
     });
+    const started = Date.now();
     await page.goto(url);
     await ready(page);
     await scenario(`${surface}: production load, local fonts and visible orthographic geometry`, async () => {
+      assert.equal(await page.locator('#title').innerText(), surface === 'viewer' ? 'Dust II · CS2 blockout' : 'Lantern Court');
+      assert.equal(await page.locator('#appearance').inputValue(), 'flat');
+      assert.equal(await page.locator('#walk').isEnabled(), true);
+      if (surface === 'viewer') {
+        const triangles = Number(await page.locator('#model').getAttribute('data-triangles'));
+        assert.ok(triangles > 1000, 'Default Dust II must render substantial compiled geometry');
+        measurements.push({ source: 'examples/dust2.aml', sourceReadyMilliseconds: Date.now() - started, triangles });
+      }
       assert.equal(await page.locator('.reviewer').getAttribute('aria-busy'), 'false');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(await page.evaluate(() => document.fonts.check('16px "Super Pixel Bitmap"')), true);
@@ -276,7 +286,7 @@ try {
           <marker id="objective" layer="ground" region="room" position="3 2 0" kind="objective"/>
           <route id="cross" from="spawn" to="objective" min-routes="1"/>
         </level>`;
-        await page.locator('#file').setInputFiles({ name: 'measured.level.svgx', mimeType: 'application/xml', buffer: Buffer.from(source) });
+        await page.locator('#file').setInputFiles({ name: 'measured.aml', mimeType: 'application/xml', buffer: Buffer.from(await amlSource(source)) });
         await page.waitForFunction(() => document.querySelector('#title').textContent === 'Measured room');
         await ready(page);
         assert.equal(await page.locator('#dimensions-value').innerText(), 'Layout bounds / 4.00 × 3.00 × 0.20 m');
@@ -285,37 +295,37 @@ try {
         await renderedGeometry(page, 'viewer-small-known-room');
       });
       await scenario('viewer: invalid local XML retains stale preview and a valid file recovers', async () => {
-        await page.locator('#file').setInputFiles({ name: 'invalid.level.svgx', mimeType: 'application/xml', buffer: Buffer.from('<level>') });
+        await page.locator('#file').setInputFiles({ name: 'invalid.aml', mimeType: 'application/xml', buffer: Buffer.from('<level>') });
         await page.locator('#status[data-state="error"]').waitFor();
         assert.match(await page.locator('#status').innerText(), /stale/);
         assert.equal(await page.locator('#walk').isDisabled(), true);
         assert.equal(await page.locator('#model').getAttribute('data-stale'), 'true');
         await page.locator('#view-2d').click();
         assert.ok(await page.locator('#plan [data-object]').count() > 0, 'Previous geometry remains available for review');
-        const crossing = `<level version="2" id="invalid-crossing" validation="premap"><layer id="ground">
-          <vertex id="a" x="-1" y="0" z="0"/><vertex id="b" x="1" y="0" z="0"/>
-          <vertex id="c" x="0" y="-1" z="0"/><vertex id="d" x="0" y="1" z="0"/>
-          <edge id="horizontal" from="a" to="b" kind="wall"/><edge id="vertical" from="c" to="d" kind="wall"/>
-        </layer></level>`;
-        await page.locator('#file').setInputFiles({ name: 'invalid-crossing.level.svgx', mimeType: 'application/xml', buffer: Buffer.from(crossing) });
-        await page.waitForFunction(() => document.querySelector('#status').dataset.state === 'error' && document.querySelector('#status').textContent.includes('EDGE_CROSSING'));
+        const crossing = `<architecture version="1" id="invalid-crossing" validation="premap">
+          <profile id="crossing-profile" points="0 0; 2 2; 0 2; 2 0"/>
+          <slab id="invalid-floor" profile="crossing-profile"/>
+        </architecture>`;
+        await page.locator('#file').setInputFiles({ name: 'invalid-crossing.aml', mimeType: 'application/xml', buffer: Buffer.from(crossing) });
+        await page.waitForFunction(() => document.querySelector('#status').dataset.state === 'error' && document.querySelector('#status').textContent.includes('AML_PROFILE'));
         assert.equal(await page.locator('#title').innerText(), 'Measured room', 'Compile failure must not replace the previous reviewed layout');
         assert.equal(await page.locator('#model').getAttribute('data-stale'), 'true');
         assert.equal(await page.locator('#walk').isDisabled(), true);
-        const source = await readFile(new URL('../../examples/showcase.level.svgx', import.meta.url));
-        await page.locator('#file').setInputFiles({ name: 'recovered.level.svgx', mimeType: 'application/xml', buffer: source });
+        const source = await readFile(new URL('../../examples/showcase.aml', import.meta.url));
+        await page.locator('#file').setInputFiles({ name: 'recovered.aml', mimeType: 'application/xml', buffer: source });
         await ready(page);
         assert.equal(await page.locator('#model').getAttribute('data-stale'), 'false');
         assert.equal(await page.locator('#title').innerText(), 'Elevation laboratory');
         assert.equal(await page.locator('#walk').isDisabled(), false);
       });
-      await scenario('viewer: retained Dust II loads and renders at normal desktop size', async () => {
+      await scenario('viewer: reload restores default Dust II after opening Showcase', async () => {
         await page.locator('#view-3d').click();
-        const source = await readFile(new URL('../../examples/dust2.level.svgx', import.meta.url));
         const started = Date.now();
-        await page.locator('#file').setInputFiles({ name: 'dust2.level.svgx', mimeType: 'application/xml', buffer: source });
+        await page.reload();
         await page.waitForFunction(() => document.querySelector('#title').textContent === 'Dust II · CS2 blockout', undefined, { timeout: 60000 });
         await ready(page);
+        assert.equal(await page.locator('#model').getAttribute('data-stale'), 'false');
+        assert.equal(await page.locator('#walk').isEnabled(), true);
         const sourceReadyMilliseconds = Date.now() - started;
         await page.locator('#fit').click();
         await waitForFrames(page);
@@ -323,7 +333,7 @@ try {
         const summary = await page.locator('#summary').innerText();
         const triangles = Number(await page.locator('#model').getAttribute('data-triangles'));
         assert.ok(triangles > 1000, 'Large retained level must render its compiled architecture');
-        measurements.push({ source: 'examples/dust2.level.svgx', sourceReadyMilliseconds, triangles, summary, viewport: { width: 1440, height: 1000 } });
+        measurements.push({ source: 'examples/dust2.aml', sourceReadyMilliseconds, triangles, summary, viewport: { width: 1440, height: 1000 } });
         console.log(`MEASURE Dust II ready ${sourceReadyMilliseconds} ms / ${triangles} rendered triangles / ${summary}`);
       });
     }
@@ -435,16 +445,16 @@ try {
     assert.equal(await page.locator('#walk').isDisabled(), true);
     await page.locator('#issues').check();
     assert.ok((await page.locator('#validation-mode').innerText()).trim(), 'The current validation mode must remain available without WebGL');
-    const valid = await readFile(new URL('../../examples/cli-starter.level.svgx', import.meta.url), 'utf8');
-    const lowCeiling = valid.replace('<region ', '<region ceiling="0.5" ');
-    await page.locator('#file').setInputFiles({name:'low-clearance.level.svgx',mimeType:'application/xml',buffer:Buffer.from(lowCeiling)});
+    const valid = await readFile(new URL('../../examples/cli-starter.aml', import.meta.url), 'utf8');
+    const lowCeiling = valid.replace('</architecture>', '<box id="low-ceiling" width="8" depth="6" height="0.2" position="0 0 0.5"/></architecture>');
+    await page.locator('#file').setInputFiles({name:'low-clearance.aml',mimeType:'application/xml',buffer:Buffer.from(lowCeiling)});
     await ready(page,false);
     if (!(await page.locator('#validation').evaluate(element => element.open)))
       await page.locator('#validation summary').click();
     await page.waitForFunction(()=>Number(document.querySelector('#issue-count').textContent)>0);
     await page.locator('#diagnostics p:visible').first().waitFor();
     assert.ok((await page.locator('#diagnostics').innerText()).trim(), 'A controlled clearance failure must expose diagnostics without WebGL');
-    await page.locator('#file').setInputFiles({name:'repaired.level.svgx',mimeType:'application/xml',buffer:Buffer.from(valid)});
+    await page.locator('#file').setInputFiles({name:'repaired.aml',mimeType:'application/xml',buffer:Buffer.from(valid)});
     await ready(page,false);
     assert.equal(await page.locator('#plan').getAttribute('data-stale'),'false');
     assert.equal(await page.locator('#view-3d').isDisabled(),true);

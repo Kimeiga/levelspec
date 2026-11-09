@@ -2,12 +2,14 @@ import { ClippingError } from "../src/vector/clipping.ts";
 import { parseNavigationCell } from "../review/navigation-cell.ts";
 import {
   compile,
-  parseLevelSvgx,
+  TerrainTileCache,
+  parseAml,
   generateUVs,
   validateForRuntime,
-  SvgxError,
+  AmlError,
   createGLBAssetResolver,
-} from "../src/vector/index.ts";
+} from "../src/architecture/index.ts";
+const terrainCache = new TerrainTileCache();
 self.onmessage = async (event: MessageEvent) => {
   const { id, text, uvs, assetFiles = {}, navigationCell } = event.data as {
     id: number;
@@ -26,8 +28,16 @@ self.onmessage = async (event: MessageEvent) => {
           throw new Error(`Select companion GLB "${reference}" before compiling.`);
         return bytes;
       }),
-      level = await compile(parseLevelSvgx(text), {
+      level = await compile(parseAml(text), {
       resolveAsset,
+      terrainCache,
+      resolveHeightmap: async asset => {
+        const normalized = asset.src.replaceAll("\\", "/").replace(/^\.\//, "");
+        const bytes = assetFiles[normalized] ?? assetFiles[normalized.split("/").at(-1)!];
+        if (!bytes) throw new Error(`Select companion PNG "${asset.src}" before compiling.`);
+        if (bytes.byteLength > 16*1024*1024) throw new Error('Heightmap encoded byte budget exceeded.');
+        return bytes;
+      },
       surfaceContacts: "error",
       navigation: { cell },
       onProgress: (stage) => self.postMessage({ id, stage }),
@@ -70,7 +80,7 @@ self.onmessage = async (event: MessageEvent) => {
     self.postMessage({
       id,
       error: (error as Error).message,
-      diagnostics: error instanceof SvgxError ? error.diagnostics : error instanceof ClippingError ? [error.diagnostic] : undefined,
+      diagnostics: error instanceof AmlError ? error.diagnostics : error instanceof ClippingError ? [error.diagnostic] : undefined,
     });
   }
 };

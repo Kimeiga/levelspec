@@ -3,9 +3,9 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   compile,
-  parseLevelSvgx,
+  parseAml,
   validateForRuntime,
-} from "../../src/vector/index.ts";
+} from "levelspec";
 import type { V3 } from "../../src/vector/types.ts";
 import {
   sourceForState,
@@ -15,12 +15,12 @@ import {
 } from "../state.ts";
 import { NavigationSurface } from "../navigation.ts";
 const template = readFileSync(
-  new URL("../demo.level.svgx", import.meta.url),
+  new URL("../demo.aml", import.meta.url),
   "utf8",
 );
 const build = async (height: number, curve = 3, blocked = false) =>
   compile(
-    parseLevelSvgx(
+    parseAml(
       sourceForState({ ...readState(""), height, curve, blocked }),
     ),
   );
@@ -110,7 +110,7 @@ test("walking stops at walls and the light well, climbs stairs, and reaches the 
 test("three spatial variations all retain usable geometry and navigation", async () => {
   for (const look of ["clay", "chalk", "night"] as const) {
     const l = await compile(
-      parseLevelSvgx(
+      parseAml(
         sourceForState({
           ...readState(""),
           look,

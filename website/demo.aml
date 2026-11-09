@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="lantern-court" name="Lantern Court" units="meters" validation="playable" curve-tolerance="0.015">
+  <path id="courtyard.e0:path" closed="false" elevation="0 0" points="0 0 0">
+    <bezier to="14 0 0" controls="4 -3 0; 10 -3 0"/>
+  </path>
+  <path id="east.door:path" closed="false" points="14 0 0; 14 3 0"/>
+  <path id="edge.0:path" closed="false" points="14 3 0; 14 6 0"/>
+  <path id="east.stairs:path" closed="false" points="14 6 0; 14 9 0"/>
+  <path id="edge.1:path" closed="false" points="14 9 0; 14 12 0"/>
+  <path id="edge.2:path" closed="false" points="14 12 0; 0 12 0"/>
+  <path id="edge.3:path" closed="false" points="0 12 0; 0 0 0"/>
+  <path id="well.e0:path" closed="false" points="5 7 0; 8 7 0"/>
+  <path id="well.e1:path" closed="false" points="8 7 0; 8 4 0"/>
+  <path id="well.e2:path" closed="false" points="8 4 0; 5 4 0"/>
+  <path id="well.e3:path" closed="false" points="5 4 0; 5 7 0"/>
+  <path id="edge.4:path" closed="false" points="14 0 0; 23 0 3"/>
+  <path id="edge.5:path" closed="false" points="23 0 3; 23 3 3"/>
+  <path id="edge.6:path" closed="false" points="23 3 3; 14 3 0"/>
+  <path id="edge.7:path" closed="false" points="14 6 0; 23 6 3"/>
+  <path id="edge.8:path" closed="false" points="23 6 3; 23 9 3"/>
+  <path id="edge.9:path" closed="false" points="23 9 3; 14 9 0"/>
+  <path id="edge.10:path" closed="false" points="-6 0 0; 0 0 0"/>
+  <path id="edge.11:path" closed="false" points="0 12 0; -6 12 0"/>
+  <path id="edge.12:path" closed="false" points="-6 12 0; -6 6 0"/>
+  <path id="edge.13:path" closed="false" points="-6 6 0; -6 2 0"/>
+  <path id="edge.14:path" closed="false" points="-6 2 0; -6 0 0"/>
+  <path id="edge.15:path" closed="false" points="-12 2 0; -6 2 0"/>
+  <path id="edge.16:path" closed="false" points="-6 6 0; -12 6 0"/>
+  <path id="edge.17:path" closed="false" points="-12 6 0; -12 2 0"/>
+  <path id="edge.18:path" closed="false" points="14 12 0; 23 12 0"/>
+  <path id="edge.19:path" closed="false" points="23 12 0; 29 12 0"/>
+  <path id="edge.20:path" closed="false" points="29 12 0; 29 18 0"/>
+  <path id="edge.21:path" closed="false" points="29 18 0; 8 18 0"/>
+  <path id="edge.22:path" closed="false" points="8 18 0; -6 18 0"/>
+  <path id="edge.23:path" closed="false" points="-6 18 0; -6 12 0"/>
+  <path id="edge.24:path" closed="false" points="23 0 0; 29 0 0"/>
+  <path id="edge.25:path" closed="false" points="29 0 0; 29 12 0"/>
+  <path id="edge.26:path" closed="false" points="23 12 0; 23 0 0"/>
+  <path id="edge.27:path" closed="false" points="8 18 0; 8 24 0"/>
+  <path id="edge.28:path" closed="false" points="8 24 0; -6 24 0"/>
+  <path id="edge.29:path" closed="false" points="-6 24 0; -6 18 0"/>
+  <path id="edge.30:path" closed="false" points="29 18 0; 29 24 0"/>
+  <path id="edge.31:path" closed="false" points="29 24 0; 8 24 0"/>
+  <path id="edge.32:path" closed="false" points="23 0 3; 29 0 3"/>
+  <path id="edge.33:path" closed="false" points="29 0 3; 29 12 3"/>
+  <path id="edge.34:path" closed="false" points="29 12 3; 23 12 3"/>
+  <path id="edge.35:path" closed="false" points="23 12 3; 23 11 3"/>
+  <path id="edge.36:path" closed="false" points="23 11 3; 23 9.5 3"/>
+  <path id="edge.37:path" closed="false" points="23 9.5 3; 23 9 3"/>
+  <path id="edge.38:path" closed="false" points="23 6 3; 23 3 3"/>
+  <path id="edge.39:path" closed="false" points="0 9.5 3; 23 9.5 3"/>
+  <path id="edge.40:path" closed="false" points="23 11 3; 0 11 3"/>
+  <path id="edge.41:path" closed="false" points="0 11 3; 0 9.5 3"/>
+  <path id="edge.42:path" closed="false" points="-6 0 3; 0 0 3"/>
+  <path id="edge.43:path" closed="false" points="0 0 3; 0 9.5 3"/>
+  <path id="edge.44:path" closed="false" points="0 11 3; 0 12 3"/>
+  <path id="edge.45:path" closed="false" points="0 12 3; -6 12 3"/>
+  <path id="edge.46:path" closed="false" points="-6 12 3; -6 0 3"/>
+  <path id="edge.47:path" closed="false" points="0 12 3; 23 12 3"/>
+  <path id="edge.48:path" closed="false" points="29 12 3; 29 18 3"/>
+  <path id="edge.49:path" closed="false" points="29 18 3; 8 18 3"/>
+  <path id="edge.50:path" closed="false" points="8 18 3; -6 18 3"/>
+  <path id="edge.51:path" closed="false" points="-6 18 3; -6 12 3"/>
+  <path id="edge.52:path" closed="false" points="8 18 3; 8 24 3"/>
+  <path id="edge.53:path" closed="false" points="8 24 3; -6 24 3"/>
+  <path id="edge.54:path" closed="false" points="-6 24 3; -6 18 3"/>
+  <path id="edge.55:path" closed="false" points="29 18 3; 29 24 3"/>
+  <path id="edge.56:path" closed="false" points="29 24 3; 8 24 3"/>
+  <path id="clay.pergola.0:path" closed="false" points="0.7 9.16 5.62; 0.7 11.35 5.62"/>
+  <path id="clay.pergola.1:path" closed="false" points="1.42 9.16 5.62; 1.42 11.35 5.62"/>
+  <path id="clay.pergola.2:path" closed="false" points="2.1399999999999997 9.16 5.62; 2.1399999999999997 11.35 5.62"/>
+  <path id="clay.pergola.3:path" closed="false" points="2.8600000000000003 9.16 5.62; 2.8600000000000003 11.35 5.62"/>
+  <path id="clay.pergola.4:path" closed="false" points="3.58 9.16 5.62; 3.58 11.35 5.62"/>
+  <path id="clay.pergola.5:path" closed="false" points="4.3 9.16 5.62; 4.3 11.35 5.62"/>
+  <path id="clay.pergola.6:path" closed="false" points="5.0200000000000005 9.16 5.62; 5.0200000000000005 11.35 5.62"/>
+  <path id="clay.pergola.7:path" closed="false" points="5.74 9.16 5.62; 5.74 11.35 5.62"/>
+  <path id="clay.pergola.8:path" closed="false" points="6.46 9.16 5.62; 6.46 11.35 5.62"/>
+  <path id="clay.pergola.9:path" closed="false" points="7.18 9.16 5.62; 7.18 11.35 5.62"/>
+  <path id="ramp:left" paths="-edge.6:path" closed="false" points=""/>
+  <path id="ramp:right" paths="edge.4:path" closed="false" points=""/>
+  <path id="stairs:left" paths="-edge.9:path" closed="false" points=""/>
+  <path id="stairs:right" paths="edge.7:path" closed="false" points=""/>
+  <profile id="courtyard:profile" paths="courtyard.e0:path east.door:path edge.0:path east.stairs:path edge.1:path edge.2:path edge.3:path">
+    <hole paths="well.e0:path well.e1:path well.e2:path well.e3:path"/>
+  </profile>
+  <profile id="west-arcade:profile" paths="edge.10:path -edge.3:path edge.11:path edge.12:path edge.13:path edge.14:path"/>
+  <profile id="entrance:profile" paths="edge.15:path -edge.13:path edge.16:path edge.17:path"/>
+  <profile id="north-arcade:profile" paths="-edge.11:path -edge.2:path edge.18:path edge.19:path edge.20:path edge.21:path edge.22:path edge.23:path"/>
+  <profile id="east-room:profile" paths="edge.24:path edge.25:path -edge.19:path edge.26:path"/>
+  <profile id="reading-room:profile" paths="-edge.22:path edge.27:path edge.28:path edge.29:path"/>
+  <profile id="exhibition-room:profile" paths="-edge.21:path edge.30:path edge.31:path -edge.27:path"/>
+  <profile id="bridge:profile" paths="edge.32:path edge.33:path edge.34:path edge.35:path edge.36:path edge.37:path -edge.8:path edge.38:path -edge.5:path"/>
+  <profile id="skybridge:profile" paths="edge.39:path -edge.36:path edge.40:path edge.41:path"/>
+  <profile id="west-balcony:profile" paths="edge.42:path edge.43:path -edge.41:path edge.44:path edge.45:path edge.46:path"/>
+  <profile id="north-balcony:profile" paths="-edge.45:path edge.47:path -edge.34:path edge.48:path edge.49:path edge.50:path edge.51:path"/>
+  <profile id="studio:profile" paths="-edge.50:path edge.52:path edge.53:path edge.54:path"/>
+  <profile id="library:profile" paths="-edge.49:path edge.55:path edge.56:path -edge.52:path"/>
+  <material id="plaster" color="#e7c7a1" repeat="1" roughness="0.93" metalness="0" texture="textures/clay-limewash.png"/>
+  <material id="brick" color="#dccfbb" repeat="0.5" roughness="0.86" metalness="0" texture="textures/clay-travertine.png"/>
+  <material id="limestone" color="#ede1c8" repeat="0.6" roughness="0.82" metalness="0" texture="textures/clay-travertine.png"/>
+  <material id="paving" color="#dfb594" repeat="0.5" roughness="0.79" metalness="0" texture="textures/clay-terracotta.png"/>
+  <material id="tile" color="#82aa9a" repeat="0.65" roughness="0.4" metalness="0" texture="textures/clay-zellige.png"/>
+  <material id="stone" color="#d9d0ba" repeat="0.7" roughness="0.9" metalness="0" texture="textures/clay-travertine.png"/>
+  <material id="wood" color="#aa7b4c" repeat="0.65" roughness="0.66" metalness="0" texture="textures/clay-cedar.png"/>
+  <material id="bronze" color="#86714d" repeat="1" roughness="0.42" metalness="0.65" texture="textures/clay-brass.png"/>
+  <material id="teal" color="#439887" repeat="0.7" roughness="0.25" metalness="0.1" texture="textures/clay-zellige.png"/>
+  <material id="gate" color="#78502e" repeat="0.65" roughness="0.65" metalness="0" texture="textures/clay-cedar.png"/>
+  <material id="roof" color="#916a42" repeat="0.65" roughness="0.66" metalness="0" texture="textures/clay-cedar.png"/>
+  <material id="foliage" color="#739664" repeat="1" roughness="0.93" metalness="0" texture="textures/clay-limewash.png"/>
+  <material id="lamp" color="#ffe3ae" repeat="1" roughness="0.93" metalness="0" texture="textures/clay-limewash.png"/>
+  <assembly id="court-structure" coincident-material="retained-face">
+    <wall id="courtyard.e0" material="limestone" path="courtyard.e0:path" thickness="0.28" height="1.05" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.0" material="brick" path="edge.0:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.1" material="brick" path="edge.1:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.2" material="limestone" path="edge.2:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.2.opening0" host="edge.2" shape="rectangle" mode="through" center="2.33335 1.24" width="3.5667" height="2.48" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.2.opening1" host="edge.2" shape="rectangle" mode="through" center="7 1.24" width="3.5666" height="2.48" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.2.opening2" host="edge.2" shape="rectangle" mode="through" center="11.66665 1.24" width="3.566699999999999" height="2.48" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.3" material="limestone" path="edge.3:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.3.opening0" host="edge.3" shape="rectangle" mode="through" center="2 1.24" width="2.9000000000000004" height="2.48" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.3.opening1" host="edge.3" shape="rectangle" mode="through" center="6 1.24" width="2.9000000000000004" height="2.48" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.3.opening2" host="edge.3" shape="rectangle" mode="through" center="10 1.24" width="2.8999999999999986" height="2.48" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="well.e0" material="limestone" path="well.e0:path" thickness="0.28" height="0.52" alignment="center" span-floors="false" join="miter"/>
+    <wall id="well.e1" material="limestone" path="well.e1:path" thickness="0.28" height="0.52" alignment="center" span-floors="false" join="miter"/>
+    <wall id="well.e2" material="limestone" path="well.e2:path" thickness="0.28" height="0.52" alignment="center" span-floors="false" join="miter"/>
+    <wall id="well.e3" material="limestone" path="well.e3:path" thickness="0.28" height="0.52" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.4" material="limestone" path="edge.4:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.6" material="limestone" path="edge.6:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.7" material="limestone" path="edge.7:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.9" material="limestone" path="edge.9:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.10" material="brick" path="edge.10:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.10.opening0" host="edge.10" shape="rectangle" mode="through" center="3 1.65" width="4.9" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.12" material="brick" path="edge.12:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.12.opening0" host="edge.12" shape="rectangle" mode="through" center="3 1.65" width="4.9" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.14" material="brick" path="edge.14:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.14.opening0" host="edge.14" shape="rectangle" mode="through" center="1 1.65" width="1.3199999999999998" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.15" material="limestone" path="edge.15:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.16" material="limestone" path="edge.16:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.17" material="limestone" path="edge.17:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.17.opening0" host="edge.17" shape="rectangle" mode="through" center="2 1.25" width="2.9000000000000004" height="2.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.18" material="brick" path="edge.18:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.18.opening0" host="edge.18" shape="rectangle" mode="through" center="2.25 1.65" width="3.4000000000000004" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.18.opening1" host="edge.18" shape="rectangle" mode="through" center="6.75 1.65" width="3.3999999999999995" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.20" material="brick" path="edge.20:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.20.opening0" host="edge.20" shape="rectangle" mode="through" center="3 1.65" width="4.9" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.21" material="plaster" path="edge.21:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.21.opening0" host="edge.21" shape="rectangle" mode="through" center="3.5 1.225" width="5.9" height="2.45" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.21.opening1" host="edge.21" shape="rectangle" mode="through" center="10.5 1.225" width="5.8999999999999995" height="2.45" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.21.opening2" host="edge.21" shape="rectangle" mode="through" center="17.5 1.225" width="5.899999999999999" height="2.45" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.22" material="plaster" path="edge.22:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.22.opening0" host="edge.22" shape="rectangle" mode="through" center="3.5 1.225" width="5.9" height="2.45" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.22.opening1" host="edge.22" shape="rectangle" mode="through" center="10.5 1.225" width="5.8999999999999995" height="2.45" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.23" material="brick" path="edge.23:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.23.opening0" host="edge.23" shape="rectangle" mode="through" center="3 1.65" width="4.9" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.24" material="brick" path="edge.24:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.24.opening0" host="edge.24" shape="rectangle" mode="through" center="3 1.65" width="4.9" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.25" material="brick" path="edge.25:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.25.opening0" host="edge.25" shape="rectangle" mode="through" center="2 1.65" width="2.9000000000000004" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.25.opening1" host="edge.25" shape="rectangle" mode="through" center="6 1.65" width="2.9000000000000004" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.25.opening2" host="edge.25" shape="rectangle" mode="through" center="10 1.65" width="2.8999999999999986" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.26" material="limestone" path="edge.26:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.27" material="plaster" path="edge.27:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.27.opening0" host="edge.27" shape="rectangle" mode="through" center="3 1.2" width="4.9" height="2.4" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.28" material="brick" path="edge.28:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.28.opening0" host="edge.28" shape="rectangle" mode="through" center="2.33335 1.65" width="3.5667" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.28.opening1" host="edge.28" shape="rectangle" mode="through" center="7 1.65" width="3.5666" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.28.opening2" host="edge.28" shape="rectangle" mode="through" center="11.66665 1.65" width="3.566699999999999" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.29" material="brick" path="edge.29:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.29.opening0" host="edge.29" shape="rectangle" mode="through" center="3 1.65" width="4.9" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.30" material="brick" path="edge.30:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.30.opening0" host="edge.30" shape="rectangle" mode="through" center="3 1.65" width="4.9" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.31" material="brick" path="edge.31:path" thickness="0.28" height="2.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.31.opening0" host="edge.31" shape="rectangle" mode="through" center="2.1 1.65" width="3.0999999999999996" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.31.opening1" host="edge.31" shape="rectangle" mode="through" center="6.3 1.65" width="3.0999999999999996" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.31.opening2" host="edge.31" shape="rectangle" mode="through" center="10.5 1.65" width="3.1000000000000014" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.31.opening3" host="edge.31" shape="rectangle" mode="through" center="14.7 1.65" width="3.0999999999999996" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.31.opening4" host="edge.31" shape="rectangle" mode="through" center="18.9 1.65" width="3.099999999999998" height="1.74" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.32" material="brick" path="edge.32:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.32.opening0" host="edge.32" shape="rectangle" mode="through" center="3 1.775" width="4.9" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.33" material="brick" path="edge.33:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.33.opening0" host="edge.33" shape="rectangle" mode="through" center="2 1.775" width="2.9000000000000004" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.33.opening1" host="edge.33" shape="rectangle" mode="through" center="6 1.775" width="2.9000000000000004" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.33.opening2" host="edge.33" shape="rectangle" mode="through" center="10 1.775" width="2.8999999999999986" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.35" material="limestone" path="edge.35:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.37" material="limestone" path="edge.37:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.38" material="limestone" path="edge.38:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.39" material="limestone" path="edge.39:path" thickness="0.28" height="0.86" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.40" material="limestone" path="edge.40:path" thickness="0.28" height="0.86" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.42" material="brick" path="edge.42:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.42.opening0" host="edge.42" shape="rectangle" mode="through" center="3 1.775" width="4.9" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.43" material="limestone" path="edge.43:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.44" material="limestone" path="edge.44:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.46" material="brick" path="edge.46:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.46.opening0" host="edge.46" shape="rectangle" mode="through" center="2 1.775" width="2.9000000000000004" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.46.opening1" host="edge.46" shape="rectangle" mode="through" center="6 1.775" width="2.9000000000000004" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.46.opening2" host="edge.46" shape="rectangle" mode="through" center="10 1.775" width="2.8999999999999986" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.47" material="limestone" path="edge.47:path" thickness="0.28" height="0.88" alignment="center" span-floors="false" join="miter"/>
+    <wall id="edge.48" material="brick" path="edge.48:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.48.opening0" host="edge.48" shape="rectangle" mode="through" center="3 1.775" width="4.9" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.49" material="plaster" path="edge.49:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.49.opening0" host="edge.49" shape="rectangle" mode="through" center="3.5 1.35" width="5.9" height="2.7" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.49.opening1" host="edge.49" shape="rectangle" mode="through" center="10.5 1.35" width="5.8999999999999995" height="2.7" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.49.opening2" host="edge.49" shape="rectangle" mode="through" center="17.5 1.35" width="5.899999999999999" height="2.7" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.50" material="plaster" path="edge.50:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.50.opening0" host="edge.50" shape="rectangle" mode="through" center="3.5 1.35" width="5.9" height="2.7" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.50.opening1" host="edge.50" shape="rectangle" mode="through" center="10.5 1.35" width="5.8999999999999995" height="2.7" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.51" material="brick" path="edge.51:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.51.opening0" host="edge.51" shape="rectangle" mode="through" center="3 1.775" width="4.9" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.52" material="plaster" path="edge.52:path" thickness="0.28" height="3.4" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.52.opening0" host="edge.52" shape="rectangle" mode="through" center="3 1.25" width="4.9" height="2.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.53" material="brick" path="edge.53:path" thickness="0.28" height="4.5" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.53.opening0" host="edge.53" shape="rectangle" mode="through" center="2.33335 1.775" width="3.5667" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.53.opening1" host="edge.53" shape="rectangle" mode="through" center="7 1.775" width="3.5666" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.53.opening2" host="edge.53" shape="rectangle" mode="through" center="11.66665 1.775" width="3.566699999999999" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.54" material="brick" path="edge.54:path" thickness="0.28" height="4.5" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.54.opening0" host="edge.54" shape="rectangle" mode="through" center="3 1.775" width="4.9" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.55" material="brick" path="edge.55:path" thickness="0.28" height="3.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.55.opening0" host="edge.55" shape="rectangle" mode="through" center="3 1.775" width="4.9" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="edge.56" material="brick" path="edge.56:path" thickness="0.28" height="3.8" alignment="center" span-floors="false" join="miter"/>
+    <opening id="edge.56.opening0" host="edge.56" shape="rectangle" mode="through" center="2.1 1.775" width="3.0999999999999996" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.56.opening1" host="edge.56" shape="rectangle" mode="through" center="6.3 1.775" width="3.0999999999999996" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.56.opening2" host="edge.56" shape="rectangle" mode="through" center="10.5 1.775" width="3.1000000000000014" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.56.opening3" host="edge.56" shape="rectangle" mode="through" center="14.7 1.775" width="3.0999999999999996" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="edge.56.opening4" host="edge.56" shape="rectangle" mode="through" center="18.9 1.775" width="3.099999999999998" height="2.05" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="clay.pergola.0" material="wood" path="clay.pergola.0:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.1" material="wood" path="clay.pergola.1:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.2" material="wood" path="clay.pergola.2:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.3" material="wood" path="clay.pergola.3:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.4" material="wood" path="clay.pergola.4:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.5" material="wood" path="clay.pergola.5:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.6" material="wood" path="clay.pergola.6:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.7" material="wood" path="clay.pergola.7:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.8" material="wood" path="clay.pergola.8:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <wall id="clay.pergola.9" material="wood" path="clay.pergola.9:path" thickness="0.14" height="0.16" alignment="center" span-floors="false" join="miter"/>
+    <slab id="courtyard" material="paving" profile="courtyard:profile" thickness="0.2" area="courtyard" flat="false" playable="true" elevation="0"/>
+    <ramp id="ramp" material="stone" left="ramp:left" right="ramp:right" thickness="0.2" underside="sloped" area="ramp"/>
+    <stairs id="stairs" material="stone" left="stairs:left" right="stairs:right" maximum-riser="0.18" thickness="0.2" underside="filled" area="stairs"/>
+    <slab id="west-arcade" material="tile" profile="west-arcade:profile" thickness="0.2" area="west-arcade" flat="false" playable="true" elevation="0"/>
+    <slab id="entrance" material="tile" profile="entrance:profile" thickness="0.2" area="entrance" flat="false" playable="true" elevation="0"/>
+    <canopy id="entrance:ceiling" material="tile" profile="entrance:profile" thickness="0.2" flat="true" playable="false" elevation="2.8"/>
+    <slab id="north-arcade" material="tile" profile="north-arcade:profile" thickness="0.2" area="north-arcade" flat="false" playable="true" elevation="0"/>
+    <slab id="east-room" material="tile" profile="east-room:profile" thickness="0.2" area="east-room" flat="false" playable="true" elevation="0"/>
+    <slab id="reading-room" material="wood" profile="reading-room:profile" thickness="0.2" area="reading-room" flat="false" playable="true" elevation="0"/>
+    <slab id="exhibition-room" material="paving" profile="exhibition-room:profile" thickness="0.2" area="exhibition-room" flat="false" playable="true" elevation="0"/>
+    <slab id="bridge" material="paving" profile="bridge:profile" thickness="0.2" area="bridge" flat="false" playable="true" elevation="0"/>
+    <canopy id="bridge:ceiling" material="paving" profile="bridge:profile" thickness="0.2" flat="true" playable="false" elevation="6.4"/>
+    <slab id="skybridge" material="wood" profile="skybridge:profile" thickness="0.2" area="skybridge" flat="false" playable="true" elevation="0"/>
+    <slab id="west-balcony" material="tile" profile="west-balcony:profile" thickness="0.2" area="west-balcony" flat="false" playable="true" elevation="0"/>
+    <canopy id="west-balcony:ceiling" material="tile" profile="west-balcony:profile" thickness="0.2" flat="true" playable="false" elevation="6.4"/>
+    <slab id="north-balcony" material="tile" profile="north-balcony:profile" thickness="0.2" area="north-balcony" flat="false" playable="true" elevation="0"/>
+    <canopy id="north-balcony:ceiling" material="tile" profile="north-balcony:profile" thickness="0.2" flat="true" playable="false" elevation="6.4"/>
+    <slab id="studio" material="wood" profile="studio:profile" thickness="0.2" area="studio" flat="false" playable="true" elevation="0"/>
+    <canopy id="studio:ceiling" material="wood" profile="studio:profile" thickness="0.2" flat="true" playable="false" elevation="7.5"/>
+    <slab id="library" material="wood" profile="library:profile" thickness="0.2" area="library" flat="false" playable="true" elevation="0"/>
+    <canopy id="library:ceiling" material="wood" profile="library:profile" thickness="0.2" flat="true" playable="false" elevation="6.8"/>
+    <box id="cornice.west-front" position="-6.14 -0.2 6.6000000000000005" material="limestone" width="6.279999999999999" depth="0.2" height="0.17999999999999972" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="cornice.east-front" position="22.86 -0.2 6.6000000000000005" material="limestone" width="6.280000000000001" depth="0.2" height="0.17999999999999972" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="cornice.court-front" position="0.14 11.8 6.6000000000000005" material="limestone" width="22.72" depth="0.1999999999999993" height="0.17999999999999972" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="cornice.west-side" position="-6.34 0 6.6000000000000005" material="limestone" width="0.20000000000000018" depth="18" height="0.17999999999999972" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="cornice.east-side" position="29.14 0 6.6000000000000005" material="limestone" width="0.1999999999999993" depth="18" height="0.17999999999999972" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.column.0.35" position="-0.2 0.35 3.88" material="limestone" width="0.32" depth="0.22999999999999998" height="2.3000000000000007" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.capital.0.35" position="-0.31 0.26999999999999996 6.180000000000001" material="limestone" width="0.54" depth="0.38999999999999996" height="0.1899999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.column.2.65" position="-0.2 2.65 3.88" material="limestone" width="0.32" depth="0.22999999999999998" height="2.3000000000000007" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.capital.2.65" position="-0.31 2.57 6.180000000000001" material="limestone" width="0.54" depth="0.3900000000000001" height="0.1899999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.column.4.95" position="-0.2 4.949999999999999 3.88" material="limestone" width="0.32" depth="0.23000000000000043" height="2.3000000000000007" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.capital.4.95" position="-0.31 4.869999999999999 6.180000000000001" material="limestone" width="0.54" depth="0.3899999999999997" height="0.1899999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.column.7.25" position="-0.2 7.249999999999999 3.88" material="limestone" width="0.32" depth="0.23000000000000043" height="2.3000000000000007" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.capital.7.25" position="-0.31 7.169999999999999 6.180000000000001" material="limestone" width="0.54" depth="0.3899999999999997" height="0.1899999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.column.9.55" position="-0.2 9.549999999999999 3.88" material="limestone" width="0.32" depth="0.23000000000000043" height="2.3000000000000007" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.capital.9.55" position="-0.31 9.469999999999999 6.180000000000001" material="limestone" width="0.54" depth="0.39000000000000057" height="0.1899999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.column.11.85" position="-0.2 11.849999999999998 3.88" material="limestone" width="0.32" depth="0.23000000000000043" height="2.3000000000000007" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="west.capital.11.85" position="-0.31 11.769999999999998 6.180000000000001" material="limestone" width="0.54" depth="0.39000000000000057" height="0.1899999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.0.3" position="0.3 11.94 3.88" material="limestone" width="0.25000000000000006" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.3.7" position="3.6999999999999997 11.94 3.88" material="limestone" width="0.25" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.7.1" position="7.1 11.94 3.88" material="limestone" width="0.25" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.10.5" position="10.5 11.94 3.88" material="limestone" width="0.25" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.13.9" position="13.9 11.94 3.88" material="limestone" width="0.25" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.17.3" position="17.3 11.94 3.88" material="limestone" width="0.25" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.20.7" position="20.7 11.94 3.88" material="limestone" width="0.25" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.24.1" position="24.099999999999998 11.94 3.88" material="limestone" width="0.25" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="north.column.27.5" position="27.499999999999996 11.94 3.88" material="limestone" width="0.25" depth="0.2599999999999998" height="2.49" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.0.2" position="23.25 0.2 6.08" material="wood" width="5.449999999999999" depth="0.10000000000000003" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.0.76" position="23.25 0.76 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999998" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.1.32" position="23.25 1.32 6.08" material="wood" width="5.449999999999999" depth="0.10000000000000009" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.1.88" position="23.25 1.8800000000000001 6.08" material="wood" width="5.449999999999999" depth="0.10000000000000009" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.2.44" position="23.25 2.4400000000000004 6.08" material="wood" width="5.449999999999999" depth="0.10000000000000009" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.3" position="23.25 3.0000000000000004 6.08" material="wood" width="5.449999999999999" depth="0.10000000000000009" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.3.56" position="23.25 3.5600000000000005 6.08" material="wood" width="5.449999999999999" depth="0.10000000000000009" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.4.12" position="23.25 4.120000000000001 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.4.68" position="23.25 4.6800000000000015 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.5.24" position="23.25 5.240000000000002 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.5.8" position="23.25 5.8000000000000025 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.6.36" position="23.25 6.360000000000003 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.6.92" position="23.25 6.9200000000000035 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.7.48" position="23.25 7.480000000000004 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.8.04" position="23.25 8.040000000000004 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.8.6" position="23.25 8.600000000000005 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.9.16" position="23.25 9.160000000000005 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.9.72" position="23.25 9.720000000000006 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.10.28" position="23.25 10.280000000000006 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.10.84" position="23.25 10.840000000000007 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="ceiling.rib.11.4" position="23.25 11.400000000000007 6.08" material="wood" width="5.449999999999999" depth="0.09999999999999964" height="0.10000000000000053" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.0.35" position="0.35 9.43 3.88" material="bronze" width="0.03999999999999998" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.0.35" position="0.35 10.98 3.88" material="bronze" width="0.03999999999999998" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.1.05" position="1.0499999999999998 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.1.05" position="1.0499999999999998 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.1.75" position="1.7499999999999998 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.1.75" position="1.7499999999999998 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.2.45" position="2.4499999999999997 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.2.45" position="2.4499999999999997 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.3.15" position="3.1499999999999995 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.3.15" position="3.1499999999999995 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.3.85" position="3.8499999999999996 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.3.85" position="3.8499999999999996 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.4.55" position="4.55 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.4.55" position="4.55 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.5.25" position="5.25 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.5.25" position="5.25 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.5.95" position="5.95 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.5.95" position="5.95 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.6.65" position="6.65 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.6.65" position="6.65 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.7.35" position="7.3500000000000005 9.43 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.7.35" position="7.3500000000000005 10.98 3.88" material="bronze" width="0.040000000000000036" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.8.05" position="8.05 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.8.05" position="8.05 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.8.75" position="8.75 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.8.75" position="8.75 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.9.45" position="9.45 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.9.45" position="9.45 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.10.15" position="10.149999999999999 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.10.15" position="10.149999999999999 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.10.85" position="10.849999999999998 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.10.85" position="10.849999999999998 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.11.55" position="11.549999999999997 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.11.55" position="11.549999999999997 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.12.25" position="12.249999999999996 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.12.25" position="12.249999999999996 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.12.95" position="12.949999999999996 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.12.95" position="12.949999999999996 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.13.65" position="13.649999999999995 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.13.65" position="13.649999999999995 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.14.35" position="14.349999999999994 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.14.35" position="14.349999999999994 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.15.05" position="15.049999999999994 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.15.05" position="15.049999999999994 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.15.75" position="15.749999999999993 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.15.75" position="15.749999999999993 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.16.45" position="16.449999999999992 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.16.45" position="16.449999999999992 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.17.15" position="17.14999999999999 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.17.15" position="17.14999999999999 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.17.85" position="17.84999999999999 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.17.85" position="17.84999999999999 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.18.55" position="18.54999999999999 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.18.55" position="18.54999999999999 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.19.25" position="19.24999999999999 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.19.25" position="19.24999999999999 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.19.95" position="19.94999999999999 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.19.95" position="19.94999999999999 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.20.65" position="20.649999999999988 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.20.65" position="20.649999999999988 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.21.35" position="21.349999999999987 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.21.35" position="21.349999999999987 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.22.05" position="22.049999999999986 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.22.05" position="22.049999999999986 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.front.22.75" position="22.749999999999986 9.43 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.rail.back.22.75" position="22.749999999999986 10.98 3.88" material="bronze" width="0.03999999999999915" depth="0.08999999999999986" height="0.28000000000000025" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.hand.front" position="0.25 9.43 4.16" material="bronze" width="22.5" depth="0.09999999999999964" height="0.04999999999999982" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bridge.hand.back" position="0.25 10.97 4.16" material="bronze" width="22.5" depth="0.09999999999999964" height="0.04999999999999982" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.shelf.0" position="-4.6 23.45 0.1" material="wood" width="1.9500000000000002" depth="0.3500000000000014" height="2.3" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.0.0" position="-4.5 23.15 0.4" material="gate" width="1.7500000000000004" depth="0.2900000000000027" height="0.31999999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.0.1" position="-4.5 23.15 1.05" material="bronze" width="1.7500000000000004" depth="0.2900000000000027" height="0.32000000000000006" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.0.2" position="-4.5 23.15 1.7000000000000002" material="gate" width="1.7500000000000004" depth="0.2900000000000027" height="0.31999999999999984" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.shelf.1" position="-1.5999999999999996 23.45 0.1" material="wood" width="1.95" depth="0.3500000000000014" height="2.3" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.1.0" position="-1.4999999999999996 23.15 0.4" material="gate" width="1.75" depth="0.2900000000000027" height="0.31999999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.1.1" position="-1.4999999999999996 23.15 1.05" material="bronze" width="1.75" depth="0.2900000000000027" height="0.32000000000000006" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.1.2" position="-1.4999999999999996 23.15 1.7000000000000002" material="gate" width="1.75" depth="0.2900000000000027" height="0.31999999999999984" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.shelf.2" position="1.4000000000000004 23.45 0.1" material="wood" width="1.9500000000000002" depth="0.3500000000000014" height="2.3" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.2.0" position="1.5000000000000004 23.15 0.4" material="gate" width="1.75" depth="0.2900000000000027" height="0.31999999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.2.1" position="1.5000000000000004 23.15 1.05" material="bronze" width="1.75" depth="0.2900000000000027" height="0.32000000000000006" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.2.2" position="1.5000000000000004 23.15 1.7000000000000002" material="gate" width="1.75" depth="0.2900000000000027" height="0.31999999999999984" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.shelf.3" position="4.4 23.45 0.1" material="wood" width="1.9500000000000002" depth="0.3500000000000014" height="2.3" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.3.0" position="4.5 23.15 0.4" material="gate" width="1.75" depth="0.2900000000000027" height="0.31999999999999995" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.3.1" position="4.5 23.15 1.05" material="bronze" width="1.75" depth="0.2900000000000027" height="0.32000000000000006" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="reading.books.3.2" position="4.5 23.15 1.7000000000000002" material="gate" width="1.75" depth="0.2900000000000027" height="0.31999999999999984" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.frame.0" position="10 23.65 1.03" material="bronze" width="1.5500000000000007" depth="0.08999999999999986" height="1.09" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.art.0" position="10.08 23.6 1.11" material="stone" width="1.3900000000000006" depth="0.04999999999999716" height="0.9299999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.frame.1" position="13.6 23.65 1.03" material="bronze" width="1.5500000000000007" depth="0.08999999999999986" height="1.09" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.art.1" position="13.68 23.6 1.11" material="teal" width="1.3900000000000006" depth="0.04999999999999716" height="0.9299999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.frame.2" position="17.2 23.65 1.03" material="bronze" width="1.5500000000000007" depth="0.08999999999999986" height="1.09" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.art.2" position="17.279999999999998 23.6 1.11" material="stone" width="1.3900000000000006" depth="0.04999999999999716" height="0.9299999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.frame.3" position="20.8 23.65 1.03" material="bronze" width="1.5500000000000007" depth="0.08999999999999986" height="1.09" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.art.3" position="20.88 23.6 1.11" material="teal" width="1.3900000000000006" depth="0.04999999999999716" height="0.9299999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.frame.4" position="24.4 23.65 1.03" material="bronze" width="1.5500000000000007" depth="0.08999999999999986" height="1.09" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="gallery.art.4" position="24.479999999999997 23.6 1.11" material="stone" width="1.3900000000000006" depth="0.04999999999999716" height="0.9299999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bench.base" position="-5.35 8 0.02" material="limestone" width="0.6999999999999993" depth="2.4000000000000004" height="0.33999999999999997" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="bench.seat" position="-5.43 7.92 0.36" material="wood" width="0.8599999999999994" depth="2.5600000000000005" height="0.08000000000000002" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="pool.basin" position="5.15 4.15 0.09" material="teal" width="2.6999999999999993" depth="2.6999999999999993" height="0.04000000000000001" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="pool.coping.w" position="4.84 3.84 0.52" material="limestone" width="0.3200000000000003" depth="3.3200000000000003" height="0.09999999999999998" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="pool.coping.e" position="7.84 3.84 0.52" material="limestone" width="0.3200000000000003" depth="3.3200000000000003" height="0.09999999999999998" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="pool.coping.s" position="5.16 3.84 0.52" material="limestone" width="2.6799999999999997" depth="0.3200000000000003" height="0.09999999999999998" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="pool.coping.n" position="5.16 6.84 0.52" material="limestone" width="2.6799999999999997" depth="0.3200000000000003" height="0.09999999999999998" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.column.0" position="-5.2 19.1 7.7" material="wood" width="0.21999999999999975" depth="0.21999999999999886" height="2.499999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.column.1" position="-1.4 19.1 7.7" material="wood" width="0.21999999999999997" depth="0.21999999999999886" height="2.499999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.column.2" position="-5.2 22.9 7.7" material="wood" width="0.21999999999999975" depth="0.21999999999999886" height="2.499999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.column.3" position="-1.4 22.9 7.7" material="wood" width="0.21999999999999997" depth="0.21999999999999886" height="2.499999999999999" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.crown" position="-5.5 18.8 10.2" material="wood" width="4.6" depth="4.599999999999998" height="0.22000000000000064" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.0" position="-5.2 19.45 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.1" position="-5.2 19.779999999999998 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.2" position="-5.2 20.11 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.3" position="-5.2 20.439999999999998 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.4" position="-5.2 20.77 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.5" position="-5.2 21.099999999999998 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.6" position="-5.2 21.43 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.7" position="-5.2 21.759999999999998 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.8" position="-5.2 22.09 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.belvedere.screen.9" position="-5.2 22.419999999999998 8.05" material="wood" width="0.1200000000000001" depth="0.060000000000002274" height="2.0700000000000003" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.canopy.post.0.7" position="0.7 9.4 3.87" material="wood" width="0.14" depth="0.16999999999999993" height="1.75" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.canopy.post.4.1" position="4.1 9.4 3.87" material="wood" width="0.13999999999999968" depth="0.16999999999999993" height="1.75" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.canopy.post.7.2" position="7.2 9.4 3.87" material="wood" width="0.13999999999999968" depth="0.16999999999999993" height="1.75" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.stem.0" position="1.2 14.8 2.55" material="bronze" width="0.04499999999999993" depth="0.04499999999999993" height="0.25" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.body.0" position="1.0699999999999998 14.63 2.2800000000000002" material="lamp" width="0.30000000000000004" depth="0.33000000000000007" height="0.2599999999999998" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.cap.0" position="1.03 14.59 2.54" material="bronze" width="0.3799999999999999" depth="0.41000000000000014" height="0.06000000000000005" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.stem.1" position="7.2 14.8 2.55" material="bronze" width="0.04499999999999993" depth="0.04499999999999993" height="0.25" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.body.1" position="7.07 14.63 2.2800000000000002" material="lamp" width="0.2999999999999998" depth="0.33000000000000007" height="0.2599999999999998" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.cap.1" position="7.03 14.59 2.54" material="bronze" width="0.3799999999999999" depth="0.41000000000000014" height="0.06000000000000005" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.stem.2" position="13.2 14.8 2.55" material="bronze" width="0.04499999999999993" depth="0.04499999999999993" height="0.25" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.body.2" position="13.069999999999999 14.63 2.2800000000000002" material="lamp" width="0.3000000000000007" depth="0.33000000000000007" height="0.2599999999999998" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.cap.2" position="13.03 14.59 2.54" material="bronze" width="0.3800000000000008" depth="0.41000000000000014" height="0.06000000000000005" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.stem.3" position="19.2 14.8 2.55" material="bronze" width="0.045000000000001705" depth="0.04499999999999993" height="0.25" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.body.3" position="19.07 14.63 2.2800000000000002" material="lamp" width="0.3000000000000007" depth="0.33000000000000007" height="0.2599999999999998" radius="0.5" top-radius="0" anchor="corner"/>
+    <box id="clay.lantern.cap.3" position="19.029999999999998 14.59 2.54" material="bronze" width="0.38000000000000256" depth="0.41000000000000014" height="0.06000000000000005" radius="0.5" top-radius="0" anchor="corner"/>
+  </assembly>
+  <player radius="0.35" height="1.8" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <marker id="spawn" position="2 2 0" movement="land" kind="attacker_spawn" group="architecture" element="courtyard"/>
+  <marker id="objective" position="25 5 3" movement="land" kind="objective" group="architecture" element="bridge"/>
+  <route id="climb" from="spawn" to="objective" min-routes="1" max-distance="140" movement="land"/>
+  <connection id="east.door:join" from="courtyard" to="ramp" path="east.door:path"/>
+  <connection id="east.stairs:join" from="courtyard" to="stairs" path="east.stairs:path"/>
+  <connection id="edge.2:join" from="courtyard" to="north-arcade" path="edge.2:path"/>
+  <connection id="edge.3:join" from="courtyard" to="west-arcade" path="edge.3:path"/>
+  <connection id="edge.5:join" from="ramp" to="bridge" path="edge.5:path"/>
+  <connection id="edge.8:join" from="stairs" to="bridge" path="edge.8:path"/>
+  <connection id="edge.11:join" from="west-arcade" to="north-arcade" path="edge.11:path"/>
+  <connection id="edge.13:join" from="west-arcade" to="entrance" path="edge.13:path"/>
+  <connection id="edge.19:join" from="north-arcade" to="east-room" path="edge.19:path"/>
+  <connection id="edge.21:join" from="north-arcade" to="exhibition-room" path="edge.21:path"/>
+  <connection id="edge.22:join" from="north-arcade" to="reading-room" path="edge.22:path"/>
+  <connection id="edge.27:join" from="reading-room" to="exhibition-room" path="edge.27:path"/>
+  <connection id="edge.34:join" from="bridge" to="north-balcony" path="edge.34:path"/>
+  <connection id="edge.36:join" from="bridge" to="skybridge" path="edge.36:path"/>
+  <connection id="edge.41:join" from="skybridge" to="west-balcony" path="edge.41:path"/>
+  <connection id="edge.45:join" from="west-balcony" to="north-balcony" path="edge.45:path"/>
+  <connection id="edge.49:join" from="north-balcony" to="library" path="edge.49:path"/>
+  <connection id="edge.50:join" from="north-balcony" to="studio" path="edge.50:path"/>
+  <connection id="edge.52:join" from="studio" to="library" path="edge.52:path"/>
+  <light id="sun" position="-18 -24 28" target="10 9 0" color="#ffe4bf" intensity="3.1" kind="directional"/>
+  <light id="accent.0" position="1.2 14.8 2.17" target="0 0 0" color="#ffe1a2" intensity="10" kind="point"/>
+  <light id="accent.1" position="7.2 14.8 2.17" target="0 0 0" color="#ffe1a2" intensity="10" kind="point"/>
+  <light id="accent.2" position="13.2 14.8 2.17" target="0 0 0" color="#ffe1a2" intensity="10" kind="point"/>
+  <light id="accent.3" position="19.2 14.8 2.17" target="0 0 0" color="#ffe1a2" intensity="10" kind="point"/>
+  <sky color="#d9e3e4" intensity="1.05"/>
+</architecture>

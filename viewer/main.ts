@@ -1,7 +1,7 @@
 import { mountReviewer } from "../review/app.ts";
-import showcase from "../examples/showcase.level.svgx?raw";
+import dust2 from "../examples/dust2.aml?raw";
 mountReviewer({
-  source: showcase,
+  source: dust2,
   local: true,
   worker: () =>
     new Worker(new URL("./worker.ts", import.meta.url), { type: "module" }),

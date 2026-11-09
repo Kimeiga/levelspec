@@ -4,28 +4,19 @@
   "type": "module",
   "description": "Semantic level specs compiled to validated, playable geometry.",
   "exports": {
-    ".": "./src/vector/index.ts",
+    ".": "./src/architecture/index.ts",
+    "./migration": "./src/architecture/migration.ts",
     "./generate": "./src/generate/vector.ts",
-    "./generate/vector": "./src/generate/vector.ts",
-    "./producers": "./src/authoring/native-producer.ts",
+    "./producers": "./src/architecture/producer.ts",
     "./trace": "./src/tracing/native.ts",
-    "./vector": "./src/vector/index.ts",
     "./lighting": "./src/lighting/bake.ts",
     "./export": "./src/export/vector/index.ts",
-    "./authoring": "./src/vector/authoring.ts",
-    "./reconstruction": "./src/reconstruction/index.ts",
-    "./gameplay": "./src/gameplay/index.ts",
-    "./semantic": "./src/authoring/semantic.ts",
-    "./concept": "./src/authoring/native-concept.ts"
+    "./reconstruction": "./src/reconstruction/index.ts"
   },
   "scripts": {
     "compile": "node bin/levelspec.mjs build",
     "gen": "node tools/generate.ts",
-    "gameplay": "node tools/gameplay.ts",
     "trace": "node tools/trace.ts",
-    "author": "node tools/author.ts",
-    "finalize": "node tools/finalize.ts",
-    "concept": "node tools/concept.ts",
     "test:producers": "node --test --test-concurrency=2 tests/producers/*.test.ts",
     "test": "node --test --test-concurrency=2 \"tests/*.test.ts\"",
     "dev": "vite",
@@ -52,7 +43,10 @@
     "test:walk:browser": "node tests/walk-inspection-browser.mjs",
     "test:review:browser": "node website/tests/review-browser.mjs",
     "capture:level": "node tools/capture-level.mjs",
-    "test:capture:browser": "node tests/capture-level-browser.mjs"
+    "test:capture:browser": "node tests/capture-level-browser.mjs",
+    "test:circulation:browser": "node tests/aml-circulation-browser.mjs",
+    "test:architecture:browser": "node tests/aml-cad-browser.mjs",
+    "test:terrain:browser": "node tests/aml-terrain-browser.mjs"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",

@@ -1,4 +1,4 @@
-"""Bake the canonical SVGX mesh; no re-triangulation or geometry repair in Blender."""
+"""Bake the canonical compiled mesh; no re-triangulation or geometry repair in Blender."""
 import argparse, hashlib, json, math, sys
 from pathlib import Path
 import bpy
@@ -86,7 +86,7 @@ def run(args):
                 uvnode=nodes.new('ShaderNodeUVMap');uvnode.uv_map='Lightmap';target=nodes.new('ShaderNodeTexImage');mat.node_tree.links.new(uvnode.outputs['UV'],target.inputs['Vector']);targets.append((nodes,target,page));bindings[key]=mat
             if key not in slots:slots[key]=len(mesh.materials);mesh.materials.append(bindings[key])
             face.material_index=slots[key]
-    world=bpy.data.worlds.new('SVGX sky');world.use_nodes=True;scene.world=world;bg=world.node_tree.nodes.get('Background');bg.inputs['Color'].default_value=(*linear_hex(inp['sky']['color']),1);bg.inputs['Strength'].default_value=inp['sky']['intensity']
+    world=bpy.data.worlds.new('LevelSpec sky');world.use_nodes=True;scene.world=world;bg=world.node_tree.nodes.get('Background');bg.inputs['Color'].default_value=(*linear_hex(inp['sky']['color']),1);bg.inputs['Strength'].default_value=inp['sky']['intensity']
     lights=[]
     for spec in inp['lights']:
         data=bpy.data.lights.new(spec['id'],{'directional':'SUN','point':'POINT','spot':'SPOT'}[spec['kind']]);light=bpy.data.objects.new(spec['id'],data);scene.collection.objects.link(light);light.location=spec['position'];data.color=linear_hex(spec['color']);data.energy=spec['intensity']*(1 if spec['kind']=='directional' else 4*math.pi)
@@ -120,7 +120,7 @@ def run(args):
         pages.append({'id':page,'file':file,'sha256':hashlib.sha256((out/file).read_bytes()).hexdigest(),'mips':mips,'coverageTexels':int(coverage.sum()),'maximum':float(rgba[:,:,:3][coverage].max()) if coverage.any() else 0})
     bpy.ops.wm.save_as_mainfile(filepath=str(out/f'{inp["id"]}.blend'))
     manifest={'version':1,'geometryHash':inp['geometryHash'],'uvHash':inp['atlas']['uvHash'],'revision':inp['lightingRevision'],'stateHash':inp['lightingStateHash'],'compilerVersion':inp['compilerRevision'],'rendererVersion':inp['rendererRevision'],'blenderVersion':bpy.app.version_string,'samples':args.samples,'materialAssets':inp.get('materialAssets',{}),'seed':17,'colorSpace':'Linear-sRGB','encoding':'FLOAT_RGBA_EXR','transport':'sky-direct-indirect-plus-lights-indirect','irradianceScale':calibration['calibration']['irradianceDecodeMultiplier'],'uvChannel':1,'flipY':False,'dynamicOccluders':False,'safeMip':inp['atlas']['safeMip'],'pages':pages}
-    (out/f'{inp["id"]}.lighting.json').write_text(json.dumps(manifest,indent=2));print('SVGX_BAKE_COMPLETE',json.dumps({'pages':len(pages),'output':str(out)}))
+    (out/f'{inp["id"]}.lighting.json').write_text(json.dumps(manifest,indent=2));print('LEVELSPEC_BAKE_COMPLETE',json.dumps({'pages':len(pages),'output':str(out)}))
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--input',required=True);parser.add_argument('--output',required=True);parser.add_argument('--calibration',required=True);parser.add_argument('--samples',type=int,default=64);run(parser.parse_args(sys.argv[sys.argv.index('--')+1:]))

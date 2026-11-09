@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, writeFile, readFile, rm, access, readdir } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { compile, parseLevelSvgx } from "levelspec/vector";
+import { compile, parseAml } from "levelspec";
 import { bakeLighting } from "levelspec/lighting";
 
 test("failed native lighting publication preserves a retryable destination and successful revisions", async () => {
@@ -32,8 +32,8 @@ if (args.includes('--output-dir')) {
   fs.writeFileSync(path.join(output, payload.id + '.lighting.json'), JSON.stringify({ id: payload.id, complete: true }));
 }
 `, { mode: 0o755 });
-    const source = await readFile(new URL("../examples/cli-starter.level.svgx", import.meta.url), "utf8");
-    const level = await compile(parseLevelSvgx(source));
+    const source = await readFile(new URL("../examples/cli-starter.aml", import.meta.url), "utf8");
+    const level = await compile(parseAml(source));
     const output = join(temp, "revision");
     await assert.rejects(bakeLighting(level, { output, blender: executable }), /Blender exited 3/);
     await assert.rejects(access(output), { code: "ENOENT" });

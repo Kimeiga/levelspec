@@ -91,17 +91,23 @@ export function exportMetadata(
   includedSurfaceIndices = [...new Set(level.mesh.surfaces)],
 ) {
   return {
-    version: 1,
+    version: 3,
+    ...(level.provenance ? { architecturalProvenance: level.provenance } : {}),
     purpose,
     includedSurfaceIndices,
     includedParts: [
       ...new Set(
-        includedSurfaceIndices.map((index) => level.surfaces[index]?.mesh).filter(Boolean),
+        includedSurfaceIndices
+          .map((index) => level.surfaces[index]?.mesh)
+          .filter(Boolean),
       ),
     ],
     id: level.document.id,
     name: level.document.name,
     geometryHash: level.geometryHash,
+    spatialVolumes: level.spatialVolumes,
+    terrainTiles: level.terrainTiles,
+    ...(level.terrainTiles?.length ? { physicalMesh: level.physicalMesh } : {}),
     coordinates: {
       source: "right-handed Z-up metres",
       glb: "Y-up metres: (x,z,-y)",
@@ -114,7 +120,6 @@ export function exportMetadata(
     surfaces: level.surfaces,
     materials: level.document.materials,
     markers: level.document.markers,
-    props: level.document.props,
     assets: level.document.assets,
     references: level.document.references,
     routes: level.document.routes,

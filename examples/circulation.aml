@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="circulation" name="Native circulation construction" validation="premap">
+  <material id="stone" color="#bdc1b8"/>
+  <material id="metal" color="#526c75"/>
+  <path id="axis" points="0 0 0; 3 0 1"/>
+  <path id="width" points="0 1.2 0; 3 1.8 0"/>
+  <path id="soffit" points="0 -0.2 0; 1.5 0 0; 3 0.3 0"/>
+  <path id="ramp-axis" points="0 0 0; 1 0 0.2; 3 0 1"/>
+  <profile id="rail-section" points="-0.04 -0.04; 0.04 -0.04; 0.04 0.04; -0.04 0.04"/>
+  <profile id="post-section" points="-0.03 -0.03; 0.03 -0.03; 0.03 0.03; -0.03 0.03"/>
+  <profile id="lower" points="-1 -1; 0 -1; 0 1; -1 1"/>
+  <profile id="upper" points="3 -1; 4 -1; 4 1; 3 1"/>
+  <definition id="landing-pair">
+    <slab id="lower-landing" profile="lower" thickness="0.2" material="stone"/>
+    <slab id="upper-landing" profile="upper" elevation="1" thickness="0.2" material="stone"/>
+  </definition>
+  <group id="constructions">
+    <instance id="filled-landings" ref="landing-pair"/>
+    <stairs id="filled" path="axis" width="1.2" count="5" thickness="0.3" underside="filled" material="stone"/>
+    <instance id="sloped-landings" ref="landing-pair" position="0 3 0"/>
+    <stairs id="sloped" path="axis" width-profile="width" count="5" thickness="0.3" underside="sloped" position="0 3 0" material="stone"/>
+    <enclosure id="sloped-rail" host="sloped" side="left" construction="railing" height="1.1" material="metal">
+      <rail profile="rail-section"/><posts profile="post-section" maximum-spacing="1"/>
+    </enclosure>
+    <instance id="stepped-landings" ref="landing-pair" position="0 6 0"/>
+    <stairs id="stepped" path="axis" width="1.2" count="5" thickness="0.3" underside="stepped" position="0 6 0" material="stone"/>
+    <instance id="custom-landings" ref="landing-pair" position="0 9 0"/>
+    <stairs id="custom" path="axis" width="1.2" count="5" thickness="0.3" underside="custom" underside-profile="soffit" position="0 9 0" material="stone"/>
+    <instance id="separate-landings" ref="landing-pair" position="0 12 0"/>
+    <stairs id="separate" path="axis" width="1.2" count="5" thickness="0.1" underside="separate" position="0 12 0" material="stone"/>
+    <instance id="ramp-landings" ref="landing-pair" position="0 15 0"/>
+    <ramp id="ramp" path="ramp-axis" width="1.2" position="0 15 0" material="stone"/>
+  </group>
+  <connection id="filled-entry" from="filled-landings/lower-landing" to="filled"/>
+  <connection id="filled-exit" from="filled" to="filled-landings/upper-landing"/>
+  <marker id="start" kind="spawn" element="filled-landings/lower-landing" position="-0.5 0 0"/>
+  <marker id="end" kind="objective" element="filled-landings/upper-landing" position="3.5 0 1"/>
+  <route id="filled-flight" from="start" to="end" min-routes="1" max-distance="6"/>
+</architecture>

@@ -1,6 +1,6 @@
-# LevelSpec 2 exports
+# LevelSpec exports
 
-The repository CLI exports GLB, glTF, binary FBX, and Quake BSP2.
+AML exports support GLB, glTF, binary FBX, and Quake BSP2 through the native export backends.
 Exports contain geometry and source metadata, not Unity/Godot gameplay scenes.
 The former ASCII/JSON APIs and legacy exporters are retired. BSP2 uses the XML
 export pipeline; runtime JSON remains a supported generated artifact.
@@ -9,18 +9,18 @@ export pipeline; runtime JSON remains a supported generated artifact.
 
 ```sh
 # Existing default: GLB, runtime JSON, OBJ, SVG, validation and UV reports.
-npm run compile -- examples/showcase.level.svgx --out generated/showcase
+npm run compile -- examples/showcase.aml --out generated/showcase
 
 # Portable models with referenced material images.
-npm run compile -- examples/showcase.level.svgx \
+npm run compile -- examples/showcase.aml \
   --formats glb,gltf --out generated/my-export
 
 # Binary FBX (Blender is optional until this format is requested).
-npm run compile -- examples/showcase.level.svgx \
+npm run compile -- examples/showcase.aml \
   --formats fbx --blender /path/to/blender --out generated/my-export
 
-# Modern Quake source ports, not GoldSrc, Source, CS:GO or CS2.
-npm run compile -- examples/showcase.level.svgx \
+# Quake BSP2 (requires the compiler tools and a palette).
+npm run compile -- examples/showcase.aml \
   --formats bsp --out generated/quake \
   --qbsp /path/to/ericw-tools/qbsp \
   --vis /path/to/ericw-tools/vis \
@@ -91,14 +91,16 @@ must configure collisions, gameplay and lighting themselves.
 
 ## Quake-specific behavior
 
-BSP export retains closed pre-union solids without changing ordinary compiled
-geometry. Floors and flights retain their exact triangular prism sections;
-wall strips retain their segment cells. Nonconvex cells undergo checked plane
+BSP export retains final closed physical composition without changing runtime
+geometry. Render-only native operands are retained separately and cannot double
+count physical occupancy. Exposed face materials follow checked native partitions. Nonconvex cells undergo checked plane
 cuts or exact tetrahedral fans for star-shaped warped cells. Convexity and
 volume equivalence are checked before emitting brushes; unsupported decomposition
 fails with the source object ID. Numerical construction uses a one-micrometre
 kernel tolerance and a 0.1 mm convex-plane tolerance. Per-solid decomposition
-is bounded at 4,096 pieces, with 100,000 brushes per export.
+is bounded at 4,096 pieces and 8,000,000 charged work units, with 100,000 brushes
+per export. Zero-volume cut residue may be removed within those tolerances only
+with strict mesh progress and a final missing/extra-volume audit.
 
 An export-only enclosure is placed eight metres beyond geometry bounds, with
 sky overhead. Its IDs and bounds appear in the export report. Compilation runs
@@ -113,9 +115,9 @@ becomes `info_player_start`; subsequent markers become deathmatch starts. A
 single spawn also receives a coincident deathmatch start. Dynamic collidable surfaces become identified `func_wall` entities, without
 doors, destruction or custom game code. Closed visual-only solids become
 `func_detail_illusionary`, while invisible collision-only solids use the
-special `skip` texture so they remain solid without drawing. BSP export rejects
-visual-only imported meshes that cannot be converted to closed brushes instead of
-silently dropping them.
+special `skip` texture so they remain solid without drawing. BSP export rejects imported visualization meshes as unsupported brush inputs.
+They are never passed to a checked solid operation; author a native replacement
+or use another visual export.
 
 Textures are converted into WAD2 miptex images, quantized against the supplied
 palette without fullbright colors, resized to multiples of 16 up to 512 pixels,
@@ -127,10 +129,10 @@ transferred. Compiler warnings are retained in logs and the export report.
 ## API and verification
 
 ```ts
-import { compile, parseLevelSvgx, resolveExportAssets, toGLB, toGLTF } from 'levelspec/vector';
+import { compile, parseAml, resolveExportAssets, toGLB, toGLTF } from 'levelspec';
 import { exportLevel } from 'levelspec/export'; // Node-only
 
-const level = await compile(parseLevelSvgx(source), {
+const level = await compile(parseAml(source), {
   uvs: true,
   retainExportSolids: true, // needed only for BSP
 });
@@ -139,7 +141,7 @@ const glb = toGLB(level, { assets }); // synchronous Uint8Array
 const files = toGLTF(level, { assets }); // filename -> string or Uint8Array
 await exportLevel(level, {
   formats: ['glb', 'gltf'], output: 'generated/export', assets,
-  // sourceFile alternatively resolves textures relative to the SVGX file.
+  // sourceFile alternatively resolves textures relative to the AML file.
 });
 ```
 
@@ -169,3 +171,7 @@ remain unverified here because those destination installations are unavailable.
 BSP acceptance runs used a synthetic grayscale test palette to exercise WAD
 packing without bundling game assets. Supply your own Quake palette for actual
 color output. The temporary acceptance viewer has been stopped.
+
+AML runtime JSON 4 and native export metadata 3 include spatial volume declarations
+and terrain tiles. Tile triangle ranges address the accompanying canonical
+`physicalMesh`, before render partitions or collision filtering. See [terrain](TERRAIN.md).

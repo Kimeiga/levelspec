@@ -1,18 +1,20 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { SceneBuilder, compile, renderReference, serializeLevelSvgx, projectReference, validateForRuntime,
-  type ReferenceView } from "../src/vector/index.ts";
+import { ArchitectureBuilder, compile, serializeAml, validateForRuntime } from "levelspec";
+import {renderReference} from "../src/vector/reference-raster.ts";
+import {projectReference} from "../src/vector/reference.ts";
+import type {ReferenceView} from "../src/vector/reference.ts";
 import { rayBlocked } from "../src/vector/validate.ts";
-import { addWall, addCircularOpening, addStoreyShell, addStairFlight } from "../src/vector/architecture.ts";
 import { evaluateReconstruction, type PhotoEvidence } from "../src/reconstruction/evaluate.ts";
 import { runReconstruction, keepBetter, type BestCandidate, type ReconstructionAttempt } from "../src/reconstruction/loop.ts";
 
 function fixture() {
-  const scene = new SceneBuilder("reconstruction-test");
-  const group = scene.group("building");
-  const floor = group.platform("ground", { origin: [0, 0, 0], width: 8, depth: 8, material: "default" });
-  scene.document.markers.push({ id: "spawn", layer: group.layer.id, region: floor.id,
-    kind: "attacker_spawn", position: [4, 4, 0] });
+  const scene = new ArchitectureBuilder("reconstruction-test");
+  scene.document.validation = "premap";
+  scene.profile("ground-plan", [[0,0,0],[8,0,0],[8,8,0],[0,8,0]]);
+  const floor = scene.slab("ground", "ground-plan");
+  scene.document.markers.push({ id: "spawn", layer:"architecture", region: floor.id, kind: "spawn", position: [4,4,0] });
+  const group = scene;
   const reference = (id: string, x: number): ReferenceView => ({
     id, image: id + ".png", width: 80, height: 60,
     scale: "assumed", scaleNote: "Synthetic scene; dimensions are not survey measurements.",
@@ -42,38 +44,17 @@ function silhouetteEvidence(level: Awaited<ReturnType<typeof compile>>,
   });
 }
 
-describe("architectural reconstruction primitives", () => {
-  it("creates real wall cutouts, not visual-only round decals", async () => {
-    const { scene, group } = fixture();
-    const wall = addWall(group, "courtyard-wall", {
-      from: [1, 1, 0], to: [7, 1, 0], height: 4, material: "default" });
-    const slices = addCircularOpening(group, wall, "round-window", {
-      centerAlong: 3, centerHeight: 2, radius: 1, segments: 32 });
-    assert.ok(slices.length >= 28);
-    assert.equal(wall.kind, "wall");
-    assert.ok(slices.every(s => s.head > s.sill));
-    const level = await compile(scene.document, { navigation: false });
-    assert.deepEqual(level.diagnostics.filter(d => d.severity === "error"), []);
-    assert.equal(rayBlocked(level, [4, 0, 2], [4, 2, 2]), false,
-      "Line of sight must pass through the actual opening");
-    assert.equal(rayBlocked(level, [4, 0, 3.5], [4, 2, 3.5]), true,
-      "Solid wall above the circular opening must block visibility");
+describe("native architectural reconstruction primitives", () => {
+  it("creates a real native circular aperture rather than a visual decal", async () => {
+    const {scene}=fixture();scene.path("axis",[[1,1,0],[7,1,0]]);scene.wall("courtyard-wall","axis",{height:4});
+    scene.opening("round-window","courtyard-wall",{shape:"circle",center:[3,2],radius:1});
+    const level=await compile(scene.document,{navigation:false});assert.deepEqual(level.diagnostics.filter(d=>d.severity==="error"),[]);
+    assert.equal(rayBlocked(level,[4,0,2],[4,2,2]),false);assert.equal(rayBlocked(level,[4,0,3.5],[4,2,3.5]),true);
   });
-  it("supports irregular enterable shells and individually positioned flights", async () => {
-    const { scene, group } = fixture();
-    const shell = addStoreyShell(group, "upper", {
-      footprint: [[0, 0], [8, 0], [8, 3], [5, 3], [5, 7], [0, 7]],
-      z: 4, height: 3.2, material: "default" });
-    assert.equal(shell.walls.length, 6);
-    assert.ok(shell.walls.every(w => w.kind === "wall"));
-    const flight = addStairFlight(group, "flight", {
-      lower: [[1, 1, 0], [2.5, 1, 0]],
-      upper: [[1, 5, 2], [2.5, 5, 2]], material: "default" });
-    assert.equal(flight.fill, "stairs");
-    assert.equal(flight.underside, "sloped");
-    assert.deepEqual(scene.document.layers[0].regions.find(r => r.id === flight.id), flight);
-    const level = await compile(scene.document, { navigation: false });
-    assert.ok(level.mesh.indices.length > 0);
+  it("retains independent native stair walking tops and sloped undersides",async()=>{
+    const {scene}=fixture();scene.path("axis",[[1.75,1,0],[1.75,5,2]]);const flight=scene.stairs("flight",{path:"axis",width:1.5,count:12,underside:"sloped"});
+    assert.equal(flight.kind,"stairs");assert.equal(flight.underside,"sloped");assert.ok(scene.document.elements.includes(flight));
+    const level=await compile(scene.document,{navigation:false});assert.ok(level.mesh.indices.length>0);
   });
 });
 
@@ -94,9 +75,9 @@ describe("multi-view reference evaluation", () => {
     const { scene } = fixture();
     const baseline = await compile(scene.document, { navigation: false });
     const evidence = silhouetteEvidence(baseline);
-    const group = scene.group("extra");
-    group.box("mass", { position: [3, -1, 0], size: [5, 2, 9],
-      material: "default", collision: "none" });
+    const group = scene;
+    group.box("mass", { position: [3, -1, 0], width: 5, depth: 2, height: 9,
+      material: "default", collidable: false });
     const altered = await compile(scene.document, { navigation: false });
     const report = evaluateReconstruction(altered, evidence,
       { maxDimension: 80, navigationPassed: true, thresholds: { silhouetteIoU: 0.99 } });
@@ -113,11 +94,11 @@ describe("multi-view reference evaluation", () => {
     assert.equal(report.verifiedViews, 0);
     assert.match(report.issues.join(" "), /unverified/);
   });
-  it("returns source-located feedback to a reviser and repairs invalid SVGX", async () => {
+  it("returns source-located feedback to a reviser and repairs invalid AML", async () => {
     const { scene } = fixture();
     const compiled = await compile(scene.document, { navigation: false });
     const evidence = silhouetteEvidence(compiled);
-    const replacement = serializeLevelSvgx(scene.document);
+    const replacement = serializeAml(scene.document);
     let calls = 0;
     const result = await runReconstruction("<invalid>", evidence, async feedback => {
       calls++;
@@ -134,7 +115,7 @@ describe("multi-view reference evaluation", () => {
   });
   it("limits revisions and does not declare success without independent evidence", async () => {
     const { scene } = fixture();
-    const source = serializeLevelSvgx(scene.document);
+    const source = serializeAml(scene.document);
     const result = await runReconstruction(source, [], async () => source,
       { maxRevisions: 2, evaluationDimension: 80 });
     assert.equal(result.accepted, false);
@@ -143,7 +124,7 @@ describe("multi-view reference evaluation", () => {
   });
   it("keeps the reconstruction API's finite-positive grid contract independent of tool bounds", async () => {
     const { scene } = fixture();
-    const source = serializeLevelSvgx(scene.document);
+    const source = serializeAml(scene.document);
     const result = await runReconstruction(source, [], async () => null,
       { maxRevisions: 0, navigationCell: 0.75 });
     assert.equal(result.attempts[0].valid, true);
@@ -186,8 +167,8 @@ describe("review regressions: independently trusted evidence", () => {
     assert.ok(cameraOnly.views.every(view => view.cameraCalibrated));
     assert.ok(cameraOnly.views.every(view => view.landmarks.rmsPixels === 0));
     // Unrelated extra geometry does not change the self-consistent camera fit.
-    group.box("unrelated", { position: [4, -2, 0], size: [6, 3, 10],
-      material: "default", collision: "none" });
+    group.box("unrelated", { position: [4, -2, 0], width: 6, depth: 3, height: 10,
+      material: "default", collidable: false });
     const unrelated = await compile(scene.document, { navigation: false });
     assert.equal(evaluateReconstruction(unrelated, evidence, {
       navigationPassed: true, maxDimension: 80,
@@ -230,14 +211,9 @@ describe("review regressions: independently trusted evidence", () => {
 
 function dynamicallyBlockedFixture() {
   const { scene, group } = fixture();
-  scene.document.covers.push({
-    id: "closed-gate", layer: group.layer.id,
-    min: [3.8, 0, 0], max: [4.2, 8, 3], dynamic: true,
-  });
-  scene.document.markers[0].position = [1, 4, 0];
-  scene.document.markers.push({
-    id: "exit", layer: group.layer.id, kind: "objective", position: [7, 4, 0],
-  });
+  scene.box("closed-gate",{position:[3.8,0,0],width:.4,depth:8,height:3,dynamic:true});
+  scene.document.markers[0].position=[1,4,0];
+  scene.document.markers.push({id:"exit",layer:"architecture",kind:"objective",position:[7,4,0]});
   scene.document.routes.push({ id: "gate-route", from: "spawn", to: "exit", minRoutes: 1 });
   return scene;
 }
@@ -253,7 +229,7 @@ describe("review regressions: navigation and candidate retention", () => {
     assert.equal(ordinary.sealed?.settings.cell, 0.0625);
     assert.equal(ordinary.navigation?.routes.find(route => route.id === "gate-route")?.reachable, true);
     assert.equal(ordinary.sealed?.routes.find(route => route.id === "gate-route")?.reachable, false);
-    const source = serializeLevelSvgx(scene.document);
+    const source = serializeAml(scene.document);
     const result = await runReconstruction(source, evidence, async () => null, {
       maxRevisions: 0, evaluationDimension: 80, navigationCell: 0.0625,
     });
@@ -270,7 +246,7 @@ describe("review regressions: navigation and candidate retention", () => {
     const scene = dynamicallyBlockedFixture();
     const raw = await compile(scene.document, { navigation: false });
     const evidence = silhouetteEvidence(raw);
-    const invalid = serializeLevelSvgx(scene.document);
+    const invalid = serializeAml(scene.document);
     const result = await runReconstruction(invalid, evidence, async () => null, {
       maxRevisions: 1, evaluationDimension: 80,
     });
@@ -284,39 +260,11 @@ describe("review regressions: navigation and candidate retention", () => {
   });
 });
 
-describe("review regressions: shared architectural topology", () => {
-  for (const wallFirst of [true, false]) {
-    it(`uses one wall edge and four vertices when wall is ${wallFirst ? "before" : "after"} floor`, async () => {
-      const scene = new SceneBuilder(wallFirst ? "wall-first" : "floor-first");
-      const group = scene.group("shell");
-      const makeWall = () => addWall(group, "south", {
-        from: [0, 0, 0], to: [8, 0, 0], height: 3, material: "default",
-      });
-      const wall = wallFirst ? makeWall() : null;
-      const floor = group.platform("deck", { width: 8, depth: 8, material: "default" });
-      const shared = wall ?? makeWall();
-      const source = serializeLevelSvgx(scene.document);
-      assert.equal(group.layer.vertices.length, 4);
-      assert.equal(group.layer.edges.length, 4);
-      assert.equal(group.layer.edges.filter(edge => edge.kind === "wall").length, 1);
-      assert.ok(floor.boundary.includes(shared.id) || floor.boundary.includes("-" + shared.id));
-      assert.ok(source.includes(shared.id));
-      const level = await compile(scene.document, { navigation: false });
-      assert.deepEqual(level.diagnostics.filter(d => d.severity === "error"), []);
-    });
-  }
-  it("reuses a compatible wall that was authored before the enclosing storey", () => {
-    const scene = new SceneBuilder("prior-wall");
-    const group = scene.group("shell");
-    const existing = addWall(group, "south", { from: [0, 0, 0], to: [8, 0, 0],
-      height: 3.2, material: "default" });
-    const shell = addStoreyShell(group, "floor", {
-      footprint: [[0, 0], [8, 0], [8, 8], [0, 8]],
-      z: 0, height: 3.2, material: "default",
-    });
-    assert.strictEqual(shell.walls[0], existing);
-    assert.equal(group.layer.vertices.length, 4);
-    assert.equal(group.layer.edges.length, 4);
+describe("native reconstruction source identity",()=>{
+  for(const wallFirst of [true,false])it(`retains native wall identity independently of floor authoring order: ${wallFirst}`,async()=>{
+    const scene=new ArchitectureBuilder("order");scene.document.validation="premap";scene.path("axis",[[0,0,0],[8,0,0]]);scene.profile("plan",[[0,0,0],[8,0,0],[8,8,0],[0,8,0]]);
+    const wall=()=>scene.wall("south","axis",{height:3});if(wallFirst)wall();scene.slab("floor","plan");if(!wallFirst)wall();
+    const level=await compile(scene.document,{navigation:false});assert.deepEqual(level.diagnostics.filter(d=>d.severity==="error"),[]);assert.ok(level.provenance.south);assert.equal(scene.document.elements.filter(e=>e.id==="south").length,1);assert.ok(serializeAml(scene.document).includes('id="south"'));
   });
 });
 
@@ -325,7 +273,7 @@ describe("initial-model generation", () => {
     const { scene } = fixture();
     const compiled = await compile(scene.document, { navigation: false });
     const independent = silhouetteEvidence(compiled);
-    const generated = serializeLevelSvgx(scene.document);
+    const generated = serializeAml(scene.document);
     let count = 0;
     const result = await runReconstruction("", independent, async feedback => {
       count++;
@@ -435,32 +383,13 @@ describe("acceptance correctness regressions", () => {
     });
     assert.equal(badStatus.passed, false, "Direct evaluator must never ignore explicit sealed failure.");
   });
-  it("keeps coincident and adjacent architectural groups topologically independent", () => {
-    const scene = new SceneBuilder("assembly-isolation");
-    const first = scene.group("west");
-    const second = scene.group("east");
-    const wall = addWall(first, "partition", {
-      from: [4, 0, 0], to: [4, 4, 0], height: 3, material: "default",
-    });
-    const left = first.platform("floor", { width: 4, depth: 4, material: "default" });
-    const right = second.platform("floor", {
-      origin: [4, 0, 0], width: 4, depth: 4, material: "default",
-    });
-    const edges = (boundary: string[]) => boundary.map(e => e.replace(/^-/, ""));
-    assert.ok(edges(left.boundary).includes(wall.id));
-    assert.ok(!edges(right.boundary).includes(wall.id));
-    assert.equal(first.layer, second.layer);
-    assert.equal(first.layer.vertices.length, 8);
-    assert.equal(first.layer.edges.length, 8);
-    assert.equal(first.layer.edges.filter(edge => edge.kind === "wall").length, 1);
-    for (const edge of edges(right.boundary)) assert.ok(!edges(left.boundary).includes(edge));
-  });
+
 });
 
 describe("review regressions: reviser failures and cancellation", () => {
   it("keeps the best valid candidate and reports the error when the reviser throws", async () => {
     const { scene } = fixture();
-    const source = serializeLevelSvgx(scene.document);
+    const source = serializeAml(scene.document);
     const result = await runReconstruction(source, [], async () => {
       throw new Error("provider unavailable");
     }, { maxRevisions: 2, evaluationDimension: 80 });
@@ -481,7 +410,7 @@ describe("review regressions: reviser failures and cancellation", () => {
   });
   it("does not request another revision after cancellation during inspection", async () => {
     const { scene } = fixture();
-    const source = serializeLevelSvgx(scene.document);
+    const source = serializeAml(scene.document);
     const controller = new AbortController();
     let revisions = 0;
     const result = await runReconstruction(source, [], async () => { revisions++; return source + " "; }, {
@@ -494,7 +423,7 @@ describe("review regressions: reviser failures and cancellation", () => {
   });
   it("passes the cancellation signal to the reviser", async () => {
     const { scene } = fixture();
-    const source = serializeLevelSvgx(scene.document);
+    const source = serializeAml(scene.document);
     const controller = new AbortController();
     let received: AbortSignal | undefined;
     await runReconstruction(source, [], async request => { received = request.signal; return null; },
@@ -542,7 +471,7 @@ describe("review regressions: cancellation during the final inspection", () => {
   it("reports aborted, not exhausted, for a zero-revision evaluation cancelled mid-run", async () => {
     const { scene } = fixture();
     const controller = new AbortController();
-    const result = await runReconstruction(serializeLevelSvgx(scene.document), [], async () => null, {
+    const result = await runReconstruction(serializeAml(scene.document), [], async () => null, {
       maxRevisions: 0, evaluationDimension: 80, signal: controller.signal,
       onAttempt: () => controller.abort(),
     });

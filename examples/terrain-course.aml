@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="terrain-course" name="Terrain course" validation="premap" curve-tolerance="0.02">
+  <material id="earth" color="#8f9475" repeat="0.5"/>
+  <material id="stone" color="#8b8e92" repeat="1"/>
+  <material id="deck" color="#b0a38c" repeat="1"/>
+  <material id="water-material" color="#5b94ad"/>
+  <!-- The road modifies ground directly. Its two named influences meet at the same height. -->
+  <terrain id="courtyard" columns="5" rows="5" cell-size="3 3" heights="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" material="earth"/>
+  <path id="road" points="1 6 0; 6 6 0.5; 11 6 1"/>
+  <grade id="main-road" host="courtyard" path="road" width="3" transition="1" order="1"/>
+  <path id="branch" points="6 6 0.5; 6 10 0.5"/>
+  <grade id="branch-road" host="courtyard" path="branch" width="2" transition="1" order="2"/>
+  <profile id="walk-domain" points="1 5; 11 5; 11 7; 1 7"/>
+  <zone id="road-domain" profile="walk-domain" elevation="0" height="1.2" role="playable"/>
+  <marker id="road-start" kind="spawn" element="courtyard" position="2 6 0.1"/>
+  <marker id="road-end" kind="objective" element="courtyard" position="10 6 0.9"/>
+  <route id="graded-walk" from="road-start" to="road-end" min-routes="1" max-distance="10"/>
+  <!-- A closed terrain operand is explicitly cut into a tunnel. -->
+  <subtract id="tunnel">
+    <terrain id="rock-mass" columns="2" rows="2" cell-size="8 8" heights="6 6 6 6" base="-1" position="16 0 0" material="stone"/>
+    <box id="tunnel-void" width="10" depth="3" height="3" position="15 2.5 0" material="stone"/>
+  </subtract>
+  <profile id="tunnel-domain" points="16 3; 24 3; 24 5; 16 5"/>
+  <zone id="tunnel-zone" profile="tunnel-domain" elevation="-0.01" height="0.1" role="playable"/>
+  <clearance id="tunnel-clearance" profile="tunnel-domain" height="2.5" require-support="true"/>
+  <marker id="tunnel-start" kind="poi" position="17 4 0"/>
+  <marker id="tunnel-end" kind="poi" position="23 4 0"/>
+  <route id="tunnel-walk" from="tunnel-start" to="tunnel-end" min-routes="1" max-distance="8"/>
+  <!-- Water is independent of its native seabed and the overhead bridge. -->
+  <profile id="lake-plan" points="0 18; 14 18; 14 30; 0 30"/>
+  <terrain id="lake-bed" profile="lake-plan" position="0 0 -2" material="earth"/>
+  <water id="lake" profile="lake-plan" elevation="0" material="water-material"/>
+  <boat radius="0.6" draft="0.5" height="1.5"/>
+  <profile id="bridge-plan" points="6 17; 8 17; 8 31; 6 31"/>
+  <slab id="bridge" profile="bridge-plan" elevation="3" thickness="0.25" material="deck"/>
+  <marker id="water-start" kind="poi" position="2 24 0" movement="water"/>
+  <marker id="water-end" kind="poi" position="12 24 0" movement="water"/>
+  <route id="under-bridge" from="water-start" to="water-end" movement="water" min-routes="1" max-distance="12"/>
+  <volume id="objective-area" profile="walk-domain" height="2" role="objective"><property name="label" value="Road checkpoint"/></volume>
+  <room id="tunnel-space" profile="tunnel-domain" height="3"/>
+  <!-- Open holed patches and buried overlapping pieces are intentional. -->
+  <profile id="patch-plan" dimensions="3" points="28 0 1; 36 0 2; 36 8 1; 28 8 1"><hole dimensions="3" points="30 2 1; 30 4 1; 32 4 1; 32 2 1"/><breakline points="28 6 1; 36 6 1"/></profile>
+  <terrain id="constrained-patch" profile="patch-plan" material="earth"/>
+  <terrain id="buried-patch" points="18 0 -0.5; 22 0 -0.5; 18 2 -0.5" triangles="0 1 2" material="earth"/>
+  <terrain id="heightmap-hill" heightmap="terrain-course/hill.png" min-height="0" max-height="4" cell-size="2 2" position="28 16 0" material="earth"/>
+  <collision id="native-proxy"><box id="barrier" width="1" depth="2" height="2" position="38 10 0"/></collision>
+</architecture>

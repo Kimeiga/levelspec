@@ -68,7 +68,7 @@ The output directory must be new or empty; never overwrite an inspected revision
 From the repository root:
 
 ```sh
-node tools/capture-level.mjs projects/my-level/level.level.svgx \
+node tools/capture-level.mjs projects/my-level/level.aml \
   generated/my-level/capture-01 projects/my-level/views.json
 ```
 

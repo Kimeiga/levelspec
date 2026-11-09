@@ -1,3 +1,4 @@
+import { amlSource } from './fixtures/aml-source.mjs';
 /** Physical feature ink must be independent of an assembly's mesh partitioning. */
 import assert from 'node:assert/strict';
 import { mkdir, mkdtemp, writeFile, rm } from 'node:fs/promises';
@@ -11,7 +12,7 @@ import { launchBrowser, waitForFrames } from '../website/tests/browser-helpers.m
 await mkdir('generated', { recursive: true });
 const output = await mkdtemp('generated/physical-outlines-browser-');
 const directory = await mkdtemp(join(tmpdir(), 'levelspec-outlines-'));
-const file = join(directory, 'level.level.svgx');
+const file = join(directory, 'level.aml');
 const source = `<level version="2" id="physical-outlines" name="Physical outlines" validation="premap">
  <material id="pale" color="#dddddd"/>
  <layer id="ground">
@@ -26,7 +27,7 @@ const source = `<level version="2" id="physical-outlines" name="Physical outline
  <prop id="step-low" layer="ground" shape="box" position="2 0 0" scale="2 4 1" material="pale" collision="solid"/>
  <prop id="step-high" layer="ground" shape="box" position="4 0 0" scale="2 4 2" material="pale" collision="solid"/>
 </level>`;
-await writeFile(file, source);
+await writeFile(file, await amlSource(source));
 const measurements = [], errors = [];
 let server, browser;
 

@@ -8,7 +8,6 @@ import type {
 } from "./types.ts";
 import { aborted } from "./types.ts";
 import { area, heightAt, orient } from "./geometry.ts";
-import { buildFlight } from "./flights.ts";
 
 const XY_EPS = 1e-5;
 const HEIGHT_EPS = 0.001 + 1e-6;
@@ -48,7 +47,10 @@ function slice(a: V3, b: V3, p: [V3, V3, V3]): Piece | undefined {
     const f0 = sign * orient(u, v, a),
       f1 = sign * orient(u, v, b);
     const tolerance = XY_EPS * Math.hypot(v[0] - u[0], v[1] - u[1]);
-    if (Math.abs(f1 - f0) < 1e-12) {
+    if (
+      Math.abs(f1 - f0) < 1e-12 ||
+      (Math.abs(f0) <= tolerance && Math.abs(f1) <= tolerance)
+    ) {
       if (f0 < -tolerance) return;
     } else {
       // Clip crossing edges at their real plane. Expanding the interval turns
@@ -118,7 +120,7 @@ function solidSpans(pieces: Piece[], t: number): [number, number][] {
   for (const hits of byMesh.values()) {
     hits.sort((a, b) => a.z - b.z);
     let start: number | undefined, top: number | undefined;
-    for (let i = 0; i < hits.length; ) {
+    for (let i = 0; i < hits.length;) {
       const z = hits[i].z,
         signs = new Set<number>();
       while (i < hits.length && hits[i].z - z < XY_EPS)
@@ -163,16 +165,12 @@ export function auditFloorGaps(
     slopedStairGuides = new Map<string, FloorPatch>();
   for (const layer of d.layers)
     for (const region of layer.regions)
-      if (region.fill === "stairs" && region.underside === "sloped")
-        slopedStairGuides.set(
-          region.id,
-          buildFlight(
-            region,
-            layer,
-            level.curves,
-            region.thickness ?? d.floorThickness,
-          ).guide,
-        );
+      if (
+        region.fill === "stairs" &&
+        region.underside === "sloped" &&
+        level.flightGuides?.[region.id]
+      )
+        slopedStairGuides.set(region.id, level.flightGuides[region.id]);
   for (const layer of d.layers) {
     const edges = new Map(layer.edges.map((e) => [e.id, e]));
     for (const region of layer.regions) {
@@ -198,16 +196,19 @@ export function auditFloorGaps(
       });
     }
   }
+  const physical = level.physicalMesh ?? level.mesh;
   const faces: Face[] = [];
-  for (let t = 0; t < level.mesh.surfaces.length; t++) {
-    const surface = level.surfaces[level.mesh.surfaces[t]];
+  for (let t = 0; t < physical.surfaces.length; t++) {
+    const surface = level.surfaces[physical.surfaces[t]];
     if (
-      surface.dynamic || surface.collidable === false ||
+      surface.dynamic ||
+      surface.collidable === false ||
       !["wall", "floor", "stairs"].includes(surface.kind)
-    ) continue;
-    const points = level.mesh.indices
+    )
+      continue;
+    const points = physical.indices
       .slice(t * 3, t * 3 + 3)
-      .map((v) => level.mesh.positions.slice(v * 3, v * 3 + 3) as V3) as [
+      .map((v) => physical.positions.slice(v * 3, v * 3 + 3) as V3) as [
       V3,
       V3,
       V3,
@@ -216,7 +217,7 @@ export function auditFloorGaps(
     if (Math.abs(projected) < 1e-10) continue;
     faces.push({
       points,
-      mesh: surface.mesh,
+      mesh: physical.solidIds?.[t] || surface.mesh,
       sign: Math.sign(projected),
       bounds: [
         Math.min(...points.map((p) => p[0])),

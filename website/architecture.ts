@@ -1,3 +1,8 @@
+import {
+  ArchitectureBuilder,
+  parseAml,
+  serializeAml,
+} from "../src/architecture/index.ts";
 import { materialDescriptions, treatments } from "./world-styles.ts";
 import { addStyleDetails } from "./style-details.ts";
 import type { V3 } from "../src/vector/types.ts";
@@ -12,6 +17,7 @@ type Area = {
   material?: string;
   ceiling?: number;
   stairs?: boolean;
+  ramp?: boolean;
   holes?: V3[][];
 };
 type Edge = {
@@ -23,7 +29,14 @@ type Edge = {
   height?: number;
   material?: string;
   control?: string;
-  openings?: string;
+  openings?: {
+    id: string;
+    start: number;
+    end: number;
+    sill: number;
+    head: number;
+    rise?: number;
+  }[];
   thickness?: number;
 };
 const n = (v: number) => Number(v.toFixed(4));
@@ -52,6 +65,7 @@ export function buildCourtyard({
     },
     {
       id: "ramp",
+      ramp: true,
       points: [
         [14, 0, 0],
         [23, 0, h],
@@ -189,11 +203,9 @@ export function buildCourtyard({
       );
     }
   }
-  const covers: string[] = [];
+  const covers: { id: string; min: V3; max: V3; material: string }[] = [];
   function box(id: string, min: V3, max: V3, material = "bronze") {
-    covers.push(
-      `<cover id="${id}" layer="architecture" min="${min.map(n).join(" ")}" max="${max.map(n).join(" ")}" material="${material}"/>`,
-    );
+    covers.push({ id, min, max, material });
   }
   function openings(e: Edge, sill: number, head: number, bay = 4.5) {
     const L = Math.hypot(e.b[0] - e.a[0], e.b[1] - e.a[1]);
@@ -203,19 +215,19 @@ export function buildCourtyard({
     e.openings = Array.from({ length: bays }, (_, i) => {
       const s = i * spacing + Math.min(0.55, spacing * 0.17),
         t = (i + 1) * spacing - Math.min(0.55, spacing * 0.17);
-      if (look === "chalk" && sill === 0 && t - s > 1.5) {
-        const count = 16,
-          rise = Math.min(0.28, (t - s) * 0.14);
-        return Array.from({ length: count }, (_, j) => {
-          const u = (j + 0.5) / count,
-            top =
-              head - rise + rise * Math.sqrt(Math.max(0, 1 - (2 * u - 1) ** 2));
-          return `<opening id="${e.id}.opening${i}.${j}" kind="arch" start="${n(s + ((t - s) * j) / count)}" end="${n(s + ((t - s) * (j + 1)) / count)}" sill="${n(sill)}" head="${n(top)}"/>`;
-        }).join("");
-      }
-      return `<opening id="${e.id}.opening${i}" kind="arch" start="${n(s)}" end="${n(t)}" sill="${n(sill)}" head="${n(head)}"/>`;
-    }).join("");
+      return {
+        id: `${e.id}.opening${i}`,
+        start: n(s),
+        end: n(t),
+        sill: n(sill),
+        head: n(head),
+        ...(look === "chalk" && sill === 0 && t - s > 1.5
+          ? { rise: Math.min(0.28, (t - s) * 0.14) }
+          : {}),
+      };
+    });
   }
+
   for (const e of edges.values()) {
     const upper = e.a[2] >= h - 0.001 && e.b[2] >= h - 0.001;
     e.kind = e.owners.length > 1 ? "open" : "wall";
@@ -438,54 +450,198 @@ export function buildCourtyard({
       : look === "chalk"
         ? "chalk-cloister"
         : "slate-atelier";
-  const xml: string[] = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    `<level version="2" id="${levelId}" name="${treatment.name}" units="meters" wall-thickness="0.28" wall-height="3" floor-thickness="0.2" curve-tolerance="0.015">`,
-    '<player radius="0.35" height="1.8" step="0.45" slope="42"/>',
-    `<sky color="${treatment.sky}" intensity="${treatment.fill}"/>`,
-    ...mats.map(
-      (m) =>
-        `<material id="${m.id}" color="${m.color}" texture="${m.texture}" roughness="${m.roughness}" metalness="${m.metalness}" repeat="${m.repeat}"/>`,
-    ),
-    '<layer id="architecture" label="Lantern Court">',
-  ];
-  for (const [k, id] of vertices) {
-    const [x, y, z] = k.split(",");
-    xml.push(`<vertex id="${id}" x="${x}" y="${y}" z="${z}"/>`);
+  const builder = new ArchitectureBuilder(levelId),
+    document = builder.document;
+  document.name = treatment.name;
+  document.curveTolerance = 0.015;
+  document.player = {
+    ...document.player,
+    radius: 0.35,
+    height: 1.8,
+    step: 0.45,
+    slope: 42,
+  };
+  document.sky = { color: treatment.sky, intensity: treatment.fill };
+  document.materials = mats;
+  for (const edge of edges.values()) {
+    const path = builder.path(`${edge.id}:path`, [edge.a]);
+    if (edge.control) {
+      path.segments.push({
+        kind: "bezier",
+        controls: edge.control.split(";").map((pair) => {
+          const [x, y] = pair.trim().split(/\s+/).map(Number);
+          return [x, y, 0] as V3;
+        }),
+        to: edge.b,
+      });
+      path.elevation = [edge.a[2], edge.b[2]];
+    } else path.points.push(edge.b);
+    if (edge.kind !== "open") {
+      builder.wall(edge.id, path.id, {
+        height: edge.height!,
+        thickness: edge.thickness ?? 0.28,
+        material: edge.material,
+      });
+      for (const opening of edge.openings ?? []) {
+        const width = opening.end - opening.start,
+          height = opening.head - opening.sill;
+        const options = {
+          center: [
+            (opening.start + opening.end) / 2,
+            (opening.sill + opening.head) / 2,
+          ] as [number, number],
+          width,
+          height,
+        };
+        if (opening.rise) {
+          const y = height / 2 - opening.rise,
+            first: V3 = [-width / 2, -height / 2, 0];
+          const crown = builder.path(
+            `${opening.id}:crown`,
+            [first, [width / 2, -height / 2, 0], [width / 2, y, 0]],
+            { closed: true },
+          );
+          crown.segments.push(
+            {
+              kind: "arc",
+              center: [0, y, 0],
+              radii: [width / 2, opening.rise],
+              start: 0,
+              sweep: 180,
+              rotation: 0,
+            },
+            { kind: "line", to: first },
+          );
+          const profile = builder.profile(`${opening.id}:profile`, []);
+          profile.outer = { paths: [crown.id] };
+          builder.opening(opening.id, edge.id, {
+            ...options,
+            shape: "profile",
+            profile: profile.id,
+          });
+        } else builder.opening(opening.id, edge.id, options);
+      }
+    }
+    if (
+      edge.owners.length === 2 &&
+      (edge.kind === "open" || edge.openings?.length)
+    )
+      document.connections.push({
+        id: `${edge.id}:join`,
+        from: edge.owners[0],
+        to: edge.owners[1],
+        path: path.id,
+      });
   }
-  for (const e of edges.values())
-    xml.push(
-      `<edge id="${e.id}" from="${vertex(e.a)}" to="${vertex(e.b)}" kind="${e.kind}" height="${n(e.height!)}"${e.thickness ? ` thickness="${n(e.thickness)}"` : ""} material="${e.material}"${e.control ? ` control="${e.control}"` : ""}>${e.openings ?? ""}</edge>`,
-    );
+  const reference = (id: string) =>
+    id.startsWith("-") ? `-${id.slice(1)}:path` : `${id}:path`;
   for (const area of areas) {
     const boundary = boundaries.get(area.id)!;
-    const attrs = area.stairs
-      ? ` lower="${boundary[3].replace(/^-/, "")}" upper="${boundary[1].replace(/^-/, "")}"`
-      : "";
-    xml.push(
-      `<region id="${area.id}" boundary="${boundary.join(" ")}" fill="${area.stairs ? "stairs" : "floor"}" material="${area.material ?? "paving"}"${attrs}${area.ceiling ? ` ceiling="${n(area.ceiling)}"` : ""}>`,
-    );
-    for (let i = 0; i < (area.holes ?? []).length; i++)
-      xml.push(
-        `<hole boundary="${boundaries.get(`${area.id}.hole${i}`)!.join(" ")}"/>`,
-      );
-    xml.push("</region>");
+    if (area.stairs || area.ramp) {
+      const left = builder.path(`${area.id}:left`, [], {
+        paths: [reference(boundary[2])].map((ref) =>
+          ref.startsWith("-") ? ref.slice(1) : `-${ref}`,
+        ),
+      });
+      const right = builder.path(`${area.id}:right`, [], {
+        paths: [reference(boundary[0])],
+      });
+      if (area.stairs)
+        builder.stairs(area.id, {
+          left: left.id,
+          right: right.id,
+          maximumRiser: 0.18,
+          thickness: 0.2,
+          underside: "filled",
+          material: area.material ?? "paving",
+          area: area.id,
+        });
+      else
+        builder.ramp(area.id, {
+          left: left.id,
+          right: right.id,
+          thickness: 0.2,
+          material: area.material ?? "paving",
+          area: area.id,
+        });
+    } else {
+      const profile = builder.profile(`${area.id}:profile`, []);
+      profile.outer = { paths: boundary.map(reference) };
+      profile.holes = (area.holes ?? []).map((_, i) => ({
+        paths: boundaries.get(`${area.id}.hole${i}`)!.map(reference),
+      }));
+      builder.slab(area.id, profile.id, {
+        material: area.material ?? "paving",
+        thickness: 0.2,
+        area: area.id,
+      });
+      if (area.ceiling)
+        builder.add({
+          kind: "canopy",
+          id: `${area.id}:ceiling`,
+          profile: profile.id,
+          elevation: area.ceiling,
+          flat: true,
+          thickness: 0.2,
+          material: area.material ?? "plaster",
+        });
+    }
   }
-  xml.push(
-    "</layer>",
-    ...covers,
-    '<marker id="spawn" layer="architecture" region="courtyard" position="2 2 0" kind="attacker_spawn"/>',
-    `<marker id="objective" layer="architecture" region="bridge" position="25 5 ${h}" kind="objective"/>`,
-    '<route id="climb" from="spawn" to="objective" min-routes="1" max-distance="140"/>',
-    `<light id="sun" kind="directional" position="${treatment.sunPosition.join(" ")}" target="10 9 0" color="${treatment.sunColor}" intensity="${treatment.sunIntensity}"/>`,
-    ...(look === "chalk"
-      ? []
-      : Array.from(
-          { length: 4 },
-          (_, i) =>
-            `<light id="accent.${i}" kind="point" position="${1.2 + i * 6} 14.8 ${h - 0.83}" color="${look === "night" ? "#ffb16d" : "#ffe1a2"}" intensity="${look === "night" ? 24 : 10}"/>`,
-        )),
-    "</level>",
-  );
-  return xml.join("\n") + "\n";
+  for (const cover of covers)
+    builder.box(cover.id, {
+      position: cover.min,
+      width: cover.max[0] - cover.min[0],
+      depth: cover.max[1] - cover.min[1],
+      height: cover.max[2] - cover.min[2],
+      material: cover.material,
+    });
+  document.markers = [
+    {
+      id: "spawn",
+      layer: "architecture",
+      region: "courtyard",
+      position: [2, 2, 0],
+      kind: "attacker_spawn",
+    },
+    {
+      id: "objective",
+      layer: "architecture",
+      region: "bridge",
+      position: [25, 5, h],
+      kind: "objective",
+    },
+  ];
+  document.routes = [
+    {
+      id: "climb",
+      from: "spawn",
+      to: "objective",
+      minRoutes: 1,
+      maxDistance: 140,
+    },
+  ];
+  document.lights = [
+    {
+      id: "sun",
+      kind: "directional",
+      position: treatment.sunPosition,
+      target: [10, 9, 0],
+      color: treatment.sunColor,
+      intensity: treatment.sunIntensity,
+    },
+  ];
+  if (look !== "chalk")
+    for (let i = 0; i < 4; i++)
+      document.lights.push({
+        id: `accent.${i}`,
+        kind: "point",
+        position: [1.2 + i * 6, 14.8, h - 0.83],
+        target: [0, 0, 0],
+        color: look === "night" ? "#ffb16d" : "#ffe1a2",
+        intensity: look === "night" ? 24 : 10,
+      });
+  builder.assembly("court-structure", [...document.elements], {
+    coincidentMaterial: "retained-face",
+  });
+  return serializeAml(parseAml(serializeAml(document)));
 }

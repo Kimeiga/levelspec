@@ -4,6 +4,7 @@ import type { CompiledLevel, MeshData, Surface } from "./types.ts";
 export function selectMesh(level: CompiledLevel, include: (surface: Surface) => boolean): MeshData {
   const source = level.mesh;
   const mesh: MeshData = { positions: [], normals: [], indices: [], uv: [], surfaces: [],
+    ...(source.solidIds ? { solidIds: [] } : {}),
     ...(source.uv1 ? { uv1: [] } : {}), ...(source.tangents ? { tangents: [] } : {}),
     ...(source.atlasPages ? { atlasPages: [] } : {}), ...(source.chartIds ? { chartIds: [] } : {}) };
   const vertices = new Map<number, number>();
@@ -11,6 +12,7 @@ export function selectMesh(level: CompiledLevel, include: (surface: Surface) => 
     const si=source.surfaces[t];
     if(!include(level.surfaces[si]))continue;
     mesh.surfaces.push(si);
+    if(mesh.solidIds)mesh.solidIds.push(source.solidIds![t]);
     if(mesh.atlasPages)mesh.atlasPages.push(source.atlasPages![t]);
     if(mesh.chartIds)mesh.chartIds.push(source.chartIds![t]);
     for(const old of source.indices.slice(t*3,t*3+3)) {
@@ -29,5 +31,5 @@ export function selectMesh(level: CompiledLevel, include: (surface: Surface) => 
   return mesh;
 }
 export function collisionMesh(level: CompiledLevel, sealed=false): MeshData {
-  return selectMesh(level, (s) => s.collidable !== false && (sealed || !s.dynamic));
+  return selectMesh(level.physicalMesh ? { ...level, mesh: level.physicalMesh } : level, (s) => s.collidable !== false && (sealed || !s.dynamic));
 }

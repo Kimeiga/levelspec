@@ -16,31 +16,38 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { Vector3 } from "three";
 import {
   compile,
-  createDocument,
+  ArchitectureBuilder,
   toGLB,
   toGLTF,
   resolveExportAssets,
   exportMetadata,
-  parseLevelSvgx,
-} from "../src/vector/index.ts";
+  collisionMesh,
+  type V3,
+  parseAml,
+} from "levelspec";
 import { exportLevel } from "../src/export/vector/index.ts";
 import { runTool } from "../src/export/vector/process.ts";
 import { boxMesh } from "../src/export/vector/box-mesh.ts";
-import { geometryKernel } from "../src/vector/compiler.ts";
+import { solidKernel as geometryKernel } from "../src/architecture/geometry.ts";
 import { solidManifold, convexBrushes } from "../src/export/vector/brushes.ts";
 import { buildQuakeMap } from "../src/export/vector/bsp.ts";
 import { quakeWad } from "../src/export/vector/textures.ts";
 /** Independent scalar triple-product volume oracle for closed, oriented triangles. */
-function signedVolume(mesh: { positions: number[]; indices: number[]; normals?: number[] }): number {
+function signedVolume(mesh: {
+  positions: number[];
+  indices: number[];
+  normals?: number[];
+}): number {
   let sixTimesVolume = 0;
   const p = mesh.positions;
   for (let i = 0; i < mesh.indices.length; i += 3) {
     const a = mesh.indices[i] * 3;
     const b = mesh.indices[i + 1] * 3;
     const c = mesh.indices[i + 2] * 3;
-    sixTimesVolume += p[a] * (p[b + 1] * p[c + 2] - p[b + 2] * p[c + 1])
-      + p[a + 1] * (p[b + 2] * p[c] - p[b] * p[c + 2])
-      + p[a + 2] * (p[b] * p[c + 1] - p[b + 1] * p[c]);
+    sixTimesVolume +=
+      p[a] * (p[b + 1] * p[c + 2] - p[b + 2] * p[c + 1]) +
+      p[a + 1] * (p[b + 2] * p[c] - p[b] * p[c + 2]) +
+      p[a + 2] * (p[b] * p[c + 1] - p[b + 1] * p[c]);
   }
   return sixTimesVolume / 6;
 }
@@ -51,54 +58,66 @@ describe("export box geometry", () => {
     assert.equal(mesh.indices.length, 36);
     assert.ok(Math.abs(signedVolume(mesh) - 30) < 1e-9);
     for (let i = 0; i < mesh.indices.length; i += 3) {
-      const [a, b, c] = mesh.indices.slice(i, i + 3).map(index => mesh.positions.slice(index * 3, index * 3 + 3));
+      const [a, b, c] = mesh.indices
+        .slice(i, i + 3)
+        .map((index) => mesh.positions.slice(index * 3, index * 3 + 3));
       const u = b.map((value, axis) => value - a[axis]);
       const v = c.map((value, axis) => value - a[axis]);
-      const cross = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+      const cross = [
+        u[1] * v[2] - u[2] * v[1],
+        u[2] * v[0] - u[0] * v[2],
+        u[0] * v[1] - u[1] * v[0],
+      ];
       const centroid = a.map((value, axis) => (value + b[axis] + c[axis]) / 3);
-      const fromCenter = centroid.map((value, axis) => value - [2.5, 4.5, 4][axis]);
-      assert.ok(cross.reduce((sum, value, axis) => sum + value * fromCenter[axis], 0) > 0);
+      const fromCenter = centroid.map(
+        (value, axis) => value - [2.5, 4.5, 4][axis],
+      );
+      assert.ok(
+        cross.reduce((sum, value, axis) => sum + value * fromCenter[axis], 0) >
+          0,
+      );
       for (const index of mesh.indices.slice(i, i + 3)) {
         const normal = mesh.normals.slice(index * 3, index * 3 + 3);
-        assert.ok(cross.reduce((sum, value, axis) => sum + value * normal[axis], 0) > 0);
+        assert.ok(
+          cross.reduce((sum, value, axis) => sum + value * normal[axis], 0) > 0,
+        );
       }
     }
-    const reversed = mesh.indices.flatMap((_, i, indices) => i % 3 === 0 ? [indices[i + 2], indices[i + 1], indices[i]] : []);
-    assert.ok(Math.abs(signedVolume({ positions: mesh.positions, indices: reversed }) + 30) < 1e-9);
+    const reversed = mesh.indices.flatMap((_, i, indices) =>
+      i % 3 === 0 ? [indices[i + 2], indices[i + 1], indices[i]] : [],
+    );
+    assert.ok(
+      Math.abs(
+        signedVolume({ positions: mesh.positions, indices: reversed }) + 30,
+      ) < 1e-9,
+    );
   });
 });
 
 function fixture() {
-  const d = createDocument("export-room");
-  d.layers = [
-    {
-      id: "ground",
-      vertices: [
-        [0, 0],
-        [6, 0],
-        [6, 4],
-        [0, 4],
-      ].map(([x, y], i) => ({ id: `v${i}`, x, y, z: 1 })),
-      edges: [0, 1, 2, 3].map((i) => ({
-        id: `e${i}`,
-        from: `v${i}`,
-        to: `v${(i + 1) % 4}`,
-        kind: "wall",
-        openings: [],
-      })),
-      regions: [
-        {
-          id: "floor",
-          boundary: ["e0", "e1", "e2", "e3"],
-          holes: [],
-          interior: [],
-          creases: [],
-          fill: "floor",
-          material: "paint",
-        },
-      ],
-    },
+  const builder = new ArchitectureBuilder("export-room"),
+    d = builder.document;
+  builder.profile("plan", [
+    [0, 0, 1],
+    [6, 0, 1],
+    [6, 4, 1],
+    [0, 4, 1],
+  ]);
+  builder.slab("floor", "plan", { group: "ground", material: "paint" });
+  const corners: V3[] = [
+    [0, 0, 1],
+    [6, 0, 1],
+    [6, 4, 1],
+    [0, 4, 1],
   ];
+  for (let i = 0; i < 4; i++) {
+    builder.path(`wall-path-${i}`, [corners[i], corners[(i + 1) % 4]]);
+    builder.wall(`e${i}`, `wall-path-${i}`, {
+      material: "paint",
+      group: "ground",
+    });
+  }
+  builder.assembly("room", [...d.elements]);
   d.materials = [
     {
       id: "paint",
@@ -351,6 +370,48 @@ describe("portable vector exports", () => {
 });
 
 describe("Quake brush export", () => {
+  it("preserves a native top-face material independently from the slab side material", async () => {
+    const document =
+      parseAml(`<architecture version="1" id="painted-box" validation="premap">
+      <material id="base" color="#888888"/><material id="accent" color="#ff0000"/>
+      <profile id="plan" points="0 0; 6 0; 6 4; 0 4"/>
+      <slab id="body" group="ground" profile="plan" elevation="1" thickness="0.2" material="base"/>
+      <face-material id="top-paint" host="body" face="top" material="accent"/>
+      <marker id="spawn" group="ground" element="body" kind="attacker_spawn" position="2 1 1"/>
+    </architecture>`);
+    const level = await compile(document, {
+      navigation: false,
+      retainExportSolids: true,
+    });
+    assert.deepEqual(
+      level.diagnostics.filter((diagnostic) => diagnostic.severity === "error"),
+      [],
+    );
+    const { mappings } = quakeWad(level, {}, palette);
+    const map = await buildQuakeMap(level, mappings, "painted-box");
+    const topPlanes = map.text.split("\n").filter((line) => {
+      const points = [...line.matchAll(/\( ([^)]+) \)/g)].map((match) =>
+        match[1].trim().split(/\s+/).map(Number),
+      );
+      return (
+        points.length === 3 &&
+        points.every((point) => Math.abs(point[2] - 32) < 1e-6)
+      );
+    });
+    assert.ok(
+      topPlanes.length,
+      "The authored slab has an exposed top plane at 1 metre",
+    );
+    for (const plane of topPlanes)
+      assert.ok(
+        plane.includes(` ${mappings.accent.name} `),
+        "Every exposed top plane retains the authored accent",
+      );
+    assert.ok(
+      map.text.includes(` ${mappings.base.name} `),
+      "Side planes retain their independent base material",
+    );
+  });
   it("retains identical runtime geometry while exposing closed solids", async () => {
     const d = fixture(),
       plain = await compile(d, { navigation: false }),
@@ -376,74 +437,58 @@ describe("Quake brush export", () => {
       }
     }
   });
-  it("retained brush solids match final mesh-part volumes on showcase and Dust II", async () => {
+  it("retained closed solids agree with final native physical volume and exposed faces", async () => {
     const K = await geometryKernel();
-    for (const file of [
-      "examples/showcase.level.svgx",
-      "examples/dust2.level.svgx",
-    ]) {
-      const level = await compile(
-        parseLevelSvgx(await readFile(file, "utf8")),
-        { navigation: false, retainExportSolids: true },
-      );
-      for (const part of level.parts) {
-        const inputs = level
-          .exportSolids!.filter((s) => s.surface.mesh === part.id)
-          .map((s) => solidManifold(K, s));
-        const union = K.Manifold.union(inputs);
-        try {
-          const volume = signedVolume({
-            positions: level.mesh.positions,
-            indices: part.triangles.flatMap((t) =>
-              level.mesh.indices.slice(t * 3, t * 3 + 3),
-            ),
-            normals: [],
-          });
-          // The render compiler simplifies shell surfaces by up to 0.1 mm.
-          assert.ok(
-            Math.abs(union.volume() - volume) <
-              Math.max(1e-6, union.surfaceArea() * 0.0001),
-            `${file}: ${part.id} changed volume`,
-          );
-          for (
-            let i = 0;
-            i < part.triangles.length;
-            i += Math.max(1, Math.floor(part.triangles.length / 100))
-          ) {
-            const t = part.triangles[i],
-              ids = level.mesh.indices.slice(t * 3, t * 3 + 3);
-            const center = [0, 1, 2].map((axis) =>
+    for (const file of ["examples/showcase.aml", "examples/dust2.aml"]) {
+      const level = await compile(parseAml(await readFile(file, "utf8")), {
+          navigation: false,
+          retainExportSolids: true,
+        }),
+        physical = collisionMesh(level, true);
+      const solids = level
+        .exportSolids!.filter(
+          (source) =>
+            source.purpose === "physical" &&
+            source.surface.collidable !== false,
+        )
+        .map((source) => solidManifold(K, source));
+      try {
+        assert.ok(solids.length, `${file}: no retained physical solids`);
+        const expected = signedVolume(physical),
+          actual = solids.reduce((sum, solid) => sum + solid.volume(), 0),
+          area = solids.reduce((sum, solid) => sum + solid.surfaceArea(), 0);
+        assert.ok(
+          Math.abs(actual - expected) < Math.max(1e-6, area * 0.0001),
+          `${file}: retained ${actual} vs physical ${expected}`,
+        );
+        for (
+          let t = 0;
+          t < physical.surfaces.length;
+          t += Math.max(1, Math.floor(physical.surfaces.length / 100))
+        ) {
+          const ids = physical.indices.slice(t * 3, t * 3 + 3),
+            center = [0, 1, 2].map((axis) =>
               ids.reduce(
-                (sum, v) => sum + level.mesh.positions[v * 3 + axis] / 3,
+                (sum, id) => sum + physical.positions[id * 3 + axis] / 3,
                 0,
               ),
             );
-            const normal = level.mesh.normals.slice(ids[0] * 3, ids[0] * 3 + 3);
-            const start = center.map((v, k) => v - normal[k] * 0.001) as [
-                number,
-                number,
-                number,
-              ],
-              end = center.map((v, k) => v + normal[k] * 0.001) as [
-                number,
-                number,
-                number,
-              ];
-            assert.ok(
-              union.rayCast(start, end).length,
-              `${file}: ${part.id} triangle ${t} diverged from retained solid`,
-            );
-          }
-        } finally {
-          union.delete();
-          inputs.forEach((s) => s.delete());
+          const normal = physical.normals.slice(ids[0] * 3, ids[0] * 3 + 3),
+            start = center.map((v, i) => v - normal[i] * 0.001) as V3,
+            end = center.map((v, i) => v + normal[i] * 0.001) as V3;
+          assert.ok(
+            solids.some((solid) => solid.rayCast(start, end).length),
+            `${file}: final face ${t} diverges from retained solids`,
+          );
         }
+      } finally {
+        solids.forEach((solid) => solid.delete());
       }
     }
   });
   it("generates BSP source for curved walls, stairs, ramps and stacked floors with valid projections", async () => {
     const level = await compile(
-      parseLevelSvgx(await readFile("examples/showcase.level.svgx", "utf8")),
+      parseAml(await readFile("examples/showcase.aml", "utf8")),
       { navigation: false, retainExportSolids: true },
     );
     const wad = quakeWad(level, {}, palette),
@@ -473,29 +518,37 @@ describe("Quake brush export", () => {
   });
   it("preserves visual-only and collision-only prop semantics in BSP source", async () => {
     const d = fixture();
-    d.props = [
+    d.elements.push(
       {
+        kind: "box",
         id: "crate",
-        layer: "ground",
-        shape: "box",
         position: [5, 3, 1],
-        rotation: [0, 0, 0],
-        scale: [0.6, 0.6, 0.8],
+        width: 0.6,
+        depth: 0.6,
+        height: 0.8,
+        radius: 0.5,
+        topRadius: 0,
         material: "paint",
-        collision: "box",
+        visible: false,
+        dynamic: true,
       },
       {
+        kind: "box",
         id: "ghost",
-        layer: "ground",
-        shape: "box",
         position: [4, 3, 1],
-        rotation: [0, 0, 0],
-        scale: [0.5, 0.5, 0.5],
+        width: 0.5,
+        depth: 0.5,
+        height: 0.5,
+        radius: 0.5,
+        topRadius: 0,
         material: "paint",
-        collision: "none",
+        collidable: false,
       },
-    ];
-    const level = await compile(d, { navigation: false, retainExportSolids: true }),
+    );
+    const level = await compile(d, {
+        navigation: false,
+        retainExportSolids: true,
+      }),
       wad = quakeWad(level, {}, palette),
       map = await buildQuakeMap(level, wad.mappings, "props");
     assert.deepEqual(level.diagnostics, []);
@@ -507,24 +560,22 @@ describe("Quake brush export", () => {
 
   it("fails BSP export instead of dropping an open visual-only imported mesh", async () => {
     const d = fixture();
-    d.assets = [{ id: "open-mesh", src: "open.glb" }];
-    d.props = [{
+    d.elements.push({
+      kind: "visual-mesh",
       id: "open-visual",
-      layer: "ground",
-      shape: "asset",
-      asset: "open-mesh",
-      // Keep the open triangle above the floor so BSP solid validation owns this failure.
+      src: "open.glb",
       position: [4, 2, 1.1],
-      rotation: [0, 0, 0],
-      scale: [1, 1, 1],
       material: "paint",
-      collision: "none",
-    }];
+    });
     const level = await compile(d, {
       navigation: false,
       retainExportSolids: true,
       resolveAsset: async () => ({
-        positions: [[0, 0, 0], [1, 0, 0], [0, 1, 0]],
+        positions: [
+          [0, 0, 0],
+          [1, 0, 0],
+          [0, 1, 0],
+        ],
         triangles: [[0, 1, 2]],
       }),
     });
@@ -532,7 +583,7 @@ describe("Quake brush export", () => {
     const { mappings } = quakeWad(level, {}, palette);
     await assert.rejects(
       buildQuakeMap(level, mappings, "open"),
-      /open-visual: invalid export solid/,
+      /open-visual:.*cannot be exported as BSP brushes/i,
     );
   });
 
@@ -543,7 +594,7 @@ describe("Quake brush export", () => {
     level.document.markers = [];
     await assert.rejects(buildQuakeMap(level, mappings, "x"), /spawn marker/);
     level.document.markers = [
-      { id: "bad", kind: "spawn", position: [0.1, 0.1, 1], layer: "ground" },
+      { id: "bad", kind: "spawn", position: [0.3, 0.3, 1], layer: "ground" },
     ];
     await assert.rejects(
       buildQuakeMap(level, mappings, "x"),

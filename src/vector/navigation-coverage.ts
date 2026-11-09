@@ -63,14 +63,22 @@ class TriangleIndex {
     return all;
   }
 }
-function ownsProjectedPoint(t: Triangle, x: number, y: number, winding: number) {
+function ownsProjectedPoint(
+  t: Triangle,
+  x: number,
+  y: number,
+  winding: number,
+) {
   const vertices = winding > 0 ? [t.a, t.b, t.c] : [t.a, t.c, t.b];
   for (let i = 0; i < 3; i++) {
-    const A = vertices[i], B = vertices[(i + 1) % 3],
-      dx = B[0] - A[0], dy = B[1] - A[1],
+    const A = vertices[i],
+      B = vertices[(i + 1) % 3],
+      dx = B[0] - A[0],
+      dy = B[1] - A[1],
       side = dx * (y - A[1]) - dy * (x - A[0]);
     if (side < -1e-10) return false;
-    if (Math.abs(side) <= 1e-10 && !(dy > 0 || (dy === 0 && dx < 0))) return false;
+    if (Math.abs(side) <= 1e-10 && !(dy > 0 || (dy === 0 && dx < 0)))
+      return false;
   }
   return true;
 }
@@ -110,9 +118,11 @@ function closest(at: V3, a: V3, b: V3) {
 }
 
 function crossSection(t: Triangle, z: number) {
-  const vertices = [t.a, t.b, t.c], crossings: V3[] = [];
+  const vertices = [t.a, t.b, t.c],
+    crossings: V3[] = [];
   for (let i = 0; i < 3; i++) {
-    const a = vertices[i], b = vertices[(i + 1) % 3];
+    const a = vertices[i],
+      b = vertices[(i + 1) % 3];
     if ((a[2] <= z && b[2] > z) || (b[2] <= z && a[2] > z)) {
       const u = (z - a[2]) / (b[2] - a[2]);
       crossings.push([a[0] + u * (b[0] - a[0]), a[1] + u * (b[1] - a[1]), z]);
@@ -121,24 +131,51 @@ function crossSection(t: Triangle, z: number) {
   return crossings.length === 2 ? crossings : undefined;
 }
 
-function recordBlocked(report: NavigationCoverage, region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+function recordBlocked(
+  report: NavigationCoverage,
+  region: string,
+  at: V3,
+  reason: NavigationBlockReason,
+  clearance?: number,
+) {
   report.blockedCount = (report.blockedCount ?? 0) + 1;
   report.blockedByReason ??= {};
   report.blockedByReason[reason] = (report.blockedByReason[reason] ?? 0) + 1;
   report.blocked ??= [];
-  if (report.blocked.length < 2048) report.blocked.push({region,position:at,reason,clearance});
+  if (report.blocked.length < 2048)
+    report.blocked.push({ region, position: at, reason, clearance });
 }
-function recordUncovered(report: NavigationCoverage, row: NavigationCoverage["regions"][number], region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+function recordUncovered(
+  report: NavigationCoverage,
+  row: NavigationCoverage["regions"][number],
+  region: string,
+  at: V3,
+  reason: NavigationBlockReason,
+  clearance?: number,
+) {
   row.uncovered++;
   report.uncoveredCount++;
   row.reasons[reason] = (row.reasons[reason] ?? 0) + 1;
   if (report.uncovered.length < 2048)
-    report.uncovered.push({region,position:at,reason,...(clearance === undefined ? {} : {clearance})});
+    report.uncovered.push({
+      region,
+      position: at,
+      reason,
+      ...(clearance === undefined ? {} : { clearance }),
+    });
 }
-function recordCoverageFailure(premap: boolean, report: NavigationCoverage, row: NavigationCoverage["regions"][number], region: string, at: V3, reason: NavigationBlockReason, clearance?: number) {
+function recordCoverageFailure(
+  premap: boolean,
+  report: NavigationCoverage,
+  row: NavigationCoverage["regions"][number],
+  region: string,
+  at: V3,
+  reason: NavigationBlockReason,
+  clearance?: number,
+) {
   if (premap && ["slope", "width", "step", "headroom"].includes(reason))
-    recordBlocked(report,region,at,reason,clearance);
-  else recordUncovered(report,row,region,at,reason,clearance);
+    recordBlocked(report, region, at, reason, clearance);
+  else recordUncovered(report, row, region, at, reason, clearance);
 }
 
 /** Audit required floor samples independently of the surviving Recast polygons. */
@@ -159,19 +196,22 @@ export function auditNavigationCoverage(
     floors = new TriangleIndex();
   const triangles: Triangle[] = [],
     obstacleMeshes = new Set<string>();
-  for (let i = 0; i < level.mesh.indices.length; i += 3) {
-    const surface = level.surfaces[level.mesh.surfaces[i / 3]];
-    if (surface.collidable === false || (surface.dynamic && !options.sealed)) continue;
+  const physical = level.physicalMesh ?? level.mesh;
+  for (let i = 0; i < physical.indices.length; i += 3) {
+    const surface = level.surfaces[physical.surfaces[i / 3]],
+      solid = physical.solidIds?.[i / 3] || surface.mesh;
+    if (surface.collidable === false || (surface.dynamic && !options.sealed))
+      continue;
     if (surface.kind === "wall" || surface.kind === "prop")
-      obstacleMeshes.add(surface.mesh);
-    const [a, b, c] = level.mesh.indices
+      obstacleMeshes.add(solid);
+    const [a, b, c] = physical.indices
       .slice(i, i + 3)
-      .map((v) => level.mesh.positions.slice(v * 3, v * 3 + 3) as V3);
+      .map((v) => physical.positions.slice(v * 3, v * 3 + 3) as V3);
     mesh.add({
       a,
       b,
       c,
-      mesh: surface.mesh,
+      mesh: solid,
     });
   }
   for (const floor of level.floors)
@@ -219,7 +259,7 @@ export function auditNavigationCoverage(
       excessiveSteps.add(region.id);
   }
   for (const f of level.floors)
-    if (!rows.has(f.region))
+    if (f.navigationRequired !== false && !rows.has(f.region))
       rows.set(f.region, {
         region: f.region,
         sampled: 0,
@@ -255,27 +295,49 @@ export function auditNavigationCoverage(
     for (const tri of mesh.at(x, y)) {
       if (tri.mesh !== id) continue;
       const h = zAt(tri, x, y, true);
-      if (h !== undefined && h > z + EPS && !heights.some(v => Math.abs(v - h) < EPS)) heights.push(h);
+      if (
+        h !== undefined &&
+        h > z + EPS &&
+        !heights.some((v) => Math.abs(v - h) < EPS)
+      )
+        heights.push(h);
     }
     return heights.length % 2 === 1;
   };
   /** Distinguishes a grounded obstacle margin from a floating obstruction. */
-  const groundedMargin = (at: V3, q: ReturnType<typeof closest>, id: string) => {
+  const groundedMargin = (
+    at: V3,
+    q: ReturnType<typeof closest>,
+    id: string,
+  ) => {
     if (q.d >= p.radius) return false;
     if (q.d > EPS) {
-      const scale = 1 + EPS * 4 / q.d;
-      return insideWall(at[0] + q.x * scale, at[1] + q.y * scale, at[2] + p.step, id);
+      const scale = 1 + (EPS * 4) / q.d;
+      return insideWall(
+        at[0] + q.x * scale,
+        at[1] + q.y * scale,
+        at[2] + p.step,
+        id,
+      );
     }
     const length = Math.hypot(q.dx, q.dy);
     if (length <= EPS) return false;
-    return [-1, 1].some(sign => {
-      const scale = sign * EPS * 4 / length;
-      return insideWall(at[0] - q.dy * scale, at[1] + q.dx * scale, at[2] + p.step, id);
+    return [-1, 1].some((sign) => {
+      const scale = (sign * EPS * 4) / length;
+      return insideWall(
+        at[0] - q.dy * scale,
+        at[1] + q.dx * scale,
+        at[2] + p.step,
+        id,
+      );
     });
   };
   // Retain the original body plane for floating beams, plus a low plane for
   // retaining walls. Filled stair and slab sides participate like other solids.
-  const bodyPlanes = new Set([Math.min(p.height * 0.5, 0.75), Math.min(p.height * 0.5, p.step + EPS * 4)]);
+  const bodyPlanes = new Set([
+    Math.min(p.height * 0.5, 0.75),
+    Math.min(p.height * 0.5, p.step + EPS * 4),
+  ]);
   /** Classify an authored surface sample against physical clearance and actual navigation. */
   function inspect(at: V3, t: Triangle) {
     const f = t.floor!,
@@ -291,7 +353,15 @@ export function auditNavigationCoverage(
       report.excluded++;
     };
     const fail = (reason: NavigationBlockReason, clearance?: number) =>
-      recordCoverageFailure(level.document.validation === "premap", report, row, f.region, at, reason, clearance);
+      recordCoverageFailure(
+        level.document.validation === "premap",
+        report,
+        row,
+        f.region,
+        at,
+        reason,
+        clearance,
+      );
     const hits = new Map<string, number[]>();
     let ceiling = Infinity;
     for (const tri of mesh.at(at[0], at[1])) {
@@ -373,7 +443,9 @@ export function auditNavigationCoverage(
     // Movement clipping introduces shorelines and draft boundaries inside authored loops.
     // Probe actual nearby facet edges; shared interior edges have supported continuation.
     const boundaryLoops = level.water?.length
-      ? [...floors.around(at[0], at[1], margin)].filter(q => q.floor === f).map(q => [q.a,q.b,q.c])
+      ? [...floors.around(at[0], at[1], margin)]
+          .filter((q) => q.floor === f)
+          .map((q) => [q.a, q.b, q.c])
       : f.loops;
     for (const loop of boundaryLoops)
       for (let i = 0; i < loop.length; i++) {
@@ -385,9 +457,13 @@ export function auditNavigationCoverage(
         if (length <= EPS) continue;
         // An exact edge has no point-to-edge direction. Probe both normals so
         // ordinary margins remain exclusions while adjacent bad steps still fail.
-        const directions: [number, number][] = near.d > EPS
-          ? [[near.x / near.d, near.y / near.d]]
-          : [[-near.dy / length, near.dx / length], [near.dy / length, -near.dx / length]];
+        const directions: [number, number][] =
+          near.d > EPS
+            ? [[near.x / near.d, near.y / near.d]]
+            : [
+                [-near.dy / length, near.dx / length],
+                [near.dy / length, -near.dx / length],
+              ];
         for (const [directionX, directionY] of directions) {
           const x = at[0] + directionX * (near.d + cell),
             y = at[1] + directionY * (near.d + cell);
@@ -432,7 +508,8 @@ export function auditNavigationCoverage(
               b.interior &&
               Math.abs(a.dx * b.dx + a.dy * b.dy) >
                 0.98 * Math.hypot(a.dx, a.dy) * Math.hypot(b.dx, b.dy) &&
-              a.directionX * b.directionX + a.directionY * b.directionY < -0.7 &&
+              a.directionX * b.directionX + a.directionY * b.directionY <
+                -0.7 &&
               a.d + b.d < 2 * p.radius + cell,
           ),
     );
@@ -456,6 +533,7 @@ export function auditNavigationCoverage(
   }
   // Sample the authored surface, not nav centroids: partial low ceilings cannot disappear.
   for (const t of triangles) {
+    if (t.floor?.navigationRequired === false) continue;
     const minX = Math.min(t.a[0], t.b[0], t.c[0]),
       maxX = Math.max(t.a[0], t.b[0], t.c[0]),
       minY = Math.min(t.a[1], t.b[1], t.c[1]),

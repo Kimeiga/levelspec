@@ -5,7 +5,7 @@ import {
   projectReference,
   type ReferenceView,
   type V3,
-} from "../src/vector/index.ts";
+} from "levelspec";
 
 function calibratedReference(): ReferenceView {
   const camera = {

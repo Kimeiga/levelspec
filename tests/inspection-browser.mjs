@@ -1,3 +1,4 @@
+import { amlSource } from './fixtures/aml-source.mjs';
 /** Calibrated shared-reviewer pixels for neutral authored-color inspection. */
 import assert from 'node:assert/strict';
 import { mkdir, mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
@@ -11,7 +12,7 @@ import { launchBrowser, waitForFrames } from '../website/tests/browser-helpers.m
 await mkdir('generated', { recursive: true });
 const output = await mkdtemp(join('generated/', 'inspection-browser-'));
 const directory = await mkdtemp(join(tmpdir(), 'levelspec-inspection-'));
-const file = join(directory, 'level.level.svgx');
+const file = join(directory, 'level.aml');
 const measurements = {}, errors = [];
 const texture = new PNG({ width: 32, height: 32 });
 const red = [220,80,70], blue = [70,130,220], tint = 191;
@@ -45,7 +46,7 @@ const source=`<level version="2" id="inspection-calibration" name="Inspection ca
   <region id="textured-floor" boundary="p12 p23 p34 p41" fill="floor" material="pattern" thickness=".02"/>
  </layer>
 </level>`;
-await writeFile(file,source);
+await writeFile(file, await amlSource(source));
 let server,browser;
 
 /** Projects independently known world coordinates using the actual rendered camera diagnostics. */
@@ -98,7 +99,7 @@ async function capture(page,appearance,name) {
 try {
  server=await startPreview(file,{port:0,view:{projection:'orthographic',position:[9,12,10],target:[0,0,1],viewHeight:12,appearance:'materials'}});
  browser=await launchBrowser();
- const page=await browser.newPage({viewport:{width:1400,height:1050},deviceScaleFactor:1});
+ const page=await browser.newPage({viewport:{width:1400,height:1050},deviceScaleFactor:2});
  page.on('pageerror',error=>errors.push(error.message));
  page.on('console',message=>{if((message.type()==='error'&&!/favicon\.ico/.test(message.location().url))||/INVALID_OPERATION|GL_INVALID/.test(message.text()))errors.push(message.text());});
  // Texture companions arrive inside the verified source response, then decode through a browser blob URL.
@@ -118,6 +119,21 @@ try {
   if(patch(inspection,project([-4.75,-2.6,.05]))[0]>patch(inspection,project([-4.75,-2.6,.05]))[2]+40)break;
   await waitForFrames(page);
  }
+ const flat=await capture(page,'flat','flat');
+ measurements.flat=sample(flat);
+ for(const field of ['lit','shadow','wall'])closeColor(measurements.flat[field],[112,128,144],4,'Flat is unlit '+field);
+ for(const field of ['red','blue','repeat'])closeColor(measurements.flat[field],sample(inspection)[field],7,'Flat preserves '+field);
+ // The outline color target blends two .48-opacity glass faces in linear light.
+ closeColor(measurements.flat.glass,[152,169,196],7,'Flat glass retains rear color and front tint');
+ assert.ok(ink(flat,project([0,.2,3]))>2,'Flat retains structural contour ink');
+ assert.equal(ink(flat,project([3,2,0])),0,'Flat interior remains free of invented contours');
+ const canvasSize=await page.locator('#model canvas').evaluate(canvas=>({width:canvas.width,cssWidth:canvas.clientWidth,height:canvas.height,cssHeight:canvas.clientHeight}));
+ assert.ok(Math.abs(canvasSize.width-canvasSize.cssWidth)<=1&&Math.abs(canvasSize.height-canvasSize.cssHeight)<=1,'Flat draws at CSS resolution');
+ await page.locator('#cut').fill('0.45');await waitForFrames(page);
+ const flatSection=PNG.sync.read(await page.locator('#model canvas').screenshot({path:join(output,'flat-section.png'),scale:'css'}));
+ assert.equal(ink(flatSection,project([0,.2,3])),0,'Flat section removes clipped contour ink');
+ await page.locator('#cut').fill('1');await waitForFrames(page);
+ inspection=await capture(page,'inspection','inspection-after-flat');
  measurements.inspection=sample(inspection);
  for(const field of['lit','shadow','wall'])closeColor(measurements.inspection[field],[112,128,144],4,'Unlit authored color '+field);
  closeColor(measurements.inspection.red,tinted(red),7,'Tinted red texture');

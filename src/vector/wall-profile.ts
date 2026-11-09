@@ -1,4 +1,4 @@
-import type { Edge, FloorPatch, LevelDocument, V3 } from "./types.ts";
+import type { Edge, FloorPatch, RuntimeContext, V3 } from "./types.ts";
 import { EPS, heightAt, orient, pathAt, pathLength } from "./geometry.ts";
 
 /** Continue the supporting floor plane across a wall's thickness. The source
@@ -31,10 +31,11 @@ export function wallFootHeight(
 
 /** Resolve floor-relative wall heights without changing floor boundary vertices. */
 export function resolveWallProfile(
-  edge: Edge,
+  edge: Pick<Edge, "id" | "kind" | "height" | "baseFloor" | "topFloor" | "spanFloors">,
   path: V3[],
   floors: FloorPatch[],
-  document: LevelDocument,
+  document: Pick<RuntimeContext, "layers" | "floorThickness">,
+  soffits?: ReadonlyMap<string, FloorPatch>,
 ): { path: V3[]; top?: V3[] } | undefined {
   if (!edge.baseFloor && !edge.topFloor && !edge.spanFloors) return;
   if (edge.kind === "open")
@@ -145,8 +146,9 @@ export function resolveWallProfile(
       throw new Error(
         `Wall leaves top-floor ${top.region}. Split the edge at the floor boundary.`,
       );
-    const underside =
-      upper - (regions.get(top.region)!.thickness ?? document.floorThickness);
+    const soffit = soffits?.get(top.region);
+    const underside = soffits ? soffit && heightAt(soffit, p[0], p[1]) : upper - (regions.get(top.region)!.thickness ?? document.floorThickness);
+    if (underside === undefined) throw new Error(`Wall leaves the physical soffit of ${top.region}.`);
     if (underside <= lower + EPS)
       throw new Error(
         "The upper floor underside must be above the base floor along the entire wall.",

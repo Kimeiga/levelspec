@@ -29,7 +29,7 @@ export function validateViews(views) {
     for (const key of ['viewHeight', 'frameAspect']) {
       if (view[key] !== undefined) assert.ok(view[key] > 0, `Invalid ${key}`);
     }
-    if (view.appearance !== undefined) assert.ok(['inspection', 'illustrated'].includes(view.appearance), 'Invalid appearance');
+    if (view.appearance !== undefined) assert.ok(['flat', 'materials', 'inspection', 'illustrated'].includes(view.appearance), 'Invalid appearance');
   }
 }
 
@@ -92,7 +92,7 @@ export async function captureLevel(source, output, views, options = {}) {
     }
     assert.equal(hash(await readFile(file)), hash(bytes), 'Source changed during capture');
     assert.deepEqual(errors, [], 'Browser errors during capture');
-    await writeFile(join(directory, 'loaded.level.svgx'), bytes);
+    await writeFile(join(directory, 'loaded.aml'), bytes);
     const result = {...JSON.parse(loadedIdentity), sourceFile: file, views: evidence, errors};
     await writeFile(join(directory, 'capture.json'), JSON.stringify(result, null, 2) + '\n');
     return result;
@@ -106,7 +106,7 @@ export async function captureLevel(source, output, views, options = {}) {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const [source, output, manifest] = process.argv.slice(2);
-  if (!source || !output || !manifest) throw new Error('Usage: node tools/capture-level.mjs SOURCE.level.svgx NEW_OUTPUT VIEWS.json');
+  if (!source || !output || !manifest) throw new Error('Usage: node tools/capture-level.mjs SOURCE.aml NEW_OUTPUT VIEWS.json');
   const result = await captureLevel(source, output, JSON.parse(await readFile(manifest, 'utf8')));
   console.log(JSON.stringify({output: resolve(output), source: result.source, views: result.views.map(view => view.id)}));
 }

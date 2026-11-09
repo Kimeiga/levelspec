@@ -1,9 +1,11 @@
+import { localHeightmaps } from "./heightmaps.ts";
 /** Node-side file loading and output orchestration; domain APIs remain filesystem-free. */
 import { readFile, mkdir, writeFile, rm } from 'node:fs/promises';
 import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { compile, parseLevelSvgx, validateForRuntime, createGLBAssetResolver, toRuntime, toOBJ, toSVGPlan, atlasSVG, exportName, type CompiledLevel, type ValidationReport, type Diagnostic, type RepairRecord, type Suggestion } from '../vector/index.ts';
+import { compile, parseAml, validateForRuntime, createGLBAssetResolver, toRuntime, toOBJ, toSVGPlan, atlasSVG, exportName, type CompiledLevel, type ValidationReport, type Diagnostic, type RepairRecord, type Suggestion } from '../architecture/index.ts';
 import { exportLevel, type ExportFormat, type ExportFiles } from '../export/vector/index.ts';
+import { migrateProject } from './migrate.ts';
 
 export interface CommandResult {
   schemaVersion: 1;
@@ -41,6 +43,12 @@ export async function runCommand(command: string, input: string, options: RunOpt
   let stage = 'load';
   try {
     options.signal.throwIfAborted();
+    if (command === 'migrate') {
+      stage = 'migrate';
+      result.source = resolve(input); result.project = resolve(options.out!);
+      const migrated = await migrateProject(input, options.out!, { signal: options.signal });
+      result.artifacts = migrated.artifacts; result.success = true; return result;
+    }
     if (command === 'init') {
       stage = 'initialize';
       const project = resolve(input);
@@ -48,16 +56,16 @@ export async function runCommand(command: string, input: string, options: RunOpt
       await mkdir(dirname(project), { recursive:true });
       await mkdir(project);
       try {
-        const template = await readFile(fileURLToPath(new URL('../../examples/cli-starter.level.svgx', import.meta.url)), 'utf8');
+        const template = await readFile(fileURLToPath(new URL('../../examples/cli-starter.aml', import.meta.url)), 'utf8');
         for (const directory of ['references', 'schematics', 'reviews']) await mkdir(join(project,directory));
-        await writeFile(join(project,'level.level.svgx'),template);
-        await writeFile(join(project,'BRIEF.md'),'# Architectural project\n\nXML is the editable source. Record references, estimated dimensions and circulation requirements here.\n\nFrom the LevelSpec checkout run:\n\n- npm run levelspec -- validate "'+join(project,'level.level.svgx')+'"\n- npm run levelspec -- preview "'+join(project,'level.level.svgx')+'"\n- npm run levelspec -- build "'+join(project,'level.level.svgx')+'" --out generated/my-project\n\nInspect plans, sections, diagnostics and routes; correct XML, export, and retain review evidence. Gameplay navigation is not building-code certification.\n');
+        await writeFile(join(project,'level.aml'),template);
+        await writeFile(join(project,'BRIEF.md'),'# Architectural project\n\nXML is the editable source. Record references, estimated dimensions and circulation requirements here.\n\nFrom the LevelSpec checkout run:\n\n- npm run levelspec -- validate "'+join(project,'level.aml')+'"\n- npm run levelspec -- preview "'+join(project,'level.aml')+'"\n- npm run levelspec -- build "'+join(project,'level.aml')+'" --out generated/my-project\n\nInspect plans, sections, diagnostics and routes; correct XML, export, and retain review evidence. Gameplay navigation is not building-code certification.\n');
         options.signal.throwIfAborted();
       } catch (error) {
         await rm(project, {recursive:true,force:true});
         throw error;
       }
-      result.artifacts = ['level.level.svgx','BRIEF.md','references','schematics','reviews'].map(name=>join(project,name));
+      result.artifacts = ['level.aml','BRIEF.md','references','schematics','reviews'].map(name=>join(project,name));
       result.success = true;
       return result;
     }
@@ -65,17 +73,19 @@ export async function runCommand(command: string, input: string, options: RunOpt
     result.source = source;
     const text = await readFile(source,{encoding:'utf8',signal:options.signal});
     stage = 'parse';
-    const document = parseLevelSvgx(text);
+    const document = parseAml(text);
     stage = 'compile';
     const resolveAsset = createGLBAssetResolver(async(reference, signal)=> {
       signal?.throwIfAborted();
       if (/^[a-z]+:/i.test(reference)) throw new Error('GLB assets must be local files, not URLs.');
       return readFile(resolve(dirname(source),reference), {signal});
     });
+    const heightmaps = localHeightmaps(source);
     const formats = options.formats ?? ['glb'];
     const level = await compile(document, {
       signal: options.signal,
       resolveAsset,
+      resolveHeightmap: heightmaps.load,
       uvs: command === 'build' && !options.noUV,
       retainExportSolids: command === 'build' && formats.includes('bsp'),
       floorGaps: options.strictFloorGaps ? 'error' : 'warning',
@@ -124,6 +134,7 @@ export async function runCommand(command: string, input: string, options: RunOpt
         output: resolve(options.out!),
         sourceFile: source,
         additionalFiles,
+        heightmaps: Object.fromEntries(heightmaps.snapshots),
         signal: options.signal,
         onProgress: options.progress,
         blender: options.blender,

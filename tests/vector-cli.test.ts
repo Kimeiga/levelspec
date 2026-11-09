@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { join, isAbsolute } from "node:path";
 import { createServer } from "node:net";
 import { fileURLToPath } from "node:url";
-import { SceneBuilder, parseLevelSvgx, serializeLevelSvgx } from "levelspec/vector";
+import { ArchitectureBuilder, parseAml, serializeAml } from "levelspec";
 import { writeExportFiles } from "../src/export/vector/index.ts";
 import { NavigationSurface } from "../website/navigation.ts";
 import { navigationDoorway } from "./fixtures/navigation-doorway.ts";
@@ -25,12 +25,12 @@ function run(args: string[], cwd = process.cwd()) {
 }
 /** Provides a bounded walkable architectural input independently of CLI initialization. */
 async function sourceFile(directory: string) {
-  const scene = new SceneBuilder("cli-contract");
-  const group = scene.group("ground");
-  const floor = group.platform("floor", { width: 8, depth: 8, material: "default" });
-  scene.document.markers.push({ id: "spawn", kind: "attacker_spawn", layer: group.layer.id, region: floor.id, position: [1, 1, 0] });
-  const file = join(directory, "level with spaces.level.svgx");
-  await writeFile(file, serializeLevelSvgx(scene.document));
+  const scene = new ArchitectureBuilder("cli-contract");
+  scene.profile("footprint", [[0, 0, 0], [8, 0, 0], [8, 8, 0], [0, 8, 0]]);
+  const floor = scene.slab("ground/floor", "footprint", { group: "ground" });
+  scene.document.markers.push({ id: "spawn", kind: "attacker_spawn", layer: "ground", region: floor.id, position: [1, 1, 0] });
+  const file = join(directory, "level with spaces.aml");
+  await writeFile(file, serializeAml(scene.document));
   return file;
 }
 /** Asserts the single-result JSON protocol, including primitive contract fields. */
@@ -125,8 +125,8 @@ test("preview launcher carries a valid camera into its live URL and shuts down",
 test("navigation resolution survives CLI validation and build exports without changing geometry", async () => {
   const temp = await mkdtemp(join(tmpdir(), "levelspec-nav-cell-"));
   try {
-    const source = join(temp, "doorway.level.svgx"), output = join(temp, "output");
-    const xml = serializeLevelSvgx(navigationDoorway());
+    const source = join(temp, "doorway.aml"), output = join(temp, "output");
+    const xml = serializeAml(navigationDoorway());
     await writeFile(source, xml);
     const cells = [undefined, 0.125, 0.0625, 0.025, 0.5];
     let defaultKey: string | undefined;
@@ -190,7 +190,7 @@ test("init creates a usable project and refuses existing destinations without mu
     assert.equal(created.code, 0, created.stderr);
     result(created.stdout, "init", true);
     for (const directory of ["references", "schematics", "reviews"]) assert.deepEqual(await readdir(join(project, directory)), []);
-    const file = join(project, "level.level.svgx");
+    const file = join(project, "level.aml");
     const original = await readFile(file, "utf8");
     const validated = await run(["validate", file, "--json"], temp);
     assert.equal(validated.code, 0, validated.stderr || validated.stdout);
@@ -199,6 +199,28 @@ test("init creates a usable project and refuses existing destinations without mu
     assert.equal(again.code, 1);
     result(again.stdout, "init", false);
     assert.equal(await readFile(file, "utf8"), original);
+  } finally { await rm(temp, { recursive: true, force: true }); }
+});
+
+test("CLI migrates SVGX explicitly while normal inputs accept equivalent AML and XML", async () => {
+  const temp = await mkdtemp(join(tmpdir(), "levelspec-migrate-cli-"));
+  try {
+    const legacy = join(temp, "old.level.svgx"), output = join(temp, "new");
+    const original = await readFile(new URL("../examples/cli-starter.level.svgx", import.meta.url), "utf8");
+    await writeFile(legacy, original);
+    const rejected = await run(["validate", legacy, "--json"]);
+    assert.equal(rejected.code, 1);
+    assert.ok(result(rejected.stdout, "validate", false).diagnostics.some((diagnostic: { message: string }) => /migrate/.test(diagnostic.message)));
+    const migrated = await run(["migrate", legacy, "--out", output, "--json"]);
+    assert.equal(migrated.code, 0, migrated.stderr || migrated.stdout);
+    assert.ok(result(migrated.stdout, "migrate", true).artifacts.some((file: string) => file.endsWith("level.aml")));
+    const aml = join(output, "level.aml"), xml = join(output, "level.xml");
+    await writeFile(xml, await readFile(aml));
+    const first = await run(["validate", aml, "--json"]), second = await run(["validate", xml, "--json"]);
+    assert.equal(first.code, 0, first.stderr || first.stdout); assert.equal(second.code, 0, second.stderr || second.stdout);
+    assert.equal(result(first.stdout, "validate", true).report.navigation.settings.geometryHash, result(second.stdout, "validate", true).report.navigation.settings.geometryHash);
+    assert.equal(await readFile(legacy, "utf8"), original);
+    assert.equal((await run(["migrate", legacy, "--out", output, "--json"])).code, 1);
   } finally { await rm(temp, { recursive: true, force: true }); }
 });
 
@@ -212,7 +234,7 @@ test("validate reports source failures without creating output and recovers afte
     assert.equal(broken.code, 1);
     const failed = result(broken.stdout, "validate", false);
     assert.ok(failed.diagnostics.some((d: {severity: string; source?: unknown}) => d.severity === "error" && d.source));
-    assert.deepEqual(await readdir(temp), ["level with spaces.level.svgx"]);
+    assert.deepEqual(await readdir(temp), ["level with spaces.aml"]);
     await writeFile(file, valid);
     const repaired = await run(["validate", file, "--json"], temp);
     assert.equal(repaired.code, 0, repaired.stderr || repaired.stdout);
@@ -237,9 +259,9 @@ test("build publishes portable files from another working directory and preserve
     const runtime = JSON.parse(await readFile(join(output, "cli-contract.runtime.json"), "utf8"));
     assert.equal(runtime.id, "cli-contract");
     const validSource = await readFile(source, "utf8");
-    const obstructed = parseLevelSvgx(validSource);
-    obstructed.layers[0].regions[0].ceiling = 0.5;
-    await writeFile(source, serializeLevelSvgx(obstructed));
+    const obstructed = parseAml(validSource);
+    obstructed.elements.push({ id: "low-ceiling", kind: "box", position: [0, 0, .5], width: 8, depth: 8, height: .2, radius: .5, topRadius: 0 });
+    await writeFile(source, serializeAml(obstructed));
     const invalidBuild = await run(["build", source, "--out", output, "--json", "--no-uv"], temp);
     assert.equal(invalidBuild.code, 1);
     assert.equal(result(invalidBuild.stdout, "build", false).report.passed, false);

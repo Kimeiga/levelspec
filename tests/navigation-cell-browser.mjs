@@ -4,7 +4,7 @@ import { mkdir, mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createServer } from 'vite';
-import { serializeLevelSvgx } from '../src/vector/index.ts';
+import { serializeAml } from 'levelspec';
 import { navigationDoorway } from './fixtures/navigation-doorway.ts';
 import { startPreview } from '../src/cli/preview.ts';
 import { launchBrowser } from '../website/tests/browser-helpers.mjs';
@@ -12,8 +12,8 @@ import { launchBrowser } from '../website/tests/browser-helpers.mjs';
 await mkdir('generated', { recursive: true });
 const output = await mkdtemp('generated/navigation-cell-browser-');
 const directory = await mkdtemp(join(tmpdir(), 'levelspec-nav-cell-'));
-const file = join(directory, 'level.level.svgx');
-const source = serializeLevelSvgx(navigationDoorway());
+const file = join(directory, 'level.aml');
+const source = serializeAml(navigationDoorway());
 await writeFile(file, source);
 const errors = [], results = [];
 let server, website, browser;
@@ -137,15 +137,19 @@ try {
   await ready(page, 0.0625);
   await page.waitForFunction(() => document.querySelector('#model').dataset.mode === 'walk');
 
-  await writeFile(file, source.replace('name="navigation-doorway"', 'name="Refreshed doorway"'));
+  const refreshed = navigationDoorway();
+  refreshed.name = 'Refreshed doorway';
+  await writeFile(file, serializeAml(refreshed));
   await page.waitForFunction(() => document.querySelector('#title').textContent === 'Refreshed doorway');
   await ready(page, 0.0625);
 
   // Coincident visible wall faces produce real partial geometry with a terminal compiler error.
   const overlapping = navigationDoorway();
   overlapping.name = 'Overlapping doorway jamb';
-  overlapping.props.push({ ...structuredClone(overlapping.props[0]), id: 'duplicate-jamb' });
-  await writeFile(file, serializeLevelSvgx(overlapping));
+  const jamb = overlapping.elements.find(element => element.id === 'south-jamb');
+  assert.ok(jamb);
+  overlapping.elements.push({ ...structuredClone(jamb), id: 'duplicate-jamb' });
+  await writeFile(file, serializeAml(overlapping));
   await page.waitForFunction(() => document.querySelector('#title').textContent === 'Overlapping doorway jamb'
     && document.querySelector('#status').dataset.state === 'ready');
   await open(page, '#navigation-grid');

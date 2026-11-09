@@ -9,8 +9,8 @@ import {
   sha256Bytes,
 } from "../src/lighting/manifest.ts";
 import { materialAssets } from "./materials.ts";
-import catalog from "./assets/bakes/catalog.json";
-const files = import.meta.glob<string>("./assets/bakes/*/*", {
+import catalog from "./assets/bakes/aml-v1/catalog.json";
+const files = import.meta.glob<string>("./assets/bakes/aml-v1/*/*", {
   eager: true,
   query: "?url",
   import: "default",
@@ -28,7 +28,7 @@ export interface BakedLighting {
 const textHash = (text: string) =>
   sha256Bytes(new TextEncoder().encode(text).buffer);
 async function bytes(path: string) {
-  const url = files[`./assets/bakes/${path}`];
+  const url = files[`./assets/bakes/aml-v1/${path}`];
   if (!url) throw new Error("Baked asset is missing from this build.");
   const response = await fetch(url);
   if (!response.ok)

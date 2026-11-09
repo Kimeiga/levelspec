@@ -11,14 +11,14 @@ assert.throws(() => validateViews([view,view]));
 assert.throws(() => validateViews([{...view,position:[NaN,0,0]}]));
 const directory = await mkdtemp(join(tmpdir(),'levelspec-capture-'));
 try {
-  const original = await readFile(new URL('../examples/cli-starter.level.svgx', import.meta.url),'utf8');
-  const {SceneBuilder, compile, toGLB} = await import('../src/vector/index.ts');
-  const fixture = new SceneBuilder('capture-companion');
-  fixture.group('mesh').box('crate', {position:[0,0,0],size:[1,1,1],material:'default',collision:'none'});
+  const original = await readFile(new URL('../examples/cli-starter.aml', import.meta.url),'utf8');
+  const {ArchitectureBuilder, compile, toGLB} = await import('levelspec');
+  const fixture = new ArchitectureBuilder('capture-companion');
+  fixture.box('crate', {position:[0,0,0],width:1,depth:1,height:1,material:'default',collidable:false});
   const companion = toGLB(await compile(fixture.document,{navigation:false}));
   await writeFile(join(directory,'crate.glb'), companion);
-  const text = original.replace('</level>', '<asset id="crate" src="crate.glb"/><prop id="crate-prop" layer="ground" shape="asset" asset="crate" position="2 2 0" rotation="0 0 0" scale="1 1 1" collision="none"/></level>');
-  const broken = join(directory, 'broken.level.svgx');
+  const text = original.replace('</architecture>', '<visual-mesh id="crate-prop" src="crate.glb" position="2 2 0"/></architecture>');
+  const broken = join(directory, 'broken.aml');
   await writeFile(broken, text.replace('crate.glb', 'missing.glb'));
   const failed = join(directory, 'failed');
   await assert.rejects(captureLevel(broken, failed, [view]));
@@ -26,8 +26,8 @@ try {
   await assert.rejects(access(join(failed, 'capture.json')), {code: 'ENOENT'});
   const hashes = [];
   for (let i=0;i<2;i++) {
-    const source = join(directory,`source-${i}.level.svgx`);
-    const bytes = text.replace('</level>',`<!-- distinct source ${i} --></level>`);
+    const source = join(directory,`source-${i}.aml`);
+    const bytes = text.replace('</architecture>',`<!-- distinct source ${i} --></architecture>`);
     await writeFile(source,bytes);
     const output = join(directory,`capture-${i}`);
     const result = await captureLevel(source,output,[view]);
