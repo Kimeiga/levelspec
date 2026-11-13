@@ -1,11 +1,16 @@
 import {validateReference} from "../vector/reference.ts";
+import { registerLibraryMaterials } from "../materials/catalog.ts";
 import {AmlError} from "./format.ts";
 import { snapCoordinate } from "../vector/precision.ts";
-import type { ArchitectureDocument, ArchitectureElement, Placement, ProfileLoop, V3 } from "./types.ts";
+import { validateMaterial } from "../vector/materials.ts";
+import type { ArchitectureDocument, ArchitectureInput, ArchitectureElement, Placement, ProfileLoop, V3 } from "./types.ts";
 
 /** Clones source dimensions onto the authoring lattice exactly once, before any geometry is derived. */
-export function normalizeArchitecture(document: ArchitectureDocument): ArchitectureDocument {
-  const result = structuredClone(document), q = snapCoordinate;
+export function normalizeArchitecture(document: ArchitectureInput): ArchitectureDocument {
+  const result = structuredClone(document) as ArchitectureDocument, q = snapCoordinate;
+  registerLibraryMaterials(result);
+  const materialFindings = result.materials.flatMap(validateMaterial);
+  if (materialFindings.length) throw new AmlError(materialFindings);
   const vector = (point: V3): V3 => point.map(q) as V3;
   const placement = (object: Placement) => { if (object.position) object.position = vector(object.position); };
   const loop = (loop: ProfileLoop) => { if (loop.points) loop.points = loop.points.map(vector); };

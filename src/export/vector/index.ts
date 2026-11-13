@@ -1,3 +1,4 @@
+import { withBuiltinMaterialImages } from "../../materials/images.ts";
 import { createHash } from "node:crypto";
 /** Node-only export orchestration. Browser users import levelspec instead. */
 import {
@@ -20,6 +21,7 @@ import {
   exportMetadata,
   exportName,
   resolveExportAssets,
+  usedExportMaterialIds,
   type ExportAsset,
   type ExportFiles,
   type ExportFormat,
@@ -27,6 +29,7 @@ import {
 import { fbxTextures } from "./textures.ts";
 import { blenderPath, runTool } from "./process.ts";
 import { exportBSP, type BSPOptions } from "./bsp.ts";
+import { materialTextures } from "../../vector/materials.ts";
 export interface ExportLevelOptions extends BSPOptions {
   formats: ExportFormat[];
   output: string;
@@ -141,11 +144,25 @@ export async function exportLevel(
   )
     throw new Error("Choose glb, gltf, fbx, or bsp export formats.");
   options.signal?.throwIfAborted();
-  const assets =
-    options.assets ??
+  if (level.mesh.colors && formats.some(format => !["glb", "gltf"].includes(format))) throw new Error("Vertex-colored dressing currently exports through GLB or glTF.");
+  const usedMaterials = usedExportMaterialIds(level, [...new Set(level.mesh.surfaces)].filter(index => level.surfaces[index].visible !== false));
+  const visibleMaterials = level.document.materials.filter(material => usedMaterials.has(material.id));
+  if (visibleMaterials.some(material => material.emissive && (material.emissiveStrength ?? 1) > 0) && formats.some(format => !["glb", "gltf"].includes(format)))
+    throw new Error("Emissive materials currently export through GLB or glTF only.");
+  if (visibleMaterials.some(material => material.normalTexture) && formats.some(format => !["glb", "gltf"].includes(format)))
+    throw new Error("Normal-mapped materials currently export through GLB or glTF.");
+  if (visibleMaterials.some(material => material.alphaCutoff !== undefined) && formats.some(format => !["glb", "gltf"].includes(format)))
+    throw new Error("Materials with an alpha cutoff currently export through GLB or glTF.");
+  if (visibleMaterials.some(material => material.metallicRoughnessTexture) && formats.some(format => !["glb", "gltf"].includes(format)))
+    throw new Error("Metallic-roughness textures currently export through GLB or glTF.");
+  if (visibleMaterials.some(material => (material.opacity ?? 1) < 1) && formats.some(format => !["glb", "gltf"].includes(format)))
+    throw new Error("Alpha-blended materials currently export through GLB or glTF.");
+  const assets = {
+    ...level.generatedImages,
+    ...(options.assets ??
     (await resolveExportAssets(
       level,
-      async (reference) => {
+      withBuiltinMaterialImages(async (reference, signal) => {
         if (/^[a-z]+:/i.test(reference))
           throw new Error("Use a local PNG/JPEG file, not a URL.");
         return readFile(
@@ -155,10 +172,12 @@ export async function exportLevel(
               : process.cwd(),
             reference,
           ),
+          { signal },
         );
-      },
+      }),
       options.signal,
-    ));
+    ))),
+  };
   assertExportable(level, { assets });
   const output = resolve(options.output),
     name = exportName(level.document.id);
@@ -173,25 +192,20 @@ export async function exportLevel(
     const sourceSha256 = createHash("sha256").update(bytes).digest("hex");
     return [source,{sourceSha256,file:`heightmaps/${sourceSha256}.png`,size:bytes.byteLength}];
   }));
+  const visualMaterials = usedExportMaterialIds(level, [...new Set(level.mesh.surfaces)].filter(index => level.surfaces[index].visible !== false));
+  const visualImageHashes = new Set(level.document.materials.filter(material => visualMaterials.has(material.id))
+    .flatMap(material => materialTextures(material).map(reference => assets[reference].hash)));
+  const gltfImageFiles = new Map<string, string>();
   const report: Record<string, unknown> = {
     version: 1,
     geometryHash: level.geometryHash,
     formats,
     warnings: [],
     heightmaps: heightmapSnapshots,
-    textures: Object.fromEntries(
-      Object.entries(assets).map(([ref, a]) => [
-        ref,
-        {
-          sourceSha256: a.hash,
-          gltfFile: formats.includes("gltf") ? a.file : undefined,
-          embeddedInGLB: formats.includes("glb"),
-        },
-      ]),
-    ),
   };
   try {
     const files: ExportFiles = { ...options.additionalFiles };
+    for (const image of Object.values(level.generatedImages ?? {})) files[image.file] = image.bytes;
     for (const [source, bytes] of Object.entries(options.heightmaps ?? {})) files[heightmapSnapshots[source].file] = bytes;
     if (formats.includes("glb")) {
       options.onProgress?.("Writing GLB");
@@ -199,7 +213,11 @@ export async function exportLevel(
     }
     if (formats.includes("gltf")) {
       options.onProgress?.("Writing glTF");
-      Object.assign(files, toGLTF(level, { assets }));
+      const gltfFiles = toGLTF(level, { assets });
+      for (const asset of Object.values(assets)) {
+        if (Object.hasOwn(gltfFiles, asset.file)) gltfImageFiles.set(asset.hash, asset.file);
+      }
+      Object.assign(files, gltfFiles);
     }
     files[`${name}.levelspec.json`] = JSON.stringify(
       exportMetadata(level, formats),
@@ -255,6 +273,13 @@ export async function exportLevel(
     }
     if (formats.includes("bsp"))
       report.bsp = await exportBSP(level, assets, stage, name, options);
+    report.textures = Object.fromEntries(
+      Object.entries(assets).map(([reference, asset]) => [reference, {
+        sourceSha256: asset.hash,
+        gltfFile: gltfImageFiles.get(asset.hash),
+        embeddedInGLB: formats.includes("glb") && visualImageHashes.has(asset.hash),
+      }]),
+    );
     options.signal?.throwIfAborted();
     await writeFile(
       join(stage, `${name}.export.json`),

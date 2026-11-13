@@ -1,3 +1,4 @@
+import { COURTYARD_BAKE_PRESETS } from "./fixtures/courtyard/bake-presets.ts";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import {
@@ -6,19 +7,15 @@ import {
   generateUVs,
   resolveExportAssets,
 } from "../src/architecture/index.ts";
-import { sourceForState, readState } from "../website/state.ts";
+import { sourceForState } from "./fixtures/courtyard/variants.ts";
 import { bakeLighting } from "../src/lighting/bake.ts";
 import { createHash } from "node:crypto";
-const presets = {
-  clay: { curve: 3, height: 3 },
-  chalk: { curve: 6, height: 5 },
-  night: { curve: 0, height: 3.5 },
-};
-const [style = "clay", destination = "website-qa/bakes", sampleText = "32"] =
+const presets = COURTYARD_BAKE_PRESETS;
+const [style = "clay", destination = "generated/site-bakes", sampleText = "32"] =
   process.argv.slice(2);
 if (!(style in presets)) throw new Error("Use clay, chalk, or night.");
 const look = style as keyof typeof presets;
-const source = sourceForState({ ...readState(""), look, ...presets[look] });
+const source = sourceForState({ look, ...presets[look] });
 const level = await compile(parseAml(source));
 await generateUVs(level, { density: 8, resolution: 1024, padding: 8 });
 console.log("ATLAS", JSON.stringify(level.atlas?.pages));

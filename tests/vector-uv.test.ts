@@ -8,8 +8,8 @@ import {
   auditUVs,
   collisionMesh,
 } from "levelspec";
-import { buildCourtyard } from "../website/architecture.ts";
-import { sourceForState } from "../website/state.ts";
+import { buildCourtyard } from "../tools/fixtures/courtyard/architecture.ts";
+import { sourceForState } from "../tools/fixtures/courtyard/variants.ts";
 
 const receiverCases = [
   {
@@ -29,8 +29,6 @@ const receiverCases = [
     source: sourceForState({
       ...preset,
       blocked: false,
-      step: 0,
-      present: false,
     }),
     resolution: 1024,
     expectTiny: preset.look === "clay",

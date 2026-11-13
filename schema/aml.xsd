@@ -88,6 +88,14 @@
     <xs:attribute name="roughness" type="xs:double"/>
     <xs:attribute name="metalness" type="xs:double"/>
     <xs:attribute name="texture" type="xs:string"/>
+    <xs:attribute name="normal-texture" type="xs:string"/>
+    <xs:attribute name="normal-scale" type="xs:double"/>
+    <xs:attribute name="metallic-roughness-texture" type="xs:string"/>
+    <xs:attribute name="height-texture" type="xs:string"/>
+    <xs:attribute name="height-scale" type="xs:double"/>
+    <xs:attribute name="height-offset" type="xs:double"/>
+    <xs:attribute name="opacity" type="xs:double"/>
+    <xs:attribute name="alpha-cutoff" type="xs:double"/>
   </xs:complexType>
   <xs:complexType name="face-materialType">
     <xs:attribute name="id" type="xs:string" use="required"/>
@@ -1054,9 +1062,68 @@
   <xs:element name="zone" type="roomType"/>
   <xs:element name="volume" type="roomType"/>
   <xs:element name="clearance" type="roomType"/>
+  <xs:complexType name="dressingRuleType">
+    <xs:attribute name="host" type="xs:string" use="required"/>
+    <xs:attribute name="material" type="xs:string" use="required"/>
+    <xs:attribute name="face" type="xs:string"/>
+    <xs:attribute name="grime" type="xs:double"/>
+    <xs:attribute name="wear" type="xs:double"/>
+    <xs:attribute name="windows" type="xs:boolean"/>
+    <xs:attribute name="stories" type="xs:positiveInteger"/>
+    <xs:attribute name="shops" type="xs:double"/>
+    <xs:attribute name="base-wall" type="xs:string"/>
+    <xs:attribute name="ground">
+      <xs:simpleType><xs:restriction base="xs:string"><xs:enumeration value="patched"/></xs:restriction></xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="patch-size" type="xs:double"/>
+    <xs:attribute name="material-size" type="xs:double"/>
+    <xs:attribute name="relief" type="xs:double"/>
+    <xs:attribute name="wetness" type="xs:double"/>
+    <xs:attribute name="litter" type="xs:double"/>
+    <xs:attribute name="repairs" type="xs:double"/>
+    <xs:attribute name="joined-pours" type="xs:double"/>
+    <xs:attribute name="asphalt" type="xs:double"/>
+    <xs:attribute name="asphalt-material" type="xs:string"/>
+    <xs:attribute name="manholes" type="xs:double"/>
+    <xs:attribute name="breakup" type="xs:double"/>
+    <xs:attribute name="tile-share" type="xs:double"/>
+    <xs:attribute name="tile-size" type="xs:double"/>
+    <xs:attribute name="tile-aspect" type="xs:double"/>
+    <xs:attribute name="tile-wear" type="xs:double"/>
+    <xs:attribute name="tile-grime" type="xs:double"/>
+    <xs:attribute name="tile-color" type="xs:string"/>
+    <xs:attribute name="texture-density" type="xs:double"/>
+    <xs:attribute name="timber-share" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="dressingSpansType">
+    <xs:attribute name="hosts" type="xs:string"/>
+    <xs:attribute name="cables" type="xs:double"/>
+    <xs:attribute name="clotheslines" type="xs:double"/>
+    <xs:attribute name="signs" type="xs:double"/>
+    <xs:attribute name="clearance" type="xs:double"/>
+    <xs:attribute name="reach" type="xs:double"/>
+  </xs:complexType>
+  <xs:element name="dressing">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="wall" type="dressingRuleType"/>
+        <xs:element name="floor" type="dressingRuleType"/>
+        <xs:element name="building" type="dressingRuleType"/>
+        <xs:element name="spans" type="dressingSpansType"/>
+      </xs:choice>
+      <xs:attribute name="theme" fixed="kowloon-street@1"/>
+      <xs:attribute name="seed" type="xs:string" use="required"/>
+      <xs:attribute name="grime" type="xs:double"/>
+      <xs:attribute name="wear" type="xs:double"/>
+      <xs:attribute name="detail" type="xs:string"/>
+      <xs:attribute name="finishes" type="xs:string"/>
+      <xs:attribute name="wall-materials" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="architecture">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="dressing"/>
         <xs:element ref="coordinate-frame"/>
         <xs:element ref="datum"/>
         <xs:element ref="path"/>

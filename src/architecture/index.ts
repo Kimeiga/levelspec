@@ -1,4 +1,6 @@
 export * from "./types.ts";
+export type { SurfaceRasterJob, SurfaceRasterResult, SurfaceRasterExecutor, SurfaceRasterExecutionContext } from "../dressing/surface/raster-execution.ts";
+export { SurfaceRasterJobError } from "../dressing/surface/raster-execution.ts";
 export {
   createArchitecture,
   parseAml,
@@ -6,6 +8,8 @@ export {
   AmlError,
 } from "./format.ts";
 export { compile } from "./compiler.ts";
+export type { MaterialRole } from "../materials/catalog.ts";
+export { withBuiltinMaterialImages, builtinMaterialURL } from "../materials/images.ts";
 export { ArchitectureBuilder } from "./builder.ts";
 export { architectureCompanions } from "./assets.ts";
 export { validateForRuntime, bakeNavmesh } from "../vector/validate.ts";
@@ -63,3 +67,7 @@ export { TerrainTileCache } from "./terrain-cache.ts";
 export * from "../vector/reference.ts";
 export * from "../vector/reference-raster.ts";
 export * from "../vector/reference-fit.ts";
+
+export { POSTER_DESIGNS, drawPoster } from "../dressing/posters.ts";
+export type { PosterDesign, PosterOptions } from "../dressing/posters.ts";
+export type { PosterRule } from "../dressing/types.ts";

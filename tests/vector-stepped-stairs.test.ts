@@ -9,6 +9,11 @@ function fixture(climb = .6, rise = .2, thickness = .25) {
   const scene=new ArchitectureBuilder('stepped-stairs');scene.document.validation='premap';scene.path('axis',[[1,0,0],[1,2,climb]]);const region=scene.stairs('stairs/flight',{path:'axis',width:2,count:Math.ceil(climb/rise),thickness,underside:'stepped'});return {scene,region};
 }
 
+/** Open stair sides request architectural review without invalidating the tested solid geometry. */
+function assertOnlyOpenSideWarnings(level: CompiledLevel) {
+  assert.ok(level.diagnostics.every(diagnostic => diagnostic.severity === "warning" && diagnostic.code === "FLIGHT_OPEN_SIDE"), JSON.stringify(level.diagnostics));
+}
+
 /** Measures the first real collision triangle hit from above or below a known tread interior. */
 function verticalHit(level: CompiledLevel, x: number, y: number, upward: boolean) {
   return geometryHit(compiledGeometry(level),x,y,upward);
@@ -45,7 +50,7 @@ function compiledGeometry(level: CompiledLevel) {
 test("stepped underside preserves exact tread thickness, real risers, closure and one cubic meter volume", async () => {
   const {scene}=fixture();
   const level=await compile(scene.document,{navigation:false,retainExportSolids:true,surfaceContacts:"error",floorGaps:"error"});
-  assert.deepEqual(level.diagnostics,[]);
+  assertOnlyOpenSideWarnings(level);
   for (const [y,top,bottom] of [[1/3,.2,-.05],[1,.4,.15],[5/3,.6,.35]]) {
     assert.ok(Math.abs(verticalHit(level,1,y,false)-top)<1e-6);
     assert.ok(Math.abs(verticalHit(level,1,y,true)-bottom)<1e-6);
@@ -65,7 +70,7 @@ test("stepped underside preserves exact tread thickness, real risers, closure an
 test("stepped thickness validates actual equalized rise and preserves a positive submillimeter join", async () => {
   for(const [climb,rise,thickness] of [[.65,.2,.17],[1,.34,.334]]) {
     const {scene}=fixture(climb,rise,thickness);const level=await compile(scene.document,{navigation:false});
-    assert.deepEqual(level.diagnostics,[]);
+    assertOnlyOpenSideWarnings(level);
     const g=parseGLBGeometry(toGLB(level));assert.ok(await solidVolume(g.positions,g.triangles)>0);
   }
   for(const thickness of [.2,.199]){
@@ -77,18 +82,18 @@ test("stepped thickness validates actual equalized rise and preserves a positive
 
 test("native XML retains stepped and explicit filled/sloped underside descriptions",async()=>{
   const {scene,region}=fixture();assert.equal(parseAml(serializeAml(scene.document)).elements.find(e=>e.id==='stairs/flight')!.kind,'stairs');
-  for(const [mode,bottom]of [['filled',-.25],['sloped',.05]]as const){region.underside=mode;const level=await compile(scene.document,{navigation:false});assert.deepEqual(level.diagnostics,[]);assert.ok(Math.abs(verticalHit(level,1,1,true)-bottom)<1e-6);}
+  for(const [mode,bottom]of [['filled',-.25],['sloped',.05]]as const){region.underside=mode;const level=await compile(scene.document,{navigation:false});assertOnlyOpenSideWarnings(level);assert.ok(Math.abs(verticalHit(level,1,1,true)-bottom)<1e-6);}
 });
 
 test("native stepped stair landings preserve exact physical support and connected navigation",async()=>{
   const {scene}=fixture();for(const [id,y,z]of [['lower',-1,0],['upper',2,.6]]as const){const p=scene.profile(id+':profile',[[0,y,z],[2,y,z],[2,y+1,z],[0,y+1,z]]);scene.slab('stairs/'+id,p.id,{thickness:.25});}scene.assembly('physical',[...scene.document.elements]);scene.document.markers.push({id:'spawn',layer:'architecture',region:'stairs/lower',position:[1,-.5,0],kind:'spawn'});
-  const level=await compile(scene.document,{navigation:false,surfaceContacts:'error',floorGaps:'error'});assert.deepEqual(level.diagnostics,[]);const report=await validateForRuntime(level);assert.equal(report.passed,true,JSON.stringify(report.diagnostics));assert.ok(report.navigation!.reachableRegions.includes('stairs/upper'));
+  const level=await compile(scene.document,{navigation:false,surfaceContacts:'error',floorGaps:'error'});assertOnlyOpenSideWarnings(level);const report=await validateForRuntime(level);assert.equal(report.passed,true,JSON.stringify(report.diagnostics));assert.ok(report.navigation!.reachableRegions.includes('stairs/upper'));
 });
 
 test("curved paired stepped rails remain closed Float32 solids in either authored direction",async()=>{
   for(const reversed of [false,true]){
     const b=new ArchitectureBuilder('curved-steps');for(const [id,r]of [['left',2],['right',4]]as const){const path=b.path(id,[[r,0,0]],{segments:[{kind:'arc',center:[0,0,0],radii:[r,r],start:0,sweep:90,rotation:0}],elevation:[0,1.2]});if(reversed){b.path(id+'-reverse',[],{paths:['-'+path.id]});}}
-    b.stairs('flight',{left:reversed?'right-reverse':'left',right:reversed?'left-reverse':'right',count:6,thickness:.25,underside:'stepped'});const level=await compile(b.document,{navigation:false});assert.deepEqual(level.diagnostics,[]);const g=parseGLBGeometry(toGLB(level));assert.ok(await solidVolume(g.positions,g.triangles)>0);
+    b.stairs('flight',{left:reversed?'right-reverse':'left',right:reversed?'left-reverse':'right',count:6,thickness:.25,underside:'stepped'});const level=await compile(b.document,{navigation:false});assertOnlyOpenSideWarnings(level);const g=parseGLBGeometry(toGLB(level));assert.ok(await solidVolume(g.positions,g.triangles)>0);
   }
 });
 

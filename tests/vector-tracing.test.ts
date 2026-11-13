@@ -66,13 +66,18 @@ test('native tracing preserves document IDs that also name generated objects',as
   }
 });
 
-test('native trace constraints still pass through the unchanged runtime publication gate',async()=>{
+test('native trace publication warns on unproven route multiplicity and rejects demonstrated requirements',async()=>{
   const d=traceToDocument(raster(Array.from({length:8},()=>Array(12).fill(0))));
   d.markers=[{id:'start',kind:'attacker_spawn',layer:'ground',position:[2.5,3.5,0]},
     {id:'end',kind:'objective',layer:'ground',position:[9.5,3.5,0]}];
   d.routes=[{id:'required',from:'start',to:'end',minRoutes:2}];
-  await assert.rejects(()=>produceDocument(d),/ROUTE_REQUIREMENT/);assert.equal(d.routes[0].minRoutes,2);
-  d.routes[0].minRoutes=1;d.noSpawnLos=[['start','end']];
+  const unverified=await produceDocument(d);
+  assert.equal(unverified.report.passed,true);
+  assert.ok(unverified.report.diagnostics.some(diagnostic=>diagnostic.code==='PHYSICAL_ROUTE_UNVERIFIED'&&diagnostic.severity==='warning'));
+  assert.equal(d.routes[0].minRoutes,2);
+  d.routes[0].maxDistance=6;
+  await assert.rejects(()=>produceDocument(d),/ROUTE_REQUIREMENT/);assert.equal(d.routes[0].maxDistance,6);
+  delete d.routes[0].maxDistance;d.routes[0].minRoutes=1;d.noSpawnLos=[['start','end']];
   await assert.rejects(()=>produceDocument(d),/SPAWN_LOS/);assert.equal(d.noSpawnLos.length,1);
 });
 

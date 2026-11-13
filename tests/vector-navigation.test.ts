@@ -19,8 +19,8 @@ test('native capsule navigation delivers geometry first and reuses only exact se
 });
 
 test('native headroom findings retain exact source identity through runtime and cache location refresh',async()=>{
-  const b=room();ceiling(b,1.8);const slab=b.document.elements.flatMap(e=>'children'in e?e.children:[e]).find(e=>e.id==='room')!;if(slab.kind!=='slab')throw new Error('slab');slab.area='logical-room';const document=parseAml(serializeAml(b.document)),level=await compile(document),nav=level.navigation!,finding=nav.diagnostics.find(d=>d.code==='NAV_HEADROOM')!;assert.ok(finding);assert.deepEqual(finding.objects,['room']);assert.deepEqual(finding.source,document.elements.flatMap(e=>'children'in e?e.children:[e]).find(e=>e.id==='room')!.source);assert.ok(finding.source!.line>0);assert.deepEqual(toRuntime(level).navigation!.diagnostics,nav.diagnostics);assert.equal(await bakeNavmesh(level),nav);
-  const source={...finding.source!,line:999};level.provenance.room.source=source;assert.equal(await bakeNavmesh(level),nav);assert.deepEqual(nav.diagnostics.find(d=>d.code==='NAV_HEADROOM')!.source,source);
+  const b=room();ceiling(b,1.8);const slab=b.document.elements.flatMap(e=>'children'in e?e.children:[e]).find(e=>e.id==='room')!;if(slab.kind!=='slab')throw new Error('slab');slab.area='logical-room';const document=parseAml(serializeAml(b.document)),level=await compile(document),nav=level.navigation!,finding=nav.diagnostics.find(d=>d.code==='NAV_HEADROOM')!;assert.ok(finding);assert.deepEqual(finding.objects,['room','ceiling']);assert.ok(finding.relatedSources?.find(entry=>entry.object==='ceiling')?.source);assert.ok(finding.review?.position.every(Number.isFinite));assert.ok(finding.review!.bounds.max[0]<=6);assert.match(finding.message,/1\.800 m/);assert.deepEqual(finding.source,document.elements.flatMap(e=>'children'in e?e.children:[e]).find(e=>e.id==='room')!.source);assert.ok(finding.source!.line>0);assert.deepEqual(toRuntime(level).navigation!.diagnostics,nav.diagnostics);assert.equal(await bakeNavmesh(level),nav);
+  const source={...finding.source!,line:999};level.provenance.room.source=source;assert.equal(await bakeNavmesh(level),nav);assert.deepEqual(nav.diagnostics.find(d=>d.code==='NAV_HEADROOM')!.source,source);level.provenance.ceiling.source={...source,line:1001};await bakeNavmesh(level);assert.equal(nav.diagnostics.find(d=>d.code==='NAV_HEADROOM')!.relatedSources?.find(entry=>entry.object==='ceiling')?.source?.line,1001);
 });
 
 test('native occupied footprints and ordinary capsule boundary margins do not invent narrow passages',async()=>{
@@ -46,7 +46,13 @@ test('same-position native storeys retain distinct support and use the upper sla
 test('narrow branches and completely eroded floors fail actual width without a geometry bake error',async()=>{
   const b=new ArchitectureBuilder('branch');addFloor(b,'narrow',[[0,0,0],[4,0,0],[4,1.8,0],[7,1.8,0],[7,2.2,0],[4,2.2,0],[4,4,0],[0,4,0]]);spawn(b,'start',[2,2,0]);const nav=(await compile(b.document)).navigation!;assert.equal(nav.passed,false);assert.ok(nav.coverage.uncovered.some(s=>s.region==='narrow'&&s.reason==='width'));
   const narrow=new ArchitectureBuilder('eroded');floor(narrow,'hall',0,0,4,.4);spawn(narrow,'start',[1,.2,0]);spawn(narrow,'end',[3,.2,0]);narrow.document.routes.push({id:'blocked',from:'start',to:'end',minRoutes:1});const level=await compile(narrow.document);assert.equal(level.navigation!.indices.length,0);const report=await validateForRuntime(level);assert.ok(report.diagnostics.some(d=>d.code==='NAV_WIDTH'));assert.ok(report.diagnostics.some(d=>d.code==='ROUTE_REQUIREMENT'));assert.ok(!report.diagnostics.some(d=>d.code==='NAV_BAKE'));
-  const beams=new ArchitectureBuilder('beams');beams.document.player.radius=.35;beams.document.player.height=1.8;floor(beams,'room',0,0,4,4);floor(beams,'branch',4,1.85,3,.8);spawn(beams,'start',[2,2,0]);box(beams,'south',[4,1.85,.6],[7,2.05,3]);box(beams,'north',[4,2.45,.6],[7,2.65,3]);assert.ok((await validateForRuntime(await compile(beams.document))).diagnostics.some(d=>d.code==='NAV_WIDTH'));
+  const beams=new ArchitectureBuilder('beams');beams.document.player.radius=.35;beams.document.player.height=1.8;floor(beams,'room',0,0,4,4);floor(beams,'branch',4,1.85,3,.8);spawn(beams,'start',[2,2,0]);box(beams,'south',[4,1.85,.6],[7,2.05,3]);box(beams,'north',[4,2.45,.6],[7,2.65,3]);
+  const widthReport=await validateForRuntime(await compile(parseAml(serializeAml(beams.document))));
+  const finding=widthReport.diagnostics.find(d=>d.code==='NAV_WIDTH')!;
+  assert.deepEqual(new Set(finding.objects),new Set(['branch','south','north']));
+  assert.ok(finding.relatedSources?.every(entry=>entry.source?.line));
+  assert.match(finding.message,/0\.400 m/);
+  assert.ok(finding.review!.bounds.min[0]>=4&&finding.review!.bounds.max[0]<=7);
 });
 
 test('sharp triangular tips are boundary margins rather than manufactured corridors',async()=>{
@@ -69,4 +75,46 @@ test('sealed dynamic reports, marker edits and cancellation remain separate from
 
 test('native declared traversal endpoint areas round-trip and unknown physical owners are rejected',async()=>{
   const b=new ArchitectureBuilder('link');floor(b,'a',0,0,4,4);floor(b,'b',6,0,4,4);b.document.links.push({id:'jump',kind:'jump',ability:'jump',bidirectional:true,from:[2,2,0],to:[8,2,0],fromArea:'a',toArea:'b'});const parsed=parseAml(serializeAml(b.document));assert.deepEqual(parsed.links.map(link=>[link.fromArea,link.toArea]),[['a','b']]);assert.ok(!(await compile(parsed,{navigation:false})).diagnostics.some(d=>d.code==='LINK_AREA'));parsed.links[0].toArea='missing';assert.ok((await compile(parsed,{navigation:false})).diagnostics.some(d=>d.severity==='error'&&(d.objects.includes('jump')||d.objects.includes('missing'))));
+});
+
+test('each failed region retains a blocker and inspection target after detailed samples reach their cap',async()=>{
+  const b=new ArchitectureBuilder('many-clearance-failures');
+  floor(b,'large',0,0,30,30);box(b,'large-ceiling',[0,0,1.7],[30,30,2]);
+  floor(b,'later',40,0,3,3);box(b,'later-ceiling',[40,0,1.6],[43,3,2]);
+  const level=await compile(parseAml(serializeAml(b.document)));
+  assert.ok(level.navigation!.coverage.uncovered.length>0);
+  assert.ok(level.navigation!.coverage.uncoveredCount>level.navigation!.coverage.uncovered.length,'The fixture must exhaust retained sample detail while preserving aggregate failures');
+  const finding=level.navigation!.diagnostics.find(d=>d.code==='NAV_HEADROOM'&&d.objects.includes('later'))!;
+  assert.ok(finding.objects.includes('later-ceiling'));
+  assert.ok(finding.relatedSources?.every(entry=>entry.source?.line));
+  assert.ok(finding.review!.bounds.min[0]>=40&&finding.review!.bounds.max[0]<=43);
+});
+
+test('failed physical analysis clears stale navigation and recovers with current body settings',async()=>{
+  const level=await compile(room().document);
+  const before=level.navigation;
+  level.document.player.radius=.3;
+  await assert.rejects(bakeNavmesh(level,{physicalWork:1}),/work budget/i);
+  assert.equal(level.navigation,undefined);
+  assert.equal(level.navigationSuggestionsStatus,'unavailable');
+  assert.ok(!level.diagnostics.some(d=>d.code==='NAV_ISLAND'||d.code==='FLIGHT_NAV_MISSING'));
+  const recovered=await bakeNavmesh(level);
+  assert.notEqual(recovered,before);
+  assert.equal(recovered.settings.player.radius,.3);
+  assert.equal(recovered.passed,true);
+});
+
+
+test('sealed coverage stays informational unless a declared route or connection requires it',async()=>{
+  const b=new ArchitectureBuilder('closed-state');
+  floor(b,'hall',0,0,8,2);spawn(b,'start',[1,1,0]);spawn(b,'end',[7,1,0]);
+  box(b,'door',[3.8,0,0],[4.2,2,3],true);
+  const unrestricted=await validateForRuntime(await compile(b.document),{sealed:true});
+  assert.equal(unrestricted.passed,true);
+  b.document.routes.push({id:'required-crossing',from:'start',to:'end',minRoutes:1});
+  const required=await validateForRuntime(await compile(b.document),{sealed:true});
+  assert.equal(required.navigation!.routes[0].reachable,true);
+  assert.equal(required.sealed!.routes[0].reachable,false);
+  assert.equal(required.passed,false);
+  assert.ok(required.diagnostics.some(d=>d.code==='ROUTE_REQUIREMENT'&&d.message.startsWith('Sealed:')));
 });

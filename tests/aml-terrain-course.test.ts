@@ -4,8 +4,8 @@ import assert from 'node:assert/strict';
 import {compile,parseAml,collisionMesh,generateUVs,auditUVs,toGLB,toRuntime,type V3} from 'levelspec';
 import {prepareInspectionWalk} from '../review/walk.ts';
 
-const source=await readFile(new URL('../examples/terrain-course.aml',import.meta.url),'utf8');
-const raster=await readFile(new URL('../examples/terrain-course/hill.png',import.meta.url));
+const source=await readFile(new URL('./fixtures/aml/terrain-course.aml',import.meta.url),'utf8');
+const raster=await readFile(new URL('./fixtures/aml/terrain-course/hill.png',import.meta.url));
 async function build(text=source){return compile(parseAml(text),{resolveHeightmap:async()=>raster});}
 
 test('maintained terrain course routes traverse the actual physical road and tunnel with unchanged player dimensions',async()=>{

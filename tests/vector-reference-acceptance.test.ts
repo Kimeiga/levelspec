@@ -13,7 +13,7 @@ import {
 
 describe("rooftop multi-view reference acceptance", () => {
   it("matches all checked-in views using the actual compiled mesh", async () => {
-    const source = await readFile("examples/rooftop-reference.aml", "utf8"),
+    const source = await readFile("tests/fixtures/aml/rooftop-reference.aml", "utf8"),
       level = await compile(parseAml(source), {
         navigation: false,
         floorGaps: "error",

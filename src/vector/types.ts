@@ -1,5 +1,6 @@
 import type { MeshAsset, AssetResolver } from "./props.ts";
 import type { ReferenceView } from "./reference.ts";
+import type { ExportAsset } from "./export-assets.ts";
 /** Shared geometry and output contracts use right-handed Z-up meters. */
 export type V2 = [number, number];
 export type V3 = [number, number, number];
@@ -9,7 +10,7 @@ export interface SourceLocation {
   offset: number;
   end?: number;
 }
-/** Source-linked world-space overlap inspection target in Z-up meters. */
+/** Source-linked diagnostic inspection target in world Z-up meters. */
 export interface DiagnosticReview {
   id: string;
   layers: string[];
@@ -17,6 +18,7 @@ export interface DiagnosticReview {
   position: V3;
   direction: V3;
   patches: V3[][];
+  navigation?: { component: string };
 }
 export type ReviewFinding = Pick<
   Suggestion,
@@ -29,6 +31,8 @@ export type ReviewFinding = Pick<
   | "navigation"
 > & { code?: string; patches?: V3[][] };
 export interface Diagnostic {
+  /** Identifies the review evidence whose acknowledgment controls this warning. */
+  suggestion?: { id: string; fingerprint: string };
   review?: DiagnosticReview;
   relatedSources?: { object: string; source?: SourceLocation }[];
   severity: "error" | "warning" | "info";
@@ -45,7 +49,9 @@ export interface Suggestion {
     | "FLIGHT_WALL_GAP"
     | "FLIGHT_OPEN_SIDE"
     | "NAV_ISLAND"
-    | "FLIGHT_NAV_MISSING";
+    | "FLIGHT_NAV_MISSING"
+    | "ROOF_STEP_OPEN"
+    | "WALL_ABOVE_ROOF";
   message: string;
   objects: string[];
   sources: { object: string; source?: SourceLocation }[];
@@ -151,7 +157,30 @@ export interface Material extends Named {
   repeat: number;
   roughness: number;
   metalness: number;
+  /** Intrinsic emitted color in sRGB hex; independent of incident light. */
+  emissive?: string;
+  /** Nonnegative emission multiplier; defaults to one. Values above one use glTF's emissive-strength extension. */
+  emissiveStrength?: number;
   texture?: string;
+  /** Linear tangent-space normal image using glTF's +Y convention and material UV0. */
+  normalTexture?: string;
+  /** Nonnegative tangent normal strength; defaults to one and does not displace geometry. */
+  normalScale?: number;
+  /** Linear UV0 image: green multiplies roughness and blue multiplies metalness. */
+  metallicRoughnessTexture?: string;
+  /** Compile-only linear red-channel height image; not a runtime displacement map. */
+  heightTexture?: string;
+  /** Meters from black to white in heightTexture; nonnegative, defaults to 0.01. */
+  heightScale?: number;
+  /** Meters added to the sampled height; defaults to zero. Requires heightTexture. */
+  heightOffset?: number;
+  /** Uniform opacity, 0–1. Below one uses alpha blending and cannot combine with alphaCutoff. */
+  opacity?: number;
+  /**
+   * Draws only texels of `texture` whose alpha is at least this value, strictly
+   * between 0 and 1; absent, the material is opaque and alpha is ignored.
+   */
+  alphaCutoff?: number;
 }
 export interface Light extends Named {
   kind: "directional" | "point" | "spot";
@@ -234,6 +263,8 @@ export interface Boat {
 export const DEFAULT_BOAT: Boat = { radius: 2, draft: 0.5, height: 2 };
 /** Derived semantic context for geometry backends; never an authoring document. */
 export interface RuntimeContext extends Named {
+  /** Authored lighting context for the reviewer; omitted means day. */
+  timeOfDay?: "day" | "night";
   reviewSuppressions?: ReviewSuppression[];
   assets?: MeshAsset[];
   references?: ReferenceView[];
@@ -292,6 +323,8 @@ export interface Surface {
   assignment?: string;
 }
 export interface MeshData {
+  /** Linear RGB vertex modulation, baked into visual exports. */
+  colors?: number[];
   positions: number[];
   normals: number[];
   indices: number[];
@@ -375,6 +408,10 @@ export interface TerrainTile {
 }
 
 export interface CompiledLevel {
+  /** Exact flat-domain partitions by closed collision; nonflat/unknown areas remain optimistic. */
+  connectionDomains?: { area: string; elevation: number; height: number; step: number; components: V3[][][] }[];
+  /** Resolved native mouth spans in world Z-up meters, independent of authored path frames. */
+  connections?: { id: string; from: string; to: string; path?: V3[]; source?: SourceLocation }[];
   terrainTiles?: TerrainTile[];
   spatialVolumes?: SpatialVolume[];
   /** Optional native-source lookup supplements the shared runtime semantic view. */
@@ -405,6 +442,8 @@ export interface CompiledLevel {
   /** Optional closed, pre-union solids for brush exporters. */
   exportSolids?: ExportSolid[];
   document: RuntimeContext;
+  /** Compiler-owned intrinsic material images; binary payloads are omitted from JSON snapshots. */
+  generatedImages?: Record<string, ExportAsset>;
   mesh: MeshData;
   /** Composed physical mesh retained before render-only material partitioning. */
   physicalMesh?: MeshData;
@@ -447,6 +486,8 @@ export interface UVOptions {
   signal?: AbortSignal;
 }
 export interface NavigationOptions {
+  /** Bounds physical entrance-resource analysis. Defaults to 8,000,000 operations per phase. */
+  physicalWork?: number;
   onProgress?: (stage: string) => void;
   /** Observes reachable floor centroids; supplying it bypasses the report cache. */
   onReachableSample?: (position: V3, distance: number) => void;
@@ -463,12 +504,15 @@ export interface NavigationOptions {
 export type NavigationBlockReason =
   "headroom" | "width" | "slope" | "step" | "disconnected" | "uncovered";
 export interface NavigationCoverage {
+  /** At least one retained failure per region/reason, independent of the detailed-sample cap. */
+  representatives?: NavigationCoverage["uncovered"];
   blockedCount?: number;
   blocked?: {
     region: string;
     position: V3;
     reason: NavigationBlockReason;
     clearance?: number;
+    blockers?: string[];
   }[];
   blockedByReason?: Partial<Record<NavigationBlockReason, number>>;
   sampleSpacing: number;
@@ -482,6 +526,7 @@ export interface NavigationCoverage {
     position: V3;
     reason: NavigationBlockReason;
     clearance?: number;
+    blockers?: string[];
   }[];
   regions: {
     region: string;
@@ -503,6 +548,8 @@ export interface NavigationComponent {
   layers: string[];
 }
 export interface NavigationReport {
+  /** Conservative verified resources and optimistic capacity, never semantic declaration counts. */
+  physical?: import("./physical-routes.ts").PhysicalRouteEvidence;
   componentDetails: NavigationComponent[];
   /** One component ID for each triangle of indices; empty means disabled polygon. */
   triangleComponents: string[];
@@ -536,7 +583,10 @@ export interface NavigationReport {
     id: string;
     reachable: boolean;
     distance: number;
+    /** Verified entrance-resource count; reachable endpoint paths establish at least one. */
     disjointRoutes: number;
+    /** Optimistic bound over grouped declared resources; absent when ownership or geometric evidence is incomplete. */
+    maximumDisjointRoutes?: number;
     /** Copied Recast straight-path points in world Z-up meters; absent if unreachable. */
     path?: V3[];
   }[];

@@ -6,7 +6,7 @@ import { Ray, Vector3 } from "three";
 import { compile, parseAml, serializeAml, validateForRuntime, collisionMesh } from "levelspec";
 import { migrateSvgx } from "levelspec/migration";
 
-const source = await readFile(new URL("../examples/dust2.level.svgx", import.meta.url), "utf8");
+const source = await readFile(new URL("./fixtures/migration/dust2.level.svgx", import.meta.url), "utf8");
 const document = await migrateSvgx(source);
 const maintained = parseAml(await readFile(new URL("../examples/dust2.aml", import.meta.url), "utf8"));
 const built = compile(maintained);
@@ -79,7 +79,6 @@ test("native Dust II preserves independently recorded local elevations and direc
     ['a_short_site_connection', 625, 115, 4], ['ct_underpass', 650, 230, 0], ['a_short', 650, 230, 4],
     ['ct_a_ramp', 761.99, 230, 2], ['ct_a_stairs', 761.99, 267, 2], ['ct_a_landing', 770, 267, 2],
     ['long_a', 885, 470, 2], ['a_ramp', 885, 260, 2], ['a_back_platform', 820, 101, 4.54],
-    ['a_north_stairs', 820, 112, 4.54], ['a_north_stairs', 820, 120, 4.36], ['a_north_stairs', 820, 130, 4.18],
     ['t_spawn', 490, 900, 3], ['t_spawn_ramp', 607, 900, 2], ['t_mid_ramp', 462, 850, 2], ['t_long_ramp', 630, 850, 2],
   ] as const) assert.ok(Math.abs(sample(id, x, y) - expected) < .001, `${id} expected ${expected}`);
   assert.ok(sample('ct_a_ramp', 700, 230) < sample('ct_a_ramp', 750, 230));

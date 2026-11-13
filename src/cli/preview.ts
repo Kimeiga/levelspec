@@ -1,4 +1,6 @@
 import { localHeightmaps } from "./heightmaps.ts";
+import { localMaterialImages } from "./material-images.ts";
+import { materialCompanions } from "../vector/materials.ts";
 /** Read-only loopback preview of one XML source and its declared local companions. */
 import { readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
@@ -59,16 +61,22 @@ export async function startPreview(file: string, options: {port?:number;signal?:
           res.setHeader("Content-Type","application/json");
           try {
             const text=await readFile(source,"utf8"), files:Record<string,number[]>={};
-            let references:string[]=[], heightmaps=new Set<string>();
+            let references:string[]=[], heightmaps=new Set<string>(), materialImages=new Set<string>();
             const rasterLoader=localHeightmaps(source);
+            const imageLoader=localMaterialImages(source);
             try {
               const document=parseAml(text);
               references=architectureCompanions(document);heightmaps=heightmapCompanions(document);
+              materialImages=new Set(document.materials.flatMap(materialCompanions));
             } catch { /* Send malformed text to the normal source-linked worker diagnostics. */ }
             for(const reference of new Set(references)) {
               if(/^[a-z]+:/i.test(reference))throw new Error(`Preview requires a local asset: ${reference}`);
               const path=resolve(dirname(source),reference);tracked.add(path);vite.watcher.add(dirname(path));
-              files[reference.replaceAll("\\","/").replace(/^\.\//,"")]=Array.from(heightmaps.has(reference) ? await rasterLoader.load({src:reference}) : await readFile(path));
+              let bytes:Uint8Array;
+              if(heightmaps.has(reference))bytes=await rasterLoader.load({src:reference});
+              else if(materialImages.has(reference))bytes=await imageLoader.load(reference);
+              else bytes=await readFile(path);
+              files[reference.replaceAll("\\","/").replace(/^\.\//,"")]=Array.from(bytes);
             }
             res.end(JSON.stringify({text,files,revision}));
           } catch(error) {res.end(JSON.stringify({error:(error as Error).message,revision}));}

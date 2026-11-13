@@ -285,6 +285,17 @@ export function wallGeometry(
         openings.some((candidate) => {
           const aperture = candidate.element;
           if (aperture.kind !== "opening") return false;
+          if (aperture.shape === "profile" && aperture.profile) {
+            const profile = resolution.profiles.get(aperture.profile);
+            if (!profile) return false;
+            const stations = profile.loops
+              .flat()
+              .map((point) => point[0] + aperture.center[0]);
+            return (
+              station >= Math.min(...stations) - 1e-7 &&
+              station <= Math.max(...stations) + 1e-7
+            );
+          }
           const radius =
             aperture.shape === "circle"
               ? aperture.radius

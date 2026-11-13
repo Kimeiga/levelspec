@@ -14,6 +14,7 @@ type Triangle = {
   b: V3;
   c: V3;
   mesh?: string;
+  object?: string;
   floor?: FloorPatch;
   slope?: number;
 };
@@ -137,13 +138,14 @@ function recordBlocked(
   at: V3,
   reason: NavigationBlockReason,
   clearance?: number,
+  blockers?: string[],
 ) {
   report.blockedCount = (report.blockedCount ?? 0) + 1;
   report.blockedByReason ??= {};
   report.blockedByReason[reason] = (report.blockedByReason[reason] ?? 0) + 1;
   report.blocked ??= [];
   if (report.blocked.length < 2048)
-    report.blocked.push({ region, position: at, reason, clearance });
+    report.blocked.push({ region, position: at, reason, clearance, blockers });
 }
 function recordUncovered(
   report: NavigationCoverage,
@@ -152,7 +154,11 @@ function recordUncovered(
   at: V3,
   reason: NavigationBlockReason,
   clearance?: number,
+  blockers?: string[],
 ) {
+  report.representatives ??= [];
+  if (!report.representatives.some(sample => sample.region === region && sample.reason === reason))
+    report.representatives.push({ region, position: at, reason, clearance, blockers });
   row.uncovered++;
   report.uncoveredCount++;
   row.reasons[reason] = (row.reasons[reason] ?? 0) + 1;
@@ -162,6 +168,7 @@ function recordUncovered(
       position: at,
       reason,
       ...(clearance === undefined ? {} : { clearance }),
+      ...(blockers?.length ? { blockers } : {}),
     });
 }
 function recordCoverageFailure(
@@ -172,10 +179,11 @@ function recordCoverageFailure(
   at: V3,
   reason: NavigationBlockReason,
   clearance?: number,
+  blockers?: string[],
 ) {
   if (premap && ["slope", "width", "step", "headroom"].includes(reason))
-    recordBlocked(report, region, at, reason, clearance);
-  else recordUncovered(report, row, region, at, reason, clearance);
+    recordBlocked(report, region, at, reason, clearance, blockers);
+  else recordUncovered(report, row, region, at, reason, clearance, blockers);
 }
 
 /** Audit required floor samples independently of the surviving Recast polygons. */
@@ -212,6 +220,7 @@ export function auditNavigationCoverage(
       b,
       c,
       mesh: solid,
+      object: surface.object,
     });
   }
   for (const floor of level.floors)
@@ -352,7 +361,7 @@ export function auditNavigationCoverage(
       row.excluded++;
       report.excluded++;
     };
-    const fail = (reason: NavigationBlockReason, clearance?: number) =>
+    const fail = (reason: NavigationBlockReason, clearance?: number, blockers?: string[]) =>
       recordCoverageFailure(
         level.document.validation === "premap",
         report,
@@ -361,13 +370,20 @@ export function auditNavigationCoverage(
         at,
         reason,
         clearance,
+        blockers,
       );
     const hits = new Map<string, number[]>();
     let ceiling = Infinity;
+    const ceilingObjects = new Set<string>();
     for (const tri of mesh.at(at[0], at[1])) {
       const z = zAt(tri, at[0], at[1]);
       if (z === undefined) continue;
-      if (z > at[2] + 0.06) ceiling = Math.min(ceiling, z - at[2]);
+      if (z > at[2] + 0.06) {
+        const clearance = z - at[2];
+        if (clearance < ceiling - EPS) ceilingObjects.clear();
+        if (clearance <= ceiling + EPS && tri.object) ceilingObjects.add(tri.object);
+        ceiling = Math.min(ceiling, clearance);
+      }
       if (z > at[2] + 0.03 && zAt(tri, at[0], at[1], true) !== undefined) {
         const h = hits.get(tri.mesh!) ?? [];
         if (!h.some((v) => Math.abs(v - z) < EPS)) h.push(z);
@@ -418,7 +434,7 @@ export function auditNavigationCoverage(
         excluded();
         return;
       }
-      fail("headroom", ceiling);
+      fail("headroom", ceiling, [...ceilingObjects]);
       return;
     }
     if (excessiveSteps.has(f.region)) {
@@ -437,6 +453,7 @@ export function auditNavigationCoverage(
     const limits: (ReturnType<typeof closest> & {
       directionX: number;
       directionY: number;
+      object: string;
     })[] = [];
     let step = false;
     const margin = p.radius + cell * 2;
@@ -479,7 +496,7 @@ export function auditNavigationCoverage(
             })
           )
             step = true;
-          limits.push({ ...near, directionX, directionY });
+          limits.push({ ...near, directionX, directionY, object: f.region });
         }
       }
     let wallMargin = false;
@@ -490,7 +507,7 @@ export function auditNavigationCoverage(
         if (!crossings) continue;
         const q = closest(at, crossings[0], crossings[1]);
         if (q.d <= margin && q.d > EPS)
-          limits.push({ ...q, directionX: q.x / q.d, directionY: q.y / q.d });
+          limits.push({ ...q, directionX: q.x / q.d, directionY: q.y / q.d, object: tri.object! });
         // Prove grounding locally in the closed solid; a remote low vertex
         // on a sloped beam cannot establish a capsule margin here.
         if (groundedMargin(at, q, tri.mesh!)) wallMargin = true;
@@ -498,23 +515,22 @@ export function auditNavigationCoverage(
     }
     // Two almost parallel opposing sides identify a tight passage. A sharp corner
     // or the endpoint of a partition is an ordinary capsule margin, not a hallway.
-    const narrow = limits.some(
-      (a, i) =>
-        a.interior &&
-        limits
-          .slice(i + 1)
-          .some(
-            (b) =>
-              b.interior &&
-              Math.abs(a.dx * b.dx + a.dy * b.dy) >
-                0.98 * Math.hypot(a.dx, a.dy) * Math.hypot(b.dx, b.dy) &&
-              a.directionX * b.directionX + a.directionY * b.directionY <
-                -0.7 &&
-              a.d + b.d < 2 * p.radius + cell,
-          ),
-    );
+    let narrow: { width: number; blockers: string[] } | undefined;
+    for (let i = 0; i < limits.length; i++) {
+      const a = limits[i];
+      if (!a.interior) continue;
+      for (const b of limits.slice(i + 1)) {
+        if (b.interior &&
+            Math.abs(a.dx * b.dx + a.dy * b.dy) > 0.98 * Math.hypot(a.dx, a.dy) * Math.hypot(b.dx, b.dy) &&
+            a.directionX * b.directionX + a.directionY * b.directionY < -0.7 &&
+            a.d + b.d < 2 * p.radius + cell &&
+            (!narrow || a.d + b.d < narrow.width)) {
+          narrow = { width: a.d + b.d, blockers: [...new Set([a.object, b.object])] };
+        }
+      }
+    }
     if (narrow) {
-      fail("width");
+      fail("width", narrow.width, narrow.blockers);
       return;
     }
     if (wallMargin) {

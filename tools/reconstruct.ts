@@ -407,8 +407,9 @@ async function writePortableExports(
     const original = level.document.materials.find(
       (item) => item.id === material.id,
     );
-    if (material.texture && original?.texture)
-      archivedAssets[material.texture] = assets[original.texture];
+    for (const key of ["texture", "normalTexture"] as const)
+      if (material[key] && original?.[key])
+        archivedAssets[material[key]!] = assets[original[key]!];
   }
   const visual = toGLB(archived, { assets: archivedAssets });
   const collision = toGLB(archived, { purpose: "collision" });

@@ -7,12 +7,12 @@ import {ArchitectureBuilder,compile,parseAml,serializeAml,type V3} from 'levelsp
 function wall(b:ArchitectureBuilder,id:string,a:V3,c:V3){b.path(id+':path',[a,c]);return b.wall(id,id+':path',{height:3,thickness:.22,group:id+'.layer'});}
 function walls(offset=.05){const b=new ArchitectureBuilder('alignment');wall(b,'first',[0,0,0],[2,0,0]);wall(b,'second',[2.1,offset,0],[4.1,offset,0]);return b;}
 function flight(kind:'stairs'|'ramp'='stairs'){const b=new ArchitectureBuilder('flight-review');b.path('axis',[[1,0,0],[1,4,1.2]]);if(kind==='stairs')b.stairs('flight',{path:'axis',width:2,count:7});else b.ramp('flight',{path:'axis',width:2});return b;}
-async function inspect(b:ArchitectureBuilder,onGeometry?:(level:CompiledLevel)=>void){const level=await compile(b.document,{navigation:false,floorGaps:false,surfaceContacts:false,onGeometry});assert.deepEqual(level.diagnostics,[]);return level;}
+async function inspect(b:ArchitectureBuilder,onGeometry?:(level:CompiledLevel)=>void){const level=await compile(b.document,{navigation:false,floorGaps:false,surfaceContacts:false,onGeometry});assert.ok(level.diagnostics.every(d=>d.severity==='warning'));return level;}
 function alignment(level:CompiledLevel){const findings=level.suggestions.filter(s=>s.code==='WALL_ALIGNMENT');assert.equal(findings.length,1);return findings[0];}
 const suppress=(b:ArchitectureBuilder,s:CompiledLevel['suggestions'][number])=>b.document.reviewSuppressions.push({suggestion:s.id,fingerprint:s.fingerprint,reason:'Intentional architectural offset'});
 
 test('native wall alignment reports measured source-linked faces before geometry-ready',async()=>{
-  const b=walls();let early=false;const level=await inspect(b,level=>{early=level.suggestions.some(s=>s.code==='WALL_ALIGNMENT');});const finding=alignment(level);assert.equal(early,true);assert.ok(Math.abs(finding.evidence.offset!-.05)<1e-7);assert.deepEqual([...finding.objects].sort(),['first','second']);assert.ok(finding.bounds&&finding.position&&finding.direction);
+  const b=walls();let early=false;const level=await inspect(b,level=>{early=level.suggestions.some(s=>s.code==='WALL_ALIGNMENT');});const finding=alignment(level);assert.equal(early,true);assert.equal(level.diagnostics.filter(d=>d.suggestion?.id===finding.id&&d.severity==='warning'&&d.review?.id===finding.id).length,1);assert.ok(Math.abs(finding.evidence.offset!-.05)<1e-7);assert.deepEqual([...finding.objects].sort(),['first','second']);assert.ok(finding.bounds&&finding.position&&finding.direction);
 });
 test('alignment measures wall faces and retains the exclusive2mm inclusive10cm bounds',async()=>{
   for(const [offset,expected]of [[.002,0],[.003,1],[.1,1],[.101,0]])assert.equal((await inspect(walls(offset))).suggestions.filter(s=>s.code==='WALL_ALIGNMENT').length,expected);
@@ -32,9 +32,9 @@ test('native flight side review respects partial spans, other storeys and inclus
 });
 test('exact review suppressions serialize without changing geometry and reactivate only on relevant changes',async()=>{
   const b=walls(),before=structuredClone(b.document),initial=await inspect(b),finding=alignment(initial);assert.deepEqual(b.document,before);suppress(b,finding);
-  const parsed=parseAml(serializeAml(b.document));const suppressed=await compile(parsed,{navigation:false,floorGaps:false,surfaceContacts:false});assert.equal(alignment(suppressed).state,'suppressed');assert.equal(suppressed.geometryHash,initial.geometryHash);assert.deepEqual(suppressed.mesh,initial.mesh);
+  const parsed=parseAml(serializeAml(b.document));const suppressed=await compile(parsed,{navigation:false,floorGaps:false,surfaceContacts:false});assert.equal(alignment(suppressed).state,'suppressed');assert.ok(!suppressed.diagnostics.some(d=>d.suggestion?.id===finding.id));assert.equal(suppressed.geometryHash,initial.geometryHash);assert.deepEqual(suppressed.mesh,initial.mesh);
   b.document.materials.push({id:'paint',color:'#aabbcc',repeat:1,roughness:1,metalness:0});b.document.elements[0].material='paint';b.document.elements[0].label='Reviewed';wall(b,'unrelated',[50,50,0],[55,50,0]);assert.equal(alignment(await inspect(b)).fingerprint,finding.fingerprint);
-  b.document.paths[1].points.forEach(p=>p[1]=.06);const changed=alignment(await inspect(b));assert.equal(changed.id,finding.id);assert.notEqual(changed.fingerprint,finding.fingerprint);assert.equal(changed.state,'active');assert.equal(changed.suppression?.stale,true);
+  b.document.paths[1].points.forEach(p=>p[1]=.06);const changedLevel=await inspect(b),changed=alignment(changedLevel);assert.ok(changedLevel.diagnostics.some(d=>d.suggestion?.id===finding.id));assert.equal(changed.id,finding.id);assert.notEqual(changed.fingerprint,finding.fingerprint);assert.equal(changed.state,'active');assert.equal(changed.suppression?.stale,true);
 });
 test('flight gap and open-side suppressions invalidate after a nearby physical barrier changes',async()=>{
   const b=flight();wall(b,'nearby',[-.21,0,0],[-.21,4,1.2]);const initial=(await inspect(b)).suggestions.find(s=>s.code==='FLIGHT_WALL_GAP')!;assert.ok(initial);suppress(b,initial);b.document.paths[1].points.forEach(p=>p[0]-=.03);const changed=(await inspect(b)).suggestions.find(s=>s.id===initial.id)!;assert.equal(changed.state,'active');assert.notEqual(changed.fingerprint,initial.fingerprint);

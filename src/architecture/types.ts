@@ -244,7 +244,15 @@ export type ArchitectureElement = Collection | FaceMaterial | Wall | Slab | Aper
   WaterSurface | MetadataVolume | RetainingWall;
 
 /** Source objects remain architectural throughout compilation; no SVGX authoring graph is constructed. */
+/** Native authoring input may omit recipe materials; normalization fills semantic library defaults. */
+export type ArchitectureInput = Omit<ArchitectureDocument, "dressing"> & {
+  dressing?: Omit<import("../dressing/types.ts").Dressing, "rules"> & {
+    rules: (Omit<import("../dressing/types.ts").DressingRule, "material"> & { material?: string })[];
+  };
+};
+
 export interface ArchitectureDocument extends Named {
+  dressing?: import("../dressing/types.ts").Dressing;
   version: "1";
   name: string;
   description?: string;
@@ -288,10 +296,62 @@ export interface CompiledArchitecture extends CompiledLevel {
   provenance: Record<string, ArchitectureProvenance>;
   physicalHash: string;
   renderHash: string;
+  /** Intrinsic image content identity and bounded chart statistics; contains no lighting. */
+  surfaceAppearance?: import("../dressing/surface/types.ts").SurfaceAppearanceManifest;
+  /** Generated ground inspection geometry in world meters; not collision or navigation. */
+  groundPlans?: GroundPlan[];
+  /** Every sign the building kit proposed, in proposal order, with what its survey decided. */
+  signPlans?: SignPlan[];
+}
+
+/** One generated sign: what it is, what it says, where it stands and whether it was built. */
+export interface SignPlan {
+  /** `<host>/<seed path>`, unique in the level and stable for a dressing seed. */
+  id: string;
+  host: string;
+  /** How the sign is carried: square to the wall, hung from a bracket, flat on a wall, over a shopfront, on a balcony front, or on a roof. */
+  mount: "blade" | "hung" | "wall" | "fascia" | "balcony" | "roof";
+  /** What the sign is made of or arranged as. */
+  form: "board" | "lightbox" | "tiles" | "ladder" | "plaque" | "painted";
+  /** The lettered lines in reading order, one entry per block of lettering. */
+  lines: string[];
+  /** World bounds of the sign's lettered panels, meters; its steelwork may reach beyond them. */
+  bounds: { min: V3; max: V3 };
+  /**
+   * `built` signs are in the render mesh. `withheld` signs passed the survey
+   * but only show at a higher detail. `crowded` signs touched scenery or a
+   * kept sign, or hid one; `obstructed` signs had no readable face.
+   */
+  status: "built" | "withheld" | "crowded" | "obstructed";
+  /** Triangles the sign added to the render mesh; 0 unless built. */
+  triangles: number;
+}
+
+/** Exact receiving footprints and chosen pour rectangles retained for diagnostic plan views. */
+export interface GroundPlan {
+  host: string;
+  anchors: { point: V3; kind: "floor" | "wall" | "floor-connection" | "connection" }[];
+  regions: { id: string; kind: string; bounds: V3[]; footprint: V3[][] }[];
 }
 
 /** All budgets are enforced before or during expansion, never by silently dropping geometry. */
 export interface ArchitectureCompileOptions extends CompileOptions {
+  /** Complete source-image reader, authoritative when supplied (including replay snapshots).
+   * Compose host readers with withBuiltinMaterialImages; omission loads only shipped library images. */
+  resolveMaterialImage?: (reference: string, signal?: AbortSignal) => Promise<Uint8Array>;
+  /** Optional host PNG codec for source images and cached maps; omission uses the browser-safe decoder. */
+  decodeMaterialPng?: import("../dressing/surface/images.ts").SurfacePngDecoder;
+  appearance?: import("../dressing/surface/types.ts").SurfaceAppearanceLimits;
+  /** Optional host executor for deduplicated appearance jobs; the compiler retains validation and atomic publication. */
+  rasterExecutor?: import("../dressing/surface/raster-execution.ts").SurfaceRasterExecutor;
+  /** Optional finished-material artifact storage; only explicit reusable recipes are eligible. */
+  materialCache?: import("../dressing/surface/material-cache.ts").SurfaceMaterialCache;
+  /**
+   * Defaults to full PNG decoding. Integrity-only validation trusts compiler-written
+   * local artifacts and checks dimensions/digests without pixels; not for untrusted caches.
+   * Source images always decode. This host policy is never read from stored metadata.
+   */
+  materialCacheValidation?: import("../dressing/surface/material-cache.ts").MaterialCacheValidation;
   /** Reuses bounded derived tile normals across compilations; source bytes are always reread. */
   terrainCache?: import("./terrain-cache.ts").TerrainTileCache;
   resolveAsset?: AssetResolver;

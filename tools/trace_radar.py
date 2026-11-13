@@ -9,8 +9,8 @@ transcribe by eye — can be read straight off the picture, and the work left
 over is the part that actually needs judgement: what each area is called, how
 high it sits, and where the spawns and sites are.
 
-    python3 trace_radar.py "reference/cs-maps/Mirage/Mirage - Radar.png" \
-        --cells 46 --bands 4 --out ../maps/_mirage.plan
+    python3 trace_radar.py "projects/my-level/reference/radar.png" \
+        --cells 46 --bands 4 --format raster > generated/radar.raster.json
 
 `--bands` clusters floor pixels by colour. Radars shade areas by height and by
 material, so the bands land close to the map's real storeys and give distinct

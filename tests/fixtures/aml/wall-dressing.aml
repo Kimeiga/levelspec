@@ -1,0 +1,30 @@
+<architecture version="1" id="wall-dressing-study" name="Kowloon · Plain wall study" validation="premap">
+  <material id="plaster" color="#ffffff" repeat="0.7" roughness="0.93" texture="../../../projects/dressing-demo/textures/plaster.png"/>
+  <material id="concrete" color="#76776c" roughness="0.94"/>
+  <material id="rough-wall" color="#ffffff" repeat="0.5" roughness="0.96" texture="../../../projects/dressing-demo/textures/wall-concrete-rough.png"/>
+  <material id="repaired-wall" color="#ffffff" repeat="0.5" roughness="0.93" texture="../../../projects/dressing-demo/textures/wall-concrete-repaired.png"/>
+  <path id="wall-axis" points="0 0 0; 20 0 0"/>
+  <path id="curved-axis" points="20 0 0; 20.3 0 0">
+    <bezier to="26 5 0" controls="23 0 0; 26 1.5 0"/>
+  </path>
+  <path id="small-axis" points="28 3 0; 28.42 3 0"/>
+  <profile id="floor-plan" points="0 -0.1; 20 -0.1; 20 5; 0 5"/>
+  <slab id="floor" profile="floor-plan" material="concrete" thickness="0.2"/>
+  <wall id="wall" path="wall-axis" material="plaster" thickness="0.2" height="3.6"/>
+  <wall id="curve" path="curved-axis" material="plaster" thickness="0.2" height="3.6"/>
+  <wall id="small" path="small-axis" material="plaster" thickness="0.2" height="2.5"/>
+  <opening id="passage" host="wall" width="1.5" height="2.2" center="7.2 1.1"/>
+  <material id="kowloon-wall-ceramic" color="#ffffff" repeat="2.5" roughness="0.68" texture="../../../projects/dressing-demo/textures/wall-ceramic-weathered.png" normal-texture="../../../projects/dressing-demo/textures/wall-ceramic-normal.png" normal-scale="0.55"/>
+  <material id="kowloon-wall-edge" color="#e5dfd2" repeat="4" roughness="0.98" texture="../../../projects/dressing-demo/textures/wall-concrete-repaired.png" normal-texture="../../../projects/dressing-demo/textures/ground-normal.png" normal-scale="0.35"/>
+  <material id="kowloon-wall-metal" color="#ffffff" repeat="2" roughness="0.68" metalness="0.55" texture="../../../projects/dressing-demo/textures/wall-metal-weathered.png" normal-texture="../../../projects/dressing-demo/textures/wall-metal-normal.png" normal-scale="0.45"/>
+  <material id="kowloon-wall-rust" color="#bcb0a0" repeat="2" roughness="0.88" metalness="0.25" texture="../../../projects/dressing-demo/textures/wall-metal-weathered.png" normal-texture="../../../projects/dressing-demo/textures/wall-metal-normal.png" normal-scale="0.65"/>
+  <material id="kowloon-wall-cable" color="#292721" repeat="4" roughness="0.87" texture="../../../projects/dressing-demo/textures/wall-metal-weathered.png" normal-texture="../../../projects/dressing-demo/textures/wall-metal-normal.png" normal-scale="0.18"/>
+  <material id="kowloon-wall-posters" color="#ffffff" repeat="1" roughness="0.96" texture="../../../projects/kowloon-posters/textures/posters-atlas.jpg"/>
+  <dressing theme="kowloon-street@1" finishes="kowloon" seed="daylight-alley" grime="0.65" wear="0.65" detail="high" wall-materials="rough-wall repaired-wall plaster">
+    <wall host="wall" face="back" windows="false" material="plaster" tile-share="0.6"/>
+    <wall host="curve" face="side" windows="false" material="plaster" tile-share="0.65"/>
+    <wall host="small" face="back" windows="false" material="plaster"/>
+  </dressing>
+  <light id="sun" kind="directional" position="-3 8 15" target="10 0 0" color="#fff1d9" intensity="2"/>
+  <sky color="#e2e8e6" intensity="0.6"/>
+</architecture>

@@ -1,11 +1,12 @@
+import { COURTYARD_BAKE_PRESETS } from "./fixtures/courtyard/bake-presets.ts";
 import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { gzipSync } from "node:zlib";
-const [input = "generated/aml-phase5/bakes"] = process.argv.slice(2),
-  root = "website/assets/bakes/aml-v1";
+const [input = "generated/site-bakes"] = process.argv.slice(2),
+  root = "tests/fixtures/lighting/courtyard";
 await mkdir(root, { recursive: true });
 const catalog = [];
-for (const style of ["clay", "chalk", "night"]) {
+for (const style of Object.keys(COURTYARD_BAKE_PRESETS)) {
   const from = `${input}/${style}`,
     to = `${root}/${style}`;
   await mkdir(to, { recursive: true });

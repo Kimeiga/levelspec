@@ -1,6 +1,7 @@
 import type { CompiledLevel, Suggestion, V3 } from "./types.ts";
 import { aborted } from "./types.ts";
 import { cross, sub, norm, dot, hash, pathLength, pathAt } from "./geometry.ts";
+import { spatialBounds } from "./spatial-geometry.ts";
 
 const CONTACT = 0.002;
 const NEAR = 0.25;
@@ -21,22 +22,23 @@ function pointKey(p: V3): string {
   return p.map((v) => Math.round(v * 100000)).join(",");
 }
 
-/** Extracts vertical exposed wall sides, merging coplanar triangles by authored object. */
+/** Extracts native wall sides before decorative displacement, merging coplanar triangles by authored object. */
 function wallFaces(level: CompiledLevel): Face[] {
+  const mesh = level.physicalMesh ?? level.mesh;
   const faces = new Map<string, Face>();
   const edges = new Map(
     level.document.layers.flatMap((l) => l.edges).map((e) => [e.id, e]),
   );
-  for (let t = 0; t < level.mesh.surfaces.length; t++) {
-    const surface = level.surfaces[level.mesh.surfaces[t]];
+  for (let t = 0; t < mesh.surfaces.length; t++) {
+    const surface = level.surfaces[mesh.surfaces[t]];
     if (surface.kind !== "wall" || surface.visible === false) continue;
     const edge = edges.get(surface.object);
     const path = level.curves[surface.object];
     const enclosure = ["parapet", "curb", "railing"].includes(surface.role);
     if ((!edge || !path) && !enclosure) continue;
-    const points = level.mesh.indices
+    const points = mesh.indices
       .slice(t * 3, t * 3 + 3)
-      .map((i) => level.mesh.positions.slice(i * 3, i * 3 + 3) as V3);
+      .map((i) => mesh.positions.slice(i * 3, i * 3 + 3) as V3);
     const raw = cross(sub(points[1], points[0]), sub(points[2], points[0]));
     if (Math.hypot(...raw) < 1e-10) continue;
     const normal = norm(raw);
@@ -71,6 +73,17 @@ function wallFaces(level: CompiledLevel): Face[] {
     face.triangles.push(points);
   }
   return [...faces.values()];
+}
+
+/** Projects a face without placing an unbounded vertex array on the call stack. */
+function projectionRange(face: Face, direction: V3): Interval {
+  let minimum = Infinity, maximum = -Infinity;
+  for (const point of face.points) {
+    const value = dot(point, direction);
+    minimum = Math.min(minimum, value);
+    maximum = Math.max(maximum, value);
+  }
+  return [minimum, maximum];
 }
 
 /** Unions covered distances along a rail; inputs and outputs are in meters. */
@@ -156,19 +169,7 @@ export async function auditSuggestions(
   signal?: AbortSignal,
 ): Promise<Suggestion[]> {
   const faces = wallFaces(level);
-  const bounds = new Map(
-    faces.map((face) => [
-      face,
-      {
-        min: [0, 1, 2].map((axis) =>
-          Math.min(...face.points.map((p) => p[axis])),
-        ),
-        max: [0, 1, 2].map((axis) =>
-          Math.max(...face.points.map((p) => p[axis])),
-        ),
-      },
-    ]),
-  );
+  const bounds = new Map(faces.map((face) => [face, spatialBounds(face.points)]));
   const ordered = [...faces].sort(
     (a, b) => bounds.get(a)!.min[0] - bounds.get(b)!.min[0],
   );
@@ -196,12 +197,7 @@ export async function auditSuggestions(
     const suppression = level.document.reviewSuppressions?.find(
       (s) => s.suggestion === id,
     );
-    const min = [0, 1, 2].map((i) =>
-      Math.min(...points.map((p) => p[i])),
-    ) as V3;
-    const max = [0, 1, 2].map((i) =>
-      Math.max(...points.map((p) => p[i])),
-    ) as V3;
+    const { min, max } = spatialBounds(points);
     suggestions.push({
       id,
       code,
@@ -248,16 +244,12 @@ export async function auditSuggestions(
         if (a.object === b.object || dot(a.normal, b.normal) < PARALLEL)
           continue;
         const tangent: V3 = [-a.normal[1], a.normal[0], 0];
-        const range = (face: Face, direction: V3): Interval => {
-          const values = face.points.map((p) => dot(p, direction));
-          return [Math.min(...values), Math.max(...values)];
-        };
-        const A = range(a, tangent),
-          B = range(b, tangent);
+        const A = projectionRange(a, tangent),
+          B = projectionRange(b, tangent);
         const gap = Math.max(A[0], B[0]) - Math.min(A[1], B[1]);
         if (gap < -NOISE || gap > NEAR + NOISE) continue;
-        const az = range(a, [0, 0, 1]),
-          bz = range(b, [0, 0, 1]);
+        const az = projectionRange(a, [0, 0, 1]),
+          bz = projectionRange(b, [0, 0, 1]);
         if (Math.min(az[1], bz[1]) - Math.max(az[0], bz[0]) < 0.25 - NOISE)
           continue;
         const station = (Math.max(A[0], B[0]) + Math.min(A[1], B[1])) / 2;
@@ -421,7 +413,7 @@ export async function auditSuggestions(
             region.id,
             ...[...local].map((f) => f.object).sort(),
           ];
-          const offset = gaps.length ? Math.min(...gaps) : undefined;
+          const offset = gaps.length ? gaps.reduce((minimum, gap) => Math.min(minimum, gap), Infinity) : undefined;
           const dependency = {
             rail: rail.map(pointKey),
             fill: region.fill,

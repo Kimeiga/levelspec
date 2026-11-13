@@ -61,7 +61,7 @@ describe("navigation review suggestions", () => {
     assert.ok(suggestion.sources.some((source) => source.object === "platform" && source.source));
     assert.ok(suggestion.layers.includes("platform.layer"));
     assert.equal(level.navigationSuggestionsStatus, "complete");
-    assert.ok(!level.diagnostics.some((diagnostic) => diagnostic.code === "NAV_ISLAND"));
+    assert.ok(level.diagnostics.some((diagnostic) => diagnostic.code === "NAV_ISLAND" && diagnostic.severity === "warning" && diagnostic.review?.navigation?.component === suggestion.navigation?.component));
   });
 
   it("suggests reviewing a sub-2-square-meter component even when it is the only network", async () => {

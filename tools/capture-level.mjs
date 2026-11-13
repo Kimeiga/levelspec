@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import assert from 'node:assert/strict';
 import {startPreview} from '../src/cli/preview.ts';
-import {launchBrowser, waitForFrames} from '../website/tests/browser-helpers.mjs';
+import {launchBrowser, waitForFrames} from '../tests/browser/support/browser.mjs';
 
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 
@@ -29,7 +29,7 @@ export function validateViews(views) {
     for (const key of ['viewHeight', 'frameAspect']) {
       if (view[key] !== undefined) assert.ok(view[key] > 0, `Invalid ${key}`);
     }
-    if (view.appearance !== undefined) assert.ok(['flat', 'materials', 'inspection', 'illustrated'].includes(view.appearance), 'Invalid appearance');
+    if (view.appearance !== undefined) assert.ok(['wireframe', 'materials', 'full-render'].includes(view.appearance), 'Invalid appearance');
   }
 }
 
@@ -64,7 +64,7 @@ export async function captureLevel(source, output, views, options = {}) {
       const url = new URL(server.url);
       const settings = {camera: view.position.join(' '), target: view.target.join(' '), projection: view.projection,
         fov: view.fov ?? 55, 'view-height': view.viewHeight ?? 20, roll: view.roll ?? 0,
-        appearance: view.appearance ?? 'inspection', 'frame-aspect': view.frameAspect ?? 1.25};
+        appearance: view.appearance ?? 'full-render', 'frame-aspect': view.frameAspect ?? 1.25};
       for (const [key, value] of Object.entries(settings)) url.searchParams.set(key, String(value));
       const [response] = await Promise.all([
         page.waitForResponse(response => new URL(response.url()).pathname.endsWith('/source')),

@@ -1,3 +1,4 @@
+import { withBuiltinMaterialImages } from "../../src/materials/images.ts";
 /** Vite dev-only loopback service. No client-supplied commands or filesystem paths. */
 import type { Plugin } from "vite";
 import type { IncomingMessage, ServerResponse } from "node:http";
@@ -164,6 +165,28 @@ export function vectorExportService(): Plugin {
                     job.progress = line.slice(-2000);
                   },
                 };
+                const imageSnapshots = new Map<string, Uint8Array>();
+                /** Only bundled library files and explicitly submitted companion bytes are accessible. */
+                const readImage = withBuiltinMaterialImages(async (reference: string): Promise<Uint8Array> => {
+                  const encoded = input.assets?.[reference];
+                  if (typeof encoded !== "string")
+                    throw new Error(`Select companion image "${reference}" in the export dialog.`);
+                  const maximumBytes = 16 * 1024 * 1024;
+                  if (encoded.length > Math.ceil(maximumBytes / 3) * 4)
+                    throw new Error("Material image encoded byte budget exceeded.");
+                  const bytes = Buffer.from(encoded, "base64");
+                  if (bytes.byteLength > maximumBytes)
+                    throw new Error("Material image encoded byte budget exceeded.");
+                  return bytes;
+                });
+                const loadImage = async (reference: string, signal?: AbortSignal): Promise<Uint8Array> => {
+                  signal?.throwIfAborted();
+                  const cached = imageSnapshots.get(reference);
+                  if (cached) return cached;
+                  const bytes = await readImage(reference, signal);
+                  imageSnapshots.set(reference, bytes);
+                  return bytes;
+                };
                 const resolveAsset = createGLBAssetResolver(async (ref) => {
                     const encoded = input.meshAssets?.[ref];
                     if (typeof encoded !== "string")
@@ -175,6 +198,7 @@ export function vectorExportService(): Plugin {
                   level = await compile(parseAml(input.source), {
                   ...options,
                   resolveAsset,
+                  resolveMaterialImage: loadImage,
                   uvs: Boolean(input.uvs),
                   retainExportSolids: input.formats.includes("bsp"),
                 });
@@ -198,14 +222,7 @@ export function vectorExportService(): Plugin {
                   );
                 const assets = await resolveExportAssets(
                   level,
-                  async (ref) => {
-                    const encoded = input.assets?.[ref];
-                    if (typeof encoded !== "string")
-                      throw new Error(
-                        "Select the referenced companion image in the export dialog.",
-                      );
-                    return Buffer.from(encoded, "base64");
-                  },
+                  reference => loadImage(reference, job.abort.signal),
                   options.signal,
                 );
                 const result = await exportLevel(level, {

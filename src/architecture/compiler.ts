@@ -1,7 +1,11 @@
+import { applyDressing } from "../dressing/apply.ts";
+import { compileSurfaceAppearance } from "../dressing/surface/compile.ts";
+import { walkingFloors } from "./walking-floors.ts";
+import { connectionDomains } from "./connection-domains.ts";
+import { finalizeArchitecture } from "./finalize.ts";
 import { repairWaterPrecision } from "../vector/movement.ts";
 import { ClippingError } from "../vector/clipping.ts";
 import { auditSharedEdges } from "./shared-edges.ts";
-import { auditTerrainPolicy } from "./terrain-policy.ts";
 import { resolveGrades, applyTerrainGrades, GradingBudget } from "./grading.ts";
 import { resolveSpatialVolume, auditSpatialVolumes } from "./volumes.ts";
 import {
@@ -25,9 +29,7 @@ import {
 import { resolveFlight, type ResolvedFlight } from "./flights.ts";
 import { enclosureGeometry } from "./enclosures.ts";
 import {
-  area,
   cross,
-  hash,
   heightAt,
   norm,
   pathAt,
@@ -35,18 +37,12 @@ import {
   sub,
 } from "../vector/geometry.ts";
 import { emptyMesh, meshParts } from "../vector/mesh.ts";
-import { collisionMesh } from "../vector/collision.ts";
 import {
   validateAssetGeometry,
   validateMeshData,
   type AssetGeometry,
 } from "../vector/props.ts";
-import { bakeNavmesh, validateForRuntime } from "../vector/validate.ts";
-import { generateUVs } from "../vector/uv.ts";
-import { auditSurfaceContacts } from "../vector/surface-contacts.ts";
 import { runtimeContext, runtimeGuides } from "./runtime.ts";
-import { auditSuggestions } from "../vector/suggestions.ts";
-import { auditFloorGaps } from "../vector/floor-gaps.ts";
 import { AmlError } from "./format.ts";
 import { normalizeArchitecture } from "./precision.ts";
 import { ArchitectureResolution, type ResolvedElement } from "./resolve.ts";
@@ -72,6 +68,7 @@ import type {
   Aperture,
   ArchitectureCompileOptions,
   ArchitectureDocument,
+  ArchitectureInput,
   CompiledArchitecture,
   Flight,
   Wall,
@@ -100,7 +97,7 @@ function circleSegments(radius: number, tolerance: number): number {
 
 /** Builds physical surfaces directly from native architectural objects. */
 export async function compile(
-  document: ArchitectureDocument,
+  document: ArchitectureInput,
   options: ArchitectureCompileOptions = {},
 ): Promise<CompiledArchitecture> {
   aborted(options.signal);
@@ -682,12 +679,29 @@ export async function compile(
         .frame(element.frame)
         .clone()
         .multiply(placement(element));
+      let authoredMinimum = Infinity,
+        authoredMaximum = -Infinity,
+        coordinateMagnitude = 0;
+      for (const [x, z] of shape)
+        for (const side of [low, high]) {
+          const point = transform([x, side, z], openingPlacement);
+          authoredMinimum = Math.min(authoredMinimum, point[0]);
+          authoredMaximum = Math.max(authoredMaximum, point[0]);
+          for (const coordinate of point)
+            coordinateMagnitude = Math.max(
+              coordinateMagnitude,
+              Math.abs(coordinate),
+            );
+        }
+      const localRounding = Math.min(1e-7, coordinateMagnitude * 2 ** -21);
       cut = solids.keep(cut.transform(kernelMatrix(openingPlacement)));
       if (host.element.kind === "wall") {
         const path = wallPaths
           .get(host.id)!
           .map((point) => transform(point, inverse));
         const pieces: Manifold[] = [];
+        let recoveredVertices = 0,
+          maximumRecovery = 0;
         let distance = 0;
         for (let i = 1; i < path.length; i++) {
           const a = path[i - 1],
@@ -706,15 +720,30 @@ export async function compile(
             clipped.trimByPlane([-1, 0, 0], -(distance + run)),
           );
           if (!segment.isEmpty()) {
-            const mesh = segment.getMesh(),
-              offsets = wallOffsets.get(host.id)!;
-            const positions = Array.from(
-              { length: mesh.vertProperties.length / mesh.numProp },
-              (_, vertex): V3 => {
-                const [station, side, height] = mesh.vertProperties.slice(
-                  vertex * mesh.numProp,
-                  vertex * mesh.numProp + 3,
-                );
+            const offsets = wallOffsets.get(host.id)!;
+            // Preserve authored clipping boundaries across local kernel rounding.
+            const mapped = solids.keep(
+              segment.warp((vertex) => {
+                const [storedStation, side, height] = vertex;
+                let station = storedStation;
+                const boundaryError =
+                  Number.EPSILON * 16 * Math.max(1, Math.abs(distance + run));
+                const reachesStart =
+                  authoredMinimum <= distance + boundaryError &&
+                  authoredMaximum >= distance - boundaryError;
+                const reachesEnd =
+                  authoredMinimum <= distance + run + boundaryError &&
+                  authoredMaximum >= distance + run - boundaryError;
+                if (
+                  reachesStart &&
+                  Math.abs(storedStation - distance) <= localRounding
+                )
+                  station = distance;
+                else if (
+                  reachesEnd &&
+                  Math.abs(storedStation - distance - run) <= localRounding
+                )
+                  station = distance + run;
                 const corner = offsets.find(
                   (offset) => Math.abs(offset.station - station) < 1e-6,
                 );
@@ -724,29 +753,29 @@ export async function compile(
                   0,
                 ];
                 const center = pathAt(path, station);
-                return transform(
-                  [
-                    center[0] + normal[0] * side,
-                    center[1] + normal[1] * side,
-                    center[2] + height,
-                  ],
-                  host.matrix,
-                );
-              },
+                if (station !== storedStation) {
+                  const before = transform(
+                    pathAt(path, storedStation),
+                    host.matrix,
+                  );
+                  const after = transform(center, host.matrix);
+                  maximumRecovery = Math.max(
+                    maximumRecovery,
+                    Math.hypot(
+                      ...after.map((value, axis) => value - before[axis]),
+                    ),
+                  );
+                  recoveredVertices++;
+                }
+                vertex[0] = center[0] + normal[0] * side;
+                vertex[1] = center[1] + normal[1] * side;
+                vertex[2] = center[2] + height;
+              }),
             );
-            let triangles = Array.from(
-              { length: mesh.triVerts.length / 3 },
-              (_, i) =>
-                Array.from(mesh.triVerts.slice(i * 3, i * 3 + 3)) as [
-                  number,
-                  number,
-                  number,
-                ],
+            budget(mapped.numTri());
+            pieces.push(
+              solids.keep(mapped.transform(kernelMatrix(host.matrix))),
             );
-            if (host.matrix.determinant() < 0)
-              triangles = triangles.map(([a, b, c]) => [c, b, a]);
-            budget(triangles.length);
-            pieces.push(solids.mesh({ positions, triangles }, owner.original));
           }
           distance += run;
         }
@@ -757,6 +786,23 @@ export async function compile(
             "AML_OPENING",
             [host.id],
           );
+        if (maximumRecovery > 1e-6)
+          resolution.fail(
+            opening.id,
+            "Opening boundary precision recovery exceeds the one-micrometer world-space limit.",
+            "AML_OPENING_PRECISION",
+            [host.id],
+          );
+        if (recoveredVertices)
+          (level.repairs ??= []).push({
+            code: "OPENING_BOUNDARY_PRECISION",
+            objects: [opening.id, host.id],
+            source: opening.element.source,
+            message:
+              "Recovered authored opening segment boundaries after local kernel rounding.",
+            count: recoveredVertices,
+            maxDisplacement: maximumRecovery,
+          });
         cut = union(pieces);
       } else cut = solids.keep(cut.transform(kernelMatrix(host.matrix)));
       return solids.own(cut, owner.original);
@@ -1857,77 +1903,26 @@ export async function compile(
         )
           throw new Error("Terrain tile budget exceeded.");
         (level.terrainTiles ??= []).push(
-          ...terrainMetadata
-            .get(item.node.id)!
-            .map((tile) => ({
-              ...tile,
-              triangleStart: tile.triangleStart + start,
-            })),
+          ...terrainMetadata.get(item.node.id)!.map((tile) => ({
+            ...tile,
+            triangleStart: tile.triangleStart + start,
+          })),
         );
       } else append(item.geometry, item.surface);
     }
     options.onProgress?.("Physical surfaces");
     aborted(options.signal);
-    // Derive walking tops from surviving physical faces, never from pre-cut floor guides.
-    const finalFloors = new Map<string, FloorPatch>();
     const openTerrains = new Set(
       openGeometry
         .filter((item) => item.node.element.kind === "terrain")
         .map((item) => item.node.id),
     );
-    for (const id of openTerrains) {
-      const node = resolution.nodes.get(id)!,
-        patch = floorSource.get(id)!;
-      if (
-        node.element.kind === "terrain" &&
-        node.element.collidable !== false &&
-        node.element.orientation !== "down"
-      )
-        finalFloors.set(id, {
-          ...patch,
-          navigationRequired: node.element.playable,
-        });
-    }
-    for (let t = 0; t < level.mesh.surfaces.length; t++) {
-      const surface = level.surfaces[level.mesh.surfaces[t]],
-        fill = floorKinds.get(surface.object);
-      if (openTerrains.has(surface.object)) continue;
-      if (!fill || fill === "water" || surface.collidable === false) continue;
-      const node = resolution.nodes.get(surface.object)!;
-      if (
-        (node.element.kind === "roof" || node.element.kind === "canopy") &&
-        !node.element.playable
-      )
-        continue;
-      const points = level.mesh.indices
-        .slice(t * 3, t * 3 + 3)
-        .map((i) => level.mesh.positions.slice(i * 3, i * 3 + 3) as V3);
-      if (triangleNormal(points)[2] <= 1e-7) continue;
-      if (fill === "stairs" && triangleNormal(points)[2] < 1 - 1e-6) continue;
-      const guide = floorSource.get(surface.object);
-      const center = [0, 1, 2].map((axis) =>
-        points.reduce((sum, point) => sum + point[axis] / 3, 0),
-      ) as V3;
-      if (guide) {
-        const z = heightAt(guide, center[0], center[1]);
-        if (z === undefined || Math.abs(z - center[2]) > 0.0001) continue;
-      }
-      const patch = finalFloors.get(surface.object) ?? {
-        region: surface.object,
-        layer: surface.layer,
-        area: floorAreas.get(surface.object),
-        points: [],
-        triangles: [],
-        loops: floorSource.get(surface.object)?.loops ?? [],
-      };
-      if (node.element.kind === "terrain")
-        patch.navigationRequired = node.element.playable;
-      const base = patch.points.length;
-      patch.points.push(...points);
-      patch.triangles.push([base, base + 1, base + 2]);
-      finalFloors.set(surface.object, patch);
-    }
-    level.floors = [...finalFloors.values()];
+    level.floors = walkingFloors(level, resolution, {
+      kinds: floorKinds,
+      areas: floorAreas,
+      guides: floorSource,
+      openTerrains,
+    });
     runtimeGuides(level, resolution, wallPaths, flightRails, floorSource);
     if (!context.layers.length)
       context.layers.push({
@@ -1939,6 +1934,13 @@ export async function compile(
     level.semantic.nodes = [
       ...new Set(level.floors.map((floor) => floor.area ?? floor.region)),
     ];
+    level.connections = source.connections.map((connection) => ({
+      id: connection.id,
+      from: connection.from,
+      to: connection.to,
+      source: connection.source,
+      ...(connection.path ? { path: structuredClone(resolution.paths.get(connection.path)!) } : {}),
+    }));
     for (const connection of source.connections) {
       const from = level.floors.find(
           (floor) => floor.region === connection.from,
@@ -1983,6 +1985,9 @@ export async function compile(
         ]);
     }
     level.physicalMesh = level.mesh;
+    if (!level.surfaces.some(surface => surface.dynamic))
+      level.connectionDomains = connectionDomains(level, floorSource.values(), results.flatMap(result => result.solids), solids, options.signal,
+        typeof options.navigation === "object" ? options.navigation.physicalWork : undefined);
     repairWaterPrecision(level, {
       ...(typeof options.navigation === "object" ? options.navigation : {}),
       signal: options.signal,
@@ -2106,118 +2111,18 @@ export async function compile(
           });
       }
     for (const item of renderOnly) append(item.geometry, item.surface);
+    options.onProgress?.("Procedural dressing");
+    applyDressing(level, resolution, limits.triangles, options.signal);
+    options.onProgress?.("Surface appearance");
+    await compileSurfaceAppearance(level, options, limits.triangles);
+    options.onProgress?.("Mesh parts and finalization");
     level.parts = meshParts(level.mesh, level.surfaces);
-    if (options.floorGaps !== false) {
-      const terrain = new Set(
-        [...resolution.nodes.values()]
-          .filter((node) => node.element.kind === "terrain")
-          .map((node) => node.id),
-      );
-      const floors = new Set(level.floors.map((floor) => floor.region));
-      const architectural = {
-        ...level,
-        floors: level.floors.filter((floor) => !terrain.has(floor.region)),
-        document: {
-          ...context,
-          layers: context.layers.map((layer) => ({
-            ...layer,
-            regions: layer.regions.filter(
-              (region) => floors.has(region.id) && !terrain.has(region.id),
-            ),
-          })),
-        },
-      };
-      diagnostics.push(
-        ...auditFloorGaps(
-          architectural,
-          options.floorGaps ?? "warning",
-          options.signal,
-        ),
-      );
-    }
-    const physical = collisionMesh(level, true);
-    const solidGroups = new Map<string, number>();
-    const solidIds = physical.solidIds?.map((id) => {
-      if (!id) return -1;
-      if (!solidGroups.has(id)) solidGroups.set(id, solidGroups.size);
-      return solidGroups.get(id)!;
-    });
-    const surfaceGroups = new Map<string, number>(),
-      physicalSurfaces: unknown[] = [];
-    const surfaceIds = physical.surfaces.map((index) => {
-      const surface = level.surfaces[index],
-        record = [
-          surface.object,
-          surface.role,
-          surface.mesh,
-          surface.dynamic,
-          surface.closed,
-        ],
-        key = JSON.stringify(record);
-      if (!surfaceGroups.has(key)) {
-        surfaceGroups.set(key, surfaceGroups.size);
-        physicalSurfaces.push(record);
-      }
-      return surfaceGroups.get(key)!;
-    });
-    level.physicalHash = await hash({
-      positions: physical.positions,
-      indices: physical.indices,
-      solidIds,
-      surfaces: physicalSurfaces,
-      surfaceIds,
-    });
-    level.renderHash = await hash({
-      mesh: level.mesh,
-      materials: source.materials,
-    });
-    level.geometryHash = level.physicalHash;
-    if (options.surfaceContacts !== false) {
-      const physicalSurfaces = level.surfaces.map((surface) =>
-        surface.role === "visual-mesh"
-          ? { ...surface, visible: false }
-          : surface,
-      );
-      diagnostics.push(
-        ...auditTerrainPolicy(
-          { ...level, surfaces: physicalSurfaces },
-          resolution,
-          options.surfaceContacts ?? "error",
-          limits.spatialQueries,
-          options.signal,
-        ),
-      );
-    }
-    level.stats = {
-      ...level.stats,
-      meshes: level.parts.length,
-      triangles: level.mesh.indices.length / 3,
-      vertices: level.mesh.positions.length / 3,
-      regions: level.floors.length,
-      architecturalObjects: resolution.nodes.size,
-    };
-    if (!diagnostics.some((diagnostic) => diagnostic.severity === "error"))
-      level.suggestions = await auditSuggestions(level, options.signal);
-    options.onGeometry?.(level);
-    if (
-      !diagnostics.some((diagnostic) => diagnostic.severity === "error") &&
-      options.navigation !== false
-    ) {
-      options.onProgress?.("Navigation");
-      aborted(options.signal);
-      const navigation =
-        typeof options.navigation === "object" ? options.navigation : {};
-      await bakeNavmesh(level, { ...navigation, signal: options.signal });
-      await validateForRuntime(level, {
-        ...navigation,
-        signal: options.signal,
-      });
-    }
-    if (
-      options.uvs &&
-      !diagnostics.some((diagnostic) => diagnostic.severity === "error")
-    )
-      await generateUVs(level, { ...options.uv, signal: options.signal });
+    await finalizeArchitecture(
+      level,
+      resolution,
+      options,
+      limits.spatialQueries,
+    );
   } catch (error) {
     if ((error as Error).name === "AbortError") throw error;
     if (error instanceof AmlError) diagnostics.push(...error.diagnostics);

@@ -1,4 +1,5 @@
 import type { ArchitectureDocument, ArchitectureElement } from "./types.ts";
+import { materialCompanions } from "../vector/materials.ts";
 
 /** Lists declared local companions without loading files or including native physical proxies. */
 export function architectureCompanions(document: ArchitectureDocument): string[] {
@@ -9,7 +10,7 @@ export function architectureCompanions(document: ArchitectureDocument): string[]
     if ("children" in element) element.children.forEach(visit);
   };
   document.elements.forEach(visit); for (const definition of document.definitions) definition.children.forEach(visit);
-  for (const material of document.materials) if (material.texture) references.add(material.texture);
+  for (const material of document.materials) for (const reference of materialCompanions(material)) references.add(reference);
   for (const reference of document.references) references.add(reference.image);
   return [...references];
 }

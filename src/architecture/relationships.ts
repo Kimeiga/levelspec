@@ -19,6 +19,18 @@ function contains(boundary: ResolvedElement, node: ResolvedElement): boolean {
 export function validateRelationships(
   resolution: ArchitectureResolution,
 ): void {
+  for (const connection of resolution.document.connections) {
+    for (const id of [connection.from, connection.to])
+      if (!resolution.nodes.has(id))
+        resolution.fail(connection.id, `Unknown connection floor ${id}.`, "AML_REFERENCE", [id]);
+    if (connection.path !== undefined) {
+      const path = resolution.paths.get(connection.path);
+      if (!path)
+        resolution.fail(connection.id, `Unknown connection path ${connection.path}.`, "AML_REFERENCE", [connection.path]);
+      if (path.length < 2 || pathLength(path) <= 1e-7)
+        resolution.fail(connection.id, "A connection mouth requires a nonzero horizontal span.", "AML_CONNECTION_PATH", [connection.path]);
+    }
+  }
   for (const link of resolution.document.links) {
     for (const area of [link.fromArea, link.toArea]) {
       if (area && !resolution.nodes.has(area))

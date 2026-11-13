@@ -12,6 +12,7 @@ import type { ArchitectureDocument, CompiledArchitecture } from "./types.ts";
 export function runtimeContext(document: ArchitectureDocument): RuntimeContext {
   const context = createRuntimeContext(document.id);
   context.name = document.name;
+  context.timeOfDay = document.dressing?.timeOfDay;
   context.description = document.description;
   context.source = document.source;
   context.validation = document.validation;

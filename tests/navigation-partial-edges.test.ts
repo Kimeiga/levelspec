@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { NavigationSurface } from '../website/navigation.ts';
+import { NavigationSurface } from '../review/navigation-surface.ts';
 
 /** Two patches share a real edge subdivided only on the right-hand side. */
 function patch(gap = 0, height = 0) {

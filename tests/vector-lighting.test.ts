@@ -32,7 +32,7 @@ if (args.includes('--output-dir')) {
   fs.writeFileSync(path.join(output, payload.id + '.lighting.json'), JSON.stringify({ id: payload.id, complete: true }));
 }
 `, { mode: 0o755 });
-    const source = await readFile(new URL("../examples/cli-starter.aml", import.meta.url), "utf8");
+    const source = await readFile(new URL("../src/cli/templates/starter.aml", import.meta.url), "utf8");
     const level = await compile(parseAml(source));
     const output = join(temp, "revision");
     await assert.rejects(bakeLighting(level, { output, blender: executable }), /Blender exited 3/);

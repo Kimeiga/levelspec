@@ -1,9 +1,12 @@
 import { localHeightmaps } from "./heightmaps.ts";
+import { localMaterialImages } from "./material-images.ts";
+import { decodeMaterialPng } from "../materials/node-images.ts";
 /** Node-side file loading and output orchestration; domain APIs remain filesystem-free. */
 import { readFile, mkdir, writeFile, rm } from 'node:fs/promises';
 import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { compile, parseAml, validateForRuntime, createGLBAssetResolver, toRuntime, toOBJ, toSVGPlan, atlasSVG, exportName, type CompiledLevel, type ValidationReport, type Diagnostic, type RepairRecord, type Suggestion } from '../architecture/index.ts';
+import { compile, parseAml, validateForRuntime, createGLBAssetResolver, resolveExportAssets, toRuntime, toOBJ, toSVGPlan, atlasSVG, exportName, type CompiledLevel, type ValidationReport, type Diagnostic, type RepairRecord, type Suggestion } from '../architecture/index.ts';
+import { objMaterialError } from '../vector/export.ts';
 import { exportLevel, type ExportFormat, type ExportFiles } from '../export/vector/index.ts';
 import { migrateProject } from './migrate.ts';
 
@@ -13,7 +16,7 @@ export interface CommandResult {
   success: boolean;
   source?: string;
   project?: string;
-  diagnostics: Diagnostic[];
+  diagnostics: (Diagnostic & { review?: NonNullable<Diagnostic["review"]> & { url?: string; arguments?: string[] } })[];
   repairs: RepairRecord[];
   suggestions: (Suggestion & { review: { url: string; arguments: string[] } })[];
   stats?: CompiledLevel['stats'];
@@ -56,7 +59,7 @@ export async function runCommand(command: string, input: string, options: RunOpt
       await mkdir(dirname(project), { recursive:true });
       await mkdir(project);
       try {
-        const template = await readFile(fileURLToPath(new URL('../../examples/cli-starter.aml', import.meta.url)), 'utf8');
+        const template = await readFile(fileURLToPath(new URL('./templates/starter.aml', import.meta.url)), 'utf8');
         for (const directory of ['references', 'schematics', 'reviews']) await mkdir(join(project,directory));
         await writeFile(join(project,'level.aml'),template);
         await writeFile(join(project,'BRIEF.md'),'# Architectural project\n\nXML is the editable source. Record references, estimated dimensions and circulation requirements here.\n\nFrom the LevelSpec checkout run:\n\n- npm run levelspec -- validate "'+join(project,'level.aml')+'"\n- npm run levelspec -- preview "'+join(project,'level.aml')+'"\n- npm run levelspec -- build "'+join(project,'level.aml')+'" --out generated/my-project\n\nInspect plans, sections, diagnostics and routes; correct XML, export, and retain review evidence. Gameplay navigation is not building-code certification.\n');
@@ -81,11 +84,14 @@ export async function runCommand(command: string, input: string, options: RunOpt
       return readFile(resolve(dirname(source),reference), {signal});
     });
     const heightmaps = localHeightmaps(source);
+    const materialImages = localMaterialImages(source);
     const formats = options.formats ?? ['glb'];
     const level = await compile(document, {
       signal: options.signal,
       resolveAsset,
       resolveHeightmap: heightmaps.load,
+      resolveMaterialImage: materialImages.load,
+      decodeMaterialPng,
       uvs: command === 'build' && !options.noUV,
       retainExportSolids: command === 'build' && formats.includes('bsp'),
       floorGaps: options.strictFloorGaps ? 'error' : 'warning',
@@ -108,7 +114,16 @@ export async function runCommand(command: string, input: string, options: RunOpt
     stage = 'validate';
     const report = await validateForRuntime(level,{sealed:true,signal:options.signal,cell:options.navigationCell});
     result.report = report;
-    result.diagnostics = report.diagnostics;
+    result.diagnostics = report.diagnostics.map(diagnostic => {
+      if (!diagnostic.review) return diagnostic;
+      const parameters = new URLSearchParams({ diagnostic: diagnostic.review.id });
+      const arguments_ = ["preview", source, "--diagnostic", diagnostic.review.id];
+      if (options.navigationCell !== undefined) {
+        parameters.set("nav-cell", String(options.navigationCell));
+        arguments_.push("--nav-cell", String(options.navigationCell));
+      }
+      return { ...diagnostic, review: { ...diagnostic.review, url: `?${parameters}`, arguments: arguments_ } };
+    });
     if (!report.passed) {
       result.error = {stage, message:'Runtime validation failed; existing exports were preserved.'};
       return result;
@@ -120,9 +135,9 @@ export async function runCommand(command: string, input: string, options: RunOpt
         [`${id}.runtime.json`]: JSON.stringify(toRuntime(level)),
         [`${id}.report.json`]: JSON.stringify(report,null,2),
         [`${id}.suggestions.json`]: JSON.stringify(result.suggestions,null,2),
-        [`${id}.obj`]: toOBJ(level),
         [`${id}.svg`]: toSVGPlan(level),
       };
+      if (!objMaterialError(level.document.materials)) additionalFiles[`${id}.obj`] = toOBJ(level);
       if(level.atlas) {
         additionalFiles[`${id}.uv.json`]=JSON.stringify(level.atlas,null,2);
         for (const page of level.atlas.pages) {
@@ -131,6 +146,7 @@ export async function runCommand(command: string, input: string, options: RunOpt
       }
       const exported = await exportLevel(level, {
         formats,
+        assets: await resolveExportAssets(level, reference => materialImages.load(reference, options.signal), options.signal),
         output: resolve(options.out!),
         sourceFile: source,
         additionalFiles,

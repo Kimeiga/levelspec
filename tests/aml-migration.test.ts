@@ -35,8 +35,9 @@ test("migration retains native source objects and an existing aperture slice", a
   const document = await migrateSvgx(source);
   const opening = document.elements.find((element) => element.id === "slice");
   assert.ok(opening?.kind === "opening");
-  assert.equal(opening.shape, "rectangle");
-  assert.deepEqual(opening.center, [1.5, 1.5]);
+  assert.equal(opening.shape, "profile");
+  assert.deepEqual(document.profiles.find(profile => profile.id === opening.profile)?.outer.points,
+    [[1, 1, 0], [2, 1, 0], [2, 2, 0], [1, 2, 0]]);
   const level = await compile(parseAml(serializeAml(document)), {
     navigation: false,
   });
@@ -343,7 +344,7 @@ test("mechanical wall material ownership preserves historical exposed regions ex
   const compact =
     '<level version="2" id="coincident" validation="premap"><material id="red" color="#ff0000"/><material id="blue" color="#0000ff"/><layer id="walls"><vertex id="a" x="0" y="0" z="0"/><vertex id="b" x="4" y="0" z="0"/><edge id="first" from="a" to="b" kind="wall" height="3" material="red"/><edge id="second" from="a" to="b" kind="wall" height="3" material="blue"/></layer></level>';
   const showcase = await readFile(
-    new URL("../examples/showcase.level.svgx", import.meta.url),
+    new URL("./fixtures/migration/showcase.level.svgx", import.meta.url),
     "utf8",
   );
   for (const legacy of [compact, showcase]) {
@@ -380,6 +381,33 @@ test("mechanical wall material ownership preserves historical exposed regions ex
         before === after.distance || Math.abs(before - after.distance) < 1e-5,
         `Exposed plane at ${expected.origin}`,
       );
+    }
+  }
+});
+
+
+test("migration preserves odd-millimeter opening bounds without moving half-grid centers", async () => {
+  for (const width of [.005, .035]) {
+    const old = `<level version="2" id="thin" validation="premap"><layer id="screen">
+      <vertex id="a" x="0" y="0" z="0"/><vertex id="b" x="${width}" y="0" z="0"/>
+      <edge id="wall" from="a" to="b" kind="wall" height="4" thickness=".22">
+        <opening id="cut" start="0" end="${width}" sill="1.813" head="3.238" kind="window"/>
+      </edge></layer></level>`;
+    const level = await compile(parseAml(serializeAml(await migrateSvgx(old))), { navigation: false });
+    assert.deepEqual(level.diagnostics, []);
+    const mesh = collisionMesh(level);
+    let volume = 0;
+    for (let i = 0; i < mesh.indices.length; i += 3) {
+      const [a,b,c] = mesh.indices.slice(i,i+3).map(index => new Vector3(...mesh.positions.slice(index*3,index*3+3)));
+      volume += a.dot(new Vector3().crossVectors(b,c))/6;
+    }
+    assert.ok(Math.abs(volume - width*.22*(4-(3.238-1.813))) < 1e-7);
+    for (const [x,z] of [[.00025,2],[width-.00025,2],[width/2,1.81325],[width/2,3.23775]]) {
+      const ray = new Ray(new Vector3(x,-1,z),new Vector3(0,1,0));
+      for (let i = 0; i < mesh.indices.length; i += 3) {
+        const [a,b,c] = mesh.indices.slice(i,i+3).map(index => new Vector3(...mesh.positions.slice(index*3,index*3+3)));
+        assert.equal(ray.intersectTriangle(a,b,c,false,new Vector3()), null, `Unchanged opening at ${x},${z}`);
+      }
     }
   }
 });

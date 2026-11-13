@@ -134,6 +134,16 @@ export async function buildQuakeMap(
   name: string,
   options: ProcessOptions = {},
 ) {
+  if (level.document.materials.some(material => material.emissive && (material.emissiveStrength ?? 1) > 0))
+    throw new Error("Emissive materials currently export through GLB or glTF, not BSP.");
+  if (level.document.materials.some(material => material.normalTexture))
+    throw new Error("Normal-mapped materials currently export through GLB or glTF, not BSP.");
+  if (level.document.materials.some(material => material.alphaCutoff !== undefined))
+    throw new Error("Materials with an alpha cutoff currently export through GLB or glTF, not BSP.");
+  if (level.document.materials.some(material => material.metallicRoughnessTexture))
+    throw new Error("Metallic-roughness textures currently export through GLB or glTF, not BSP.");
+  if (level.document.materials.some(material => (material.opacity ?? 1) < 1))
+    throw new Error("Alpha-blended materials currently export through GLB or glTF, not BSP.");
   if (level.water?.length)
     throw new Error(
       "BSP water volumes are not supported yet. Export water surfaces with GLB, glTF, OBJ or FBX and runtime metadata.",

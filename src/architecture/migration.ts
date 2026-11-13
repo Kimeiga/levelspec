@@ -79,8 +79,13 @@ export async function migrateSvgx(text: string, options: MigrationOptions = {}):
       const cuts = [...edge.openings];
       if (["door", "window", "arch", "breach", "rappel_window", "rappel_door"].includes(edge.kind)) cuts.push({ id: unique(`${edge.id}:opening`), kind: edge.kind, start: 0, end: pathLength(curves.get(edge.id)!), sill: edge.kind.includes("window") ? .9 : 0, head: edge.kind === "arch" ? 2.4 : 2.1 });
       for (const opening of cuts) {
-        const aperture: Aperture = { id: opening.id, label: opening.label, source: opening.source, kind: "opening", group: layer.id, host: edge.id, shape: "rectangle", mode: "through",
-          center: [(opening.start + opening.end) / 2, (opening.sill + opening.head) / 2], width: opening.end - opening.start, height: opening.head - opening.sill,
+        const profile = unique(`${opening.id}:profile`);
+        document.profiles.push({ id: profile, source: opening.source, outer: { points: [
+          [opening.start, opening.sill, 0], [opening.end, opening.sill, 0],
+          [opening.end, opening.head, 0], [opening.start, opening.head, 0],
+        ] }, holes: [], interior: [], breaklines: [] });
+        const aperture: Aperture = { id: opening.id, label: opening.label, source: opening.source, kind: "opening", group: layer.id, host: edge.id, shape: "profile", profile, mode: "through",
+          center: [0, 0], width: opening.end - opening.start, height: opening.head - opening.sill,
           radius: .5, radii: [.5, .5], offset: 0 };
         openings.push(aperture);
         if (opening.barricade) group.children.push({ id: unique(`${opening.id}:panel`), kind: "panel", opening: opening.id, depth: wall.thickness, offset: -wall.thickness / 2, border: 0, material: edge.material, dynamic: true });

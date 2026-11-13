@@ -180,7 +180,7 @@ export class ArchitectureResolution {
   }
   /** Throws a source-linked failure that the compiler can retain as a diagnostic. */
   fail(id: string, message: string, code = "AML_REFERENCE", related: string[] = []): never {
-    const named = this.nodes.get(id)?.element ?? [...this.document.paths, ...this.document.profiles, ...this.document.frames, ...this.document.datums].find(object => object.id === id);
+    const named = this.nodes.get(id)?.element ?? [...this.document.paths, ...this.document.profiles, ...this.document.frames, ...this.document.datums, ...this.document.connections].find(object => object.id === id);
     throw new AmlError([{ severity: "error", code, message, objects: [id, ...related], source: named?.source ?? this.document.source }]);
   }
 }

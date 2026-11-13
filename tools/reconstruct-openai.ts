@@ -375,7 +375,7 @@ export async function createOpenAIReviser(
   ).slice(0, 24000);
   const example = (
     await readFile(
-      new URL("../examples/rooftop-reference.aml", import.meta.url),
+      new URL("../tests/fixtures/aml/rooftop-reference.aml", import.meta.url),
       "utf8",
     )
   ).slice(0, 5500);

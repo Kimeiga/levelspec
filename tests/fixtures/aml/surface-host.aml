@@ -1,0 +1,12 @@
+<architecture version="1" id="surface-host" name="Surface host fixture" validation="premap">
+  <material id="finish" color="#ffffff" roughness="0.8" texture="finish.png"
+    height-texture="finish.png" height-scale="0.003"/>
+  <path id="axis" points="0 0 0; 2 0 0"/>
+  <wall id="wall" path="axis" height="2" thickness="0.2"/>
+  <profile id="plan" points="0 0.1; 2 0.1; 2 2.1; 0 2.1"/>
+  <slab id="floor" profile="plan" thickness="0.2"/>
+  <marker id="start" kind="spawn" element="floor" position="1 1 0"/>
+  <dressing seed="surface-host" detail="low" grime="0.7" wear="0.6">
+    <wall host="wall" material="finish" face="back" windows="false" tile-share="0"/>
+  </dressing>
+</architecture>

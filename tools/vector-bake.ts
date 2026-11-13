@@ -8,7 +8,7 @@ import {
 } from "../src/architecture/index.ts";
 import { bakeLighting } from "../src/lighting/bake.ts";
 const [
-  file = "examples/showcase.aml",
+  file = "tests/fixtures/aml/showcase.aml",
   output = "generated/lighting/showcase",
   samples = "32",
 ] = process.argv.slice(2);

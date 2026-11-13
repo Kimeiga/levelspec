@@ -9,7 +9,8 @@ import {
   type Diagnostic,
   type V3,
 } from "./types.ts";
-import { cross, sub, dot, norm, hash, triangleOverlap } from "./geometry.ts";
+import { cross, sub, norm, hash, triangleOverlap } from "./geometry.ts";
+import { materialTangents } from "./tangents.ts";
 import { emptyMesh, meshParts } from "./mesh.ts";
 let module: ReturnType<typeof createXAtlas> | undefined;
 /** Atlas UVs are added by original-corner mapping. No coordinate-based attribute transfer. */
@@ -220,10 +221,12 @@ export async function generateUVs(
       packedDisplacements,
       result.vertices.map((v) => v.xref),
     );
+    if (src.colors) out.colors = [];
     const copy = (old: number, uv: [number, number]) => {
       const i = out.positions.length / 3;
       out.positions.push(...src.positions.slice(old * 3, old * 3 + 3));
       out.normals.push(...src.normals.slice(old * 3, old * 3 + 3));
+      if (out.colors) out.colors.push(...src.colors!.slice(old * 3, old * 3 + 3));
       out.uv.push(...src.uv.slice(old * 2, old * 2 + 2));
       out.uv1!.push(...uv);
       return i;
@@ -274,7 +277,7 @@ export async function generateUVs(
         ],
       });
     }
-    out.tangents = tangents(out);
+    out.tangents = materialTangents(out);
     const manifest = {
       version: 1 as const,
       geometryHash: level.geometryHash,
@@ -415,34 +418,6 @@ function guardSubpixelTriangles(
       0,
     ),
   };
-}
-function tangents(m: MeshData): number[] {
-  const out: number[] = [];
-  for (let t = 0; t < m.indices.length; t += 3) {
-    const ids = m.indices.slice(t, t + 3),
-      p = ids.map((i) => m.positions.slice(i * 3, i * 3 + 3) as V3),
-      uv = ids.map((i) => m.uv.slice(i * 2, i * 2 + 2)),
-      e1 = sub(p[1], p[0]),
-      e2 = sub(p[2], p[0]),
-      du1 = uv[1][0] - uv[0][0],
-      dv1 = uv[1][1] - uv[0][1],
-      du2 = uv[2][0] - uv[0][0],
-      dv2 = uv[2][1] - uv[0][1],
-      det = du1 * dv2 - du2 * dv1,
-      n = m.normals.slice(ids[0] * 3, ids[0] * 3 + 3) as V3;
-    let T: V3, B: V3;
-    if (Math.abs(det) < 1e-12) {
-      T = norm(e1);
-      B = cross(n, T);
-    } else {
-      T = e1.map((v, i) => (v * dv2 - e2[i] * dv1) / det) as V3;
-      B = e1.map((v, i) => (e2[i] * du1 - v * du2) / det) as V3;
-    }
-    T = norm(T.map((v, i) => v - dot(n, T) * n[i]) as V3);
-    const w = dot(cross(n, T), B) < 0 ? -1 : 1;
-    for (const id of ids) out.splice(id * 4, 4, ...T, w);
-  }
-  return out;
 }
 export function auditUVs(level: CompiledLevel): Diagnostic[] {
   const m = level.mesh,

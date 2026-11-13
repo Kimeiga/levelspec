@@ -53,15 +53,15 @@ function companions(document: ArchitectureDocument): Companion[] {
   );
   return [
     ...native,
-    ...document.materials
-      .filter((material) => material.texture)
-      .map((material) => ({
+    ...document.materials.flatMap((material) => (["texture", "normalTexture"] as const)
+      .filter((key) => material[key])
+      .map((key) => ({
         kind: "texture" as const,
-        path: material.texture!,
+        path: material[key]!,
         replace: (path: string) => {
-          material.texture = path;
+          material[key] = path;
         },
-      })),
+      }))),
     ...(document.references ?? []).map((reference) => ({
       kind: "reference" as const,
       path: reference.image,

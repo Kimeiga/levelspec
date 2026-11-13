@@ -1,7 +1,7 @@
 import { mountReviewer } from "../../review/app.ts";
 const token = new URL(import.meta.url).searchParams.get("session");
 const endpoint = `/__levelspec/${token}`;
-const reviewer=mountReviewer({source:"",local:false,worker:()=>new Worker(new URL("../../viewer/worker.ts",import.meta.url),{type:"module"}),deferLoad:true});
+const reviewer=mountReviewer({source:"",worker:()=>new Worker(new URL("../../review/worker.ts",import.meta.url),{type:"module"}),deferLoad:true});
 let revision=0;
 /** Keeps HTTP replies from superseded file revisions out of the reviewer. */
 async function refresh() {

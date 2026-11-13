@@ -1,10 +1,13 @@
 import { collisionMesh, selectMesh } from "./collision.ts";
-import type { CompiledLevel, V3 } from "./types.ts";
+import type { CompiledLevel, Material, V3 } from "./types.ts";
 import { escapeXML } from "./xml.ts";
+import { materialTangents } from "./tangents.ts";
 import {
   assertExportable,
   exportName,
   exportMetadata,
+  generatedImageManifest,
+  usedExportMaterialIds,
   type ExportOptions,
   type ExportFiles,
 } from "./export-assets.ts";
@@ -27,12 +30,14 @@ export function toRuntime(level: CompiledLevel) {
     meshes: level.parts,
     surfaces: level.surfaces,
     materials: level.document.materials,
+    ...(level.generatedImages ? { generatedImages: generatedImageManifest(level) } : {}),
     layers: level.document.layers.map((l) => ({ id: l.id, label: l.label })),
     markers: level.document.markers,
     assets: level.document.assets,
     references: level.document.references,
     lights: level.document.lights,
     sky: level.document.sky,
+    timeOfDay: level.document.timeOfDay,
     atlas: level.atlas,
     navigation: level.navigation,
     waterNavigation: level.waterNavigation,
@@ -47,7 +52,23 @@ export function toRuntime(level: CompiledLevel) {
     stats: level.stats,
   };
 }
+/** Returns why these materials cannot be represented by the current OBJ writer. */
+export function objMaterialError(materials: Material[]): string | undefined {
+  if (materials.some(material => material.emissive && (material.emissiveStrength ?? 1) > 0))
+    return "Emissive materials currently export through GLB or glTF, not OBJ.";
+  if (materials.some(material => material.normalTexture))
+    return "Normal-mapped materials currently export through GLB or glTF, not OBJ.";
+  if (materials.some(material => material.alphaCutoff !== undefined))
+    return "Materials with an alpha cutoff currently export through GLB or glTF, not OBJ.";
+  if (materials.some(material => material.metallicRoughnessTexture))
+    return "Metallic-roughness textures currently export through GLB or glTF, not OBJ.";
+  if (materials.some(material => (material.opacity ?? 1) < 1))
+    return "Alpha-blended materials currently export through GLB or glTF, not OBJ.";
+}
+
 export function toOBJ(level: CompiledLevel): string {
+  const materialError = objMaterialError(level.document.materials);
+  if (materialError) throw new Error(materialError);
   const m = selectMesh(level, (surface) => surface.visible !== false),
     lines = [
       `# LevelSpec 2 ${level.document.id}`,
@@ -158,6 +179,7 @@ function buildGLTF(
   options: ExportOptions,
   embedded: boolean,
 ) {
+  options = { ...options, assets: { ...level.generatedImages, ...options.assets } };
   assertExportable(level, options);
   const purpose = options.purpose ?? "visual",
     m =
@@ -211,8 +233,7 @@ function buildGLTF(
     accessors.push(acc);
     return accessors.length - 1;
   };
-  // Compiled/Blender UVs are bottom-left; glTF samples images from top-left.
-  // Reflect V once, and reflect tangent handedness with material UVs.
+  // Image origin changes in glTF; authored +Y normal maps retain their tangent frame.
   const gltfUV = (uv: number[]) =>
     new Float32Array(uv.map((v, i) => (i % 2 ? 1 - v : v)));
   const attributes: Record<string, number> = {
@@ -220,10 +241,12 @@ function buildGLTF(
     NORMAL: add(new Float32Array(m.normals), "VEC3", 3),
     TEXCOORD_0: add(gltfUV(m.uv), "VEC2", 2),
   };
+  if (m.colors) attributes.COLOR_0 = add(new Float32Array(m.colors), "VEC3", 3);
   if (m.uv1) attributes.TEXCOORD_1 = add(gltfUV(m.uv1), "VEC2", 2);
-  if (m.tangents)
+  const tangents = m.tangents ?? (purpose !== "collision" && level.document.materials.some(material => material.normalTexture) ? materialTangents(m) : undefined);
+  if (tangents)
     attributes.TANGENT = add(
-      new Float32Array(m.tangents.map((v, i) => (i % 4 === 3 ? -v : v))),
+      new Float32Array(tangents),
       "VEC4",
       4,
     );
@@ -242,20 +265,24 @@ function buildGLTF(
     triangles.push(t);
     groups.set(key, triangles);
   }
-  const mats = [
+  const usedMaterialIds = usedExportMaterialIds(level, [...groups.values()].map(triangles => m.surfaces[triangles[0]]));
+  const mats: Material[] = [
     ...(!level.document.materials.some((m) => m.id === "default")
       ? [
           {
             id: "default",
             color: "#b9c7d1",
+            repeat: 1,
             roughness: 0.8,
             metalness: 0,
             texture: undefined as string | undefined,
+            normalTexture: undefined as string | undefined,
+            normalScale: undefined as number | undefined,
           },
         ]
       : []),
     ...level.document.materials,
-  ];
+  ].filter(material => usedMaterialIds.has(material.id));
   const images: any[] = [],
     textures: any[] = [],
     imageIndex = new Map<string, number>();
@@ -290,18 +317,34 @@ function buildGLTF(
     c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
   const materials = mats.map((m) => ({
     name: m.id,
+    ...(purpose !== "collision" && "alphaCutoff" in m && m.alphaCutoff !== undefined
+      ? { alphaMode: "MASK", alphaCutoff: m.alphaCutoff }
+      : {}),
+    ...(purpose !== "collision" && (m.opacity ?? 1) < 1
+      ? { alphaMode: "BLEND" }
+      : {}),
+    ...(purpose !== "collision" && m.normalTexture
+      ? { normalTexture: { index: texture(m.normalTexture), texCoord: 0, scale: m.normalScale ?? 1 } }
+      : {}),
+    ...(purpose !== "collision" && m.emissive ? {
+      emissiveFactor: m.emissive.slice(1).match(/../g)!.map(c => linear(parseInt(c, 16) / 255) * Math.min(1, m.emissiveStrength ?? 1)),
+      ...((m.emissiveStrength ?? 1) > 1 ? { extensions: { KHR_materials_emissive_strength: { emissiveStrength: m.emissiveStrength } } } : {}),
+    } : {}),
     pbrMetallicRoughness: {
       baseColorFactor: [
         ...m.color
           .slice(1)
           .match(/../g)!
           .map((c) => linear(parseInt(c, 16) / 255)),
-        1,
+        purpose === "collision" ? 1 : m.opacity ?? 1,
       ],
       roughnessFactor: m.roughness,
       metallicFactor: m.metalness,
       ...(purpose !== "collision" && m.texture
         ? { baseColorTexture: { index: texture(m.texture), texCoord: 0 } }
+        : {}),
+      ...(purpose !== "collision" && m.metallicRoughnessTexture
+        ? { metallicRoughnessTexture: { index: texture(m.metallicRoughnessTexture), texCoord: 0 } }
         : {}),
     },
   }));
@@ -318,7 +361,7 @@ function buildGLTF(
         {
           attributes,
           indices: add(new Uint32Array(ids), "SCALAR", 1),
-          material: materialIndex.get(surface.material) ?? 0,
+          material: materialIndex.get(surface.material) ?? materialIndex.get("default"),
           mode: 4,
           extras: { sourceSurfaces: triangles.map((t) => m.surfaces[t]) },
         },
@@ -363,6 +406,8 @@ function buildGLTF(
   });
   const json = {
     asset: { version: "2.0", generator: "LevelSpec 2" },
+    ...(purpose !== "collision" && mats.some(m => m.emissive && (m.emissiveStrength ?? 1) > 1)
+      ? { extensionsUsed: ["KHR_materials_emissive_strength"] } : {}),
     scene: 0,
     scenes: [{ nodes: [rootIndex] }],
     nodes,

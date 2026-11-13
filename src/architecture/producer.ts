@@ -1,8 +1,4 @@
 import { ProducerValidationError } from "./producer-errors.ts";
-import {
-  physicalRouteEvidence,
-  requirePhysicalRoutes,
-} from "../authoring/physical-routes.ts";
 import type {
   ArchitectureDocument,
   ArchitectureCompileOptions,
@@ -11,7 +7,7 @@ import type {
 import { compile } from "./compiler.ts";
 import { parseAml, serializeAml } from "./format.ts";
 import { validateForRuntime } from "../vector/validate.ts";
-import { aborted, type Diagnostic, type V3 } from "../vector/types.ts";
+import { aborted, type V3 } from "../vector/types.ts";
 import type { AssetResolver } from "../vector/props.ts";
 export interface ProducerOptions {
   /** Host-controlled imported mesh I/O; publication never fetches assets itself. */
@@ -47,11 +43,15 @@ export async function produceDocument(
       signal: options.signal,
       onReachableSample: options.onReachableSample,
       sampleOrigin: options.sampleOrigin,
+      physicalWork: options.physicalWork,
+      onProgress: options.onProgress,
     },
   });
   const report = await validateForRuntime(level, {
     signal: options.signal,
     sealed: true,
+    physicalWork: options.physicalWork,
+    onProgress: options.onProgress,
   });
   if (!report.passed)
     throw new ProducerValidationError("architecture", report.diagnostics);
@@ -67,24 +67,7 @@ export async function produceDocument(
         objects: [parsed.id],
       },
     ]);
-  const land = {
-    ...level,
-    document: {
-      ...level.document,
-      routes: level.document.routes.filter(
-        (route) => route.movement !== "water",
-      ),
-    },
-  };
-  options.onProgress?.("Physical route evidence");
-  aborted(options.signal);
-  const physical = physicalRouteEvidence(
-    land,
-    report.sealed ?? report.navigation!,
-    options.signal,
-    options.physicalWork,
-  );
-  requirePhysicalRoutes(land, physical);
+  const physical = (report.sealed ?? report.navigation)!.physical!;
   return { document: parsed, text, level, report, physical };
 }
 

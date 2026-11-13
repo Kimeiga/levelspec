@@ -13,7 +13,7 @@ const output = resolve(
   process.argv[2] ?? `generated/rooftop-reference-${Date.now()}`,
 );
 await mkdir(output, { recursive: true });
-const source = "examples/rooftop-reference.aml";
+const source = "tests/fixtures/aml/rooftop-reference.aml";
 const document = parseAml(await readFile(source, "utf8"));
 const level = await compile(document, {
   floorGaps: "error",

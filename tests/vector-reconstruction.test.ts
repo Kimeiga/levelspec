@@ -224,7 +224,8 @@ describe("review regressions: navigation and candidate retention", () => {
     const raw = await compile(scene.document, { navigation: false });
     const evidence = silhouetteEvidence(raw);
     const ordinary = await validateForRuntime(raw, { sealed: true, cell: 0.0625 });
-    assert.equal(ordinary.passed, true);
+    assert.equal(ordinary.passed, false);
+    assert.ok(ordinary.diagnostics.some(diagnostic => diagnostic.code === "ROUTE_REQUIREMENT" && diagnostic.message.startsWith("Sealed:")));
     assert.equal(ordinary.navigation?.settings.cell, 0.0625);
     assert.equal(ordinary.sealed?.settings.cell, 0.0625);
     assert.equal(ordinary.navigation?.routes.find(route => route.id === "gate-route")?.reachable, true);

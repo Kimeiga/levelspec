@@ -4,6 +4,7 @@ import type { CompiledLevel, MeshData, Surface } from "./types.ts";
 export function selectMesh(level: CompiledLevel, include: (surface: Surface) => boolean): MeshData {
   const source = level.mesh;
   const mesh: MeshData = { positions: [], normals: [], indices: [], uv: [], surfaces: [],
+    ...(source.colors ? { colors: [] } : {}),
     ...(source.solidIds ? { solidIds: [] } : {}),
     ...(source.uv1 ? { uv1: [] } : {}), ...(source.tangents ? { tangents: [] } : {}),
     ...(source.atlasPages ? { atlasPages: [] } : {}), ...(source.chartIds ? { chartIds: [] } : {}) };
@@ -21,6 +22,7 @@ export function selectMesh(level: CompiledLevel, include: (surface: Surface) => 
         index=mesh.positions.length/3;vertices.set(old,index);
         mesh.positions.push(...source.positions.slice(old*3,old*3+3));
         mesh.normals.push(...source.normals.slice(old*3,old*3+3));
+        if(mesh.colors)mesh.colors.push(...source.colors!.slice(old*3,old*3+3));
         mesh.uv.push(...source.uv.slice(old*2,old*2+2));
         if(mesh.uv1)mesh.uv1.push(...source.uv1!.slice(old*2,old*2+2));
         if(mesh.tangents)mesh.tangents.push(...source.tangents!.slice(old*4,old*4+4));

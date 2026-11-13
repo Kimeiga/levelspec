@@ -1,6 +1,8 @@
+import { POSTER_DESIGNS } from "../dressing/posters.ts";
 import { SaxesParser } from "saxes";
 import { DEFAULT_PLAYER, type Diagnostic, type SourceLocation, type Named } from "../vector/types.ts";
 import { validateReference, type ReferenceView } from "../vector/reference.ts";
+import { validateMaterial } from "../vector/materials.ts";
 import type {
   ArchitectureDocument, ArchitectureElement, ArchitecturePath, ArchitectureProfile,
   PathSegment, Placement, V2, V3, Elevation, ProfileLoop,
@@ -299,6 +301,64 @@ export function parseAml(text: string): ArchitectureDocument {
   for (const element of root.children) {
     const child = new Attributes(element);
     switch (element.tag) {
+      case "dressing": {
+        if (document.dressing) child.fail("Only one dressing section is allowed.");
+        const dressing = {
+          theme: child.choice("theme", ["kowloon-street@1"], "kowloon-street@1"),
+          seed: child.required("seed"), grime: child.number("grime", 0.4),
+          wear: child.number("wear", 0.2), rust: child.optionalNumber("rust"),
+          detail: child.choice("detail", ["low", "medium", "high"], "medium"),
+          timeOfDay: child.choice("time-of-day", ["day", "night"], "day"),
+          finishes: child.text("finishes"),
+          wallMaterials: child.text("wall-materials")?.trim().split(/\s+/),
+          rules: [] as import("../dressing/types.ts").DressingRule[], source: element.source,
+        };
+        const posters: import("../dressing/types.ts").PosterRule[] = [];
+        const spans: import("../dressing/types.ts").SpanRule[] = [];
+        for (const entry of element.children) {
+          const rule = new Attributes(entry);
+          if (entry.tag === "poster") {
+            posters.push({ id: rule.required("id"), host: rule.required("host"),
+              face: rule.choice("face", ["front", "back", "left", "right"], "front"),
+              at: rule.vector("at", 2), design: rule.choice("design", [...POSTER_DESIGNS], "calendar"),
+              width: rule.number("width", .3), rotation: rule.optionalNumber("rotation"), layer: rule.optionalNumber("layer"),
+              wear: rule.optionalNumber("wear"), source: entry.source });
+            rule.finish();
+            continue;
+          }
+          if (entry.tag === "spans") {
+            spans.push({
+              hosts: rule.text("hosts")?.trim().split(/\s+/),
+              cables: rule.number("cables", 0.6), clotheslines: rule.number("clotheslines", 0.35), signs: rule.number("signs", 0.2),
+              clearance: rule.number("clearance", 2.6), reach: rule.number("reach", 14), source: entry.source,
+            });
+            rule.finish();
+            continue;
+          }
+          if (!["wall", "floor", "building"].includes(entry.tag)) rule.fail("Expected wall, floor, building, poster, or spans dressing.");
+          dressing.rules.push({
+            kind: entry.tag as "wall" | "floor" | "building", host: rule.required("host"),
+            material: rule.text("material") ?? (entry.tag === "floor" ? "builtin:concrete" : "builtin:plaster"),
+            face: rule.choice("face", ["front", "back", "left", "right", "top", "side"], entry.tag === "floor" ? "top" : "front"),
+            grime: rule.optionalNumber("grime"), wear: rule.optionalNumber("wear"), rust: rule.optionalNumber("rust"),
+            windows: rule.boolean("windows", entry.tag !== "floor"),
+            stories: rule.optionalNumber("stories"), shops: rule.optionalNumber("shops"), textureDensity: rule.optionalNumber("texture-density"), baseWall: rule.text("base-wall"), source: entry.source,
+            ground: rule.text("ground") === undefined ? undefined : rule.choice("ground", ["patched"], "patched"),
+            patchSize: rule.optionalNumber("patch-size"), materialSize: rule.optionalNumber("material-size"), relief: rule.optionalNumber("relief"),
+            wetness: rule.optionalNumber("wetness"), litter: rule.optionalNumber("litter"),
+            repairs: rule.optionalNumber("repairs"), tileShare: rule.optionalNumber("tile-share"), timberShare: rule.optionalNumber("timber-share"),
+            tileSize: rule.optionalNumber("tile-size"), tileAspect: rule.optionalNumber("tile-aspect"),
+            tileWear: rule.optionalNumber("tile-wear"), tileGrime: rule.optionalNumber("tile-grime"), tileColor: rule.text("tile-color"),
+            tilePlasterColor: rule.text("tile-plaster-color"),
+            joinedPours: rule.optionalNumber("joined-pours"), asphalt: rule.optionalNumber("asphalt"), manholes: rule.optionalNumber("manholes"), breakup: rule.optionalNumber("breakup"),
+            asphaltMaterial: rule.text("asphalt-material"),
+          });
+          rule.finish();
+        }
+        child.finish(["wall", "floor", "building", "spans", "poster"]);
+        document.dressing = { ...dressing, ...(spans.length ? { spans } : {}), ...(posters.length ? { posters } : {}) };
+        break;
+      }
       case "path": {
         const path: ArchitecturePath = { ...child.named(), ...child.placement(), points: child.points(), paths: child.text("paths")?.trim().split(/\s+/), segments: [], closed: child.boolean("closed") };
         if (child.text("elevation")) path.elevation = child.vector("elevation", 2);
@@ -330,7 +390,22 @@ export function parseAml(text: string): ArchitectureDocument {
       case "datum": document.datums.push({ ...child.named(), elevation: child.number("elevation", 0), datum: child.text("datum") }); child.finish(); break;
       case "coordinate-frame": document.frames.push({ ...child.named(), ...child.placement() }); child.finish(); break;
       case "definition": document.definitions.push({ ...child.named(), children: element.children.map(readElement) }); child.finish(element.children.map(e => e.tag)); break;
-      case "material": document.materials.push({ ...child.named(), color: child.text("color", "#b9c7d1")!, repeat: child.number("repeat", 1), roughness: child.number("roughness", .8), metalness: child.number("metalness", 0), texture: child.text("texture") }); child.finish(); break;
+      case "material": {
+        const material = {
+          ...child.named(), color: child.text("color", "#b9c7d1")!, repeat: child.number("repeat", 1),
+          roughness: child.number("roughness", .8), metalness: child.number("metalness", 0),
+          emissive: child.text("emissive"), emissiveStrength: child.optionalNumber("emissive-strength"),
+          texture: child.text("texture"), normalTexture: child.text("normal-texture"), normalScale: child.optionalNumber("normal-scale"),
+          metallicRoughnessTexture: child.text("metallic-roughness-texture"),
+          heightTexture: child.text("height-texture"), heightScale: child.optionalNumber("height-scale"), heightOffset: child.optionalNumber("height-offset"),
+          opacity: child.optionalNumber("opacity"), alphaCutoff: child.optionalNumber("alpha-cutoff"),
+        };
+        child.finish();
+        const findings = validateMaterial(material);
+        if (findings.length) throw new AmlError(findings);
+        document.materials.push(material);
+        break;
+      }
       case "player": {
         const p = document.player;
         p.radius = child.number("radius", p.radius); p.height = child.number("height", p.height); p.step = child.number("step", p.step);
@@ -444,6 +519,15 @@ export function serializeAml(document: ArchitectureDocument): string {
   for (const profile of document.profiles) children.push(tag("profile", { ...attributes(profile, ["outer", "holes", "interior", "breaklines"]), ...loop(profile.outer), interior: profile.interior.length ? points(profile.interior) : undefined }, [
     ...profile.holes.map(hole => tag("hole", loop(hole))), ...profile.breaklines.map(line => tag("breakline", { points: points(line) })),
   ]));
+  if (document.dressing) {
+    const { rules, spans, posters = [], source: _source, ...settings } = document.dressing;
+    // Preserve an explicitly disabled native span list through an AML round trip.
+    const spanRecipes = spans?.length === 0
+      ? [{ cables: 0, clotheslines: 0, signs: 0 }]
+      : spans ?? [];
+    children.push(tag("dressing", { ...settings, timeOfDay: undefined, "time-of-day": settings.timeOfDay, wallMaterials: undefined, "wall-materials": settings.wallMaterials },
+      [...rules.map(rule => tag(rule.kind, attributes(rule, ["kind"]))), ...spanRecipes.map(rule => tag("spans", attributes(rule))), ...posters.map(rule => tag("poster", attributes(rule)))]));
+  }
   for (const material of document.materials) children.push(tag("material", attributes(material)));
   for (const definition of document.definitions) children.push(tag("definition", attributes(definition, ["children"]), definition.children.map(writeElement)));
   children.push(...document.elements.map(writeElement), tag("player", attributes(document.player)));

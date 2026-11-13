@@ -1,0 +1,8 @@
+<architecture version="1" id="texture-benchmark">
+  <material id="finish" color="#b7b1a4"/>
+  <profile id="plan" points="0 0; 1 0; 1 1; 0 1"/>
+  <slab id="floor" profile="plan" thickness="0.2"/>
+  <dressing seed="texture-benchmark" grime="0.7" wear="0.3" detail="medium">
+    <floor host="floor" material="finish" ground="patched" patch-size="1" material-size="3" tile-share="1" timber-share="0" relief="0.03" wetness="0" litter="0" repairs="0.3" asphalt="0" manholes="0" breakup="0"/>
+  </dressing>
+</architecture>

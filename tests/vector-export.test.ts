@@ -162,12 +162,24 @@ describe("portable vector exports", () => {
       id: "other",
       texture: "other/a.png",
     });
+    d.materials.push({ ...d.materials[0], id: "unused", texture: "unused.png" });
+    const room = d.elements[0];
+    assert.ok("children" in room);
+    room.coincidentMaterial = "retained-face";
+    const secondFinish = room.children.find(element => element.id === "e0");
+    assert.ok(secondFinish?.kind === "wall");
+    secondFinish.material = "other";
     const level = await compile(d, {
       navigation: false,
       uvs: true,
       uv: { resolution: 128, density: 2 },
     });
-    const assets = await resolveExportAssets(level, async () => pngBytes());
+    const unused = PNG.sync.read(pngBytes());
+    unused.data[0] = 17;
+    const assets = await resolveExportAssets(level, async reference =>
+      reference === "unused.png" ? PNG.sync.write(unused) : pngBytes());
+    assets["images/a.png"].file = "textures/first-alias.png";
+    assets["other/a.png"].file = "textures/second-alias.png";
     const binary = toGLB(level, { assets }),
       bundle = toGLTF(level, { assets });
     const json = glbJSON(binary),
@@ -196,7 +208,7 @@ describe("portable vector exports", () => {
       NORMAL: level.mesh.normals,
       TEXCOORD_0: level.mesh.uv.map((v, i) => (i % 2 ? 1 - v : v)),
       TEXCOORD_1: level.mesh.uv1!.map((v, i) => (i % 2 ? 1 - v : v)),
-      TANGENT: level.mesh.tangents!.map((v, i) => (i % 4 === 3 ? -v : v)),
+      TANGENT: level.mesh.tangents!,
     })) {
       const acc = json.accessors[attributes[name]],
         view = json.bufferViews[acc.bufferView];
@@ -211,7 +223,14 @@ describe("portable vector exports", () => {
         `${name} preserves every component with the declared convention conversion`,
       );
     }
-    assert.equal(json.images.length, 1);
+    assert.deepEqual(json.materials.map((material: { name: string }) => material.name).sort(), ["other", "paint"]);
+    const boundMaterials = new Set(json.meshes.flatMap((mesh: { primitives: { material: number }[] }) =>
+      mesh.primitives.map(primitive => json.materials[primitive.material].name)));
+    assert.deepEqual([...boundMaterials].sort(), ["other", "paint"], "Both aliases must be used to prove image sharing");
+    assert.equal(json.materials[0].pbrMetallicRoughness.baseColorTexture.index,
+      json.materials[1].pbrMetallicRoughness.baseColorTexture.index, "Used aliases duplicated the same image content");
+    assert.equal(json.images.length, 1, "The export retained a unique image from an unused material");
+    assert.equal(bundle[assets["unused.png"].file], undefined, "External glTF bundled an unused companion");
     assert.equal(
       Object.keys(bundle).filter((k) => k.startsWith("textures/")).length,
       1,
@@ -235,6 +254,75 @@ describe("portable vector exports", () => {
       exportMetadata(level, ["glb"]).markers,
       level.document.markers,
     );
+    const directory = await mkdtemp(join(tmpdir(), "levelspec-texture-report-"));
+    try {
+      const output = join(directory, "bundle");
+      await exportLevel(level, { formats: ["glb", "gltf"], output, assets });
+      const report = JSON.parse(await readFile(join(output, "export-room.export.json"), "utf8"));
+      const written = JSON.parse(await readFile(join(output, "export-room.gltf"), "utf8"));
+      assert.equal(written.images.length, 1);
+      const emittedImage = written.images[0].uri;
+      assert.deepEqual(await readFile(join(output, emittedImage)), Buffer.from(assets["images/a.png"].bytes));
+      for (const reference of ["images/a.png", "other/a.png"]) {
+        assert.equal(report.textures[reference].sourceSha256, assets[reference].hash);
+        assert.equal(report.textures[reference].embeddedInGLB, true);
+        assert.equal(report.textures[reference].gltfFile, emittedImage,
+          "Same-content aliases must report the image filename actually emitted by glTF");
+      }
+      assert.deepEqual([assets["images/a.png"].file, assets["other/a.png"].file],
+        ["textures/first-alias.png", "textures/second-alias.png"], "Export mutated caller-owned alias filenames");
+      assert.equal(report.textures["unused.png"].embeddedInGLB, false, "Report claims an omitted image is embedded");
+      assert.equal(report.textures["unused.png"].gltfFile, undefined, "Report points to an omitted glTF companion");
+      assert.equal((await readdir(join(output, "textures"))).length, 1);
+    } finally {
+      await rm(directory, { recursive: true, force: true });
+    }
+  });
+  it("selects visual and collision materials without losing the explicit default fallback", async () => {
+    for (const authoredDefault of [false, true]) {
+      const level = await compile(parseAml(`<architecture version="1" id="material-selection" validation="premap">
+        <material id="visual" color="#cc5533"/><material id="proxy" color="#33aa66"/><material id="shared" color="#4477bb"/>
+        <material id="unused" texture="unused.png" normal-texture="unused.png"/>
+        ${authoredDefault ? '<material id="default" color="#808080" roughness="0.37"/>' : ''}
+        <box id="visual-only" width="1" depth="1" height="1" material="visual" collidable="false"/>
+        <box id="physical-only" position="2 0 0" width="1" depth="1" height="1" material="proxy" visible="false"/>
+        <box id="shared-box" position="4 0 0" width="1" depth="1" height="1" material="shared"/>
+        <box id="fallback-box" position="6 0 0" width="1" depth="1" height="1"/>
+      </architecture>`), { navigation: false });
+      assert.ok(!level.diagnostics.some(diagnostic => diagnostic.severity === "error"));
+      for (const surface of level.surfaces) if (surface.object === "fallback-box") surface.material = "unknown-runtime-finish";
+      const original = structuredClone({ mesh: level.mesh, surfaces: level.surfaces, materials: level.document.materials });
+      assert.throws(() => toGLB(level), /unused\.png/, "Filtering output must not suppress declared-companion validation");
+      const assets = await resolveExportAssets(level, async () => pngBytes());
+      for (const purpose of ["visual", "collision"] as const) {
+        const bytes = toGLB(level, { purpose, assets }), json = glbJSON(bytes);
+        const bundle = toGLTF(level, { purpose, assets });
+        const external = JSON.parse(bundle["material-selection.gltf"] as string);
+        const expected = purpose === "visual" ? ["default", "shared", "visual"] : ["default", "proxy", "shared"];
+        assert.deepEqual(json.materials.map((material: { name: string }) => material.name).sort(), expected);
+        assert.deepEqual(json.materials, external.materials);
+        assert.equal(json.images, undefined, "Selected untextured geometry retained an unused image");
+        assert.equal(Object.keys(bundle).filter(name => name.startsWith("textures/")).length, 0);
+        const bound = new Map(json.nodes.filter((node: { mesh?: number }) => node.mesh !== undefined).map((node: any) => {
+          const primitive = json.meshes[node.mesh].primitives[0];
+          return [node.extras.objectId, json.materials[primitive.material].name];
+        }));
+        assert.equal(bound.get("fallback-box"), "default", "Unknown surface material fell through to an unrelated active finish");
+        assert.equal(bound.get("shared-box"), "shared");
+        assert.equal(bound.get(purpose === "visual" ? "visual-only" : "physical-only"), purpose === "visual" ? "visual" : "proxy");
+        assert.equal(bound.has(purpose === "visual" ? "physical-only" : "visual-only"), false);
+        const fallback = json.materials.find((material: { name: string }) => material.name === "default");
+        assert.equal(fallback.pbrMetallicRoughness.roughnessFactor, authoredDefault ? .37 : .8);
+        if (authoredDefault) assert.ok(fallback.pbrMetallicRoughness.baseColorFactor.slice(0, 3)
+          .every((value: number) => Math.abs(value - .21586050011389926) < 1e-12));
+        assert.equal((await validateBytes(bytes)).issues.numErrors, 0);
+        assert.equal((await validateString(bundle["material-selection.gltf"] as string, {
+          externalResourceFunction: async (uri: string) => bundle[uri] as Uint8Array,
+        })).issues.numErrors, 0);
+      }
+      assert.deepEqual({ mesh: level.mesh, surfaces: level.surfaces, materials: level.document.materials }, original,
+        "Material selection mutated the compiled input");
+    }
   });
   it("loads through Three.js with the exact asymmetric bounds and marker conversion", async () => {
     const level = await compile(fixture(), { navigation: false });
@@ -439,7 +527,7 @@ describe("Quake brush export", () => {
   });
   it("retained closed solids agree with final native physical volume and exposed faces", async () => {
     const K = await geometryKernel();
-    for (const file of ["examples/showcase.aml", "examples/dust2.aml"]) {
+    for (const file of ["tests/fixtures/aml/showcase.aml", "examples/dust2.aml"]) {
       const level = await compile(parseAml(await readFile(file, "utf8")), {
           navigation: false,
           retainExportSolids: true,
@@ -488,7 +576,7 @@ describe("Quake brush export", () => {
   });
   it("generates BSP source for curved walls, stairs, ramps and stacked floors with valid projections", async () => {
     const level = await compile(
-      parseAml(await readFile("examples/showcase.aml", "utf8")),
+      parseAml(await readFile("tests/fixtures/aml/showcase.aml", "utf8")),
       { navigation: false, retainExportSolids: true },
     );
     const wad = quakeWad(level, {}, palette),

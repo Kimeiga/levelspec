@@ -17,7 +17,7 @@ const help = `Usage: levelspec <command> [options]
   preview <file.aml|file.xml> [--port NUMBER]
     --camera "X Y Z" --target "X Y Z" --projection orthographic|perspective
     --fov DEGREES --view-height METERS --roll DEGREES --suggestion ID | --diagnostic ID
-    --appearance flat|illustrated|materials|inspection --frame-aspect RATIO
+    --appearance wireframe|materials|full-render --frame-aspect RATIO
   validate/build/preview: --nav-cell METERS (0.025–0.5; default 0.0625)
   --help --version
 Preview is read-only and loopback-only. Native exporters require separately installed tools.`;

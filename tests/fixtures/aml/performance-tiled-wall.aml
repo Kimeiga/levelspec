@@ -1,0 +1,8 @@
+<architecture version="1" id="tile-benchmark">
+  <material id="finish" color="#c6c2b4"/>
+  <path id="axis" points="0 0 0; 2 0 0"/>
+  <wall id="wall" path="axis" thickness="0.2" height="1.5"/>
+  <dressing theme="kowloon-street@1" seed="profile" detail="low" wear="0.8" grime="0.6">
+    <wall host="wall" face="side" windows="false" material="finish" tile-share="0.55"/>
+  </dressing>
+</architecture>

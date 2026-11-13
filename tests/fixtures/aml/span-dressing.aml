@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="span-dressing" name="Span dressing alley" description="Two tenement rows across a 5 m alley beside a walled yard, strung with cables, washing and signs." units="meters" validation="premap">
+  <profile id="ground:profile" points="-10 -8; 14 -8; 14 13; -10 13"/>
+  <path id="yard-south:path" points="-8 0 0; -1 0 0"/>
+  <path id="yard-north:path" points="-8 6 0; -1 6 0"/>
+  <material id="paving" color="#9a9a94" repeat="0.65" roughness="0.95"/>
+  <material id="plaster" color="#d8d0bc" repeat="0.65" roughness="0.9"/>
+  <slab id="ground" material="paving" profile="ground:profile" thickness="0.2" elevation="0"/>
+  <wall id="yard-south" path="yard-south:path" thickness="0.22" height="4.2"/>
+  <wall id="yard-north" path="yard-north:path" thickness="0.22" height="4.2"/>
+  <box id="north-block" position="0 5 0" width="12" depth="6" height="12.35" collidable="false"/>
+  <box id="south-block" position="12 0 0" rotation="0 0 180" width="12" depth="6" height="12.35" collidable="false"/>
+  <light id="sun" position="-12 -15 25" target="4 3 0" color="#fff2dd" intensity="2" kind="directional"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+  <dressing theme="kowloon-street@1" seed="span-alley" grime="0.6" wear="0.3" detail="medium">
+    <floor host="ground" material="paving"/>
+    <wall host="yard-south" face="side" windows="false" material="plaster"/>
+    <wall host="yard-north" face="side" windows="false" material="plaster"/>
+    <building host="north-block" material="plaster" stories="4"/>
+    <building host="south-block" material="plaster" stories="4"/>
+    <spans cables="0.7" clotheslines="0.6" signs="0.5"/>
+  </dressing>
+</architecture>

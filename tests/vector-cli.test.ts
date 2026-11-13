@@ -5,10 +5,12 @@ import { mkdtemp, mkdir, readFile, writeFile, rm, symlink, readdir } from "node:
 import { tmpdir } from "node:os";
 import { join, isAbsolute } from "node:path";
 import { createServer } from "node:net";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { PNG } from "pngjs";
 import { ArchitectureBuilder, parseAml, serializeAml } from "levelspec";
 import { writeExportFiles } from "../src/export/vector/index.ts";
-import { NavigationSurface } from "../website/navigation.ts";
+import { NavigationSurface } from "../review/navigation-surface.ts";
 import { navigationDoorway } from "./fixtures/navigation-doorway.ts";
 
 const launcher = fileURLToPath(new URL("../bin/levelspec.mjs", import.meta.url));
@@ -82,7 +84,7 @@ test("preview launcher carries a valid camera into its live URL and shuts down",
     const source = await sourceFile(temp);
     child = spawn(process.execPath, [launcher, "preview", source,
       "--camera", "11 -17 8", "--target", "2 3 1", "--projection", "perspective",
-      "--fov", "47", "--view-height", "14", "--roll=-21.49", "--appearance", "inspection", "--frame-aspect", "0.75", "--nav-cell", "0.0625"], { cwd: temp, stdio: ["ignore", "pipe", "pipe"] });
+      "--fov", "47", "--view-height", "14", "--roll=-21.49", "--appearance", "materials", "--frame-aspect", "0.75", "--nav-cell", "0.0625"], { cwd: temp, stdio: ["ignore", "pipe", "pipe"] });
     const previewProcess = child;
     const stopped = new Promise<number | null>(done => {
       previewProcess.once("close", done);
@@ -106,7 +108,7 @@ test("preview launcher carries a valid camera into its live URL and shuts down",
       assert.equal(url.searchParams.get("fov"), "47");
       assert.equal(url.searchParams.get("view-height"), "14");
       assert.equal(url.searchParams.get("roll"), "-21.49");
-      assert.equal(url.searchParams.get("appearance"), "inspection");
+      assert.equal(url.searchParams.get("appearance"), "materials");
       assert.equal(url.searchParams.get("frame-aspect"), "0.75");
       assert.equal(url.searchParams.get("nav-cell"), "0.0625");
       assert.equal((await fetch(url)).status, 200, "Preview HTML must accept the view query");
@@ -206,7 +208,7 @@ test("CLI migrates SVGX explicitly while normal inputs accept equivalent AML and
   const temp = await mkdtemp(join(tmpdir(), "levelspec-migrate-cli-"));
   try {
     const legacy = join(temp, "old.level.svgx"), output = join(temp, "new");
-    const original = await readFile(new URL("../examples/cli-starter.level.svgx", import.meta.url), "utf8");
+    const original = await readFile(new URL("./fixtures/migration/cli-starter.level.svgx", import.meta.url), "utf8");
     await writeFile(legacy, original);
     const rejected = await run(["validate", legacy, "--json"]);
     assert.equal(rejected.code, 1);
@@ -256,6 +258,7 @@ test("build publishes portable files from another working directory and preserve
     for (const file of builtResult.artifacts) assert.ok(isAbsolute(file));
     const glb = join(output, "cli-contract.glb"), original = await readFile(glb);
     assert.equal(original.toString("ascii", 0, 4), "glTF");
+    assert.ok(builtResult.artifacts.includes(join(output, "cli-contract.obj")), "A representable simple level retains its OBJ companion");
     const runtime = JSON.parse(await readFile(join(output, "cli-contract.runtime.json"), "utf8"));
     assert.equal(runtime.id, "cli-contract");
     const validSource = await readFile(source, "utf8");
@@ -273,6 +276,46 @@ test("build publishes portable files from another working directory and preserve
     assert.deepEqual(await readFile(glb), original);
     const recovered = await run(["build", source, "--out", output, "--json", "--no-uv"], temp);
     assert.equal(recovered.code, 0, recovered.stderr || recovered.stdout);
+  } finally { await rm(temp, { recursive: true, force: true }); }
+});
+
+test("weathered GLB builds package generated PBR images without serializing their bytes into runtime JSON", async () => {
+  const temp = await mkdtemp(join(tmpdir(), "levelspec-surface-build-"));
+  try {
+    const source = join(temp, "level.aml"), output = join(temp, "output");
+    await writeFile(source, await readFile(new URL("./fixtures/aml/surface-host.aml", import.meta.url)));
+    const png = new PNG({ width: 2, height: 2 });
+    png.data = Buffer.from(Uint16Array.from([0x1234, 0x5678, 0xabcd, 0xffff]).buffer);
+    await writeFile(join(temp, "finish.png"), PNG.sync.write(png,
+      { colorType: 0, inputColorType: 0, inputHasAlpha: false, bitDepth: 16, filterType: 0 }));
+    const built = await run(["build", source, "--out", output, "--formats", "glb", "--json", "--no-uv"], temp);
+    assert.equal(built.code, 0, built.stderr || built.stdout);
+    const artifacts = result(built.stdout, "build", true).artifacts as string[];
+    assert.ok(!artifacts.some(file => file.endsWith(".obj")), "Incidental OBJ must not block a supported PBR build");
+    const runtime = JSON.parse(await readFile(join(output, "surface-host.runtime.json"), "utf8"));
+    const generated = runtime.generatedImages as Record<string, { file: string; hash: string; mimeType: string }>;
+    assert.ok(Object.keys(generated).length > 0, "The source height field must produce portable material companions");
+    const hashes = new Set<string>();
+    for (const [reference, metadata] of Object.entries(generated)) {
+      assert.deepEqual(Object.keys(metadata).sort(), ["file", "hash", "mimeType"], "Runtime transport retains identities, never encoded image bytes");
+      const file = join(output, metadata.file);
+      assert.ok(artifacts.includes(file), `Generated reference ${reference} must have a packaged companion`);
+      const bytes = await readFile(file);
+      assert.equal(createHash("sha256").update(bytes).digest("hex"), metadata.hash);
+      assert.equal(metadata.mimeType, "image/png");
+      assert.ok(PNG.sync.read(bytes).width > 0, "Generated companions remain decodable material images");
+      hashes.add(metadata.hash);
+    }
+    const glb = await readFile(join(output, "surface-host.glb"));
+    const jsonLength = glb.readUInt32LE(12), document = JSON.parse(glb.toString("utf8", 20, 20 + jsonLength));
+    assert.ok(document.materials.some((material: { normalTexture?: unknown }) => material.normalTexture), "The height-derived appearance must remain available in ordinary GLB PBR");
+    const binaryStart = 20 + jsonLength + 8;
+    const embedded = new Set(document.images.map((image: { bufferView: number }) => {
+      const view = document.bufferViews[image.bufferView];
+      const start = binaryStart + (view.byteOffset ?? 0);
+      return createHash("sha256").update(glb.subarray(start, start + view.byteLength)).digest("hex");
+    }));
+    for (const hash of hashes) assert.ok(embedded.has(hash), "GLB and packaged runtime images must use identical compiled bytes");
   } finally { await rm(temp, { recursive: true, force: true }); }
 });
 

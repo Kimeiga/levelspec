@@ -4,6 +4,7 @@ import type {
   Suggestion,
   V3,
 } from "./types.ts";
+import { refreshSuggestionDiagnostics } from "./diagnostics.ts";
 import { hash } from "./geometry.ts";
 import { aborted } from "./types.ts";
 
@@ -224,4 +225,5 @@ export async function refreshNavigationSuggestions(
     ...findings,
   ].sort((a, b) => a.id.localeCompare(b.id));
   level.navigationSuggestionsStatus = "complete";
+  refreshSuggestionDiagnostics(level);
 }

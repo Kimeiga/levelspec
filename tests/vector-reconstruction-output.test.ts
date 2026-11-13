@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { isRunArtifact, prepareRunOutput } from "../tools/reconstruct-output.ts";
 import { parseAml, serializeAml } from "levelspec";
-import { NavigationSurface } from "../website/navigation.ts";
+import { NavigationSurface } from "../review/navigation-surface.ts";
 
 describe("reconstruction output hygiene", () => {
   it("removes only prior generated files, including obsolete iteration drafts", async () => {
