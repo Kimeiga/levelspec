@@ -1,4 +1,3 @@
-import { amlSource } from './fixtures/aml-source.mjs';
 /** Real CLI failure and source-linked inspection of invalid but renderable overlaps. */
 import assert from "node:assert/strict";
 import { mkdtemp, writeFile, readFile, rm } from "node:fs/promises";
@@ -10,14 +9,22 @@ import { startPreview } from "../src/cli/preview.ts";
 import {
   launchBrowser,
   waitForFrames,
-} from "../website/tests/browser-helpers.mjs";
+} from "./browser/support/browser.mjs";
 const directory = await mkdtemp(join(tmpdir(), "levelspec-overlaps-")),
   file = join(directory, "level.aml");
-const source = `<level version="2" id="overlap-demo" name="Overlap acceptance" validation="premap"><layer id="objects"/><prop id="first" layer="objects" shape="box" position="0 0 0" rotation="0 0 0" scale="2 2 2" material="default" collision="none"/><prop id="second" layer="objects" shape="box" position="0.5 0 0" rotation="0 0 0" scale="2 2 2" material="default" collision="none"/></level>`;
+const source = `<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="overlap-demo" name="Overlap acceptance" units="meters" validation="premap" curve-tolerance="0.01">
+  <group id="objects"/>
+  <box id="first" group="objects" material="default" position="0 0 0" rotation="0 0 0" anchor="bottom-center" width="2" depth="2" height="2" radius="0.5" top-radius="0" collidable="false"/>
+  <box id="second" group="objects" material="default" position="0.5 0 0" rotation="0 0 0" anchor="bottom-center" width="2" depth="2" height="2" radius="0.5" top-radius="0" collidable="false"/>
+  <player radius="0.25" height="2" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+</architecture>
+`;
 const run = promisify(execFile);
 let server, browser;
 try {
-  await writeFile(file, await amlSource(source));
+  await writeFile(file, source);
   let failed;
   try {
     await run(process.execPath, [
@@ -135,7 +142,7 @@ try {
   await waitForFrames(page);
   assert.ok(await page.locator("#model canvas").count());
   await writeFile(
-    file, await amlSource(source.replace('position="0.5 0 0"', 'position="0.5 0 2"')));
+    file, source.replace('position="0.5 0 0"', 'position="0.5 0 2"'));
   await page.waitForFunction(() =>
     document
       .querySelector("#diagnostics")

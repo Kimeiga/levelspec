@@ -443,6 +443,11 @@ header nav {
   gap: 12px;
   white-space: nowrap;
 }
+header nav label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 #offline {
   font-size: 10px;
 }
@@ -569,6 +574,7 @@ footer button {
     gap: 8px;
   }
   header #summary,
+  header nav a,
   #offline {
     display: none;
   }
@@ -724,3 +730,13 @@ footer button {
 #frame-form input { width: 100%; min-width: 0; padding: 4px; }
 #frame-reference { max-width: 100%; font-size: 11px; margin-top: 8px; }
 #frame-error { color: #91483f; }
+
+@media (max-width: 1100px) {
+  header { height: auto; min-height: 32px; flex-wrap: wrap; gap: 6px; padding: 5px 8px; }
+  header #summary { display: none; }
+  header nav { min-width: 0; flex-wrap: wrap; gap: 6px; }
+}
+@media (max-width: 800px) {
+  header nav { flex: 1 0 100%; margin-left: 0; }
+  header nav a[download]:not([hidden]) { display: inline; }
+}

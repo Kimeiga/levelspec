@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { startPreview } from '../src/cli/preview.ts';
-import { launchBrowser, waitForFrames } from '../website/tests/browser-helpers.mjs';
+import { launchBrowser, waitForFrames } from './browser/support/browser.mjs';
 
 const output = 'generated/aml-phase2-browser';
 await mkdir(output, { recursive: true });
 let server, browser;
 try {
-  server = await startPreview(resolve('examples/architecture-cad.aml'), { port: 0 });
+  server = await startPreview(resolve('tests/fixtures/aml/architecture-cad.aml'), { port: 0 });
   browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
   const errors = [];

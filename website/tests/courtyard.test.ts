@@ -1,13 +1,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { buildCourtyard } from "../architecture.ts";
+import { buildCourtyard } from "../../tools/fixtures/courtyard/architecture.ts";
 import {
   compile,
   parseAml,
   validateForRuntime,
 } from "levelspec";
-import { NavigationSurface } from "../navigation.ts";
+import { NavigationSurface } from "../../review/navigation-surface.ts";
 const fixture = readFileSync(
   new URL("../demo.aml", import.meta.url),
   "utf8",

@@ -96,11 +96,84 @@ test('composed solid interiors survive mixed boolean and opening contributors', 
   assert.equal(physicalWalk(cut).blocked([15,1,.01], cut.document.player), false);
 });
 
-test('closed CSG cavities remain empty while their surrounding shell stays occupied', async () => {
+/** A closed room whose interior pillars share an edge without occupying the free walking space. */
+async function enclosedRoom(pillarHeight = 3) {
+  return compile(parseAml(`<architecture version="1" id="cavity" validation="premap">
+    <player radius="0.35" height="1.8" step="0.3" slope="42"/>
+    <profile id="walk-area" points="1 1; 11 1; 11 11; 1 11"/>
+    <assembly id="room" coincident-material="retained-face">
+      <subtract id="shell">
+        <box id="outer" width="12" depth="12" height="6"/>
+        <box id="void" width="10" depth="10" height="4.3" position="1 1 0.7"/>
+      </subtract>
+      <box id="pillar-a" width="1" depth="1" height="${pillarHeight}" position="8 8 0"/>
+      <box id="pillar-b" width="1" depth="1" height="${pillarHeight}" position="9 9 0"/>
+      <slab id="floor" profile="walk-area" elevation="1" thickness="0.3"/>
+    </assembly>
+  </architecture>`), { uvs: false });
+}
+
+test('closed native cavities remain walkable beside edge-touching solid details', async () => {
   const { physicalWalk } = await import('../review/physical-walk.ts');
-  const level = await compile(parseAml('<architecture version="1" id="cavity"><subtract id="shell"><box id="outer" width="10" depth="10" height="10"/><box id="void" width="8" depth="8" height="8" position="1 1 1"/></subtract></architecture>'), { navigation: false });
+  const level = await enclosedRoom();
   assert.deepEqual(level.diagnostics.filter(d => d.severity === 'error'), []);
   const physical = physicalWalk(level);
   assert.equal(physical.blocked([5,5,1.01], level.document.player), false);
   assert.equal(physical.blocked([.5,5,1.01], level.document.player), true);
+  assert.equal(physical.blocked([8.5,8.5,1.01], level.document.player), true);
+  const prepared = prepareInspectionWalk(level, { feet: [3,4,1.01], yaw: 0, pitch: 0 });
+  assert.ok(prepared.ok, 'The empty enclosed room must admit the unchanged standing body');
+  let position = prepared.pose.feet;
+  for (let i = 0; i < 50; i++) position = prepared.surface.move(position, .04, 0);
+  assert.ok(Math.abs(position[0] - 5) < 1e-5, 'Normal supported movement must cross the free room interior');
+  assert.ok(Math.abs(position[2] - 1.01) < 1e-5);
+});
+
+test('partially filtered native boundaries do not infer containment from a remaining closed subset', async () => {
+  const { physicalWalk } = await import('../review/physical-walk.ts');
+  const level = await enclosedRoom();
+  assert.ok(level.surfaces.some(surface => surface.object === 'void'));
+  const filtered = {
+    ...level,
+    surfaces: level.surfaces.map(surface => surface.object === 'void' ? { ...surface, collidable: false } : surface),
+  };
+  assert.ok(collisionMesh(filtered).indices.length < collisionMesh(level).indices.length);
+  const physical = physicalWalk(filtered);
+  assert.equal(physical.blocked([5,5,1.01], filtered.document.player), false,
+    'A known solid identity is insufficient after collision selection removes its cavity boundary');
+  assert.equal(physical.blocked([.1,5,1.01], filtered.document.player), true,
+    'Retained exterior faces still block actual capsule contact');
+});
+
+test('remote edge-touching solids cannot turn empty room space into an occupied volume', async () => {
+  const { physicalWalk } = await import('../review/physical-walk.ts');
+  const level = await enclosedRoom(5), physical = physicalWalk(level);
+  assert.deepEqual(level.diagnostics.filter(d => d.severity === 'error'), []);
+  // These bodies are three meters west of the pillars; the middle containment ray meets their shared edge.
+  for (const y of [8.307, 8.308, 8.309]) {
+    assert.equal(physical.blocked([5,y,1.01], level.document.player), false, `Clear room space at y=${y}`);
+  }
+  assert.equal(physical.blocked([8.5,8.5,1.01], level.document.player), true);
+  assert.equal(physical.blocked([9.5,9.5,1.01], level.document.player), true);
+  assert.equal(physical.blocked([.5,5,1.01], level.document.player), true);
+});
+
+test('triangulated face seams preserve occupied-solid containment', async () => {
+  const { physicalWalk } = await import('../review/physical-walk.ts');
+  const level = await compile(parseAml('<architecture version="1" id="seam"><player radius="0.35" height="1.8"/><box id="block" width="10" depth="10" height="5"/></architecture>'), { navigation: false });
+  const physical = physicalWalk(level);
+  // The middle ray exits on the shared diagonal of two equally oriented triangles; all bodies are inside.
+  for (const z of [.5715, .5725, .5735]) {
+    assert.equal(physical.blocked([5,3,z], level.document.player), true);
+  }
+  assert.equal(physical.blocked([12,3,.5725], level.document.player), false);
+});
+
+test('runtime geometry without native solid identities retains verified closed-solid collision', async () => {
+  const { physicalWalk } = await import('../review/physical-walk.ts');
+  const level = await compile(parseAml('<architecture version="1" id="legacy"><box id="block" width="10" depth="10" height="5"/></architecture>'), { navigation: false });
+  const unidentified = { ...level, physicalMesh: { ...level.physicalMesh!, solidIds: undefined } };
+  const physical = physicalWalk(unidentified);
+  assert.equal(physical.blocked([5,5,.01], unidentified.document.player), true);
+  assert.equal(physical.blocked([12,5,.01], unidentified.document.player), false);
 });

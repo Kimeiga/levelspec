@@ -4,6 +4,7 @@ import type { CompiledLevel, MeshData, Player, V3 } from "../src/vector/types.ts
 
 interface Face { triangle: Triangle; normal: Vector3; box: Box3; center: Vector3; shell: string; closed?: boolean }
 interface Branch { box: Box3; faces?: Face[]; left?: Branch; right?: Branch }
+interface Crossing { distance: number; entering: boolean; leaving: boolean }
 const skin = .01;
 
 /** Indexes immutable compiled collision faces; no source/render geometry is modified. */
@@ -102,6 +103,27 @@ function closedShells(faces: Face[]): void {
   faces.forEach((face, i) => { if (face.closed === false || open.has(root(i))) face.shell = ''; });
 }
 
+/**
+ * Preserves complete checked native boundaries, including cavity faces and
+ * sheets that meet at an edge. Collision filtering invalidates that guarantee.
+ */
+function completeNativeSolids(level: CompiledLevel, selected: MeshData): Set<string> {
+  const source = level.physicalMesh ?? level.mesh;
+  const coverage = new Map<string, { total: number; selected: number; checked: boolean }>();
+  source.solidIds?.forEach((id, triangle) => {
+    if (!id) return;
+    const entry = coverage.get(id) ?? { total: 0, selected: 0, checked: true };
+    entry.total++;
+    entry.checked &&= level.surfaces[source.surfaces[triangle]].closed === true;
+    coverage.set(id, entry);
+  });
+  for (const id of selected.solidIds ?? []) {
+    const entry = coverage.get(id);
+    if (entry) entry.selected++;
+  }
+  return new Set([...coverage].filter(([, entry]) => entry.checked && entry.total === entry.selected).map(([id]) => id));
+}
+
 /** Bounds support acquisition and sphere lift without changing physical step permission. */
 export function supportWindow(player: Player): number {
   const slope = Math.max(0, Math.min(89, player.slope)) * Math.PI / 180;
@@ -112,15 +134,19 @@ export function supportWindow(player: Player): number {
 export class PhysicalWalk {
   private readonly root?: Branch;
   constructor(level: CompiledLevel) {
-    const mesh = collisionMesh(level), faces: Face[] = [];
+    const mesh = collisionMesh(level), complete = completeNativeSolids(level, mesh);
+    const faces: Face[] = [], legacy: Face[] = [];
     for (let i = 0; i < mesh.indices.length; i += 3) {
       const points = mesh.indices.slice(i, i + 3).map(index => new Vector3(...mesh.positions.slice(index * 3, index * 3 + 3)));
       const triangle = new Triangle(points[0], points[1], points[2]), box = new Box3().setFromPoints(points);
       const surface = level.surfaces[mesh.surfaces[i / 3]];
       const solid = mesh.solidIds?.[i / 3];
-      faces.push({ triangle, normal: triangle.getNormal(new Vector3()), box, center: box.getCenter(new Vector3()), shell: solid ?? surface.mesh, closed: solid === "" ? false : surface.closed });
+      const shell = solid === undefined ? surface.mesh : complete.has(solid) ? solid : '';
+      const face = { triangle, normal: triangle.getNormal(new Vector3()), box, center: box.getCenter(new Vector3()), shell, closed: surface.closed };
+      faces.push(face);
+      if (solid === undefined) legacy.push(face);
     }
-    closedShells(faces); this.root = branch(faces);
+    closedShells(legacy); this.root = branch(faces);
   }
   /** Checks standing clearance against real faces, including the interior of closed solids. */
   blocked(feet: V3, player: Pick<Player, 'height' | 'radius'>): boolean {
@@ -133,16 +159,22 @@ export class PhysicalWalk {
       const distance = Math.min(a.distanceTo(triangle.closestPointToPoint(a, new Vector3())), b.distanceTo(triangle.closestPointToPoint(b, new Vector3())), segmentDistance(a, b, triangle.a, triangle.b), segmentDistance(a, b, triangle.b, triangle.c), segmentDistance(a, b, triangle.c, triangle.a));
       if (distance < radius - 1e-5) return true;
     }
-    const ray = new Ray(a.clone().add(b).multiplyScalar(.5), new Vector3(1, .173, .319).normalize()), crossings = new Map<string, number[]>();
-    for (const { triangle, shell } of rayCandidates(this.root, ray, [])) {
+    const ray = new Ray(a.clone().add(b).multiplyScalar(.5), new Vector3(1, .173, .319).normalize()), crossings = new Map<string, Crossing[]>();
+    for (const { triangle, shell, normal } of rayCandidates(this.root, ray, [])) {
       if (!shell) continue;
       const hit = ray.intersectTriangle(triangle.a, triangle.b, triangle.c, false, new Vector3());
       if (!hit) continue;
       const distance = hit.distanceTo(ray.origin), hits = crossings.get(shell) ?? [];
-      if (distance > 1e-8 && !hits.some(hit => Math.abs(hit - distance) < 1e-6)) hits.push(distance);
+      if (distance <= 1e-8) continue;
+      let crossing = hits.find(hit => Math.abs(hit.distance - distance) < 1e-6);
+      if (!crossing) { crossing = { distance, entering: false, leaving: false }; hits.push(crossing); }
+      const orientation = normal.dot(ray.direction);
+      crossing.entering ||= orientation < 0;
+      crossing.leaving ||= orientation > 0;
       crossings.set(shell, hits);
     }
-    return [...crossings.values()].some(hits => hits.length % 2 === 1);
+    // A triangle seam counts once. Simultaneous exit/entry at touching sheets cancels.
+    return [...crossings.values()].some(hits => hits.filter(hit => hit.entering !== hit.leaving).length % 2 === 1);
   }
   /** Returns actual center support below the body, never a higher stacked floor. */
   private datum(previous: V3, player: Player): number | undefined {

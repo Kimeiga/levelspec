@@ -1,3 +1,4 @@
+import { escapeXML } from "../src/vector/xml.ts";
 import type { Diagnostic, ReviewFinding } from "../src/vector/types.ts";
 
 /** Renders validation diagnostics and owns selection for spatial diagnostic links. */
@@ -31,6 +32,21 @@ export function diagnosticPanel(
     url.searchParams.set("diagnostic", selected);
     history.replaceState(null, "", url);
     notice.textContent = `Inspecting ${diagnostic.code}: ${diagnostic.objects.join(", ")}`;
+    first = false;
+  }
+  /** Copies a review acknowledgment, with selectable text if clipboard access fails. */
+  async function copy(value: string) {
+    try {
+      await navigator.clipboard.writeText(value);
+      notice.textContent = "Copied.";
+    } catch {
+      const text = document.createElement("textarea");
+      text.readOnly = true;
+      text.value = value;
+      host.append(text);
+      text.select();
+      notice.textContent = "Clipboard unavailable. Select and copy the text below.";
+    }
   }
   /** Makes stale-preview controls inert. */
   function button(label: string, action: () => void) {
@@ -42,7 +58,7 @@ export function diagnosticPanel(
   }
   return {
     /** Reconciles source-linked errors across progressive compile results. */
-    update(diagnostics: Diagnostic[]) {
+    update(diagnostics: Diagnostic[], complete: boolean) {
       selected = new URL(location.href).searchParams.get("diagnostic") ?? "";
       host.replaceChildren(notice);
       const parameters = new URL(location.href).searchParams;
@@ -71,7 +87,7 @@ export function diagnosticPanel(
               const url = new URL(location.href);
               url.searchParams.delete("suggestion");
               url.searchParams.set("diagnostic", diagnostic.review!.id);
-              for (const key of ["camera", "target", "view-height", "fov"])
+              for (const key of ["camera", "target", "view-height", "fov", "roll"])
                 url.searchParams.delete(key);
               void navigator.clipboard.writeText(url.href).then(
                 () => {
@@ -84,6 +100,10 @@ export function diagnosticPanel(
             }),
           );
         }
+        if (diagnostic.suggestion) row.append(button("Copy suppression XML", () => {
+          const finding = diagnostic.suggestion!;
+          void copy(`<review-suppression suggestion="${escapeXML(finding.id)}" fingerprint="${escapeXML(finding.fingerprint)}" reason="REPLACE WITH REVIEW REASON"/>`);
+        }));
         host.append(row);
       }
       host.append(
@@ -98,14 +118,15 @@ export function diagnosticPanel(
       if (selected) {
         const diagnostic = diagnostics.find((d) => d.review?.id === selected);
         if (diagnostic) inspect(diagnostic, first && !parameters.has("camera"));
-        else {
+        else if (!complete) {
+          notice.textContent = "Waiting for validation diagnostics…";
+        } else {
           notice.textContent =
             "This diagnostic no longer exists in the current layout.";
           actions.restore();
           selected = "";
         }
       }
-      first = false;
     },
     /** Disables inspection against stale geometry. */
     setEnabled(value: boolean) {

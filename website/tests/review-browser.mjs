@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { PNG } from 'pngjs';
 import { createRequire } from 'node:module';
-import { launchBrowser, testContext, waitForFrames } from './browser-helpers.mjs';
-import { amlSource } from '../../tests/fixtures/aml-source.mjs';
+import { resolve } from 'node:path';
+import { launchBrowser, testContext, waitForFrames } from '../../tests/browser/support/browser.mjs';
 
 const SITE = process.env.BASE_URL || 'http://127.0.0.1:48217/levelspec/';
 const VIEWER = process.env.VIEWER_URL || 'http://127.0.0.1:48218/';
@@ -88,10 +88,17 @@ async function renderedGeometry(page, name) {
   const canvas = page.locator('#model canvas');
   const screenshot = await canvas.screenshot({ path: `${OUTPUT}/${name}.png` });
   const image = PNG.sync.read(screenshot);
+  const cut = await page.locator('#cut').inputValue();
+  await page.locator('#cut').fill('0');
+  await waitForFrames(page);
+  const background = PNG.sync.read(await canvas.screenshot());
+  await page.locator('#cut').fill(cut);
+  await waitForFrames(page);
   let ink = 0, borderInk = 0, borderPixels = 0;
   for (let i = 0; i < image.data.length; i += 4) {
     const pixel = i / 4, x = pixel % image.width, y = Math.floor(pixel / image.width);
-    const dark = Math.min(image.data[i], image.data[i + 1], image.data[i + 2]) < 220;
+    // Compare against the empty sky at the same pose; the background is no longer white.
+    const dark = [0, 1, 2].reduce((sum, channel) => sum + Math.abs(image.data[i + channel] - background.data[i + channel]), 0) > 24;
     if (dark) ink++;
     if (x < 2 || x >= image.width - 2 || y < 2 || y >= image.height - 2) {
       borderPixels++;
@@ -136,7 +143,7 @@ try {
     await ready(page);
     await scenario(`${surface}: production load, local fonts and visible orthographic geometry`, async () => {
       assert.equal(await page.locator('#title').innerText(), surface === 'viewer' ? 'Dust II · CS2 blockout' : 'Lantern Court');
-      assert.equal(await page.locator('#appearance').inputValue(), 'flat');
+      assert.equal(await page.locator('#appearance').inputValue(), 'full-render');
       assert.equal(await page.locator('#walk').isEnabled(), true);
       if (surface === 'viewer') {
         const triangles = Number(await page.locator('#model').getAttribute('data-triangles'));
@@ -221,7 +228,7 @@ try {
       await page.locator('#appearance').selectOption('materials');
       await waitForFrames(page);
       assert.ok(changedPixels(full, await page.locator('#model canvas').screenshot()) > 0.005, 'Authored colors must affect the rendered preview');
-      await page.locator('#appearance').selectOption('illustrated');
+      await page.locator('#appearance').selectOption('full-render');
       await page.locator('#dimensions').uncheck();
       assert.equal(await page.locator('#dimensions-value').innerText(), '');
       await page.locator('#dimensions').check();
@@ -272,29 +279,37 @@ try {
         await renderedGeometry(page, 'site-offline');
         await context.setOffline(false);
       });
-    } else {
-      await scenario('viewer: dimensions report independently known architectural extents', async () => {
-        const source = `<level version="2" id="measured-room" name="Measured room" floor-thickness="0.2">
-          <layer id="ground">
-            <vertex id="a" x="0" y="0" z="0"/><vertex id="b" x="4" y="0" z="0"/>
-            <vertex id="c" x="4" y="3" z="0"/><vertex id="d" x="0" y="3" z="0"/>
-            <edge id="ab" from="a" to="b" kind="open"/><edge id="bc" from="b" to="c" kind="open"/>
-            <edge id="cd" from="c" to="d" kind="open"/><edge id="da" from="d" to="a" kind="open"/>
-            <region id="room" boundary="ab bc cd da" fill="floor"/>
-          </layer>
-          <marker id="spawn" layer="ground" region="room" position="1 1 0" kind="attacker_spawn"/>
-          <marker id="objective" layer="ground" region="room" position="3 2 0" kind="objective"/>
-          <route id="cross" from="spawn" to="objective" min-routes="1"/>
-        </level>`;
-        await page.locator('#file').setInputFiles({ name: 'measured.aml', mimeType: 'application/xml', buffer: Buffer.from(await amlSource(source)) });
+    }
+      await scenario(`${surface}: local AML opens through the file chooser with known architectural extents`, async () => {
+        const source = `<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="measured-room" name="Measured room" units="meters" validation="playable" curve-tolerance="0.01">
+  <path id="ab:path" closed="false" points="0 0 0; 4 0 0"/>
+  <path id="bc:path" closed="false" points="4 0 0; 4 3 0"/>
+  <path id="cd:path" closed="false" points="4 3 0; 0 3 0"/>
+  <path id="da:path" closed="false" points="0 3 0; 0 0 0"/>
+  <profile id="room:profile" paths="ab:path bc:path cd:path da:path"/>
+  <group id="ground">
+    <slab id="room" group="ground" profile="room:profile" thickness="0.2" elevation="0"/>
+  </group>
+  <player radius="0.25" height="2" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <marker id="spawn" position="1 1 0" kind="attacker_spawn" group="ground" element="room"/>
+  <marker id="objective" position="3 2 0" kind="objective" group="ground" element="room"/>
+  <route id="cross" from="spawn" to="objective" min-routes="1"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+</architecture>
+`;
+        const chooserPromise = page.waitForEvent('filechooser');
+        await page.locator('#open').click();
+        const chooser = await chooserPromise;
+        await chooser.setFiles({ name: 'measured.aml', mimeType: 'application/xml', buffer: Buffer.from(source) });
         await page.waitForFunction(() => document.querySelector('#title').textContent === 'Measured room');
         await ready(page);
         assert.equal(await page.locator('#dimensions-value').innerText(), 'Layout bounds / 4.00 × 3.00 × 0.20 m');
         await page.locator('#view-3d').click();
         await page.locator('#fit').click();
-        await renderedGeometry(page, 'viewer-small-known-room');
+        await renderedGeometry(page, `${surface}-small-known-room`);
       });
-      await scenario('viewer: invalid local XML retains stale preview and a valid file recovers', async () => {
+      await scenario(`${surface}: invalid local XML retains stale preview and a valid file recovers`, async () => {
         await page.locator('#file').setInputFiles({ name: 'invalid.aml', mimeType: 'application/xml', buffer: Buffer.from('<level>') });
         await page.locator('#status[data-state="error"]').waitFor();
         assert.match(await page.locator('#status').innerText(), /stale/);
@@ -311,32 +326,124 @@ try {
         assert.equal(await page.locator('#title').innerText(), 'Measured room', 'Compile failure must not replace the previous reviewed layout');
         assert.equal(await page.locator('#model').getAttribute('data-stale'), 'true');
         assert.equal(await page.locator('#walk').isDisabled(), true);
-        const source = await readFile(new URL('../../examples/showcase.aml', import.meta.url));
+        const source = await readFile(new URL('../../tests/fixtures/aml/showcase.aml', import.meta.url));
         await page.locator('#file').setInputFiles({ name: 'recovered.aml', mimeType: 'application/xml', buffer: source });
+        await page.waitForFunction(() => document.querySelector('#title').textContent === 'Elevation laboratory');
         await ready(page);
         assert.equal(await page.locator('#model').getAttribute('data-stale'), 'false');
         assert.equal(await page.locator('#title').innerText(), 'Elevation laboratory');
         assert.equal(await page.locator('#walk').isDisabled(), false);
       });
-      await scenario('viewer: reload restores default Dust II after opening Showcase', async () => {
+    if (surface === 'site') {
+      const localSource = await readFile(new URL('../../tests/fixtures/aml/showcase.aml', import.meta.url), 'utf8');
+      await scenario('site: pending local reads become stale immediately and cannot overwrite cancellation or newer files', async () => {
+        const previousTitle = await page.locator('#title').innerText();
+        await page.evaluate(() => {
+          const original = File.prototype.text;
+          window.restoreFileText = () => { File.prototype.text = original; };
+          File.prototype.text = function () {
+            if (this.name !== 'delayed.aml') return original.call(this);
+            return new Promise((resolve, reject) => {
+              window.finishFileRead = () => original.call(this).then(resolve, reject);
+              window.rejectFileRead = () => reject(new Error('Superseded file read failed'));
+            });
+          };
+        });
+        try {
+          const delayed = { name: 'delayed.aml', mimeType: 'application/xml', buffer: Buffer.from(localSource.replace('Elevation laboratory', 'Delayed layout')) };
+          await page.locator('#file').setInputFiles(delayed);
+          await page.waitForFunction(() => Boolean(window.finishFileRead));
+          assert.equal(await page.locator('#status').getAttribute('data-state'), 'busy');
+          assert.equal(await page.locator('#model').getAttribute('data-stale'), 'true');
+          assert.equal(await page.locator('#walk').isDisabled(), true);
+          await page.locator('#cancel').click();
+          await page.evaluate(() => window.finishFileRead());
+          await waitForFrames(page);
+          assert.equal(await page.locator('#title').innerText(), previousTitle);
+          assert.equal(await page.locator('#status').getAttribute('data-state'), 'error');
+          assert.equal(await page.locator('#walk').isDisabled(), true);
+          await page.locator('#file').setInputFiles(delayed);
+          await page.locator('#file').setInputFiles({ name: 'newer.aml', mimeType: 'application/xml', buffer: Buffer.from(localSource.replace('Elevation laboratory', 'Newest layout')) });
+          await page.waitForFunction(() => document.querySelector('#title').textContent === 'Newest layout');
+          await ready(page);
+          await page.evaluate(() => window.rejectFileRead());
+          await waitForFrames(page);
+          assert.equal(await page.locator('#title').innerText(), 'Newest layout');
+          assert.equal(await page.locator('#status').getAttribute('data-state'), 'ready');
+          assert.equal(await page.locator('#model').getAttribute('data-stale'), 'false');
+          assert.equal(await page.locator('#walk').isEnabled(), true);
+        } finally {
+          await page.evaluate(() => window.restoreFileText());
+        }
+      });
+      await scenario('site: the same local path can be reopened after an external edit', async () => {
+        const path = resolve(OUTPUT, 'reopen.aml');
+        for (const name of ['First local version', 'Second local version']) {
+          await writeFile(path, localSource.replace('Elevation laboratory', name));
+          const chooserPromise = page.waitForEvent('filechooser');
+          await page.locator('#open').click();
+          await (await chooserPromise).setFiles(path);
+          await page.waitForFunction(name => document.querySelector('#title').textContent === name, name);
+          await ready(page);
+          assert.equal(await page.locator('#model').getAttribute('data-stale'), 'false');
+        }
+      });
+      await scenario('site: supplied companion images decode locally and are cleared for another AML', async () => {
+        const source = `<architecture version="1" id="companion-first" name="First image layout" validation="premap">
+          <profile id="floor-profile" points="0 0; 4 0; 4 3; 0 3"/>
+          <slab id="floor" profile="floor-profile" thickness="0.2"/>
+          <reference id="photo" image="local-reference.png" width="8" height="8" scale="assumed" scale-note="Local companion check" position="8 -12 9" target="0 0 0" up="0 0 1" fov="47" near="0.05" far="100"/>
+        </architecture>`;
+        await page.locator('#file').setInputFiles({ name: 'image.aml', mimeType: 'application/xml', buffer: Buffer.from(source) });
+        await page.waitForFunction(() => document.querySelector('#title').textContent === 'First image layout');
+        await ready(page);
+        await page.locator('#references').evaluate(node => { node.open = true; });
+        await page.locator('#reference').selectOption('photo');
+        assert.match(await page.locator('#reference-note').innerText(), /Supply companion image: local-reference.png/);
+        const image = new PNG({ width: 8, height: 8 });
+        for (let i = 0; i < image.data.length; i += 4) image.data.set([220, 60, 80, 255], i);
+        const chooserPromise = page.waitForEvent('filechooser');
+        await page.locator('#companions').click();
+        await (await chooserPromise).setFiles({ name: 'local-reference.png', mimeType: 'image/png', buffer: PNG.sync.write(image) });
+        await ready(page);
+        await page.locator('#reference').selectOption('photo');
+        await page.waitForFunction(() => document.querySelector('#reference-image').naturalWidth === 8);
+        const pixel = await page.locator('#reference-image').evaluate(image => {
+          const canvas = document.createElement('canvas');
+          canvas.width = canvas.height = 1;
+          const context = canvas.getContext('2d');
+          context.drawImage(image, 0, 0);
+          return Array.from(context.getImageData(0, 0, 1, 1).data);
+        });
+        assert.deepEqual(pixel, [220, 60, 80, 255]);
+        await page.locator('#file').setInputFiles({ name: 'another-image.aml', mimeType: 'application/xml', buffer: Buffer.from(source.replace('companion-first', 'companion-second').replace('First image layout', 'Second image layout')) });
+        await page.waitForFunction(() => document.querySelector('#title').textContent === 'Second image layout');
+        await ready(page);
+        await page.locator('#reference').selectOption('photo');
+        assert.equal(await page.locator('#reference-image').isVisible(), false);
+        assert.equal(await page.locator('#reference-image').getAttribute('src'), null);
+        assert.match(await page.locator('#reference-note').innerText(), /Supply companion image: local-reference.png/);
+      });
+    }
+      await scenario(`${surface}: reload restores the bundled default after opening a local file`, async () => {
         await page.locator('#view-3d').click();
         const started = Date.now();
         await page.reload();
-        await page.waitForFunction(() => document.querySelector('#title').textContent === 'Dust II · CS2 blockout', undefined, { timeout: 60000 });
+        const title = surface === 'viewer' ? 'Dust II · CS2 blockout' : 'Lantern Court';
+        await page.waitForFunction(title => document.querySelector('#title').textContent === title, title, { timeout: 60000 });
         await ready(page);
         assert.equal(await page.locator('#model').getAttribute('data-stale'), 'false');
         assert.equal(await page.locator('#walk').isEnabled(), true);
         const sourceReadyMilliseconds = Date.now() - started;
         await page.locator('#fit').click();
         await waitForFrames(page);
-        await renderedGeometry(page, 'viewer-dust2-large');
+        await renderedGeometry(page, `${surface}-default-restored`);
         const summary = await page.locator('#summary').innerText();
         const triangles = Number(await page.locator('#model').getAttribute('data-triangles'));
-        assert.ok(triangles > 1000, 'Large retained level must render its compiled architecture');
-        measurements.push({ source: 'examples/dust2.aml', sourceReadyMilliseconds, triangles, summary, viewport: { width: 1440, height: 1000 } });
-        console.log(`MEASURE Dust II ready ${sourceReadyMilliseconds} ms / ${triangles} rendered triangles / ${summary}`);
+        assert.ok(triangles > 1000, 'Bundled level must render its compiled architecture');
+        measurements.push({ source: surface === 'viewer' ? 'examples/dust2.aml' : 'website/demo.aml', sourceReadyMilliseconds, triangles, summary, viewport: { width: 1440, height: 1000 } });
+        console.log(`MEASURE ${title} ready ${sourceReadyMilliseconds} ms / ${triangles} rendered triangles / ${summary}`);
       });
-    }
     await context.close();
   }
   await scenario('walking integrates sparse-frame input time and clears held input on blur', async () => {
@@ -363,13 +470,14 @@ try {
     await page.clock.fastForward(3000);
     await page.keyboard.up('w');
     assert.deepEqual(await position(page), after, 'Blur clears movement without replaying stale input');
-    await page.keyboard.down('a');
+    // Spawn yaw is +X; strafe right goes toward the curved south (-Y) boundary.
+    await page.keyboard.down('d');
     await page.clock.fastForward(9000);
     const wall = await position(page);
     assert.ok(wall[1] > -3 && wall[1] < 0, `Courtyard's curved front wall must stop movement inside its authored -3..0 m envelope: ${wall}`);
     await page.clock.fastForward(1000);
     assert.deepEqual(await position(page), wall, 'Continued input into the boundary must remain constrained');
-    await page.keyboard.up('a');
+    await page.keyboard.up('d');
     await context.close();
   });
   await scenario('viewer: cancellation rejects pending results and retry successfully reloads', async () => {
@@ -445,7 +553,7 @@ try {
     assert.equal(await page.locator('#walk').isDisabled(), true);
     await page.locator('#issues').check();
     assert.ok((await page.locator('#validation-mode').innerText()).trim(), 'The current validation mode must remain available without WebGL');
-    const valid = await readFile(new URL('../../examples/cli-starter.aml', import.meta.url), 'utf8');
+    const valid = await readFile(new URL('../../src/cli/templates/starter.aml', import.meta.url), 'utf8');
     const lowCeiling = valid.replace('</architecture>', '<box id="low-ceiling" width="8" depth="6" height="0.2" position="0 0 0.5"/></architecture>');
     await page.locator('#file').setInputFiles({name:'low-clearance.aml',mimeType:'application/xml',buffer:Buffer.from(lowCeiling)});
     await ready(page,false);

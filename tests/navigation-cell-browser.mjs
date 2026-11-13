@@ -7,7 +7,7 @@ import { createServer } from 'vite';
 import { serializeAml } from 'levelspec';
 import { navigationDoorway } from './fixtures/navigation-doorway.ts';
 import { startPreview } from '../src/cli/preview.ts';
-import { launchBrowser } from '../website/tests/browser-helpers.mjs';
+import { launchBrowser } from './browser/support/browser.mjs';
 
 await mkdir('generated', { recursive: true });
 const output = await mkdtemp('generated/navigation-cell-browser-');

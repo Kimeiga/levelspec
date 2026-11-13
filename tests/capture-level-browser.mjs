@@ -11,7 +11,7 @@ assert.throws(() => validateViews([view,view]));
 assert.throws(() => validateViews([{...view,position:[NaN,0,0]}]));
 const directory = await mkdtemp(join(tmpdir(),'levelspec-capture-'));
 try {
-  const original = await readFile(new URL('../examples/cli-starter.aml', import.meta.url),'utf8');
+  const original = await readFile(new URL('../src/cli/templates/starter.aml', import.meta.url),'utf8');
   const {ArchitectureBuilder, compile, toGLB} = await import('levelspec');
   const fixture = new ArchitectureBuilder('capture-companion');
   fixture.box('crate', {position:[0,0,0],width:1,depth:1,height:1,material:'default',collidable:false});

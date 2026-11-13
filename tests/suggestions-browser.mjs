@@ -1,4 +1,3 @@
-import { amlSource } from './fixtures/aml-source.mjs';
 /** Real CLI and browser acceptance for non-blocking, source-bound review suggestions. */
 import assert from "node:assert/strict";
 import { mkdtemp, writeFile, readFile, rm, mkdir } from "node:fs/promises";
@@ -10,14 +9,35 @@ import { startPreview } from "../src/cli/preview.ts";
 import {
   launchBrowser,
   waitForFrames,
-} from "../website/tests/browser-helpers.mjs";
+} from "./browser/support/browser.mjs";
 const directory = await mkdtemp(join(tmpdir(), "levelspec-suggestions-"));
 const file = join(directory, "level.aml");
-const xml = `<level version="2" id="review-flight" name="Suggestion acceptance" validation="premap"><layer id="stairs"><vertex id="a" x="0" y="0" z="0"/><vertex id="b" x="2" y="0" z="0"/><vertex id="c" x="2" y="4" z="1.2"/><vertex id="d" x="0" y="4" z="1.2"/><edge id="lower" from="a" to="b" kind="open"/><edge id="right" from="b" to="c" kind="open"/><edge id="upper" from="c" to="d" kind="open"/><edge id="left" from="d" to="a" kind="open"/><region id="flight" boundary="lower right upper left" fill="stairs" lower="lower" upper="upper"/></layer><layer id="barriers"><vertex id="wall-a" x="-0.21" y="0" z="0"/><vertex id="wall-b" x="-0.21" y="4" z="0"/><edge id="side-wall" from="wall-a" to="wall-b" kind="wall" height="3" thickness="0.22"/></layer><cover id="overhead" layer="stairs" min="-1 -1 6" max="3 5 6.2"/></level>`;
+const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="review-flight" name="Suggestion acceptance" units="meters" validation="premap" curve-tolerance="0.01">
+  <path id="lower:path" closed="false" points="0 0 0; 2 0 0"/>
+  <path id="right:path" closed="false" points="2 0 0; 2 4 1.2"/>
+  <path id="upper:path" closed="false" points="2 4 1.2; 0 4 1.2"/>
+  <path id="left:path" closed="false" points="0 4 1.2; 0 0 0"/>
+  <path id="side-wall:path" closed="false" points="-0.21 0 0; -0.21 4 0"/>
+  <path id="flight:left" paths="right:path" closed="false" points=""/>
+  <path id="flight:right" paths="-left:path" closed="false" points=""/>
+  <profile id="flight:profile" paths="lower:path right:path upper:path left:path"/>
+  <group id="stairs">
+    <stairs id="flight" group="stairs" left="flight:left" right="flight:right" maximum-riser="0.18" thickness="0.2" underside="filled"/>
+  </group>
+  <group id="barriers"/>
+  <assembly id="migration:static-walls" coincident-material="retained-face">
+    <wall id="side-wall" group="barriers" path="side-wall:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+  </assembly>
+  <box id="overhead" position="-1 -1 6" width="4" depth="6" height="0.20000000000000018" radius="0.5" top-radius="0" dynamic="false" group="stairs"/>
+  <player radius="0.25" height="2" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+</architecture>
+`;
 const exec = promisify(execFile);
 let server, browser;
 try {
-  await writeFile(file, await amlSource(xml));
+  await writeFile(file, xml);
   const cli = async (...args) =>
     JSON.parse(
       (
@@ -103,6 +123,25 @@ try {
     finding.position,
     "Deep link must target the measured finding",
   );
+  const warning = validation.diagnostics.find(diagnostic => diagnostic.suggestion?.id === finding.id);
+  assert.equal(warning.severity, "warning");
+  assert.deepEqual(warning.review.arguments, ["preview", file, "--diagnostic", finding.id]);
+  const diagnosticURL = new URL(server.url);
+  diagnosticURL.searchParams.delete("suggestion");
+  diagnosticURL.searchParams.set("diagnostic", finding.id);
+  const diagnosticPage = await context.newPage();
+  await diagnosticPage.goto(diagnosticURL.href);
+  await diagnosticPage.waitForFunction(() => document.querySelector("#status")?.dataset.state === "ready");
+  assert.deepEqual(JSON.parse(await diagnosticPage.locator("#model").getAttribute("data-view")).target, finding.position);
+  const diagnosticRow = diagnosticPage.locator(`article[data-diagnostic="${finding.id}"]`);
+  await diagnosticRow.getByRole("button", { name: "Copy suppression XML" }).click();
+  assert.match(await diagnosticPage.evaluate(() => navigator.clipboard.readText()), /review-suppression.*fingerprint=/);
+  await diagnosticRow.getByRole("button", { name: "Copy review link" }).click();
+  assert.equal(new URL(await diagnosticPage.evaluate(() => navigator.clipboard.readText())).searchParams.get("diagnostic"), finding.id);
+  await diagnosticRow.getByRole("button", { name: "Cutaway" }).click();
+  assert.match(await diagnosticPage.locator("#selection").innerText(), /flight/);
+  assert.ok(Number(await diagnosticPage.locator("#cut").inputValue()) < 1, "Diagnostic cutaway must update the rendered clipping control");
+  await diagnosticPage.close();
   const explicit = new URL(server.url);
   explicit.searchParams.set("camera", "12 -14 10");
   explicit.searchParams.set("target", "1 2 1");
@@ -128,7 +167,7 @@ try {
   const strippedLink = new URL(await replay.evaluate(() => navigator.clipboard.readText()));
   for (const key of ["camera", "target", "view-height", "fov", "roll"])
     assert.equal(strippedLink.searchParams.has(key), false, `Suggestion link must clear ${key}`);
-  await replay.getByRole("button", { name: "Restore previous view" }).click();
+  await replay.locator("#suggestions").getByRole("button", { name: "Restore previous view" }).click();
   await waitForFrames(replay);
   const rolledMatrix = (await replay.locator("#model").getAttribute("data-view-matrix")).split(",").map(Number);
   await replay.locator(`article.suggestion[data-suggestion="${finding.id}"]`)
@@ -137,7 +176,7 @@ try {
   await replay.locator("#camera-roll").fill("57");
   await replay.locator("#camera-form button").click();
   await replay.waitForFunction(() => Math.abs(JSON.parse(document.querySelector("#model").dataset.view).roll - 57) < 1e-6);
-  await replay.getByRole("button", { name: "Restore previous view" }).click();
+  await replay.locator("#suggestions").getByRole("button", { name: "Restore previous view" }).click();
   await replay.waitForFunction(() => Math.abs(JSON.parse(document.querySelector("#model").dataset.view).roll + 23) < 1e-6);
   const restoredRolledMatrix = (await replay.locator("#model").getAttribute("data-view-matrix")).split(",").map(Number);
   restoredRolledMatrix.forEach((value, i) => assert.ok(Math.abs(value - rolledMatrix[i]) < 1e-6));
@@ -166,13 +205,13 @@ try {
   );
   await row.getByRole("button", { name: "Cutaway", exact: true }).click();
   assert.ok(Number(await page.locator("#cut").inputValue()) < 1);
-  await page.getByRole("button", { name: "Restore previous view" }).click();
+  await page.locator("#suggestions").getByRole("button", { name: "Restore previous view" }).click();
   assert.equal(await page.locator(".suggestion-marker").count(), 0);
   assert.equal(await page.locator("#cut").inputValue(), "1");
   const restoredCamera = await actualView();
   const restoredPlan = await page.locator("#plan svg").getAttribute("viewBox");
   await row.getByRole("button", { name: "Inspect", exact: true }).click();
-  await page.getByRole("button", { name: "Restore previous view" }).click();
+  await page.locator("#suggestions").getByRole("button", { name: "Restore previous view" }).click();
   const restoredActual = await actualView();
   for (const key of ["position", "target"])
     restoredActual[key].forEach((value, i) =>
@@ -191,13 +230,13 @@ try {
   await mkdir("website-qa/suggestions", { recursive: true });
   await page.screenshot({ path: "website-qa/suggestions/inspection.png" });
   await writeFile(
-    file, await amlSource(xml.replace(
-      "</level>",
+    file, xml.replace(
+      "</architecture>",
       annotation.replace(
         "REPLACE WITH REVIEW REASON",
         "Intentional courtyard stair",
-      ) + "</level>",
-    )));
+      ) + "</architecture>",
+    ));
   await page.waitForFunction(
     (count) =>
       document
@@ -211,9 +250,9 @@ try {
     /Suppressed \(1\)/,
   );
   const edited = xml
-    .replaceAll('z="1.2"', 'z="1.3"')
-    .replace("</level>", annotation + "</level>");
-  await writeFile(file, await amlSource(edited));
+    .replaceAll('4 1.2', '4 1.3')
+    .replace("</architecture>", annotation + "</architecture>");
+  await writeFile(file, edited);
   await page.waitForFunction(() =>
     document
       .querySelector("#suggestions")
@@ -225,27 +264,21 @@ try {
     () => document.querySelector("#status")?.dataset.state === "error",
   );
   assert.equal(await page.locator("#suggestions button:enabled").count(), 0);
-  await writeFile(file, await amlSource(xml));
+  await writeFile(file, xml);
   await ready();
   const floorXML = (id, x, size) =>
-    `<layer id="${id}">${[
-      [x, 0],
-      [x + size, 0],
-      [x + size, size],
-      [x, size],
-    ]
-      .map(([x, y], i) => `<vertex id="${id}v${i}" x="${x}" y="${y}" z="0"/>`)
-      .join(
-        "",
-      )}${[0, 1, 2, 3].map((i) => `<edge id="${id}e${i}" from="${id}v${i}" to="${id}v${(i + 1) % 4}" kind="open"/>`).join("")}<region id="${id}floor" boundary="${[0, 1, 2, 3].map((i) => id + "e" + i).join(" ")}" fill="floor"/></layer>`;
-  const islandsXML = `<level version="2" id="nav-review" name="Navigation review" validation="premap">${floorXML("main", 0, 6)}${floorXML("tiny", 10, 1.5)}</level>`;
-  await writeFile(file, await amlSource(islandsXML));
+    `<profile id="${id}:profile" points="${x} 0; ${x + size} 0; ${x + size} ${size}; ${x} ${size}"/>
+    <group id="${id}"><slab id="${id}floor" profile="${id}:profile" thickness="0.2"/></group>`;
+  const islandsXML = `<architecture version="1" id="nav-review" name="Navigation review" validation="premap">${floorXML("main", 0, 6)}${floorXML("tiny", 10, 1.5)}</architecture>`;
+  await writeFile(file, islandsXML);
   const islandResult = await cli("validate", file);
   const island = islandResult.suggestions.find((s) => s.code === "NAV_ISLAND");
   assert.ok(island);
-  await page.goto(new URL(island.review.url, server.url).href);
+  const islandWarning = islandResult.diagnostics.find(diagnostic => diagnostic.suggestion?.id === island.id);
+  await page.goto(new URL(islandWarning.review.url, server.url).href);
   await ready();
   assert.match(await page.locator("#selection").innerText(), /tinyfloor/);
+  assert.deepEqual((await actualView()).target, island.position, "A late navigation warning frames its final inspection target");
   assert.equal(await page.locator("#navigation").inputValue(), "land");
   await page.locator("#view-2d").click();
   const overlay = await page
@@ -259,10 +292,10 @@ try {
       .every((triangle) => Number(triangle.trim().split(",")[0]) > 9),
     "Only the detached island is highlighted",
   );
-  await page.getByRole("button", { name: "Restore previous view" }).click();
+  await page.locator("#diagnostics").getByRole("button", { name: "Restore previous view" }).click();
   assert.equal(await page.locator("#navigation").inputValue(), "");
   await writeFile(
-    file, await amlSource(xml.replace('fill="stairs"', 'fill="stairs" ceiling="1.5"')));
+    file, xml.replace('</group>', '<roof id="flight:ceiling" group="stairs" profile="flight:profile" thickness="0.2" flat="true" elevation="1.7"/></group>'));
   const missingResult = await cli("validate", file);
   const missing = missingResult.suggestions.find(
     (s) => s.code === "FLIGHT_NAV_MISSING",
@@ -278,6 +311,9 @@ try {
     await page.locator("#suggestions").innerText(),
     /no longer exists/,
   );
+  await page.goto(new URL("?diagnostic=missing", server.url).href);
+  await ready();
+  assert.match(await page.locator("#diagnostics").innerText(), /no longer exists/);
   assert.deepEqual(errors, []);
   console.log(
     "Suggestion CLI artifacts, deep links, 2D/3D inspection, clipboard, suppression invalidation and live recovery passed.",

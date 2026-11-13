@@ -4,7 +4,7 @@ import { Vector3 } from 'three';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { startPreview } from '../src/cli/preview.ts';
-import { launchBrowser, waitForFrames } from '../website/tests/browser-helpers.mjs';
+import { launchBrowser, waitForFrames } from './browser/support/browser.mjs';
 import { parseAml } from 'levelspec';
 
 const output = 'generated/aml-phase3-browser'; await mkdir(output, { recursive: true });

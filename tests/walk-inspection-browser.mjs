@@ -5,7 +5,7 @@ import{tmpdir}from'node:os';import{join}from'node:path';
 import * as THREE from 'three';
 import{ArchitectureBuilder,serializeAml}from'levelspec';
 import{startPreview}from'../src/cli/preview.ts';
-import{launchBrowser,waitForFrames}from'../website/tests/browser-helpers.mjs';
+import{launchBrowser,waitForFrames}from'./browser/support/browser.mjs';
 const directory=await mkdtemp(join(tmpdir(),'levelspec-inspection-walk-'));await mkdir('generated',{recursive:true});const output=await mkdtemp('generated/walk-inspection-browser-');const file=join(directory,'level.aml');
 const scene = new ArchitectureBuilder('inspection-walk-browser');
 scene.document.player.height = 1.8;
@@ -41,6 +41,69 @@ try{
  const canvas=await page.locator('#model canvas').boundingBox();const expected=new THREE.PerspectiveCamera(65,canvas.width/canvas.height,.08,10000);expected.up.set(0,0,1);expected.position.set(3,0,initial.walk.feet[2]+1.8*.93);expected.lookAt(expected.position.clone().add(new THREE.Vector3(0,Math.cos(Math.PI/18),Math.sin(Math.PI/18))));expected.updateMatrixWorld();for(let i=0;i<16;i++){assert.ok(Math.abs(expected.projectionMatrix.elements[i]-initial.projection[i])<1e-6,'FPS projection diagnostics must describe rendered camera');assert.ok(Math.abs(expected.matrixWorldInverse.elements[i]-initial.view[i])<1e-6,'FPS view must reproduce feet/orientation');}
  if(!(await page.locator('#walk-controls').evaluate(el=>el.open)))await page.locator('#walk-controls > summary').click();await page.locator('#walk-feet').fill('3 .5 0');await page.locator('#walk-yaw').fill('45');await page.locator('#walk-pitch').fill('-20');await waitForFrames(page,2);assert.equal(await page.locator('#walk-feet').inputValue(),'3 .5 0','Active walking must retain a coherent multi-field placement draft');assert.equal(await page.locator('#walk-yaw').inputValue(),'45');await page.locator('#walk-form button').click();await page.waitForFunction(()=>{const s=JSON.parse(document.querySelector('#model').dataset.walk);return s.feet[1]===.5&&s.yaw===45&&s.pitch===-20;});await page.locator('#walk-feet').fill('3 0 0');await page.locator('#walk-yaw').fill('90');await page.locator('#walk-pitch').fill('10');await page.locator('#walk-form button').click();await waitForFrames(page);await page.locator('#walk-feet').fill('0 0 0');await page.locator('#walk-form button').click();assert.match(await page.locator('#walk-error').textContent(),/surface|navigation/i);const rejected=await state(page);assert.deepEqual(rejected.walk,initial.walk,'Rejected placement preserves active pose');assert.equal(rejected.mode,'walk');await assertViewCaption(page, 'walk');await page.locator('#walk-feet').fill('3 0 0');await page.locator('#walk-form button').click();assert.equal(await page.locator('#walk-error').textContent(),'');
  const replayURL=await page.locator('#walk-link').getAttribute('href');const replay=await browser.newPage();await replay.goto(replayURL);await replay.locator('#status[data-state="ready"]').waitFor({timeout:60000});await replay.waitForFunction(()=>document.querySelector('#model')?.dataset.mode==='walk');await waitForFrames(replay);const copied=await state(replay);assert.deepEqual(copied.walk,initial.walk);await replay.close();
+
+ // Real key and helper wiring, with observable intermediate poses rather than fixed input sleeps.
+ for (const [yaw, key, axis, direction] of [[0,'d',1,-1],[0,'a',1,1],[90,'d',0,1],[90,'a',0,-1]]) {
+   await page.locator('#walk-yaw').fill(String(yaw));
+   await page.locator('#walk-form button').click();
+   await page.locator('#model canvas').focus();
+   const before = (await state(page)).walk.feet[axis];
+   await page.keyboard.down(key);
+   await page.waitForFunction(({axis,before,direction}) => direction * (JSON.parse(document.querySelector('#model').dataset.walk).feet[axis]-before) > .15, {axis,before,direction});
+   await page.keyboard.up(key);
+ }
+ await page.locator('#walk-yaw').fill('90');await page.locator('#walk-form button').click();
+ await page.locator('#model canvas').focus();
+ const standing = (await state(page)).walk;
+ await page.keyboard.down('Control');
+ await page.waitForFunction(()=>JSON.parse(document.querySelector('#model').dataset.walk).stance==='crouching');
+ const crouching = await state(page);
+ assert.equal(crouching.walk.height, 1.1);
+ assert.deepEqual(crouching.walk.feet, standing.feet);
+ const actualEye = new THREE.Matrix4().fromArray(crouching.view).invert();
+ assert.ok(Math.abs(actualEye.elements[14] - crouching.walk.eye[2]) < 1e-6, 'Rendered crouch camera matches published eye');
+ assert.ok(crouching.walk.eye[2] < standing.eye[2] - .5);
+ await page.keyboard.up('Control');
+ await page.waitForFunction(()=>JSON.parse(document.querySelector('#model').dataset.walk).stance==='standing');
+ for (const key of [' ', 'ArrowDown']) {
+   const prevented = await page.locator('#model canvas').evaluate((canvas, key) => {
+     const event = new KeyboardEvent('keydown', {key, repeat:true, bubbles:true, cancelable:true});
+     canvas.dispatchEvent(event);
+     return event.defaultPrevented;
+   }, key);
+   assert.equal(prevented, true, 'Held FPS keys prevent native scrolling');
+ }
+ await page.keyboard.down('Space');
+ await page.waitForFunction(()=>!JSON.parse(document.querySelector('#model').dataset.walk).grounded);
+ assert.ok((await state(page)).walk.feet[2] > standing.feet[2]);
+ await page.keyboard.up('Space');
+ await page.waitForFunction(()=>JSON.parse(document.querySelector('#model').dataset.walk).grounded);
+ assert.deepEqual((await state(page)).walk.feet, standing.feet);
+ await page.evaluate(()=>{
+   window.__fpsSamples=[];
+   const sample=()=>{window.__fpsSamples.push(JSON.parse(document.querySelector('#model').dataset.walk));window.__fpsSampler=requestAnimationFrame(sample);};
+   window.__fpsSampler=requestAnimationFrame(sample);
+ });
+ await page.locator('#walk-helper').selectOption('jump');
+ // A landing and next launch can occur between display frames. Observe full
+ // vertical cycles rather than requiring the exact grounded instant on screen.
+ await page.waitForFunction(ground=>window.__fpsSamples.filter((s,i,a)=>i>0 && s.feet[2]>ground+.3 && a[i-1].feet[2]<=ground+.3).length>=2, standing.feet[2]);
+ const jumpSamples = await page.evaluate(()=>window.__fpsSamples);
+ assert.ok(jumpSamples.some(s=>s.feet[2]>standing.feet[2]+.5), 'Repeated jump reaches an observable apex');
+ assert.ok(jumpSamples.some((s,i,a)=>i>0 && s.feet[2]<a[i-1].feet[2]-.01), 'Repeated jump includes observed descent');
+ await page.locator('#walk-helper').selectOption('off');
+ await page.waitForFunction(()=>JSON.parse(document.querySelector('#model').dataset.walk).grounded);
+ await page.evaluate(()=>cancelAnimationFrame(window.__fpsSampler));
+ await page.locator('#walk-helper').selectOption('crouch');
+ await page.waitForFunction(()=>JSON.parse(document.querySelector('#model').dataset.walk).stance==='crouching');
+ await page.evaluate(()=>window.dispatchEvent(new Event('blur')));
+ await page.waitForFunction(()=>{const s=JSON.parse(document.querySelector('#model').dataset.walk);return s.helper==='off'&&s.stance==='standing';});
+ assert.equal(await page.locator('#walk-helper').inputValue(),'off');
+ const resetFeet = (await state(page)).walk.feet;
+ await page.locator('#model canvas').evaluate(canvas=>canvas.dispatchEvent(new KeyboardEvent('keydown',{key:'d',repeat:true,bubbles:true,cancelable:true})));
+ await waitForFrames(page, 3);
+ assert.deepEqual((await state(page)).walk.feet, resetFeet, 'Repeat cannot rearm held movement after focus loss');
+ await page.locator('#walk-form button').click();
  const bounds=await page.locator('#model canvas').boundingBox();await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height/2);await page.mouse.down();await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height/2-1200);await page.mouse.up();await page.waitForFunction(()=>JSON.parse(document.querySelector('#model').dataset.walk).pitch===80);assert.equal(new URL(await page.locator('#walk-link').getAttribute('href')).searchParams.get('walk-pitch'),'80','Runtime look clamp must retain a replayable extreme');await page.locator('#walk-pitch').fill('10');await page.locator('#walk-form button').click();await waitForFrames(page);
  await page.locator('#model canvas').focus();await page.keyboard.down('w');await page.waitForFunction(()=>JSON.parse(document.querySelector('#model').dataset.walk).feet[1]>2.4,{},{timeout:10000});await waitForFrames(page,40);await page.keyboard.up('w');const moved=await state(page);assert.ok(moved.walk.feet[1]<3,'Existing nav collision keeps walker within floor');assert.ok(Math.abs(moved.walk.feet[0]-3)<.02,'Yaw90 walks along +Y');await page.keyboard.press('Escape');await page.waitForFunction(()=>document.querySelector('#model')?.dataset.mode==='overview');await assertViewCaption(page, 'orthographic');await page.locator('#walk').click();await page.waitForFunction(()=>document.querySelector('#model')?.dataset.mode==='walk');await page.waitForFunction(()=>JSON.parse(document.querySelector('#model').dataset.walk).feet[0]<-1);assert.ok((await state(page)).walk.feet[0]<-1,'Default walk still uses authored spawn');await assertViewCaption(page, 'walk');
  await page.locator('#view-2d').click();assert.equal((await state(page)).walk.active,false,'Hidden viewport must publish inactive state without rendering');assert.equal(await page.locator('#model').getAttribute('data-mode'),'overview');await assertViewCaption(page, 'plan');await page.locator('#view-3d').click();await assertViewCaption(page, 'orthographic');

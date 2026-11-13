@@ -5,14 +5,14 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { PNG } from 'pngjs';
 import { startPreview } from '../src/cli/preview.ts';
-import { launchBrowser,waitForFrames } from '../website/tests/browser-helpers.mjs';
+import { launchBrowser,waitForFrames } from './browser/support/browser.mjs';
 const output='generated/aml-phase4/browser';await mkdir(output,{recursive:true});
 const directory=await mkdtemp(join(tmpdir(),'aml-terrain-'));let server,browser;
 const errors=[],traces=[];
 try {
   await mkdir(join(directory,'terrain-course'));
-  await writeFile(join(directory,'course.aml'),await readFile('examples/terrain-course.aml'));
-  const png=await readFile('examples/terrain-course/hill.png');await writeFile(join(directory,'terrain-course/hill.png'),png);
+  await writeFile(join(directory,'course.aml'),await readFile('tests/fixtures/aml/terrain-course.aml'));
+  const png=await readFile('tests/fixtures/aml/terrain-course/hill.png');await writeFile(join(directory,'terrain-course/hill.png'),png);
   server=await startPreview(join(directory,'course.aml'),{port:0});browser=await launchBrowser();
   const page=await browser.newPage({viewport:{width:1440,height:1100}});page.on('pageerror',error=>errors.push(error.message));
   const ready=()=>page.waitForFunction(()=>document.querySelector('#status')?.dataset.state==='ready',null,{timeout:60000});

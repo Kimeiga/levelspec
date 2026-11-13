@@ -1,6 +1,6 @@
 import { physicalWalk, supportWindow } from "./physical-walk.ts";
 import type { CompiledLevel, V3 } from "../src/vector/types.ts";
-import { NavigationSurface } from "../website/navigation.ts";
+import { NavigationSurface } from "./navigation-surface.ts";
 
 export const MAX_WALK_PITCH = 80;
 const SUPPORT_TOLERANCE = 0.1;

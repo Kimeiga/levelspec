@@ -3,9 +3,9 @@ import type { V3 } from "../src/vector/types.ts";
 export const FRAME_ASPECT_MIN = 0.1;
 export const FRAME_ASPECT_MAX = 10;
 
-export const DEFAULT_APPEARANCE: Appearance = "flat";
+export const DEFAULT_APPEARANCE: Appearance = "full-render";
 
-export type Appearance = "flat" | "illustrated" | "materials" | "inspection";
+export type Appearance = "wireframe" | "materials" | "full-render";
 export type Projection = "orthographic" | "perspective";
 export interface ViewOptions {
   projection?: Projection;
@@ -40,8 +40,8 @@ export interface ReviewViewState extends ViewState {
 
 /** Reads an explicit supported appearance without applying a caller-specific default. */
 export function parseAppearance(value: string): Appearance {
-  if (value !== "flat" && value !== "illustrated" && value !== "materials" && value !== "inspection")
-    throw new Error("appearance must be flat, illustrated, materials or inspection.");
+  if (value !== "wireframe" && value !== "materials" && value !== "full-render")
+    throw new Error("appearance must be wireframe, materials or full-render.");
   return value;
 }
 

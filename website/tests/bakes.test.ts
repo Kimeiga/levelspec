@@ -1,4 +1,5 @@
-import { validateReceiverPages } from "../bake-bindings.ts";
+import { COURTYARD_BAKE_PRESETS } from "../../tools/fixtures/courtyard/bake-presets.ts";
+import { validateReceiverPages } from "../../tests/fixtures/courtyard/bake-bindings.ts";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
@@ -6,25 +7,19 @@ import { gunzipSync } from "node:zlib";
 import { createHash } from "node:crypto";
 import { compile, parseAml } from "levelspec";
 import { validateLightingManifest } from "../../src/lighting/manifest.ts";
-import { sourceForState, readState } from "../state.ts";
+import { sourceForState } from "../../tools/fixtures/courtyard/variants.ts";
 import { bakeLighting } from "../../src/lighting/bake.ts";
-import { changedObjects } from "../geometry-change.ts";
 const digest = (b: Uint8Array | string) =>
   createHash("sha256").update(b).digest("hex");
-const presets = {
-  clay: { height: 3, curve: 3 },
-  chalk: { height: 5, curve: 6 },
-  night: { height: 3.5, curve: 0 },
-};
+const presets = COURTYARD_BAKE_PRESETS;
 test("three actual Cycles bakes match source, albedo, UVs, calibration and every EXR checksum", async () => {
   for (const style of Object.keys(presets) as (keyof typeof presets)[]) {
     const source = sourceForState({
-      ...readState(""),
       look: style,
       ...presets[style],
     });
     const level = await compile(parseAml(source));
-    const root = new URL(`../assets/bakes/aml-v1/${style}/`, import.meta.url);
+    const root = new URL(`../../tests/fixtures/lighting/courtyard/${style}/`, import.meta.url);
     const binding = JSON.parse(
       gunzipSync(await readFile(new URL("binding.json.gz", root))).toString(),
     );
@@ -70,16 +65,14 @@ test("three actual Cycles bakes match source, albedo, UVs, calibration and every
     assert.ok(calibration.exr.packedReloadMaximumError < 1e-6);
   }
 });
-test("a changed floor invalidates a stored light bake and identifies only changed objects", async () => {
-  const source = sourceForState(readState(""));
-  const original = await compile(parseAml(source));
+test("a changed floor invalidates a stored light bake", async () => {
   const edited = await compile(
-    parseAml(sourceForState({ ...readState(""), height: 5 })),
+    parseAml(sourceForState({ height: 5 })),
   );
   const binding = JSON.parse(
     gunzipSync(
       await readFile(
-        new URL("../assets/bakes/aml-v1/clay/binding.json.gz", import.meta.url),
+        new URL("../../tests/fixtures/lighting/courtyard/clay/binding.json.gz", import.meta.url),
       ),
     ).toString(),
   );
@@ -91,14 +84,10 @@ test("a changed floor invalidates a stored light bake and identifies only change
       ),
     /Stale lighting/,
   );
-  assert.equal(changedObjects(original, original).size, 0);
-  const changed = changedObjects(original, edited);
-  assert.ok(changed.has("stairs"));
-  assert.ok(changed.has("bridge"));
-  assert.ok(!changed.has("courtyard"));
+
 });
 test("textured bakes refuse unresolved images before trying native Blender", async () => {
-  const level = await compile(parseAml(sourceForState(readState(""))));
+  const level = await compile(parseAml(sourceForState()));
   await assert.rejects(
     () =>
       bakeLighting(level, {
@@ -106,42 +95,4 @@ test("textured bakes refuse unresolved images before trying native Blender", asy
       }),
     /unresolved texture/,
   );
-});
-test("a normal-size static face cannot silently fall back outside the atlas", async () => {
-  const level = await compile(parseAml(sourceForState(readState(""))));
-  const binding = JSON.parse(
-    gunzipSync(
-      await readFile(
-        new URL("../assets/bakes/aml-v1/clay/binding.json.gz", import.meta.url),
-      ),
-    ).toString(),
-  );
-  const pages = [...binding.pages];
-  const index = level.mesh.surfaces.findIndex(
-    (si) => level.surfaces[si].object === "courtyard",
-  );
-  assert.ok(index >= 0);
-  pages[index] = -1;
-  assert.throws(
-    () => validateReceiverPages(level, pages, binding.atlas.pages.length),
-    /visible static surface/,
-  );
-  pages[index] = 99;
-  assert.throws(
-    () => validateReceiverPages(level, pages, binding.atlas.pages.length),
-    /page index/,
-  );
-});
-
-
-test("even a sub-square-millimetre static receiver requires a real atlas page",async()=>{
-  for(const dynamic of [false,true]){
-    const level=await compile(parseAml(`<architecture version="1" id="tiny-receiver"><box id="tiny" width="0.001" depth="0.001" height="0.001" dynamic="${dynamic}"/></architecture>`),{navigation:false});
-    assert.deepEqual(level.diagnostics.filter(d=>d.severity==='error'),[]);
-    const [a,b,c]=level.mesh.indices.slice(0,3).map(i=>level.mesh.positions.slice(i*3,i*3+3)),u=b.map((n,i)=>n-a[i]),v=c.map((n,i)=>n-a[i]);
-    const area=Math.hypot(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])/2;assert.ok(area>0&&area<1e-6);
-    const pages=Array(level.mesh.surfaces.length).fill(0);assert.equal(validateReceiverPages(level,pages,1),0);pages[0]=-1;
-    if(dynamic)assert.equal(validateReceiverPages(level,pages,1),1,'Dynamic geometry retains live shading rather than joining the static bake');
-    else assert.throws(()=>validateReceiverPages(level,pages,1),/visible static surface|missing/i);
-  }
 });

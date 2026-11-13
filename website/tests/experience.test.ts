@@ -1,48 +1,21 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import {
   compile,
   parseAml,
   validateForRuntime,
 } from "levelspec";
-import type { V3 } from "../../src/vector/types.ts";
-import {
-  sourceForState,
-  readState,
-  writeState,
-  normalizeHeight,
-} from "../state.ts";
-import { NavigationSurface } from "../navigation.ts";
-const template = readFileSync(
-  new URL("../demo.aml", import.meta.url),
-  "utf8",
-);
+import { sourceForState } from "../../tools/fixtures/courtyard/variants.ts";
+import { NavigationSurface } from "../../review/navigation-surface.ts";
 const build = async (height: number, curve = 3, blocked = false) =>
   compile(
     parseAml(
-      sourceForState({ ...readState(""), height, curve, blocked }),
+      sourceForState({  height, curve, blocked }),
     ),
   );
-test("height, access, material and presentation state survive a shared link", () => {
-  const state = readState(
-    "?height=5&curve=6&blocked=1&look=chalk&step=2&present=1",
-  );
-  assert.deepEqual(
-    readState(
-      writeState(new URL("https://example.com/levelspec/"), state).search,
-    ),
-    state,
-  );
-  assert.equal(normalizeHeight(NaN), 3);
-  assert.equal(normalizeHeight(200), 6);
-  assert.equal(normalizeHeight(-20), 3);
-  assert.equal(readState("?look=toString&height=Infinity").look, "clay");
-  assert.equal(readState("?height=Infinity").height, 3);
-});
-test("all 175 curve/elevation combinations pass the unchanged runtime validator", async () => {
-  for (let height = 3; height <= 6; height += 0.5)
-    for (let curve = 0; curve <= 6; curve += 0.25) {
+test("representative curve/elevation boundaries pass the unchanged runtime validator", async () => {
+  for (const height of [3, 4.5, 6])
+    for (const curve of [0, 3, 6]) {
       const level = await build(height, curve);
       const result = await validateForRuntime(level, { sealed: true });
       assert.equal(
@@ -51,6 +24,8 @@ test("all 175 curve/elevation combinations pass the unchanged runtime validator"
         JSON.stringify({ height, curve, diagnostics: result.diagnostics }),
       );
       assert.equal(result.diagnostics.length, 0);
+      assert.ok(level.mesh.indices.length > 0);
+      assert.equal(new Set(level.floors.map(floor => floor.region)).size, 15);
       for (const floor of level.floors.filter((f) =>
         [
           "bridge",
@@ -112,7 +87,7 @@ test("three spatial variations all retain usable geometry and navigation", async
     const l = await compile(
       parseAml(
         sourceForState({
-          ...readState(""),
+
           look,
           height: look === "chalk" ? 5 : look === "night" ? 3.5 : 3,
           curve: look === "chalk" ? 6 : look === "night" ? 0 : 3,

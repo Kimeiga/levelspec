@@ -1,4 +1,3 @@
-import { amlSource } from './fixtures/aml-source.mjs';
 /** Real composition, framing and input acceptance for reviewer-owned image aspect. */
 import assert from 'node:assert/strict';
 import { mkdir,mkdtemp,writeFile,rm } from 'node:fs/promises';
@@ -7,7 +6,7 @@ import { join } from 'node:path';
 import { PNG } from 'pngjs';
 import * as THREE from 'three';
 import { startPreview } from '../src/cli/preview.ts';
-import { launchBrowser,waitForFrames } from '../website/tests/browser-helpers.mjs';
+import { launchBrowser,waitForFrames } from './browser/support/browser.mjs';
 
 await mkdir('generated',{recursive:true});
 const output=await mkdtemp(join('generated','frame-aspect-browser-'));
@@ -15,24 +14,32 @@ const directory=await mkdtemp(join(tmpdir(),'levelspec-frame-'));
 const file=join(directory,'level.aml');
 const image=new PNG({width:2,height:2});image.data.fill(255);
 await writeFile(join(directory,'reference.png'),PNG.sync.write(image));
-await writeFile(file, await amlSource(`<level version="2" id="frame-calibration" name="Frame calibration" validation="premap">
- <material id="blue" color="#508090"/><material id="red" color="#c85040"/>
- <layer id="ground">
-  <vertex id="a" x="-3" y="-3" z="0"/><vertex id="b" x="3" y="-3" z="0"/>
-  <vertex id="c" x="3" y="3" z="0"/><vertex id="d" x="-3" y="3" z="0"/>
-  <edge id="ab" from="a" to="b" kind="open"/><edge id="bc" from="b" to="c" kind="open"/>
-  <edge id="cd" from="c" to="d" kind="open"/><edge id="da" from="d" to="a" kind="open"/>
-  <region id="floor" boundary="ab bc cd da" fill="floor" material="blue"/>
-  <vertex id="w" x="-1" y="0" z="0"/><vertex id="e" x="1" y="0" z="0"/>
-  <edge id="wall" from="w" to="e" kind="wall" height="2" thickness=".3" material="red"/>
- </layer>
- <marker id="spawn" layer="ground" region="floor" kind="attacker_spawn" position="2 -2 0"/>
- <reference id="portrait" image="reference.png" width="600" height="800" position="8 -12 9" target="0 0 .6" up="0 0 1" fov="47" near=".05" far="100" scale="assumed" scale-note="Frame fixture portrait"/>
- <reference id="landscape" image="reference.png" width="800" height="600" position="8 -12 9" target="0 0 .6" up="0 0 1" fov="47" near=".05" far="100" scale="assumed" scale-note="Frame fixture landscape"/>
-</level>`));
+await writeFile(file, `<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="frame-calibration" name="Frame calibration" units="meters" validation="premap" curve-tolerance="0.01">
+  <path id="ab:path" closed="false" points="-3 -3 0; 3 -3 0"/>
+  <path id="bc:path" closed="false" points="3 -3 0; 3 3 0"/>
+  <path id="cd:path" closed="false" points="3 3 0; -3 3 0"/>
+  <path id="da:path" closed="false" points="-3 3 0; -3 -3 0"/>
+  <path id="wall:path" closed="false" points="-1 0 0; 1 0 0"/>
+  <profile id="floor:profile" paths="ab:path bc:path cd:path da:path"/>
+  <material id="blue" color="#508090" repeat="1" roughness="0.8" metalness="0"/>
+  <material id="red" color="#c85040" repeat="1" roughness="0.8" metalness="0"/>
+  <group id="ground">
+    <slab id="floor" group="ground" material="blue" profile="floor:profile" thickness="0.2" elevation="0"/>
+  </group>
+  <assembly id="migration:static-walls" coincident-material="retained-face">
+    <wall id="wall" group="ground" path="wall:path" thickness="0.3" height="2" material="red" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+  </assembly>
+  <player radius="0.25" height="2" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <marker id="spawn" position="2 -2 0" kind="attacker_spawn" group="ground" element="floor"/>
+  <reference id="portrait" image="reference.png" width="600" height="800" scale="assumed" scale-note="Frame fixture portrait" position="8 -12 9" target="0 0 0.6" up="0 0 1" fov="47" near="0.05" far="100"/>
+  <reference id="landscape" image="reference.png" width="800" height="600" scale="assumed" scale-note="Frame fixture landscape" position="8 -12 9" target="0 0 0.6" up="0 0 1" fov="47" near="0.05" far="100"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+</architecture>
+`);
 let server,browser;
 const errors=[],measurements=[];
-const initial={projection:'perspective',position:[8,-12,9],target:[0,0,.6],fov:47,viewHeight:9,roll:31,appearance:'inspection'};
+const initial={projection:'perspective',position:[8,-12,9],target:[0,0,.6],fov:47,viewHeight:9,roll:31,appearance:'materials'};
 const landmarks=[[2,-1,0],[-2,-2,0],[0,-.15,1]];
 
 /** Publishes fractional CSS geometry and actual delivered camera/backing-store state together. */
@@ -82,7 +89,9 @@ async function pixels(page,name,s) {
    assert.ok(x+dx>=0&&x+dx<image.width&&y+dy>=0&&y+dy<image.height,'Landmark outside frame');
    const offset=((y+dy)*image.width+x+dx)*4;for(let c=0;c<3;c++)rgb[c]+=image.data[offset+c]/9;
   }
-  const expected=index===2?[200,80,64]:[80,128,144];assert.ok(rgb.every((v,c)=>Math.abs(v-expected[c])<5),`Known patch ${index} has wrong rendered position/color: ${rgb}`);
+  const linear=value=>value<=.04045?value/12.92:((value+.055)/1.055)**2.4;
+  const srgb=value=>value<=.0031308?value*12.92:1.055*value**(1/2.4)-.055;
+  const expected=index===2?[200,80,64].map(value=>255*srgb(linear(value/255)*(1+linear(166/255))/2)):[80,128,144];assert.ok(rgb.every((v,c)=>Math.abs(v-expected[c])<5),`Known patch ${index} has wrong rendered position/color: ${rgb}`);
   return {point,uv,rgb};
  });
  measurements.push({name,...s,samples});return samples;
@@ -110,7 +119,7 @@ try {
  await page.goto(invalidURL.href);await page.locator('#status[data-state="ready"]').waitFor({timeout:60000});
  assert.match(await page.locator('#camera-error').textContent(),/frame-aspect/);
  assert.equal((await frameReady(page)).view.frameAspectLock,undefined);
- assert.equal(await page.locator('#appearance').inputValue(),'flat','Invalid initial group retains a usable default');
+ assert.equal(await page.locator('#appearance').inputValue(),'full-render','Invalid initial group retains a usable default');
  await page.goto(server.url);await page.locator('#status[data-state="ready"]').waitFor({timeout:60000});
  const responsiveWide=await frameReady(page);assert.equal(responsiveWide.view.frameAspectLock,undefined);
  await page.setViewportSize({width:800,height:1000});const responsiveNarrow=await frameReady(page);sameCamera(responsiveWide,responsiveNarrow);

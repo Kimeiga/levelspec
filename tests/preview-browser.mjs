@@ -1,15 +1,16 @@
 /** Focused real-browser contract for the file-watching read-only CLI reviewer. */
-import { chromium } from "playwright";
+import { launchBrowser, waitForFrames } from "./browser/support/browser.mjs";
 import { mkdtemp, readFile, writeFile, rename, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import assert from "node:assert/strict";
 import { Matrix4, Vector3 } from "three";
+import { PNG } from "pngjs";
 import { startPreview } from "../src/cli/preview.ts";
 const directory=await mkdtemp(join(tmpdir(),"levelspec-preview-"));
 const file=join(directory,"level.aml");
-let original=await readFile(new URL("../examples/showcase.aml",import.meta.url),"utf8");
-const {ArchitectureBuilder,compile,toGLB,serializeAml}=await import("levelspec");
+let original=await readFile(new URL("./fixtures/aml/showcase.aml",import.meta.url),"utf8");
+const {ArchitectureBuilder,compile,toGLB,serializeAml,parseAml}=await import("levelspec");
 const fixture=new ArchitectureBuilder("crate-asset");
 fixture.box("crate",{position:[0,0,0],width:1,depth:1,height:1,material:"default",collidable:false});
 await writeFile(join(directory,"crate.glb"),toGLB(await compile(fixture.document,{navigation:false})));
@@ -17,8 +18,8 @@ original=original.replace("</architecture>",'<visual-mesh id="preview-crate" src
 await writeFile(file, original);
 let server, browser;
 try {
-browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_PATH || (process.platform==="darwin"?"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome":undefined)});
-  server=await startPreview(file,{port:0,view:{projection:"perspective",position:[11,-17,8],target:[2,3,1],fov:47,viewHeight:14,roll:31,appearance:"inspection",frameAspect:0.75}});
+browser=await launchBrowser();
+  server=await startPreview(file,{port:0,view:{projection:"perspective",position:[11,-17,8],target:[2,3,1],fov:47,viewHeight:14,roll:31,appearance:"materials",frameAspect:0.75}});
   const page=await browser.newPage();
   await page.goto(server.url);
   const ready=()=>page.waitForFunction(()=>document.querySelector('#status')?.dataset.state==='ready',null,{timeout:60000});
@@ -39,9 +40,9 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
     closeVector([projected.x,projected.y],[0,0]);
     return state;
   }
-  assert.equal(await page.locator("#appearance").inputValue(),"inspection");
+  assert.equal(await page.locator("#appearance").inputValue(),"materials");
   const initialView=await viewState();
-  assert.equal(initialView.appearance,"inspection");
+  assert.equal(initialView.appearance,"materials");
   closeVector([initialView.frameAspect],[0.75]);
   assert.equal(initialView.frameAspectLock,0.75);
   closeVector(initialView.position,[11,-17,8]);closeVector(initialView.target,[2,3,1]);
@@ -74,21 +75,21 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   closeVector(replayView.position,ortho.position);closeVector(replayView.target,ortho.target);
   closeVector(await viewMatrix(replay),initialMatrix);
   assert.equal(replayView.projection,'orthographic');assert.equal(replayView.viewHeight,14);assert.equal(replayView.fov,51);
-  assert.equal(await replay.locator('#appearance').inputValue(),'inspection');
-  await page.locator('#appearance').selectOption('materials');
-  assert.equal(new URL(await page.locator('#view-link').getAttribute('href')).searchParams.get('appearance'),'materials');
+  assert.equal(await replay.locator('#appearance').inputValue(),'materials');
+  await page.locator('#appearance').selectOption('wireframe');
+  assert.equal(new URL(await page.locator('#view-link').getAttribute('href')).searchParams.get('appearance'),'wireframe');
   await replay.goto(await page.locator('#view-link').getAttribute('href'));
   await replay.waitForFunction(()=>document.querySelector('#status')?.dataset.state==='ready');
-  assert.equal(await replay.locator('#appearance').inputValue(),'materials');
+  assert.equal(await replay.locator('#appearance').inputValue(),'wireframe');
   closeVector(await viewMatrix(replay),initialMatrix);
   await replay.reload();await replay.waitForFunction(()=>document.querySelector('#status')?.dataset.state==='ready');
-  assert.equal(await replay.locator('#appearance').inputValue(),'materials');
+  assert.equal(await replay.locator('#appearance').inputValue(),'wireframe');
   const invalidAppearance=new URL(server.url);invalidAppearance.searchParams.set('appearance','unlit');
   await replay.goto(invalidAppearance.href);await replay.waitForFunction(()=>document.querySelector('#status')?.dataset.state==='ready');
   assert.match(await replay.locator('#camera-error').textContent(),/appearance must be/);
-  assert.equal(await replay.locator('#appearance').inputValue(),'flat');
+  assert.equal(await replay.locator('#appearance').inputValue(),'full-render');
   assert.equal(JSON.parse(await replay.locator('#model').getAttribute('data-view')).projection,'orthographic','Invalid initial options reject atomically and retain usable defaults');
-  await page.locator('#appearance').selectOption('inspection');
+  await page.locator('#appearance').selectOption('materials');
 
   const fittedURL=new URL(server.url);fittedURL.searchParams.delete('camera');fittedURL.searchParams.delete('target');
   await replay.goto(fittedURL.href);
@@ -186,8 +187,8 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   await ready();await page.waitForFunction(before=>Number(document.querySelector('#model')?.dataset.frames)>before,revisionFrame);assert.equal(await page.locator('#model').getAttribute('data-camera'),camera);
   closeVector(await viewMatrix(page),beforeEditMatrix);
   closeVector([(await viewState()).roll],[37]);
-  assert.equal(await page.locator("#appearance").inputValue(),"inspection");
-  assert.equal((await viewState()).appearance,"inspection");
+  assert.equal(await page.locator("#appearance").inputValue(),"materials");
+  assert.equal((await viewState()).appearance,"materials");
   closeVector([(await viewState()).frameAspect],[0.75]);
   assert.equal((await viewState()).frameAspectLock,0.75);
   await page.locator('#walk').click();
@@ -260,6 +261,35 @@ browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_
   await page.locator('#dimensions').uncheck();assert.equal(await page.locator('#viewport-dimensions').isVisible(),false);
   await page.locator('#dimensions').check();assert.equal(await page.locator('#viewport-dimensions').isVisible(),true);
 
+  const surfaceSource=await readFile(new URL('./fixtures/aml/surface-host.aml',import.meta.url),'utf8');
+  const invalidImage=new TextEncoder().encode('This is not a material image.');
+  const failedCandidate=await compile(parseAml(surfaceSource),{navigation:false,resolveMaterialImage:async()=>invalidImage});
+  assert.ok(failedCandidate.mesh.indices.length>0,'The failure fixture must retain preappearance geometry, exercising the publication guard');
+  assert.ok(failedCandidate.diagnostics.some(diagnostic=>diagnostic.code==='AML_SURFACE_APPEARANCE'));
+  await waitForFrames(page);
+  assert.ok(Number(await page.locator('#model').getAttribute('data-triangles'))>0);
+  const retained={
+    title:await page.locator('#title').textContent(),
+    renderHash:await page.locator('#model').getAttribute('data-render-hash'),
+    dimensions:await page.locator('#viewport-dimensions').getAttribute('data-extent'),
+  };
+  assert.ok(retained.renderHash,'A committed scene exposes its render identity');
+  await writeFile(join(directory,'finish.png'),invalidImage);
+  await writeFile(file,surfaceSource);
+  await page.waitForFunction(()=>document.querySelector('#status')?.dataset.state==='error'&&document.querySelector('#status')?.textContent.includes('AML_SURFACE_APPEARANCE'));
+  await waitForFrames(page);
+  assert.equal(await page.locator('#title').textContent(),retained.title,'Failed appearance compilation must not publish the candidate document');
+  assert.equal(await page.locator('#model').getAttribute('data-stale'),'true');
+  assert.equal(await page.locator('#model').getAttribute('data-render-hash'),retained.renderHash,'The previous rendered scene must survive a failed appearance candidate');
+  assert.equal(await page.locator('#viewport-dimensions').getAttribute('data-extent'),retained.dimensions);
+  const repairedImage=new PNG({width:2,height:2});
+  for(let i=0;i<4;i++)repairedImage.data.set([150,125,100,255],i*4);
+  await writeFile(join(directory,'finish.png'),PNG.sync.write(repairedImage));
+  await page.waitForFunction(()=>document.querySelector('#title')?.textContent==='Surface host fixture');
+  await ready();
+  assert.equal(await page.locator('#model').getAttribute('data-stale'),'false','A repaired image must publish the complete next candidate');
+  assert.notEqual(await page.locator('#model').getAttribute('data-render-hash'),retained.renderHash,'The repaired complete candidate replaces the previous scene');
+
   await page.close();const url=server.url;await server.close();server=await startPreview(file,{port:Number(new URL(url).port)});assert.equal(server.url,url);
-  console.log('PASS preview camera/projection matrices, repeatable view URL, invalid camera recovery, measured viewport bounds, initial load, edits, camera retention, malformed/stale recovery, atomic replacement, coalesced latest edit, companion GLB and missing-asset and SSE disconnect recovery, shutdown/restart');
+  console.log('PASS preview camera/projection matrices, repeatable view URL, invalid camera recovery, measured viewport bounds, initial load, edits, camera retention, malformed/stale recovery, atomic replacement, coalesced latest edit, companion GLB and missing-asset and SSE disconnect recovery, failed appearance candidate retention and recovery, shutdown/restart');
 } finally {await browser?.close();await server?.close();await rm(directory,{recursive:true,force:true});}
