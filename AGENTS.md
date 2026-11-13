@@ -2,11 +2,16 @@
 
 ## Skills
 
+- For optional prop art and procedural-versus-AI asset comparisons, apply [level-prop-assets](.agents/skills/level-prop-assets/SKILL.md). This does not require AI generation for ordinary map authoring.
 - For TypeScript creation/refactoring/review, apply [write-readable-typescript](.agents/skills/write-readable-typescript/SKILL.md).
 - For test design, review or consolidation, apply [maintain-tests](.agents/skills/maintain-tests/SKILL.md).
 - For map layout, topology and circulation authoring/review, apply [level-authoring](.agents/skills/level-authoring/SKILL.md).
-- For maps constrained by reference images, also apply [reference-level-authoring](.agents/skills/reference-level-authoring/SKILL.md).
+- For FPS map creation or gameplay-relevant geometry revisions, including cover repairs, follow [fps-map-workflow](.agents/skills/fps-map-workflow/SKILL.md), the authority for phases and review progression. Keep local repairs local.
+- For FPS territory, objectives, information and rotations, apply [fps-strategy-design](.agents/skills/fps-strategy-design/SKILL.md); for corridors, cover, obstacles, vantage points and sightlines, apply [fps-combat-geometry](.agents/skills/fps-combat-geometry/SKILL.md).
+- For FPS gameplay critique, population scenarios or playtest analysis, apply [fps-map-review](.agents/skills/fps-map-review/SKILL.md). Architectural-only and presentation-only work does not require FPS review.
+- For real-image study informing themed invention or for source-constrained maps, apply [reference-level-authoring](.agents/skills/reference-level-authoring/SKILL.md), selecting inspiration or fidelity as appropriate.
 - For illustrated preview rendering/review, apply [level-preview-art](.agents/skills/level-preview-art/SKILL.md).
+- For architectural plausibility, enclosure, roofs/ceilings and environmental completeness, apply [level-architecture-review](.agents/skills/level-architecture-review/SKILL.md), distinct from renderer styling and gameplay review.
 
 ## Current contracts
 
@@ -17,6 +22,14 @@ Runtime JSON, reports and bake manifests are legitimate outputs.
 Use meters and right-handed Z-up in domain code; exporters own axis conversion.
 Keep render visibility, collision and navigation separate. Navigation sampling is
 not continuous proof; static premap success does not verify gameplay reachability.
+
+Emit errors for definite invalid input or demonstrated violations of declared
+requirements. Emit non-blocking warnings for geometry that may be wrong but could
+be intentional; missing architectural intent is not a reason to omit a warning.
+Make findings immediately inspectable with source objects/locations, spatial
+bounds and an inspection target, plus the evidence and reason for concern.
+Distinguish an inconclusive sampled check from a demonstrated failure. Warnings
+request review; they do not authorize automatic geometry changes.
 
 ## Existing commands
 
@@ -49,7 +62,9 @@ Start with [current documentation](docs/README.md), not historical plans.
 - `src/architecture`: AML source, native compilation, and migration; `src/vector`: shared geometry/runtime backends; `src/export/vector`: Node export orchestration.
 - `src/migration`: private read-only historical decoder used only by explicit migration.
 - `src/cli` and `bin`: repository-local process/file boundaries.
-- `review`: shared read-only reviewer; `viewer`/`website`: local/curated adapters.
+- `review`: shared read-only reviewer, compile worker, cameras and walking controls; `viewer`/`website`: thin local/curated adapters.
+- `examples`: only maintained Daiban and Dust II sources. Focused samples belong in `tests/fixtures`; CLI starter is `src/cli/templates/starter.aml`.
+- `tools/fixtures/courtyard`: native source variants for bake tooling and compiler acceptance, not a second interactive site.
 - `tests` and `website/tests`: domain/CLI and site/browser contracts.
 - `docs`: current guides; `docs/archive`, `docs/plans`, `docs/reviews`: historical evidence/plans.
 - `examples`, `projects`, `reference`: supported sources and reference evidence.

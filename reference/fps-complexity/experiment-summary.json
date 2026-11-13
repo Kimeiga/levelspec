@@ -1,0 +1,1503 @@
+{
+  "description": "Same current engine, four seeds, three structural target profiles; planning proxies, not gameplay validation.",
+  "sources": {
+    "config.ts": "7c65f27ce9469f8c10f1cae7d9bb181ed9f8c6e1ece7cac83484e0042e873492",
+    "index.ts": "5650e7513a56500080a3a78673237d2122e25b3654f9715a51769439981dd60e",
+    "metrics.ts": "b676f0d6173501f1883d094c2ea946c72812c0899dd4131a6000a7d927dbc729",
+    "presentation.ts": "a45777a5cad5df73b79173f67db5519644dcf64e23598c437c378eb7355c6962",
+    "search.ts": "fda98f73fc22e2d6796bf3aabe3b124f12028e5b787acf815c2a2b92f7e4a776",
+    "spatial.ts": "99be82cb88842a41d4657f0d948520b6a7a5788812e4738d33f5c23647fa3517",
+    "structure.ts": "060cb63cb1730a263095aaa3bd99a7fff9a4d54311f9fbb0620ad6f94df00f7a",
+    "types.ts": "e34ddc9c300b9aac6d1ec6a6d8228c9a775b0c1bdae6885a36416107708c4e5b"
+  },
+  "fixedBudget": 2400,
+  "profiles": [
+    {
+      "id": "connectivity",
+      "label": "Connectivity targets only",
+      "targets": {
+        "decisionDepth": 0,
+        "territories": 0,
+        "stackedRegions": 0
+      }
+    },
+    {
+      "id": "staged",
+      "label": "Developed regions and journeys",
+      "targets": {
+        "decisionDepth": 2,
+        "territories": 3,
+        "stackedRegions": 0
+      }
+    },
+    {
+      "id": "layered",
+      "label": "Add a stacked region pair",
+      "targets": {
+        "decisionDepth": 2,
+        "territories": 3,
+        "stackedRegions": 1
+      }
+    }
+  ],
+  "runs": [
+    {
+      "id": "1-connectivity",
+      "seed": "complexity-01",
+      "profile": "connectivity",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p512",
+          "nodes": 17,
+          "edges": 19,
+          "regions": 0,
+          "depth": [
+            0
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1000",
+          "nodes": 27,
+          "edges": 35,
+          "regions": 1,
+          "depth": [
+            3
+          ],
+          "stacked": 0,
+          "penalty": 3.622762841362113,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p512-terraces",
+          "issues": [
+            "new-307: Local slope 80.7° exceeds profile",
+            "new-422: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p512-courts",
+          "issues": [
+            "new-307: Local slope 80.7° exceeds profile",
+            "new-422: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p512-galleries",
+          "issues": [
+            "new-307: Local slope 80.7° exceeds profile",
+            "new-422: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-terraces",
+          "issues": [
+            "new-577: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-914: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-732: Local slope 43.3° exceeds profile",
+            "new-680 crosses unrelated area node-854; physical portal reconstruction required",
+            "new-835 crosses unrelated area stage-832-2; physical portal reconstruction required",
+            "new-841 crosses unrelated area stage-539-0; physical portal reconstruction required",
+            "new-841 crosses unrelated area stage-832-2; physical portal reconstruction required",
+            "new-712 crosses unrelated area stage-832-1; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            4
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-courts",
+          "issues": [
+            "new-577: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-914: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-732: Local slope 43.3° exceeds profile",
+            "Shared/special crossing requires manual reconciliation: local-832-0 / new-835",
+            "Shared/special crossing requires manual reconciliation: local-832-1 / new-712",
+            "Shared/special crossing requires manual reconciliation: local-832-2 / new-712",
+            "Unresolved shared floor contact area-11-stage-832-0 (stage-832-0) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact area-11-stage-976-0 (stage-976-0) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor-2 (explore-shared-space-2) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "new-680 crosses unrelated area node-854; physical portal reconstruction required",
+            "new-835 crosses unrelated area stage-832-2; physical portal reconstruction required",
+            "new-841 crosses unrelated area stage-539-0; physical portal reconstruction required",
+            "new-841 crosses unrelated area stage-832-2; physical portal reconstruction required",
+            "new-712 crosses unrelated area stage-832-1; physical portal reconstruction required",
+            "new-712 crosses unrelated area stage-832-3; physical portal reconstruction required",
+            "new-577 crosses unrelated area stage-311-0; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-galleries",
+          "issues": [
+            "new-577: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-914: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-732: Local slope 43.3° exceeds profile",
+            "Shared/special crossing requires manual reconciliation: local-832-0 / new-835",
+            "Shared/special crossing requires manual reconciliation: local-832-1 / new-712",
+            "Shared/special crossing requires manual reconciliation: local-832-2 / new-712",
+            "Unresolved shared floor contact area-11-stage-976-0 (stage-976-0) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor-2 (explore-shared-space-2) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "new-680 crosses unrelated area node-854; physical portal reconstruction required",
+            "new-835 crosses unrelated area stage-832-2; physical portal reconstruction required",
+            "new-841 crosses unrelated area stage-539-0; physical portal reconstruction required",
+            "new-841 crosses unrelated area stage-832-2; physical portal reconstruction required",
+            "new-712 crosses unrelated area stage-832-1; physical portal reconstruction required",
+            "new-712 crosses unrelated area stage-832-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "1-staged",
+      "seed": "complexity-01",
+      "profile": "staged",
+      "candidates": [
+        {
+          "id": "candidate-1-r2-p527",
+          "nodes": 22,
+          "edges": 31,
+          "regions": 4,
+          "depth": [
+            2
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r1-p200",
+          "nodes": 15,
+          "edges": 22,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 0,
+          "penalty": 6.065250786521389,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r2-p527-terraces",
+          "issues": [
+            "split-401: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-437 crosses unrelated area node-401; physical portal reconstruction required",
+            "new-442 crosses unrelated area stage-425-3; physical portal reconstruction required",
+            "new-442 crosses unrelated area stage-517-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 4,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r2-p527-courts",
+          "issues": [
+            "split-401: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-437 crosses unrelated area node-401; physical portal reconstruction required",
+            "new-442 crosses unrelated area stage-425-3; physical portal reconstruction required",
+            "new-442 crosses unrelated area stage-517-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            3
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r2-p527-galleries",
+          "issues": [
+            "split-401: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-437 crosses unrelated area node-401; physical portal reconstruction required",
+            "new-442 crosses unrelated area stage-425-3; physical portal reconstruction required",
+            "new-442 crosses unrelated area stage-517-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            3
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p200-terraces",
+          "issues": [
+            "local-115-3 crosses unrelated area stage-115-0; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 2,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p200-courts",
+          "issues": [
+            "Shared/special crossing requires manual reconciliation: local-19-0 / new-195",
+            "local-115-3 crosses unrelated area stage-115-0; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p200-galleries",
+          "issues": [
+            "Shared/special crossing requires manual reconciliation: local-19-0 / new-195",
+            "local-115-3 crosses unrelated area stage-115-0; physical portal reconstruction required",
+            "new-195 crosses unrelated area stage-19-0; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "1-layered",
+      "seed": "complexity-01",
+      "profile": "layered",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p315",
+          "nodes": 14,
+          "edges": 20,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 1,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p900",
+          "nodes": 28,
+          "edges": 36,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 1,
+          "penalty": 2.323847518754583,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p315-terraces",
+          "issues": [
+            "new-68: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-199 crosses unrelated area stage-19-0; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 2,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p315-courts",
+          "issues": [
+            "new-68: Stair pitch exceeds profile / provisional 38° envelope",
+            "Shared/special crossing requires manual reconciliation: local-19-0 / new-199",
+            "new-199 crosses unrelated area stage-19-0; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p315-galleries",
+          "issues": [
+            "new-68: Stair pitch exceeds profile / provisional 38° envelope",
+            "Shared/special crossing requires manual reconciliation: local-19-0 / new-199",
+            "new-199 crosses unrelated area stage-19-0; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p900-terraces",
+          "issues": [
+            "depart-341: Local slope 55.6° exceeds profile",
+            "new-557 crosses unrelated area stage-52-2; physical portal reconstruction required",
+            "new-557 crosses unrelated area stage-341-0; physical portal reconstruction required",
+            "new-697 crosses unrelated area stage-307-2; physical portal reconstruction required",
+            "new-820 crosses unrelated area stage-307-2; physical portal reconstruction required",
+            "new-820 crosses unrelated area node-327; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p900-courts",
+          "issues": [
+            "depart-341: Local slope 55.6° exceeds profile",
+            "Shared/special crossing requires manual reconciliation: local-341-2 / new-557",
+            "new-557 crosses unrelated area stage-52-2; physical portal reconstruction required",
+            "new-557 crosses unrelated area stage-341-0; physical portal reconstruction required",
+            "new-697 crosses unrelated area stage-307-2; physical portal reconstruction required",
+            "new-820 crosses unrelated area stage-307-2; physical portal reconstruction required",
+            "new-820 crosses unrelated area node-327; physical portal reconstruction required",
+            "Insufficient headroom between new-250 / new-557: 0.00m"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p900-galleries",
+          "issues": [
+            "depart-341: Local slope 55.6° exceeds profile",
+            "Shared/special crossing requires manual reconciliation: local-52-0 / new-557",
+            "Shared/special crossing requires manual reconciliation: local-52-3 / new-557",
+            "Shared/special crossing requires manual reconciliation: local-341-2 / new-557",
+            "new-557 crosses unrelated area stage-52-2; physical portal reconstruction required",
+            "new-697 crosses unrelated area stage-307-2; physical portal reconstruction required",
+            "new-820 crosses unrelated area stage-307-2; physical portal reconstruction required",
+            "new-820 crosses unrelated area node-327; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 1,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "2-connectivity",
+      "seed": "complexity-02",
+      "profile": "connectivity",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p16",
+          "nodes": 8,
+          "edges": 10,
+          "regions": 0,
+          "depth": [
+            0
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r1-p1200",
+          "nodes": 16,
+          "edges": 22,
+          "regions": 0,
+          "depth": [
+            0
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p16-terraces",
+          "issues": [
+            "depart-11: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-16 crosses unrelated area stage-11-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p16-courts",
+          "issues": [
+            "depart-11: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-16 crosses unrelated area stage-11-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p16-galleries",
+          "issues": [
+            "depart-11: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-16 crosses unrelated area stage-11-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p1200-terraces",
+          "issues": [
+            "new-720: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-982: Local slope 61.8° exceeds profile",
+            "new-902: Local slope 46.2° exceeds profile",
+            "new-1134: Local slope 71.3° exceeds profile",
+            "local-767-0: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p1200-courts",
+          "issues": [
+            "new-720: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-982: Local slope 61.8° exceeds profile",
+            "new-902: Local slope 46.2° exceeds profile",
+            "new-1134: Local slope 71.3° exceeds profile",
+            "local-767-0: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p1200-galleries",
+          "issues": [
+            "new-720: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-982: Local slope 61.8° exceeds profile",
+            "new-902: Local slope 46.2° exceeds profile",
+            "new-1134: Local slope 71.3° exceeds profile",
+            "local-767-0: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "2-staged",
+      "seed": "complexity-02",
+      "profile": "staged",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p1049",
+          "nodes": 19,
+          "edges": 25,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1200",
+          "nodes": 24,
+          "edges": 32,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 1,
+          "penalty": 4,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p1049-terraces",
+          "issues": [
+            "split-913: Local slope 50.5° exceeds profile"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 3,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p1049-courts",
+          "issues": [
+            "split-913: Local slope 50.5° exceeds profile"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p1049-galleries",
+          "issues": [
+            "split-913: Local slope 50.5° exceeds profile"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1200-terraces",
+          "issues": [
+            "new-282: Local slope 43.0° exceeds profile",
+            "split-515: Local slope 44.7° exceeds profile",
+            "new-1020: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-650: Local slope 63.5° exceeds profile",
+            "split-1085: Local slope 63.7° exceeds profile",
+            "split-1110: Local slope 51.0° exceeds profile",
+            "local-459-0 crosses unrelated area stage-459-2; physical portal reconstruction required",
+            "Insufficient headroom between new-282 / new-582: 0.00m"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 3,
+          "stacked": 1
+        },
+        {
+          "id": "candidate-2-r2-p1200-courts",
+          "issues": [
+            "new-282: Local slope 43.0° exceeds profile",
+            "split-515: Local slope 44.7° exceeds profile",
+            "new-1020: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-650: Local slope 63.5° exceeds profile",
+            "split-1085: Local slope 63.7° exceeds profile",
+            "split-1110: Local slope 51.0° exceeds profile",
+            "Insufficient headroom between new-282 / new-582: 0.00m"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1200-galleries",
+          "issues": [
+            "new-282: Local slope 43.0° exceeds profile",
+            "split-515: Local slope 44.7° exceeds profile",
+            "new-1020: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-650: Local slope 63.5° exceeds profile",
+            "split-1085: Local slope 63.7° exceeds profile",
+            "split-1110: Local slope 51.0° exceeds profile",
+            "Insufficient headroom between new-282 / new-582: 0.00m"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "2-layered",
+      "seed": "complexity-02",
+      "profile": "layered",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p837",
+          "nodes": 18,
+          "edges": 23,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 1,
+          "penalty": 1.2400704051107154,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1000",
+          "nodes": 25,
+          "edges": 35,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 1,
+          "penalty": 8.494046573045342,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p837-terraces",
+          "issues": [
+            "new-600: Local slope 72.4° exceeds profile",
+            "new-252: Local slope 59.0° exceeds profile",
+            "new-798: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-26 crosses unrelated area stage-26-2; physical portal reconstruction required",
+            "local-388-0 crosses unrelated area stage-388-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 3,
+          "stacked": 1
+        },
+        {
+          "id": "candidate-1-r1-p837-courts",
+          "issues": [
+            "new-600: Local slope 72.4° exceeds profile",
+            "new-252: Local slope 59.0° exceeds profile",
+            "new-798: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-26 crosses unrelated area stage-26-2; physical portal reconstruction required",
+            "local-388-0 crosses unrelated area stage-388-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p837-galleries",
+          "issues": [
+            "new-600: Local slope 72.4° exceeds profile",
+            "new-252: Local slope 59.0° exceeds profile",
+            "new-798: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-26 crosses unrelated area stage-26-2; physical portal reconstruction required",
+            "local-388-0 crosses unrelated area stage-388-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-terraces",
+          "issues": [
+            "new-282: Local slope 55.5° exceeds profile",
+            "split-513: Local slope 51.9° exceeds profile",
+            "split-548: Local slope 47.6° exceeds profile",
+            "split-873: Local slope 62.4° exceeds profile",
+            "new-49 crosses unrelated area node-513; physical portal reconstruction required",
+            "split-296 crosses unrelated area stage-459-1; physical portal reconstruction required",
+            "new-671 crosses unrelated area stage-459-2; physical portal reconstruction required",
+            "new-776 crosses unrelated area stage-163-3; physical portal reconstruction required",
+            "new-776 crosses unrelated area stage-358-0; physical portal reconstruction required",
+            "depart-779 crosses unrelated area stage-163-3; physical portal reconstruction required",
+            "split-873 crosses unrelated area node-548; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 2,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-courts",
+          "issues": [
+            "new-282: Local slope 55.5° exceeds profile",
+            "split-513: Local slope 51.9° exceeds profile",
+            "split-548: Local slope 47.6° exceeds profile",
+            "split-873: Local slope 62.4° exceeds profile",
+            "split-296 crosses unrelated area stage-459-1; physical portal reconstruction required",
+            "split-296 crosses unrelated area stage-779-1; physical portal reconstruction required",
+            "new-671 crosses unrelated area stage-459-2; physical portal reconstruction required",
+            "new-776 crosses unrelated area stage-163-3; physical portal reconstruction required",
+            "new-776 crosses unrelated area stage-358-0; physical portal reconstruction required",
+            "depart-779 crosses unrelated area stage-163-3; physical portal reconstruction required",
+            "split-873 crosses unrelated area node-548; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-galleries",
+          "issues": [
+            "new-282: Local slope 55.5° exceeds profile",
+            "split-513: Local slope 51.9° exceeds profile",
+            "split-548: Local slope 47.6° exceeds profile",
+            "split-873: Local slope 62.4° exceeds profile",
+            "new-49 crosses unrelated area node-513; physical portal reconstruction required",
+            "split-296 crosses unrelated area stage-459-1; physical portal reconstruction required",
+            "new-671 crosses unrelated area stage-459-2; physical portal reconstruction required",
+            "new-776 crosses unrelated area stage-163-3; physical portal reconstruction required",
+            "new-776 crosses unrelated area stage-358-0; physical portal reconstruction required",
+            "depart-779 crosses unrelated area stage-163-3; physical portal reconstruction required",
+            "split-873 crosses unrelated area node-548; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "3-connectivity",
+      "seed": "complexity-03",
+      "profile": "connectivity",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p249",
+          "nodes": 12,
+          "edges": 14,
+          "regions": 0,
+          "depth": [
+            0
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1100",
+          "nodes": 18,
+          "edges": 24,
+          "regions": 0,
+          "depth": [
+            1
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p249-terraces",
+          "issues": [
+            "local-60-2: Local slope 49.5° exceeds profile",
+            "split-85: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-125: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-191: Local slope 73.7° exceeds profile"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p249-courts",
+          "issues": [
+            "local-60-2: Local slope 49.5° exceeds profile",
+            "split-85: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-125: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-191: Local slope 73.7° exceeds profile"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p249-galleries",
+          "issues": [
+            "local-60-2: Local slope 49.5° exceeds profile",
+            "split-85: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-125: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-191: Local slope 73.7° exceeds profile"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1100-terraces",
+          "issues": [
+            "split-964: Local slope 58.0° exceeds profile",
+            "split-1094: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1100-courts",
+          "issues": [
+            "split-964: Local slope 58.0° exceeds profile",
+            "split-1094: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1100-galleries",
+          "issues": [
+            "split-964: Local slope 58.0° exceeds profile",
+            "split-1094: Stair pitch exceeds profile / provisional 38° envelope",
+            "local-946-0 crosses unrelated area stage-946-1; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "3-staged",
+      "seed": "complexity-03",
+      "profile": "staged",
+      "candidates": [
+        {
+          "id": "candidate-1-r2-p1075",
+          "nodes": 23,
+          "edges": 34,
+          "regions": 4,
+          "depth": [
+            2
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r1-p748",
+          "nodes": 21,
+          "edges": 29,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 0,
+          "penalty": 0.8074184018835107,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r2-p1075-terraces",
+          "issues": [
+            "new-859: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-964: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-1048: Local slope 64.8° exceeds profile",
+            "new-873 crosses unrelated area stage-1064-0; physical portal reconstruction required",
+            "new-968 crosses unrelated area stage-278-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 2,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r2-p1075-courts",
+          "issues": [
+            "new-859: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-964: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-1048: Local slope 64.8° exceeds profile",
+            "Unresolved shared floor contact area-12-stage-1064-0 (stage-1064-0) / shared-floor (explore-shared-space): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor (explore-shared-space) / shared-floor-5 (explore-shared-space-5): overlapping envelopes at grade; physical portal reconstruction required",
+            "new-873 crosses unrelated area stage-1064-0; physical portal reconstruction required",
+            "new-968 crosses unrelated area stage-278-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r2-p1075-galleries",
+          "issues": [
+            "new-859: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-964: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-1048: Local slope 64.8° exceeds profile",
+            "Unresolved shared floor contact area-12-stage-1064-0 (stage-1064-0) / shared-floor (explore-shared-space): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor (explore-shared-space) / shared-floor-5 (explore-shared-space-5): overlapping envelopes at grade; physical portal reconstruction required",
+            "new-873 crosses unrelated area stage-1064-0; physical portal reconstruction required",
+            "new-968 crosses unrelated area stage-278-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p748-terraces",
+          "issues": [
+            "depart-171: Local slope 53.3° exceeds profile",
+            "local-645-1 crosses unrelated area stage-645-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 3,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p748-courts",
+          "issues": [
+            "depart-171: Local slope 53.3° exceeds profile",
+            "local-645-1 crosses unrelated area stage-645-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r1-p748-galleries",
+          "issues": [
+            "depart-171: Local slope 53.3° exceeds profile",
+            "local-645-1 crosses unrelated area stage-645-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "3-layered",
+      "seed": "complexity-03",
+      "profile": "layered",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p1172",
+          "nodes": 23,
+          "edges": 31,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 2,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1100",
+          "nodes": 22,
+          "edges": 31,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 1,
+          "penalty": 5.456682402137216,
+          "deficits": [
+            "length variation: 0.34 / 0.35"
+          ]
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p1172-terraces",
+          "issues": [
+            "new-1054: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-1111: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 3,
+          "stacked": 2
+        },
+        {
+          "id": "candidate-1-r1-p1172-courts",
+          "issues": [
+            "new-1054: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-1111: Stair pitch exceeds profile / provisional 38° envelope",
+            "Unresolved shared floor contact area-8-node-767 (node-767) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p1172-galleries",
+          "issues": [
+            "new-1054: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-1111: Stair pitch exceeds profile / provisional 38° envelope",
+            "Unresolved shared floor contact area-8-node-767 (node-767) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1100-terraces",
+          "issues": [
+            "split-252: Local slope 45.4° exceeds profile",
+            "new-617: Local slope 56.9° exceeds profile",
+            "local-336-0 crosses unrelated area stage-336-2; physical portal reconstruction required",
+            "depart-426 crosses unrelated area stage-734-1; physical portal reconstruction required",
+            "new-693 crosses unrelated area stage-426-1; physical portal reconstruction required",
+            "local-734-0 crosses unrelated area stage-734-2; physical portal reconstruction required",
+            "new-955 crosses unrelated area node-252; physical portal reconstruction required",
+            "Insufficient headroom between depart-497 / new-979: 1.98m"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 3,
+          "stacked": 1
+        },
+        {
+          "id": "candidate-2-r2-p1100-courts",
+          "issues": [
+            "split-252: Local slope 45.4° exceeds profile",
+            "new-617: Local slope 56.9° exceeds profile",
+            "Unresolved shared floor contact area-8-node-252 (node-252) / shared-floor-4 (explore-shared-space-4): overlapping envelopes at grade; physical portal reconstruction required",
+            "local-336-0 crosses unrelated area stage-336-2; physical portal reconstruction required",
+            "depart-426 crosses unrelated area stage-734-1; physical portal reconstruction required",
+            "new-693 crosses unrelated area stage-426-1; physical portal reconstruction required",
+            "local-734-0 crosses unrelated area stage-734-2; physical portal reconstruction required",
+            "new-955 crosses unrelated area node-252; physical portal reconstruction required",
+            "Insufficient headroom between depart-497 / new-979: 1.98m"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1100-galleries",
+          "issues": [
+            "split-252: Local slope 45.4° exceeds profile",
+            "new-617: Local slope 56.9° exceeds profile",
+            "Unresolved shared floor contact area-8-node-252 (node-252) / shared-floor-4 (explore-shared-space-4): overlapping envelopes at grade; physical portal reconstruction required",
+            "local-336-0 crosses unrelated area stage-336-2; physical portal reconstruction required",
+            "depart-426 crosses unrelated area stage-734-1; physical portal reconstruction required",
+            "new-693 crosses unrelated area stage-426-1; physical portal reconstruction required",
+            "local-734-0 crosses unrelated area stage-734-2; physical portal reconstruction required",
+            "new-955 crosses unrelated area node-252; physical portal reconstruction required",
+            "Insufficient headroom between depart-497 / new-979: 1.98m"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "4-connectivity",
+      "seed": "complexity-04",
+      "profile": "connectivity",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p38",
+          "nodes": 12,
+          "edges": 14,
+          "regions": 1,
+          "depth": [
+            1
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1200",
+          "nodes": 17,
+          "edges": 23,
+          "regions": 1,
+          "depth": [
+            1
+          ],
+          "stacked": 0,
+          "penalty": 0,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p38-terraces",
+          "issues": [
+            "depart-18: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p38-courts",
+          "issues": [
+            "depart-18: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p38-galleries",
+          "issues": [
+            "depart-18: Stair pitch exceeds profile / provisional 38° envelope"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1200-terraces",
+          "issues": [
+            "split-786: Local slope 53.0° exceeds profile",
+            "depart-1169: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-1184: Stair pitch exceeds profile / provisional 38° envelope",
+            "local-1153-0 crosses unrelated area stage-1169-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 1,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1200-courts",
+          "issues": [
+            "split-786: Local slope 53.0° exceeds profile",
+            "depart-1169: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-1184: Stair pitch exceeds profile / provisional 38° envelope",
+            "Unresolved shared floor contact area-12-stage-1169-0 (stage-1169-0) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact area-12-stage-1169-2 (stage-1169-2) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor-2 (explore-shared-space-2) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "local-1153-0 crosses unrelated area stage-1169-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1200-galleries",
+          "issues": [
+            "split-786: Local slope 53.0° exceeds profile",
+            "depart-1169: Stair pitch exceeds profile / provisional 38° envelope",
+            "depart-1184: Stair pitch exceeds profile / provisional 38° envelope",
+            "Unresolved shared floor contact area-12-stage-1169-0 (stage-1169-0) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact area-12-stage-1169-2 (stage-1169-2) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor-2 (explore-shared-space-2) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "local-1153-0 crosses unrelated area stage-1169-2; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "4-staged",
+      "seed": "complexity-04",
+      "profile": "staged",
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p972",
+          "nodes": 23,
+          "edges": 33,
+          "regions": 3,
+          "depth": [
+            3
+          ],
+          "stacked": 1,
+          "penalty": 0,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1000",
+          "nodes": 17,
+          "edges": 20,
+          "regions": 2,
+          "depth": [
+            2
+          ],
+          "stacked": 0,
+          "penalty": 7.87496937279723,
+          "deficits": [
+            "developed territories: 2/3"
+          ]
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r1-p972-terraces",
+          "issues": [
+            "depart-31: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-434: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-669: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-839: Local slope 50.9° exceeds profile",
+            "depart-270 crosses unrelated area stage-429-0; physical portal reconstruction required",
+            "new-799 crosses unrelated area stage-798-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            3
+          ],
+          "regions": 2,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p972-courts",
+          "issues": [
+            "depart-31: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-434: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-669: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-839: Local slope 50.9° exceeds profile",
+            "Shared/special crossing requires manual reconciliation: local-208-0 / depart-429",
+            "Shared/special crossing requires manual reconciliation: local-798-3 / new-799",
+            "depart-270 crosses unrelated area stage-429-0; physical portal reconstruction required",
+            "new-799 crosses unrelated area stage-798-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r1-p972-galleries",
+          "issues": [
+            "depart-31: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-434: Stair pitch exceeds profile / provisional 38° envelope",
+            "split-669: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-839: Local slope 50.9° exceeds profile",
+            "Shared/special crossing requires manual reconciliation: local-208-0 / depart-429",
+            "Shared/special crossing requires manual reconciliation: local-798-3 / new-799",
+            "depart-270 crosses unrelated area stage-429-0; physical portal reconstruction required",
+            "new-799 crosses unrelated area stage-798-3; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-terraces",
+          "issues": [],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 2,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-courts",
+          "issues": [],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-galleries",
+          "issues": [],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    },
+    {
+      "id": "4-layered",
+      "seed": "complexity-04",
+      "profile": "layered",
+      "candidates": [
+        {
+          "id": "candidate-1-r2-p891",
+          "nodes": 16,
+          "edges": 24,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 1,
+          "penalty": 0.4577123598918402,
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1000",
+          "nodes": 23,
+          "edges": 32,
+          "regions": 3,
+          "depth": [
+            2
+          ],
+          "stacked": 1,
+          "penalty": 4.60969518845911,
+          "deficits": []
+        }
+      ],
+      "realizations": [
+        {
+          "id": "candidate-1-r2-p891-terraces",
+          "issues": [
+            "e0: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-458 crosses unrelated area node-147; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            1
+          ],
+          "regions": 2,
+          "stacked": 1
+        },
+        {
+          "id": "candidate-1-r2-p891-courts",
+          "issues": [
+            "e0: Stair pitch exceeds profile / provisional 38° envelope",
+            "Shared/special crossing requires manual reconciliation: local-380-2 / split-487",
+            "Unresolved shared floor contact area-11-stage-830-1 (stage-830-1) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor-2 (explore-shared-space-2) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "new-458 crosses unrelated area node-147; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-1-r2-p891-galleries",
+          "issues": [
+            "e0: Stair pitch exceeds profile / provisional 38° envelope",
+            "Shared/special crossing requires manual reconciliation: local-380-2 / split-487",
+            "Unresolved shared floor contact area-11-stage-830-1 (stage-830-1) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor-2 (explore-shared-space-2) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "new-458 crosses unrelated area node-147; physical portal reconstruction required"
+          ],
+          "decisionDepth": [
+            2
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-terraces",
+          "issues": [
+            "e0: Local slope 54.0° exceeds profile",
+            "local-830-1: Local slope 78.3° exceeds profile",
+            "split-960: Stair pitch exceeds profile / provisional 38° envelope",
+            "new-458 crosses unrelated area node-147; physical portal reconstruction required",
+            "local-830-1 crosses unrelated area stage-949-0; physical portal reconstruction required",
+            "Insufficient headroom between e0 / new-826: 1.98m"
+          ],
+          "decisionDepth": [
+            0
+          ],
+          "regions": 2,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-courts",
+          "issues": [
+            "e0: Local slope 54.0° exceeds profile",
+            "local-830-1: Local slope 78.3° exceeds profile",
+            "split-960: Stair pitch exceeds profile / provisional 38° envelope",
+            "Shared/special crossing requires manual reconciliation: local-380-2 / split-487",
+            "Unresolved shared floor contact area-11-stage-830-1 (stage-830-1) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact area-8-node-969 (node-969) / shared-floor-4 (explore-shared-space-4): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor-2 (explore-shared-space-2) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "new-458 crosses unrelated area node-147; physical portal reconstruction required",
+            "Insufficient headroom between new-826 / new-950: 1.82m"
+          ],
+          "decisionDepth": [
+            3
+          ],
+          "regions": 0,
+          "stacked": 0
+        },
+        {
+          "id": "candidate-2-r2-p1000-galleries",
+          "issues": [
+            "e0: Local slope 54.0° exceeds profile",
+            "local-830-1: Local slope 78.3° exceeds profile",
+            "split-960: Stair pitch exceeds profile / provisional 38° envelope",
+            "Shared/special crossing requires manual reconciliation: local-380-2 / split-487",
+            "Unresolved shared floor contact area-11-stage-830-1 (stage-830-1) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+            "Unresolved shared floor contact shared-floor-2 (explore-shared-space-2) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+            "Insufficient headroom between new-826 / new-950: 1.34m"
+          ],
+          "decisionDepth": [
+            3
+          ],
+          "regions": 0,
+          "stacked": 0
+        }
+      ]
+    }
+  ]
+}

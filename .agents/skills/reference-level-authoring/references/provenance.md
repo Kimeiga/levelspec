@@ -13,7 +13,7 @@ authoritative; diagrams generated from the candidate do not verify that candidat
 The user subsequently requested optional image-generated CAD simplification,
 decluttering and depth/outline aids. The local
 [guidance](generated-reference-aids.md) preserves original-first review and treats
-these as inferred reading aids. A [courtyard forward test](../../../../projects/dai2-daiban/studies/r02/generated-reference-aids-v1/REVIEW.md)
+these as inferred reading aids. A courtyard forward test (preserved in the external cleanup archive at `projects/dai2-daiban/studies/r02/generated-reference-aids-v1/REVIEW.md`)
 found invented step-like window-interior edges and generated floor beneath removed
 clutter; those failures inform the required comparison with unchanged originals.
 

@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1520" viewBox="0 0 1560 1520">
+<rect width="100%" height="100%" fill="#f6f3eb"/>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 7L7 0" stroke="#839297" stroke-width="1"/></pattern><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0L6 3L0 6" fill="#4b7985"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#34474a} .label{font-size:13px;font-weight:bold;paint-order:stroke;stroke:#f6f3eb;stroke-width:3px;stroke-linejoin:round}.small{font-size:11px}.micro{font-size:10px}.note{font-size:14px}.route{fill:none;stroke:#4b7985;stroke-width:2;stroke-dasharray:5 4;marker-end:url(#arrow)}</style>
+<text x="60" y="47" font-size="30" font-weight="bold">BRACKEN QUAY R02 · aligned transfer mouths</text>
+<text x="60" y="79" font-size="16">Top / bottom plan pairs share XY and scale in each row; flights are schematic, landings and exits are explicit</text>
+<text x="60" y="109" font-size="13">R02 · phase 1 · invented station · return review pending · no AML, navigation or gameplay validation</text>
+<text x="80" y="165" font-size="17" style="fill:#34474a">STATION z0 / upper mouth</text>
+<text x="700" y="165" font-size="17" style="fill:#34474a">LOWER z−5 / landing and onward opening</text>
+<text x="80" y="197" font-size="15" style="fill:#34474a">N · parcel sorting → subway north arm</text>
+<rect x="80" y="220" width="204" height="276" fill="#e9ddba" stroke="#34474a" stroke-width="1"/>
+<rect x="116" y="244" width="48" height="24" fill="#e9ddba" stroke="#34474a" stroke-width="1.2"/>
+<rect x="116" y="400" width="48" height="36" fill="#e5ebdf" stroke="#34474a" stroke-width="1.2"/>
+<rect x="116" y="268" width="48" height="132" fill="#cec6df" stroke="#34474a" stroke-width="1.5"/>
+<path d="M116,279L164,279" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,290L164,290" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,301L164,301" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,312L164,312" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,323L164,323" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,334L164,334" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,345L164,345" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,356L164,356" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,367L164,367" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,378L164,378" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M116,389L164,389" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="140,256 140,418"/>
+<text class="label" x="140" y="256" text-anchor="middle" style="font-size:11px;">N 0</text>
+<text class="label" x="140" y="418" text-anchor="middle" style="font-size:11px;">N −5</text>
+<path d="M120.8,244L159.2,244" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M120.8,244L159.2,244" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M120.8,436L159.2,436" fill="none" stroke="#e5ebdf" stroke-width="9"/>
+<path d="M120.8,436L159.2,436" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="700" y="220" width="204" height="276" fill="#bed4dc" stroke="#34474a" stroke-width="1"/>
+<rect x="736" y="244" width="48" height="24" fill="#e6e8df" stroke="#34474a" stroke-width="1.2"/>
+<rect x="736" y="400" width="48" height="36" fill="#bed4dc" stroke="#34474a" stroke-width="1.2"/>
+<rect x="736" y="268" width="48" height="132" fill="url(#hatch)" stroke="#34474a" stroke-width="1.5"/>
+<path d="M736,279L784,279" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,290L784,290" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,301L784,301" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,312L784,312" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,323L784,323" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,334L784,334" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,345L784,345" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,356L784,356" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,367L784,367" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,378L784,378" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M736,389L784,389" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="760,256 760,418"/>
+<text class="label" x="760" y="256" text-anchor="middle" style="font-size:11px;">N 0</text>
+<text class="label" x="760" y="418" text-anchor="middle" style="font-size:11px;">N −5</text>
+<path d="M740.8,244L779.2,244" fill="none" stroke="#e6e8df" stroke-width="9"/>
+<path d="M740.8,244L779.2,244" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M740.8,436L779.2,436" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M740.8,436L779.2,436" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<text x="1070" y="248" font-size="12" style="fill:#34474a">Top landing: solid z0 floor.</text>
+<text x="1070" y="266" font-size="12" style="fill:#34474a">Bottom landing: continuous z−5 floor.</text>
+<text x="1070" y="284" font-size="12" style="fill:#34474a">Arrow follows descent; return is bidirectional.</text>
+<text x="1070" y="302" font-size="12" style="fill:#34474a">No movement goes beneath a low stair toe.</text>
+<text x="80" y="527" font-size="15" style="fill:#34474a">I · island → east foot landing → north/west subway</text>
+<rect x="80" y="550" width="276" height="180" fill="#e9ddba" stroke="#34474a" stroke-width="1"/>
+<rect x="116" y="622" width="24" height="48" fill="#e9ddba" stroke="#34474a" stroke-width="1.2"/>
+<rect x="272" y="622" width="36" height="48" fill="#e5ebdf" stroke="#34474a" stroke-width="1.2"/>
+<rect x="140" y="622" width="132" height="48" fill="#cec6df" stroke="#34474a" stroke-width="1.5"/>
+<path d="M151,622L151,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M162,622L162,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M173,622L173,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M184,622L184,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M195,622L195,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M206,622L206,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M217,622L217,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M228,622L228,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M239,622L239,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M250,622L250,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M261,622L261,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="128,646 290,646"/>
+<text class="label" x="128" y="646" text-anchor="middle" style="font-size:11px;">I 0</text>
+<text class="label" x="290" y="646" text-anchor="middle" style="font-size:11px;">I −5</text>
+<path d="M116,626.8L116,665.2" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M116,626.8L116,665.2" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M276.8,622L303.2,622" fill="none" stroke="#e5ebdf" stroke-width="9"/>
+<path d="M276.8,622L303.2,622" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="700" y="550" width="276" height="180" fill="#bed4dc" stroke="#34474a" stroke-width="1"/>
+<rect x="712" y="562" width="108" height="156" fill="#bed4dc" stroke="#34474a" stroke-width="1"/>
+<polygon points="772,574 940,574 940,694 892,694 892,622 772,622" fill="#bed4dc" stroke="#34474a" stroke-width="2"/>
+<polyline class="route" points="910,622 910,598 796,598"/>
+<rect x="736" y="622" width="24" height="48" fill="#e6e8df" stroke="#34474a" stroke-width="1.2"/>
+<rect x="892" y="622" width="36" height="48" fill="#bed4dc" stroke="#34474a" stroke-width="1.2"/>
+<rect x="760" y="622" width="132" height="48" fill="url(#hatch)" stroke="#34474a" stroke-width="1.5"/>
+<path d="M771,622L771,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M782,622L782,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M793,622L793,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,622L804,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M815,622L815,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M826,622L826,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M837,622L837,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M848,622L848,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M859,622L859,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M870,622L870,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M881,622L881,670" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="748,646 910,646"/>
+<text class="label" x="748" y="646" text-anchor="middle" style="font-size:11px;">I 0</text>
+<text class="label" x="910" y="646" text-anchor="middle" style="font-size:11px;">I −5</text>
+<path d="M736,626.8L736,665.2" fill="none" stroke="#e6e8df" stroke-width="9"/>
+<path d="M736,626.8L736,665.2" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M896.8,622L923.2,622" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M896.8,622L923.2,622" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<text x="1070" y="578" font-size="12" style="fill:#34474a">Top landing: solid z0 floor.</text>
+<text x="1070" y="596" font-size="12" style="fill:#34474a">Bottom landing: continuous z−5 floor.</text>
+<text x="1070" y="614" font-size="12" style="fill:#34474a">Arrow follows descent; return is bidirectional.</text>
+<text x="1070" y="632" font-size="12" style="fill:#34474a">No movement goes beneath a low stair toe.</text>
+<text x="80" y="827" font-size="15" style="fill:#34474a">C · transfer court → lower open apron</text>
+<rect x="80" y="850" width="204" height="276" fill="#e9ddba" stroke="#34474a" stroke-width="1"/>
+<rect x="128" y="874" width="60" height="24" fill="#e9ddba" stroke="#34474a" stroke-width="1.2"/>
+<rect x="128" y="1030" width="60" height="36" fill="#e5ebdf" stroke="#34474a" stroke-width="1.2"/>
+<rect x="128" y="898" width="60" height="132" fill="#cec6df" stroke="#34474a" stroke-width="1.5"/>
+<path d="M128,909L188,909" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,920L188,920" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,931L188,931" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,942L188,942" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,953L188,953" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,964L188,964" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,975L188,975" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,986L188,986" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,997L188,997" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,1008L188,1008" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M128,1019L188,1019" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="158,886 158,1048"/>
+<text class="label" x="158" y="886" text-anchor="middle" style="font-size:11px;">C 0</text>
+<text class="label" x="158" y="1048" text-anchor="middle" style="font-size:11px;">C −5</text>
+<path d="M132.8,874L183.2,874" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M132.8,874L183.2,874" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M132.8,1066L183.2,1066" fill="none" stroke="#e5ebdf" stroke-width="9"/>
+<path d="M132.8,1066L183.2,1066" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="700" y="850" width="204" height="276" fill="#bed4dc" stroke="#34474a" stroke-width="1"/>
+<rect x="748" y="874" width="60" height="24" fill="#e6e8df" stroke="#34474a" stroke-width="1.2"/>
+<rect x="748" y="1030" width="60" height="36" fill="#bed4dc" stroke="#34474a" stroke-width="1.2"/>
+<rect x="748" y="898" width="60" height="132" fill="url(#hatch)" stroke="#34474a" stroke-width="1.5"/>
+<path d="M748,909L808,909" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,920L808,920" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,931L808,931" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,942L808,942" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,953L808,953" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,964L808,964" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,975L808,975" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,986L808,986" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,997L808,997" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,1008L808,1008" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M748,1019L808,1019" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="778,886 778,1048"/>
+<text class="label" x="778" y="886" text-anchor="middle" style="font-size:11px;">C 0</text>
+<text class="label" x="778" y="1048" text-anchor="middle" style="font-size:11px;">C −5</text>
+<path d="M752.8,874L803.2,874" fill="none" stroke="#e6e8df" stroke-width="9"/>
+<path d="M752.8,874L803.2,874" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M752.8,1066L803.2,1066" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M752.8,1066L803.2,1066" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<text x="1070" y="878" font-size="12" style="fill:#34474a">Top landing: solid z0 floor.</text>
+<text x="1070" y="896" font-size="12" style="fill:#34474a">Bottom landing: continuous z−5 floor.</text>
+<text x="1070" y="914" font-size="12" style="fill:#34474a">Arrow follows descent; return is bidirectional.</text>
+<text x="1070" y="932" font-size="12" style="fill:#34474a">No movement goes beneath a low stair toe.</text>
+<text x="80" y="1157" font-size="15" style="fill:#34474a">G · freight bank → road-loading hall</text>
+<rect x="80" y="1180" width="276" height="180" fill="#e9ddba" stroke="#34474a" stroke-width="1"/>
+<rect x="116" y="1228" width="24" height="48" fill="#e9ddba" stroke="#34474a" stroke-width="1.2"/>
+<rect x="272" y="1228" width="36" height="48" fill="#e5ebdf" stroke="#34474a" stroke-width="1.2"/>
+<rect x="140" y="1228" width="132" height="48" fill="#cec6df" stroke="#34474a" stroke-width="1.5"/>
+<path d="M151,1228L151,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M162,1228L162,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M173,1228L173,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M184,1228L184,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M195,1228L195,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M206,1228L206,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M217,1228L217,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M228,1228L228,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M239,1228L239,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M250,1228L250,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M261,1228L261,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="128,1252 290,1252"/>
+<text class="label" x="128" y="1252" text-anchor="middle" style="font-size:11px;">G 0</text>
+<text class="label" x="290" y="1252" text-anchor="middle" style="font-size:11px;">G −5</text>
+<path d="M116,1232.8L116,1271.2" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M116,1232.8L116,1271.2" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M276.8,1228L303.2,1228" fill="none" stroke="#e5ebdf" stroke-width="9"/>
+<path d="M276.8,1228L303.2,1228" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="700" y="1180" width="276" height="180" fill="#bed4dc" stroke="#34474a" stroke-width="1"/>
+<rect x="736" y="1228" width="24" height="48" fill="#e6e8df" stroke="#34474a" stroke-width="1.2"/>
+<rect x="892" y="1228" width="36" height="48" fill="#bed4dc" stroke="#34474a" stroke-width="1.2"/>
+<rect x="760" y="1228" width="132" height="48" fill="url(#hatch)" stroke="#34474a" stroke-width="1.5"/>
+<path d="M771,1228L771,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M782,1228L782,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M793,1228L793,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,1228L804,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M815,1228L815,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M826,1228L826,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M837,1228L837,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M848,1228L848,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M859,1228L859,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M870,1228L870,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M881,1228L881,1276" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="748,1252 910,1252"/>
+<text class="label" x="748" y="1252" text-anchor="middle" style="font-size:11px;">G 0</text>
+<text class="label" x="910" y="1252" text-anchor="middle" style="font-size:11px;">G −5</text>
+<path d="M736,1232.8L736,1271.2" fill="none" stroke="#e6e8df" stroke-width="9"/>
+<path d="M736,1232.8L736,1271.2" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M896.8,1228L923.2,1228" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M896.8,1228L923.2,1228" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<text x="1070" y="1208" font-size="12" style="fill:#34474a">Top landing: solid z0 floor.</text>
+<text x="1070" y="1226" font-size="12" style="fill:#34474a">Bottom landing: continuous z−5 floor.</text>
+<text x="1070" y="1244" font-size="12" style="fill:#34474a">Arrow follows descent; return is bidirectional.</text>
+<text x="1070" y="1262" font-size="12" style="fill:#34474a">No movement goes beneath a low stair toe.</text>
+<text x="80" y="1470" font-size="13" style="fill:#34474a">Plan landings have at least 2 m travel depth; flights have about 11 m run for the proposed 5 m rise. Final risers, guards, slab holes and body clearance remain open.</text>
+</svg>

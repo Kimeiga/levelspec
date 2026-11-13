@@ -24,7 +24,7 @@ after changes. Record why a previous comparison remains applicable to unchanged
 geometry/camera inputs; do not treat stale comparisons as evidence for a new shape.
 
 For large or dense images, follow
-[parallel region and whole-picture review](independent-review.md#large-images-parallel-regions-and-whole-picture-review).
+[parallel region and whole-picture review](independent-review.md#large-images-and-collections).
 Keep crop coordinates tied to the original, include overlapping context and assign
 corresponding physical regions on both sides. A separate whole-image reviewer must
 retain responsibility for structural relationships across the crops.

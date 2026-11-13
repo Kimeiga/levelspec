@@ -192,22 +192,16 @@ and do not claim the required reviews are complete.
 7. Report what became clearer, any intentional contract changes, removed legacy
    paths, validation results, both review outcomes, and unresolved limitations.
 
-
 ## LevelSpec application
 
-AML XML (`.aml`, or identical `.xml`) is the architectural authoring direction. The package root exposes the native API in `src/architecture/index.ts`. Explicit SVGX migration and phased-delivery limits are documented in `docs/AML.md`. Runtime JSON is an output, not a legacy authoring format.
+Follow [repository contracts](../../../AGENTS.md) for authoring formats, the native
+API, coordinate conventions and commands. Document boundary units, tolerance bounds
+and meaningful precision where callers need them.
 
-Document meters and right-handed Z-up at domain boundaries; exporters own axis
-conversion. State what a tolerance bounds and preserve meaningful precision.
-Distinguish caller-owned documents, compiled geometry, movement-specific working
-geometry, and cached reports. Render visibility and physical collision are separate
-contracts. A water navigation support surface must not mutate exported collision.
-Release native/WASM allocations on failure and cancellation, not just success.
-Validate cache identity against geometry, movement, player/boat settings and options.
-
-Use current commands from root AGENTS.md. Preserve failed-output recovery and
-source-linked diagnostics. Browser screenshots cannot establish navigation validity.
-Do not add tests solely for wording, private helpers, or removal of historical names.
-Review tests through public observable behavior and independently derived geometry.
+Distinguish caller-owned documents, compiled geometry, movement working geometry
+and cached reports. Water-navigation support must not mutate exported collision.
+Release native/WASM allocations on failure and cancellation as well as success;
+validate cache identity against geometry, movement, body/boat settings and options.
+Preserve failed-output recovery and source-linked diagnostics.
 
 Adaptation provenance: [references/provenance.md](references/provenance.md).

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LevelSpec · Spatial exploration lab</title></head>
+<body>
+<header><div><span class="eyebrow">LEVELSPEC / EXPERIMENTAL</span><h1>Spatial exploration lab</h1></div><p>Find a surprising starting point.<br>Keep the ideas. Rewrite the map.</p><div class="header-actions"><button id="import">Import experiment</button><button id="export" disabled>Export experiment</button><input id="file" type="file" accept=".json" hidden></div></header>
+<main>
+<aside class="controls">
+<p class="eyebrow">01 / MOBILITY GRAPH</p><h2>Shape the experiment</h2><p class="muted">Targets encourage variety. They are hypotheses about routes, not measures of fun.</p>
+<label>Seed<input id="seed" value="shipyard-01"></label>
+<div class="pair"><label>Restarts<input id="restarts" type="number" min="1" max="12" value="4"></label><label>Proposals each<input id="proposals" type="number" min="1" max="20000" value="2000"></label></div>
+<div class="pair"><label>Minimum cycles<input id="cycles" type="number" min="0" value="3"></label><label>Overpasses<input id="crossings" type="number" min="0" value="1"></label></div>
+<label>Route length variation<input id="variation" type="number" min="0" max="3" step=".05" value=".35"></label>
+<div class="pair"><label>Decision depth<input id="decision-depth" type="number" min="0" max="40" value="2"></label><label>Developed regions<input id="territories" type="number" min="0" max="40" value="3"></label></div>
+<label>Stacked region pairs<input id="stacked-regions" type="number" min="0" max="40" value="0"></label>
+<label>Verticality<input id="verticality" type="number" min="0" max="1" step=".05" value=".5"></label>
+<p class="muted">0 keeps assigned floors; 1 freely samples the configured heights. Ordinary links stay on one floor. Pink links explicitly permit a floor change.</p>
+<p class="muted">Grow regional forks and later decisions. Stacking is optional; depth is a route proxy, not a gameplay score.</p>
+<label>Mobility profile<select id="mobility"><option value="ordinary">Walk / ramps / stairs</option><option value="vertical">Add ladders / drops</option><option value="all">Add jumps / vents</option></select></label>
+<div class="actions"><button id="run" class="primary">Explore alternatives ↗</button><button id="cancel" disabled>Cancel</button></div><progress id="progress" value="0" max="1"></progress><p id="status" role="status" data-state="idle">Ready. Drag a node to pin its position.</p>
+<details open><summary>Starting graph</summary><button id="use-candidate" disabled>Use selected graph as next start</button><button id="reset">Reassign starter floors</button><p class="muted">Reassignment resets to four areas and the entry→key approach, using the current seed, verticality and configured heights. Explore keeps the current starting graph. Dragging pins an area; height edits must respect its connection permissions.</p><div id="node-editor"></div></details>
+<details><summary>Add / edit connection</summary><label>From<input id="edge-from" value="entry"></label><label>To<input id="edge-to" value="key"></label><label>Mode<select id="edge-mode"><option>walk</option><option>ramp</option><option>stairs</option><option>jump</option><option>ladder</option><option>drop</option><option>vent</option></select></label><label class="check"><input id="edge-cross-level" type="checkbox">Cross-level connection</label><label class="check"><input id="edge-both" type="checkbox" checked>Both directions</label><label class="check"><input id="edge-lock" type="checkbox">Lock connection</label><button id="edge-save">Apply connection</button><button id="edge-delete">Remove connection</button></details>
+<details><summary>Full configuration</summary><p class="muted">Edit bounds, node limits, approach demands and body dimensions. JSON is experiment state; AML remains the map source.</p><textarea id="config" rows="14" spellcheck="false"></textarea><button id="apply-config">Apply configuration</button></details>
+</aside>
+<section class="workbench">
+<div class="section-heading"><div><p class="eyebrow">02 / CONTRASTING POSSIBILITIES</p><h2>Compare before committing</h2></div><span id="candidate-count">No run yet</span></div>
+<div id="candidates" class="candidates"><div class="empty">A small graph is the starting material.<br>Search may grow, merge and rewire it.</div></div>
+<div class="toolbar"><nav aria-label="Exploration view"><button data-view="graph" aria-pressed="true">Graph</button><button data-view="plan" aria-pressed="false">Plan</button><button data-view="section" aria-pressed="false">Height</button><button data-view="3d" aria-pressed="false">3D / walk</button></nav><label>Spatial interpretation<select id="interpretation"><option value="terraces">Terraces · separate landforms</option><option value="courts">Courts · shared outdoor ground</option><option value="galleries">Galleries · shared covered volume</option></select></label><button id="download-aml" disabled>Download AML</button></div>
+<div id="drawing"></div><iframe id="preview" title="Native AML reviewer" src="./preview.html?nav-cell=0.25" hidden></iframe>
+<div class="timeline"><label for="iteration">Retained iteration</label><input id="iteration" type="range" min="0" max="0" value="0" disabled><output id="iteration-label">Starting graph</output></div>
+<section id="evidence" class="evidence"><p>Compare topology and spatial organization, then bring real architectural references and independent gameplay proposals into the authoring pass.</p></section>
+<footer>03 / AUTHORING · These are disposable premap hypotheses. Special movement, geometric fit and gameplay require separate verification. The AI may combine, restructure or discard them.</footer>
+</section>
+</main><script type="module" src="./main.ts"></script></body></html>

@@ -1,0 +1,38 @@
+{
+  "retrieved": "2026-11-09",
+  "use": "Research reference, not exported game assets; rights retained by source authors.",
+  "images": [
+    {
+      "file": "nuke-valve-schematic-2016.jpg",
+      "url": "https://media.steampowered.com/apps/csgo/images/cedar_creek/nuke_schematic.jpg",
+      "sha256": "7af68e9bac264b8084b787dceb9d72135a2d789751daef7b7137b294f5cada4c",
+      "inspected": true,
+      "version": "Valve CS:GO 2016 redesign, historical",
+      "credit": "Valve"
+    },
+    {
+      "file": "nuke-upper-valve-2016.jpg",
+      "url": "https://cdn.fastly.steamstatic.com/apps/csgo/images/reintroducing_nuke/comparisons/small_upperbomb_011_new.jpg?v=1",
+      "sha256": "ff0b37b2ab06a93370553bef3fa199293177ede4f08914fc2f4f5374c6f0c620",
+      "inspected": true,
+      "version": "Valve CS:GO 2016 redesign, historical",
+      "credit": "Valve"
+    },
+    {
+      "file": "nuke-ramp-valve-2016.jpg",
+      "url": "https://cdn.fastly.steamstatic.com/apps/csgo/images/reintroducing_nuke/comparisons/small_ramp_002_new.jpg?v=1",
+      "sha256": "85d15c88fec7a2b6dd9a839623cced48fac208d84440aaa951f36adc08ae4f91",
+      "inspected": false,
+      "version": "Valve CS:GO 2016 redesign, historical",
+      "credit": "Valve"
+    },
+    {
+      "file": "nuke-cs2-callouts.png",
+      "url": "https://images.steamusercontent.com/ugc/11726073136044731436/0B59200BCA3857D828D07CE689898B462E8E5D4B/",
+      "sha256": "0f8f69502a74c38988a588d975f8951a94bd3d3121a96651a0b1376d031596ec",
+      "inspected": true,
+      "version": "CS2-labeled community radar; exact game patch unverified",
+      "credit": "Steam Community callout guide / Valve map imagery"
+    }
+  ]
+}

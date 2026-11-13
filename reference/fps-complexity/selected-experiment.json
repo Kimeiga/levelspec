@@ -1,0 +1,2864 @@
+{
+  "config": {
+    "seed": "complexity-01",
+    "restarts": 2,
+    "proposals": 1200,
+    "traceEvery": 100,
+    "bounds": [
+      120,
+      110
+    ],
+    "nodes": [
+      4,
+      28
+    ],
+    "maxEdges": 48,
+    "elevations": [
+      0,
+      4,
+      8
+    ],
+    "targets": {
+      "cycles": 3,
+      "crossings": 0,
+      "lengthVariation": 0.35,
+      "decisionDepth": 2,
+      "territories": 3,
+      "stackedRegions": 1,
+      "approaches": [
+        {
+          "from": "entry",
+          "to": "key",
+          "edge": 2,
+          "vertex": 2
+        }
+      ]
+    },
+    "initial": {
+      "nodes": [
+        {
+          "id": "entry",
+          "role": "entry",
+          "position": [
+            -30,
+            -14,
+            0
+          ],
+          "radius": 6
+        },
+        {
+          "id": "key",
+          "role": "key",
+          "position": [
+            27,
+            16,
+            0
+          ],
+          "radius": 8
+        },
+        {
+          "id": "a",
+          "role": "area",
+          "position": [
+            -12,
+            18,
+            0
+          ],
+          "radius": 7
+        },
+        {
+          "id": "b",
+          "role": "area",
+          "position": [
+            12,
+            -18,
+            0
+          ],
+          "radius": 6
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "from": "entry",
+          "to": "a",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 4,
+          "bend": 0
+        },
+        {
+          "id": "e1",
+          "from": "a",
+          "to": "key",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 4,
+          "bend": 0
+        },
+        {
+          "id": "e2",
+          "from": "key",
+          "to": "b",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 4,
+          "bend": 0
+        },
+        {
+          "id": "e3",
+          "from": "b",
+          "to": "entry",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 4,
+          "bend": 0
+        }
+      ]
+    },
+    "profile": {
+      "modes": [
+        "walk",
+        "ramp",
+        "stairs"
+      ],
+      "height": 1.8,
+      "radius": 0.35,
+      "crouchHeight": 1.1,
+      "step": 0.25,
+      "maxSlope": 42,
+      "maxJump": 3,
+      "maxDrop": 3,
+      "speed": 3.4
+    }
+  },
+  "candidate": {
+    "id": "candidate-1-r1-p315",
+    "graph": {
+      "nodes": [
+        {
+          "id": "entry",
+          "role": "entry",
+          "position": [
+            -30,
+            -14,
+            0
+          ],
+          "radius": 5.573099773027934
+        },
+        {
+          "id": "key",
+          "role": "key",
+          "position": [
+            27.54095993563533,
+            15.158004466444254,
+            0
+          ],
+          "radius": 8
+        },
+        {
+          "id": "b",
+          "role": "area",
+          "position": [
+            15.928302742540836,
+            -19.99808058142662,
+            4
+          ],
+          "radius": 7.2743389144307
+        },
+        {
+          "id": "stage-7-2",
+          "region": "region-7",
+          "role": "area",
+          "radius": 3.294986071414314,
+          "position": [
+            -30.616937727213777,
+            13.492529492738917,
+            0
+          ]
+        },
+        {
+          "id": "stage-19-0",
+          "region": "region-19",
+          "role": "area",
+          "radius": 4.687088698847219,
+          "position": [
+            -40.846366868147456,
+            8.647584168376378,
+            0
+          ]
+        },
+        {
+          "id": "stage-19-1",
+          "region": "region-19",
+          "role": "area",
+          "radius": 3.4477883335202932,
+          "position": [
+            -35.6108877833975,
+            24.69650720791683,
+            0
+          ]
+        },
+        {
+          "id": "stage-19-2",
+          "region": "region-19",
+          "role": "area",
+          "radius": 4.882564846193418,
+          "position": [
+            -49.41559079465614,
+            22.486756932433973,
+            0
+          ]
+        },
+        {
+          "id": "stage-47-0",
+          "region": "region-47",
+          "role": "area",
+          "radius": 3.799856520490721,
+          "position": [
+            -28.988333806157748,
+            -12.566620005418844,
+            4
+          ]
+        },
+        {
+          "id": "stage-47-1",
+          "region": "region-47",
+          "role": "area",
+          "radius": 3.8466253789374605,
+          "position": [
+            -51.23742415374581,
+            -7.534875955631325,
+            4
+          ]
+        },
+        {
+          "id": "stage-47-3",
+          "region": "region-47",
+          "role": "area",
+          "radius": 3.470461468095891,
+          "position": [
+            -39.22917108897395,
+            4.710958772911548,
+            4
+          ]
+        },
+        {
+          "id": "stage-115-0",
+          "region": "region-115",
+          "role": "area",
+          "radius": 3.102190235396847,
+          "position": [
+            5.296891695288014,
+            16.333235421791258,
+            0
+          ]
+        },
+        {
+          "id": "stage-115-2",
+          "region": "region-115",
+          "role": "area",
+          "radius": 3.175927421543747,
+          "position": [
+            6.011964489789121,
+            24.60516184860651,
+            0
+          ]
+        },
+        {
+          "id": "stage-115-3",
+          "region": "region-115",
+          "role": "area",
+          "radius": 2.773876227205619,
+          "position": [
+            13.466958275817902,
+            9.553889184829917,
+            0
+          ]
+        },
+        {
+          "id": "node-282",
+          "role": "area",
+          "position": [
+            17.104826021515485,
+            21.375765384704792,
+            4
+          ],
+          "radius": 6.7036818992346525
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "from": "entry",
+          "to": "stage-19-0",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 5.44975902477745,
+          "bend": 3.9081626012921333
+        },
+        {
+          "id": "e2",
+          "from": "key",
+          "to": "b",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 4,
+          "bend": 0
+        },
+        {
+          "id": "e3",
+          "from": "b",
+          "to": "stage-47-0",
+          "mode": "stairs",
+          "bidirectional": true,
+          "width": 4.612188791390508,
+          "bend": -8.171248971484601
+        },
+        {
+          "id": "local-19-0",
+          "from": "stage-19-0",
+          "to": "stage-19-1",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 2.821484139072709,
+          "bend": 2.7697733091190457
+        },
+        {
+          "id": "local-19-1",
+          "from": "stage-19-0",
+          "to": "stage-19-2",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 5.11170323821716,
+          "bend": -0.5595636088401079
+        },
+        {
+          "id": "local-19-2",
+          "from": "stage-19-2",
+          "to": "stage-19-1",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 5.321795330266468,
+          "bend": 3.220202410593629
+        },
+        {
+          "id": "depart-19",
+          "from": "stage-19-1",
+          "to": "stage-7-2",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 2.8680979878408834,
+          "bend": 0
+        },
+        {
+          "id": "local-47-2",
+          "from": "stage-47-0",
+          "to": "stage-47-3",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 2.6807358307996765,
+          "bend": -6.1520468280650675
+        },
+        {
+          "id": "local-47-3",
+          "from": "stage-47-3",
+          "to": "stage-47-1",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 3.225262255873531,
+          "bend": -9.914913903921843
+        },
+        {
+          "id": "new-68",
+          "from": "stage-47-0",
+          "to": "entry",
+          "mode": "stairs",
+          "bidirectional": true,
+          "width": 3.4487913586199284,
+          "bend": 5.232252225279808
+        },
+        {
+          "id": "new-85",
+          "from": "stage-47-3",
+          "to": "stage-19-1",
+          "mode": "stairs",
+          "bidirectional": true,
+          "width": 3.849932831712067,
+          "bend": 4.240497507154942
+        },
+        {
+          "id": "local-115-0",
+          "from": "stage-115-0",
+          "to": "stage-115-2",
+          "mode": "stairs",
+          "bidirectional": true,
+          "width": 3,
+          "bend": 0
+        },
+        {
+          "id": "local-115-2",
+          "from": "stage-115-0",
+          "to": "stage-115-3",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 3,
+          "bend": 0
+        },
+        {
+          "id": "local-47-1",
+          "from": "stage-47-0",
+          "to": "stage-47-1",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 3.8114324600901455,
+          "bend": -3.382799751125276
+        },
+        {
+          "id": "local-115-3",
+          "from": "stage-115-3",
+          "to": "stage-115-2",
+          "mode": "walk",
+          "bidirectional": false,
+          "width": 3,
+          "bend": 0
+        },
+        {
+          "id": "depart-115",
+          "from": "stage-115-2",
+          "to": "node-282",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 3.4793463874375448,
+          "bend": -4.807318653911352
+        },
+        {
+          "id": "new-199",
+          "from": "stage-19-2",
+          "to": "stage-7-2",
+          "mode": "stairs",
+          "bidirectional": true,
+          "width": 3.8514887327328324,
+          "bend": -6.678838733583689
+        },
+        {
+          "id": "split-207",
+          "from": "stage-47-1",
+          "to": "entry",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 5.911691031302325,
+          "bend": 0
+        },
+        {
+          "id": "split-282",
+          "from": "node-282",
+          "to": "key",
+          "mode": "walk",
+          "bidirectional": true,
+          "width": 3.4793463874375448,
+          "bend": -4.807318653911352
+        },
+        {
+          "id": "depart-52",
+          "from": "stage-47-3",
+          "to": "stage-115-0",
+          "mode": "stairs",
+          "bidirectional": true,
+          "width": 4.469796331948601,
+          "bend": 0
+        }
+      ]
+    },
+    "metrics": {
+      "cycles": 7,
+      "branches": 9,
+      "lengthVariation": 0.6707173178862526,
+      "crossings": [
+        {
+          "edges": [
+            "e0",
+            "local-47-3"
+          ],
+          "position": [
+            -41.02031562805935,
+            4.785891347532634,
+            0
+          ],
+          "separation": 4,
+          "kind": "overpass"
+        },
+        {
+          "edges": [
+            "e0",
+            "new-85"
+          ],
+          "position": [
+            -40.87450836547551,
+            8.303726875286417,
+            0
+          ],
+          "separation": 3.899121319067629,
+          "kind": "overpass"
+        },
+        {
+          "edges": [
+            "e0",
+            "local-47-1"
+          ],
+          "position": [
+            -37.13124632865796,
+            -7.41374286154062,
+            0
+          ],
+          "separation": 4,
+          "kind": "overpass"
+        },
+        {
+          "edges": [
+            "local-19-0",
+            "new-199"
+          ],
+          "position": [
+            -41.43461613743918,
+            11.861647815022769,
+            0
+          ],
+          "separation": 0,
+          "kind": "junction"
+        },
+        {
+          "edges": [
+            "local-19-1",
+            "new-85"
+          ],
+          "position": [
+            -41.269066667012474,
+            9.578548884281874,
+            0
+          ],
+          "separation": 2.906525718873618,
+          "kind": "overpass"
+        },
+        {
+          "edges": [
+            "new-85",
+            "new-199"
+          ],
+          "position": [
+            -41.71133701077901,
+            11.959327935401124,
+            0
+          ],
+          "separation": 2.3825330817856845,
+          "kind": "overpass"
+        }
+      ],
+      "approaches": [
+        {
+          "from": "entry",
+          "to": "key",
+          "edge": 2,
+          "vertex": 2,
+          "actualEdge": 2,
+          "actualVertex": 2,
+          "travelSeconds": 26.93252876723042
+        }
+      ],
+      "deficits": [],
+      "penalty": 0,
+      "structure": {
+        "journeys": [
+          {
+            "from": "entry",
+            "to": "key",
+            "distance": 129.13198752996357,
+            "depth": 2,
+            "path": [
+              "entry",
+              "stage-47-1",
+              "stage-47-3",
+              "stage-115-0",
+              "stage-115-2",
+              "node-282",
+              "key"
+            ]
+          }
+        ],
+        "territories": [
+          {
+            "id": "region-115",
+            "nodes": [
+              "stage-115-0",
+              "stage-115-2",
+              "stage-115-3"
+            ],
+            "elevation": 0,
+            "ports": [
+              "stage-115-0",
+              "stage-115-2"
+            ]
+          },
+          {
+            "id": "region-19",
+            "nodes": [
+              "stage-19-0",
+              "stage-19-1",
+              "stage-19-2"
+            ],
+            "elevation": 0,
+            "ports": [
+              "stage-19-0",
+              "stage-19-1"
+            ]
+          },
+          {
+            "id": "region-47",
+            "nodes": [
+              "stage-47-0",
+              "stage-47-1",
+              "stage-47-3"
+            ],
+            "elevation": 4,
+            "ports": [
+              "stage-47-0",
+              "stage-47-1",
+              "stage-47-3"
+            ]
+          }
+        ],
+        "stacked": [
+          [
+            "region-19",
+            "region-47"
+          ]
+        ],
+        "excessDegree": 0
+      }
+    },
+    "signature": [
+      3.5,
+      7,
+      4.5,
+      2,
+      2.68286927154501,
+      5,
+      -1.5756772075836123,
+      0.764005830987697,
+      1,
+      3,
+      1,
+      2,
+      2,
+      2,
+      2,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "proposals": 1200,
+    "trace": [
+      {
+        "proposal": 0,
+        "graph": {
+          "nodes": [
+            {
+              "id": "entry",
+              "role": "entry",
+              "position": [
+                -30,
+                -14,
+                0
+              ],
+              "radius": 6
+            },
+            {
+              "id": "key",
+              "role": "key",
+              "position": [
+                27,
+                16,
+                0
+              ],
+              "radius": 8
+            },
+            {
+              "id": "a",
+              "role": "area",
+              "position": [
+                -12,
+                18,
+                0
+              ],
+              "radius": 7
+            },
+            {
+              "id": "b",
+              "role": "area",
+              "position": [
+                12,
+                -18,
+                0
+              ],
+              "radius": 6
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "entry",
+              "to": "a",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e1",
+              "from": "a",
+              "to": "key",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e2",
+              "from": "key",
+              "to": "b",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e3",
+              "from": "b",
+              "to": "entry",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            }
+          ]
+        },
+        "metrics": {
+          "cycles": 1,
+          "branches": 0,
+          "lengthVariation": 0.023114542147202412,
+          "crossings": [],
+          "approaches": [
+            {
+              "from": "entry",
+              "to": "key",
+              "edge": 2,
+              "vertex": 2,
+              "actualEdge": 2,
+              "actualVertex": 2,
+              "travelSeconds": 22.284225847324976
+            }
+          ],
+          "deficits": [
+            "entry→key: progressive decision depth 0/2",
+            "developed territories: 0/3",
+            "stacked region pairs: 0/1",
+            "cycles: 1.00 / 3",
+            "length variation: 0.02 / 0.35"
+          ],
+          "penalty": 54.61508366282238,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 75.76636788090491,
+                "depth": 0,
+                "path": [
+                  "entry",
+                  "a",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [],
+            "stacked": [],
+            "excessDegree": 0
+          }
+        },
+        "mutation": "initial"
+      },
+      {
+        "proposal": 100,
+        "graph": {
+          "nodes": [
+            {
+              "id": "entry",
+              "role": "entry",
+              "position": [
+                -30,
+                -14,
+                0
+              ],
+              "radius": 9.347030468052253
+            },
+            {
+              "id": "key",
+              "role": "key",
+              "position": [
+                27,
+                16,
+                0
+              ],
+              "radius": 8
+            },
+            {
+              "id": "a",
+              "role": "area",
+              "position": [
+                -9.284310884773731,
+                9.042003478854895,
+                0
+              ],
+              "radius": 7
+            },
+            {
+              "id": "b",
+              "role": "area",
+              "position": [
+                12,
+                -18,
+                0
+              ],
+              "radius": 2.9427693656180054
+            },
+            {
+              "id": "stage-7-2",
+              "region": "region-7",
+              "role": "area",
+              "radius": 3.294986071414314,
+              "position": [
+                -20.44082575711695,
+                6.682543098840191,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-0",
+              "region": "region-19",
+              "role": "area",
+              "radius": 3.478898895671591,
+              "position": [
+                -35.12845729457011,
+                -4.754443535445281,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-1",
+              "region": "region-19",
+              "role": "area",
+              "radius": 3.4477883335202932,
+              "position": [
+                -33.11137110721744,
+                6.0239238439665765,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-2",
+              "region": "region-19",
+              "role": "area",
+              "radius": 3.409134317189455,
+              "position": [
+                -42.63399238036172,
+                2.2280825306440706,
+                0
+              ]
+            },
+            {
+              "id": "stage-47-0",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.406939676264301,
+              "position": [
+                -28.292961141788105,
+                0.9782575730855392,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-1",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.0026937504298985,
+              "position": [
+                -50.13296114178811,
+                3.0582575730855375,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-2",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.129320941865444,
+              "position": [
+                -43.30894250754864,
+                -0.24467996411163995,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-3",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.470461468095891,
+              "position": [
+                -38.575615366998086,
+                8.710388208380758,
+                4
+              ]
+            },
+            {
+              "id": "node-65",
+              "role": "area",
+              "position": [
+                -2.6836756142430627,
+                21.706088507201393,
+                8
+              ],
+              "radius": 4.535027761012316,
+              "region": "region-52"
+            },
+            {
+              "id": "node-93",
+              "role": "area",
+              "position": [
+                -11.33216402170326,
+                12.68211653159366,
+                8
+              ],
+              "radius": 4.622134572826326
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "entry",
+              "to": "stage-19-0",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.8680979878408834,
+              "bend": 0
+            },
+            {
+              "id": "e2",
+              "from": "key",
+              "to": "b",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e3",
+              "from": "b",
+              "to": "stage-47-0",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 5.911691031302325,
+              "bend": 0
+            },
+            {
+              "id": "local-19-0",
+              "from": "stage-19-0",
+              "to": "stage-19-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.821484139072709,
+              "bend": 2.7697733091190457
+            },
+            {
+              "id": "local-19-1",
+              "from": "stage-19-0",
+              "to": "stage-19-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-19-2",
+              "from": "stage-19-2",
+              "to": "stage-19-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.321795330266468,
+              "bend": 3.220202410593629
+            },
+            {
+              "id": "depart-19",
+              "from": "stage-19-1",
+              "to": "stage-7-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.8680979878408834,
+              "bend": 0
+            },
+            {
+              "id": "depart-7",
+              "from": "stage-7-2",
+              "to": "a",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "new-38",
+              "from": "key",
+              "to": "stage-7-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.0908078462816775,
+              "bend": 5.450364425778389
+            },
+            {
+              "id": "local-47-0",
+              "from": "stage-47-0",
+              "to": "stage-47-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-47-1",
+              "from": "stage-47-2",
+              "to": "stage-47-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.573241468518972,
+              "bend": -1.3033992890268564
+            },
+            {
+              "id": "local-47-2",
+              "from": "stage-47-0",
+              "to": "stage-47-3",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-47-3",
+              "from": "stage-47-3",
+              "to": "stage-47-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "depart-47",
+              "from": "stage-47-1",
+              "to": "entry",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 5.911691031302325,
+              "bend": 0
+            },
+            {
+              "id": "new-66",
+              "from": "node-65",
+              "to": "stage-47-3",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.138749873265624,
+              "bend": -3.910423841327429
+            },
+            {
+              "id": "new-68",
+              "from": "stage-47-0",
+              "to": "entry",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.4487913586199284,
+              "bend": 5.232252225279808
+            },
+            {
+              "id": "local-52-1",
+              "from": "a",
+              "to": "node-93",
+              "mode": "ramp",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "depart-52",
+              "from": "a",
+              "to": "key",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4.753681842586957,
+              "bend": 2.852614149451256
+            },
+            {
+              "id": "new-85",
+              "from": "stage-47-3",
+              "to": "stage-19-1",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.849932831712067,
+              "bend": 4.240497507154942
+            },
+            {
+              "id": "split-93",
+              "from": "node-93",
+              "to": "node-65",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            }
+          ]
+        },
+        "metrics": {
+          "cycles": 7,
+          "branches": 9,
+          "lengthVariation": 0.7834815500549498,
+          "crossings": [
+            {
+              "edges": [
+                "local-19-0",
+                "local-47-0"
+              ],
+              "position": [
+                -36.9255359430447,
+                0.2751999766508844,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "local-19-0",
+                "local-47-2"
+              ],
+              "position": [
+                -34.059982771777726,
+                5.314819285948381,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "local-19-1",
+                "local-47-0"
+              ],
+              "position": [
+                -40.2443005209374,
+                0.004911829605107221,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "local-19-2",
+                "local-47-2"
+              ],
+              "position": [
+                -35.63833947760337,
+                6.501678239993279,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            }
+          ],
+          "approaches": [
+            {
+              "from": "entry",
+              "to": "key",
+              "edge": 2,
+              "vertex": 2,
+              "actualEdge": 3,
+              "actualVertex": 3,
+              "travelSeconds": 24.940416503102334
+            }
+          ],
+          "deficits": [
+            "developed territories: 2/3"
+          ],
+          "penalty": 15.54346094143748,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 84.79741611054793,
+                "depth": 2,
+                "path": [
+                  "entry",
+                  "stage-19-0",
+                  "stage-19-1",
+                  "stage-7-2",
+                  "a",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-19",
+                "nodes": [
+                  "stage-19-0",
+                  "stage-19-1",
+                  "stage-19-2"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-19-0",
+                  "stage-19-1"
+                ]
+              },
+              {
+                "id": "region-47",
+                "nodes": [
+                  "stage-47-0",
+                  "stage-47-1",
+                  "stage-47-2",
+                  "stage-47-3"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-47-0",
+                  "stage-47-1"
+                ]
+              }
+            ],
+            "stacked": [
+              [
+                "region-19",
+                "region-47"
+              ]
+            ],
+            "excessDegree": 0
+          }
+        },
+        "mutation": "height"
+      },
+      {
+        "proposal": 200,
+        "graph": {
+          "nodes": [
+            {
+              "id": "entry",
+              "role": "entry",
+              "position": [
+                -30,
+                -14,
+                0
+              ],
+              "radius": 9.347030468052253
+            },
+            {
+              "id": "key",
+              "role": "key",
+              "position": [
+                27,
+                16,
+                0
+              ],
+              "radius": 8
+            },
+            {
+              "id": "a",
+              "role": "area",
+              "position": [
+                -9.284310884773731,
+                9.042003478854895,
+                0
+              ],
+              "radius": 7
+            },
+            {
+              "id": "b",
+              "role": "area",
+              "position": [
+                15.928302742540836,
+                -19.99808058142662,
+                0
+              ],
+              "radius": 7.2743389144307
+            },
+            {
+              "id": "stage-7-2",
+              "region": "region-7",
+              "role": "area",
+              "radius": 3.294986071414314,
+              "position": [
+                -30.616937727213777,
+                13.492529492738917,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-0",
+              "region": "region-19",
+              "role": "area",
+              "radius": 4.503161654574797,
+              "position": [
+                -40.846366868147456,
+                8.647584168376378,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-1",
+              "region": "region-19",
+              "role": "area",
+              "radius": 3.4477883335202932,
+              "position": [
+                -35.6108877833975,
+                24.69650720791683,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-2",
+              "region": "region-19",
+              "role": "area",
+              "radius": 4.459329201490618,
+              "position": [
+                -49.41559079465614,
+                22.486756932433973,
+                0
+              ]
+            },
+            {
+              "id": "stage-47-0",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.799856520490721,
+              "position": [
+                -28.946516863763968,
+                -3.021171862383671,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-1",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.0026937504298985,
+              "position": [
+                -51.23742415374581,
+                -7.534875955631325,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-3",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.470461468095891,
+              "position": [
+                -39.22917108897395,
+                4.710958772911548,
+                4
+              ]
+            },
+            {
+              "id": "node-93",
+              "role": "area",
+              "position": [
+                -11.33216402170326,
+                12.68211653159366,
+                8
+              ],
+              "radius": 4.622134572826326
+            },
+            {
+              "id": "stage-115-0",
+              "region": "region-115",
+              "role": "area",
+              "radius": 3.102190235396847,
+              "position": [
+                -1.1464468292621852,
+                17.283363736807885,
+                0
+              ]
+            },
+            {
+              "id": "stage-115-2",
+              "region": "region-115",
+              "role": "area",
+              "radius": 3.806319890427403,
+              "position": [
+                -0.4313740347610784,
+                25.555290163623138,
+                0
+              ]
+            },
+            {
+              "id": "stage-115-3",
+              "region": "region-115",
+              "role": "area",
+              "radius": 2.773876227205619,
+              "position": [
+                1.9704788278868506,
+                13.030193937582101,
+                0
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "entry",
+              "to": "stage-19-0",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.44975902477745,
+              "bend": 3.9081626012921333
+            },
+            {
+              "id": "e2",
+              "from": "key",
+              "to": "b",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e3",
+              "from": "b",
+              "to": "stage-47-0",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 5.712401392171159,
+              "bend": -3.3587645809166133
+            },
+            {
+              "id": "local-19-0",
+              "from": "stage-19-0",
+              "to": "stage-19-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.821484139072709,
+              "bend": 2.7697733091190457
+            },
+            {
+              "id": "local-19-1",
+              "from": "stage-19-0",
+              "to": "stage-19-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-19-2",
+              "from": "stage-19-2",
+              "to": "stage-19-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.321795330266468,
+              "bend": 3.220202410593629
+            },
+            {
+              "id": "depart-19",
+              "from": "stage-19-1",
+              "to": "stage-7-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.8680979878408834,
+              "bend": 0
+            },
+            {
+              "id": "depart-7",
+              "from": "stage-7-2",
+              "to": "a",
+              "mode": "ramp",
+              "bidirectional": true,
+              "width": 2.51786307094153,
+              "bend": -2.5376985501497984
+            },
+            {
+              "id": "new-38",
+              "from": "key",
+              "to": "stage-7-2",
+              "mode": "stairs",
+              "bidirectional": false,
+              "width": 3.016416374593973,
+              "bend": 2.6605468383058906
+            },
+            {
+              "id": "local-47-2",
+              "from": "stage-47-0",
+              "to": "stage-47-3",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.8450037508737296,
+              "bend": -2.5043559703044593
+            },
+            {
+              "id": "local-47-3",
+              "from": "stage-47-3",
+              "to": "stage-47-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.298677810933441,
+              "bend": -9.997254200279713
+            },
+            {
+              "id": "depart-47",
+              "from": "stage-47-1",
+              "to": "entry",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 5.911691031302325,
+              "bend": 0
+            },
+            {
+              "id": "new-68",
+              "from": "stage-47-0",
+              "to": "entry",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.4487913586199284,
+              "bend": 5.232252225279808
+            },
+            {
+              "id": "local-52-1",
+              "from": "a",
+              "to": "stage-47-3",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "depart-52",
+              "from": "a",
+              "to": "stage-115-0",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4.469796331948601,
+              "bend": 0
+            },
+            {
+              "id": "new-85",
+              "from": "stage-47-3",
+              "to": "stage-19-1",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.849932831712067,
+              "bend": 4.240497507154942
+            },
+            {
+              "id": "local-115-0",
+              "from": "stage-115-0",
+              "to": "stage-115-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-115-2",
+              "from": "stage-115-0",
+              "to": "stage-115-3",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "split-93",
+              "from": "node-93",
+              "to": "stage-47-3",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-47-1",
+              "from": "stage-47-0",
+              "to": "stage-47-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.573241468518972,
+              "bend": -1.3033992890268564
+            },
+            {
+              "id": "local-115-3",
+              "from": "stage-115-3",
+              "to": "stage-115-2",
+              "mode": "walk",
+              "bidirectional": false,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "depart-115",
+              "from": "stage-115-2",
+              "to": "key",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.4793463874375448,
+              "bend": -4.807318653911352
+            },
+            {
+              "id": "new-199",
+              "from": "stage-19-2",
+              "to": "stage-7-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.8514887327328324,
+              "bend": -6.678838733583689
+            }
+          ]
+        },
+        "metrics": {
+          "cycles": 9,
+          "branches": 12,
+          "lengthVariation": 0.67758576375464,
+          "crossings": [
+            {
+              "edges": [
+                "e0",
+                "local-47-3"
+              ],
+              "position": [
+                -41.02031562805935,
+                4.785891347532634,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "e0",
+                "new-85"
+              ],
+              "position": [
+                -40.87450836547551,
+                8.303726875286417,
+                0
+              ],
+              "separation": 3.899121319067629,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "e0",
+                "local-47-1"
+              ],
+              "position": [
+                -39.198467256728534,
+                -3.784380261873336,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "local-19-0",
+                "new-199"
+              ],
+              "position": [
+                -41.43461613743918,
+                11.861647815022769,
+                0
+              ],
+              "separation": 0,
+              "kind": "junction"
+            },
+            {
+              "edges": [
+                "local-19-1",
+                "new-85"
+              ],
+              "position": [
+                -41.153204663925045,
+                9.143122772890207,
+                0
+              ],
+              "separation": 2.382533081785684,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "depart-7",
+                "split-93"
+              ],
+              "position": [
+                -22.80354931010793,
+                9.404337606277396,
+                0
+              ],
+              "separation": 5.9813885057126335,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "new-38",
+                "depart-52"
+              ],
+              "position": [
+                -6.399784790752546,
+                11.96321456718638,
+                0
+              ],
+              "separation": 0,
+              "kind": "junction"
+            },
+            {
+              "edges": [
+                "new-38",
+                "split-93"
+              ],
+              "position": [
+                -13.605917307488003,
+                12.032425111234236,
+                0
+              ],
+              "separation": 7.223938785418914,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "new-85",
+                "new-199"
+              ],
+              "position": [
+                -41.71133701077901,
+                11.959327935401124,
+                0
+              ],
+              "separation": 2.3825330817856845,
+              "kind": "overpass"
+            }
+          ],
+          "approaches": [
+            {
+              "from": "entry",
+              "to": "key",
+              "edge": 2,
+              "vertex": 2,
+              "actualEdge": 2,
+              "actualVertex": 2,
+              "travelSeconds": 29.75754801014248
+            }
+          ],
+          "deficits": [],
+          "penalty": 7.593326630540741,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 125.0174081304124,
+                "depth": 2,
+                "path": [
+                  "entry",
+                  "stage-47-1",
+                  "stage-47-3",
+                  "a",
+                  "stage-115-0",
+                  "stage-115-2",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-115",
+                "nodes": [
+                  "stage-115-0",
+                  "stage-115-2",
+                  "stage-115-3"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-115-0",
+                  "stage-115-2"
+                ]
+              },
+              {
+                "id": "region-19",
+                "nodes": [
+                  "stage-19-0",
+                  "stage-19-1",
+                  "stage-19-2"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-19-0",
+                  "stage-19-1",
+                  "stage-19-2"
+                ]
+              },
+              {
+                "id": "region-47",
+                "nodes": [
+                  "stage-47-0",
+                  "stage-47-1",
+                  "stage-47-3"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-47-0",
+                  "stage-47-1",
+                  "stage-47-3"
+                ]
+              }
+            ],
+            "stacked": [
+              [
+                "region-19",
+                "region-47"
+              ]
+            ],
+            "excessDegree": 1
+          }
+        },
+        "mutation": "bend"
+      },
+      {
+        "proposal": 300,
+        "graph": {
+          "nodes": [
+            {
+              "id": "entry",
+              "role": "entry",
+              "position": [
+                -30,
+                -14,
+                0
+              ],
+              "radius": 5.573099773027934
+            },
+            {
+              "id": "key",
+              "role": "key",
+              "position": [
+                27.54095993563533,
+                15.158004466444254,
+                0
+              ],
+              "radius": 8
+            },
+            {
+              "id": "b",
+              "role": "area",
+              "position": [
+                15.928302742540836,
+                -19.99808058142662,
+                0
+              ],
+              "radius": 7.2743389144307
+            },
+            {
+              "id": "stage-7-2",
+              "region": "region-7",
+              "role": "area",
+              "radius": 3.294986071414314,
+              "position": [
+                -30.616937727213777,
+                13.492529492738917,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-0",
+              "region": "region-19",
+              "role": "area",
+              "radius": 4.687088698847219,
+              "position": [
+                -40.846366868147456,
+                8.647584168376378,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-1",
+              "region": "region-19",
+              "role": "area",
+              "radius": 3.4477883335202932,
+              "position": [
+                -35.6108877833975,
+                24.69650720791683,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-2",
+              "region": "region-19",
+              "role": "area",
+              "radius": 4.882564846193418,
+              "position": [
+                -49.41559079465614,
+                22.486756932433973,
+                0
+              ]
+            },
+            {
+              "id": "stage-47-0",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.799856520490721,
+              "position": [
+                -26.537073291600386,
+                -8.093749167521782,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-1",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.8466253789374605,
+              "position": [
+                -51.23742415374581,
+                -7.534875955631325,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-3",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.470461468095891,
+              "position": [
+                -39.22917108897395,
+                4.710958772911548,
+                4
+              ]
+            },
+            {
+              "id": "stage-115-0",
+              "region": "region-115",
+              "role": "area",
+              "radius": 3.102190235396847,
+              "position": [
+                5.296891695288014,
+                16.333235421791258,
+                0
+              ]
+            },
+            {
+              "id": "stage-115-2",
+              "region": "region-115",
+              "role": "area",
+              "radius": 3.221156274084933,
+              "position": [
+                6.011964489789121,
+                24.60516184860651,
+                0
+              ]
+            },
+            {
+              "id": "stage-115-3",
+              "region": "region-115",
+              "role": "area",
+              "radius": 2.773876227205619,
+              "position": [
+                13.466958275817902,
+                9.553889184829917,
+                0
+              ]
+            },
+            {
+              "id": "node-282",
+              "role": "area",
+              "position": [
+                17.104826021515485,
+                21.375765384704792,
+                4
+              ],
+              "radius": 6.7036818992346525
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "entry",
+              "to": "stage-19-0",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.44975902477745,
+              "bend": 3.9081626012921333
+            },
+            {
+              "id": "e2",
+              "from": "key",
+              "to": "b",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e3",
+              "from": "b",
+              "to": "stage-47-0",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 4.612188791390508,
+              "bend": -8.171248971484601
+            },
+            {
+              "id": "local-19-0",
+              "from": "stage-19-0",
+              "to": "stage-19-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.821484139072709,
+              "bend": 2.7697733091190457
+            },
+            {
+              "id": "local-19-1",
+              "from": "stage-19-0",
+              "to": "stage-19-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.11170323821716,
+              "bend": -0.5595636088401079
+            },
+            {
+              "id": "local-19-2",
+              "from": "stage-19-2",
+              "to": "stage-19-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.321795330266468,
+              "bend": 3.220202410593629
+            },
+            {
+              "id": "depart-19",
+              "from": "stage-19-1",
+              "to": "stage-7-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.8680979878408834,
+              "bend": 0
+            },
+            {
+              "id": "local-47-2",
+              "from": "stage-47-0",
+              "to": "stage-47-3",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.6807358307996765,
+              "bend": -6.1520468280650675
+            },
+            {
+              "id": "local-47-3",
+              "from": "stage-47-3",
+              "to": "stage-47-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.225262255873531,
+              "bend": -9.914913903921843
+            },
+            {
+              "id": "new-68",
+              "from": "stage-47-0",
+              "to": "entry",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.4487913586199284,
+              "bend": 5.232252225279808
+            },
+            {
+              "id": "new-85",
+              "from": "stage-47-3",
+              "to": "stage-19-1",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.849932831712067,
+              "bend": 4.240497507154942
+            },
+            {
+              "id": "local-115-0",
+              "from": "stage-115-0",
+              "to": "stage-115-2",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-115-2",
+              "from": "stage-115-0",
+              "to": "stage-115-3",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-47-1",
+              "from": "stage-47-0",
+              "to": "stage-47-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.8114324600901455,
+              "bend": -3.382799751125276
+            },
+            {
+              "id": "local-115-3",
+              "from": "stage-115-3",
+              "to": "stage-115-2",
+              "mode": "walk",
+              "bidirectional": false,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "depart-115",
+              "from": "stage-115-2",
+              "to": "node-282",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.4793463874375448,
+              "bend": -4.807318653911352
+            },
+            {
+              "id": "new-199",
+              "from": "stage-19-2",
+              "to": "stage-7-2",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.8514887327328324,
+              "bend": -6.678838733583689
+            },
+            {
+              "id": "split-207",
+              "from": "stage-47-1",
+              "to": "entry",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.911691031302325,
+              "bend": 0
+            },
+            {
+              "id": "split-282",
+              "from": "node-282",
+              "to": "key",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.4793463874375448,
+              "bend": -4.807318653911352
+            },
+            {
+              "id": "depart-52",
+              "from": "stage-47-3",
+              "to": "stage-115-0",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4.469796331948601,
+              "bend": 0
+            }
+          ]
+        },
+        "metrics": {
+          "cycles": 7,
+          "branches": 9,
+          "lengthVariation": 0.6457094284702656,
+          "crossings": [
+            {
+              "edges": [
+                "e0",
+                "local-47-3"
+              ],
+              "position": [
+                -41.02031562805935,
+                4.785891347532634,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "e0",
+                "new-85"
+              ],
+              "position": [
+                -40.87450836547551,
+                8.303726875286417,
+                0
+              ],
+              "separation": 3.899121319067629,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "e0",
+                "local-47-1"
+              ],
+              "position": [
+                -38.91142566958889,
+                -4.433545908692761,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "local-19-0",
+                "new-199"
+              ],
+              "position": [
+                -41.43461613743918,
+                11.861647815022769,
+                0
+              ],
+              "separation": 0,
+              "kind": "junction"
+            },
+            {
+              "edges": [
+                "local-19-1",
+                "new-85"
+              ],
+              "position": [
+                -41.269066667012474,
+                9.578548884281874,
+                0
+              ],
+              "separation": 2.906525718873618,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "new-85",
+                "new-199"
+              ],
+              "position": [
+                -41.71133701077901,
+                11.959327935401124,
+                0
+              ],
+              "separation": 2.3825330817856845,
+              "kind": "overpass"
+            }
+          ],
+          "approaches": [
+            {
+              "from": "entry",
+              "to": "key",
+              "edge": 2,
+              "vertex": 2,
+              "actualEdge": 2,
+              "actualVertex": 2,
+              "travelSeconds": 27.81148812541002
+            }
+          ],
+          "deficits": [],
+          "penalty": 0.030855167503210268,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 129.1395858737881,
+                "depth": 3,
+                "path": [
+                  "entry",
+                  "stage-47-1",
+                  "stage-47-3",
+                  "stage-115-0",
+                  "stage-115-2",
+                  "node-282",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-115",
+                "nodes": [
+                  "stage-115-0",
+                  "stage-115-2",
+                  "stage-115-3"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-115-0",
+                  "stage-115-2"
+                ]
+              },
+              {
+                "id": "region-19",
+                "nodes": [
+                  "stage-19-0",
+                  "stage-19-1",
+                  "stage-19-2"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-19-0",
+                  "stage-19-1"
+                ]
+              },
+              {
+                "id": "region-47",
+                "nodes": [
+                  "stage-47-0",
+                  "stage-47-1",
+                  "stage-47-3"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-47-0",
+                  "stage-47-1",
+                  "stage-47-3"
+                ]
+              }
+            ],
+            "stacked": [
+              [
+                "region-19",
+                "region-47"
+              ]
+            ],
+            "excessDegree": 0
+          }
+        },
+        "mutation": "mobility"
+      },
+      {
+        "proposal": 315,
+        "graph": {
+          "nodes": [
+            {
+              "id": "entry",
+              "role": "entry",
+              "position": [
+                -30,
+                -14,
+                0
+              ],
+              "radius": 5.573099773027934
+            },
+            {
+              "id": "key",
+              "role": "key",
+              "position": [
+                27.54095993563533,
+                15.158004466444254,
+                0
+              ],
+              "radius": 8
+            },
+            {
+              "id": "b",
+              "role": "area",
+              "position": [
+                15.928302742540836,
+                -19.99808058142662,
+                4
+              ],
+              "radius": 7.2743389144307
+            },
+            {
+              "id": "stage-7-2",
+              "region": "region-7",
+              "role": "area",
+              "radius": 3.294986071414314,
+              "position": [
+                -30.616937727213777,
+                13.492529492738917,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-0",
+              "region": "region-19",
+              "role": "area",
+              "radius": 4.687088698847219,
+              "position": [
+                -40.846366868147456,
+                8.647584168376378,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-1",
+              "region": "region-19",
+              "role": "area",
+              "radius": 3.4477883335202932,
+              "position": [
+                -35.6108877833975,
+                24.69650720791683,
+                0
+              ]
+            },
+            {
+              "id": "stage-19-2",
+              "region": "region-19",
+              "role": "area",
+              "radius": 4.882564846193418,
+              "position": [
+                -49.41559079465614,
+                22.486756932433973,
+                0
+              ]
+            },
+            {
+              "id": "stage-47-0",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.799856520490721,
+              "position": [
+                -28.988333806157748,
+                -12.566620005418844,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-1",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.8466253789374605,
+              "position": [
+                -51.23742415374581,
+                -7.534875955631325,
+                4
+              ]
+            },
+            {
+              "id": "stage-47-3",
+              "region": "region-47",
+              "role": "area",
+              "radius": 3.470461468095891,
+              "position": [
+                -39.22917108897395,
+                4.710958772911548,
+                4
+              ]
+            },
+            {
+              "id": "stage-115-0",
+              "region": "region-115",
+              "role": "area",
+              "radius": 3.102190235396847,
+              "position": [
+                5.296891695288014,
+                16.333235421791258,
+                0
+              ]
+            },
+            {
+              "id": "stage-115-2",
+              "region": "region-115",
+              "role": "area",
+              "radius": 3.175927421543747,
+              "position": [
+                6.011964489789121,
+                24.60516184860651,
+                0
+              ]
+            },
+            {
+              "id": "stage-115-3",
+              "region": "region-115",
+              "role": "area",
+              "radius": 2.773876227205619,
+              "position": [
+                13.466958275817902,
+                9.553889184829917,
+                0
+              ]
+            },
+            {
+              "id": "node-282",
+              "role": "area",
+              "position": [
+                17.104826021515485,
+                21.375765384704792,
+                4
+              ],
+              "radius": 6.7036818992346525
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "entry",
+              "to": "stage-19-0",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.44975902477745,
+              "bend": 3.9081626012921333
+            },
+            {
+              "id": "e2",
+              "from": "key",
+              "to": "b",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e3",
+              "from": "b",
+              "to": "stage-47-0",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 4.612188791390508,
+              "bend": -8.171248971484601
+            },
+            {
+              "id": "local-19-0",
+              "from": "stage-19-0",
+              "to": "stage-19-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.821484139072709,
+              "bend": 2.7697733091190457
+            },
+            {
+              "id": "local-19-1",
+              "from": "stage-19-0",
+              "to": "stage-19-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.11170323821716,
+              "bend": -0.5595636088401079
+            },
+            {
+              "id": "local-19-2",
+              "from": "stage-19-2",
+              "to": "stage-19-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.321795330266468,
+              "bend": 3.220202410593629
+            },
+            {
+              "id": "depart-19",
+              "from": "stage-19-1",
+              "to": "stage-7-2",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.8680979878408834,
+              "bend": 0
+            },
+            {
+              "id": "local-47-2",
+              "from": "stage-47-0",
+              "to": "stage-47-3",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 2.6807358307996765,
+              "bend": -6.1520468280650675
+            },
+            {
+              "id": "local-47-3",
+              "from": "stage-47-3",
+              "to": "stage-47-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.225262255873531,
+              "bend": -9.914913903921843
+            },
+            {
+              "id": "new-68",
+              "from": "stage-47-0",
+              "to": "entry",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.4487913586199284,
+              "bend": 5.232252225279808
+            },
+            {
+              "id": "new-85",
+              "from": "stage-47-3",
+              "to": "stage-19-1",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.849932831712067,
+              "bend": 4.240497507154942
+            },
+            {
+              "id": "local-115-0",
+              "from": "stage-115-0",
+              "to": "stage-115-2",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-115-2",
+              "from": "stage-115-0",
+              "to": "stage-115-3",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "local-47-1",
+              "from": "stage-47-0",
+              "to": "stage-47-1",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.8114324600901455,
+              "bend": -3.382799751125276
+            },
+            {
+              "id": "local-115-3",
+              "from": "stage-115-3",
+              "to": "stage-115-2",
+              "mode": "walk",
+              "bidirectional": false,
+              "width": 3,
+              "bend": 0
+            },
+            {
+              "id": "depart-115",
+              "from": "stage-115-2",
+              "to": "node-282",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.4793463874375448,
+              "bend": -4.807318653911352
+            },
+            {
+              "id": "new-199",
+              "from": "stage-19-2",
+              "to": "stage-7-2",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 3.8514887327328324,
+              "bend": -6.678838733583689
+            },
+            {
+              "id": "split-207",
+              "from": "stage-47-1",
+              "to": "entry",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 5.911691031302325,
+              "bend": 0
+            },
+            {
+              "id": "split-282",
+              "from": "node-282",
+              "to": "key",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 3.4793463874375448,
+              "bend": -4.807318653911352
+            },
+            {
+              "id": "depart-52",
+              "from": "stage-47-3",
+              "to": "stage-115-0",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 4.469796331948601,
+              "bend": 0
+            }
+          ]
+        },
+        "metrics": {
+          "cycles": 7,
+          "branches": 9,
+          "lengthVariation": 0.6707173178862526,
+          "crossings": [
+            {
+              "edges": [
+                "e0",
+                "local-47-3"
+              ],
+              "position": [
+                -41.02031562805935,
+                4.785891347532634,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "e0",
+                "new-85"
+              ],
+              "position": [
+                -40.87450836547551,
+                8.303726875286417,
+                0
+              ],
+              "separation": 3.899121319067629,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "e0",
+                "local-47-1"
+              ],
+              "position": [
+                -37.13124632865796,
+                -7.41374286154062,
+                0
+              ],
+              "separation": 4,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "local-19-0",
+                "new-199"
+              ],
+              "position": [
+                -41.43461613743918,
+                11.861647815022769,
+                0
+              ],
+              "separation": 0,
+              "kind": "junction"
+            },
+            {
+              "edges": [
+                "local-19-1",
+                "new-85"
+              ],
+              "position": [
+                -41.269066667012474,
+                9.578548884281874,
+                0
+              ],
+              "separation": 2.906525718873618,
+              "kind": "overpass"
+            },
+            {
+              "edges": [
+                "new-85",
+                "new-199"
+              ],
+              "position": [
+                -41.71133701077901,
+                11.959327935401124,
+                0
+              ],
+              "separation": 2.3825330817856845,
+              "kind": "overpass"
+            }
+          ],
+          "approaches": [
+            {
+              "from": "entry",
+              "to": "key",
+              "edge": 2,
+              "vertex": 2,
+              "actualEdge": 2,
+              "actualVertex": 2,
+              "travelSeconds": 26.93252876723042
+            }
+          ],
+          "deficits": [],
+          "penalty": 0,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 129.13198752996357,
+                "depth": 2,
+                "path": [
+                  "entry",
+                  "stage-47-1",
+                  "stage-47-3",
+                  "stage-115-0",
+                  "stage-115-2",
+                  "node-282",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-115",
+                "nodes": [
+                  "stage-115-0",
+                  "stage-115-2",
+                  "stage-115-3"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-115-0",
+                  "stage-115-2"
+                ]
+              },
+              {
+                "id": "region-19",
+                "nodes": [
+                  "stage-19-0",
+                  "stage-19-1",
+                  "stage-19-2"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-19-0",
+                  "stage-19-1"
+                ]
+              },
+              {
+                "id": "region-47",
+                "nodes": [
+                  "stage-47-0",
+                  "stage-47-1",
+                  "stage-47-3"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-47-0",
+                  "stage-47-1",
+                  "stage-47-3"
+                ]
+              }
+            ],
+            "stacked": [
+              [
+                "region-19",
+                "region-47"
+              ]
+            ],
+            "excessDegree": 0
+          }
+        },
+        "mutation": "reshape"
+      }
+    ]
+  },
+  "sourceHashes": {
+    "config.ts": "7c65f27ce9469f8c10f1cae7d9bb181ed9f8c6e1ece7cac83484e0042e873492",
+    "index.ts": "5650e7513a56500080a3a78673237d2122e25b3654f9715a51769439981dd60e",
+    "metrics.ts": "b676f0d6173501f1883d094c2ea946c72812c0899dd4131a6000a7d927dbc729",
+    "presentation.ts": "a45777a5cad5df73b79173f67db5519644dcf64e23598c437c378eb7355c6962",
+    "search.ts": "fda98f73fc22e2d6796bf3aabe3b124f12028e5b787acf815c2a2b92f7e4a776",
+    "spatial.ts": "99be82cb88842a41d4657f0d948520b6a7a5788812e4738d33f5c23647fa3517",
+    "structure.ts": "060cb63cb1730a263095aaa3bd99a7fff9a4d54311f9fbb0620ad6f94df00f7a",
+    "types.ts": "e34ddc9c300b9aac6d1ec6a6d8228c9a775b0c1bdae6885a36416107708c4e5b"
+  }
+}

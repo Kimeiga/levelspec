@@ -38,7 +38,10 @@ appearance critic against the requested style; distinguish aesthetic findings fr
 geometry defects. No screenshot is proof of runtime navigation correctness.
 
 For structural layout, topology and circulation use
-[level-authoring](../level-authoring/SKILL.md). For source fidelity, follow [reference-level-authoring](../reference-level-authoring/SKILL.md):
+[level-authoring](../level-authoring/SKILL.md). Use
+[architectural review](../level-architecture-review/SKILL.md) for enclosure, roof/ceiling
+completeness and building plausibility; a presentation cutaway must not conceal a
+modeling omission. For source fidelity, follow [reference-level-authoring](../reference-level-authoring/SKILL.md):
 review originals before candidate interpretations, retain actual frozen renders
 and use matched-camera paired contours where needed. Attractive shading or a
 drawing derived from the same model cannot establish architectural fidelity; unmatched views stay diagnostic.

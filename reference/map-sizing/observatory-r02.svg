@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1620" height="1320" viewBox="0 0 1620 1320">
+<defs><pattern id="stair" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#f0e0b4"/><path d="M0 2H10" stroke="#93825e" stroke-width="1.5"/></pattern><pattern id="upper" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#cedfee"/><path d="M0 12L12 0" stroke="#b1c8dc" stroke-width="1"/></pattern></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#26372f}.title{font-size:27px;font-weight:bold}.sub{font-size:17px;fill:#58665a}.room{stroke:#3f514a;stroke-width:3}.name{font-size:15px;font-weight:bold;text-anchor:middle}.dim{font-size:13px;text-anchor:middle;fill:#586259}.small{font-size:14px}.low{fill:#d9e2d3}.mid{fill:#ecd1a4}.up{fill:url(#upper)}.stair{fill:url(#stair)}.line{fill:none;stroke:#68766b;stroke-width:1.5}</style>
+<rect width="1620" height="1320" fill="#faf9f2"/><text x="45" y="45" class="title">HILLSIDE OBSERVATORY — EXPANDED QUICK SKETCH r02</text><text x="45" y="75" class="sub">6v6 · one capture point provisional · approximate playable extent 142 × 83 m · north / uphill ↑</text><text x="45" y="101" class="sub">Restrained building wings, actual room divisions and quiet halls · rough dimensions only; no movement or timing claims</text>
+<rect x="35" y="120" width="1550" height="930" rx="8" fill="#f0f2e9" stroke="#d6ddcf"/>
+
+<rect x="300" y="905" width="40" height="50" class="room low"/>
+<rect x="470" y="885" width="40" height="40" class="room low"/>
+<rect x="650" y="885" width="40" height="40" class="room low"/>
+<rect x="170" y="815" width="50" height="40" class="room low"/>
+<rect x="170" y="625" width="50" height="70" class="room low"/>
+<rect x="280" y="595" width="220" height="40" class="room low"/>
+<rect x="550" y="705" width="40" height="130" class="room low"/>
+<rect x="910" y="925" width="40" height="40" class="room low"/>
+<rect x="990" y="705" width="40" height="220" class="room low"/>
+<rect x="990" y="345" width="40" height="360" class="room low"/>
+<rect x="500" y="475" width="50" height="40" class="room mid"/>
+<rect x="690" y="495" width="40" height="40" class="room mid"/>
+<rect x="710" y="615" width="50" height="20" class="room mid"/>
+<rect x="950" y="715" width="220" height="40" class="room mid"/>
+<rect x="1180" y="625" width="60" height="40" class="room mid"/>
+<rect x="1290" y="685" width="40" height="30" class="room mid"/>
+<rect x="1110" y="685" width="40" height="70" class="room mid"/>
+<rect x="1150" y="745" width="20" height="40" class="room mid"/>
+<rect x="1350" y="775" width="30" height="40" class="room mid"/>
+<rect x="1430" y="855" width="40" height="50" class="room mid"/>
+<rect x="1330" y="945" width="80" height="40" class="room mid"/>
+<rect x="1250" y="855" width="40" height="50" class="room mid"/>
+<rect x="120" y="855" width="180" height="160" class="room low"/>
+<text x="210.0" y="921.0" class="name">A · Service</text>
+<text x="210.0" y="939.0" class="name">arrival court</text>
+<text x="210.0" y="958.0" class="dim">18 × 16 m · +0</text>
+<rect x="340" y="855" width="130" height="120" class="room low"/>
+<text x="405.0" y="910.0" class="name">Garage</text>
+<text x="405.0" y="929.0" class="dim">13 × 12 m · +0</text>
+<rect x="510" y="835" width="140" height="120" class="room low"/>
+<text x="580.0" y="890.0" class="name">Workshop</text>
+<text x="580.0" y="909.0" class="dim">14 × 12 m · +0</text>
+<rect x="690" y="875" width="220" height="130" class="room low"/>
+<text x="800.0" y="935.0" class="name">Cooling yard</text>
+<text x="800.0" y="954.0" class="dim">22 × 13 m · +0</text>
+<rect x="950" y="885" width="120" height="120" class="room low"/>
+<text x="1010.0" y="940.0" class="name">Pump room</text>
+<text x="1010.0" y="959.0" class="dim">12 × 12 m · +0</text>
+<rect x="120" y="695" width="160" height="120" class="room low"/>
+<text x="200.0" y="750.0" class="name">Public foyer</text>
+<text x="200.0" y="769.0" class="dim">16 × 12 m · +0</text>
+<rect x="110" y="495" width="170" height="130" class="room low"/>
+<text x="195.0" y="555.0" class="name">Exhibition hall</text>
+<text x="195.0" y="574.0" class="dim">17 × 13 m · +0</text>
+<rect x="500" y="585" width="140" height="120" class="room low"/>
+<text x="570.0" y="640.0" class="name">Stores</text>
+<text x="570.0" y="659.0" class="dim">14 × 12 m · +0</text>
+<rect x="350" y="445" width="150" height="150" class="room mid"/>
+<text x="425.0" y="515.0" class="name">Sun court</text>
+<text x="425.0" y="534.0" class="dim">15 × 15 m · +4</text>
+<rect x="550" y="445" width="140" height="80" class="room mid"/>
+<text x="620.0" y="480.0" class="name">West vestibule</text>
+<text x="620.0" y="499.0" class="dim">14 × 8 m · +4</text>
+<rect x="360" y="255" width="150" height="100" class="room up"/>
+<text x="435.0" y="300.0" class="name">Weather station</text>
+<text x="435.0" y="319.0" class="dim">15 × 10 m · +8</text>
+<rect x="510" y="285" width="110" height="40" class="room up"/>
+<circle cx="730" cy="345" r="130" class="room up"/><circle cx="730" cy="345" r="80" fill="#768276" stroke="#3f514a" stroke-width="3"/>
+<text x="730" y="335" class="name">Telescope mount</text>
+<text x="730" y="354" class="dim">solid · Ø16 m</text>
+<text x="650" y="225" class="small">Gallery ring +8 · 5 m wide</text>
+<rect x="670" y="535" width="130" height="80" class="room mid"/>
+<text x="735.0" y="570.0" class="name">Control room</text>
+<text x="735.0" y="589.0" class="dim">13 × 8 m · +4</text>
+<rect x="710" y="635" width="240" height="160" class="room mid"/>
+<text x="830.0" y="710.0" class="name">MERIDIAN COURT</text>
+<text x="830.0" y="729.0" class="dim">24 × 16 m · +4</text>
+<circle cx="830" cy="731" r="25" fill="#fbf3df" stroke="#a16e3a" stroke-width="2"/><text x="830" y="738" class="name" font-size="24">P</text>
+<rect x="940" y="245" width="140" height="100" class="room low"/>
+<text x="1010.0" y="290.0" class="name">Receiver room</text>
+<text x="1010.0" y="309.0" class="dim">14 × 10 m · +2</text>
+<rect x="850" y="375" width="320" height="40" class="room up"/>
+<rect x="1170" y="295" width="40" height="40" class="room up"/>
+<rect x="1250" y="235" width="40" height="40" class="room up"/>
+<rect x="1260" y="375" width="110" height="40" class="room up"/>
+<rect x="1330" y="355" width="40" height="60" class="room up"/>
+<rect x="1300" y="415" width="50" height="110" class="room up"/>
+<rect x="1180" y="455" width="40" height="20" class="room up"/>
+<rect x="1260" y="485" width="40" height="40" class="room up"/>
+<rect x="1110" y="185" width="140" height="110" class="room up"/>
+<text x="1180.0" y="235.0" class="name">Residence</text>
+<text x="1180.0" y="254.0" class="dim">14 × 11 m · +8</text>
+<rect x="1290" y="215" width="180" height="140" class="room up"/>
+<text x="1380.0" y="280.0" class="name">B · Ridge court</text>
+<text x="1380.0" y="299.0" class="dim">18 × 14 m · +8</text>
+<rect x="1120" y="335" width="140" height="120" class="room up"/>
+<text x="1190.0" y="390.0" class="name">Administration</text>
+<text x="1190.0" y="409.0" class="dim">14 × 12 m · +8</text>
+<rect x="1150" y="475" width="110" height="100" class="room up"/>
+<text x="1205.0" y="520.0" class="name">Data room</text>
+<text x="1205.0" y="539.0" class="dim">11 × 10 m · +8</text>
+<rect x="1240" y="585" width="180" height="100" class="room mid"/>
+<text x="1330.0" y="630.0" class="name">East foyer</text>
+<text x="1330.0" y="649.0" class="dim">18 × 10 m · +4</text>
+<rect x="1060" y="595" width="120" height="90" class="room mid"/>
+<text x="1120.0" y="635.0" class="name">Optics lab</text>
+<text x="1120.0" y="654.0" class="dim">12 × 9 m · +4</text>
+<rect x="1170" y="715" width="180" height="140" class="room mid"/>
+<text x="1260.0" y="780.0" class="name">Spectrograph hall</text>
+<text x="1260.0" y="799.0" class="dim">18 × 14 m · +4</text>
+<rect x="1380" y="735" width="120" height="120" class="room mid"/>
+<text x="1440.0" y="790.0" class="name">Mirror assembly</text>
+<text x="1440.0" y="809.0" class="dim">12 × 12 m · +4</text>
+<rect x="1190" y="905" width="140" height="100" class="room mid"/>
+<text x="1260.0" y="950.0" class="name">Instrument stores</text>
+<text x="1260.0" y="969.0" class="dim">14 × 10 m · +4</text>
+<rect x="1410" y="905" width="120" height="110" class="room mid"/>
+<text x="1470.0" y="955.0" class="name">Delivery court</text>
+<text x="1470.0" y="974.0" class="dim">12 × 11 m · +4</text>
+<rect x="280" y="525" width="70" height="50" class="room stair"/>
+<rect x="410" y="355" width="50" height="90" class="room stair"/>
+<rect x="590" y="525" width="50" height="60" class="room stair"/>
+<rect x="705.0" y="465" width="50" height="70" class="room stair"/>
+<rect x="770" y="795" width="50" height="80" class="room stair"/>
+<rect x="1030" y="785" width="140" height="50" class="room stair"/>
+<rect x="830" y="285" width="110" height="40" class="room stair"/>
+<rect x="1300" y="525" width="50" height="60" class="room stair"/>
+<path d="M300 915L300 945" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M340 915L340 945" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M470 890.0L470 920.0" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M510 890.0L510 920.0" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M650 890.0L650 920.0" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M690 890.0L690 920.0" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M180 815L210 815" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M180 855L210 855" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M180 625L210 625" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M180 695L210 695" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M280 600.0L280 620.0" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M500 605L500 630.0" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M560 705L580 705" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M560 835L580 835" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M910 935L910 955" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M950 935L950 955" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M1000 885L1020 885" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M1000 345L1020 345" stroke="#d9e2d3" stroke-width="6"/>
+<path d="M500 485L500 505" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M550 485L550 505" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M690 500.0L690 520.0" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M700 535L720 535" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M720 615L750 615" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M720 635L750 635" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M950 725L950 745" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1170 725L1170 745" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1180 635L1180 655" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1240 635L1240 655" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1300 685L1320 685" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1300 715L1320 715" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1120 685L1140 685" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1150 750.0L1150 775" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1170 755L1170 775" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1350 785L1350 805" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1380 785L1380 805" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1440 855L1460 855" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1440 905L1460 905" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1330 955L1330 975" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1410 955L1410 975" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1260 855L1280 855" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M1260 905L1280 905" stroke="#ecd1a4" stroke-width="6"/>
+<path d="M510 295L510 315" stroke="#cedfee" stroke-width="6"/>
+<path d="M610 295L610 325" stroke="#cedfee" stroke-width="6"/>
+<path d="M1120 385L1120 405" stroke="#cedfee" stroke-width="6"/>
+<path d="M1180 295L1200 295" stroke="#cedfee" stroke-width="6"/>
+<path d="M1180 335L1200 335" stroke="#cedfee" stroke-width="6"/>
+<path d="M1250 245L1250 265" stroke="#cedfee" stroke-width="6"/>
+<path d="M1290 245L1290 265" stroke="#cedfee" stroke-width="6"/>
+<path d="M1260 385L1260 405" stroke="#cedfee" stroke-width="6"/>
+<path d="M1340 355L1360 355" stroke="#cedfee" stroke-width="6"/>
+<path d="M1190 455L1210 455" stroke="#cedfee" stroke-width="6"/>
+<path d="M1190 475L1210 475" stroke="#cedfee" stroke-width="6"/>
+<path d="M1260 495L1260 515" stroke="#cedfee" stroke-width="6"/>
+<path d="M280 535L280 565" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M350 535L350 565" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M420 355L450 355" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M420 445L450 445" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M600 525L630 525" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M600 585L630 585" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M710 470.0L750 470.0" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M715.0 535L745.0 535" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M780 795L810 795" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M780 875L810 875" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M1030 795L1030 825" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M1170 795L1170 825" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M840 295L840 315" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M940 295L940 315" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M1310 525L1340 525" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M1310 585L1340 585" stroke="#f0e0b4" stroke-width="6"/>
+<path d="M990 367V423M1030 367V423" stroke="#5b6c60" stroke-width="2" stroke-dasharray="4 4"/><circle cx="1010" cy="395" r="16" fill="#faf9f2" stroke="#596f80"/><text x="1010" y="400" class="small" text-anchor="middle">X1</text>
+<path d="M990 707V763M1030 707V763" stroke="#5b6c60" stroke-width="2" stroke-dasharray="4 4"/><circle cx="1010" cy="735" r="16" fill="#faf9f2" stroke="#596f80"/><text x="1010" y="740" class="small" text-anchor="middle">X2</text>
+<text x="880" y="365" class="small">Skybridge +8 · 4 m wide</text>
+<text x="900" y="695" class="small">Court–hall bridge +4 · 4 m</text>
+<text x="1040" y="545" class="small">Lower service slot</text>
+<text x="1040" y="565" class="small">4 m · +0 → +2</text>
+<text x="300" y="665" class="small">Quiet portico · 4 m</text>
+<text x="440" y="775" class="small">Service hall · 4 m</text>
+<text x="300" y="515" class="small">+0 ↔ +4</text>
+<text x="420" y="415" class="small">+4 ↔ +8</text>
+<text x="830" y="265" class="small">+2 ↔ +8</text>
+<text x="1360" y="555" class="small">+8 ↔ +4</text>
+<text x="1040" y="865" class="small">+0 ↔ +4; hall-side landing</text>
+<path d="M110 1020H310M110 1012V1028M210 1012V1028M310 1012V1028" stroke="#33483c" stroke-width="3"/><text x="110" y="1041" class="small">0</text><text x="202" y="1041" class="small">10</text><text x="293" y="1041" class="small">20 m</text>
+<text x="410" y="1015" class="small">Sage: +0/+2 · ochre: +4 · hatched blue: +8 · striped: stairs / ramps (all provisional)</text><text x="410" y="1040" class="small">Floor gaps in the wall lines are doors. X1 / X2 cross at different heights, without a junction.</text>
+<rect x="35" y="1070" width="1550" height="202" rx="8" fill="#fffdf4" stroke="#d6ddcf"/>
+<text x="60" y="1102" class="name" style="text-anchor:start">UNFOLDED SECTION — from cooling yard to receiver, following the lower slot</text>
+<path d="M140 1210H420L750 1190L1170 1170" stroke="#596d52" stroke-width="10" fill="none"/><path d="M470 1160H650" stroke="#bd8f56" stroke-width="10"/><path d="M890 1128H1060" stroke="#7199b9" stroke-width="10"/>
+<path d="M450 1208L470 1198H490L510 1185H530L550 1172H570L590 1160M1170 1170L1190 1156H1210L1230 1142H1250L1270 1128" stroke="#9a8660" stroke-width="5" fill="none"/>
+<text x="150" y="1240" class="small">Cooling yard +0</text><text x="475" y="1140" class="small">X2: court–hall +4</text><text x="730" y="1220" class="small">Slot +0 → +2</text><text x="890" y="1154" class="small">X1: skybridge +8</text><text x="1280" y="1192" class="small">Receiver +2</text><text x="1280" y="1215" class="small">stair to gallery +8</text>
+<text x="45" y="1300" class="sub">Rough full-scope sketch only. Unknown capture rules, respawns and movement remain provisional; scale, traversal and encounter frequency are untested.</text>
+</svg>

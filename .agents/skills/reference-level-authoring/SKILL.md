@@ -1,13 +1,41 @@
 ---
 name: reference-level-authoring
-description: Reconstruct or review LevelSpec maps from reference images, photographs or drawings using source interpretation, cross-view correspondence and fidelity comparison. Add to level-authoring when visual references constrain the map.
+description: Study real architectural images to inform themed LevelSpec invention, or reconstruct and review maps constrained by photographs or drawings. Use the appropriate mode for inspiration versus source fidelity, alongside level-authoring for physical geometry.
 ---
 
 # Reference-based map authoring
 
-Use [level-authoring](../level-authoring/SKILL.md) for layout, topology, collision
-and circulation. This skill adds evidence interpretation and fidelity checks;
-it does not apply to invented maps without visual constraints.
+Use [level-authoring](../level-authoring/SKILL.md) for physical layout and circulation.
+Choose the reference mode from the user's intent. A theme or loose inspiration does
+not require source correspondence or the reconstruction review process below.
+
+## Theme reference study
+
+For themed invention, establish the supplied theme or choose a setting, then study
+real reference images before committing to a layout. Seek varied relevant examples,
+not just one attractive facade. Inspect actual photographs and,
+where useful and available, plans or sections to understand how spaces, circulation,
+levels, structures and terrain relate. Search captions or themed labels alone do not
+establish a plausible layout. Varied relevant examples can inform invention without
+making one building a template.
+Use image study to discover interesting architectural relationships as well as
+resolve known questions; it need not merely validate an already chosen layout.
+
+Return to targeted image lookup as the design develops, especially for uncertain
+room relationships, stairs/landings, supports, entrances and other detailed assemblies.
+Research should discover the place's characteristic spatial organization and answer
+concrete questions, not merely illustrate a layout already chosen. Spend enough
+planning effort to translate those observations into a convincing place; no exhaustive
+reference package is required. If images cannot be accessed, disclose that limitation.
+Retain brief source URLs/paths and useful observations;
+distinguish what images show from estimates and the map's invented relationships.
+
+Adapt the findings to the brief and gameplay. Unseen spaces and new connections may
+be invented; an image does not dictate the playable graph or prove exact dimensions.
+This mode adds no image quota, tracing, matched-camera package or independent fidelity
+gate. Use the source-constrained mode only when correspondence is actually required.
+
+## Source-constrained reconstruction
 
 Inspect original images and user annotations before candidate interpretations.
 Record source identities, important visible structures, correspondence across
