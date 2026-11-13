@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 226" font-family="Helvetica,Arial,sans-serif">
+<rect width="388" height="226" fill="#f7f5ee"/>
+<text x="14" y="22" font-size="15" font-weight="bold">Dragon Ford R01 — section SS: Lung Chun W → Well Court → Sai Shing flights</text>
+<text x="14" y="38" font-size="10.5" fill="#555">from (19.77,20.72) to (19.573,45.05); horizontal = distance along cut (m); vertical = z (m). Figure = 2.0 m standing body.</text>
+<rect x="60" y="184.2" width="267.6" height="13.2" fill="#3d3f44"/>
+<rect x="60.0" y="146.8" width="78.1" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="193.8" y="146.8" width="37.9" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="309.8" y="146.8" width="17.8" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="60.0" y="109.4" width="78.1" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="193.8" y="109.4" width="37.9" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="60.0" y="72.0" width="78.1" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="193.8" y="72.0" width="133.8" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="227.3" y="50.0" width="89.2" height="22.0" fill="#8a8e96" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="271.9" y="50.0" width="55.8" height="22.0" fill="#8a8e96" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="60.0" y="50.0" width="44.6" height="22.0" fill="#8a8e96" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="104.6" y="50.0" width="33.5" height="22.0" fill="#8a8e96" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="193.8" y="50.0" width="78.1" height="22.0" fill="#8a8e96" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="271.9" y="50.0" width="55.8" height="22.0" fill="#8a8e96" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="138.1" y="184.2" width="55.8" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="231.7" y="165.5" width="40.1" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="309.8" y="146.8" width="17.8" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="231.7" y="168.8" width="40.2" height="15.4" fill="#6d7178"/>
+<polygon points="271.9,165.5 309.8,146.8 309.8,165.5 271.9,165.5" fill="#e9a48d" stroke="#8a3d24"/>
+<text x="290.8" y="142.8" font-size="9" text-anchor="middle" fill="#5a1d0c">SS2</text>
+<text x="165.9" y="159.45" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Well Court (lit junction)</text>
+<rect x="163.15" y="162.2" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="251.8" y="140.75" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Sai Shing landing</text>
+<rect x="249.05" y="143.5" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<line x1="52" y1="184.2" x2="335.6" y2="184.2" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="187.2" font-size="9" text-anchor="end">0</text>
+<line x1="52" y1="146.8" x2="335.6" y2="146.8" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="149.8" font-size="9" text-anchor="end">3.4</text>
+<line x1="52" y1="109.4" x2="335.6" y2="109.4" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="112.4" font-size="9" text-anchor="end">6.8</text>
+<line x1="52" y1="72.0" x2="335.6" y2="72.0" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="75.0" font-size="9" text-anchor="end">10.2</text>
+<line x1="60" y1="197.39999999999998" x2="60" y2="202.39999999999998" stroke="#333"/><text x="60" y="213.39999999999998" font-size="9" text-anchor="middle">0</text>
+<line x1="170" y1="197.39999999999998" x2="170" y2="202.39999999999998" stroke="#333"/><text x="170" y="213.39999999999998" font-size="9" text-anchor="middle">10</text>
+<line x1="280" y1="197.39999999999998" x2="280" y2="202.39999999999998" stroke="#333"/><text x="280" y="213.39999999999998" font-size="9" text-anchor="middle">20</text>
+</svg>

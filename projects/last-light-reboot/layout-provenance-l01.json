@@ -1,0 +1,59 @@
+{
+  "revision": "L01",
+  "date": "2026-11-09",
+  "state": "developed layout; separate independent detailed gates pending; no AML",
+  "original_source_sha256": "efbd743e587066ec818152217563be275b6b70d248dcbb1f5ec58ce07322b692",
+  "s01_preserved": true,
+  "visual_inspection": {
+    "plans": [
+      "ground",
+      "upper",
+      "roof"
+    ],
+    "coordinate_section_pages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "variant_board": true,
+    "reference_images_revisited": [
+      "tower-store-threshold.jpeg",
+      "rolling-foodcourt.jpg",
+      "tower-vertical-gallery.jpeg"
+    ]
+  },
+  "prediction_limits": [
+    "Named analytic proposal-prism rays, not compiled visibility",
+    "0.35 m body/footprint samples, not collision-aware walk or continuous proof",
+    "Nominal route lengths, not measured combat or respawn pacing",
+    "Target-engine scoring/combat/healing/barriers/abilities unavailable"
+  ],
+  "files": {
+    "README.md": "2a98590afd66ea302868463e2e4ffea160da03fea06d6b8721cb45520997147a",
+    "planning/capture-intentions-l01.json": "a9924428a41d4fe3e2c8f910cbe66bc1e1f92e900d032355b488cd602f4cb997",
+    "planning/check-layout.py": "a778e51c5a9e9ae957589ebb45445a6a50b056102dbc9fda25f7647fd7cfe018",
+    "planning/develop-layout.py": "652b678c958f25cc30d7d8e0e613adc0bb0be91ba88e5e04ebbfe0c24e09479b",
+    "planning/developed-l01.json": "5677e1f36d8f30040ab8071b26b38364bb85f4ee3a7991679771a3392fcd6751",
+    "planning/development-dispositions-l01.md": "30932fb42cfbf6046c792933f58ff82e592bed353c9bd062e12f2e2d3dc6bc92",
+    "planning/layout-l01-ground.png": "846e12106a058a72652db2500a7268165ca9f6ad4d54bc9f76fd09b67967863e",
+    "planning/layout-l01-ground.svg": "bb3a16d43d4f35bcb44e2face65e1dcbf6a1849b42f8f106c24ab6c83e067491",
+    "planning/layout-l01-roof.png": "30f94d8b5d9b1deeb5456b8100951ec2a067d32cb56429714b332a72989b2c6a",
+    "planning/layout-l01-roof.svg": "6ece645a766205bc334db78c3516e9e2d4d82c1ef34e891f5fa3156811b1b9dc",
+    "planning/layout-l01-upper.png": "27a1e8cc7d165eee080dfa0e53722613bd02b319ac43c9e5a6ec52ea4ce5b247",
+    "planning/layout-l01-upper.svg": "96777eb8070c3e786a9ed3302a6b4713f2c23d18ed2f96f5568ef2fd2aa2a7ca",
+    "planning/layout-l01.md": "6f2f6e7e662fa37ddbd40de2727e6510c9ad7e06adbcd8c1784cea4adeb8af62",
+    "planning/layout-sampling-l01.json": "d7abe0e7b63ffcde3ae6ce7439204d23f0adc484551ad7d4db4c99911d2ef4b4",
+    "planning/section-packet-l01.md": "2b8f4633d0d08e34201f1c16084b276d106d4ce4a28f633b4b82db268004073c",
+    "planning/sections-l01-1.png": "1a6badcfb781be85999cd41966bd989c2746d7940b77f7edbc39041b0503cc17",
+    "planning/sections-l01-1.svg": "90b6c92e59ca2a0024527a9f1d35641a993f1cb9e519b05844fd2012bdf9ecce",
+    "planning/sections-l01-2.png": "715d1e5241dc3dfad752e7e34c4195b68b8e2611f671e67339804e593ddfe62c",
+    "planning/sections-l01-2.svg": "44c98065f10cdeb89b2490195234c48566b3468e62452ed46f6ebdc747ab1588",
+    "planning/sections-l01-3.png": "f9d64780bfc1600c6bf373350df913a152b0b3b056a3699eed96cfcd1790d6c8",
+    "planning/sections-l01-3.svg": "405fa90a30b0570151b4015c055e063d34581adba07844741eefe8959882adab",
+    "planning/sections-l01-4.png": "b614188bf3b744c3af38c47d75e739d9662b7c1a487d18e0e87ff32b92dceb43",
+    "planning/sections-l01-4.svg": "e1650306f321afe72a4a1f9eb5e5cad64822442cca15aae4fa936987c11d9eca",
+    "planning/variants-l01.png": "20f8d2a1a6b2b5d8f2953201c6f174e455579bcdd96cdb283195dd37b9f26831",
+    "planning/variants-l01.svg": "c506f61e8842b43923057c61a8fbda0de4e7a749b1b6294526c16ac6c70542c4"
+  }
+}

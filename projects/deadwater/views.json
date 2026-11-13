@@ -1,0 +1,402 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      125,
+      -83,
+      108
+    ],
+    "target": [
+      43,
+      42,
+      3
+    ],
+    "projection": "orthographic",
+    "viewHeight": 108,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-overview",
+    "position": [
+      62,
+      33,
+      37
+    ],
+    "target": [
+      23,
+      63,
+      5
+    ],
+    "projection": "orthographic",
+    "viewHeight": 46,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-overview",
+    "position": [
+      105,
+      9,
+      36
+    ],
+    "target": [
+      71,
+      40,
+      2
+    ],
+    "projection": "orthographic",
+    "viewHeight": 44,
+    "appearance": "materials"
+  },
+  {
+    "id": "cargo-exit",
+    "position": [
+      12,
+      8,
+      1.674
+    ],
+    "target": [
+      30,
+      14,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "freight-reverse",
+    "position": [
+      39,
+      14,
+      1.674
+    ],
+    "target": [
+      20,
+      14,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "valve-entry",
+    "position": [
+      19,
+      27,
+      1.674
+    ],
+    "target": [
+      34,
+      31,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "valve-low",
+    "position": [
+      28,
+      37,
+      1.023
+    ],
+    "target": [
+      28,
+      30,
+      1.023
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "sea-walk",
+    "position": [
+      14,
+      34,
+      1.674
+    ],
+    "target": [
+      10,
+      42,
+      2.2
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "west-mid",
+    "position": [
+      10,
+      44,
+      2.874
+    ],
+    "target": [
+      10,
+      53,
+      4.074
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "west-head",
+    "position": [
+      10,
+      49,
+      4.074
+    ],
+    "target": [
+      24,
+      64,
+      4.074
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-east-hold",
+    "position": [
+      39,
+      65,
+      4.074
+    ],
+    "target": [
+      20,
+      55,
+      4.074
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "short-mid",
+    "position": [
+      34,
+      48,
+      2.874
+    ],
+    "target": [
+      34,
+      61,
+      4.074
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "short-reverse",
+    "position": [
+      34,
+      61,
+      4.074
+    ],
+    "target": [
+      34,
+      46,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "ct-spawn-offset",
+    "position": [
+      55,
+      74,
+      4.074
+    ],
+    "target": [
+      44,
+      68,
+      4.074
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "rear-baffle",
+    "position": [
+      54,
+      64,
+      4.074
+    ],
+    "target": [
+      54,
+      46,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "pipe-entry",
+    "position": [
+      41,
+      35,
+      1.674
+    ],
+    "target": [
+      58,
+      35,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "pipe-reverse",
+    "position": [
+      56,
+      39,
+      1.674
+    ],
+    "target": [
+      44,
+      35,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "compressor-exit",
+    "position": [
+      64,
+      25,
+      1.674
+    ],
+    "target": [
+      73,
+      40,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-west-entry",
+    "position": [
+      59,
+      35,
+      1.674
+    ],
+    "target": [
+      74,
+      40,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-plant-reverse",
+    "position": [
+      66,
+      44,
+      1.674
+    ],
+    "target": [
+      59,
+      35,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-pump-low",
+    "position": [
+      62,
+      44,
+      1.023
+    ],
+    "target": [
+      62,
+      36,
+      1.023
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-stair-foot",
+    "position": [
+      75,
+      53,
+      1.674
+    ],
+    "target": [
+      75,
+      61,
+      4.074
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-stair-mid",
+    "position": [
+      75,
+      57,
+      2.874
+    ],
+    "target": [
+      75,
+      64,
+      4.074
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-stair-head",
+    "position": [
+      75,
+      61,
+      4.074
+    ],
+    "target": [
+      75,
+      44,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "control-reverse",
+    "position": [
+      79,
+      69,
+      4.074
+    ],
+    "target": [
+      75,
+      59,
+      3.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  }
+]

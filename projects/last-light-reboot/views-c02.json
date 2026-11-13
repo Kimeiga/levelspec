@@ -1,0 +1,2114 @@
+[
+  {
+    "id": "roof-on",
+    "position": [
+      155,
+      -95,
+      120
+    ],
+    "target": [
+      60,
+      51,
+      3
+    ],
+    "projection": "orthographic",
+    "height": 127,
+    "roofs": true,
+    "cut": 1,
+    "appearance": "materials"
+  },
+  {
+    "id": "global-roof-off",
+    "position": [
+      155,
+      -95,
+      120
+    ],
+    "target": [
+      60,
+      51,
+      3
+    ],
+    "projection": "orthographic",
+    "height": 127,
+    "roofs": false,
+    "cut": 1,
+    "appearance": "materials"
+  },
+  {
+    "id": "cutaway",
+    "position": [
+      155,
+      -95,
+      120
+    ],
+    "target": [
+      60,
+      51,
+      3
+    ],
+    "projection": "orthographic",
+    "height": 127,
+    "roofs": false,
+    "cut": 0.48,
+    "appearance": "materials"
+  },
+  {
+    "id": "top",
+    "position": [
+      60,
+      51.01,
+      180
+    ],
+    "target": [
+      60,
+      51,
+      0
+    ],
+    "projection": "orthographic",
+    "height": 100,
+    "roofs": false,
+    "cut": 0.48,
+    "appearance": "materials"
+  },
+  {
+    "id": "food-court-north",
+    "feet": [
+      67,
+      56,
+      3.6
+    ],
+    "stance": "standing",
+    "position": [
+      67,
+      56,
+      5.46
+    ],
+    "target": [
+      63,
+      46,
+      5.46
+    ],
+    "targetFeet": [
+      63,
+      46,
+      3.6
+    ],
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35,
+    "note": ""
+  },
+  {
+    "id": "early-leader-side-standing",
+    "feet": [
+      33.637258698447724,
+      41.38411417099421,
+      0.45999998807907105
+    ],
+    "stance": "standing",
+    "position": [
+      33.637258698447724,
+      41.38411417099421,
+      2.319999988079071
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "reverse-C-SIDE-EARLY-leader-standing",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      33.637258698447724,
+      41.38411417099421,
+      2.319999988079071
+    ],
+    "targetFeet": [
+      33.637258698447724,
+      41.38411417099421,
+      0.45999998807907105
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "early-leader-side-crouching",
+    "feet": [
+      33.637258698447724,
+      41.38411417099421,
+      0.45999998807907105
+    ],
+    "stance": "crouching",
+    "position": [
+      33.637258698447724,
+      41.38411417099421,
+      1.529499988079071
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "reverse-C-SIDE-EARLY-leader-crouching",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      43,
+      55,
+      4.679499904632568
+    ],
+    "target": [
+      33.637258698447724,
+      41.38411417099421,
+      1.529499988079071
+    ],
+    "targetFeet": [
+      33.637258698447724,
+      41.38411417099421,
+      0.45999998807907105
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "early-leader-land-standing",
+    "feet": [
+      33.637258698447724,
+      41.38411417099421,
+      0.45999998807907105
+    ],
+    "stance": "standing",
+    "position": [
+      33.637258698447724,
+      41.38411417099421,
+      2.319999988079071
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "early-leader-land-crouching",
+    "feet": [
+      33.637258698447724,
+      41.38411417099421,
+      0.45999998807907105
+    ],
+    "stance": "crouching",
+    "position": [
+      33.637258698447724,
+      41.38411417099421,
+      1.529499988079071
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "early-follower-side-standing",
+    "feet": [
+      33.5,
+      38.39077335632719,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      33.5,
+      38.39077335632719,
+      1.87
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "early-follower-side-crouching",
+    "feet": [
+      33.5,
+      38.39077335632719,
+      0.01
+    ],
+    "stance": "crouching",
+    "position": [
+      33.5,
+      38.39077335632719,
+      1.0795
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "early-follower-land-standing",
+    "feet": [
+      33.5,
+      38.39077335632719,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      33.5,
+      38.39077335632719,
+      1.87
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "early-follower-land-crouching",
+    "feet": [
+      33.5,
+      38.39077335632719,
+      0.01
+    ],
+    "stance": "crouching",
+    "position": [
+      33.5,
+      38.39077335632719,
+      1.0795
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-leader-side-standing",
+    "feet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "stance": "standing",
+    "position": [
+      36.78867407386706,
+      48.1423462529812,
+      3.820000047683716
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "reverse-C-SIDE-MID-leader-standing",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      36.78867407386706,
+      48.1423462529812,
+      3.820000047683716
+    ],
+    "targetFeet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-leader-side-crouching",
+    "feet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "stance": "crouching",
+    "position": [
+      36.78867407386706,
+      48.1423462529812,
+      3.0295000476837157
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "reverse-C-SIDE-MID-leader-crouching",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      43,
+      55,
+      4.679499904632568
+    ],
+    "target": [
+      36.78867407386706,
+      48.1423462529812,
+      3.0295000476837157
+    ],
+    "targetFeet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-leader-land-standing",
+    "feet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "stance": "standing",
+    "position": [
+      36.78867407386706,
+      48.1423462529812,
+      3.820000047683716
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-leader-land-crouching",
+    "feet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "stance": "crouching",
+    "position": [
+      36.78867407386706,
+      48.1423462529812,
+      3.0295000476837157
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-follower-side-standing",
+    "feet": [
+      35.069381134710305,
+      45.69200713472484,
+      1.360000023841858
+    ],
+    "stance": "standing",
+    "position": [
+      35.069381134710305,
+      45.69200713472484,
+      3.220000023841858
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-follower-side-crouching",
+    "feet": [
+      35.069381134710305,
+      45.69200713472484,
+      1.360000023841858
+    ],
+    "stance": "crouching",
+    "position": [
+      35.069381134710305,
+      45.69200713472484,
+      2.429500023841858
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-follower-land-standing",
+    "feet": [
+      35.069381134710305,
+      45.69200713472484,
+      1.360000023841858
+    ],
+    "stance": "standing",
+    "position": [
+      35.069381134710305,
+      45.69200713472484,
+      3.220000023841858
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-follower-land-crouching",
+    "feet": [
+      35.069381134710305,
+      45.69200713472484,
+      1.360000023841858
+    ],
+    "stance": "crouching",
+    "position": [
+      35.069381134710305,
+      45.69200713472484,
+      2.429500023841858
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "late-leader-side-standing",
+    "feet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43.8711715596835,
+      52.23142808295217,
+      5.4699999046325685
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "reverse-C-SIDE-LATE-leader-standing",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      43.8711715596835,
+      52.23142808295217,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "late-leader-side-crouching",
+    "feet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      43.8711715596835,
+      52.23142808295217,
+      4.679499904632568
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "reverse-C-SIDE-LATE-leader-crouching",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      43,
+      55,
+      4.679499904632568
+    ],
+    "target": [
+      43.8711715596835,
+      52.23142808295217,
+      4.679499904632568
+    ],
+    "targetFeet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "late-leader-land-standing",
+    "feet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43.8711715596835,
+      52.23142808295217,
+      5.4699999046325685
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "late-leader-land-crouching",
+    "feet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      43.8711715596835,
+      52.23142808295217,
+      4.679499904632568
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "late-follower-side-standing",
+    "feet": [
+      41.02884576099368,
+      51.29264479635519,
+      3.01
+    ],
+    "stance": "standing",
+    "position": [
+      41.02884576099368,
+      51.29264479635519,
+      4.87
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "late-follower-side-crouching",
+    "feet": [
+      41.02884576099368,
+      51.29264479635519,
+      3.01
+    ],
+    "stance": "crouching",
+    "position": [
+      41.02884576099368,
+      51.29264479635519,
+      4.0794999999999995
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "late-follower-land-standing",
+    "feet": [
+      41.02884576099368,
+      51.29264479635519,
+      3.01
+    ],
+    "stance": "standing",
+    "position": [
+      41.02884576099368,
+      51.29264479635519,
+      4.87
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "late-follower-land-crouching",
+    "feet": [
+      41.02884576099368,
+      51.29264479635519,
+      3.01
+    ],
+    "stance": "crouching",
+    "position": [
+      41.02884576099368,
+      51.29264479635519,
+      4.0794999999999995
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "standing-side-to-crouched-EARLY-leader",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      33.637258698447724,
+      41.38411417099421,
+      1.529499988079071
+    ],
+    "targetFeet": [
+      33.637258698447724,
+      41.38411417099421,
+      0.45999998807907105
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "standing-side-to-crouched-EARLY-follower",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      33.5,
+      38.39077335632719,
+      1.0795
+    ],
+    "targetFeet": [
+      33.5,
+      38.39077335632719,
+      0.01
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "standing-side-to-crouched-MID-leader",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      36.78867407386706,
+      48.1423462529812,
+      3.0295000476837157
+    ],
+    "targetFeet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "standing-side-to-crouched-MID-follower",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      35.069381134710305,
+      45.69200713472484,
+      2.429500023841858
+    ],
+    "targetFeet": [
+      35.069381134710305,
+      45.69200713472484,
+      1.360000023841858
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "standing-side-to-crouched-LATE-leader",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      43.8711715596835,
+      52.23142808295217,
+      4.679499904632568
+    ],
+    "targetFeet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "standing-side-to-crouched-LATE-follower",
+    "feet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "target": [
+      41.02884576099368,
+      51.29264479635519,
+      4.0794999999999995
+    ],
+    "targetFeet": [
+      41.02884576099368,
+      51.29264479635519,
+      3.01
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "OW-offset-low-standing",
+    "feet": [
+      37.5,
+      39,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      37.5,
+      39,
+      1.87
+    ],
+    "target": [
+      43,
+      49,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      49,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "OW-offset-upper-standing",
+    "feet": [
+      43,
+      49,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      49,
+      5.4699999046325685
+    ],
+    "target": [
+      37.5,
+      39,
+      1.87
+    ],
+    "targetFeet": [
+      37.5,
+      39,
+      0.01
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "landing-side-standing",
+    "feet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "support-landing-standing",
+    "feet": [
+      36,
+      62,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      36,
+      62,
+      5.4699999046325685
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "OW-low-standing",
+    "feet": [
+      41,
+      39,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      41,
+      39,
+      1.87
+    ],
+    "target": [
+      43,
+      49,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      49,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "OW-upper-standing",
+    "feet": [
+      43,
+      49,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43,
+      49,
+      5.4699999046325685
+    ],
+    "target": [
+      41,
+      39,
+      1.87
+    ],
+    "targetFeet": [
+      41,
+      39,
+      0.01
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "lower-entry-standing",
+    "feet": [
+      41,
+      42,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      41,
+      42,
+      1.87
+    ],
+    "target": [
+      42,
+      52,
+      1.87
+    ],
+    "targetFeet": [
+      42,
+      52,
+      0.01
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "lower-exit-standing",
+    "feet": [
+      48,
+      52,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      48,
+      52,
+      1.87
+    ],
+    "target": [
+      41,
+      42,
+      1.87
+    ],
+    "targetFeet": [
+      41,
+      42,
+      0.01
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "curve-to-lower-standing",
+    "feet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      43.8711715596835,
+      52.23142808295217,
+      5.4699999046325685
+    ],
+    "target": [
+      42,
+      52,
+      1.87
+    ],
+    "targetFeet": [
+      42,
+      52,
+      0.01
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "lower-to-curve-standing",
+    "feet": [
+      42,
+      52,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      42,
+      52,
+      1.87
+    ],
+    "target": [
+      43.8711715596835,
+      52.23142808295217,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-width-11.8-standing",
+    "feet": [
+      37.68510415935625,
+      47.344591214244474,
+      1.9600000476837158
+    ],
+    "stance": "standing",
+    "position": [
+      37.68510415935625,
+      47.344591214244474,
+      3.820000047683716
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-width-13-standing",
+    "feet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "stance": "standing",
+    "position": [
+      36.78867407386706,
+      48.1423462529812,
+      3.820000047683716
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-width-14.2-standing",
+    "feet": [
+      35.89224398837786,
+      48.94010129171792,
+      1.9600000476837158
+    ],
+    "stance": "standing",
+    "position": [
+      35.89224398837786,
+      48.94010129171792,
+      3.820000047683716
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "OW-offset-low-crouching",
+    "feet": [
+      37.5,
+      39,
+      0.01
+    ],
+    "stance": "crouching",
+    "position": [
+      37.5,
+      39,
+      1.0795
+    ],
+    "target": [
+      43,
+      49,
+      4.679499904632568
+    ],
+    "targetFeet": [
+      43,
+      49,
+      3.609999904632568
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "OW-offset-upper-crouching",
+    "feet": [
+      43,
+      49,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      43,
+      49,
+      4.679499904632568
+    ],
+    "target": [
+      37.5,
+      39,
+      1.0795
+    ],
+    "targetFeet": [
+      37.5,
+      39,
+      0.01
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "landing-side-crouching",
+    "feet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      46.2,
+      52.65,
+      4.679499904632568
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "support-landing-crouching",
+    "feet": [
+      36,
+      62,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      36,
+      62,
+      4.679499904632568
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "OW-low-crouching",
+    "feet": [
+      41,
+      39,
+      0.01
+    ],
+    "stance": "crouching",
+    "position": [
+      41,
+      39,
+      1.0795
+    ],
+    "target": [
+      43,
+      49,
+      4.679499904632568
+    ],
+    "targetFeet": [
+      43,
+      49,
+      3.609999904632568
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "OW-upper-crouching",
+    "feet": [
+      43,
+      49,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      43,
+      49,
+      4.679499904632568
+    ],
+    "target": [
+      41,
+      39,
+      1.0795
+    ],
+    "targetFeet": [
+      41,
+      39,
+      0.01
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "lower-entry-crouching",
+    "feet": [
+      41,
+      42,
+      0.01
+    ],
+    "stance": "crouching",
+    "position": [
+      41,
+      42,
+      1.0795
+    ],
+    "target": [
+      42,
+      52,
+      1.0795
+    ],
+    "targetFeet": [
+      42,
+      52,
+      0.01
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "lower-exit-crouching",
+    "feet": [
+      48,
+      52,
+      0.01
+    ],
+    "stance": "crouching",
+    "position": [
+      48,
+      52,
+      1.0795
+    ],
+    "target": [
+      41,
+      42,
+      1.0795
+    ],
+    "targetFeet": [
+      41,
+      42,
+      0.01
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "curve-to-lower-crouching",
+    "feet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "stance": "crouching",
+    "position": [
+      43.8711715596835,
+      52.23142808295217,
+      4.679499904632568
+    ],
+    "target": [
+      42,
+      52,
+      1.0795
+    ],
+    "targetFeet": [
+      42,
+      52,
+      0.01
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "lower-to-curve-crouching",
+    "feet": [
+      42,
+      52,
+      0.01
+    ],
+    "stance": "crouching",
+    "position": [
+      42,
+      52,
+      1.0795
+    ],
+    "target": [
+      43.8711715596835,
+      52.23142808295217,
+      4.679499904632568
+    ],
+    "targetFeet": [
+      43.8711715596835,
+      52.23142808295217,
+      3.609999904632568
+    ],
+    "targetStance": "crouching",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-width-11.8-crouching",
+    "feet": [
+      37.68510415935625,
+      47.344591214244474,
+      1.9600000476837158
+    ],
+    "stance": "crouching",
+    "position": [
+      37.68510415935625,
+      47.344591214244474,
+      3.0295000476837157
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-width-13-crouching",
+    "feet": [
+      36.78867407386706,
+      48.1423462529812,
+      1.9600000476837158
+    ],
+    "stance": "crouching",
+    "position": [
+      36.78867407386706,
+      48.1423462529812,
+      3.0295000476837157
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "mid-width-14.2-crouching",
+    "feet": [
+      35.89224398837786,
+      48.94010129171792,
+      1.9600000476837158
+    ],
+    "stance": "crouching",
+    "position": [
+      35.89224398837786,
+      48.94010129171792,
+      3.0295000476837157
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "atrium-broad-s",
+    "feet": [
+      39,
+      36,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      39,
+      36,
+      1.87
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "atrium-broad-e",
+    "feet": [
+      41,
+      39,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      41,
+      39,
+      1.87
+    ],
+    "target": [
+      43,
+      55,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      43,
+      55,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "atrium-broad-w",
+    "feet": [
+      35.5,
+      35,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      35.5,
+      35,
+      1.87
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "underflight-take-in",
+    "feet": [
+      41,
+      42,
+      0.01
+    ],
+    "stance": "standing",
+    "position": [
+      41,
+      42,
+      1.87
+    ],
+    "target": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  },
+  {
+    "id": "upper-toward-point",
+    "feet": [
+      46.2,
+      52.65,
+      3.609999904632568
+    ],
+    "stance": "standing",
+    "position": [
+      46.2,
+      52.65,
+      5.4699999046325685
+    ],
+    "target": [
+      56.5,
+      51,
+      5.4699999046325685
+    ],
+    "targetFeet": [
+      56.5,
+      51,
+      3.609999904632568
+    ],
+    "targetStance": "standing",
+    "projection": "perspective",
+    "roofs": true,
+    "appearance": "materials",
+    "fov": 75,
+    "height": 35
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "src/generate/exploration/levels.ts": "a5d4b7decadb104cb8c0d139551a1551afa685fe104fd944ee56ee9c85014049",
+  "src/generate/exploration/search.ts": "5ae6b73abfa8dc5a7f9a309ab5b83a77d4bce9d0a9d69f2fef6ce4eb0471cc9f",
+  "src/generate/exploration/structure.ts": "060cb63cb1730a263095aaa3bd99a7fff9a4d54311f9fbb0620ad6f94df00f7a",
+  "src/generate/exploration/presentation.ts": "0221eb9ef8141497921aa06ea4396165d40052cab664221a1adfc2d67b6f473f",
+  "src/generate/exploration/spatial.ts": "a41650106a3b3801c7a995f39c7a9a1b2de6fa4cef421593a2499676f1b2d1e7",
+  "src/generate/exploration/types.ts": "93ef9e6d0155235e6236f7a6b4275a2bb57a9bfa089f62fd9c09a5daab26f3c8",
+  "src/generate/exploration/index.ts": "5650e7513a56500080a3a78673237d2122e25b3654f9715a51769439981dd60e",
+  "src/generate/exploration/config.ts": "195713ca687162db283af60f130e1efcc301ef2a96bb116476323e8073fa3169",
+  "src/generate/exploration/metrics.ts": "1bdc0cf4aa671dbda692f2fe350639e94319487ea86335db48cc479dfaa683de"
+}

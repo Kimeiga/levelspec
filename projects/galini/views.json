@@ -1,0 +1,612 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      172.9,
+      -117,
+      145.6
+    ],
+    "target": [
+      61.1,
+      63.7,
+      1
+    ],
+    "projection": "orthographic",
+    "viewHeight": 140,
+    "frameAspect": 1.4,
+    "appearance": "materials"
+  },
+  {
+    "id": "plan",
+    "position": [
+      63.7,
+      62.400000000000006,
+      208
+    ],
+    "target": [
+      63.7,
+      62.400000000000006,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 137.8,
+    "frameAspect": 1.05,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-court",
+    "position": [
+      61.1,
+      54.6,
+      25
+    ],
+    "target": [
+      26,
+      85.8,
+      5
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-court",
+    "position": [
+      149.5,
+      49.4,
+      24
+    ],
+    "target": [
+      107.9,
+      80.60000000000001,
+      1
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "appearance": "materials"
+  },
+  {
+    "id": "mid",
+    "position": [
+      63.7,
+      42.9,
+      1.684
+    ],
+    "target": [
+      61.1,
+      63.7,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "ferry",
+    "position": [
+      57.2,
+      14.3,
+      1.684
+    ],
+    "target": [
+      57.2,
+      35.1,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "ct-exit",
+    "position": [
+      66.3,
+      117,
+      5.683999999999999
+    ],
+    "target": [
+      66.3,
+      93.60000000000001,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cliff-lower",
+    "position": [
+      19.11,
+      54.6,
+      1.684
+    ],
+    "target": [
+      13,
+      65,
+      3.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cliff-landing",
+    "position": [
+      13,
+      67.60000000000001,
+      3.6839999999999997
+    ],
+    "target": [
+      24.7,
+      79.56,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cliff-upper-mid",
+    "position": [
+      20.150000000000002,
+      74.10000000000001,
+      4.760923131942748
+    ],
+    "target": [
+      27.3,
+      81.9,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cliff-defender",
+    "position": [
+      27.3,
+      81.9,
+      5.683999999999999
+    ],
+    "target": [
+      16.900000000000002,
+      70.2,
+      3.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "bell-attacker",
+    "position": [
+      42.38,
+      57.85,
+      1.684
+    ],
+    "target": [
+      35.62,
+      74.75,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "bell-mid",
+    "position": [
+      39,
+      66.3,
+      3.7639999237060544
+    ],
+    "target": [
+      39,
+      81.9,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "bell-defender",
+    "position": [
+      39,
+      81.9,
+      5.683999999999999
+    ],
+    "target": [
+      42.38,
+      57.85,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "gate-attacker",
+    "position": [
+      61.75,
+      69.55,
+      1.684
+    ],
+    "target": [
+      68.38000000000001,
+      86.45,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "gate-mid",
+    "position": [
+      65,
+      78,
+      3.7639999237060544
+    ],
+    "target": [
+      72.8,
+      88.4,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "gate-defender",
+    "position": [
+      72.8,
+      88.4,
+      5.683999999999999
+    ],
+    "target": [
+      62.400000000000006,
+      67.60000000000001,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "boat-bottom",
+    "position": [
+      110.11000000000001,
+      83.97999999999999,
+      1.684
+    ],
+    "target": [
+      101.79,
+      100.62,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "boat-mid",
+    "position": [
+      105.95,
+      92.3,
+      3.7639999237060544
+    ],
+    "target": [
+      109.2,
+      83.2,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "boat-top",
+    "position": [
+      101.79,
+      100.62,
+      5.683999999999999
+    ],
+    "target": [
+      110.11000000000001,
+      83.97999999999999,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "harbor-entry",
+    "position": [
+      105.3,
+      66.3,
+      1.684
+    ],
+    "target": [
+      107.9,
+      81.9,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-anchor",
+    "position": [
+      107.9,
+      84.5,
+      1.684
+    ],
+    "target": [
+      100.10000000000001,
+      70.2,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "market-entry",
+    "position": [
+      94.9,
+      75.4,
+      1.684
+    ],
+    "target": [
+      107.9,
+      84.5,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-low-cover",
+    "position": [
+      40.3,
+      91.65,
+      5.0329999999999995
+    ],
+    "target": [
+      36.4,
+      74.1,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-low-cover",
+    "position": [
+      100.10000000000001,
+      81.25,
+      1.033
+    ],
+    "target": [
+      107.9,
+      68.9,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "upper-lane",
+    "position": [
+      88.4,
+      105.3,
+      5.683999999999999
+    ],
+    "target": [
+      62.400000000000006,
+      109.2,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "laundry",
+    "position": [
+      32.5,
+      46.800000000000004,
+      1.684
+    ],
+    "target": [
+      35.1,
+      53.300000000000004,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "winery",
+    "position": [
+      35.1,
+      52,
+      1.684
+    ],
+    "target": [
+      42.38,
+      57.85,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "wine-lane",
+    "position": [
+      28.6,
+      55.9,
+      1.684
+    ],
+    "target": [
+      18.2,
+      52,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "taverna-court",
+    "position": [
+      80.60000000000001,
+      29.900000000000002,
+      1.684
+    ],
+    "target": [
+      83.2,
+      40.300000000000004,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "arcade",
+    "position": [
+      88.4,
+      48.1,
+      1.684
+    ],
+    "target": [
+      83.2,
+      59.800000000000004,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "customs-west",
+    "position": [
+      75.4,
+      71.5,
+      1.684
+    ],
+    "target": [
+      88.4,
+      78,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "customs-north",
+    "position": [
+      83.2,
+      78,
+      1.684
+    ],
+    "target": [
+      94.9,
+      75.4,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "post-office",
+    "position": [
+      85.8,
+      111.8,
+      5.683999999999999
+    ],
+    "target": [
+      94.9,
+      107.9,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "chapel-interior",
+    "position": [
+      19.5,
+      92.3,
+      5.683999999999999
+    ],
+    "target": [
+      35.1,
+      83.2,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "chapel-door",
+    "position": [
+      27.95,
+      89.7,
+      5.683999999999999
+    ],
+    "target": [
+      19.5,
+      92.3,
+      5.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "boat-interior",
+    "position": [
+      114.4,
+      79.3,
+      1.684
+    ],
+    "target": [
+      107.9,
+      81.9,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "boat-door",
+    "position": [
+      107.9,
+      81.9,
+      1.684
+    ],
+    "target": [
+      114.4,
+      79.3,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  }
+]

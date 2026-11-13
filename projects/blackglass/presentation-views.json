@@ -1,0 +1,36 @@
+[
+  {
+    "id": "blackglass",
+    "position": [
+      -85,
+      -90,
+      86
+    ],
+    "target": [
+      34,
+      48,
+      4
+    ],
+    "projection": "orthographic",
+    "viewHeight": 112,
+    "fov": 55,
+    "appearance": "materials"
+  },
+  {
+    "id": "mountain-context",
+    "position": [
+      -105,
+      -115,
+      110
+    ],
+    "target": [
+      49,
+      48,
+      7
+    ],
+    "projection": "orthographic",
+    "viewHeight": 176,
+    "fov": 55,
+    "appearance": "materials"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "packet": "experiment.json",
+  "files": {
+    "src/generate/exploration/config.ts": "493a87e4e6ab0329d2cd8a0592918334a87fabec95435ecbce462bb039cb77f3",
+    "src/generate/exploration/index.ts": "5650e7513a56500080a3a78673237d2122e25b3654f9715a51769439981dd60e",
+    "src/generate/exploration/metrics.ts": "638ffc3d7f07060c77f5c6ab4044c2981b9c95c199bb1292cbabce0b5f537ca2",
+    "src/generate/exploration/presentation.ts": "ad9379b1a7e4fedd70d7678a59f848932f06b434c8c27ce66790c14ca8dbd8a1",
+    "src/generate/exploration/search.ts": "fa9a3d2deac5f3e9b8eb87064a2cd54536417b7d81bdc5c363a50572309d7fcf",
+    "src/generate/exploration/spatial.ts": "3e49a3eddd7034860aa8e16f5f4963316016e33456f72043acfdb7e1ae3a2768",
+    "src/generate/exploration/types.ts": "5cb623d6f141d01b18665c5b24d01f946f174f7feaaf1c4351c3088839a5b71d"
+  },
+  "note": "Initial packet retained separately. Final import removes a redundant inferred overlap edge inside one shared gallery; selected graphs, histories and all twelve AML geometries are unchanged."
+}

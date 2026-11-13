@@ -1,0 +1,12 @@
+{
+  "r07Source": "06ec9ab872ffeb597369eb5c42f8ceb4b965e99a2cd65cb8e64477399240f6f9",
+  "r08Source": "d44fb0afd227ac731300adc53726895efc51cf4f2cc4aa5d18172cb29c20d075",
+  "physicalHashEqual": true,
+  "physicalHash": "0d91b92edb233bd4f3aca3189fe46bb008f34e63b5dfc186cacc27c98be1267b",
+  "meshArraysEqual": true,
+  "meshSha256": "10c5e6f48a97d42510fea4e17913b3057595bed73a99619587be01b7e0738ce9",
+  "materialValuesEqual": true,
+  "r07RenderHash": "1105ca203937d4eb79dbf5e0f6a42a232955a4ec677567d5f678cc58f5a5aecf",
+  "r08RenderHash": "6d217e730d2b43e6b3de2d78431f7673ce21f08b63ceac2e5c6c66fe74387918",
+  "renderHashDifference": "Compiler renderHash includes material.source byte offsets. The longer description shifts offsets by85; values and mesh are unchanged."
+}

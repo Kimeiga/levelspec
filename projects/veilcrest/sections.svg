@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="950" viewBox="0 0 1200 950"><rect width="1200" height="950" fill="#14241f"/><g font-family="sans-serif" fill="#e6dfca"><text x="50" y="45" font-size="28">VEILCREST r03 / height studies</text><text x="50" y="75" font-size="16">Predictions · local distance along flight / world Z · meters · actual geometry to follow</text>
+<text x="70" y="120" font-size="18">GARDEN-STAIR / north / X20</text><g transform="translate(70 320) scale(23 -23)">
+<polyline points="-2,0 0,0 0.0,0.15 0.6,0.15 0.6,0.3 1.2,0.3 1.2,0.44999999999999996 1.8,0.44999999999999996 1.8,0.6 2.4,0.6 2.4,0.75 3.0,0.75 3.0,0.8999999999999999 3.6,0.8999999999999999 3.6,1.05 4.2,1.05 4.2,1.2 4.8,1.2 4.8,1.3499999999999999 5.4,1.3499999999999999 5.4,1.5 6.0,1.5 6.0,1.65 6.6,1.65 6.6,1.7999999999999998 7.2,1.7999999999999998 7.2,1.95 7.8,1.95 7.8,2.1 8.4,2.1 8.4,2.25 9.0,2.25 9.0,2.4 9.6,2.4 9.6,2.55 10.2,2.55 10.2,2.6999999999999997 10.8,2.6999999999999997 10.8,2.85 11.4,2.85 11.4,3.0 12.0,3.0 14,3" fill="none" stroke="#c9b997" stroke-width=".12"/>
+<path d="M-2 -.35H14" stroke="#779084" stroke-width=".05"/><path d="M0 0V7M12 0V7" stroke="#60796c" stroke-width=".03" stroke-dasharray=".2 .2"/>
+<path d="M1.2000000000000002 0.30000000000000004v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="1.2000000000000002" cy="2.16" r=".08" fill="#e7d6a8"/>
+<path d="M6.0 1.5v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="6.0" cy="3.3600000000000003" r=".08" fill="#e7d6a8"/>
+<path d="M10.8 2.7v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="10.8" cy="4.5600000000000005" r=".08" fill="#e7d6a8"/>
+</g>
+<text x="70" y="355" font-size="15">20 risers × .15 m · tread 0.60 m · no overhead crossing</text>
+<text x="640" y="120" font-size="18">FRONT-STAIR / north / X57</text><g transform="translate(640 320) scale(23 -23)">
+<polyline points="-2,0 0,0 0.0,0.15 0.4,0.15 0.4,0.3 0.8,0.3 0.8,0.44999999999999996 1.2,0.44999999999999996 1.2,0.6 1.6,0.6 1.6,0.75 2.0,0.75 2.0,0.8999999999999999 2.4,0.8999999999999999 2.4,1.05 2.8,1.05 2.8,1.2 3.2,1.2 3.2,1.3499999999999999 3.6,1.3499999999999999 3.6,1.5 4.0,1.5 4.0,1.65 4.4,1.65 4.4,1.7999999999999998 4.8,1.7999999999999998 4.8,1.95 5.2,1.95 5.2,2.1 5.6,2.1 5.6,2.25 6.0,2.25 6.0,2.4 6.4,2.4 6.4,2.55 6.8,2.55 6.8,2.6999999999999997 7.2,2.6999999999999997 7.2,2.85 7.6,2.85 7.6,3.0 8.0,3.0 10,3" fill="none" stroke="#c9b997" stroke-width=".12"/>
+<path d="M-2 -.35H10" stroke="#779084" stroke-width=".05"/><path d="M0 0V7M8 0V7" stroke="#60796c" stroke-width=".03" stroke-dasharray=".2 .2"/>
+<path d="M0.8 0.30000000000000004v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="0.8" cy="2.16" r=".08" fill="#e7d6a8"/>
+<path d="M4.0 1.5v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="4.0" cy="3.3600000000000003" r=".08" fill="#e7d6a8"/>
+<path d="M7.2 2.7v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="7.2" cy="4.5600000000000005" r=".08" fill="#e7d6a8"/>
+</g>
+<text x="640" y="355" font-size="15">20 risers × .15 m · tread 0.40 m · no overhead crossing</text>
+<text x="70" y="410" font-size="18">SERVICE-STAIR / east / Y49</text><g transform="translate(70 610) scale(23 -23)">
+<polyline points="-2,3 0,3 0.0,3.0 0.5,3.0 0.5,2.85 1.0,2.85 1.0,2.7 1.5,2.7 1.5,2.55 2.0,2.55 2.0,2.4 2.5,2.4 2.5,2.25 3.0,2.25 3.0,2.1 3.5,2.1 3.5,1.95 4.0,1.95 4.0,1.8 4.5,1.8 4.5,1.6500000000000001 5.0,1.6500000000000001 5.0,1.5 5.5,1.5 5.5,1.35 6.0,1.35 6.0,1.2000000000000002 6.5,1.2000000000000002 6.5,1.05 7.0,1.05 7.0,0.8999999999999999 7.5,0.8999999999999999 7.5,0.75 8.0,0.75 8.0,0.6000000000000001 8.5,0.6000000000000001 8.5,0.4500000000000002 9.0,0.4500000000000002 9.0,0.30000000000000027 9.5,0.30000000000000027 9.5,0.1499999999999999 10.0,0.1499999999999999 12,0" fill="none" stroke="#c9b997" stroke-width=".12"/>
+<path d="M-2 -.35H12" stroke="#779084" stroke-width=".05"/><path d="M0 0V7M10 0V7" stroke="#60796c" stroke-width=".03" stroke-dasharray=".2 .2"/>
+<path d="M1.0 2.7v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="1.0" cy="4.5600000000000005" r=".08" fill="#e7d6a8"/>
+<path d="M5.0 1.5v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="5.0" cy="3.3600000000000003" r=".08" fill="#e7d6a8"/>
+<path d="M9.0 0.29999999999999993v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="9.0" cy="2.16" r=".08" fill="#e7d6a8"/>
+</g>
+<text x="70" y="645" font-size="15">20 risers × .15 m · tread 0.50 m · no overhead crossing</text>
+<text x="640" y="410" font-size="18">VAULT-STAIR / north / X82</text><g transform="translate(640 610) scale(23 -23)">
+<polyline points="-2,0 0,0 0.0,0.15 0.6,0.15 0.6,0.3 1.2,0.3 1.2,0.44999999999999996 1.8,0.44999999999999996 1.8,0.6 2.4,0.6 2.4,0.75 3.0,0.75 3.0,0.8999999999999999 3.6,0.8999999999999999 3.6,1.05 4.2,1.05 4.2,1.2 4.8,1.2 4.8,1.3499999999999999 5.4,1.3499999999999999 5.4,1.5 6.0,1.5 6.0,1.65 6.6,1.65 6.6,1.7999999999999998 7.2,1.7999999999999998 7.2,1.95 7.8,1.95 7.8,2.1 8.4,2.1 8.4,2.25 9.0,2.25 9.0,2.4 9.6,2.4 9.6,2.55 10.2,2.55 10.2,2.6999999999999997 10.8,2.6999999999999997 10.8,2.85 11.4,2.85 11.4,3.0 12.0,3.0 14,3" fill="none" stroke="#c9b997" stroke-width=".12"/>
+<path d="M-2 -.35H14" stroke="#779084" stroke-width=".05"/><path d="M0 0V7M12 0V7" stroke="#60796c" stroke-width=".03" stroke-dasharray=".2 .2"/>
+<path d="M1.2000000000000002 0.30000000000000004v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="1.2000000000000002" cy="2.16" r=".08" fill="#e7d6a8"/>
+<path d="M6.0 1.5v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="6.0" cy="3.3600000000000003" r=".08" fill="#e7d6a8"/>
+<path d="M10.8 2.7v2" stroke="#cc9f79" stroke-width=".09"/><circle cx="10.8" cy="4.5600000000000005" r=".08" fill="#e7d6a8"/>
+</g>
+<text x="640" y="645" font-size="15">20 risers × .15 m · tread 0.60 m · no overhead crossing</text>
+<text x="60" y="790" font-size="18">Low cover / same-level section</text><path d="M70 890H540M180 890V840H280V890" fill="none" stroke="#c9b997" stroke-width="3"/><text x="185" y="825" font-size="16">cover 1.25 m</text><path d="M340 890V816" stroke="#cc9f79" stroke-width="3"/><text x="365" y="820" font-size="16">standing eye 1.86</text><text x="365" y="855" font-size="16">low eye 1.023</text><text x="650" y="800" font-size="17">Foyer screen top +6.4; stand eye +4.86.</text><text x="650" y="832" font-size="17">B north stair eyes +1.86 → +4.86.</text><text x="650" y="864" font-size="17">B low chest top +1.25: elevated views over it.</text><text x="650" y="896" font-size="17">No ballistic, crouch movement or balance proof.</text></g></svg>

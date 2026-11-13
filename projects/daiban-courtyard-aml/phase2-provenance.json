@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "baselineSha256": "a4cf7d555c7bd2d65852eace556aa8ddd6d3b9b8645a916987d5e1626a106e0f",
+  "sourceSha256": "3f80fd3bf1b47d8650f14522b33370bf84dc11018ffaff60a160e13597e1389f",
+  "admitted": [
+    "north radial bracing",
+    "lower SaKi perimeter frames",
+    "lower SaKi springline transoms"
+  ],
+  "notAdmittedGeometry": "studies/context-comparison/README.md",
+  "coreChanged": false
+}

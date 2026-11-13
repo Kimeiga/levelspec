@@ -1,0 +1,640 @@
+[
+ {
+  "id": "01-city-roofs",
+  "position": [
+   200,
+   -120,
+   170
+  ],
+  "target": [
+   54,
+   46,
+   10
+  ],
+  "projection": "orthographic",
+  "height": 150,
+  "roofs": true
+ },
+ {
+  "id": "02-city-roofs-north",
+  "position": [
+   -90,
+   210,
+   170
+  ],
+  "target": [
+   54,
+   46,
+   10
+  ],
+  "projection": "orthographic",
+  "height": 150,
+  "roofs": true
+ },
+ {
+  "id": "03-upper-grade-roofs-off",
+  "position": [
+   190,
+   -110,
+   150
+  ],
+  "target": [
+   54,
+   48,
+   4
+  ],
+  "projection": "orthographic",
+  "height": 118,
+  "roofs": false
+ },
+ {
+  "id": "04-top-roofs-off",
+  "position": [
+   54,
+   45.9,
+   200
+  ],
+  "target": [
+   54,
+   46,
+   0
+  ],
+  "projection": "orthographic",
+  "height": 96,
+  "roofs": false
+ },
+ {
+  "id": "05-yamen-void",
+  "position": [
+   86,
+   -8,
+   70
+  ],
+  "target": [
+   53,
+   46,
+   2
+  ],
+  "projection": "perspective",
+  "fov": 45,
+  "roofs": false
+ },
+ {
+  "id": "06-void-from-above",
+  "position": [
+   54,
+   20,
+   95
+  ],
+  "target": [
+   54,
+   48,
+   0
+  ],
+  "projection": "perspective",
+  "fov": 50,
+  "roofs": true
+ },
+ {
+  "id": "07-site-a-roofs-off",
+  "position": [
+   2,
+   30,
+   40
+  ],
+  "target": [
+   17,
+   61,
+   3.4
+  ],
+  "projection": "perspective",
+  "fov": 45,
+  "roofs": false
+ },
+ {
+  "id": "08-site-b-roofs-off",
+  "position": [
+   112,
+   30,
+   42
+  ],
+  "target": [
+   88,
+   58,
+   1
+  ],
+  "projection": "perspective",
+  "fov": 45,
+  "roofs": false
+ },
+ {
+  "id": "e01-t-spawn-to-gate",
+  "feet": [
+   52,
+   6,
+   0.0
+  ],
+  "lookAt": [
+   48,
+   14,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e02-tunnel-mouth-to-court",
+  "feet": [
+   48,
+   14.5,
+   0.0
+  ],
+  "lookAt": [
+   54.201,
+   28.406,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e03-lung-chun-w-to-ruin",
+  "feet": [
+   42.618,
+   21.151,
+   0.0
+  ],
+  "lookAt": [
+   54.898,
+   20.436,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e04-gate-to-hall",
+  "feet": [
+   53.852,
+   32.391,
+   0.0
+  ],
+  "lookAt": [
+   52.719,
+   45.341,
+   1.7
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e05-front-court-to-east-lane",
+  "feet": [
+   61.473,
+   37.073,
+   0.0
+  ],
+  "lookAt": [
+   64.698,
+   48.397,
+   1.7
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e06-front-court-to-arcade",
+  "feet": [
+   45.403,
+   37.173,
+   0.0
+  ],
+  "lookAt": [
+   34.576,
+   34.72,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e07-hall-interior-to-rear-door",
+  "feet": [
+   52.763,
+   44.843,
+   1.7
+  ],
+  "lookAt": [
+   43.716,
+   49.573,
+   1.7
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e08-inner-court-to-terrace",
+  "feet": [
+   49.251,
+   50.559,
+   1.7
+  ],
+  "lookAt": [
+   48.859,
+   55.042,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e09-terrace-down-to-court",
+  "feet": [
+   46.98,
+   53.572,
+   3.4
+  ],
+  "lookAt": [
+   52.283,
+   50.322,
+   1.7
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e09c-terrace-parapet-crouch",
+  "feet": [
+   46.98,
+   53.572,
+   3.4
+  ],
+  "lookAt": [
+   52.283,
+   50.322,
+   1.7
+  ],
+  "stance": "crouch",
+  "roofs": true
+ },
+ {
+  "id": "e10-terrace-along",
+  "feet": [
+   37.124,
+   57.227,
+   3.4
+  ],
+  "lookAt": [
+   65.515,
+   59.711,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e10c-planter-crouch-to-gallery",
+  "feet": [
+   51.106,
+   55.74,
+   3.4
+  ],
+  "lookAt": [
+   34.912,
+   53.822,
+   3.4
+  ],
+  "stance": "crouch",
+  "roofs": true
+ },
+ {
+  "id": "e11-gallery-window-to-terrace",
+  "feet": [
+   34.206,
+   53.86,
+   3.4
+  ],
+  "lookAt": [
+   49.594,
+   58.117,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e12-school-landing-up",
+  "feet": [
+   32.821,
+   43.299,
+   1.7
+  ],
+  "lookAt": [
+   34.105,
+   48.13,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e13-well-court-to-steps",
+  "feet": [
+   21.178,
+   29.609,
+   0.0
+  ],
+  "lookAt": [
+   22.273,
+   36.523,
+   1.7
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e14-sai-shing-upper-to-a",
+  "feet": [
+   15.442,
+   47.729,
+   3.4
+  ],
+  "lookAt": [
+   9.779,
+   56.726,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e15-a-sw-arrival",
+  "feet": [
+   9.112,
+   53.794,
+   3.4
+  ],
+  "lookAt": [
+   15.603,
+   58.335,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e16-a-east-door",
+  "feet": [
+   23.972,
+   58.123,
+   3.4
+  ],
+  "lookAt": [
+   17.162,
+   58.594,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e17-a-north-mouth",
+  "feet": [
+   17.292,
+   69.002,
+   3.4
+  ],
+  "lookAt": [
+   22.389,
+   62.828,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e18-a-plant-looking-south",
+  "feet": [
+   15.759,
+   59.322,
+   3.4
+  ],
+  "lookAt": [
+   12.117,
+   52.306,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e19-kwong-ming-street",
+  "feet": [
+   75.376,
+   11.066,
+   0.0
+  ],
+  "lookAt": [
+   80.158,
+   33.563,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e20-foundry-mouth",
+  "feet": [
+   89.28,
+   41.847,
+   0.0
+  ],
+  "lookAt": [
+   88.29,
+   57.393,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e21-fishball-door-into-b",
+  "feet": [
+   77.029,
+   46.496,
+   0.0
+  ],
+  "lookAt": [
+   87.312,
+   57.601,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e22-b-plant-up-to-mezzanine",
+  "feet": [
+   88.083,
+   56.415,
+   0.0
+  ],
+  "lookAt": [
+   88.768,
+   64.448,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e23-mezzanine-rail-to-floor",
+  "feet": [
+   88.279,
+   62.149,
+   3.4
+  ],
+  "lookAt": [
+   87.667,
+   54.458,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e24-tongue-to-mouth",
+  "feet": [
+   91.279,
+   57.985,
+   3.4
+  ],
+  "lookAt": [
+   90.112,
+   45.76,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e25-coffin-arrival",
+  "feet": [
+   79.665,
+   65.872,
+   3.4
+  ],
+  "lookAt": [
+   78.105,
+   58.535,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e26-east-lane-top-to-coffin",
+  "feet": [
+   64.773,
+   62.457,
+   3.4
+  ],
+  "lookAt": [
+   66.373,
+   67.114,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e27-youth-hall-from-north-door",
+  "feet": [
+   49.298,
+   81.47,
+   3.4
+  ],
+  "lookAt": [
+   48.837,
+   72.682,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e28-ct-spawn-street",
+  "feet": [
+   46.179,
+   88.843,
+   3.4
+  ],
+  "lookAt": [
+   84.127,
+   86.854,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e29-dentist-to-a-mouth",
+  "feet": [
+   25.448,
+   75.41,
+   3.4
+  ],
+  "lookAt": [
+   18.274,
+   72.281,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e30-rubbish-yard",
+  "feet": [
+   70.487,
+   44.185,
+   0.0
+  ],
+  "lookAt": [
+   71.697,
+   39.451,
+   0.0
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e31-back-yard-to-hall-door",
+  "feet": [
+   37.527,
+   64.089,
+   3.4
+  ],
+  "lookAt": [
+   38.993,
+   70.194,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ },
+ {
+  "id": "e32-east-yard",
+  "feet": [
+   60.558,
+   70.866,
+   3.4
+  ],
+  "lookAt": [
+   64.512,
+   65.446,
+   3.4
+  ],
+  "stance": "stand",
+  "roofs": true
+ }
+]

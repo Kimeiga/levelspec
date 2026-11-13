@@ -1,0 +1,45 @@
+# Independent layout strategy review — r03
+
+**Verdict: accepted for blockout production.** This accepts the developed spatial proposal, not competitive balance or completed 3D checks. No outstanding strategy finding blocks construction. The initial r02 foyer-interface issue is resolved in r03.
+
+## Evidence and independent sequence
+
+I first inspected `reviews/evidence/layout-r02.png`, `layout.svg` and the actual floor, wall, doorway, stair and obstacle coordinates in `layout.json`, before reading the author's reasoning. I then read `brief.md` and `inventory.md`, followed by `design.md`. Return review inspected the r03 PNG and revised HALL/FOYER/FOYER-SCREEN coordinates. This is a drawing-level assessment. There is no compiled geometry, measured walk, weapon test or observed match evidence in this packet.
+
+Population is 5v5 CT/T, no round respawn, two sites. The harness body is radius .30 m, standing 2 m/crouching 1.1 m, standing speed 3.4 m/s. The author's 115 s round, 40 s plant timer, 3.2 s plant and 5/10 s kit/no-kit defuses are explicit design assumptions. Rifles, scoped weapons and finite utility are provisional; the harness implements none of their combat effects.
+
+## Finding closed before production
+
+**S1 — r02 HALL/FOYER gate bypass (resolved r03).** The r02 hall extended south to y40 while the foyer occupied y34–44. Attackers could cross x48 in the shared y40–44 band and go around the west endpoint of HALL-FOYER, invalidating the intended arch encounter and its support reasoning. In r03 HALL begins at y44 and meets the foyer only at the gated wall. FOYER-SCREEN x51–62/y38–40 adds a deliberate choice of 3 m west aisle or 2 m east aisle before the arch. The site connections and defender circulation are preserved. Compiled collision and body-fit checks remain necessary at both screen shoulders.
+
+## Territory, initial contact and five-player choices
+
+The road gives attackers three distinct commitments without giving them a universal observation perch. West garden wraps around the rock spine; foyer/hall gives the useful site switch; drainage commits to lower B. Garden and hall cannot casually exchange support through the spine. Gaining hall permits A pressure or a pantry descent toward B, but the winner still crosses a site threshold and cannot observe either complete plant area from the fork. CT court control secures a rear site rotation; attackers earn access by taking A or B rather than reaching an unguarded public bypass.
+
+A plausible CT 2 A / 2 B / 1 mobile setup preserves both objectives while contesting one forward region. A plausible T 2 garden / 2 foyer / 1 drain default has enough manpower to test the anchors and retain a flank watcher, but the garden pair travels farther and must deliberately synchronize rather than expect simultaneous arrival. CT hall pressure comes through A (or much farther through B/service), not directly through the solid library. Rough centerline estimates put a T front approach to the hall at about 10–12 s and CT via A at about 13–15 s, before contact, screen detours or combat. These are distance/speed estimates, not measured timings. Treat the fifth CT as delayed pressure or a supported A-to-hall push; an uncontested CT hall setup is not guaranteed.
+
+After early resistance, the T hall pair can reverse through the foyer and rejoin the road, or use pantry to threaten B. The west pair pays a larger reset cost; that is a clear commitment with a useful payoff of a separate A entry. CT responding to a drain-only B hit can retain an A anchor and bring the mobile player through rear court or contested hall. Responding with everyone is costly because either the garden or hall can still become A pressure.
+
+## Local sections and player responses
+
+**Road, front flight and foyer.** The road van divides exits, and the diagonal drain cut prevents a straight view of the entire arrival zone. The r03 foyer screen means the first entrant chooses a shoulder before the hall arch. A follower can use the other aisle or stage behind the same shoulder; the 2 m east aisle is materially tighter than the 3 m west aisle and should be exercised with the unchanged capsule. A CT pushing from hall can pressure one shoulder but must expose through the arch before seeing the front flight. The screen's 3.4 m height is a prediction of optical separation, to be checked in the model.
+
+**Garden flight, bench and hedge.** The garden has one meaningful next objective, so early commitment is legible. The bench supplies a low pause beyond the crest and the hedge separates preparation from the salon door. An isolated CT can delay that threshold but cannot also cover the hall arrival through the solid spine. A pair must advance around the hedge with a follower's view; nominal stair width alone does not establish trading. Garden attackers can retreat, but doing so sacrifices time and pressure while CT retain the other approaches.
+
+**A salon.** Two southern arches are separated by a substantial wall/spine interval, with A-SCULPTURE interrupting the direct relation between the garden arrival and a northern anchor. CT can hold a crossfire with two players or surrender part of the room and retain the northern retreat. A single anchor cannot be assumed to cover every offset across the two broad openings and the whole plant footprint from one static point. After T capture, a west plant can favor garden support while an east plant favors hall support; whichever side is weak gives a retake route a better chance to isolate a duel. A-CREDENZA and A-PIANO have useful side exposure rather than supplying complete refuge.
+
+**Hall, pantry and service flight.** The hearth splits the first view and makes the hall a territory fight rather than an observation tower. Holding it costs the mobile defender and exposes that player to a T pair using separate shoulders. A pantry descent toward B gives a second entry axis but commits the pair to a contained 3 m transfer; returning costs climbing the flight and abandoning B observation. Check intermediate stair exposure and the second player's view in actual captures.
+
+**B vault and northern flight.** B-CISTERN separates the south drain and west service entries. A drain player can pin one shoulder while the service pair threatens the other; an anchor can delay, retreat toward north or request another defender. B-CHEST's low protection is conditional on level attackers. The claimed elevated-stair oversight depends on the B-NORTH arch and actual eye positions, so do not infer a full upper-site view from the plan. An anchor on the north return route has a useful fallback but must expose again to contest the objective.
+
+**Rear court and spawns.** The 50 m court is a significant defender resource, screened from the hall by the library core. Its open north strip permits long same-level court sightlines once a site is lost. CT-SCREEN partitions the court but does not promise to conceal every authored CT spawn from enemies who have already won A's north threshold. That is earned attacker territory, not an initial spawn-to-spawn line. Document this honestly and inspect offsets during blockout review.
+
+## Post-plant and casualty stress cases
+
+For 2v2 A, T garden/hall positions create separated support while CT north/hall retakers can isolate one side using the sculpture. Retakers do not get that split for free: a CT already on the wrong side may have to pass a held site or take the long rear rotation. Low utility makes that a commitment, not an assured safe clear. An isolated 1v2 has an objective forcing option or a flank, but no claim of equal odds is warranted.
+
+For 2v2 B, T cistern/drain positions can watch the plant and punish the northern descent; CT north/service pressure can split those tasks if both retakers are already near their entries. A far A defender rotating only after the plant must cover roughly 65–80 m around the rear approaches (about 19–24 s at 3.4 m/s before fighting). A 40 s planted timer then leaves about 6–16 s after a 5/10 s defuse allowance. This makes late low-utility retakes intentionally tight and a high-priority measured-walk/playtest question. It is not evidence that a flank is always timely. Early rotation on reliable information and preserving a nearby defender matter.
+
+## Required next evidence and retained risks
+
+Measure actual spawn/contact and A↔B rotations using the unchanged walker. Capture opposing and follower views through the two foyer aisles, both A arches, both B attack entries and along the complete north/service flights. Verify plant footprints and whether upper B views actually clear the arch. Inspect court and spawn offsets, including the north strip around CT-SCREEN. Exercise both stair directions and real collisions at screen shoulders. Run ten-player tests for hall pressure, delayed garden synchronization, north-stair crossfires, five-body doorway congestion and late kit/no-kit retakes. Weapons, smoke/flash geometry, audio, penetration, economy and competitive balance remain unavailable in the authoring harness.

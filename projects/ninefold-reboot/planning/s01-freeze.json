@@ -1,0 +1,14 @@
+{
+  "revision": "S01",
+  "phase": "Independent raw-alternative comparison; no preference selected",
+  "sha256": {
+    "brief.md": "796d18291555b2c2e2d7e1f319605fe39bd14c54862bffa3dda711e4253a4624",
+    "planning/alternative-a-s01.svg": "fb3c60c85b593c0276d8d515536ca34bcf0d9431926d21495506811d179df496",
+    "planning/alternative-a-s01.png": "b7f35f7f58ac39764704796c826e9d29b75ed0ff05665a95dd245ce720e08051",
+    "planning/alternative-b-s01.svg": "fee230b9cec00dce0c5215a3ecfba15a426c7e222042c15cb2a7533a83f8acab",
+    "planning/alternative-b-s01.png": "0bf36ce191693b34196987a630d88274287f84e19026fa28baa07c3dc6bbdcc7",
+    "planning/alternatives-data.json": "0de3c4b2eec508e56c174291157d3d783b9d65fe90c04b9edc80d91a85f4a153",
+    "references/study.md": "4de1300e9de7123161451a430fa718a7f319084761c34404523bbfdf73221d53",
+    "references/images.json": "08ce84f34c4330ffd5660f644b51c3b95cf0f1c241aecc73ed664a5719a2b89f"
+  }
+}

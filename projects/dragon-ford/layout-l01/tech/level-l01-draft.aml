@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='utf-8'?>
+<architecture version="1" id="dragon-ford" name="Dragon Ford L01" units="meters" validation="playable" description="Dragon Ford L01: Kowloon Walled City-inspired 5v5 bomb-defusal blockout carved from a solid city block on four interweaving district grids. Bounded harness checks only; no balance claim.">
+  <material id="paving" color="#a9a698" />
+  <material id="concrete" color="#b9b5a6" />
+  <material id="mass" color="#8f958f" />
+  <material id="mass2" color="#9c9484" />
+  <material id="mass3" color="#868d96" />
+  <material id="slab" color="#b4ad98" />
+  <material id="stair" color="#b58e76" />
+  <material id="guard" color="#5e7a6c" />
+  <material id="low" color="#8c7a5c" />
+  <material id="tall" color="#5a4f42" />
+  <material id="sill" color="#7d8f8c" />
+  <material id="court" color="#c9bd92" />
+  <material id="asite" color="#d6a15c" />
+  <material id="bsite" color="#73b4a3" />
+  <material id="rust" color="#9a5a4c" />
+  <material id="tile" color="#5f7d6e" />
+  <material id="net" color="#3c4a50" />
+  <material id="tower" color="#a39f95" />
+  <material id="tower2" color="#8e9aa0" />
+  <material id="tower3" color="#b0a48f" />
+  <material id="window" color="#3f5560" />
+  <material id="sign" color="#b8423a" />
+  <material id="pipe" color="#70675c" />
+  <material id="tin" color="#8fa3a8" />
+  <assembly id="city" label="Carved city block: masses, floors, stairs" coincident-material="retained-face">
+    <extrusion id="mass-0-0" group="mass-0" profile="mass-0-0-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-0-1" group="mass-0" profile="mass-0-1-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-0-2" group="mass-0" profile="mass-0-2-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-0-3" group="mass-0" profile="mass-0-3-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-0-4" group="mass-0" profile="mass-0-4-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-0-5" group="mass-0" profile="mass-0-5-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-0-6" group="mass-0" profile="mass-0-6-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-0-7" group="mass-0" profile="mass-0-7-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-0-8" group="mass-0" profile="mass-0-8-plan" position="0 0 0" distance="3.4" material="mass" label="Storey 0 solid building mass (z 0–3.4)" />
+    <extrusion id="mass-1-0" group="mass-1" profile="mass-1-0-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-1" group="mass-1" profile="mass-1-1-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-2" group="mass-1" profile="mass-1-2-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-3" group="mass-1" profile="mass-1-3-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-4" group="mass-1" profile="mass-1-4-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-5" group="mass-1" profile="mass-1-5-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-6" group="mass-1" profile="mass-1-6-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-7" group="mass-1" profile="mass-1-7-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-8" group="mass-1" profile="mass-1-8-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-9" group="mass-1" profile="mass-1-9-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-10" group="mass-1" profile="mass-1-10-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-1-11" group="mass-1" profile="mass-1-11-plan" position="0 0 3.4" distance="3.4" material="mass2" label="Storey 1 solid building mass (z 3.4–6.8)" />
+    <extrusion id="mass-2-0" group="mass-2" profile="mass-2-0-plan" position="0 0 6.8" distance="3.4" material="mass3" label="Storey 2 solid building mass (z 6.8–10.2)" />
+    <extrusion id="mass-2-1" group="mass-2" profile="mass-2-1-plan" position="0 0 6.8" distance="3.4" material="mass3" label="Storey 2 solid building mass (z 6.8–10.2)" />
+    <extrusion id="mass-2-2" group="mass-2" profile="mass-2-2-plan" position="0 0 6.8" distance="3.4" material="mass3" label="Storey 2 solid building mass (z 6.8–10.2)" />
+    <slab id="floor-0-0" group="floor-0" profile="floor-0-0-plan" elevation="0" thickness="0.3" material="paving" label="Walking floor z=0" />
+    <slab id="floor-1_7-0" group="floor-0" profile="floor-1_7-0-plan" elevation="1.7" thickness="1.7" material="slab" label="Walking floor z=1.7" />
+    <slab id="floor-1_7-1" group="floor-0" profile="floor-1_7-1-plan" elevation="1.7" thickness="1.7" material="slab" label="Walking floor z=1.7" />
+    <slab id="floor-3_4-0" group="floor-1" profile="floor-3_4-0-plan" elevation="3.4" thickness="0.3" material="slab" label="Walking floor z=3.4" />
+    <extrusion id="LAND_E-head" group="apertures" profile="LAND_E-head-plan" position="0 0 4.2" distance="2.6" material="concrete" label="LAND_E lintel at 2.5 m" />
+    <extrusion id="GW1-sill" group="apertures" profile="GW1-sill-plan" position="0 0 3.4" distance="1.1" material="sill" label="GW1 sill 1.1 m: view only, no passage" />
+    <extrusion id="GW1-head" group="apertures" profile="GW1-head-plan" position="0 0 5.7" distance="1.1" material="concrete" label="GW1 lintel at 2.3 m" />
+    <extrusion id="GW2-sill" group="apertures" profile="GW2-sill-plan" position="0 0 3.4" distance="1.1" material="sill" label="GW2 sill 1.1 m: view only, no passage" />
+    <extrusion id="GW2-head" group="apertures" profile="GW2-head-plan" position="0 0 5.7" distance="1.1" material="concrete" label="GW2 lintel at 2.3 m" />
+    <extrusion id="BACKDOOR-head" group="apertures" profile="BACKDOOR-head-plan" position="0 0 5.9" distance="0.9" material="concrete" label="BACKDOOR lintel at 2.5 m" />
+    <extrusion id="GAL_W-head" group="apertures" profile="GAL_W-head-plan" position="0 0 5.9" distance="0.9" material="concrete" label="GAL_W lintel at 2.5 m" />
+    <extrusion id="FB_ST-head" group="apertures" profile="FB_ST-head-plan" position="0 0 2.5" distance="0.9" material="concrete" label="FB_ST lintel at 2.5 m" />
+    <extrusion id="FB_YARD-head" group="apertures" profile="FB_YARD-head-plan" position="0 0 2.5" distance="0.9" material="concrete" label="FB_YARD lintel at 2.5 m" />
+    <extrusion id="FB_B-head" group="apertures" profile="FB_B-head-plan" position="0 0 2.5" distance="0.9" material="concrete" label="FB_B lintel at 2.5 m" />
+    <extrusion id="FBR_W-sill" group="apertures" profile="FBR_W-sill-plan" position="0 0 3.4" distance="1.1" material="sill" label="FBR_W sill 1.1 m: view only, no passage" />
+    <extrusion id="YOUTH_N-head" group="apertures" profile="YOUTH_N-head-plan" position="0 0 5.9" distance="0.9" material="concrete" label="YOUTH_N lintel at 2.5 m" />
+    <extrusion id="YOUTH_E-head" group="apertures" profile="YOUTH_E-head-plan" position="0 0 5.9" distance="0.9" material="concrete" label="YOUTH_E lintel at 2.5 m" />
+    <canopy id="Y_HALL-canopy" group="roofs" profile="Y_HALL-canopy-plan" elevation="5.1" thickness="0.3" playable="false" material="tin" label="Middle hall (roofed, open front) cover" />
+    <stairs id="SY1" group="stairs" path="SY1-axis" width="6" count="10" underside="filled" material="stair" label="Hall steps" />
+    <stairs id="SLW2" group="stairs" path="SLW2-axis" width="5" count="10" underside="filled" material="stair" label="West wing steps" />
+    <stairs id="SY2b" group="stairs" path="SY2b-axis" width="3" count="10" underside="filled" material="stair" label="Inner steps E" />
+    <stairs id="SLE1" group="stairs" path="SLE1-axis" width="4" count="10" underside="filled" material="stair" label="East lane steps 1" />
+    <stairs id="SLE2" group="stairs" path="SLE2-axis" width="4" count="10" underside="filled" material="stair" label="East lane steps 2" />
+    <stairs id="SW1" group="stairs" path="SW1-axis" width="2.6" count="10" underside="filled" material="stair" label="School stair 1" />
+    <stairs id="SW2" group="stairs" path="SW2-axis" width="2.6" count="10" underside="filled" material="stair" label="School stair 2" />
+    <stairs id="SS1" group="stairs" path="SS1-axis" width="3.5" count="10" underside="filled" material="stair" label="Sai Shing steps 1" />
+    <stairs id="SS2" group="stairs" path="SS2-axis" width="3" count="10" underside="filled" material="stair" label="Sai Shing steps 2" />
+    <stairs id="SB1" group="stairs" path="SB1-axis" width="2.4" count="20" underside="filled" material="stair" label="Foundry stair W" />
+    <stairs id="SB2a" group="stairs" path="SB2a-axis" width="2.4" count="10" underside="filled" material="stair" label="Foundry stair E lower" />
+    <stairs id="SB2b" group="stairs" path="SB2b-axis" width="2.4" count="10" underside="filled" material="stair" label="Foundry stair E upper" />
+    <wall id="G_STRIP" group="guards" path="G_STRIP-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_STRIP_W" group="guards" path="G_STRIP_W-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_MW" group="guards" path="G_MW-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_MS" group="guards" path="G_MS-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_MN1" group="guards" path="G_MN1-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_MN2" group="guards" path="G_MN2-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_T1" group="guards" path="G_T1-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_T2" group="guards" path="G_T2-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_BL" group="guards" path="G_BL-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <wall id="G_CAT" group="guards" path="G_CAT-axis" thickness="0.16" height="1.05" material="guard" label="Guard / parapet" />
+    <extrusion id="RUIN" group="cover" profile="RUIN-plan" position="0 0 0" distance="3.4" material="tall" label="South Gate footing: solid ruin standing on the Lung Chun line" />
+    <extrusion id="RUIN_WALL" group="cover" profile="RUIN_WALL-plan" position="0 0 0" distance="2.6" material="tall" label="Ruin wall screening the Yamen gate from the tunnel mouth" />
+    <extrusion id="SCREEN" group="cover" profile="SCREEN-plan" position="0 0 1.7" distance="3.1" material="tall" label="Spirit screen closing the hall axis" />
+    <extrusion id="TINHAU" group="cover" profile="TINHAU-plan" position="0 0 3.4" distance="4.2" material="tall" label="Tin Hau hall: free-standing closed cella (gaps W 3.5, N 3, E 4 m)" />
+    <extrusion id="A_SCREEN" group="cover" profile="A_SCREEN-plan" position="0 0 3.4" distance="2.6" material="tall" label="Screen wall facing the slot-yard door" />
+    <extrusion id="BOILER" group="cover" profile="BOILER-plan" position="0 0 0" distance="3" material="tall" label="Boiler inside the foundry mouth" />
+    <extrusion id="HALL_W" group="cover" profile="HALL_W-plan" position="0 0 1.7" distance="3.1" material="tall" label="Middle hall west wall: west wing is entered from the rear court or the School landing only" />
+    <extrusion id="HALL_COL0" group="cover" profile="HALL_COL0-plan" position="0 0 1.7" distance="3.1" material="tall" label="Hall front column" />
+    <extrusion id="HALL_COL1" group="cover" profile="HALL_COL1-plan" position="0 0 1.7" distance="3.1" material="tall" label="Hall front column" />
+    <extrusion id="HALL_COL2" group="cover" profile="HALL_COL2-plan" position="0 0 1.7" distance="3.1" material="tall" label="Hall front column" />
+    <extrusion id="HALL_COL3" group="cover" profile="HALL_COL3-plan" position="0 0 1.7" distance="3.1" material="tall" label="Hall front column" />
+    <extrusion id="LION_W" group="cover" profile="LION_W-plan" position="0 0 0" distance="1.8" material="tall" label="Stone lion plinth flanking the gate (tall for crouch, head-high standing)" />
+    <extrusion id="LION_E" group="cover" profile="LION_E-plan" position="0 0 0" distance="1.8" material="tall" label="Stone lion plinth" />
+    <extrusion id="CANNON_GUN" group="cover" profile="CANNON_GUN-plan" position="0 0 0" distance="1" material="low" label="Cannon on its carriage: low cover in the front court" />
+    <extrusion id="STUMP_W" group="cover" profile="STUMP_W-plan" position="0 0 0" distance="1.1" material="low" label="Column stump: low cover west of the ruin" />
+    <extrusion id="STUMP_E" group="cover" profile="STUMP_E-plan" position="0 0 0" distance="1.1" material="low" label="Column stump: low cover east of the ruin" />
+    <extrusion id="PLANTER" group="cover" profile="PLANTER-plan" position="0 0 3.4" distance="1.1" material="low" label="Planter on the rear strip: low cover for the crossing" />
+    <extrusion id="INCENSE" group="cover" profile="INCENSE-plan" position="0 0 3.4" distance="1.1" material="low" label="Incense burner: low cover south of the plant porch" />
+    <extrusion id="A_CRATES" group="cover" profile="A_CRATES-plan" position="0 0 3.4" distance="2.3" material="tall" label="Offering crates: tall cover inside the SW arrival" />
+    <extrusion id="SACKS" group="cover" profile="SACKS-plan" position="0 0 0" distance="1.1" material="low" label="Sand sacks: low cover between the two ground entries" />
+    <extrusion id="CRUCIBLE" group="cover" profile="CRUCIBLE-plan" position="0 0 0" distance="1.2" material="low" label="Crucible stand: low cover on the plant zone edge" />
+    <extrusion id="FURNACE" group="cover" profile="FURNACE-plan" position="0 0 0" distance="3.1" material="tall" label="Furnace block under the mezzanine NE: closes the dead strip" />
+    <extrusion id="MEZZ_SCR_W" group="cover" profile="MEZZ_SCR_W-plan" position="0 0 3.4" distance="2.3" material="tall" label="Screen in front of the Coffin lane arrival" />
+    <extrusion id="MEZZ_SCR_N" group="cover" profile="MEZZ_SCR_N-plan" position="0 0 3.4" distance="2.3" material="tall" label="Screen in front of the NE lane arrival" />
+    <extrusion id="VATS" group="cover" profile="VATS-plan" position="0 0 0" distance="1.2" material="low" label="Fishball vats: low cover in the workshop" />
+    <extrusion id="PL_CRATES" group="cover" profile="PL_CRATES-plan" position="0 0 0" distance="2.4" material="tall" label="Plastics crates: tall cover in the lit yard" />
+    <extrusion id="YOUTH_COL_W" group="cover" profile="YOUTH_COL_W-plan" position="0 0 3.4" distance="3.1" material="tall" label="Youth hall column" />
+    <extrusion id="YOUTH_COL_E" group="cover" profile="YOUTH_COL_E-plan" position="0 0 3.4" distance="3.1" material="tall" label="Youth hall column" />
+    <extrusion id="PINGPONG" group="cover" profile="PINGPONG-plan" position="0 0 3.4" distance="1" material="low" label="Ping-pong table: low cover" />
+    <extrusion id="SHED_W" group="cover" profile="SHED_W-plan" position="0 0 0" distance="2.6" material="tall" label="Squatter shed against the tower wall" />
+    <extrusion id="SHED_E" group="cover" profile="SHED_E-plan" position="0 0 0" distance="2.6" material="tall" label="Squatter shed against the tower wall" />
+    <extrusion id="ARCADE_COL0" group="cover" profile="ARCADE_COL0-plan" position="0 0 3.4" distance="3.1" material="tall" label="Shop arcade column on the frontage" />
+    <extrusion id="ARCADE_COL1" group="cover" profile="ARCADE_COL1-plan" position="0 0 3.4" distance="3.1" material="tall" label="Shop arcade column on the frontage" />
+    <extrusion id="ARCADE_COL2" group="cover" profile="ARCADE_COL2-plan" position="0 0 3.4" distance="3.1" material="tall" label="Shop arcade column on the frontage" />
+    <extrusion id="ARCADE_COL3" group="cover" profile="ARCADE_COL3-plan" position="0 0 3.4" distance="3.1" material="tall" label="Shop arcade column on the frontage" />
+    <extrusion id="ARCADE_COL4" group="cover" profile="ARCADE_COL4-plan" position="0 0 3.4" distance="3.1" material="tall" label="Shop arcade column on the frontage" />
+    <extrusion id="STALL" group="cover" profile="STALL-plan" position="0 0 3.4" distance="1.1" material="low" label="Street stall: low cover at CT spawn" />
+    <roof id="TW_SW-tower-0" group="roofs" profile="TW_SW-tower-0-plan" elevation="34" thickness="23.8" playable="false" material="tower" label="TW_SW: upper storeys, inaccessible" />
+    <roof id="TW_S-tower-0" group="roofs" profile="TW_S-tower-0-plan" elevation="27" thickness="16.8" playable="false" material="tower2" label="TW_S: upper storeys, inaccessible" />
+    <roof id="TW_S-tower-1" group="roofs" profile="TW_S-tower-1-plan" elevation="27" thickness="16.8" playable="false" material="tower2" label="TW_S: upper storeys, inaccessible" />
+    <roof id="TW_SE-tower-0" group="roofs" profile="TW_SE-tower-0-plan" elevation="38" thickness="27.8" playable="false" material="tower3" label="TW_SE: upper storeys, inaccessible" />
+    <roof id="TW_W-tower-0" group="roofs" profile="TW_W-tower-0-plan" elevation="41" thickness="30.8" playable="false" material="tower" label="TW_W: upper storeys, inaccessible" />
+    <roof id="TW_NW-tower-0" group="roofs" profile="TW_NW-tower-0-plan" elevation="30" thickness="19.8" playable="false" material="tower2" label="TW_NW: upper storeys, inaccessible" />
+    <roof id="TW_E-tower-0" group="roofs" profile="TW_E-tower-0-plan" elevation="44" thickness="33.8" playable="false" material="tower3" label="TW_E: upper storeys, inaccessible" />
+    <roof id="TW_N-tower-0" group="roofs" profile="TW_N-tower-0-plan" elevation="37" thickness="26.8" playable="false" material="tower" label="TW_N: upper storeys, inaccessible" />
+    <roof id="TW_N-tower-1" group="roofs" profile="TW_N-tower-1-plan" elevation="37" thickness="26.8" playable="false" material="tower" label="TW_N: upper storeys, inaccessible" />
+    <roof id="TW_NE-tower-0" group="roofs" profile="TW_NE-tower-0-plan" elevation="31" thickness="20.8" playable="false" material="tower2" label="TW_NE: upper storeys, inaccessible" />
+    <roof id="TW_C-tower-0" group="roofs" profile="TW_C-tower-0-plan" elevation="33" thickness="22.8" playable="false" material="tower3" label="TW_C: upper storeys, inaccessible" />
+    <roof id="TW_C-tower-1" group="roofs" profile="TW_C-tower-1-plan" elevation="33" thickness="22.8" playable="false" material="tower3" label="TW_C: upper storeys, inaccessible" />
+    <roof id="TW_C-tower-2" group="roofs" profile="TW_C-tower-2-plan" elevation="33" thickness="22.8" playable="false" material="tower3" label="TW_C: upper storeys, inaccessible" />
+    <roof id="TW_C-tower-3" group="roofs" profile="TW_C-tower-3-plan" elevation="33" thickness="22.8" playable="false" material="tower3" label="TW_C: upper storeys, inaccessible" />
+    <roof id="TW_C-tower-4" group="roofs" profile="TW_C-tower-4-plan" elevation="33" thickness="22.8" playable="false" material="tower3" label="TW_C: upper storeys, inaccessible" />
+    <roof id="TW_C-tower-5" group="roofs" profile="TW_C-tower-5-plan" elevation="33" thickness="22.8" playable="false" material="tower3" label="TW_C: upper storeys, inaccessible" />
+  </assembly>
+  <profile id="mass-0-0-plan" points="108 98; 108 0; 0 0; 0 98">
+    <hole points="22.107 25.914; 30.502 24.584; 30.033 21.621; 42.923 19.579; 43.332 14.904; 45.996 15.137; 45.996 10.004; 27.996 10.004; 27.996 1.996; 82.004 1.996; 82.004 10.004; 76.688 10.004; 78.718 19.552; 78.954 19.502; 78.958 19.501; 78.962 19.5; 84.587 18.305; 86.252 26.138; 80.627 27.333; 82.392 35.64; 89.484 34.132; 90.212 37.556; 90.213 37.56; 90.214 37.564; 91.876 45.381; 95.788 44.549; 97.493 52.57; 98.2 55.896; 98.909 59.229; 98.908 59.229; 99.948 64.12; 79.399 68.488; 75.239 48.917; 76.217 48.709; 75.595 45.783; 74.128 46.095; 73.712 44.139; 73.133 44.261; 73.445 45.728; 69.252 46.793; 69.374 45.397; 68.784 45.345; 68.662 46.74; 68.164 46.697; 67.868 50.076; 68.366 50.119; 68.052 53.713; 67.553 53.67; 67.257 57.056; 63.264 56.708; 63.56 53.32; 63.063 53.277; 63.089 52.978; 62.101 52.891; 61.988 54.186; 61.987 54.186; 61.691 57.574; 58.694 57.312; 58.99 53.924; 41.067 52.356; 40.771 55.743; 35.782 55.307; 36.079 51.912; 36.706 44.748; 35.717 44.661; 35.7 44.86; 34.007 44.712; 33.711 48.099; 31.113 47.871; 31.409 44.485; 29.715 44.337; 29.747 43.97; 24.862 39.154; 20.277 39.88; 20.809 43.239; 17.838 43.709; 17.306 40.351; 17.06 40.39; 16.494 36.826; 20.446 36.2; 19.915 32.85; 18.188 33.123; 14.203 27.166" />
+  </profile>
+  <profile id="mass-0-1-plan" points="78.755 35.399; 78.03 35.553; 80.005 44.845; 78.049 45.261; 78.67 48.188; 88.444 46.11; 86.783 38.293; 79.695 39.8; 79.691 39.801; 79.69 39.797; 78.961 36.369" />
+  <profile id="mass-0-2-plan" points="69.011 42.747; 69.601 42.799; 69.644 42.304; 71.674 37.398; 72.612 41.808; 73.191 41.685; 71.423 33.371; 77.3 32.121; 77.508 33.1; 78.234 32.946; 75.947 22.186; 76.191 22.134; 75.209 17.512; 67.091 18.797; 66.002 31.249; 56.538 30.421; 56.434 31.609; 69.882 32.785; 69.098 41.751; 69.098 41.755; 69.098 41.759" />
+  <profile id="mass-0-3-plan" points="63.161 16.638; 63.12 16.381; 74.583 14.565; 73.613 10.004; 50.004 10.004; 50.004 15.487" />
+  <profile id="mass-0-4-plan" points="55.851 44.005; 62.824 44.615; 62.389 49.596; 62.389 49.6; 62.389 49.604; 62.311 50.492; 63.299 50.58; 63.377 49.683; 63.875 49.726; 64.171 46.347; 63.673 46.304; 64.109 41.323; 56.147 40.626" />
+  <profile id="mass-0-5-plan" points="36.878 31.403; 37.866 31.49; 37.996 29.996; 51.445 31.172; 51.549 29.985; 42.085 29.157; 42.653 22.668; 36.349 23.666; 35.812 29.805; 37.008 29.909" />
+  <profile id="mass-0-6-plan" points="36.881 42.747; 36.915 42.349; 42.896 42.872; 49.866 43.482; 50.162 40.103; 37.212 38.97; 37.299 37.974; 36.31 37.886; 36.223 38.883; 34.53 38.735; 34.233 42.114; 35.927 42.262; 35.892 42.66" />
+  <profile id="mass-0-7-plan" points="36.529 35.388; 37.517 35.475; 37.647 33.989; 36.659 33.902" />
+  <profile id="mass-0-8-plan" points="28.503 36.597; 30.069 41.75; 31.635 41.887; 31.932 38.508; 30.238 38.36; 31.023 29.386; 32.218 29.49; 32.407 27.328; 25.586 28.408; 25.602 31.949; 23.38 32.301; 23.911 35.652; 24.404 35.573; 24.45 35.859" />
+  <profile id="mass-1-0-plan" points="108 98; 108 0; 0 0; 0 98">
+    <hole points="16.494 36.826; 20.446 36.2; 19.915 32.85; 18.188 33.123; 14.203 27.166; 25.572 25.365; 25.602 31.949; 23.38 32.301; 23.911 35.652; 24.404 35.573; 24.45 35.859; 28.503 36.597; 30.069 41.75; 31.635 41.887; 31.932 38.499; 34.53 38.727; 34.233 42.114; 35.927 42.262; 35.892 42.66; 36.881 42.747; 36.915 42.349; 42.896 42.872; 49.866 43.482; 50.162 40.103; 37.212 38.97; 37.996 29.996; 51.445 31.172; 51.549 29.985; 42.085 29.157; 43.332 14.904; 67.248 16.995; 66.002 31.249; 56.538 30.421; 56.434 31.609; 69.882 32.785; 69.098 41.751; 69.098 41.755; 69.098 41.759; 69.011 42.747; 69.601 42.799; 69.644 42.304; 71.674 37.398; 71.884 38.384; 72.463 38.262; 72.255 37.283; 78.132 36.034; 80.005 44.845; 77.07 45.469; 77.692 48.396; 95.788 44.549; 97.493 52.57; 98.2 55.896; 98.907 59.221; 98.908 59.225; 98.909 59.229; 99.947 64.116; 99.948 64.12; 90.656 66.095; 94.104 82.322; 99.9 82.018; 100.319 90.016; 24.415 93.993; 23.996 85.996; 25.993 85.892; 25.522 76.912; 16.535 77.383; 16.247 71.882; 16.743 71.856; 15.721 69.963; 9.991 70.871; 7.206 53.29; 6.642 49.728; 17.994 44.69; 17.837 43.701; 17.306 40.351; 17.06 40.39" />
+    <hole points="80.62 27.335; 78.954 19.502; 84.587 18.305; 86.252 26.138" />
+    <hole points="27.996 10.004; 27.996 1.996; 82.004 1.996; 82.004 10.004" />
+  </profile>
+  <profile id="mass-1-1-plan" points="50.967 84.583; 90.558 82.507; 87.224 66.825; 79.399 68.488; 79.398 68.484; 79.191 67.509; 66.788 68.158; 66.745 68.648; 66.754 68.649; 66.745 68.654; 66.745 68.656; 66.742 68.656; 59.939 72.507; 59.913 72.005; 59.322 72.036; 59.824 81.623; 50.836 82.094" />
+  <profile id="mass-1-2-plan" points="67.756 57.092; 67.05 65.161; 78.565 64.567; 78.359 63.598; 78.358 63.594; 78.357 63.59; 76.695 55.768; 74.617 45.991; 74.128 46.095; 73.92 45.117; 73.341 45.239; 73.445 45.728; 69.252 46.793; 69.374 45.397; 68.784 45.345; 68.662 46.74; 68.164 46.697; 67.868 50.076; 68.366 50.119; 68.052 53.713; 67.553 53.67; 67.258 57.049" />
+  <profile id="mass-1-3-plan" points="63.299 50.58; 63.377 49.683; 63.875 49.726; 64.171 46.347; 63.673 46.304; 64.109 41.323; 56.147 40.626; 55.851 44.005; 62.824 44.615; 62.389 49.596; 62.389 49.6; 62.389 49.604; 62.311 50.492" />
+  <profile id="mass-1-4-plan" points="61.987 54.186; 61.692 57.566; 62.68 57.652; 62.767 56.656; 63.265 56.699; 63.56 53.32; 63.063 53.277; 63.089 52.978; 62.101 52.891; 61.988 54.186" />
+  <profile id="mass-1-5-plan" points="39.847 66.303; 39.355 66.26; 42.69 69.996; 59.17 69.132; 59.206 69.832; 59.797 69.8; 59.771 69.303; 61.756 68.214; 62.366 61.247; 40.457 59.33" />
+  <profile id="mass-1-6-plan" points="29.496 85.708; 47.963 84.74; 47.832 82.252; 37.846 82.775; 37.454 75.285; 28.973 75.73; 29.025 76.724" />
+  <profile id="mass-1-7-plan" points="37.317 72.681; 37.192 70.284; 37.489 70.269; 35.357 65.91; 34.858 65.867; 35.363 60.089; 34.376 60.002; 34.35 60.301; 28.364 59.778; 28.651 56.49; 28.062 56.438; 27.766 59.824; 24.719 60.945; 24.484 59.463; 23.9 59.555; 25.308 68.444; 19.087 69.43; 20.049 71.683; 28.738 71.228; 28.837 73.125" />
+  <profile id="mass-1-8-plan" points="35.335 49.036; 36.323 49.123; 36.706 44.748; 35.717 44.661; 35.7 44.86; 34.007 44.712; 33.711 48.091; 35.404 48.239" />
+  <profile id="mass-1-9-plan" points="35.992 52.908; 36.079 51.912; 36.096 51.721; 35.107 51.634; 35.004 52.821" />
+  <profile id="mass-1-10-plan" points="35.556 57.889; 35.782 55.299; 35.783 55.299; 35.817 54.909; 34.829 54.822; 34.568 57.802" />
+  <profile id="mass-1-11-plan" points="10.483 51.555; 10.638 52.536; 22.49 50.658; 23.476 56.881; 24.061 56.789; 23.31 52.045; 28.271 54.04; 28.254 54.238; 28.844 54.291; 29.419 47.716; 31.113 47.864; 31.409 44.485; 29.715 44.337; 29.747 43.97; 24.862 39.154; 20.277 39.88; 20.808 43.23; 20.808 43.231; 21.293 46.299" />
+  <profile id="mass-2-0-plan" points="108 98; 108 0; 0 0; 0 98">
+    <hole points="23.996 85.996; 99.9 82.018; 100.319 90.016; 24.415 93.993" />
+    <hole points="78.954 19.502; 84.587 18.305; 86.252 26.138; 80.62 27.335" />
+    <hole points="82.004 1.996; 82.004 10.004; 27.996 10.004; 27.996 1.996" />
+    <hole points="51.445 31.172; 51.549 29.985; 42.085 29.157; 43.332 14.904; 67.248 16.995; 66.002 31.249; 56.538 30.421; 56.434 31.609; 69.882 32.785; 69.098 41.751; 69.098 41.755; 69.098 41.759; 69.011 42.747; 69.601 42.799; 69.644 42.304; 71.674 37.398; 71.884 38.384; 72.463 38.262; 72.255 37.283; 78.132 36.034; 80.005 44.845; 74.128 46.095; 73.92 45.117; 73.341 45.239; 73.445 45.728; 69.252 46.793; 69.374 45.397; 68.784 45.345; 68.662 46.74; 68.164 46.697; 67.868 50.076; 68.366 50.119; 68.052 53.713; 67.553 53.67; 67.258 57.049; 67.756 57.092; 66.745 68.648; 66.754 68.649; 66.745 68.654; 66.745 68.656; 66.742 68.656; 59.939 72.507; 59.771 69.303; 61.756 68.214; 62.366 61.247; 40.457 59.33; 39.847 66.303; 39.355 66.26; 42.697 70.004; 37.493 70.276; 35.357 65.91; 34.858 65.867; 35.468 58.894; 35.468 58.89; 35.468 58.886; 35.782 55.299; 35.783 55.299; 36.079 51.912; 36.915 42.349; 42.896 42.872; 49.866 43.482; 50.162 40.103; 37.212 38.97; 37.996 29.996" />
+    <hole points="23.31 52.045; 28.271 54.04; 27.766 59.824; 24.719 60.945; 24.484 59.463; 23.9 59.555; 25.308 68.444; 19.087 69.43; 20.052 71.691; 16.748 71.864; 15.721 69.963; 9.991 70.871; 7.173 53.085; 22.49 50.658; 23.476 56.881; 24.061 56.789" />
+    <hole points="14.203 27.166; 25.572 25.365; 25.602 31.949; 18.188 33.123" />
+  </profile>
+  <profile id="mass-2-1-plan" points="62.311 50.492; 63.299 50.58; 63.377 49.683; 63.875 49.726; 64.171 46.347; 63.673 46.304; 64.109 41.323; 56.147 40.626; 55.851 44.005; 62.824 44.615; 62.389 49.596; 62.389 49.6; 62.389 49.604" />
+  <profile id="mass-2-2-plan" points="62.68 57.652; 62.767 56.656; 63.265 56.699; 63.56 53.32; 63.063 53.277; 63.089 52.978; 62.101 52.891; 61.988 54.186; 61.987 54.186; 61.692 57.566" />
+  <profile id="floor-0-0-plan" points="30.033 21.621; 30.502 24.584; 22.107 25.914; 14.203 27.166; 18.188 33.123; 19.919 32.849; 19.919 32.846; 23.375 32.298; 23.376 32.302; 25.602 31.949; 25.586 28.408; 32.407 27.328; 32.218 29.49; 31.023 29.386; 30.238 38.36; 31.936 38.508; 31.936 38.503; 34.526 38.731; 34.526 38.735; 36.223 38.883; 36.31 37.886; 37.299 37.974; 37.212 38.97; 50.166 40.103; 50.166 40.098; 56.144 40.622; 56.143 40.626; 64.109 41.323; 63.673 46.304; 64.175 46.348; 64.176 46.343; 68.16 46.693; 68.16 46.696; 68.662 46.74; 68.784 45.345; 69.374 45.397; 69.252 46.793; 73.445 45.728; 73.133 44.261; 73.712 44.139; 74.128 46.095; 75.595 45.783; 76.217 48.709; 75.239 48.917; 79.399 68.488; 99.948 64.12; 95.788 44.549; 91.876 45.381; 90.214 37.564; 90.213 37.56; 90.212 37.556; 89.484 34.132; 82.392 35.64; 80.627 27.333; 86.252 26.138; 84.587 18.305; 78.962 19.5; 78.958 19.501; 78.954 19.502; 78.718 19.552; 76.688 10.004; 82.004 10.004; 82.004 1.996; 27.996 1.996; 27.996 10.004; 45.996 10.004; 45.996 15.137; 43.332 14.904; 42.923 19.579">
+    <hole points="98.197 55.9; 95.85 56.399; 96.349 58.747; 93.023 59.454; 92.523 57.106; 95.849 56.399; 95.142 53.074; 97.49 52.574" />
+    <hole points="78.961 36.369; 79.69 39.797; 79.691 39.801; 79.695 39.8; 86.783 38.293; 88.444 46.11; 78.67 48.188; 78.049 45.261; 80.005 44.845; 78.03 35.553; 78.755 35.399" />
+    <hole points="85.112 62.157; 82.764 62.657; 81.35 56.006; 83.698 55.506" />
+    <hole points="69.098 41.755; 69.098 41.751; 69.882 32.785; 56.434 31.609; 56.538 30.421; 66.002 31.249; 67.091 18.797; 75.209 17.512; 76.191 22.134; 75.947 22.186; 78.234 32.946; 77.508 33.1; 77.3 32.121; 71.423 33.371; 73.191 41.685; 72.612 41.808; 71.674 37.398; 69.644 42.304; 69.601 42.799; 69.011 42.747; 69.098 41.759" />
+    <hole points="73.613 10.004; 74.583 14.565; 63.12 16.381; 63.161 16.638; 50.004 15.487; 50.004 10.004" />
+    <hole points="51.549 29.985; 51.445 31.172; 37.996 29.996; 37.866 31.49; 36.878 31.403; 37.008 29.909; 35.812 29.805; 36.349 23.666; 42.653 22.668; 42.085 29.157" />
+    <hole points="36.659 33.902; 37.647 33.989; 37.517 35.475; 36.529 35.388" />
+  </profile>
+  <profile id="floor-1_7-0-plan" points="98.909 59.229; 98.2 55.896; 98.196 55.897; 98.197 55.9; 95.85 56.399; 96.349 58.747; 96.344 58.748; 96.553 59.73" />
+  <profile id="floor-1_7-1-plan" points="31.413 44.485; 31.413 44.481; 34.003 44.707; 34.003 44.712; 35.7 44.86; 35.717 44.661; 36.706 44.748; 36.079 51.92; 36.082 51.92; 36.082 51.916; 41.064 52.352; 41.063 52.356; 58.994 53.924; 58.995 53.921; 61.983 54.183; 61.983 54.186; 61.988 54.186; 62.101 52.891; 63.089 52.978; 63.063 53.277; 63.564 53.321; 63.565 53.317; 67.549 53.665; 67.549 53.669; 68.052 53.713; 68.366 50.119; 67.864 50.075; 67.863 50.08; 63.879 49.73; 63.879 49.727; 63.377 49.683; 63.299 50.58; 62.311 50.492; 62.389 49.604; 62.389 49.6; 62.389 49.596; 62.824 44.615; 55.847 44.005; 55.847 44.009; 49.869 43.485; 49.87 43.482; 42.896 42.872; 36.915 42.349; 36.881 42.747; 35.892 42.66; 35.927 42.262; 34.229 42.114; 34.229 42.118; 31.639 41.89; 31.639 41.887; 30.069 41.75; 28.503 36.597; 24.45 35.859; 24.404 35.573; 23.907 35.652; 23.907 35.656; 20.451 36.204; 20.45 36.199; 16.494 36.826; 17.06 40.39; 17.31 40.35; 17.309 40.346; 20.273 39.876; 20.273 39.881; 24.862 39.154; 29.747 43.97; 29.715 44.337" />
+  <profile id="floor-3_4-0-plan" points="15.721 69.963; 16.743 71.856; 16.247 71.882; 16.535 77.383; 25.522 76.912; 25.993 85.892; 23.996 85.996; 24.415 93.993; 100.319 90.016; 99.9 82.018; 94.104 82.322; 90.656 66.095; 99.948 64.12; 98.907 59.221; 93.233 60.427; 93.026 59.453; 93.023 59.454; 92.523 57.106; 92.527 57.106; 92.526 57.102; 89.877 57.665; 90.584 60.991; 85.111 62.154; 85.112 62.157; 82.764 62.657; 81.35 56.006; 81.354 56.005; 81.104 54.827; 79.148 55.243; 77.07 45.469; 80.005 44.845; 78.132 36.034; 72.255 37.283; 74.128 46.095; 74.617 45.991; 76.695 55.768; 78.357 63.59; 78.358 63.594; 78.359 63.598; 78.565 64.567; 67.05 65.161; 67.756 57.092; 67.254 57.048; 67.253 57.052; 63.269 56.704; 63.269 56.7; 62.767 56.656; 62.68 57.652; 61.688 57.565; 61.687 57.57; 58.699 57.308; 58.995 53.921; 58.999 53.922; 58.999 53.917; 41.06 52.348; 41.06 52.351; 41.064 52.352; 40.768 55.739; 35.786 55.303; 35.787 55.299; 35.782 55.299; 35.556 57.889; 34.568 57.802; 35.404 48.239; 33.707 48.091; 33.707 48.094; 31.117 47.868; 31.117 47.864; 29.419 47.716; 28.844 54.291; 28.254 54.238; 28.271 54.04; 23.31 52.045; 24.061 56.789; 23.476 56.881; 22.49 50.658; 10.638 52.536; 10.483 51.555; 21.293 46.299; 20.808 43.23; 20.804 43.231; 20.805 43.235; 17.841 43.705; 17.841 43.7; 17.836 43.701; 17.994 44.69; 6.642 49.728; 7.206 53.29; 9.991 70.871">
+    <hole points="59.913 72.005; 59.939 72.507; 66.742 68.656; 66.745 68.656; 66.745 68.654; 66.754 68.649; 66.745 68.648; 66.788 68.158; 79.191 67.509; 79.399 68.488; 87.224 66.825; 90.558 82.507; 50.967 84.583; 50.836 82.094; 59.824 81.623; 59.322 72.036" />
+    <hole points="39.355 66.26; 39.847 66.303; 40.457 59.33; 62.366 61.247; 61.756 68.214; 59.771 69.303; 59.797 69.8; 59.206 69.832; 59.17 69.132; 42.69 69.996" />
+    <hole points="37.846 82.775; 47.832 82.252; 47.963 84.74; 29.496 85.708; 29.025 76.724; 28.973 75.73; 37.454 75.285" />
+    <hole points="35.363 60.089; 34.858 65.867; 35.357 65.91; 37.489 70.269; 37.192 70.284; 37.317 72.681; 28.837 73.125; 28.738 71.228; 20.049 71.683; 19.087 69.43; 25.308 68.444; 23.9 59.555; 24.484 59.463; 24.719 60.945; 27.766 59.824; 28.062 56.438; 28.651 56.49; 28.364 59.778; 34.35 60.301; 34.376 60.002" />
+  </profile>
+  <profile id="LAND_E-head-plan" points="35.888 42.664; 36.884 42.751; 36.71 44.744; 35.714 44.657" />
+  <profile id="GW1-sill-plan" points="35.33 49.04; 36.327 49.127; 36.1 51.717; 35.104 51.63" />
+  <profile id="GW1-head-plan" points="35.33 49.04; 36.327 49.127; 36.1 51.717; 35.104 51.63" />
+  <profile id="GW2-sill-plan" points="34.999 52.825; 35.995 52.912; 35.821 54.905; 34.825 54.818" />
+  <profile id="GW2-head-plan" points="34.999 52.825; 35.995 52.912; 35.821 54.905; 34.825 54.818" />
+  <profile id="BACKDOOR-head-plan" points="34.563 57.806; 35.56 57.893; 35.368 60.085; 34.372 59.998" />
+  <profile id="GAL_W-head-plan" points="28.25 54.242; 28.848 54.295; 28.656 56.486; 28.058 56.434" />
+  <profile id="FB_ST-head-plan" points="77.505 33.105; 78.239 32.949; 78.758 35.394; 78.025 35.55" />
+  <profile id="FB_YARD-head-plan" points="72.609 41.813; 73.195 41.688; 73.715 44.134; 73.128 44.258" />
+  <profile id="FB_B-head-plan" points="75.598 45.778; 78.044 45.258; 78.667 48.193; 76.222 48.712" />
+  <profile id="FBR_W-sill-plan" points="71.881 38.389; 72.468 38.265; 73.923 45.112; 73.336 45.236" />
+  <profile id="YOUTH_N-head-plan" points="47.836 82.247; 50.832 82.09; 50.963 84.587; 47.967 84.744" />
+  <profile id="YOUTH_E-head-plan" points="59.202 69.836; 59.801 69.804; 59.917 72.001; 59.317 72.032" />
+  <profile id="Y_HALL-canopy-plan" points="42.896 42.876; 62.82 44.619; 62.385 49.6; 42.461 47.857" />
+  <path id="SY1-axis" points="53.155 40.36 0; 52.858 43.747 1.7" />
+  <path id="SLW2-axis" points="38.573 52.134 1.7; 38.277 55.521 3.4" />
+  <path id="SY2b-axis" points="60.489 54.052 1.7; 60.193 57.439 3.4" />
+  <path id="SLE1-axis" points="66.168 46.518 0; 65.871 49.905 1.7" />
+  <path id="SLE2-axis" points="65.557 53.491 1.7; 65.261 56.878 3.4" />
+  <path id="SW1-axis" points="33.231 38.617 0; 32.934 42.004 1.7" />
+  <path id="SW2-axis" points="32.708 44.594 1.7; 32.412 47.981 3.4" />
+  <path id="SS1-axis" points="21.647 32.572 0; 22.179 35.93 1.7" />
+  <path id="SS2-axis" points="18.791 40.111 1.7; 19.323 43.47 3.4" />
+  <path id="SB1-axis" points="82.524 55.756 0; 83.938 62.407 3.4" />
+  <path id="SB2a-axis" points="96.316 52.824 0; 97.023 56.15 1.7" />
+  <path id="SB2b-axis" points="96.099 57.573 1.7; 92.773 58.28 3.4" />
+  <path id="G_STRIP-axis" points="41.004 52.347 3.4; 59.055 53.926 3.4" />
+  <path id="G_STRIP_W-axis" points="41.069 52.292 3.4; 40.762 55.799 3.4" />
+  <path id="G_MW-axis" points="81.089 54.773 3.4; 82.776 62.716 3.4" />
+  <path id="G_MS-axis" points="79.086 55.26 3.4; 81.16 54.82 3.4" />
+  <path id="G_MN1-axis" points="85.053 62.17 3.4; 90.648 60.982 3.4" />
+  <path id="G_MN2-axis" points="93.171 60.444 3.4; 98.963 59.214 3.4" />
+  <path id="G_T1-axis" points="89.87 57.609 3.4; 90.601 61.053 3.4" />
+  <path id="G_T2-axis" points="89.823 57.68 3.4; 92.582 57.095 3.4" />
+  <path id="G_BL-axis" points="96.336 58.688 1.7; 96.568 59.784 1.7" />
+  <path id="G_CAT-axis" points="77.677 48.342 3.4; 79.157 55.307 3.4" />
+  <profile id="RUIN-plan" points="52.716 17.836; 57.099 18.22; 56.672 23.101; 52.289 22.718" />
+  <profile id="RUIN_WALL-plan" points="48.913 25.735; 59.871 26.694; 59.819 27.291; 48.861 26.333" />
+  <profile id="SCREEN-plan" points="49.014 47.527; 55.988 48.137; 55.935 48.734; 48.962 48.124" />
+  <profile id="TINHAU-plan" points="11.965 60.936; 19.866 59.684; 20.883 66.104; 12.982 67.356" />
+  <profile id="A_SCREEN-plan" points="20.405 56.055; 20.899 55.977; 21.681 60.915; 21.187 60.994" />
+  <profile id="BOILER-plan" points="88.675 48.621; 92.686 47.769; 93.101 49.725; 89.091 50.578" />
+  <profile id="HALL_W-plan" points="42.598 42.85; 43.195 42.902; 42.76 47.883; 42.162 47.831" />
+  <profile id="HALL_COL0-plan" points="45.044 43.566; 45.642 43.618; 45.59 44.216; 44.992 44.163" />
+  <profile id="HALL_COL1-plan" points="48.93 43.905; 49.527 43.958; 49.475 44.556; 48.877 44.503" />
+  <profile id="HALL_COL2-plan" points="56.102 44.533; 56.7 44.585; 56.648 45.183; 56.05 45.131" />
+  <profile id="HALL_COL3-plan" points="59.987 44.873; 60.585 44.925; 60.533 45.523; 59.935 45.471" />
+  <profile id="LION_W-plan" points="49.269 31.99; 50.465 32.094; 50.36 33.29; 49.165 33.185" />
+  <profile id="LION_E-plan" points="57.239 32.687; 58.434 32.792; 58.33 33.987; 57.134 33.882" />
+  <profile id="CANNON_GUN-plan" points="59.026 36.357; 62.015 36.618; 61.927 37.614; 58.939 37.353" />
+  <profile id="STUMP_W-plan" points="45.697 22.342; 46.793 22.438; 46.697 23.533; 45.601 23.437" />
+  <profile id="STUMP_E-plan" points="61.61 24.035; 62.706 24.131; 62.61 25.227; 61.514 25.131" />
+  <profile id="PLANTER-plan" points="45.766 55.976; 53.735 56.673; 53.665 57.47; 45.696 56.773" />
+  <profile id="INCENSE-plan" points="14.301 54.592; 15.684 54.373; 15.872 55.558; 14.489 55.777" />
+  <profile id="A_CRATES-plan" points="8.277 57.47; 9.66 57.251; 9.973 59.226; 8.59 59.445" />
+  <profile id="SACKS-plan" points="82.631 50.008; 85.077 49.488; 85.326 50.662; 82.881 51.182" />
+  <profile id="CRUCIBLE-plan" points="87.879 52.573; 89.836 52.157; 90.085 53.331; 88.129 53.747" />
+  <profile id="FURNACE-plan" points="94.312 60.713; 98.616 59.799; 99.386 63.418; 95.082 64.333" />
+  <profile id="MEZZ_SCR_W-plan" points="80.275 64.413; 80.666 64.33; 81.248 67.069; 80.857 67.152" />
+  <profile id="MEZZ_SCR_N-plan" points="86.239 64.576; 90.641 63.641; 90.724 64.032; 86.322 64.968" />
+  <profile id="VATS-plan" points="74.077 36.696; 76.033 36.28; 76.449 38.236; 74.493 38.652" />
+  <profile id="PL_CRATES-plan" points="82.97 22.742; 84.926 22.326; 85.384 24.478; 83.427 24.894" />
+  <profile id="YOUTH_COL_W-plan" points="43.186 75.682; 43.785 75.65; 43.817 76.25; 43.218 76.281" />
+  <profile id="YOUTH_COL_E-plan" points="53.173 75.158; 53.772 75.127; 53.803 75.726; 53.204 75.758" />
+  <profile id="PINGPONG-plan" points="46.372 73.412; 49.368 73.255; 49.446 74.753; 46.45 74.91" />
+  <profile id="SHED_W-plan" points="36 7.6; 42 7.6; 42 10.5; 36 10.5" />
+  <profile id="SHED_E-plan" points="62 7.6; 68 7.6; 68 10.5; 62 10.5" />
+  <profile id="ARCADE_COL0-plan" points="32.052 86.78; 32.651 86.748; 32.682 87.347; 32.083 87.379" />
+  <profile id="ARCADE_COL1-plan" points="46.033 86.047; 46.632 86.016; 46.663 86.615; 46.064 86.646" />
+  <profile id="ARCADE_COL2-plan" points="60.013 85.314; 60.613 85.283; 60.644 85.882; 60.045 85.913" />
+  <profile id="ARCADE_COL3-plan" points="73.994 84.582; 74.593 84.55; 74.625 85.149; 74.026 85.181" />
+  <profile id="ARCADE_COL4-plan" points="87.975 83.849; 88.574 83.817; 88.606 84.417; 88.006 84.448" />
+  <profile id="STALL-plan" points="64.238 89.499; 68.233 89.29; 68.296 90.488; 64.301 90.697" />
+  <group id="dressing" label="Non-colliding presentation detail" collidable="false" />
+  <profile id="TW_SW-tower-0-plan" points="30 10; 28 10; 28 2; 30 2; 30 0; 0 0; 0 34; 30 34">
+    <hole points="25.568 25.37; 25.598 31.946; 18.19 33.119; 14.21 27.169" />
+  </profile>
+  <profile id="TW_S-tower-0-plan" points="43.336 14.908; 67.244 16.999; 66.807 22; 70 22; 70 10; 30 10; 30 22; 42.715 22" />
+  <profile id="TW_S-tower-1-plan" points="70 0; 30 0; 30 2; 70 2" />
+  <profile id="TW_SE-tower-0-plan" points="82 10; 70 10; 70 22; 70 30; 108 30; 108 0; 70 0; 70 2; 82 2">
+    <hole points="84.584 18.31; 86.247 26.135; 80.623 27.33; 78.959 19.505" />
+  </profile>
+  <profile id="TW_W-tower-0-plan" points="0 62; 8.59 62; 7.178 53.088; 22.487 50.663; 23.473 56.886; 24.065 56.792; 23.315 52.051; 28.267 54.043; 27.762 59.821; 24.722 60.94; 24.487 59.458; 23.895 59.552; 24.283 62; 30 62; 30 34; 0 34" />
+  <profile id="TW_NW-tower-0-plan" points="19.081 69.427; 20.046 71.687; 16.75 71.86; 15.723 69.959; 9.994 70.866; 8.59 62; 0 62; 0 98; 36 98; 36 93.382; 24.419 93.989; 24 86; 36 85.371; 36 67.215; 35.36 65.907; 34.862 65.863; 35.2 62; 30 62; 24.283 62; 25.303 68.441" />
+  <profile id="TW_E-tower-0-plan" points="71.881 38.389; 72.468 38.265; 72.26 37.286; 78.129 36.039; 80 44.842; 74.131 46.09; 73.923 45.112; 73.336 45.236; 73.44 45.725; 70 46.599; 70 72; 108 72; 108 30; 70 30; 70 41.454; 71.673 37.411" />
+  <profile id="TW_N-tower-0-plan" points="59.943 72.5; 59.775 69.305; 61.76 68.216; 62.304 62; 40.219 62; 39.843 66.299; 39.345 66.255; 42.688 70; 37.495 70.272; 36 67.215; 36 85.371; 70 83.589; 70 72; 70 62; 67.323 62; 66.741 68.652" />
+  <profile id="TW_N-tower-1-plan" points="70 91.601; 36 93.382; 36 98; 70 98" />
+  <profile id="TW_NE-tower-0-plan" points="100.315 90.012; 70 91.601; 70 98; 108 98; 108 72; 70 72; 70 83.589; 99.896 82.022" />
+  <profile id="TW_C-tower-0-plan" points="65.998 31.245; 56.534 30.417; 56.43 31.612; 69.878 32.789; 69.094 41.755; 69.007 42.751; 69.604 42.803; 69.648 42.305; 70 41.454; 70 30; 70 22; 66.807 22" />
+  <profile id="TW_C-tower-1-plan" points="69.256 46.788; 69.378 45.393; 68.78 45.341; 68.658 46.736; 68.16 46.693; 67.863 50.079; 68.362 50.123; 68.048 53.709; 67.549 53.665; 67.253 57.052; 67.752 57.096; 67.323 62; 70 62; 70 46.599" />
+  <profile id="TW_C-tower-2-plan" points="63.879 49.73; 64.176 46.344; 63.677 46.3; 64.113 41.319; 56.144 40.622; 55.847 44.009; 62.82 44.619; 62.385 49.6; 62.307 50.496; 63.302 50.584; 63.381 49.687" />
+  <profile id="TW_C-tower-3-plan" points="62.771 56.66; 63.269 56.704; 63.565 53.317; 63.067 53.273; 63.093 52.974; 62.097 52.887; 61.984 54.182; 58.995 53.921; 61.983 54.183; 61.687 57.569; 62.684 57.656" />
+  <profile id="TW_C-tower-4-plan" points="40.453 59.326; 40.219 62; 62.304 62; 62.37 61.243" />
+  <profile id="TW_C-tower-5-plan" points="35.786 55.303; 35.787 55.303; 36.082 51.916; 36.083 51.916; 36.919 42.353; 42.896 42.876; 55.288 43.96; 49.869 43.485; 50.166 40.099; 37.216 38.966; 38 30; 51.449 31.177; 51.553 29.981; 42.089 29.153; 42.715 22; 30 22; 30 34; 30 62; 35.2 62; 35.472 58.89" />
+  <player radius="0.25" height="2" step="0.25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="T" position="52 6 0" kind="attacker_spawn" element="floor-0-0" movement="land" />
+  <marker id="CT" position="46.179 88.843 3.4" kind="defender_spawn" element="floor-3_4-0" movement="land" />
+  <marker id="A" position="15.603 58.335 3.4" kind="objective" element="floor-3_4-0" movement="land" />
+  <marker id="B" position="88.29 57.393 0" kind="objective" element="floor-0-0" movement="land" />
+  <marker id="J-TA-school-start" position="52 6 0" kind="poi" element="floor-0-0" movement="land" />
+  <marker id="J-TA-school-end" position="15.603 58.335 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <route id="J-TA-school" from="J-TA-school-start" to="J-TA-school-end" min-routes="1" max-distance="113" movement="land" />
+  <marker id="J-TA-saishing-start" position="52 6 0" kind="poi" element="floor-0-0" movement="land" />
+  <marker id="J-TA-saishing-end" position="15.603 58.335 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <route id="J-TA-saishing" from="J-TA-saishing-start" to="J-TA-saishing-end" min-routes="1" max-distance="120" movement="land" />
+  <marker id="J-TB-kwong-start" position="52 6 0" kind="poi" element="floor-0-0" movement="land" />
+  <marker id="J-TB-kwong-end" position="87.899 57.476 0" kind="poi" element="floor-0-0" movement="land" />
+  <route id="J-TB-kwong" from="J-TB-kwong-start" to="J-TB-kwong-end" min-routes="1" max-distance="118" movement="land" />
+  <marker id="J-TB-fishball-start" position="52 6 0" kind="poi" element="floor-0-0" movement="land" />
+  <marker id="J-TB-fishball-end" position="87.899 57.476 0" kind="poi" element="floor-0-0" movement="land" />
+  <route id="J-TB-fishball" from="J-TB-fishball-start" to="J-TB-fishball-end" min-routes="1" max-distance="118" movement="land" />
+  <marker id="J-T-mid-start" position="52 6 0" kind="poi" element="floor-0-0" movement="land" />
+  <marker id="J-T-mid-end" position="38.12 57.314 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <route id="J-T-mid" from="J-T-mid-start" to="J-T-mid-end" min-routes="1" max-distance="101" movement="land" />
+  <marker id="J-T-rot-start" position="39.655 21.62 0" kind="poi" element="floor-0-0" movement="land" />
+  <marker id="J-T-rot-end" position="77.247 19.869 0" kind="poi" element="floor-0-0" movement="land" />
+  <route id="J-T-rot" from="J-T-rot-start" to="J-T-rot-end" min-routes="1" max-distance="63" movement="land" />
+  <marker id="J-CT-mid-start" position="46.179 88.843 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <marker id="J-CT-mid-end" position="38.12 57.314 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <route id="J-CT-mid" from="J-CT-mid-start" to="J-CT-mid-end" min-routes="1" max-distance="58" movement="land" />
+  <marker id="J-CT-A-start" position="46.179 88.843 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <marker id="J-CT-A-end" position="15.603 58.335 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <route id="J-CT-A" from="J-CT-A-start" to="J-CT-A-end" min-routes="1" max-distance="105" movement="land" />
+  <marker id="J-CT-A-outer-start" position="46.179 88.843 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <marker id="J-CT-A-outer-end" position="15.603 58.335 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <route id="J-CT-A-outer" from="J-CT-A-outer-start" to="J-CT-A-outer-end" min-routes="1" max-distance="101" movement="land" />
+  <marker id="J-CT-B-start" position="46.179 88.843 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <marker id="J-CT-B-end" position="87.899 57.476 0" kind="poi" element="floor-0-0" movement="land" />
+  <route id="J-CT-B" from="J-CT-B-start" to="J-CT-B-end" min-routes="1" max-distance="99" movement="land" />
+  <marker id="J-CT-B-outer-start" position="46.179 88.843 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <marker id="J-CT-B-outer-end" position="87.899 57.476 0" kind="poi" element="floor-0-0" movement="land" />
+  <route id="J-CT-B-outer" from="J-CT-B-outer-start" to="J-CT-B-outer-end" min-routes="1" max-distance="123" movement="land" />
+  <marker id="J-CT-rot-start" position="15.603 58.335 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <marker id="J-CT-rot-end" position="81.792 63.375 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <route id="J-CT-rot" from="J-CT-rot-start" to="J-CT-rot-end" min-routes="1" max-distance="117" movement="land" />
+  <marker id="J-half-start" position="21.966 37.786 1.7" kind="poi" element="floor-1_7-1" movement="land" />
+  <marker id="J-half-end" position="65.706 51.798 1.7" kind="poi" element="floor-1_7-1" movement="land" />
+  <route id="J-half" from="J-half-start" to="J-half-end" min-routes="1" max-distance="77" movement="land" />
+  <marker id="J-low-link-start" position="53.59 35.379 0" kind="poi" element="floor-0-0" movement="land" />
+  <marker id="J-low-link-end" position="80.2 33.759 0" kind="poi" element="floor-0-0" movement="land" />
+  <route id="J-low-link" from="J-low-link-start" to="J-low-link-end" min-routes="1" max-distance="64" movement="land" />
+  <marker id="J-catwalk-start" position="78.754 59.42 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <marker id="J-catwalk-end" position="76.026 40.575 3.4" kind="poi" element="floor-3_4-0" movement="land" />
+  <route id="J-catwalk" from="J-catwalk-start" to="J-catwalk-end" min-routes="1" max-distance="34" movement="land" />
+  <no-spawn-los markers="T CT" />
+</architecture>

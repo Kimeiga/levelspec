@@ -1,0 +1,56 @@
+{
+  "revision": "L02",
+  "scope": "Centerline floor-support sanity only, .25 m samples against drawn flat/stair/ramp envelopes. Not a body/collision/navigation test; wall openings, guards, stance and intermediate tread heights still require compiled checks.",
+  "routes": [
+    {
+      "route": "R01",
+      "segments": 36,
+      "issues": []
+    },
+    {
+      "route": "R02",
+      "segments": 17,
+      "issues": []
+    },
+    {
+      "route": "R03",
+      "segments": 10,
+      "issues": []
+    },
+    {
+      "route": "R04",
+      "segments": 11,
+      "issues": []
+    },
+    {
+      "route": "R05",
+      "segments": 30,
+      "issues": []
+    },
+    {
+      "route": "R06",
+      "segments": 27,
+      "issues": []
+    },
+    {
+      "route": "R07",
+      "segments": 15,
+      "issues": []
+    },
+    {
+      "route": "R08",
+      "segments": 13,
+      "issues": []
+    },
+    {
+      "route": "R09",
+      "segments": 19,
+      "issues": []
+    },
+    {
+      "route": "R10",
+      "segments": 15,
+      "issues": []
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "exterior-enclosure",
+    "position": [
+      70,
+      -85,
+      65
+    ],
+    "target": [
+      0,
+      0,
+      4
+    ],
+    "projection": "perspective",
+    "fov": 58,
+    "appearance": "full-render"
+  },
+  {
+    "id": "reactor-supports",
+    "position": [
+      13,
+      -7,
+      -2
+    ],
+    "target": [
+      2,
+      5,
+      -4.5
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  }
+]

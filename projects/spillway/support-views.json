@@ -1,0 +1,66 @@
+[
+  {
+    "id": "a-follower",
+    "position": [
+      17,
+      59,
+      1.6
+    ],
+    "target": [
+      21,
+      75,
+      1.6
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-east-follower",
+    "position": [
+      89,
+      62,
+      1.6
+    ],
+    "target": [
+      78,
+      75,
+      1.6
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-rear-retake",
+    "position": [
+      22,
+      84,
+      1.6
+    ],
+    "target": [
+      21,
+      73,
+      1.6
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-rear-retake",
+    "position": [
+      77,
+      82,
+      1.6
+    ],
+    "target": [
+      78,
+      75,
+      1.6
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  }
+]

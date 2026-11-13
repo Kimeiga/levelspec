@@ -1,0 +1,94 @@
+{
+  "status": "Three AML map prototypes authored and independently reviewed; Galini publication limitations retained",
+  "maps": [
+    {
+      "map": "Ninefold",
+      "revision": "R08",
+      "preferredSource": "projects/ninefold-reboot/level.aml",
+      "sourceSha256": "d44fb0afd227ac731300adc53726895efc51cf4f2cc4aa5d18172cb29c20d075",
+      "physicalHash": "0d91b92edb233bd4f3aca3189fe46bb008f34e63b5dfc186cacc27c98be1267b",
+      "renderHash": "6d217e730d2b43e6b3de2d78431f7673ce21f08b63ceac2e5c6c66fe74387918",
+      "independentScopes": "strategy, local/visibility, architecture accepted within recorded limits",
+      "ordinaryCliPublicationPassed": true,
+      "authorManifest": "projects/ninefold-reboot/reviews/compiled-r08-freeze.json",
+      "authorManifestSha256": "681d01221d0bae67e259fabceaa754cdfd304e647bfa5cee2f5b54d726b3f6a5",
+      "retainedFilesVerified": 83,
+      "archivedLandingPage": [
+        {
+          "originalPath": "README.md",
+          "historicalCopy": "reviews/readme-at-r08-handoff.md",
+          "sha256": "fb1a4b12b60cc5092530c1e680122a4d0859c0e6457f49a76dd947ac5a2ce592"
+        }
+      ],
+      "deliveryFiles": {
+        "projects/ninefold-reboot/level.aml": "d44fb0afd227ac731300adc53726895efc51cf4f2cc4aa5d18172cb29c20d075",
+        "projects/ninefold-reboot/reviews/evidence/compiled-r08/architecture-roofs.png": "e44dd3acf3759d40c7f7880687034664cd905c11c64d57073e59d6a962cb97a6",
+        "projects/ninefold-reboot/reviews/evidence/compiled-r08/native-plan.png": "cd2271dfc5608dcde3e014bd8201d8ebf0223f87d582d2eae49e44abdfd28066",
+        "projects/ninefold-reboot/reviews/compiled-strategy-r08.md": "67351398293626daeccbfb278d3bac9470f0c311c1be3ad5f2dfc19d0885e82a",
+        "projects/ninefold-reboot/reviews/compiled-spatial-r08.md": "ee705433d74ee9d1cc1a6b2b6ca6ff5df25b3fd79b69faca84ed48c30a7bd87d",
+        "projects/ninefold-reboot/reviews/compiled-architecture-r08.md": "cc0c0758be52af361b2c98feae6068e32986c4ea08ba781403694036e9e5e295"
+      }
+    },
+    {
+      "map": "Galini",
+      "revision": "C11",
+      "preferredSource": "projects/galini-reboot/level.aml",
+      "sourceSha256": "5ec0bdb6c187e15c2c38a1ce830cff74af514bca5201bdef39860818070f78a6",
+      "physicalHash": "a8e755d357088326c997bfaa841546713b99634430f750f2678b12a0d2194350",
+      "renderHash": "2fb6f76b154915bfd76397e234aff743ab40017592cb7359875aaa2c2ff7cc6a",
+      "independentScopes": "strategy, local/visibility, architecture accepted within recorded limits",
+      "ordinaryCliPublicationPassed": false,
+      "authorManifest": "projects/galini-reboot/production/manifest-c11.json",
+      "authorManifestSha256": "d0b85ac2c913c863deca3f1a03ea75fbecc4ba398f74a0902735f5137c5bf00b",
+      "retainedFilesVerified": 325,
+      "archivedLandingPage": [],
+      "deliveryFiles": {
+        "projects/galini-reboot/level.aml": "5ec0bdb6c187e15c2c38a1ce830cff74af514bca5201bdef39860818070f78a6",
+        "projects/galini-reboot/reviews/evidence/c11/roof-on.png": "588c226a88929c8ba919ab1fa02c008335025be60c8c7ea8a1df49f73d1ff32a",
+        "projects/galini-reboot/reviews/evidence/c11/native-plan.png": "d749fd9f2d8d9e21fa6c2490ececed63de319d3d401523fca1360903f95cb978",
+        "projects/galini-reboot/reviews/compiled-strategy-c11.md": "6e13b1bc3d0148577f6df52fd35ba8aa4de73c2619750032b5e0f6acaee4e096",
+        "projects/galini-reboot/reviews/compiled-spatial-c11.md": "df58c5f1b9609ceea0ed4377b147582de92c8bb87f6aba3aa69477b7b7266a17",
+        "projects/galini-reboot/reviews/compiled-architecture-c11.md": "d16e36b40f3d2f5c03f910ab1f42ae041deb5cdf6f3157d5aff3a446e2a7c47d"
+      }
+    },
+    {
+      "map": "Last Light",
+      "revision": "C02",
+      "preferredSource": "projects/last-light-reboot/level-c02.aml",
+      "sourceSha256": "e458b886b1b30c434b1533afab85c8362dd8fa4e507e81c791b308012b928ba1",
+      "physicalHash": "a3c2cb2f73c31764df7f0a4afd178bfcdd496317fabe609924ae22d68dacbf87",
+      "renderHash": "ed6e35466b2df8701dfae9da5a771d3fa13d59eb3012eaa988a51b601925eef6",
+      "independentScopes": "strategy, local/visibility, architecture accepted within recorded limits",
+      "ordinaryCliPublicationPassed": true,
+      "authorManifest": "projects/last-light-reboot/compiled-provenance-c02.json",
+      "authorManifestSha256": "b4088477ca73081efe038516d45d32523b410cdb04b4656d962d852d7f5ee122",
+      "retainedFilesVerified": 160,
+      "archivedLandingPage": [
+        {
+          "originalPath": "README.md",
+          "historicalCopy": "experiments/c02/README-at-review-handoff.md",
+          "sha256": "01831d6a615a8b48ee6c792042fdb9845d9991f555908cb89d01a501a856d09c"
+        }
+      ],
+      "deliveryFiles": {
+        "projects/last-light-reboot/level-c02.aml": "e458b886b1b30c434b1533afab85c8362dd8fa4e507e81c791b308012b928ba1",
+        "projects/last-light-reboot/reviews/evidence/c02/normal-preview/atrium-broad-w.png": "665adc7e3cac4d72db72b63c22ed268baf6765aaacb469478ff8247e9f83175b",
+        "projects/last-light-reboot/reviews/evidence/c02/normal-preview/native-plan.png": "9e42120bd89d996a5cbe83b831764a2677ad00ef2f4e4be81cedb0c6d38b67eb",
+        "projects/last-light-reboot/reviews/compiled-strategy-c02.md": "f30f5a3cb37e17b9302a72a99436408f10bc9136fb159aefe4b3fa657b2bab34",
+        "projects/last-light-reboot/reviews/compiled-spatial-c02.md": "382eb562e7d86ebf96aeaa06464d986574f34a70d70998b99b63d23ebaa464fb",
+        "projects/last-light-reboot/reviews/compiled-architecture-c02.md": "9128cc05b82a1666208f366e08bce35de3d4f57380cada390188ae331f462b8b"
+      }
+    }
+  ],
+  "originalFilesUnchanged": true,
+  "originalFileCheck": "original-integrity-current.json",
+  "retainedFilesVerified": 568,
+  "unexplainedManifestMismatches": [],
+  "landingPageLinksChecked": true,
+  "galiniPreviewBrowserSmoke": "projects/galini-reboot/reviews/evidence/c11/preview-launcher-check.json",
+  "limits": [
+    "Galini ordinary CLI publication fails work budget; native navigation/placement limits remain.",
+    "No target-engine multiplayer playtesting or competitive-balance certification.",
+    "Optional Blender UV bake unavailable."
+  ]
+}

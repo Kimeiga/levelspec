@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1040" viewBox="0 0 1500 1040"><style>text{font-family:Arial,sans-serif;fill:#233b3d}.title{font-size:27px;font-weight:700}.h{font-size:21px;font-weight:700}.body{font-size:17px}.tiny{font-size:14px}.old{stroke:#b35c58;stroke-dasharray:8 5;fill:none;stroke-width:2}.new{stroke:#254d4a;fill:#bcd3c6;stroke-width:2}</style><rect width="1500" height="1040" fill="#faf8f1"/>
+<text x="35" y="42" class="title">Ninefold R08 · physical realization overlay on accepted L02</text>
+<text x="35" y="70" class="body">Local repairs preserve the intended route graph and body. Full dimensions and stable IDs: physical-repairs-r08.json.</text>
+<rect x="25" y="95" width="710" height="410" fill="#e9eee7" stroke="#83948a"/>
+<text x="45" y="125" class="h">A · Awning paving joins the intended through-street</text>
+<polygon points="183.0,185.0 246.0,185.0 246.0,178.0 323.0,178.0 323.0,143.0 421.0,143.0 477.0,143.0 491.0,143.0 491.0,269.0 323.0,269.0 323.0,248.0 316.0,248.0 316.0,308.6662 309.58531737042597,317.2191712649809 261.4388589282479,389.4388589282479 267.0,395.0 267.0,423.0 477.0,423.0 477.0,325.0 491.0,325.0 491.0,465.0 57.0,465.0 57.0,444.0 57.0,353.0 210.93105674020524,339.0062675690723 214.06793452416895,334.3009508931267 211.0,332.0 246.0,285.3338 246.0,241.0 127.0,241.0 127.0,171.0 57.0,171.0 57.0,143.0 183.0,143.0 183.0,185.0" fill="#d3e2d3" stroke="#70917c" stroke-width="1.5" stroke-dasharray=""/>
+<polygon points="183.0,185.0 246.0,185.0 246.0,178.0 323.0,178.0 323.0,143.0 421.0,143.0 477.0,143.0 491.0,143.0 491.0,269.0 323.0,269.0 323.0,248.0 316.0,248.0 316.0,308.6662 267.0,374.0 211.0,332.0 246.0,285.3338 246.0,241.0 127.0,241.0 127.0,171.0 57.0,171.0 57.0,143.0 183.0,143.0 183.0,185.0" fill="none" stroke="#b35c58" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="57.0,353.0 211.0,339.0 267.0,395.0 267.0,423.0 477.0,423.0 477.0,325.0 491.0,325.0 491.0,465.0 57.0,465.0 57.0,444.0 57.0,353.0" fill="none" stroke="#b35c58" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="251.87823969817543,277.585493132117 310.12176030182457,316.414506867883 254.12176030182457,400.414506867883 195.87823969817543,361.585493132117 251.87823969817543,277.585493132117" fill="#8ebba3" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<polyline points="141,409 225,381 281,297 281,213 323,213 449,213" fill="none" stroke="#1f666d" stroke-width="3"/>
+<circle cx="141" cy="409" r="4" fill="#1f666d"/>
+<circle cx="225" cy="381" r="4" fill="#1f666d"/>
+<circle cx="281" cy="297" r="4" fill="#1f666d"/>
+<circle cx="281" cy="213" r="4" fill="#1f666d"/>
+<circle cx="323" cy="213" r="4" fill="#1f666d"/>
+<circle cx="449" cy="213" r="4" fill="#1f666d"/>
+<text x="493" y="192" class="body">Underpass →</text>
+<text x="65" y="485" class="tiny">Green: actual new join. Red dashed: L02 floor edge. J10 blue: direct link walk.</text>
+<rect x="760" y="95" width="715" height="410" fill="#e9eee7" stroke="#83948a"/>
+<text x="780" y="125" class="h">B · F1 courtyard section at x48, looking west</text>
+<rect x="935" y="180.0" width="10" height="285" class="old"/>
+<rect x="935" y="369.0" width="10" height="96" fill="#9eb8aa" stroke="#83948a"/>
+<rect x="1250" y="180.0" width="10" height="285" class="old"/>
+<rect x="1250" y="369.0" width="10" height="96" fill="#9eb8aa" stroke="#83948a"/>
+<rect x="900" y="265.5" width="10" height="103.5" fill="#bacabd" stroke="#83948a"/>
+<rect x="1285" y="265.5" width="10" height="103.5" fill="#bacabd" stroke="#83948a"/>
+<rect x="800" y="258.0" width="105" height="7.5" fill="#b5bbaa" stroke="#83948a"/>
+<rect x="800" y="369.0" width="105" height="7.199999999999999" fill="#b5bbaa" stroke="#83948a"/>
+<rect x="1290" y="258.0" width="140" height="7.5" fill="#b5bbaa" stroke="#83948a"/>
+<rect x="1290" y="369.0" width="140" height="7.199999999999999" fill="#b5bbaa" stroke="#83948a"/>
+<rect x="905" y="369.0" width="40.24999999999995" height="7.199999999999999" fill="#629d85" stroke="#83948a"/>
+<rect x="1249.75" y="369.0" width="40.24999999999995" height="7.199999999999999" fill="#629d85" stroke="#83948a"/>
+<path d="M800,465 L1430,465" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<text x="975" y="426.0" class="body">Ground lightwell</text>
+<text x="1010" y="309.0" class="body">Open sky</text>
+<text x="1400" y="469" class="tiny">z0</text>
+<text x="1400" y="373.0" class="tiny">z3.2</text>
+<text x="1400" y="262.0" class="tiny">z6.9</text>
+<text x="1400" y="184.0" class="tiny">z9.5</text>
+<text x="780" y="485" class="tiny">Red: removed 9.5 m remnants. Green returns: z2.96–3.2; aperture unchanged.</text>
+<rect x="25" y="530" width="710" height="475" fill="#e9eee7" stroke="#83948a"/>
+<text x="45" y="562" class="h">C · Enclose unusable underflight space, retain clear links</text>
+<polygon points="70,790.08 515.5,790.08 515.5,679.2 610,655.6800000000001 610,645.6 70,780" class="new"/>
+<path d="M70.0,773.28 L97.0,773.28" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M70.0,780.0 L70.0,773.28" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M97.0,766.56 L124.0,766.56" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M97.0,773.28 L97.0,766.56" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M124.0,759.84 L151.0,759.84" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M124.0,766.56 L124.0,759.84" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M151.0,753.12 L178.0,753.12" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M151.0,759.84 L151.0,753.12" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M178.0,746.4 L205.0,746.4" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M178.0,753.12 L178.0,746.4" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M205.0,739.68 L231.99999999999997,739.68" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M205.0,746.4 L205.0,739.68" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M231.99999999999997,732.96 L259.0,732.96" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M231.99999999999997,739.68 L231.99999999999997,732.96" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M259.0,726.24 L286.0,726.24" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M259.0,732.96 L259.0,726.24" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M286.0,719.52 L313.0,719.52" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M286.0,726.24 L286.0,719.52" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M313.0,712.8 L340.0,712.8" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M313.0,719.52 L313.0,712.8" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M340.0,706.08 L367.0,706.08" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M340.0,712.8 L340.0,706.08" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M367.0,699.36 L393.99999999999994,699.36" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M367.0,706.08 L367.0,699.36" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M393.99999999999994,692.64 L421.0,692.64" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M393.99999999999994,699.36 L393.99999999999994,692.64" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M421.0,685.92 L448.0,685.92" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M421.0,692.64 L421.0,685.92" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M448.0,679.2 L475.0,679.2" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M448.0,685.92 L448.0,679.2" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M475.0,672.48 L502.0,672.48" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M475.0,679.2 L475.0,672.48" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M502.0,665.76 L529.0,665.76" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M502.0,672.48 L502.0,665.76" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M529.0,659.04 L556.0,659.04" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M529.0,665.76 L529.0,659.04" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M556.0,652.3199999999999 L583.0,652.3199999999999" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M556.0,659.04 L556.0,652.3199999999999" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M583.0,645.6 L610.0,645.6" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M583.0,652.3199999999999 L583.0,645.6" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M610,645.6 L700,645.6" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<path d="M610,655.6800000000001 L700,655.6800000000001" fill="none" stroke="#254d4a" stroke-width="2" stroke-dasharray=""/>
+<text x="75" y="810" class="body">S1–S4: first 9.9 m enclosed to ground; last 2.1 m remains sloped.</text>
+<text x="75" y="838" class="body">S3 ground link crosses below the receiving landing, 2.96 m clear.</text>
+<text x="75" y="880" class="body">S5: first 2.3 m enclosed only above z3.2; ground remains open.</text>
+<text x="75" y="908" class="body">S6: normal sloped underside. All six retain 20 × 0.16 m risers,</text>
+<text x="75" y="935" class="body">0.60 m treads, 4 m width and 1.1 m graded guards.</text>
+<text x="75" y="970" class="tiny">Bearing strips under outward guards are 0.18 m thick; exact paths in JSON.</text>
+<rect x="760" y="530" width="715" height="475" fill="#e9eee7" stroke="#83948a"/>
+<text x="780" y="562" class="h">D · Remaining interfaces and scope</text>
+<text x="785" y="606" class="body">S1 crest bearing: x33, y40–44, top2.96, thickness0.30.</text>
+<text x="785" y="642" class="body">Paper lintel ends at y40 instead of y41 beside S1.</text>
+<text x="785" y="678" class="body">S3 upper journey turns at y60 before entering Boiler west.</text>
+<text x="785" y="714" class="body">J02 turns from (25,15) inside the court, after the return wall.</text>
+<text x="785" y="750" class="body">F1/F2/F5/F6 roof thickness0.25; top elevations unchanged.</text>
+<text x="785" y="786" class="body">Microjoint caps close wall/guard seams; see stable J-* IDs.</text>
+<text x="785" y="822" class="body">CORE footing: x56–62 / y43–47 / z0–3.2, outside the Well.</text>
+<text x="785" y="858" class="body">No added window, objective, movement edge, or body change.</text>
+<text x="785" y="927" class="tiny">Validation: strict floor gaps; full physical walk/camera evidence separate.</text>
+<text x="785" y="957" class="tiny">R08 differs from R07 only in descriptive metadata, not physical geometry.</text>
+<text x="35" y="1030" class="tiny">This is an author construction overlay, not independent gameplay or architecture acceptance.</text>
+</svg>

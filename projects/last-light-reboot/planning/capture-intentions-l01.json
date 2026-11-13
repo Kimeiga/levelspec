@@ -1,0 +1,802 @@
+{
+  "revision": "L01",
+  "state": "planned only; no captures taken",
+  "coordinates": "meters, Z-up; convert through public reviewer camera controls",
+  "protocol": "Apply camera form atomically after model ready; assert dataset.view matches requested pose; retain source hash and actual camera state",
+  "views": [
+    {
+      "id": "roof-on",
+      "kind": "orthographic-mass",
+      "position": [
+        150,
+        -145,
+        155
+      ],
+      "target": [
+        60,
+        52,
+        4
+      ],
+      "roofVisible": true
+    },
+    {
+      "id": "cutaway-plan",
+      "kind": "orthographic-plan",
+      "position": [
+        60,
+        52,
+        170
+      ],
+      "target": [
+        60,
+        52,
+        0
+      ],
+      "cutaway": "upper/roof visibility only; collision unchanged"
+    },
+    {
+      "id": "west-atrium-interior",
+      "kind": "enclosure",
+      "position": [
+        37,
+        36,
+        1.86
+      ],
+      "target": [
+        51,
+        62,
+        6
+      ],
+      "roofVisible": true
+    },
+    {
+      "id": "east-atrium-interior",
+      "kind": "enclosure",
+      "position": [
+        87,
+        66,
+        1.86
+      ],
+      "target": [
+        70,
+        39,
+        6
+      ],
+      "roofVisible": true
+    },
+    {
+      "id": "west-info-w-look",
+      "kind": "interior-opposing",
+      "position": [
+        41,
+        39,
+        1.86
+      ],
+      "target": [
+        41,
+        50,
+        5.46
+      ],
+      "source_position": "W-LOOK",
+      "target_position": "W-STAGE",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "west-info-w-stage",
+      "kind": "interior-opposing",
+      "position": [
+        41,
+        50,
+        5.46
+      ],
+      "target": [
+        41,
+        39,
+        1.86
+      ],
+      "source_position": "W-STAGE",
+      "target_position": "W-LOOK",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "east-info-e-look",
+      "kind": "interior-opposing",
+      "position": [
+        83,
+        67,
+        1.86
+      ],
+      "target": [
+        83,
+        54,
+        5.46
+      ],
+      "source_position": "E-LOOK",
+      "target_position": "E-STAGE",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "east-info-e-stage",
+      "kind": "interior-opposing",
+      "position": [
+        83,
+        54,
+        5.46
+      ],
+      "target": [
+        83,
+        67,
+        1.86
+      ],
+      "source_position": "E-STAGE",
+      "target_position": "E-LOOK",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "west-grand-w-lead",
+      "kind": "interior-opposing",
+      "position": [
+        37,
+        36,
+        1.86
+      ],
+      "target": [
+        37,
+        58,
+        5.46
+      ],
+      "source_position": "W-LEAD",
+      "target_position": "W-TOP",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "west-grand-w-top",
+      "kind": "interior-opposing",
+      "position": [
+        37,
+        58,
+        5.46
+      ],
+      "target": [
+        37,
+        36,
+        1.86
+      ],
+      "source_position": "W-TOP",
+      "target_position": "W-LEAD",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "east-grand-e-lead",
+      "kind": "interior-opposing",
+      "position": [
+        87,
+        66,
+        1.86
+      ],
+      "target": [
+        87,
+        42,
+        5.46
+      ],
+      "source_position": "E-LEAD",
+      "target_position": "E-TOP",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "east-grand-e-top",
+      "kind": "interior-opposing",
+      "position": [
+        87,
+        42,
+        5.46
+      ],
+      "target": [
+        87,
+        66,
+        1.86
+      ],
+      "source_position": "E-TOP",
+      "target_position": "E-LEAD",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "north-service-n-mid",
+      "kind": "interior-opposing",
+      "position": [
+        27,
+        67.375,
+        3.81
+      ],
+      "target": [
+        27,
+        80,
+        5.46
+      ],
+      "source_position": "N-MID",
+      "target_position": "N-TOP",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "north-service-n-top",
+      "kind": "interior-opposing",
+      "position": [
+        27,
+        80,
+        5.46
+      ],
+      "target": [
+        27,
+        67.375,
+        3.81
+      ],
+      "source_position": "N-TOP",
+      "target_position": "N-MID",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "south-service-s-mid",
+      "kind": "interior-opposing",
+      "position": [
+        97,
+        36.625,
+        3.81
+      ],
+      "target": [
+        97,
+        24,
+        5.46
+      ],
+      "source_position": "S-MID",
+      "target_position": "S-TOP",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "south-service-s-top",
+      "kind": "interior-opposing",
+      "position": [
+        97,
+        24,
+        5.46
+      ],
+      "target": [
+        97,
+        36.625,
+        3.81
+      ],
+      "source_position": "S-TOP",
+      "target_position": "S-MID",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "west-entry-w-stage",
+      "kind": "interior-opposing",
+      "position": [
+        41,
+        50,
+        5.46
+      ],
+      "target": [
+        56.5,
+        51,
+        5.46
+      ],
+      "source_position": "W-STAGE",
+      "target_position": "POINT-W",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "west-entry-point-w",
+      "kind": "interior-opposing",
+      "position": [
+        56.5,
+        51,
+        5.46
+      ],
+      "target": [
+        41,
+        50,
+        5.46
+      ],
+      "source_position": "POINT-W",
+      "target_position": "W-STAGE",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "east-entry-e-stage",
+      "kind": "interior-opposing",
+      "position": [
+        83,
+        54,
+        5.46
+      ],
+      "target": [
+        69,
+        51,
+        5.46
+      ],
+      "source_position": "E-STAGE",
+      "target_position": "POINT-E",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "east-entry-point-e",
+      "kind": "interior-opposing",
+      "position": [
+        69,
+        51,
+        5.46
+      ],
+      "target": [
+        83,
+        54,
+        5.46
+      ],
+      "source_position": "POINT-E",
+      "target_position": "E-STAGE",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "north-entry-n-entry",
+      "kind": "interior-opposing",
+      "position": [
+        67,
+        62,
+        5.46
+      ],
+      "target": [
+        67,
+        56,
+        5.46
+      ],
+      "source_position": "N-ENTRY",
+      "target_position": "POINT-N",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "north-entry-point-n",
+      "kind": "interior-opposing",
+      "position": [
+        67,
+        56,
+        5.46
+      ],
+      "target": [
+        67,
+        62,
+        5.46
+      ],
+      "source_position": "POINT-N",
+      "target_position": "N-ENTRY",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "south-entry-s-entry",
+      "kind": "interior-opposing",
+      "position": [
+        64,
+        40,
+        5.46
+      ],
+      "target": [
+        63,
+        46,
+        5.46
+      ],
+      "source_position": "S-ENTRY",
+      "target_position": "POINT-S",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "south-entry-point-s",
+      "kind": "interior-opposing",
+      "position": [
+        63,
+        46,
+        5.46
+      ],
+      "target": [
+        64,
+        40,
+        5.46
+      ],
+      "source_position": "POINT-S",
+      "target_position": "S-ENTRY",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "underpass-g-w",
+      "kind": "interior-opposing",
+      "position": [
+        42,
+        52,
+        1.86
+      ],
+      "target": [
+        80,
+        46,
+        1.86
+      ],
+      "source_position": "G-W",
+      "target_position": "G-E",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "underpass-g-e",
+      "kind": "interior-opposing",
+      "position": [
+        80,
+        46,
+        1.86
+      ],
+      "target": [
+        42,
+        52,
+        1.86
+      ],
+      "source_position": "G-E",
+      "target_position": "G-W",
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "stand"
+    },
+    {
+      "id": "w-support",
+      "kind": "support-or-departure",
+      "position": [
+        36,
+        62,
+        5.46
+      ],
+      "target": [
+        37,
+        58,
+        5.46
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "e-support",
+      "kind": "support-or-departure",
+      "position": [
+        90,
+        39,
+        5.46
+      ],
+      "target": [
+        87,
+        42,
+        5.46
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "w-follow",
+      "kind": "support-or-departure",
+      "position": [
+        35,
+        33,
+        1.86
+      ],
+      "target": [
+        37,
+        47.375,
+        3.81
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "e-follow",
+      "kind": "support-or-departure",
+      "position": [
+        91,
+        70,
+        1.86
+      ],
+      "target": [
+        87,
+        54.625,
+        3.81
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "n-support",
+      "kind": "support-or-departure",
+      "position": [
+        57,
+        78,
+        5.46
+      ],
+      "target": [
+        67,
+        62,
+        5.46
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "s-support",
+      "kind": "support-or-departure",
+      "position": [
+        70,
+        35,
+        5.46
+      ],
+      "target": [
+        64,
+        40,
+        5.46
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "sw-p",
+      "kind": "support-or-departure",
+      "position": [
+        21,
+        16,
+        1.86
+      ],
+      "target": [
+        12,
+        17,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "sw-s",
+      "kind": "support-or-departure",
+      "position": [
+        12,
+        26,
+        1.86
+      ],
+      "target": [
+        12,
+        17,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "se-p",
+      "kind": "support-or-departure",
+      "position": [
+        101,
+        88,
+        1.86
+      ],
+      "target": [
+        110,
+        90,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "se-s",
+      "kind": "support-or-departure",
+      "position": [
+        108,
+        78,
+        1.86
+      ],
+      "target": [
+        110,
+        90,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "w-stage-crouch",
+      "kind": "low-eye-study",
+      "position": [
+        41,
+        50,
+        4.6695
+      ],
+      "target": [
+        41,
+        39,
+        1.0695
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "crouch optical study; body behavior requires harness"
+    },
+    {
+      "id": "e-stage-crouch",
+      "kind": "low-eye-study",
+      "position": [
+        83,
+        54,
+        4.6695
+      ],
+      "target": [
+        83,
+        67,
+        1.0695
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "crouch optical study; body behavior requires harness"
+    },
+    {
+      "id": "point-w-crouch",
+      "kind": "low-eye-study",
+      "position": [
+        56.5,
+        51,
+        4.6695
+      ],
+      "target": [
+        69,
+        51,
+        4.6695
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ],
+      "stance": "crouch optical study; body behavior requires harness"
+    }
+  ]
+}

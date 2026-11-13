@@ -1,0 +1,318 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1530" viewBox="0 0 1680 1530"><style>text{font-family:Arial,sans-serif}</style><rect width="1680" height="1530" fill="#f0f3f3"/><text x="50" y="38" font-size="28" font-family="Arial">SPILLWAY — R06 architectural circulation + local levels / proposal</text><text x="50" y="65" font-size="14" font-family="Arial">Meters, Z-up · ground0 / A+.60 / east saddle+1.20 / gallery+4 · eye studies1.60 and1.05 above feet · north+Y</text>
+<g transform="translate(0 0)"><text x="50" y="105" font-size="19">GROUND + LOCAL ELEVATIONS</text>
+<path d="M 50 138 V 810 M 50 810 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="50" y="831" font-size="9" fill="#243c49" text-anchor="middle">0</text>
+<path d="M 106 138 V 810 M 50 754 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="106" y="831" font-size="9" fill="#243c49" text-anchor="middle">8</text>
+<path d="M 162 138 V 810 M 50 698 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="162" y="831" font-size="9" fill="#243c49" text-anchor="middle">16</text>
+<path d="M 218 138 V 810 M 50 642 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="218" y="831" font-size="9" fill="#243c49" text-anchor="middle">24</text>
+<path d="M 274 138 V 810 M 50 586 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="274" y="831" font-size="9" fill="#243c49" text-anchor="middle">32</text>
+<path d="M 330 138 V 810 M 50 530 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="330" y="831" font-size="9" fill="#243c49" text-anchor="middle">40</text>
+<path d="M 386 138 V 810 M 50 474 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="386" y="831" font-size="9" fill="#243c49" text-anchor="middle">48</text>
+<path d="M 442 138 V 810 M 50 418 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="442" y="831" font-size="9" fill="#243c49" text-anchor="middle">56</text>
+<path d="M 498 138 V 810 M 50 362 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="498" y="831" font-size="9" fill="#243c49" text-anchor="middle">64</text>
+<path d="M 554 138 V 810 M 50 306 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="554" y="831" font-size="9" fill="#243c49" text-anchor="middle">72</text>
+<path d="M 610 138 V 810 M 50 250 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="610" y="831" font-size="9" fill="#243c49" text-anchor="middle">80</text>
+<path d="M 666 138 V 810 M 50 194 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="666" y="831" font-size="9" fill="#243c49" text-anchor="middle">88</text>
+<path d="M 722 138 V 810 M 50 138 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="722" y="831" font-size="9" fill="#243c49" text-anchor="middle">96</text>
+<path d="M 330.00,726.00 L 190.00,726.00 L 190.00,684.00 L 92.00,684.00 L 92.00,208.00 L 218.00,208.00 L 218.00,180.00 L 330.00,180.00 L 330.00,138.00 L 442.00,138.00 L 442.00,180.00 L 596.00,180.00 L 596.00,208.00 L 610.00,208.00 L 610.00,222.00 L 680.00,222.00 L 680.00,670.00 L 638.00,670.00 L 638.00,726.00 L 442.00,726.00 L 442.00,782.00 L 330.00,782.00 L 330.00,726.00 Z M 358.00,264.00 L 358.00,236.00 L 302.00,236.00 L 302.00,264.00 L 358.00,264.00 Z M 302.00,502.00 L 330.00,502.00 L 330.00,306.00 L 302.00,306.00 L 302.00,502.00 Z M 470.00,544.00 L 624.00,544.00 L 624.00,404.00 L 652.00,404.00 L 652.00,362.00 L 540.00,362.00 L 540.00,334.00 L 442.00,334.00 L 442.00,502.00 L 470.00,502.00 L 470.00,544.00 Z M 442.00,614.00 L 442.00,656.00 L 624.00,656.00 L 624.00,600.00 L 470.00,600.00 L 470.00,614.00 L 442.00,614.00 Z M 330.00,656.00 L 330.00,614.00 L 302.00,614.00 L 302.00,558.00 L 260.00,558.00 L 260.00,544.00 L 218.00,544.00 L 218.00,474.00 L 148.00,474.00 L 148.00,600.00 L 246.00,600.00 L 246.00,656.00 L 330.00,656.00 Z M 540.00,236.00 L 414.00,236.00 L 414.00,264.00 L 442.00,264.00 L 442.00,292.00 L 540.00,292.00 L 540.00,236.00 Z" fill="#e4e8e6" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<path d="M 358.00,264.00 L 358.00,236.00 L 302.00,236.00 L 302.00,264.00 L 358.00,264.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="330.0" y="250.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-0-0/8m</text>
+<path d="M 330.00,502.00 L 302.00,502.00 L 302.00,406.80 L 330.00,406.80 L 330.00,502.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="316.0" y="454.40000000000003" font-size="8" fill="#243c49" text-anchor="middle">BLD-1-0/9m</text>
+<path d="M 302.00,306.00 L 330.00,306.00 L 330.00,359.20 L 302.00,359.20 L 302.00,306.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="316.0" y="332.59999999999997" font-size="8" fill="#243c49" text-anchor="middle">BLD-1-1/9m</text>
+<path d="M 624.00,544.00 L 470.00,544.00 L 470.00,502.00 L 442.00,502.00 L 442.00,406.80 L 624.00,406.80 L 624.00,544.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="533.0" y="454.40000000000003" font-size="8" fill="#243c49" text-anchor="middle">BLD-2-0/9m</text>
+<path d="M 477.00,359.20 L 477.00,334.00 L 442.00,334.00 L 442.00,359.20 L 477.00,359.20 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="459.5" y="346.59999999999997" font-size="8" fill="#243c49" text-anchor="middle">BLD-2-1/9m</text>
+<path d="M 540.00,359.20 L 540.00,334.00 L 519.00,334.00 L 519.00,359.20 L 540.00,359.20 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="529.5" y="346.59999999999997" font-size="8" fill="#243c49" text-anchor="middle">BLD-2-2/9m</text>
+<path d="M 442.00,614.00 L 442.00,656.00 L 624.00,656.00 L 624.00,600.00 L 470.00,600.00 L 470.00,614.00 L 442.00,614.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="533.0" y="635.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-3-0/8m</text>
+<path d="M 330.00,656.00 L 330.00,614.00 L 302.00,614.00 L 302.00,558.00 L 260.00,558.00 L 260.00,544.00 L 218.00,544.00 L 218.00,474.00 L 148.00,474.00 L 148.00,600.00 L 246.00,600.00 L 246.00,656.00 L 330.00,656.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="225.0" y="579.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-4-0/9m</text>
+<path d="M 540.00,236.00 L 414.00,236.00 L 414.00,264.00 L 442.00,264.00 L 442.00,292.00 L 540.00,292.00 L 540.00,236.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="477.0" y="250.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-5-0/8m</text>
+<path d="M 400.00,726.00 L 400.00,656.00 L 372.00,656.00 L 372.00,726.00 L 400.00,726.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="386.0" y="691.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-T/7m</text>
+<path d="M 218.00,320.00 L 218.00,271.00 L 176.00,271.00 L 176.00,320.00 L 218.00,320.00 Z " fill="#ddbb8c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="197" y="306" font-size="11" fill="#243c49" text-anchor="middle">A +.60</text>
+<path d="M 218.00,334.00 L 218.00,320.00 L 176.00,320.00 L 176.00,334.00 L 218.00,334.00 Z " fill="#d9c4a2" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<path d="M 218.00,271.00 L 218.00,257.00 L 176.00,257.00 L 176.00,271.00 L 218.00,271.00 Z " fill="#d9c4a2" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<path d="M 176 329.3333333333333 h42" stroke="#967c56"/>
+<path d="M 176 324.6666666666667 h42" stroke="#967c56"/>
+<path d="M 176 266.33333333333326 h42" stroke="#967c56"/>
+<path d="M 176 261.66666666666674 h42" stroke="#967c56"/>
+<path d="M 680.00,530.00 L 680.00,502.00 L 624.00,502.00 L 624.00,530.00 L 680.00,530.00 Z " fill="#d1c4a6" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<path d="M 680.00,488.00 L 680.00,460.00 L 624.00,460.00 L 624.00,488.00 L 680.00,488.00 Z " fill="#d1c4a6" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<path d="M 680.00,502.00 L 680.00,488.00 L 624.00,488.00 L 624.00,502.00 L 680.00,502.00 Z " fill="#ddbb8c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="652" y="495" font-size="10" fill="#243c49" text-anchor="middle">+1.20</text>
+<text x="701" y="516" font-size="10" fill="#243c49" text-anchor="middle">↑ rise</text>
+<text x="701" y="474" font-size="10" fill="#243c49" text-anchor="middle">↓ fall</text>
+<path d="M 218.00,404.00 L 218.00,348.00 L 302.00,348.00 L 302.00,362.00 L 330.00,362.00 L 330.00,285.00 L 351.00,285.00 L 372.00,285.00 L 477.00,285.00 L 498.00,285.00 L 519.00,285.00 L 519.00,362.00 L 540.00,362.00 L 540.00,404.00 L 498.00,404.00 L 498.00,383.00 L 477.00,383.00 L 477.00,327.00 L 372.00,327.00 L 372.00,362.00 L 372.00,383.00 L 372.00,404.00 L 302.00,404.00 L 288.00,404.00 L 218.00,404.00 Z " fill="none" stroke="#ae7940" stroke-width="1.5" fill-rule="evenodd" stroke-dasharray="4 4"/>
+<path d="M 442.00,656.00 L 442.00,642.00 L 358.00,642.00 L 358.00,656.00 L 442.00,656.00 Z " fill="#6c9796" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="400.0" y="651.8" font-size="8" fill="white" text-anchor="middle">T-01</text>
+<path d="M 123.50,516.00 L 123.50,488.00 L 92.00,488.00 L 92.00,516.00 L 123.50,516.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="107.75" y="504.8" font-size="8" fill="white" text-anchor="middle">W-01</text>
+<path d="M 218.00,474.00 L 218.00,418.00 L 148.00,418.00 L 148.00,474.00 L 218.00,474.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="183.0" y="448.8" font-size="8" fill="white" text-anchor="middle">W-02</text>
+<path d="M 148.00,362.00 L 148.00,348.00 L 92.00,348.00 L 92.00,362.00 L 148.00,362.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="120.0" y="357.80000000000007" font-size="8" fill="white" text-anchor="middle">A-gate-W</text>
+<path d="M 260.00,362.00 L 260.00,348.00 L 190.00,348.00 L 190.00,362.00 L 260.00,362.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="225.0" y="357.80000000000007" font-size="8" fill="white" text-anchor="middle">A-gate-E</text>
+<path d="M 176.00,292.00 L 176.00,271.00 L 148.00,271.00 L 148.00,292.00 L 176.00,292.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="162.0" y="284.30000000000007" font-size="8" fill="white" text-anchor="middle">A-01</text>
+<path d="M 197.00,250.00 L 197.00,236.00 L 176.00,236.00 L 176.00,250.00 L 197.00,250.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="186.5" y="245.80000000000007" font-size="8" fill="#1b3538" text-anchor="middle">A-02</text>
+<path d="M 134.00,243.00 L 134.00,229.00 L 106.00,229.00 L 106.00,243.00 L 134.00,243.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="120.0" y="238.80000000000007" font-size="8" fill="white" text-anchor="middle">A-03</text>
+<path d="M 379.00,488.00 L 379.00,446.00 L 330.00,446.00 L 330.00,488.00 L 379.00,488.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="354.5" y="469.8" font-size="8" fill="white" text-anchor="middle">M-01</text>
+<path d="M 655.50,572.00 L 655.50,537.00 L 624.00,537.00 L 624.00,572.00 L 655.50,572.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="639.75" y="557.3" font-size="8" fill="white" text-anchor="middle">E-01</text>
+<path d="M 596.00,362.00 L 596.00,348.00 L 540.00,348.00 L 540.00,362.00 L 596.00,362.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="568.0" y="357.80000000000007" font-size="8" fill="white" text-anchor="middle">B-gate</text>
+<path d="M 638.00,306.00 L 638.00,285.00 L 610.00,285.00 L 610.00,306.00 L 638.00,306.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="624.0" y="298.30000000000007" font-size="8" fill="white" text-anchor="middle">B-01</text>
+<path d="M 666.00,334.00 L 666.00,299.00 L 652.00,299.00 L 652.00,334.00 L 666.00,334.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="659.0" y="319.30000000000007" font-size="8" fill="white" text-anchor="middle">B-02</text>
+<path d="M 575.00,264.00 L 575.00,250.00 L 554.00,250.00 L 554.00,264.00 L 575.00,264.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="564.5" y="259.80000000000007" font-size="8" fill="#1b3538" text-anchor="middle">B-03</text>
+<path d="M 393.00,264.00 L 393.00,243.00 L 358.00,243.00 L 358.00,264.00 L 393.00,264.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="375.5" y="256.30000000000007" font-size="8" fill="white" text-anchor="middle">CT-01</text>
+<path d="M 323.00,404.00 L 323.00,362.00 L 309.00,362.00 L 309.00,404.00 L 323.00,404.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="316.0" y="385.8" font-size="8" fill="white" text-anchor="middle">P-01</text>
+<path d="M 491.00,404.00 L 491.00,362.00 L 477.00,362.00 L 477.00,404.00 L 491.00,404.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="484.0" y="385.8" font-size="8" fill="white" text-anchor="middle">P-02</text>
+<path d="M 442.00,390.00 L 442.00,376.00 L 365.00,376.00 L 365.00,390.00 L 442.00,390.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="403.5" y="385.8" font-size="8" fill="white" text-anchor="middle">M-02</text>
+<path d="M 148.00,572.00 L 148.00,551.00 L 120.00,551.00 L 120.00,572.00 L 148.00,572.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="134.0" y="564.3" font-size="8" fill="white" text-anchor="middle">W-03</text>
+<path d="M 680.00,474.00 L 680.00,453.00 L 652.00,453.00 L 652.00,474.00 L 680.00,474.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="666.0" y="466.3" font-size="8" fill="white" text-anchor="middle">E-02</text>
+<path d="M 295.00,726.00 L 295.00,684.00 L 274.00,684.00 L 274.00,726.00 L 295.00,726.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="284.5" y="707.8" font-size="8" fill="white" text-anchor="middle">T-02</text>
+<path d="M 533.00,698.00 L 533.00,656.00 L 512.00,656.00 L 512.00,698.00 L 533.00,698.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="522.5" y="679.8" font-size="8" fill="white" text-anchor="middle">T-03</text>
+<path d="M 302.00,236.00 L 302.00,201.00 L 288.00,201.00 L 288.00,236.00 L 302.00,236.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="295.0" y="221.30000000000007" font-size="8" fill="white" text-anchor="middle">CT-02</text>
+<path d="M 498.00,215.00 L 498.00,180.00 L 484.00,180.00 L 484.00,215.00 L 498.00,215.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="491.0" y="200.30000000000007" font-size="8" fill="white" text-anchor="middle">CT-03</text>
+<path d="M 134.00,278.00 L 134.00,257.00 L 120.00,257.00 L 120.00,278.00 L 134.00,278.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="127.0" y="270.30000000000007" font-size="8" fill="white" text-anchor="middle">A-04</text>
+<path d="M 652.00,264.00 L 652.00,236.00 L 638.00,236.00 L 638.00,264.00 L 652.00,264.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="645.0" y="252.80000000000007" font-size="8" fill="white" text-anchor="middle">B-04</text>
+<path d="M 113.00,600.00 L 113.00,586.00 L 99.00,586.00 L 99.00,600.00 L 113.00,600.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="106.0" y="595.8" font-size="8" fill="#1b3538" text-anchor="middle">W-L01</text>
+<path d="M 197.00,404.00 L 197.00,390.00 L 176.00,390.00 L 176.00,404.00 L 197.00,404.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="186.5" y="399.8" font-size="8" fill="#1b3538" text-anchor="middle">W-L02</text>
+<path d="M 642.20,502.00 L 642.20,488.00 L 625.40,488.00 L 625.40,502.00 L 642.20,502.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="633.8" y="497.8" font-size="8" fill="#1b3538" text-anchor="middle">E-L01</text>
+<path d="M 673.00,432.00 L 673.00,418.00 L 659.00,418.00 L 659.00,432.00 L 673.00,432.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="666.0" y="427.8" font-size="8" fill="#1b3538" text-anchor="middle">E-L02</text>
+<path d="M 327.20,593.00 L 327.20,579.00 L 303.40,579.00 L 303.40,593.00 L 327.20,593.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="315.30000000000007" y="588.8" font-size="8" fill="#1b3538" text-anchor="middle">M-L01</text>
+<path d="M 421.00,327.00 L 421.00,313.00 L 400.00,313.00 L 400.00,327.00 L 421.00,327.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="410.5" y="322.80000000000007" font-size="8" fill="#1b3538" text-anchor="middle">M-L02</text>
+<path d="M 155.00,334.00 L 155.00,320.00 L 134.00,320.00 L 134.00,334.00 L 155.00,334.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="144.5" y="329.80000000000007" font-size="8" fill="#1b3538" text-anchor="middle">A-L01</text>
+<path d="M 589.00,341.00 L 589.00,331.90 L 568.00,331.90 L 568.00,341.00 L 589.00,341.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="578.5" y="339.25" font-size="8" fill="#1b3538" text-anchor="middle">B-L01</text>
+<path d="M 386.00,614.00 L 386.00,600.00 L 330.00,600.00 L 330.00,614.00 L 386.00,614.00 Z " fill="#6c9796" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="358.0" y="609.8" font-size="8" fill="white" text-anchor="middle">T-04</text>
+<text x="386" y="740" font-size="15" fill="#a36a30" text-anchor="middle">T</text>
+<text x="386" y="166" font-size="15" fill="#a36a30" text-anchor="middle">CT</text>
+<text x="197" y="285" font-size="15" fill="#a36a30" text-anchor="middle">A</text>
+<text x="596" y="285" font-size="15" fill="#a36a30" text-anchor="middle">B</text>
+<text x="386" y="446" font-size="11" fill="#243c49" text-anchor="middle">MID</text>
+<text x="113" y="635" font-size="10" fill="#243c49" text-anchor="middle">WEST</text>
+<text x="659" y="418" font-size="10" fill="#243c49" text-anchor="middle">EAST</text>
+</g>
+<g transform="translate(840 0)"><text x="50" y="105" font-size="19">DOGLEG MAINTENANCE GALLERY Z4</text>
+<path d="M 50 138 V 810 M 50 810 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="50" y="831" font-size="9" fill="#243c49" text-anchor="middle">0</text>
+<path d="M 106 138 V 810 M 50 754 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="106" y="831" font-size="9" fill="#243c49" text-anchor="middle">8</text>
+<path d="M 162 138 V 810 M 50 698 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="162" y="831" font-size="9" fill="#243c49" text-anchor="middle">16</text>
+<path d="M 218 138 V 810 M 50 642 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="218" y="831" font-size="9" fill="#243c49" text-anchor="middle">24</text>
+<path d="M 274 138 V 810 M 50 586 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="274" y="831" font-size="9" fill="#243c49" text-anchor="middle">32</text>
+<path d="M 330 138 V 810 M 50 530 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="330" y="831" font-size="9" fill="#243c49" text-anchor="middle">40</text>
+<path d="M 386 138 V 810 M 50 474 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="386" y="831" font-size="9" fill="#243c49" text-anchor="middle">48</text>
+<path d="M 442 138 V 810 M 50 418 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="442" y="831" font-size="9" fill="#243c49" text-anchor="middle">56</text>
+<path d="M 498 138 V 810 M 50 362 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="498" y="831" font-size="9" fill="#243c49" text-anchor="middle">64</text>
+<path d="M 554 138 V 810 M 50 306 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="554" y="831" font-size="9" fill="#243c49" text-anchor="middle">72</text>
+<path d="M 610 138 V 810 M 50 250 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="610" y="831" font-size="9" fill="#243c49" text-anchor="middle">80</text>
+<path d="M 666 138 V 810 M 50 194 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="666" y="831" font-size="9" fill="#243c49" text-anchor="middle">88</text>
+<path d="M 722 138 V 810 M 50 138 H 722" stroke="#dae2e4" stroke-width=".6"/>
+<text x="722" y="831" font-size="9" fill="#243c49" text-anchor="middle">96</text>
+<path d="M 330.00,726.00 L 190.00,726.00 L 190.00,684.00 L 92.00,684.00 L 92.00,208.00 L 218.00,208.00 L 218.00,180.00 L 330.00,180.00 L 330.00,138.00 L 442.00,138.00 L 442.00,180.00 L 596.00,180.00 L 596.00,208.00 L 610.00,208.00 L 610.00,222.00 L 680.00,222.00 L 680.00,670.00 L 638.00,670.00 L 638.00,726.00 L 442.00,726.00 L 442.00,782.00 L 330.00,782.00 L 330.00,726.00 Z M 358.00,264.00 L 358.00,236.00 L 302.00,236.00 L 302.00,264.00 L 358.00,264.00 Z M 302.00,502.00 L 330.00,502.00 L 330.00,306.00 L 302.00,306.00 L 302.00,502.00 Z M 470.00,544.00 L 624.00,544.00 L 624.00,404.00 L 652.00,404.00 L 652.00,362.00 L 540.00,362.00 L 540.00,334.00 L 442.00,334.00 L 442.00,502.00 L 470.00,502.00 L 470.00,544.00 Z M 442.00,614.00 L 442.00,656.00 L 624.00,656.00 L 624.00,600.00 L 470.00,600.00 L 470.00,614.00 L 442.00,614.00 Z M 330.00,656.00 L 330.00,614.00 L 302.00,614.00 L 302.00,558.00 L 260.00,558.00 L 260.00,544.00 L 218.00,544.00 L 218.00,474.00 L 148.00,474.00 L 148.00,600.00 L 246.00,600.00 L 246.00,656.00 L 330.00,656.00 Z M 540.00,236.00 L 414.00,236.00 L 414.00,264.00 L 442.00,264.00 L 442.00,292.00 L 540.00,292.00 L 540.00,236.00 Z" fill="#e4e8e6" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<path d="M 358.00,264.00 L 358.00,236.00 L 302.00,236.00 L 302.00,264.00 L 358.00,264.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="330.0" y="250.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-0-0/8m</text>
+<path d="M 330.00,502.00 L 302.00,502.00 L 302.00,406.80 L 330.00,406.80 L 330.00,502.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="316.0" y="454.40000000000003" font-size="8" fill="#243c49" text-anchor="middle">BLD-1-0/9m</text>
+<path d="M 302.00,306.00 L 330.00,306.00 L 330.00,359.20 L 302.00,359.20 L 302.00,306.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="316.0" y="332.59999999999997" font-size="8" fill="#243c49" text-anchor="middle">BLD-1-1/9m</text>
+<path d="M 624.00,544.00 L 470.00,544.00 L 470.00,502.00 L 442.00,502.00 L 442.00,406.80 L 624.00,406.80 L 624.00,544.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="533.0" y="454.40000000000003" font-size="8" fill="#243c49" text-anchor="middle">BLD-2-0/9m</text>
+<path d="M 477.00,359.20 L 477.00,334.00 L 442.00,334.00 L 442.00,359.20 L 477.00,359.20 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="459.5" y="346.59999999999997" font-size="8" fill="#243c49" text-anchor="middle">BLD-2-1/9m</text>
+<path d="M 540.00,359.20 L 540.00,334.00 L 519.00,334.00 L 519.00,359.20 L 540.00,359.20 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="529.5" y="346.59999999999997" font-size="8" fill="#243c49" text-anchor="middle">BLD-2-2/9m</text>
+<path d="M 442.00,614.00 L 442.00,656.00 L 624.00,656.00 L 624.00,600.00 L 470.00,600.00 L 470.00,614.00 L 442.00,614.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="533.0" y="635.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-3-0/8m</text>
+<path d="M 330.00,656.00 L 330.00,614.00 L 302.00,614.00 L 302.00,558.00 L 260.00,558.00 L 260.00,544.00 L 218.00,544.00 L 218.00,474.00 L 148.00,474.00 L 148.00,600.00 L 246.00,600.00 L 246.00,656.00 L 330.00,656.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="225.0" y="579.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-4-0/9m</text>
+<path d="M 540.00,236.00 L 414.00,236.00 L 414.00,264.00 L 442.00,264.00 L 442.00,292.00 L 540.00,292.00 L 540.00,236.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="477.0" y="250.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-5-0/8m</text>
+<path d="M 400.00,726.00 L 400.00,656.00 L 372.00,656.00 L 372.00,726.00 L 400.00,726.00 Z " fill="#9fb2c0" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="386.0" y="691.0" font-size="8" fill="#243c49" text-anchor="middle">BLD-T/7m</text>
+<path d="M 218.00,404.00 L 218.00,348.00 L 302.00,348.00 L 302.00,362.00 L 330.00,362.00 L 330.00,285.00 L 351.00,285.00 L 372.00,285.00 L 477.00,285.00 L 498.00,285.00 L 519.00,285.00 L 519.00,362.00 L 540.00,362.00 L 540.00,404.00 L 498.00,404.00 L 498.00,383.00 L 477.00,383.00 L 477.00,327.00 L 372.00,327.00 L 372.00,362.00 L 372.00,383.00 L 372.00,404.00 L 302.00,404.00 L 288.00,404.00 L 218.00,404.00 Z " fill="#d7bc91" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<path d="M 218.0 404.0 L 218.0 348.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 218.0 348.0 L 231.92999999999998 348.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 260.07000000000005 348.0 L 302.0 348.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 302.0 348.0 L 302.0 362.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 302.0 362.0 L 330.0 362.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 330.0 362.0 L 330.0 285.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 330.0 285.0 L 351.0 285.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 351.0 285.0 L 372.0 285.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 372.0 285.0 L 477.0 285.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 477.0 285.0 L 498.0 285.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 498.0 285.0 L 519.0 285.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 519.0 285.0 L 519.0 362.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 519.0 362.0 L 539.3000000000001 362.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 539.3000000000001 404.0 L 498.0 404.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 498.0 404.0 L 498.0 383.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 498.0 383.0 L 477.0 383.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 477.0 383.0 L 477.0 327.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 477.0 327.0 L 400.07 327.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 378.93 327.0 L 372.0 327.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 372.0 327.0 L 372.0 362.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 372.0 362.0 L 372.0 383.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 372.0 383.0 L 372.0 404.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 372.0 404.0 L 302.0 404.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 302.0 404.0 L 288.0 404.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 288.0 404.0 L 274.07 404.0" stroke="#5b6d72" stroke-width="3"/>
+<path d="M 245.92999999999998 404.0 L 218.0 404.0" stroke="#5b6d72" stroke-width="3"/>
+<text x="414" y="313" font-size="10" fill="#243c49" text-anchor="middle">gallery bends — no added high crate baffles</text>
+<text x="393" y="339.59999999999997" font-size="11" fill="#ad4a32" text-anchor="middle">D-01 ↓4m to mid</text>
+<path d="M 442.00,656.00 L 442.00,642.00 L 358.00,642.00 L 358.00,656.00 L 442.00,656.00 Z " fill="#6c9796" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="400.0" y="651.8" font-size="8" fill="white" text-anchor="middle">T-01</text>
+<path d="M 123.50,516.00 L 123.50,488.00 L 92.00,488.00 L 92.00,516.00 L 123.50,516.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="107.75" y="504.8" font-size="8" fill="white" text-anchor="middle">W-01</text>
+<path d="M 218.00,474.00 L 218.00,418.00 L 148.00,418.00 L 148.00,474.00 L 218.00,474.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="183.0" y="448.8" font-size="8" fill="white" text-anchor="middle">W-02</text>
+<path d="M 148.00,362.00 L 148.00,348.00 L 92.00,348.00 L 92.00,362.00 L 148.00,362.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="120.0" y="357.80000000000007" font-size="8" fill="white" text-anchor="middle">A-gate-W</text>
+<path d="M 260.00,362.00 L 260.00,348.00 L 190.00,348.00 L 190.00,362.00 L 260.00,362.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="225.0" y="357.80000000000007" font-size="8" fill="white" text-anchor="middle">A-gate-E</text>
+<path d="M 176.00,292.00 L 176.00,271.00 L 148.00,271.00 L 148.00,292.00 L 176.00,292.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="162.0" y="284.30000000000007" font-size="8" fill="white" text-anchor="middle">A-01</text>
+<path d="M 197.00,250.00 L 197.00,236.00 L 176.00,236.00 L 176.00,250.00 L 197.00,250.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="186.5" y="245.80000000000007" font-size="8" fill="#1b3538" text-anchor="middle">A-02</text>
+<path d="M 134.00,243.00 L 134.00,229.00 L 106.00,229.00 L 106.00,243.00 L 134.00,243.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="120.0" y="238.80000000000007" font-size="8" fill="white" text-anchor="middle">A-03</text>
+<path d="M 379.00,488.00 L 379.00,446.00 L 330.00,446.00 L 330.00,488.00 L 379.00,488.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="354.5" y="469.8" font-size="8" fill="white" text-anchor="middle">M-01</text>
+<path d="M 655.50,572.00 L 655.50,537.00 L 624.00,537.00 L 624.00,572.00 L 655.50,572.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="639.75" y="557.3" font-size="8" fill="white" text-anchor="middle">E-01</text>
+<path d="M 596.00,362.00 L 596.00,348.00 L 540.00,348.00 L 540.00,362.00 L 596.00,362.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="568.0" y="357.80000000000007" font-size="8" fill="white" text-anchor="middle">B-gate</text>
+<path d="M 638.00,306.00 L 638.00,285.00 L 610.00,285.00 L 610.00,306.00 L 638.00,306.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="624.0" y="298.30000000000007" font-size="8" fill="white" text-anchor="middle">B-01</text>
+<path d="M 666.00,334.00 L 666.00,299.00 L 652.00,299.00 L 652.00,334.00 L 666.00,334.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="659.0" y="319.30000000000007" font-size="8" fill="white" text-anchor="middle">B-02</text>
+<path d="M 575.00,264.00 L 575.00,250.00 L 554.00,250.00 L 554.00,264.00 L 575.00,264.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="564.5" y="259.80000000000007" font-size="8" fill="#1b3538" text-anchor="middle">B-03</text>
+<path d="M 393.00,264.00 L 393.00,243.00 L 358.00,243.00 L 358.00,264.00 L 393.00,264.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="375.5" y="256.30000000000007" font-size="8" fill="white" text-anchor="middle">CT-01</text>
+<path d="M 323.00,404.00 L 323.00,362.00 L 309.00,362.00 L 309.00,404.00 L 323.00,404.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="316.0" y="385.8" font-size="8" fill="white" text-anchor="middle">P-01</text>
+<path d="M 491.00,404.00 L 491.00,362.00 L 477.00,362.00 L 477.00,404.00 L 491.00,404.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="484.0" y="385.8" font-size="8" fill="white" text-anchor="middle">P-02</text>
+<path d="M 442.00,390.00 L 442.00,376.00 L 365.00,376.00 L 365.00,390.00 L 442.00,390.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="403.5" y="385.8" font-size="8" fill="white" text-anchor="middle">M-02</text>
+<path d="M 148.00,572.00 L 148.00,551.00 L 120.00,551.00 L 120.00,572.00 L 148.00,572.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="134.0" y="564.3" font-size="8" fill="white" text-anchor="middle">W-03</text>
+<path d="M 680.00,474.00 L 680.00,453.00 L 652.00,453.00 L 652.00,474.00 L 680.00,474.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="666.0" y="466.3" font-size="8" fill="white" text-anchor="middle">E-02</text>
+<path d="M 295.00,726.00 L 295.00,684.00 L 274.00,684.00 L 274.00,726.00 L 295.00,726.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="284.5" y="707.8" font-size="8" fill="white" text-anchor="middle">T-02</text>
+<path d="M 533.00,698.00 L 533.00,656.00 L 512.00,656.00 L 512.00,698.00 L 533.00,698.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="522.5" y="679.8" font-size="8" fill="white" text-anchor="middle">T-03</text>
+<path d="M 302.00,236.00 L 302.00,201.00 L 288.00,201.00 L 288.00,236.00 L 302.00,236.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="295.0" y="221.30000000000007" font-size="8" fill="white" text-anchor="middle">CT-02</text>
+<path d="M 498.00,215.00 L 498.00,180.00 L 484.00,180.00 L 484.00,215.00 L 498.00,215.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="491.0" y="200.30000000000007" font-size="8" fill="white" text-anchor="middle">CT-03</text>
+<path d="M 134.00,278.00 L 134.00,257.00 L 120.00,257.00 L 120.00,278.00 L 134.00,278.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="127.0" y="270.30000000000007" font-size="8" fill="white" text-anchor="middle">A-04</text>
+<path d="M 652.00,264.00 L 652.00,236.00 L 638.00,236.00 L 638.00,264.00 L 652.00,264.00 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="645.0" y="252.80000000000007" font-size="8" fill="white" text-anchor="middle">B-04</text>
+<path d="M 267.00,377.40 L 267.00,369.00 L 220.80,369.00 L 220.80,377.40 L 267.00,377.40 Z " fill="#71868d" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="243.9" y="376.0" font-size="8" fill="white" text-anchor="middle">U-LB</text>
+<path d="M 113.00,600.00 L 113.00,586.00 L 99.00,586.00 L 99.00,600.00 L 113.00,600.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="106.0" y="595.8" font-size="8" fill="#1b3538" text-anchor="middle">W-L01</text>
+<path d="M 197.00,404.00 L 197.00,390.00 L 176.00,390.00 L 176.00,404.00 L 197.00,404.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="186.5" y="399.8" font-size="8" fill="#1b3538" text-anchor="middle">W-L02</text>
+<path d="M 642.20,502.00 L 642.20,488.00 L 625.40,488.00 L 625.40,502.00 L 642.20,502.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="633.8" y="497.8" font-size="8" fill="#1b3538" text-anchor="middle">E-L01</text>
+<path d="M 673.00,432.00 L 673.00,418.00 L 659.00,418.00 L 659.00,432.00 L 673.00,432.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="666.0" y="427.8" font-size="8" fill="#1b3538" text-anchor="middle">E-L02</text>
+<path d="M 327.20,593.00 L 327.20,579.00 L 303.40,579.00 L 303.40,593.00 L 327.20,593.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="315.30000000000007" y="588.8" font-size="8" fill="#1b3538" text-anchor="middle">M-L01</text>
+<path d="M 421.00,327.00 L 421.00,313.00 L 400.00,313.00 L 400.00,327.00 L 421.00,327.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="410.5" y="322.80000000000007" font-size="8" fill="#1b3538" text-anchor="middle">M-L02</text>
+<path d="M 155.00,334.00 L 155.00,320.00 L 134.00,320.00 L 134.00,334.00 L 155.00,334.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="144.5" y="329.80000000000007" font-size="8" fill="#1b3538" text-anchor="middle">A-L01</text>
+<path d="M 589.00,341.00 L 589.00,331.90 L 568.00,331.90 L 568.00,341.00 L 589.00,341.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="578.5" y="339.25" font-size="8" fill="#1b3538" text-anchor="middle">B-L01</text>
+<path d="M 386.00,614.00 L 386.00,600.00 L 330.00,600.00 L 330.00,614.00 L 386.00,614.00 Z " fill="#6c9796" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="358.0" y="609.8" font-size="8" fill="white" text-anchor="middle">T-04</text>
+<path d="M 344.00,348.00 L 344.00,327.00 L 331.40,327.00 L 331.40,348.00 L 344.00,348.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="337.7" y="340.30000000000007" font-size="8" fill="#1b3538" text-anchor="middle">U-C01</text>
+<path d="M 442.00,299.00 L 442.00,286.40 L 421.00,286.40 L 421.00,299.00 L 442.00,299.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="431.5" y="295.5" font-size="8" fill="#1b3538" text-anchor="middle">U-C02</text>
+<path d="M 517.60,355.00 L 517.60,334.00 L 505.00,334.00 L 505.00,355.00 L 517.60,355.00 Z " fill="#bace9c" stroke="#3c5967" stroke-width="1.5" fill-rule="evenodd" />
+<text x="511.30000000000007" y="347.30000000000007" font-size="8" fill="#1b3538" text-anchor="middle">U-C03</text>
+<text x="386" y="740" font-size="15" fill="#a36a30" text-anchor="middle">T</text>
+<text x="386" y="166" font-size="15" fill="#a36a30" text-anchor="middle">CT</text>
+<text x="197" y="285" font-size="15" fill="#a36a30" text-anchor="middle">A</text>
+<text x="596" y="285" font-size="15" fill="#a36a30" text-anchor="middle">B</text>
+<text x="386" y="446" font-size="11" fill="#243c49" text-anchor="middle">MID</text>
+<text x="113" y="635" font-size="10" fill="#243c49" text-anchor="middle">WEST</text>
+<text x="659" y="418" font-size="10" fill="#243c49" text-anchor="middle">EAST</text>
+</g>
+<g font-family="Arial" fill="#243f4e"><text x="50" y="885" font-size="19">Planned height and movement relationships — predictions, not performed gameplay</text>
+<text x="50" y="916" font-size="13">Dogleg gallery replaces U-B01/U-B02; U-LB is a landing service wall. Tallmass wing BLD-2-1 splits aroundtheeast gallery leg.</text>
+<text x="50" y="941" font-size="13">D-01 is an optional unguarded4m drop to supported mid at(48.5,67.5,0). Ordinary gallery route still connects both ends.</text>
+<text x="50" y="966" font-size="13">T-01/T-04 are7m vestibule returns; BLD-T is a7m controlbuilding core shaping the courtyard and blocking transverse feed views.</text>
+<text x="50" y="991" font-size="13">A dais has two6m-wide3-riserstairs: Y68..70 up andY77..79 down. A-02 relocates18..21,80..82; A-L01 relocates12..15,68..70.</text>
+<text x="50" y="1016" font-size="13">East saddle: Y40..44 ramp0→1.2; Y44..46 crest; Y46..50 ramp1.2→0. E-L01 sits oncrest atZ1.2; E-02 retains4.5m top.</text>
+<text x="50" y="1041" font-size="13">Upper low machinery/benchcovers U-C01/C02/C03 are1.25m above deck. Fullsidescreens2.4m except markeddrop/stair/ramp gaps.</text>
+<text x="50" y="1100" font-size="17">A section X=21: Y right, Z up (nominal stair envelope)</text>
+<path d="M 70 1240 H 110 L 170 1222 H 380 L 440 1240 H 500" fill="none" stroke="#a47c42" stroke-width="4"/><path d="M 70 1240 H 500" stroke="#697f87"/><circle cx="92" cy="1192" r="4" fill="#496f91"/><circle cx="280" cy="1174" r="4" fill="#496f91"/><text x="70" y="1270" font-size="12">Ground0 · dais+.60 · standingeye1.60 /2.20 · A-01top2.60 remainsabove raisedeye</text>
+<text x="830" y="1100" font-size="17">East section X=85: Y right, Z up</text>
+<path d="M 850 1240 H 880 L 1000 1204 H 1060 L 1180 1240 H 1280" fill="none" stroke="#a47c42" stroke-width="4"/><path d="M 850 1240 H 1280" stroke="#697f87"/><circle cx="1030" cy="1156" r="4" fill="#496f91"/><text x="850" y="1270" font-size="12">Crest+1.20 · standingeye2.80; approachchangesbody/eyeexposure · Z scale30px/m</text>
+<text x="50" y="1320" font-size="17">Drop section X=48.5: gallery Z4, underside3.7, floor0</text>
+<path d="M 70 1470 H 700 M 260 1390 H 560 V 1342" fill="none" stroke="#5c747f" stroke-width="5"/><path d="M 250 1390 Q 200 1420 200 1470 l -5 -10 m 5 10 l 5 -10" stroke="#ad4a32" fill="none" stroke-width="2"/><text x="70" y="1500" font-size="12">Open south edge; land outside deck footprint; return via stairs/ramp. Jump/fall/damage/one-way behavior needs target-engine verification.</text></g></svg>

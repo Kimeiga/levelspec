@@ -1,0 +1,1152 @@
+{
+  "revision": "L03",
+  "objectiveZone": {
+    "center": [
+      40,
+      36,
+      0
+    ],
+    "radius": 7,
+    "height": 2.5,
+    "level": "ground only; lofts do not score"
+  },
+  "units": "meters; right-handed Z-up",
+  "rooms": [
+    {
+      "id": "ANCHOR-A",
+      "label": "A \u00b7 old department store",
+      "poly": [
+        [
+          4,
+          4
+        ],
+        [
+          20,
+          4
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          4,
+          20
+        ]
+      ],
+      "z": 0
+    },
+    {
+      "id": "SOUTH",
+      "label": "South promenade",
+      "poly": [
+        [
+          20,
+          8
+        ],
+        [
+          40,
+          8
+        ],
+        [
+          40,
+          24
+        ],
+        [
+          32,
+          24
+        ],
+        [
+          32,
+          20
+        ],
+        [
+          20,
+          20
+        ]
+      ],
+      "z": 0
+    },
+    {
+      "id": "ARCADE",
+      "label": "West arcade",
+      "poly": [
+        [
+          4,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          32
+        ],
+        [
+          28,
+          32
+        ],
+        [
+          28,
+          48
+        ],
+        [
+          4,
+          48
+        ]
+      ],
+      "z": 0
+    },
+    {
+      "id": "COURT",
+      "label": "Dry fountain court",
+      "poly": [
+        [
+          34,
+          24
+        ],
+        [
+          46,
+          24
+        ],
+        [
+          52,
+          30
+        ],
+        [
+          52,
+          42
+        ],
+        [
+          46,
+          48
+        ],
+        [
+          34,
+          48
+        ],
+        [
+          28,
+          42
+        ],
+        [
+          28,
+          30
+        ]
+      ],
+      "z": 0
+    },
+    {
+      "id": "ANCHOR-B",
+      "label": "B \u00b7 old department store",
+      "poly": [
+        [
+          76,
+          68
+        ],
+        [
+          60,
+          68
+        ],
+        [
+          60,
+          52
+        ],
+        [
+          76,
+          52
+        ]
+      ],
+      "z": 0
+    },
+    {
+      "id": "NORTH",
+      "label": "North promenade",
+      "poly": [
+        [
+          60,
+          64
+        ],
+        [
+          40,
+          64
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          48,
+          52
+        ],
+        [
+          60,
+          52
+        ]
+      ],
+      "z": 0
+    },
+    {
+      "id": "CINEMA",
+      "label": "East cinema",
+      "poly": [
+        [
+          76,
+          52
+        ],
+        [
+          60,
+          52
+        ],
+        [
+          60,
+          40
+        ],
+        [
+          52,
+          40
+        ],
+        [
+          52,
+          24
+        ],
+        [
+          76,
+          24
+        ]
+      ],
+      "z": 0
+    },
+    {
+      "id": "FOOD-LOFT",
+      "label": "Food court loft",
+      "poly": [
+        [
+          10,
+          34
+        ],
+        [
+          28,
+          34
+        ],
+        [
+          28,
+          42
+        ],
+        [
+          10,
+          42
+        ]
+      ],
+      "z": 3
+    },
+    {
+      "id": "PROJECTION-LOFT",
+      "label": "Projection loft",
+      "poly": [
+        [
+          70,
+          38
+        ],
+        [
+          52,
+          38
+        ],
+        [
+          52,
+          30
+        ],
+        [
+          70,
+          30
+        ]
+      ],
+      "z": 3
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "LIFT",
+      "poly": [
+        [
+          38.5,
+          34
+        ],
+        [
+          41.5,
+          34
+        ],
+        [
+          41.5,
+          38
+        ],
+        [
+          38.5,
+          38
+        ]
+      ],
+      "z": 0,
+      "height": 5.8,
+      "role": "Opaque dead lift shaft splits point and interrupts opposing loft views",
+      "material": "teal"
+    },
+    {
+      "id": "A-KIOSK",
+      "poly": [
+        [
+          25,
+          13
+        ],
+        [
+          30,
+          13
+        ],
+        [
+          30,
+          17
+        ],
+        [
+          25,
+          17
+        ]
+      ],
+      "z": 0,
+      "height": 3.2,
+      "role": "Jewelry kiosk gives hard reset before south entry",
+      "material": "pink"
+    },
+    {
+      "id": "A-CORE",
+      "poly": [
+        [
+          12,
+          12
+        ],
+        [
+          16,
+          12
+        ],
+        [
+          16,
+          18
+        ],
+        [
+          12,
+          18
+        ]
+      ],
+      "z": 0,
+      "height": 3.4,
+      "role": "Spawn service core offsets both exits",
+      "material": "teal"
+    },
+    {
+      "id": "A-LOW",
+      "poly": [
+        [
+          34,
+          17.5
+        ],
+        [
+          38,
+          17.5
+        ],
+        [
+          38,
+          18.7
+        ],
+        [
+          34,
+          18.7
+        ]
+      ],
+      "z": 0,
+      "height": 1.15,
+      "role": "Standing exposed / crouch refuge south staging",
+      "material": "pink"
+    },
+    {
+      "id": "ARCADE-CABINETS",
+      "poly": [
+        [
+          4,
+          27
+        ],
+        [
+          6,
+          27
+        ],
+        [
+          6,
+          32
+        ],
+        [
+          4,
+          32
+        ]
+      ],
+      "z": 0,
+      "height": 2.3,
+      "role": "Cabinet bank creates west wall recess",
+      "material": "teal"
+    },
+    {
+      "id": "WEST-COUNTER",
+      "poly": [
+        [
+          18,
+          39.5
+        ],
+        [
+          23,
+          39.5
+        ],
+        [
+          23,
+          42.0
+        ],
+        [
+          18,
+          42.0
+        ]
+      ],
+      "z": 3,
+      "height": 1.15,
+      "role": "Loft preparation refuge; exposed to opposing height",
+      "material": "pink"
+    },
+    {
+      "id": "B-KIOSK",
+      "poly": [
+        [
+          55,
+          59
+        ],
+        [
+          50,
+          59
+        ],
+        [
+          50,
+          55
+        ],
+        [
+          55,
+          55
+        ]
+      ],
+      "z": 0,
+      "height": 3.2,
+      "role": "Jewelry kiosk gives hard reset before south entry",
+      "material": "pink"
+    },
+    {
+      "id": "B-CORE",
+      "poly": [
+        [
+          68,
+          60
+        ],
+        [
+          64,
+          60
+        ],
+        [
+          64,
+          54
+        ],
+        [
+          68,
+          54
+        ]
+      ],
+      "z": 0,
+      "height": 3.4,
+      "role": "Spawn service core offsets both exits",
+      "material": "teal"
+    },
+    {
+      "id": "B-LOW",
+      "poly": [
+        [
+          46,
+          54.5
+        ],
+        [
+          42,
+          54.5
+        ],
+        [
+          42,
+          53.3
+        ],
+        [
+          46,
+          53.3
+        ]
+      ],
+      "z": 0,
+      "height": 1.15,
+      "role": "Standing exposed / crouch refuge south staging",
+      "material": "pink"
+    },
+    {
+      "id": "CINEMA-COUNTER",
+      "poly": [
+        [
+          76,
+          45
+        ],
+        [
+          74,
+          45
+        ],
+        [
+          74,
+          40
+        ],
+        [
+          76,
+          40
+        ]
+      ],
+      "z": 0,
+      "height": 2.3,
+      "role": "Cabinet bank creates west wall recess",
+      "material": "teal"
+    },
+    {
+      "id": "EAST-COUNTER",
+      "poly": [
+        [
+          62,
+          32.5
+        ],
+        [
+          57,
+          32.5
+        ],
+        [
+          57,
+          30.0
+        ],
+        [
+          62,
+          30.0
+        ]
+      ],
+      "z": 3,
+      "height": 1.15,
+      "role": "Loft preparation refuge; exposed to opposing height",
+      "material": "pink"
+    },
+    {
+      "id": "F-SOUTH",
+      "poly": [
+        [
+          33,
+          30
+        ],
+        [
+          37,
+          30
+        ],
+        [
+          37,
+          31.1
+        ],
+        [
+          33,
+          31.1
+        ]
+      ],
+      "z": 0,
+      "height": 1.1,
+      "role": "Broken fountain rim; exposed to upper views",
+      "material": "tile"
+    },
+    {
+      "id": "F-NORTH",
+      "poly": [
+        [
+          43,
+          40.9
+        ],
+        [
+          47,
+          40.9
+        ],
+        [
+          47,
+          42.0
+        ],
+        [
+          43,
+          42.0
+        ]
+      ],
+      "z": 0,
+      "height": 1.1,
+      "role": "Broken fountain rim; exposed to upper views",
+      "material": "tile"
+    }
+  ],
+  "walls": [
+    {
+      "id": "A-E1",
+      "a": [
+        20,
+        4
+      ],
+      "b": [
+        20,
+        10
+      ],
+      "z": 0,
+      "h": 4
+    },
+    {
+      "id": "A-E2",
+      "a": [
+        20,
+        16
+      ],
+      "b": [
+        20,
+        20
+      ],
+      "z": 0,
+      "h": 4
+    },
+    {
+      "id": "A-N1",
+      "a": [
+        4,
+        20
+      ],
+      "b": [
+        6,
+        20
+      ],
+      "z": 0,
+      "h": 4
+    },
+    {
+      "id": "A-N2",
+      "a": [
+        12,
+        20
+      ],
+      "b": [
+        20,
+        20
+      ],
+      "z": 0,
+      "h": 4
+    },
+    {
+      "id": "B-E1",
+      "a": [
+        60,
+        68
+      ],
+      "b": [
+        60,
+        62
+      ],
+      "z": 0,
+      "h": 4
+    },
+    {
+      "id": "B-E2",
+      "a": [
+        60,
+        56
+      ],
+      "b": [
+        60,
+        52
+      ],
+      "z": 0,
+      "h": 4
+    },
+    {
+      "id": "B-N1",
+      "a": [
+        76,
+        52
+      ],
+      "b": [
+        74,
+        52
+      ],
+      "z": 0,
+      "h": 4
+    },
+    {
+      "id": "B-N2",
+      "a": [
+        68,
+        52
+      ],
+      "b": [
+        60,
+        52
+      ],
+      "z": 0,
+      "h": 4
+    },
+    {
+      "id": "W-LOFT-FRONT-0",
+      "a": [
+        28,
+        34
+      ],
+      "b": [
+        28,
+        36
+      ],
+      "z": 3,
+      "h": 2.6
+    },
+    {
+      "id": "W-LOFT-FRONT-1",
+      "a": [
+        28,
+        36
+      ],
+      "b": [
+        28,
+        40
+      ],
+      "z": 3,
+      "h": 1.1
+    },
+    {
+      "id": "W-LOFT-FRONT-2",
+      "a": [
+        28,
+        40
+      ],
+      "b": [
+        28,
+        42
+      ],
+      "z": 3,
+      "h": 2.6
+    },
+    {
+      "id": "E-LOFT-FRONT-0",
+      "a": [
+        52,
+        30
+      ],
+      "b": [
+        52,
+        32
+      ],
+      "z": 3,
+      "h": 2.6
+    },
+    {
+      "id": "E-LOFT-FRONT-1",
+      "a": [
+        52,
+        32
+      ],
+      "b": [
+        52,
+        36
+      ],
+      "z": 3,
+      "h": 1.1
+    },
+    {
+      "id": "E-LOFT-FRONT-2",
+      "a": [
+        52,
+        36
+      ],
+      "b": [
+        52,
+        38
+      ],
+      "z": 3,
+      "h": 2.6
+    },
+    {
+      "id": "W-REAR",
+      "a": [
+        10,
+        34
+      ],
+      "b": [
+        10,
+        42
+      ],
+      "z": 3,
+      "h": 1.1
+    },
+    {
+      "id": "W-NORTH",
+      "a": [
+        10,
+        42
+      ],
+      "b": [
+        28,
+        42
+      ],
+      "z": 3,
+      "h": 1.1
+    },
+    {
+      "id": "W-SOUTH",
+      "a": [
+        16,
+        34
+      ],
+      "b": [
+        28,
+        34
+      ],
+      "z": 3,
+      "h": 1.1
+    },
+    {
+      "id": "E-REAR",
+      "a": [
+        70,
+        38
+      ],
+      "b": [
+        70,
+        30
+      ],
+      "z": 3,
+      "h": 1.1
+    },
+    {
+      "id": "E-SOUTH",
+      "a": [
+        70,
+        30
+      ],
+      "b": [
+        52,
+        30
+      ],
+      "z": 3,
+      "h": 1.1
+    },
+    {
+      "id": "E-NORTH",
+      "a": [
+        64,
+        38
+      ],
+      "b": [
+        52,
+        38
+      ],
+      "z": 3,
+      "h": 1.1
+    }
+  ],
+  "stairs": [
+    {
+      "id": "WEST-STAIR",
+      "a": [
+        13,
+        22,
+        0
+      ],
+      "b": [
+        13,
+        34,
+        3
+      ],
+      "width": 6,
+      "count": 20,
+      "fromRoom": "ARCADE",
+      "toRoom": "FOOD-LOFT"
+    },
+    {
+      "id": "EAST-STAIR",
+      "a": [
+        67,
+        50,
+        0
+      ],
+      "b": [
+        67,
+        38,
+        3
+      ],
+      "width": 6,
+      "count": 20,
+      "fromRoom": "CINEMA",
+      "toRoom": "PROJECTION-LOFT"
+    }
+  ],
+  "markers": [
+    {
+      "id": "control",
+      "pos": [
+        36,
+        36,
+        0
+      ],
+      "kind": "objective",
+      "room": "COURT"
+    },
+    {
+      "id": "a-spawn-1",
+      "pos": [
+        7,
+        7,
+        0
+      ],
+      "kind": "spawn",
+      "team": "A",
+      "room": "ANCHOR-A"
+    },
+    {
+      "id": "a-spawn-2",
+      "pos": [
+        10,
+        7,
+        0
+      ],
+      "kind": "spawn",
+      "team": "A",
+      "room": "ANCHOR-A"
+    },
+    {
+      "id": "a-spawn-3",
+      "pos": [
+        13,
+        7,
+        0
+      ],
+      "kind": "spawn",
+      "team": "A",
+      "room": "ANCHOR-A"
+    },
+    {
+      "id": "a-spawn-4",
+      "pos": [
+        7,
+        10,
+        0
+      ],
+      "kind": "spawn",
+      "team": "A",
+      "room": "ANCHOR-A"
+    },
+    {
+      "id": "a-spawn-5",
+      "pos": [
+        10,
+        10,
+        0
+      ],
+      "kind": "spawn",
+      "team": "A",
+      "room": "ANCHOR-A"
+    },
+    {
+      "id": "b-spawn-1",
+      "pos": [
+        73,
+        65,
+        0
+      ],
+      "kind": "spawn",
+      "team": "B",
+      "room": "ANCHOR-B"
+    },
+    {
+      "id": "b-spawn-2",
+      "pos": [
+        70,
+        65,
+        0
+      ],
+      "kind": "spawn",
+      "team": "B",
+      "room": "ANCHOR-B"
+    },
+    {
+      "id": "b-spawn-3",
+      "pos": [
+        67,
+        65,
+        0
+      ],
+      "kind": "spawn",
+      "team": "B",
+      "room": "ANCHOR-B"
+    },
+    {
+      "id": "b-spawn-4",
+      "pos": [
+        73,
+        62,
+        0
+      ],
+      "kind": "spawn",
+      "team": "B",
+      "room": "ANCHOR-B"
+    },
+    {
+      "id": "b-spawn-5",
+      "pos": [
+        70,
+        62,
+        0
+      ],
+      "kind": "spawn",
+      "team": "B",
+      "room": "ANCHOR-B"
+    },
+    {
+      "id": "south-stage",
+      "pos": [
+        36,
+        22,
+        0
+      ],
+      "room": "SOUTH",
+      "kind": "poi"
+    },
+    {
+      "id": "north-stage",
+      "pos": [
+        44,
+        50,
+        0
+      ],
+      "room": "NORTH",
+      "kind": "poi"
+    },
+    {
+      "id": "west-mouth",
+      "pos": [
+        26,
+        36,
+        0
+      ],
+      "room": "ARCADE",
+      "kind": "poi"
+    },
+    {
+      "id": "east-mouth",
+      "pos": [
+        54,
+        36,
+        0
+      ],
+      "room": "CINEMA",
+      "kind": "poi"
+    },
+    {
+      "id": "west-loft",
+      "pos": [
+        25,
+        38,
+        3
+      ],
+      "room": "FOOD-LOFT",
+      "kind": "poi"
+    },
+    {
+      "id": "east-loft",
+      "pos": [
+        55,
+        34,
+        3
+      ],
+      "room": "PROJECTION-LOFT",
+      "kind": "poi"
+    },
+    {
+      "id": "west-stair-foot",
+      "pos": [
+        13,
+        21,
+        0
+      ],
+      "room": "ARCADE",
+      "kind": "poi"
+    },
+    {
+      "id": "west-stair-top",
+      "pos": [
+        13,
+        35,
+        3
+      ],
+      "room": "FOOD-LOFT",
+      "kind": "poi"
+    },
+    {
+      "id": "east-stair-foot",
+      "pos": [
+        67,
+        51,
+        0
+      ],
+      "room": "CINEMA",
+      "kind": "poi"
+    },
+    {
+      "id": "east-stair-top",
+      "pos": [
+        67,
+        37,
+        3
+      ],
+      "room": "PROJECTION-LOFT",
+      "kind": "poi"
+    }
+  ],
+  "connections": [
+    [
+      "ANCHOR-A",
+      "SOUTH"
+    ],
+    [
+      "ANCHOR-A",
+      "ARCADE"
+    ],
+    [
+      "SOUTH",
+      "COURT"
+    ],
+    [
+      "ARCADE",
+      "COURT"
+    ],
+    [
+      "ANCHOR-B",
+      "NORTH"
+    ],
+    [
+      "ANCHOR-B",
+      "CINEMA"
+    ],
+    [
+      "NORTH",
+      "COURT"
+    ],
+    [
+      "CINEMA",
+      "COURT"
+    ]
+  ]
+}

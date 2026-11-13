@@ -1,0 +1,700 @@
+[
+  {
+    "id": "t-center",
+    "position": [
+      -14,
+      -33,
+      1.684
+    ],
+    "target": [
+      -7,
+      -20,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -14,
+      -33,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "t-cleanlock-offset",
+    "position": [
+      -20,
+      -33,
+      1.684
+    ],
+    "target": [
+      -27,
+      -24,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -20,
+      -33,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "t-cooling-offset",
+    "position": [
+      -2,
+      -32,
+      1.684
+    ],
+    "target": [
+      24,
+      -21,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -2,
+      -32,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "cleanlock-reverse",
+    "position": [
+      -27,
+      -17,
+      1.684
+    ],
+    "target": [
+      -27,
+      -28,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -27,
+      -17,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "cask-approach",
+    "position": [
+      -31,
+      -9,
+      1.684
+    ],
+    "target": [
+      -31,
+      6,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -31,
+      -9,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "d-center",
+    "position": [
+      0,
+      30,
+      1.684
+    ],
+    "target": [
+      10,
+      30,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      0,
+      30,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "d-switchboard-turn",
+    "position": [
+      10,
+      31.5,
+      1.684
+    ],
+    "target": [
+      31,
+      30,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      10,
+      31.5,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "west-port-to-gallery",
+    "position": [
+      -12,
+      4,
+      1.684
+    ],
+    "target": [
+      -19,
+      2,
+      4.874
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -12,
+      4,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "east-port-reverse",
+    "position": [
+      13,
+      4.5,
+      1.684
+    ],
+    "target": [
+      0,
+      -2.5,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      13,
+      4.5,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "south-arc-to-west",
+    "position": [
+      -4,
+      -0.8,
+      1.684
+    ],
+    "target": [
+      -12,
+      4,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -4,
+      -0.8,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "gallery-in-leader",
+    "position": [
+      -21.645922746781117,
+      -7.099785407725322,
+      4.564000114440917
+    ],
+    "target": [
+      -12,
+      4,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -21.645922746781117,
+      -7.099785407725322,
+      2.8900001144409178
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "gallery-in-follower",
+    "position": [
+      -21.80472103004292,
+      -8.568669527896995,
+      4.0406765725778975
+    ],
+    "target": [
+      -12,
+      4,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -21.80472103004292,
+      -8.568669527896995,
+      2.366676572577898
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "gallery-out-leader",
+    "position": [
+      -24.5,
+      12.49468085106383,
+      4.387778093370455
+    ],
+    "target": [
+      -34,
+      18,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -24.5,
+      12.49468085106383,
+      2.713778093370455
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "gallery-out-follower",
+    "position": [
+      -24.5,
+      11.018617021276595,
+      3.7133329894062936
+    ],
+    "target": [
+      -34,
+      18,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -24.5,
+      11.018617021276595,
+      2.0393329894062937
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "gallery-a-support",
+    "position": [
+      -26,
+      16,
+      4.884000047683715
+    ],
+    "target": [
+      -30,
+      8,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -26,
+      16,
+      3.2100000476837156
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "a-low-standing",
+    "position": [
+      -34,
+      20.5,
+      1.684
+    ],
+    "target": [
+      -31,
+      5,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -34,
+      20.5,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "a-low-crouched-eye",
+    "position": [
+      -34,
+      20.5,
+      1.033
+    ],
+    "target": [
+      -31,
+      5,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -34,
+      20.5,
+      0.01
+    ],
+    "eyeHeight": 1.023
+  },
+  {
+    "id": "a-rear-arrival",
+    "position": [
+      -26,
+      24,
+      1.684
+    ],
+    "target": [
+      -34,
+      14,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -26,
+      24,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "a-rear-west-offset",
+    "position": [
+      -27.2,
+      22.2,
+      1.684
+    ],
+    "target": [
+      -34,
+      14,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -27.2,
+      22.2,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "a-plant-reverse",
+    "position": [
+      -34,
+      14,
+      1.684
+    ],
+    "target": [
+      -26,
+      24,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      -34,
+      14,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "b-low-standing",
+    "position": [
+      24.5,
+      20.5,
+      1.684
+    ],
+    "target": [
+      24,
+      8,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      24.5,
+      20.5,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "b-low-crouched-eye",
+    "position": [
+      24.5,
+      20.5,
+      1.033
+    ],
+    "target": [
+      24,
+      8,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      24.5,
+      20.5,
+      0.01
+    ],
+    "eyeHeight": 1.023
+  },
+  {
+    "id": "b-rear-arrival",
+    "position": [
+      35.5,
+      25,
+      1.684
+    ],
+    "target": [
+      35,
+      17,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      35.5,
+      25,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "b-rear-east-offset",
+    "position": [
+      38,
+      22.8,
+      1.684
+    ],
+    "target": [
+      35,
+      17,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      38,
+      22.8,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "b-plant-reverse",
+    "position": [
+      35,
+      17,
+      1.684
+    ],
+    "target": [
+      35.5,
+      25,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      35,
+      17,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "trench-north-leader",
+    "position": [
+      35.5,
+      4.5,
+      1.0939388606382168
+    ],
+    "target": [
+      35,
+      17,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      35.5,
+      4.5,
+      -0.5800611393617833
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "trench-north-follower",
+    "position": [
+      35.5,
+      3,
+      0.7339388463331019
+    ],
+    "target": [
+      35,
+      17,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      35.5,
+      3,
+      -0.940061153666898
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "trench-south-descent",
+    "position": [
+      35.5,
+      -14.5,
+      1.0939388606382168
+    ],
+    "target": [
+      35.5,
+      5,
+      1.194
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      35.5,
+      -14.5,
+      -0.5800611393617833
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "b-entry-grounded",
+    "position": [
+      35.5,
+      5,
+      1.2139388654065884
+    ],
+    "target": [
+      30,
+      18,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      35.5,
+      5,
+      -0.4600611345934117
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "ground-bypass",
+    "position": [
+      23.5,
+      -6,
+      1.684
+    ],
+    "target": [
+      23,
+      8,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      23.5,
+      -6,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "east-port-to-bypass",
+    "position": [
+      23,
+      6,
+      1.684
+    ],
+    "target": [
+      23.5,
+      -6,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render",
+    "standingBodyFeet": [
+      23,
+      6,
+      0.01
+    ],
+    "eyeHeight": 1.674
+  },
+  {
+    "id": "reactor-supports",
+    "position": [
+      9,
+      -3,
+      -6
+    ],
+    "target": [
+      3,
+      8,
+      -7
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  }
+]

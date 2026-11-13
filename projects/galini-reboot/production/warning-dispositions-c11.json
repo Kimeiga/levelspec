@@ -1,0 +1,3013 @@
+{
+  "sourceSha256": "5ec0bdb6c187e15c2c38a1ce830cff74af514bca5201bdef39860818070f78a6",
+  "authorOnly": true,
+  "diagnostics": [
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLOOR_EDGE_GAP",
+      "objects": [
+        "F04-01",
+        "F06-02",
+        "F04-01:loop:3:3",
+        "F06-02:loop:0:4"
+      ],
+      "source": {
+        "line": 22,
+        "column": 5,
+        "offset": 2084,
+        "end": 2232
+      },
+      "message": "Floor boundaries F04-01 (F04-01:loop:3:3) and F06-02 (F06-02:loop:0:4) coincide in plan and leave an unsealed vertical interval along 4.000 m of boundary (about 1.700 m high near 100.000, 79.000). Verify whether these boundaries require a retaining join or belong to separate storeys. If a join is intended, add an elevation seam or a wall spanning the lower floor to the upper slab underside; a wall above the interval does not seal it.",
+      "authorDisposition": "Retain strict failure; use the six interface-specific physical rows in production/README.md and native-sections-c11. Independent final return required."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLOOR_EDGE_GAP",
+      "objects": [
+        "F04-01",
+        "S8b",
+        "F04-01:loop:5:1",
+        "S8b:upper"
+      ],
+      "source": {
+        "line": 22,
+        "column": 5,
+        "offset": 2084,
+        "end": 2232
+      },
+      "message": "Floor boundaries F04-01 (F04-01:loop:5:1) and S8b (S8b:upper) coincide in plan and leave an unsealed vertical interval along 3.300 m of boundary (about 1.500 m high near 122.000, 71.000). Verify whether these boundaries require a retaining join or belong to separate storeys. If a join is intended, add an elevation seam or a wall spanning the lower floor to the upper slab underside; a wall above the interval does not seal it.",
+      "authorDisposition": "Retain strict failure; use the six interface-specific physical rows in production/README.md and native-sections-c11. Independent final return required."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLOOR_EDGE_GAP",
+      "objects": [
+        "F04-01",
+        "S8a",
+        "F04-01:loop:6:0",
+        "S8a:left"
+      ],
+      "source": {
+        "line": 22,
+        "column": 5,
+        "offset": 2084,
+        "end": 2232
+      },
+      "message": "Floor boundaries F04-01 (F04-01:loop:6:0) and S8a (S8a:left) coincide in plan and leave an unsealed vertical interval along 6.000 m of boundary (about 0.600 m high near 119.847, 81.000). Verify whether these boundaries require a retaining join or belong to separate storeys. If a join is intended, add an elevation seam or a wall spanning the lower floor to the upper slab underside; a wall above the interval does not seal it.",
+      "authorDisposition": "Retain strict failure; use the six interface-specific physical rows in production/README.md and native-sections-c11. Independent final return required."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLOOR_EDGE_GAP",
+      "objects": [
+        "F04-01",
+        "S8a",
+        "F04-01:loop:6:1",
+        "S8a:lower"
+      ],
+      "source": {
+        "line": 22,
+        "column": 5,
+        "offset": 2084,
+        "end": 2232
+      },
+      "message": "Floor boundaries F04-01 (F04-01:loop:6:1) and S8a (S8a:lower) coincide in plan and leave an unsealed vertical interval along 3.880 m of boundary (about 0.600 m high near 114.000, 79.175). Verify whether these boundaries require a retaining join or belong to separate storeys. If a join is intended, add an elevation seam or a wall spanning the lower floor to the upper slab underside; a wall above the interval does not seal it.",
+      "authorDisposition": "Retain strict failure; use the six interface-specific physical rows in production/README.md and native-sections-c11. Independent final return required."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLOOR_EDGE_GAP",
+      "objects": [
+        "F04-01",
+        "S8a",
+        "F04-01:loop:6:2",
+        "S8a:right"
+      ],
+      "source": {
+        "line": 22,
+        "column": 5,
+        "offset": 2084,
+        "end": 2232
+      },
+      "message": "Floor boundaries F04-01 (F04-01:loop:6:2) and S8a (S8a:right) coincide in plan and leave an unsealed vertical interval along 4.800 m of boundary (about 2.600 m high near 115.500, 77.000). Verify whether these boundaries require a retaining join or belong to separate storeys. If a join is intended, add an elevation seam or a wall spanning the lower floor to the upper slab underside; a wall above the interval does not seal it.",
+      "authorDisposition": "Retain strict failure; use the six interface-specific physical rows in production/README.md and native-sections-c11. Independent final return required."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLOOR_EDGE_GAP",
+      "objects": [
+        "F06-03",
+        "S8a",
+        "F06-03:loop:0:1",
+        "S8a:upper"
+      ],
+      "source": {
+        "line": 25,
+        "column": 5,
+        "offset": 2543,
+        "end": 2691
+      },
+      "message": "Floor boundaries F06-03 (F06-03:loop:0:1) and S8a (S8a:upper) coincide in plan and leave an unsealed vertical interval along 4.000 m of boundary (about 1.500 m high near 120.000, 78.825). Verify whether these boundaries require a retaining join or belong to separate storeys. If a join is intended, add an elevation seam or a wall spanning the lower floor to the upper slab underside; a wall above the interval does not seal it.",
+      "authorDisposition": "Retain strict failure; use the six interface-specific physical rows in production/README.md and native-sections-c11. Independent final return required."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of R6b to be open? 2.06 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "R6b",
+        "B-F04-01-0-73",
+        "R6b-left"
+      ],
+      "relatedSources": [
+        {
+          "object": "R6b",
+          "source": {
+            "line": 692,
+            "column": 5,
+            "offset": 123312,
+            "end": 123422
+          }
+        },
+        {
+          "object": "B-F04-01-0-73",
+          "source": {
+            "line": 470,
+            "column": 5,
+            "offset": 83110,
+            "end": 83293
+          }
+        },
+        {
+          "object": "R6b-left",
+          "source": {
+            "line": 693,
+            "column": 5,
+            "offset": 123427,
+            "end": 123576
+          }
+        }
+      ],
+      "source": {
+        "line": 692,
+        "column": 5,
+        "offset": 123312,
+        "end": 123422
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:R6b|R6b:left",
+        "fingerprint": "8c618cb63d2e22666b344d46406e62c31f5f6752617b6c7ced1a73486b3e37c2"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:R6b|R6b:left",
+        "layers": [
+          "ramps",
+          "guards",
+          "walls"
+        ],
+        "bounds": {
+          "min": [
+            126.51243392121597,
+            50.26157377310814,
+            3.3020666141321278
+          ],
+          "max": [
+            126.86137371740897,
+            53.75097173503806,
+            3.99994620651811
+          ]
+        },
+        "position": [
+          126.68690381931248,
+          52.006272754073095,
+          3.651006410325119
+        ],
+        "direction": [
+          0.9950371902099892,
+          0.09950371902099892,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of R6b to be open? 1.76 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "R6b",
+        "B-F04-01-0-71",
+        "R6b-right"
+      ],
+      "relatedSources": [
+        {
+          "object": "R6b",
+          "source": {
+            "line": 692,
+            "column": 5,
+            "offset": 123312,
+            "end": 123422
+          }
+        },
+        {
+          "object": "B-F04-01-0-71",
+          "source": {
+            "line": 469,
+            "column": 5,
+            "offset": 82922,
+            "end": 83105
+          }
+        },
+        {
+          "object": "R6b-right",
+          "source": {
+            "line": 694,
+            "column": 5,
+            "offset": 123581,
+            "end": 123732
+          }
+        }
+      ],
+      "source": {
+        "line": 692,
+        "column": 5,
+        "offset": 123312,
+        "end": 123422
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:R6b|R6b:right",
+        "fingerprint": "18e3016034c7a2cabdac96c11178e53ca813f829c6745097bd333b7b17d3322f"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:R6b|R6b:right",
+        "layers": [
+          "ramps",
+          "walls",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            131.48759297552496,
+            50.65000109104878,
+            3.2802483586992564
+          ],
+          "max": [
+            131.84746879617532,
+            54.248759297552496,
+            4
+          ]
+        },
+        "position": [
+          131.66753088585014,
+          52.44938019430064,
+          3.640124179349628
+        ],
+        "direction": [
+          -0.9950371902099892,
+          -0.09950371902099892,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of S2b to be open? 0.29 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "S2b",
+        "B-F04-01-0-103",
+        "S2b-right"
+      ],
+      "relatedSources": [
+        {
+          "object": "S2b",
+          "source": {
+            "line": 656,
+            "column": 5,
+            "offset": 117813,
+            "end": 117966
+          }
+        },
+        {
+          "object": "B-F04-01-0-103",
+          "source": {
+            "line": 499,
+            "column": 5,
+            "offset": 88599,
+            "end": 88787
+          }
+        },
+        {
+          "object": "S2b-right",
+          "source": {
+            "line": 658,
+            "column": 5,
+            "offset": 118123,
+            "end": 118272
+          }
+        }
+      ],
+      "source": {
+        "line": 656,
+        "column": 5,
+        "offset": 117813,
+        "end": 117966
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:S2b|S2b:right",
+        "fingerprint": "005988cb3fc1909ff4f8ff9b1ea22dec265293323c991c4f1df61def9ce5c73a"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:S2b|S2b:right",
+        "layers": [
+          "stairs",
+          "walls",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            42.20000076293945,
+            44,
+            2.5016759236653643
+          ],
+          "max": [
+            42.494972229003906,
+            44,
+            2.5999997456868487
+          ]
+        },
+        "position": [
+          42.34748649597168,
+          44,
+          2.5508378346761065
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of S3a to be open? 0.18 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "S3a",
+        "S3a-left"
+      ],
+      "relatedSources": [
+        {
+          "object": "S3a",
+          "source": {
+            "line": 659,
+            "column": 5,
+            "offset": 118277,
+            "end": 118428
+          }
+        },
+        {
+          "object": "S3a-left",
+          "source": {
+            "line": 660,
+            "column": 5,
+            "offset": 118433,
+            "end": 118580
+          }
+        }
+      ],
+      "source": {
+        "line": 659,
+        "column": 5,
+        "offset": 118277,
+        "end": 118428
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:S3a|S3a:left",
+        "fingerprint": "9d7626f406082e5deca079af2e20274b412e738350b1fb553a92bba302276fe0"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:S3a|S3a:left",
+        "layers": [
+          "stairs",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            13,
+            70.82499694824219,
+            5.6083323160807295
+          ],
+          "max": [
+            13,
+            71,
+            5.666666666666667
+          ]
+        },
+        "position": [
+          13,
+          70.9124984741211,
+          5.637499491373698
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of S3a to be open? 0.20 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "S3a",
+        "S3a-right"
+      ],
+      "relatedSources": [
+        {
+          "object": "S3a",
+          "source": {
+            "line": 659,
+            "column": 5,
+            "offset": 118277,
+            "end": 118428
+          }
+        },
+        {
+          "object": "S3a-right",
+          "source": {
+            "line": 661,
+            "column": 5,
+            "offset": 118585,
+            "end": 118734
+          }
+        }
+      ],
+      "source": {
+        "line": 659,
+        "column": 5,
+        "offset": 118277,
+        "end": 118428
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:S3a|S3a:right",
+        "fingerprint": "cefb67f4f9b18695fd2990a569f455d13093145745ecbeb155681b2a05fad391"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:S3a|S3a:right",
+        "layers": [
+          "stairs",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            17,
+            70.80000305175781,
+            5.6000010172526045
+          ],
+          "max": [
+            17,
+            71,
+            5.666666666666667
+          ]
+        },
+        "position": [
+          17,
+          70.9000015258789,
+          5.633333841959636
+        ],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of S5a to be open? 0.35 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "S5a",
+        "S5a-right"
+      ],
+      "relatedSources": [
+        {
+          "object": "S5a",
+          "source": {
+            "line": 671,
+            "column": 5,
+            "offset": 120130,
+            "end": 120273
+          }
+        },
+        {
+          "object": "S5a-right",
+          "source": {
+            "line": 673,
+            "column": 5,
+            "offset": 120430,
+            "end": 120579
+          }
+        }
+      ],
+      "source": {
+        "line": 671,
+        "column": 5,
+        "offset": 120130,
+        "end": 120273
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:S5a|S5a:right",
+        "fingerprint": "f1153d38ab53e189e54792921b9277b5b440d858b97f3d8a1cebbd053866d1f5"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:S5a|S5a:right",
+        "layers": [
+          "stairs",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            105,
+            34.650001525878906,
+            1.8833338419596355
+          ],
+          "max": [
+            105,
+            35,
+            2
+          ]
+        },
+        "position": [
+          105,
+          34.82500076293945,
+          1.9416669209798179
+        ],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of S5b to be open? 0.22 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "S5b",
+        "S5b-left"
+      ],
+      "relatedSources": [
+        {
+          "object": "S5b",
+          "source": {
+            "line": 674,
+            "column": 5,
+            "offset": 120584,
+            "end": 120735
+          }
+        },
+        {
+          "object": "S5b-left",
+          "source": {
+            "line": 675,
+            "column": 5,
+            "offset": 120740,
+            "end": 120887
+          }
+        }
+      ],
+      "source": {
+        "line": 674,
+        "column": 5,
+        "offset": 120584,
+        "end": 120735
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:S5b|S5b:left",
+        "fingerprint": "a5cd367f05664ffb29b2d240e3b8acb2a173475f610dac05da56e3976be33a6e"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:S5b|S5b:left",
+        "layers": [
+          "stairs",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            95,
+            35,
+            3.925000508626302
+          ],
+          "max": [
+            95.2249984741211,
+            35,
+            4
+          ]
+        },
+        "position": [
+          95.11249923706055,
+          35,
+          3.962500254313151
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of S5b to be open? 0.55 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "S5b",
+        "B-F04-01-0-82",
+        "S5b-right"
+      ],
+      "relatedSources": [
+        {
+          "object": "S5b",
+          "source": {
+            "line": 674,
+            "column": 5,
+            "offset": 120584,
+            "end": 120735
+          }
+        },
+        {
+          "object": "B-F04-01-0-82",
+          "source": {
+            "line": 479,
+            "column": 5,
+            "offset": 84802,
+            "end": 84988
+          }
+        },
+        {
+          "object": "S5b-right",
+          "source": {
+            "line": 676,
+            "column": 5,
+            "offset": 120892,
+            "end": 121041
+          }
+        }
+      ],
+      "source": {
+        "line": 674,
+        "column": 5,
+        "offset": 120584,
+        "end": 120735
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:S5b|S5b:right",
+        "fingerprint": "798e5f59d5e02f4d9472c0fa63d304f5af5f0254074d0a3d6e5dbbb10342a259"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:S5b|S5b:right",
+        "layers": [
+          "stairs",
+          "walls",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            95,
+            39,
+            2.5490951538085938
+          ],
+          "max": [
+            99.35271453857422,
+            39,
+            4
+          ]
+        },
+        "position": [
+          97.17635726928711,
+          39,
+          3.274547576904297
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of S8a to be open? 2.25 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "S8a",
+        "B-F08-01-0-57",
+        "S8a-left"
+      ],
+      "relatedSources": [
+        {
+          "object": "S8a",
+          "source": {
+            "line": 683,
+            "column": 5,
+            "offset": 121969,
+            "end": 122119
+          }
+        },
+        {
+          "object": "B-F08-01-0-57",
+          "source": {
+            "line": 617,
+            "column": 5,
+            "offset": 110811,
+            "end": 110987
+          }
+        },
+        {
+          "object": "S8a-left",
+          "source": {
+            "line": 684,
+            "column": 5,
+            "offset": 122124,
+            "end": 122271
+          }
+        }
+      ],
+      "source": {
+        "line": 683,
+        "column": 5,
+        "offset": 121969,
+        "end": 122119
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:S8a|S8a:left",
+        "fingerprint": "50734585972834c93ffea03712f42be80d6ffd80a50456c252ff5592ea55952a"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:S8a|S8a:left",
+        "layers": [
+          "stairs",
+          "walls",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            114.15,
+            81,
+            7.199999491373698
+          ],
+          "max": [
+            116.4000015258789,
+            81,
+            7.949999999999999
+          ]
+        },
+        "position": [
+          115.27500076293946,
+          81,
+          7.574999745686849
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "FLIGHT_OPEN_SIDE",
+      "message": "Did you intend this side of S8a to be open? 1.20 m has no adjoining wall, glass barrier, or railing.",
+      "objects": [
+        "S8a",
+        "S8a-right"
+      ],
+      "relatedSources": [
+        {
+          "object": "S8a",
+          "source": {
+            "line": 683,
+            "column": 5,
+            "offset": 121969,
+            "end": 122119
+          }
+        },
+        {
+          "object": "S8a-right",
+          "source": {
+            "line": 685,
+            "column": 5,
+            "offset": 122276,
+            "end": 122425
+          }
+        }
+      ],
+      "source": {
+        "line": 683,
+        "column": 5,
+        "offset": 121969,
+        "end": 122119
+      },
+      "suggestion": {
+        "id": "FLIGHT_OPEN_SIDE:S8a|S8a:right",
+        "fingerprint": "ceab7a459d4e3e4dd57a77d9944691e0aec8642c2d30a01f2fc1463dffc10a1f"
+      },
+      "review": {
+        "id": "FLIGHT_OPEN_SIDE:S8a|S8a:right",
+        "layers": [
+          "stairs",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            114,
+            77,
+            7.6000010172526045
+          ],
+          "max": [
+            115.19999694824219,
+            77,
+            8
+          ]
+        },
+        "position": [
+          114.5999984741211,
+          77,
+          7.800000508626303
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Continuous native parapets are authored on the named side and visible in source-matched stair/Customs images. Finite side-contact heuristic remains flagged; independent architecture/local review must inspect listed bounds. No added wall across the movement mouth."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.03 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect F00-01 to a corridor or path?",
+      "objects": [
+        "F00-01"
+      ],
+      "relatedSources": [
+        {
+          "object": "F00-01",
+          "source": {
+            "line": 17,
+            "column": 5,
+            "offset": 1319,
+            "end": 1467
+          }
+        }
+      ],
+      "source": {
+        "line": 17,
+        "column": 5,
+        "offset": 1319,
+        "end": 1467
+      },
+      "suggestion": {
+        "id": "NAV_ISLAND:F00-01:0",
+        "fingerprint": "4e053ebdf08923d43ab215411cf42e5479ca7b9184186d289ce43001546dd153"
+      },
+      "review": {
+        "id": "NAV_ISLAND:F00-01:0",
+        "layers": [
+          "floors"
+        ],
+        "bounds": {
+          "min": [
+            123.6500015258789,
+            32.40979766845703,
+            0.009999752044677734
+          ],
+          "max": [
+            123.8375015258789,
+            32.84729766845703,
+            0.009999752044677734
+          ]
+        },
+        "position": [
+          123.81666819254556,
+          32.80563100179037,
+          0.009999752044677734
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "F00-01:0"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.02 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect F04-01 to a corridor or path?",
+      "objects": [
+        "F04-01"
+      ],
+      "relatedSources": [
+        {
+          "object": "F04-01",
+          "source": {
+            "line": 22,
+            "column": 5,
+            "offset": 2084,
+            "end": 2232
+          }
+        }
+      ],
+      "source": {
+        "line": 22,
+        "column": 5,
+        "offset": 2084,
+        "end": 2232
+      },
+      "suggestion": {
+        "id": "NAV_ISLAND:F04-01:0",
+        "fingerprint": "c3fc2e783afcfad19fad01965c83adb1fe3242f8df56497f95a56588c6981118"
+      },
+      "review": {
+        "id": "NAV_ISLAND:F04-01:0",
+        "layers": [
+          "floors"
+        ],
+        "bounds": {
+          "min": [
+            17.649999618530273,
+            62.34729766845703,
+            4.009999752044678
+          ],
+          "max": [
+            17.774999618530273,
+            62.78479766845703,
+            4.009999752044678
+          ]
+        },
+        "position": [
+          17.733332951863606,
+          62.74313100179036,
+          4.009999752044678
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "F04-01:0"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.21 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect F04-01 to a corridor or path?",
+      "objects": [
+        "F04-01"
+      ],
+      "relatedSources": [
+        {
+          "object": "F04-01",
+          "source": {
+            "line": 22,
+            "column": 5,
+            "offset": 2084,
+            "end": 2232
+          }
+        }
+      ],
+      "source": {
+        "line": 22,
+        "column": 5,
+        "offset": 2084,
+        "end": 2232
+      },
+      "suggestion": {
+        "id": "NAV_ISLAND:F04-01:1",
+        "fingerprint": "09a214988de21de634edafc4914bf20ab1736339f9a60fccea297cbdaa904021"
+      },
+      "review": {
+        "id": "NAV_ISLAND:F04-01:1",
+        "layers": [
+          "floors"
+        ],
+        "bounds": {
+          "min": [
+            113.5875015258789,
+            77.28479766845703,
+            4.009999752044678
+          ],
+          "max": [
+            113.6500015258789,
+            80.72229766845703,
+            4.009999752044678
+          ]
+        },
+        "position": [
+          113.60833485921225,
+          80.59729766845703,
+          4.009999752044678
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "F04-01:1"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.70 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect F08-01 to a corridor or path?",
+      "objects": [
+        "F08-01"
+      ],
+      "relatedSources": [
+        {
+          "object": "F08-01",
+          "source": {
+            "line": 27,
+            "column": 5,
+            "offset": 2849,
+            "end": 2997
+          }
+        }
+      ],
+      "source": {
+        "line": 27,
+        "column": 5,
+        "offset": 2849,
+        "end": 2997
+      },
+      "suggestion": {
+        "id": "NAV_ISLAND:F08-01:0",
+        "fingerprint": "e7da27d532acdb0c444f8a65e98553364e6ffce67422884262417dd41eb3791b"
+      },
+      "review": {
+        "id": "NAV_ISLAND:F08-01:0",
+        "layers": [
+          "floors"
+        ],
+        "bounds": {
+          "min": [
+            94.3375015258789,
+            82.34729766845703,
+            8.010000228881836
+          ],
+          "max": [
+            94.4625015258789,
+            87.90979766845703,
+            8.010000228881836
+          ]
+        },
+        "position": [
+          94.37916819254558,
+          86.63896433512369,
+          8.010000228881836
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "F08-01:0"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (124.92 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:0",
+        "fingerprint": "5cab296ace8bbbd92107ee39331c89e6bfad35b5ba8c0bd1260f5520a4f3b0a8"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:0",
+        "layers": [],
+        "bounds": {
+          "min": [
+            0.1499999761581421,
+            3.0972976684570312,
+            5.849999904632568
+          ],
+          "max": [
+            9.899999618530273,
+            15.909797668457031,
+            7.320000171661377
+          ]
+        },
+        "position": [
+          0.2499999801317851,
+          15.659797668457031,
+          5.896666367848714
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:0"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.12 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:1",
+        "fingerprint": "9da8cee7f8f2c7513b03ca249c91c664c244845301ecc95de7561ca5d03a32d5"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:1",
+        "layers": [],
+        "bounds": {
+          "min": [
+            8.024999618530273,
+            71.90979766845703,
+            7.109999179840088
+          ],
+          "max": [
+            8.337499618530273,
+            72.40979766845703,
+            7.109999179840088
+          ]
+        },
+        "position": [
+          8.12916628519694,
+          72.3889643351237,
+          7.109999179840088
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:1"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (40.00 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:10",
+        "fingerprint": "e13b42e5392a674745f482668d5727a9e1f8290d73fd7f7fb00d5ebeb2e46491"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:10",
+        "layers": [],
+        "bounds": {
+          "min": [
+            34.150001525878906,
+            97.09729766845703,
+            13.879999160766602
+          ],
+          "max": [
+            45.650001525878906,
+            102.90979766845703,
+            15.309999465942383
+          ]
+        },
+        "position": [
+          34.170834859212235,
+          102.75354766845703,
+          13.976666768391926
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:10"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.33 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:11",
+        "fingerprint": "d1de30402e861522768798ea9452e0d998ea863c4fa028acf24fb7a376980d93"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:11",
+        "layers": [],
+        "bounds": {
+          "min": [
+            35.837501525878906,
+            76.34729766845703,
+            4.009999752044678
+          ],
+          "max": [
+            35.900001525878906,
+            81.65979766845703,
+            4.009999752044678
+          ]
+        },
+        "position": [
+          35.858334859212235,
+          81.24313100179037,
+          4.009999752044678
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:11"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (41.55 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:12",
+        "fingerprint": "b17fef969d6c50689e6c7f560f126c697546d16e4d516d6375e40dfdbdf10c4d"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:12",
+        "layers": [],
+        "bounds": {
+          "min": [
+            53.150001525878906,
+            14.159797668457031,
+            5.869999408721924
+          ],
+          "max": [
+            60.900001525878906,
+            20.90979766845703,
+            7.320000171661377
+          ]
+        },
+        "position": [
+          54.04583485921225,
+          20.47229766845703,
+          6.056665897369385
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:12"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (227.11 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:13",
+        "fingerprint": "dbe2cc65981ca53034c3e8bf96dc0fe760dfa7def33b58a814a096d47513143f"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:13",
+        "layers": [],
+        "bounds": {
+          "min": [
+            76.1500015258789,
+            87.09729766845703,
+            14.539999008178711
+          ],
+          "max": [
+            88.9000015258789,
+            104.90979766845703,
+            16.010000228881836
+          ]
+        },
+        "position": [
+          77.5388895670573,
+          104.53479766845703,
+          14.873332977294922
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:13"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (227.42 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:14",
+        "fingerprint": "f6ae793dbecb03f6c34aed6c59bf676cd4ce6684196c0f1f847fb4a86ac6a41c"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:14",
+        "layers": [],
+        "bounds": {
+          "min": [
+            77.1500015258789,
+            29.09729766845703,
+            8.239999771118164
+          ],
+          "max": [
+            94.9000015258789,
+            41.90979766845703,
+            9.710000991821289
+          ]
+        },
+        "position": [
+          77.19166819254558,
+          40.60250600179036,
+          8.540000279744467
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:14"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (248.11 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:15",
+        "fingerprint": "4763921150a836c42738d28e6cc689fb084767d0c753cde9eea6b7d24f688d14"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:15",
+        "layers": [],
+        "bounds": {
+          "min": [
+            78.1500015258789,
+            49.09729766845703,
+            9.84000015258789
+          ],
+          "max": [
+            94.9000015258789,
+            63.90979766845703,
+            11.319999694824219
+          ]
+        },
+        "position": [
+          78.4000015258789,
+          63.65979766845703,
+          9.890000025431316
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:15"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (182.94 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:16",
+        "fingerprint": "59a1021d2d7d56e15649013d93c97f426959ebaeb0f3ea7c66a2b52a4a4cc5c6"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:16",
+        "layers": [],
+        "bounds": {
+          "min": [
+            86.1500015258789,
+            8.097297668457031,
+            5.839999675750732
+          ],
+          "max": [
+            100.9000015258789,
+            22.90979766845703,
+            7.320000171661377
+          ]
+        },
+        "position": [
+          97.4000015258789,
+          22.76917266845703,
+          5.866666316986084
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:16"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.15 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:17",
+        "fingerprint": "1d2a822ef9cbe1061b379c4a42b53b555eb96ad9dbdacb6d45592932ad66d81f"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:17",
+        "layers": [],
+        "bounds": {
+          "min": [
+            93.9625015258789,
+            88.59729766845703,
+            9.10999870300293
+          ],
+          "max": [
+            94.4625015258789,
+            89.03479766845703,
+            9.10999870300293
+          ]
+        },
+        "position": [
+          94.23333485921223,
+          88.93063100179036,
+          9.10999870300293
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:17"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (385.67 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:18",
+        "fingerprint": "6b9b1815c0f9e68fd6cf2a573a7dbd3d8e60971a293283b81d65d9bc2c2bcaef"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:18",
+        "layers": [],
+        "bounds": {
+          "min": [
+            95.1500015258789,
+            67.09729766845703,
+            12.229999542236328
+          ],
+          "max": [
+            112.9000015258789,
+            88.90979766845703,
+            13.710000991821289
+          ]
+        },
+        "position": [
+          95.31666819254558,
+          88.72229766845703,
+          12.266666412353516
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:18"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (5.33 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:19",
+        "fingerprint": "929cf14d2ce860fd4055ea282a1da45a6c9b8c09ac0c97013c16e94aad62dd37"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:19",
+        "layers": [],
+        "bounds": {
+          "min": [
+            101.7125015258789,
+            89.34729766845703,
+            3.7099995613098145
+          ],
+          "max": [
+            112.6500015258789,
+            90.28479766845703,
+            3.7099995613098145
+          ]
+        },
+        "position": [
+          103.35833485921225,
+          89.5139643351237,
+          3.7099995613098145
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:19"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (371.48 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:2",
+        "fingerprint": "d50f5ae7f7e3fde41c69a9e27e9ceaacc3a91738d97f937c1c8aa2d7494056db"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:2",
+        "layers": [],
+        "bounds": {
+          "min": [
+            8.149999618530273,
+            38.09729766845703,
+            8.229999542236328
+          ],
+          "max": [
+            26.899999618530273,
+            57.90979766845703,
+            9.710000991821289
+          ]
+        },
+        "position": [
+          8.399999618530273,
+          57.65979766845703,
+          8.279999415079752
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:2"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (1.66 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:20",
+        "fingerprint": "13c8c153ddf7262d19d7b5890dd5c3b919fc49fbc95b7d93a507652892602402"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:20",
+        "layers": [],
+        "bounds": {
+          "min": [
+            104.3375015258789,
+            27.34729766845703,
+            1.2099995613098145
+          ],
+          "max": [
+            107.6500015258789,
+            27.84729766845703,
+            1.2099995613098145
+          ]
+        },
+        "position": [
+          104.75416819254558,
+          27.513964335123703,
+          1.2099995613098145
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:20"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (127.05 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:21",
+        "fingerprint": "36f4e53b9fcf88b0812dd4a981050cbb35c8f568baca8b9c6b1077e2d09a793e"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:21",
+        "layers": [],
+        "bounds": {
+          "min": [
+            113.1500015258789,
+            18.09729766845703,
+            5.849999904632568
+          ],
+          "max": [
+            124.9000015258789,
+            28.90979766845703,
+            7.320000171661377
+          ]
+        },
+        "position": [
+          113.31666819254556,
+          28.81604766845703,
+          5.873333136240642
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:21"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (168.64 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:22",
+        "fingerprint": "96b2cd5717e1d4ac280f5d71cc62aba2244bfd1062af0aa4eb059fae66f4f6ad"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:22",
+        "layers": [],
+        "bounds": {
+          "min": [
+            113.1500015258789,
+            86.09729766845703,
+            13.850000381469727
+          ],
+          "max": [
+            126.8375015258789,
+            100.78479766845703,
+            15.309999465942383
+          ]
+        },
+        "position": [
+          117.48333485921225,
+          100.45146433512372,
+          14.776666641235352
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:22"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (140.01 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:23",
+        "fingerprint": "fc24f0e36550f3c6fe7a7849597eab7834fc2cec5ec94a9fc835fcb2d9203a9f"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:23",
+        "layers": [],
+        "bounds": {
+          "min": [
+            114.1500015258789,
+            52.09729766845703,
+            9.850000381469727
+          ],
+          "max": [
+            125.9000015258789,
+            66.78479766845703,
+            11.319999694824219
+          ]
+        },
+        "position": [
+          119.60833485921225,
+          66.70146433512369,
+          11.223332722981771
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:23"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.48 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:24",
+        "fingerprint": "5e68f81322a220de2887fbedf0063ccd90130e49d9ef534e16ecbb32f9e93694"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:24",
+        "layers": [],
+        "bounds": {
+          "min": [
+            114.2125015258789,
+            76.34729766845703,
+            9.10999870300293
+          ],
+          "max": [
+            116.0875015258789,
+            76.78479766845703,
+            9.10999870300293
+          ]
+        },
+        "position": [
+          114.25416819254556,
+          76.36813100179037,
+          9.10999870300293
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:24"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (115.30 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:25",
+        "fingerprint": "f6a6d841642b60587fa11aeebbc1f214e76ff0d416a7d3d07adcf1272342f893"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:25",
+        "layers": [],
+        "bounds": {
+          "min": [
+            115.1500015258789,
+            4.097297668457031,
+            5.849999904632568
+          ],
+          "max": [
+            126.9000015258789,
+            13.909797668457031,
+            7.320000171661377
+          ]
+        },
+        "position": [
+          115.23333485921223,
+          12.61465867360433,
+          6.236666520436605
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:25"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (71.12 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:26",
+        "fingerprint": "cea8f419b5b534f16fcddf7226d7ae508bb44e8931fd5f026dccb1e8d9b05f13"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:26",
+        "layers": [],
+        "bounds": {
+          "min": [
+            118.1500015258789,
+            103.15979766845703,
+            13.879999160766602
+          ],
+          "max": [
+            127.8375015258789,
+            111.84729766845703,
+            15.309999465942383
+          ]
+        },
+        "position": [
+          118.17916870117188,
+          111.19313049316406,
+          14.089999516805012
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:26"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (13.54 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:27",
+        "fingerprint": "c4a753a8e095d2b41f4ff7ed0503b8bc71b9a6c594a3058ea43fb6ae4f6c940c"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:27",
+        "layers": [],
+        "bounds": {
+          "min": [
+            120.3375015258789,
+            77.34729766845703,
+            3.7099995613098145
+          ],
+          "max": [
+            124.0250015258789,
+            81.03479766845703,
+            3.7099995613098145
+          ]
+        },
+        "position": [
+          120.54583485921225,
+          80.80563100179037,
+          3.7099995613098145
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:27"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.03 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:28",
+        "fingerprint": "bc84acc0bab86ef59bf49b3761990a813725d8707728205a7475ad791f7bcffd"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:28",
+        "layers": [],
+        "bounds": {
+          "min": [
+            126.9625015258789,
+            111.59729766845703,
+            9.10999870300293
+          ],
+          "max": [
+            127.0875015258789,
+            111.84729766845703,
+            9.10999870300293
+          ]
+        },
+        "position": [
+          127.04583485921225,
+          111.65979766845703,
+          9.10999870300293
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:28"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (0.02 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:29",
+        "fingerprint": "b830e5cfd4356e8b7444cb1b4781626f4511946c7eed532a00c1173d8b3a090d"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:29",
+        "layers": [],
+        "bounds": {
+          "min": [
+            128.02499389648438,
+            107.22229766845703,
+            9.10999870300293
+          ],
+          "max": [
+            128.08749389648438,
+            107.47229766845703,
+            9.10999870300293
+          ]
+        },
+        "position": [
+          128.06666056315103,
+          107.38896433512369,
+          9.10999870300293
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:29"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (227.07 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:3",
+        "fingerprint": "5d2317f3b63197cbf87d79266ca4d8c19163cf1bb83cbff92a514caf86ec5d96"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:3",
+        "layers": [],
+        "bounds": {
+          "min": [
+            15.149999618530273,
+            80.09729766845703,
+            14.75
+          ],
+          "max": [
+            26.899999618530273,
+            100.78479766845703,
+            16.21000099182129
+          ]
+        },
+        "position": [
+          20.804513295491535,
+          100.69278462727863,
+          16.173333485921223
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:3"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (1.21 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:30",
+        "fingerprint": "093914894707c39b25e5f0ad4d476f40e2b1c6de4e22c0cbec2a393349e5053c"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:30",
+        "layers": [],
+        "bounds": {
+          "min": [
+            128.08749389648438,
+            102.90979766845703,
+            9.10999870300293
+          ],
+          "max": [
+            129.08749389648438,
+            107.15979766845703,
+            9.10999870300293
+          ]
+        },
+        "position": [
+          128.17082722981772,
+          106.84729766845703,
+          9.10999870300293
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:30"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (189.79 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:4",
+        "fingerprint": "ec30abab6f5390d2a36541abaace01281bbf6fddf80b092a33a04ad5eec73549"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:4",
+        "layers": [],
+        "bounds": {
+          "min": [
+            18.149999618530273,
+            4.097297668457031,
+            5.839999675750732
+          ],
+          "max": [
+            30.899999618530273,
+            20.78479766845703,
+            7.320000171661377
+          ]
+        },
+        "position": [
+          23.25416628519694,
+          20.388964335123696,
+          7.029999891916911
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:4"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (121.90 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:5",
+        "fingerprint": "5b491466f38d52896bc695fed1e06536558c90038030c5dd37ad7c229588bc7c"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:5",
+        "layers": [],
+        "bounds": {
+          "min": [
+            18.149999618530273,
+            59.15979766845703,
+            9.850000381469727
+          ],
+          "max": [
+            30.837499618530273,
+            71.84729766845703,
+            11.319999694824219
+          ]
+        },
+        "position": [
+          20.04583295186361,
+          70.55563100179036,
+          10.153333028157553
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:5"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (93.38 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:6",
+        "fingerprint": "ddf8703e42b261e420e05b8083c2c031fbd7c24f6b864fb8e45f4658a81df5c9"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:6",
+        "layers": [],
+        "bounds": {
+          "min": [
+            29.149999618530273,
+            28.15979766845703,
+            5.849999904632568
+          ],
+          "max": [
+            40.837501525878906,
+            37.90979766845703,
+            7.320000171661377
+          ]
+        },
+        "position": [
+          29.524999618530273,
+          36.951464335123696,
+          6.1366664568583165
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:6"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (275.81 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:7",
+        "fingerprint": "219f91b55e5f677f5a5a1115be1997791269a13a231a6d3cc530766fa2959203"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:7",
+        "layers": [],
+        "bounds": {
+          "min": [
+            29.149999618530273,
+            50.09729766845703,
+            9.829999923706055
+          ],
+          "max": [
+            46.900001525878906,
+            69.40979766845703,
+            11.319999694824219
+          ]
+        },
+        "position": [
+          33.56666819254558,
+          68.36813100179036,
+          10.576666514078775
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:7"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (1.66 m\u00b2) is unusually small and disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:8",
+        "fingerprint": "052b01d508676e9be2274a28c97300f9047433f4fb9b8edc32954c9c968a08f8"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:8",
+        "layers": [],
+        "bounds": {
+          "min": [
+            29.337499618530273,
+            99.34729766845703,
+            9.209999084472656
+          ],
+          "max": [
+            32.650001525878906,
+            99.84729766845703,
+            9.209999084472656
+          ]
+        },
+        "position": [
+          29.441666285196945,
+          99.5139643351237,
+          9.209999084472656
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:8"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "NAV_ISLAND",
+      "message": "This walking navigation patch (306.15 m\u00b2) is disconnected from the largest network. Did you mean to connect this patch to a corridor or path?",
+      "objects": [],
+      "relatedSources": [],
+      "suggestion": {
+        "id": "NAV_ISLAND:unassigned:9",
+        "fingerprint": "ae59b09fef38e3be1bb2a72cf976499ed5cfe8411b61976c97b06a7a5a362dbb"
+      },
+      "review": {
+        "id": "NAV_ISLAND:unassigned:9",
+        "layers": [],
+        "bounds": {
+          "min": [
+            32.150001525878906,
+            70.09729766845703,
+            12.239999771118164
+          ],
+          "max": [
+            47.900001525878906,
+            90.84729766845703,
+            13.710000991821289
+          ]
+        },
+        "position": [
+          35.20555750528971,
+          90.81951904296875,
+          12.819999694824219
+        ],
+        "direction": [
+          1,
+          -1,
+          0
+        ],
+        "patches": [],
+        "navigation": {
+          "component": "unassigned:9"
+        }
+      },
+      "authorDisposition": "Unreachable sampled patch retained. Unassigned components lie on non-playable roof/context surfaces; named-floor small patches are margins outside required admitted journeys. No additional seeds or new route claims. Physical coverage is separately reported and is not replaced by these islands."
+    },
+    {
+      "scope": "compile",
+      "severity": "warning",
+      "code": "WALL_ALIGNMENT",
+      "message": "Did you mean to align walls B-F00-01-0-38 and WI-M04-01? Their continuing faces step sideways by 5.0 cm.",
+      "objects": [
+        "B-F00-01-0-38",
+        "WI-M04-01"
+      ],
+      "relatedSources": [
+        {
+          "object": "B-F00-01-0-38",
+          "source": {
+            "line": 348,
+            "column": 5,
+            "offset": 60106,
+            "end": 60290
+          }
+        },
+        {
+          "object": "WI-M04-01",
+          "source": {
+            "line": 314,
+            "column": 5,
+            "offset": 53769,
+            "end": 53896
+          }
+        }
+      ],
+      "source": {
+        "line": 348,
+        "column": 5,
+        "offset": 60106,
+        "end": 60290
+      },
+      "suggestion": {
+        "id": "WALL_ALIGNMENT:B-F00-01-0-38|WI-M04-01",
+        "fingerprint": "306aedb93081499a04f80412bb976a097ff584b6c49518d92230bdbd0847a1e7"
+      },
+      "review": {
+        "id": "WALL_ALIGNMENT:B-F00-01-0-38|WI-M04-01",
+        "layers": [
+          "walls"
+        ],
+        "bounds": {
+          "min": [
+            14.774999618530273,
+            43,
+            0.25
+          ],
+          "max": [
+            14.824999809265137,
+            43,
+            0.25
+          ]
+        },
+        "position": [
+          14.799999713897705,
+          43,
+          0.25
+        ],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Laundry interior partition and perimeter wall differ in face alignment by .05m at y43. Attached enclosed masonry remains; usable D02 crossing is y45 and passes both ways. Retain small architectural face step."
+    },
+    {
+      "scope": "navigation",
+      "severity": "error",
+      "code": "NAV_WIDTH",
+      "message": "2 floor samples fail width clearance or navigation for the 1.8 m tall, 0.6 m diameter agent. Minimum measured clearance: 0.000 m.",
+      "objects": [
+        "F04-01",
+        "R6b-left",
+        "B-F04-01-0-71",
+        "R6b-right"
+      ],
+      "relatedSources": [
+        {
+          "object": "F04-01",
+          "source": {
+            "line": 22,
+            "column": 5,
+            "offset": 2084,
+            "end": 2232
+          }
+        },
+        {
+          "object": "R6b-left",
+          "source": {
+            "line": 693,
+            "column": 5,
+            "offset": 123427,
+            "end": 123576
+          }
+        },
+        {
+          "object": "B-F04-01-0-71",
+          "source": {
+            "line": 469,
+            "column": 5,
+            "offset": 82922,
+            "end": 83105
+          }
+        },
+        {
+          "object": "R6b-right",
+          "source": {
+            "line": 694,
+            "column": 5,
+            "offset": 123581,
+            "end": 123732
+          }
+        }
+      ],
+      "source": {
+        "line": 22,
+        "column": 5,
+        "offset": 2084,
+        "end": 2232
+      },
+      "review": {
+        "id": "NAV_WIDTH:F04-01|R6b-left|B-F04-01-0-71|R6b-right",
+        "layers": [
+          "floors",
+          "walls",
+          "guards"
+        ],
+        "bounds": {
+          "min": [
+            126.73958587646484,
+            51.48101679484049,
+            4
+          ],
+          "max": [
+            131.75589497884116,
+            51.564194997151695,
+            4
+          ]
+        },
+        "position": [
+          129.247740427653,
+          51.522605895996094,
+          4
+        ],
+        "direction": [
+          1,
+          -1,
+          0.5
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Retain navigation.passed=false. Exact upper Customs triangles are sub-millimeter construction-boundary residuals, physically blocked; no usable route is claimed. Independent C11 target measurements retained."
+    },
+    {
+      "scope": "navigation",
+      "severity": "warning",
+      "code": "CONNECTION_UNVERIFIED",
+      "message": "No crossing was verified through this mouth. Sampling may miss usable clearance; inspect support, headroom and the declared span.",
+      "objects": [
+        "S1a-start-connection",
+        "F00-01",
+        "S1a"
+      ],
+      "relatedSources": [
+        {
+          "object": "S1a-start-connection",
+          "source": {
+            "line": 1556,
+            "column": 3,
+            "offset": 198634,
+            "end": 198720
+          }
+        },
+        {
+          "object": "F00-01",
+          "source": {
+            "line": 17,
+            "column": 5,
+            "offset": 1319,
+            "end": 1467
+          }
+        },
+        {
+          "object": "S1a",
+          "source": {
+            "line": 647,
+            "column": 5,
+            "offset": 116429,
+            "end": 116578
+          }
+        }
+      ],
+      "source": {
+        "line": 1556,
+        "column": 3,
+        "offset": 198634,
+        "end": 198720
+      },
+      "review": {
+        "id": "CONNECTION_UNVERIFIED:S1a-start-connection|F00-01|S1a",
+        "layers": [
+          "floors",
+          "stairs"
+        ],
+        "bounds": {
+          "min": [
+            15.65,
+            46,
+            0
+          ],
+          "max": [
+            18.35,
+            46,
+            1.8
+          ]
+        },
+        "position": [
+          17,
+          46,
+          0.9
+        ],
+        "direction": [
+          1,
+          -1,
+          0.5
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Sampled mouth crossing inconclusive. Named centerline flight and corresponding full journey physically traversed both ways; narrower admitted results do not prove entire mouth span. Keep warning."
+    },
+    {
+      "scope": "navigation",
+      "severity": "warning",
+      "code": "CONNECTION_UNVERIFIED",
+      "message": "No crossing was verified through this mouth. Sampling may miss usable clearance; inspect support, headroom and the declared span.",
+      "objects": [
+        "S1b-end-connection",
+        "S1b",
+        "F04-01"
+      ],
+      "relatedSources": [
+        {
+          "object": "S1b-end-connection",
+          "source": {
+            "line": 1562,
+            "column": 3,
+            "offset": 199085,
+            "end": 199167
+          }
+        },
+        {
+          "object": "S1b",
+          "source": {
+            "line": 650,
+            "column": 5,
+            "offset": 116889,
+            "end": 117045
+          }
+        },
+        {
+          "object": "F04-01",
+          "source": {
+            "line": 22,
+            "column": 5,
+            "offset": 2084,
+            "end": 2232
+          }
+        }
+      ],
+      "source": {
+        "line": 1562,
+        "column": 3,
+        "offset": 199085,
+        "end": 199167
+      },
+      "review": {
+        "id": "CONNECTION_UNVERIFIED:S1b-end-connection|S1b|F04-01",
+        "layers": [
+          "floors",
+          "stairs"
+        ],
+        "bounds": {
+          "min": [
+            20.65,
+            46,
+            4
+          ],
+          "max": [
+            23.35,
+            46,
+            5.8
+          ]
+        },
+        "position": [
+          22,
+          46,
+          4.9
+        ],
+        "direction": [
+          1,
+          -1,
+          0.5
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Sampled mouth crossing inconclusive. Named centerline flight and corresponding full journey physically traversed both ways; narrower admitted results do not prove entire mouth span. Keep warning."
+    },
+    {
+      "scope": "navigation",
+      "severity": "warning",
+      "code": "CONNECTION_UNVERIFIED",
+      "message": "No crossing was verified through this mouth. Sampling may miss usable clearance; inspect support, headroom and the declared span.",
+      "objects": [
+        "S4b-end-connection",
+        "S4b",
+        "F08-01"
+      ],
+      "relatedSources": [
+        {
+          "object": "S4b-end-connection",
+          "source": {
+            "line": 1586,
+            "column": 3,
+            "offset": 200871,
+            "end": 200953
+          }
+        },
+        {
+          "object": "S4b",
+          "source": {
+            "line": 668,
+            "column": 5,
+            "offset": 119666,
+            "end": 119819
+          }
+        },
+        {
+          "object": "F08-01",
+          "source": {
+            "line": 27,
+            "column": 5,
+            "offset": 2849,
+            "end": 2997
+          }
+        }
+      ],
+      "source": {
+        "line": 1586,
+        "column": 3,
+        "offset": 200871,
+        "end": 200953
+      },
+      "review": {
+        "id": "CONNECTION_UNVERIFIED:S4b-end-connection|S4b|F08-01",
+        "layers": [
+          "floors",
+          "stairs"
+        ],
+        "bounds": {
+          "min": [
+            36.65,
+            76,
+            8
+          ],
+          "max": [
+            39.35,
+            76,
+            9.8
+          ]
+        },
+        "position": [
+          38,
+          76,
+          8.9
+        ],
+        "direction": [
+          1,
+          -1,
+          0.5
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Sampled mouth crossing inconclusive. Named centerline flight and corresponding full journey physically traversed both ways; narrower admitted results do not prove entire mouth span. Keep warning."
+    },
+    {
+      "scope": "navigation",
+      "severity": "warning",
+      "code": "CONNECTION_UNVERIFIED",
+      "message": "No crossing was verified through this mouth. Sampling may miss usable clearance; inspect support, headroom and the declared span.",
+      "objects": [
+        "S5b-end-connection",
+        "S5b",
+        "F04-01"
+      ],
+      "relatedSources": [
+        {
+          "object": "S5b-end-connection",
+          "source": {
+            "line": 1594,
+            "column": 3,
+            "offset": 201469,
+            "end": 201551
+          }
+        },
+        {
+          "object": "S5b",
+          "source": {
+            "line": 674,
+            "column": 5,
+            "offset": 120584,
+            "end": 120735
+          }
+        },
+        {
+          "object": "F04-01",
+          "source": {
+            "line": 22,
+            "column": 5,
+            "offset": 2084,
+            "end": 2232
+          }
+        }
+      ],
+      "source": {
+        "line": 1594,
+        "column": 3,
+        "offset": 201469,
+        "end": 201551
+      },
+      "review": {
+        "id": "CONNECTION_UNVERIFIED:S5b-end-connection|S5b|F04-01",
+        "layers": [
+          "floors",
+          "stairs"
+        ],
+        "bounds": {
+          "min": [
+            95,
+            35.4,
+            4
+          ],
+          "max": [
+            95,
+            38.6,
+            5.8
+          ]
+        },
+        "position": [
+          95,
+          37,
+          4.9
+        ],
+        "direction": [
+          1,
+          -1,
+          0.5
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Sampled mouth crossing inconclusive. Named centerline flight and corresponding full journey physically traversed both ways; narrower admitted results do not prove entire mouth span. Keep warning."
+    },
+    {
+      "scope": "navigation",
+      "severity": "warning",
+      "code": "CONNECTION_UNVERIFIED",
+      "message": "No crossing was verified through this mouth. Sampling may miss usable clearance; inspect support, headroom and the declared span.",
+      "objects": [
+        "S7a-start-connection",
+        "F04-01",
+        "S7a"
+      ],
+      "relatedSources": [
+        {
+          "object": "S7a-start-connection",
+          "source": {
+            "line": 1596,
+            "column": 3,
+            "offset": 201620,
+            "end": 201706
+          }
+        },
+        {
+          "object": "F04-01",
+          "source": {
+            "line": 22,
+            "column": 5,
+            "offset": 2084,
+            "end": 2232
+          }
+        },
+        {
+          "object": "S7a",
+          "source": {
+            "line": 677,
+            "column": 5,
+            "offset": 121046,
+            "end": 121193
+          }
+        }
+      ],
+      "source": {
+        "line": 1596,
+        "column": 3,
+        "offset": 201620,
+        "end": 201706
+      },
+      "review": {
+        "id": "CONNECTION_UNVERIFIED:S7a-start-connection|F04-01|S7a",
+        "layers": [
+          "floors",
+          "stairs"
+        ],
+        "bounds": {
+          "min": [
+            106.65,
+            71,
+            4
+          ],
+          "max": [
+            109.35,
+            71,
+            5.8
+          ]
+        },
+        "position": [
+          108,
+          71,
+          4.9
+        ],
+        "direction": [
+          1,
+          -1,
+          0.5
+        ],
+        "patches": []
+      },
+      "authorDisposition": "Sampled mouth crossing inconclusive. Named centerline flight and corresponding full journey physically traversed both ways; narrower admitted results do not prove entire mouth span. Keep warning."
+    }
+  ]
+}

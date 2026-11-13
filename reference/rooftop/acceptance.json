@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "source": "examples/rooftop-reference.level.svgx",
+  "source": "tests/fixtures/migration/rooftop-reference.level.svgx",
   "width": 640,
   "height": 400,
   "views": [

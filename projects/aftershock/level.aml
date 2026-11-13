@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="aftershock" name="Aftershock · Broken Spiral" units="meters" validation="playable" description="L03 / R06. Original 5v5 CT/T defusal blockout: earthquake-shattered split spiral subway, upper A crescent and nested lower B collision bowl. Static crash tableau; combat integration and playtesting pending.">
+  <material id="tile" color="#b0b2a7" roughness=".78" metalness="0" />
+  <material id="concrete" color="#65747b" roughness=".78" metalness="0" />
+  <material id="fracture" color="#899391" roughness=".78" metalness="0" />
+  <material id="steel" color="#364954" roughness=".78" metalness=".35" />
+  <material id="dark" color="#182a34" roughness=".78" metalness="0" />
+  <material id="red" color="#b95845" roughness=".78" metalness=".35" />
+  <material id="blue" color="#4a91a5" roughness=".78" metalness=".35" />
+  <material id="yellow" color="#e5bd58" roughness=".78" metalness="0" />
+  <material id="white" color="#e3dfc9" roughness=".78" metalness="0" />
+  <material id="signal" color="#74b9a2" roughness=".78" metalness="0" />
+  <material id="plant-a" color="#edc268" roughness=".78" metalness="0" />
+  <material id="plant-b" color="#d9a76e" roughness=".78" metalness="0" />
+  <material id="track" color="#535e60" roughness=".78" metalness="0" />
+  <material id="window" color="#1a3d4a" roughness=".78" metalness="0" />
+  <material id="rubble" color="#9a8d7d" roughness=".78" metalness="0" />
+  <assembly id="station" label="Physical station structure and crash bodies" coincident-material="retained-face">
+    <slab id="lower" profile="lower-plan" elevation="0" thickness="0.35" material="tile" group="lower" />
+    <wall id="lower-boundary-0-0-0" path="lower-boundary-0-0-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-1-0" path="lower-boundary-0-1-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-2-0" path="lower-boundary-0-2-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-3-0" path="lower-boundary-0-3-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-4-0" path="lower-boundary-0-4-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-5-0" path="lower-boundary-0-5-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-6-0" path="lower-boundary-0-6-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-7-0" path="lower-boundary-0-7-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-8-0" path="lower-boundary-0-8-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-9-0" path="lower-boundary-0-9-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-10-0" path="lower-boundary-0-10-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-11-0" path="lower-boundary-0-11-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-12-0" path="lower-boundary-0-12-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-13-0" path="lower-boundary-0-13-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-14-0" path="lower-boundary-0-14-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-15-0" path="lower-boundary-0-15-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-16-0" path="lower-boundary-0-16-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-17-0" path="lower-boundary-0-17-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-18-0" path="lower-boundary-0-18-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-19-0" path="lower-boundary-0-19-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-20-0" path="lower-boundary-0-20-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-21-0" path="lower-boundary-0-21-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-22-0" path="lower-boundary-0-22-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-23-0" path="lower-boundary-0-23-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-24-0" path="lower-boundary-0-24-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-25-0" path="lower-boundary-0-25-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-26-0" path="lower-boundary-0-26-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-27-0" path="lower-boundary-0-27-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-28-0" path="lower-boundary-0-28-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-29-0" path="lower-boundary-0-29-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-30-0" path="lower-boundary-0-30-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-31-0" path="lower-boundary-0-31-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-32-0" path="lower-boundary-0-32-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-33-0" path="lower-boundary-0-33-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-34-0" path="lower-boundary-0-34-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-35-0" path="lower-boundary-0-35-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-36-0" path="lower-boundary-0-36-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-37-0" path="lower-boundary-0-37-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-38-0" path="lower-boundary-0-38-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-39-0" path="lower-boundary-0-39-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-40-0" path="lower-boundary-0-40-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-41-0" path="lower-boundary-0-41-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-42-0" path="lower-boundary-0-42-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-47-0" path="lower-boundary-0-47-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-48-0" path="lower-boundary-0-48-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-49-0" path="lower-boundary-0-49-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-50-0" path="lower-boundary-0-50-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-51-0" path="lower-boundary-0-51-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-52-0" path="lower-boundary-0-52-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-53-0" path="lower-boundary-0-53-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-54-0" path="lower-boundary-0-54-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-55-0" path="lower-boundary-0-55-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-56-0" path="lower-boundary-0-56-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-57-0" path="lower-boundary-0-57-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-58-0" path="lower-boundary-0-58-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-62-0" path="lower-boundary-0-62-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-63-0" path="lower-boundary-0-63-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-64-0" path="lower-boundary-0-64-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-65-0" path="lower-boundary-0-65-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-66-0" path="lower-boundary-0-66-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-67-0" path="lower-boundary-0-67-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-0-68-0" path="lower-boundary-0-68-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-0-0" path="lower-boundary-1-0-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-1-0" path="lower-boundary-1-1-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-2-0" path="lower-boundary-1-2-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-3-0" path="lower-boundary-1-3-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-4-0" path="lower-boundary-1-4-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-5-0" path="lower-boundary-1-5-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-6-0" path="lower-boundary-1-6-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-7-0" path="lower-boundary-1-7-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-8-0" path="lower-boundary-1-8-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-9-0" path="lower-boundary-1-9-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-10-0" path="lower-boundary-1-10-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-11-0" path="lower-boundary-1-11-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-12-0" path="lower-boundary-1-12-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-13-0" path="lower-boundary-1-13-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-14-0" path="lower-boundary-1-14-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-15-0" path="lower-boundary-1-15-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-16-0" path="lower-boundary-1-16-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-17-0" path="lower-boundary-1-17-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-18-0" path="lower-boundary-1-18-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-19-0" path="lower-boundary-1-19-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-20-0" path="lower-boundary-1-20-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-21-0" path="lower-boundary-1-21-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-22-0" path="lower-boundary-1-22-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-23-0" path="lower-boundary-1-23-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-24-0" path="lower-boundary-1-24-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-25-0" path="lower-boundary-1-25-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-26-0" path="lower-boundary-1-26-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-27-0" path="lower-boundary-1-27-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-28-0" path="lower-boundary-1-28-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-29-0" path="lower-boundary-1-29-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-30-0" path="lower-boundary-1-30-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-31-0" path="lower-boundary-1-31-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-32-0" path="lower-boundary-1-32-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-33-0" path="lower-boundary-1-33-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-34-0" path="lower-boundary-1-34-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-35-0" path="lower-boundary-1-35-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-36-0" path="lower-boundary-1-36-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-37-0" path="lower-boundary-1-37-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-38-0" path="lower-boundary-1-38-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-39-0" path="lower-boundary-1-39-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-40-0" path="lower-boundary-1-40-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-41-0" path="lower-boundary-1-41-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-42-0" path="lower-boundary-1-42-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-43-0" path="lower-boundary-1-43-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-44-0" path="lower-boundary-1-44-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-45-0" path="lower-boundary-1-45-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-46-0" path="lower-boundary-1-46-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-47-0" path="lower-boundary-1-47-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-48-0" path="lower-boundary-1-48-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <wall id="lower-boundary-1-49-0" path="lower-boundary-1-49-0-axis" height="3.5" thickness="0.35" material="concrete" />
+    <slab id="upper" profile="upper-plan" elevation="5" thickness="0.4" material="tile" group="upper" />
+    <wall id="upper-boundary-0-0-0" path="upper-boundary-0-0-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-1-0" path="upper-boundary-0-1-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-2-0" path="upper-boundary-0-2-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-3-0" path="upper-boundary-0-3-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-4-0" path="upper-boundary-0-4-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-5-0" path="upper-boundary-0-5-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-6-0" path="upper-boundary-0-6-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-8-0" path="upper-boundary-0-8-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-9-0" path="upper-boundary-0-9-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-10-0" path="upper-boundary-0-10-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-11-0" path="upper-boundary-0-11-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-12-0" path="upper-boundary-0-12-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-13-0" path="upper-boundary-0-13-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-14-0" path="upper-boundary-0-14-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-15-0" path="upper-boundary-0-15-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-16-0" path="upper-boundary-0-16-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-17-0" path="upper-boundary-0-17-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-18-0" path="upper-boundary-0-18-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-19-0" path="upper-boundary-0-19-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-20-0" path="upper-boundary-0-20-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-21-0" path="upper-boundary-0-21-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-22-0" path="upper-boundary-0-22-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-23-0" path="upper-boundary-0-23-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-24-0" path="upper-boundary-0-24-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-25-0" path="upper-boundary-0-25-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-26-0" path="upper-boundary-0-26-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-27-0" path="upper-boundary-0-27-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-28-0" path="upper-boundary-0-28-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-29-0" path="upper-boundary-0-29-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-30-0" path="upper-boundary-0-30-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-31-0" path="upper-boundary-0-31-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-32-0" path="upper-boundary-0-32-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-33-0" path="upper-boundary-0-33-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-34-0" path="upper-boundary-0-34-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-35-0" path="upper-boundary-0-35-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-36-0" path="upper-boundary-0-36-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-37-0" path="upper-boundary-0-37-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-38-0" path="upper-boundary-0-38-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-39-0" path="upper-boundary-0-39-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-40-0" path="upper-boundary-0-40-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-41-0" path="upper-boundary-0-41-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-42-0" path="upper-boundary-0-42-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-43-0" path="upper-boundary-0-43-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-44-0" path="upper-boundary-0-44-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-45-0" path="upper-boundary-0-45-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-46-0" path="upper-boundary-0-46-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-46-1" path="upper-boundary-0-46-1-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-47-0" path="upper-boundary-0-47-0-axis" height="3.4" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-48-0" path="upper-boundary-0-48-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-49-0" path="upper-boundary-0-49-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-50-0" path="upper-boundary-0-50-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-51-0" path="upper-boundary-0-51-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-52-0" path="upper-boundary-0-52-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-53-0" path="upper-boundary-0-53-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-54-0" path="upper-boundary-0-54-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-55-0" path="upper-boundary-0-55-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-56-0" path="upper-boundary-0-56-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-57-0" path="upper-boundary-0-57-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-58-0" path="upper-boundary-0-58-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-59-0" path="upper-boundary-0-59-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-60-0" path="upper-boundary-0-60-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-61-0" path="upper-boundary-0-61-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-62-0" path="upper-boundary-0-62-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-63-0" path="upper-boundary-0-63-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-64-0" path="upper-boundary-0-64-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-65-0" path="upper-boundary-0-65-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-66-0" path="upper-boundary-0-66-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-67-0" path="upper-boundary-0-67-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-68-0" path="upper-boundary-0-68-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-69-0" path="upper-boundary-0-69-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-70-0" path="upper-boundary-0-70-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-71-0" path="upper-boundary-0-71-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-72-0" path="upper-boundary-0-72-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-73-0" path="upper-boundary-0-73-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-74-0" path="upper-boundary-0-74-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-75-0" path="upper-boundary-0-75-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-76-0" path="upper-boundary-0-76-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-77-0" path="upper-boundary-0-77-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-78-0" path="upper-boundary-0-78-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-79-0" path="upper-boundary-0-79-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-80-0" path="upper-boundary-0-80-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-81-0" path="upper-boundary-0-81-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-82-0" path="upper-boundary-0-82-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-83-0" path="upper-boundary-0-83-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-84-0" path="upper-boundary-0-84-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-85-0" path="upper-boundary-0-85-0-axis" height="1.15" thickness="0.35" material="concrete" />
+    <wall id="upper-boundary-0-85-1" path="upper-boundary-0-85-1-axis" height="3.4" thickness="0.35" material="concrete" />
+    <cylinder id="drum" position="50 66 0" radius="13.5" height="14" segments="36" material="concrete" />
+    <landing id="fan-landing" profile="fan-landing-plan" elevation="2" thickness=".35" material="tile" group="transfer" />
+    <landing id="outer-landing" profile="outer-landing-plan" elevation="5" thickness=".4" material="tile" group="upper" />
+    <landing id="drum-landing" profile="drum-landing-plan" elevation="5" thickness=".4" material="tile" group="upper" />
+    <stairs id="S1-outer" path="S1-outer-axis" width="4" count="28" underside="filled" thickness=".25" material="concrete" group="transfer" />
+    <enclosure id="S1-outer-left" host="S1-outer" side="left" construction="parapet" height="1.15" thickness=".22" offset="-.11" material="steel" />
+    <enclosure id="S1-outer-right" host="S1-outer" side="right" construction="parapet" height="1.15" thickness=".22" offset="-.11" material="steel" />
+    <stairs id="S2-fan" path="S2-fan-axis" width="4" count="12" underside="filled" thickness=".25" material="concrete" group="transfer" />
+    <enclosure id="S2-fan-left" host="S2-fan" side="left" construction="parapet" height="1.15" thickness=".22" offset="-.11" material="steel" />
+    <enclosure id="S2-fan-right" host="S2-fan" side="right" construction="parapet" height="1.15" thickness=".22" offset="-.11" material="steel" />
+    <stairs id="S3-drum" path="S3-drum-axis" width="4" count="18" underside="filled" thickness=".25" material="concrete" group="transfer" />
+    <enclosure id="S3-drum-left" host="S3-drum" side="left" construction="parapet" height="1.15" thickness=".22" offset="-.11" material="steel" />
+    <enclosure id="S3-drum-right" host="S3-drum" side="right" construction="parapet" height="1.15" thickness=".22" offset="-.11" material="steel" />
+    <stairs id="S4-east" path="S4-east-axis" width="4" count="28" underside="filled" thickness=".25" material="concrete" group="transfer" />
+    <enclosure id="S4-east-left" host="S4-east" side="left" construction="parapet" height="1.15" thickness=".22" offset="-.11" material="steel" />
+    <enclosure id="S4-east-right" host="S4-east" side="right" construction="parapet" height="1.15" thickness=".22" offset="-.11" material="steel" />
+    <wall id="S1-outer-cheek-0" path="S1-outer-cheek-0-axis" height="5" top="S1-outer-cheek-top" thickness=".22" material="concrete" />
+    <wall id="S1-outer-cheek-1" path="S1-outer-cheek-1-axis" height="5" top="S1-outer-cheek-top" thickness=".22" material="concrete" />
+    <wall id="S4-east-cheek-0" path="S4-east-cheek-0-axis" height="5" top="S4-east-cheek-top" thickness=".22" material="concrete" />
+    <wall id="S4-east-cheek-1" path="S4-east-cheek-1-axis" height="5" top="S4-east-cheek-top" thickness=".22" material="concrete" />
+    <wall id="fan-pad-guard-1-0" path="fan-pad-guard-1-0-axis" height="1.15" thickness="0.22" material="steel" />
+    <wall id="fan-pad-guard-2-0" path="fan-pad-guard-2-0-axis" height="1.15" thickness="0.22" material="steel" />
+    <wall id="fan-pad-guard-2-1" path="fan-pad-guard-2-1-axis" height="1.15" thickness="0.22" material="steel" />
+    <wall id="fan-pad-guard-3-0" path="fan-pad-guard-3-0-axis" height="1.15" thickness="0.22" material="steel" />
+    <wall id="east-arc-inner-screen" path="east-arc-inner-screen-axis" height="3.3" thickness=".38" material="concrete" />
+    <canopy id="T-roof" profile="T-roof-plan" elevation="3.5" thickness=".3" material="concrete" playable="false" />
+    <canopy id="CT-roof" profile="CT-roof-plan" elevation="8.5" thickness=".3" material="concrete" playable="false" />
+    <canopy id="east-fan-canopy" profile="east-fan-canopy-plan" elevation="4.5" thickness=".3" material="concrete" playable="false" />
+    <box id="T-gate" position="16 41 0" width="2" depth="8" height="7" material="concrete" />
+    <box id="Cable-screen" position="41 40 0" width="3" depth="4" height="4" material="concrete" />
+    <box id="B-switch-wall" position="82 52 0" width="3" depth="6" height="8" material="concrete" />
+    <box id="CT-gate" position="88 82 5" width="2" depth="8" height="4" material="concrete" />
+    <box id="A-signal" position="64 86 5" width="3" depth="8" height="3.3" material="concrete" />
+    <box id="A-ticket-wall" position="23 80 5" width="5" depth="2" height="3.4" material="concrete" />
+    <box id="A-derail" position="32 91 5" width="13" depth="3.5" height="3.2" material="blue" />
+    <box id="B-collision-01" position="56 34 0" width="3.5" depth="13" height="3.4" material="red" />
+    <box id="B-collision-02" position="66 46 0" width="12" depth="3.5" height="3.4" material="red" />
+    <box id="A-low" position="53 90 5" width="3" depth="2" height="1.15" material="signal" />
+    <box id="B-low" position="66 33 0" width="3" depth="2" height="1.15" material="signal" />
+    <box id="Cable-low" position="37 40 0" width="2.5" depth="2" height="1.15" material="signal" />
+    <cylinder id="Fan-canopy-post-0" position="80.3 42.3 0" radius=".22" height="4.5" segments="8" material="concrete" />
+    <cylinder id="Fan-canopy-post-1" position="91.7 42.3 0" radius=".22" height="4.5" segments="8" material="concrete" />
+    <cylinder id="Fan-canopy-post-2" position="91.7 57.7 0" radius=".22" height="4.5" segments="8" material="concrete" />
+    <cylinder id="deck-pier-0" position="76.753 88.089 -2" radius=".65" height="6.6" segments="10" material="concrete" />
+    <cylinder id="deck-pier-1" position="55.01 99.65 -2" radius=".65" height="6.6" segments="10" material="concrete" />
+    <cylinder id="deck-pier-2" position="30.923 94.53 -2" radius=".65" height="6.6" segments="10" material="concrete" />
+    <cylinder id="deck-pier-3" position="15.762 75.125 -2" radius=".65" height="6.6" segments="10" material="concrete" />
+    <cylinder id="lower-rib-0-in" position="21.046 42.774 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="lower-rib-0-out" position="9.519 41.154 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="lower-rib-0-crown" path="lower-rib-0-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="lower-rib-1-in" position="23.166 35.839 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="lower-rib-1-out" position="12.704 30.736 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="lower-rib-1-crown" path="lower-rib-1-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="lower-rib-2-in" position="27.326 29.898 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="lower-rib-2-out" position="18.953 21.812 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="lower-rib-2-crown" path="lower-rib-2-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="lower-rib-3-in" position="33.118 25.533 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="lower-rib-3-out" position="27.653 15.256 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="lower-rib-3-crown" path="lower-rib-3-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="lower-rib-4-in" position="39.975 23.172 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="lower-rib-4-out" position="37.954 11.709 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="lower-rib-4-crown" path="lower-rib-4-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="lower-rib-5-in" position="47.226 23.046 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="lower-rib-5-out" position="48.846 11.519 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="lower-rib-5-crown" path="lower-rib-5-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="lower-rib-6-in" position="54.161 25.166 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="lower-rib-6-out" position="59.264 14.704 0" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="lower-rib-6-crown" path="lower-rib-6-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="upper-rib-0-in" position="71.118 77.714 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="upper-rib-0-out" position="82.557 85.143 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="upper-rib-0-crown" path="upper-rib-0-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="upper-rib-1-in" position="65.846 83.569 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="upper-rib-1-out" position="74.43 94.169 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="upper-rib-1-crown" path="upper-rib-1-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="upper-rib-2-in" position="59.024 87.508 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="upper-rib-2-out" position="63.912 100.242 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="upper-rib-2-crown" path="upper-rib-2-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="upper-rib-3-in" position="51.318 89.145 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="upper-rib-3-out" position="52.032 102.767 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="upper-rib-3-crown" path="upper-rib-3-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="upper-rib-4-in" position="43.483 88.322 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="upper-rib-4-out" position="39.953 101.497 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="upper-rib-4-crown" path="upper-rib-4-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="upper-rib-5-in" position="36.286 85.118 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="upper-rib-5-out" position="28.857 96.557 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="upper-rib-5-crown" path="upper-rib-5-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <cylinder id="upper-rib-6-in" position="30.431 79.846 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <cylinder id="upper-rib-6-out" position="19.831 88.43 5" radius=".23" height="5.4" segments="8" material="concrete" />
+    <wall id="upper-rib-6-crown" path="upper-rib-6-crown-axis" height="0.45" thickness="0.45" material="steel" />
+    <box id="A-broken-roof-west" position="22 84 10.4" width="6" depth="4" height="0.3" material="concrete" />
+    <box id="A-broken-roof-east" position="70 89 10.4" width="6" depth="5" height="0.3" material="concrete" />
+  </assembly>
+  <assembly id="details" label="Render-only linework and train details" coincident-material="retained-face" collidable="false">
+    <box id="A-low-cap" position="53 90 6.155" width="3" depth="2" height="0.025" material="yellow" />
+    <box id="B-low-cap" position="66 33 1.155" width="3" depth="2" height="0.025" material="yellow" />
+    <box id="Cable-low-cap" position="37 40 1.155" width="2.5" depth="2" height="0.025" material="yellow" />
+    <box id="impact-plate-0" position="59.3 46.2 0.02" width="1.7" depth="1.2" height="0.12" material="steel" rotation="0 0 21" />
+    <box id="impact-plate-1" position="64.1 46.9 0.03" width="1.7" depth="1.1" height="0.12" material="steel" rotation="0 0 -18" />
+    <box id="impact-plate-2" position="55.7 33.4 0.04" width="2" depth="1" height="0.12" material="steel" rotation="0 0 14" />
+    <box id="impact-plate-3" position="74.5 49.6 0.03" width="1.8" depth="1" height="0.12" material="steel" rotation="0 0 -23" />
+    <box id="impact-rubble-0" position="60 48.4 0.02" width="0.38" depth="0.25" height="0.12" material="rubble" rotation="0 0 0" />
+    <box id="impact-rubble-1" position="60.7 48.7 0.02" width="0.38" depth="0.25" height="0.12" material="rubble" rotation="0 0 23" />
+    <box id="impact-rubble-2" position="61.4 48.4 0.02" width="0.38" depth="0.25" height="0.12" material="rubble" rotation="0 0 46" />
+    <box id="impact-rubble-3" position="62.1 48.7 0.02" width="0.38" depth="0.25" height="0.12" material="rubble" rotation="0 0 69" />
+    <box id="impact-rubble-4" position="62.8 48.4 0.02" width="0.38" depth="0.25" height="0.12" material="rubble" rotation="0 0 92" />
+    <box id="impact-rubble-5" position="63.5 48.7 0.02" width="0.38" depth="0.25" height="0.12" material="rubble" rotation="0 0 115" />
+    <box id="A-derail-pane-0-90.985" position="32.7 90.985 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-0-94.485" position="32.7 94.485 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-1-90.985" position="35.02 90.985 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-1-94.485" position="35.02 94.485 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-2-90.985" position="37.34 90.985 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-2-94.485" position="37.34 94.485 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-3-90.985" position="39.66 90.985 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-3-94.485" position="39.66 94.485 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-4-90.985" position="41.98 90.985 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-pane-4-94.485" position="41.98 94.485 6.5" width="1.6239999999999999" depth="0.03" height="0.95" material="window" />
+    <box id="A-derail-stripe" position="32.1 90.975 5.8" width="12.8" depth="0.05" height="0.18" material="white" />
+    <box id="A-derail-roof" position="32.2 91.2 8.21" width="12.6" depth="3.1" height="0.18" material="steel" />
+    <box id="A-derail-broken-nose" position="44.3 91.3 5.4" width="1.1" depth="2.9" height="1.7" material="fracture" rotation="0 8 -9" />
+    <box id="B-collision-01-pane-0-55.985" position="55.985 34.7 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-0-59.485" position="59.485 34.7 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-1-55.985" position="55.985 37.02 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-1-59.485" position="59.485 37.02 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-2-55.985" position="55.985 39.34 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-2-59.485" position="59.485 39.34 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-3-55.985" position="55.985 41.66 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-3-59.485" position="59.485 41.66 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-4-55.985" position="55.985 43.98 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-pane-4-59.485" position="59.485 43.98 1.5" width="0.03" depth="1.6239999999999999" height="0.95" material="window" />
+    <box id="B-collision-01-stripe" position="55.975 34.1 0.8" width="0.05" depth="12.8" height="0.18" material="white" />
+    <box id="B-collision-01-roof" position="56.2 34.2 3.41" width="3.1" depth="12.6" height="0.18" material="steel" />
+    <box id="B-collision-01-broken-nose" position="56.3 46.3 0.4" width="2.9" depth="1.1" height="1.7" material="fracture" rotation="8 0 12" />
+    <box id="B-collision-02-pane-0-45.985" position="66.7 45.985 1.5" width="1.8549999999999998" depth="0.03" height="0.95" material="window" />
+    <box id="B-collision-02-pane-0-49.485" position="66.7 49.485 1.5" width="1.8549999999999998" depth="0.03" height="0.95" material="window" />
+    <box id="B-collision-02-pane-1-45.985" position="69.35 45.985 1.5" width="1.8549999999999998" depth="0.03" height="0.95" material="window" />
+    <box id="B-collision-02-pane-1-49.485" position="69.35 49.485 1.5" width="1.8549999999999998" depth="0.03" height="0.95" material="window" />
+    <box id="B-collision-02-pane-2-45.985" position="72 45.985 1.5" width="1.8549999999999998" depth="0.03" height="0.95" material="window" />
+    <box id="B-collision-02-pane-2-49.485" position="72 49.485 1.5" width="1.8549999999999998" depth="0.03" height="0.95" material="window" />
+    <box id="B-collision-02-pane-3-45.985" position="74.65 45.985 1.5" width="1.8549999999999998" depth="0.03" height="0.95" material="window" />
+    <box id="B-collision-02-pane-3-49.485" position="74.65 49.485 1.5" width="1.8549999999999998" depth="0.03" height="0.95" material="window" />
+    <box id="B-collision-02-stripe" position="66.1 45.975 0.8" width="11.8" depth="0.05" height="0.18" material="white" />
+    <box id="B-collision-02-roof" position="66.2 46.2 3.41" width="11.6" depth="3.1" height="0.18" material="steel" />
+    <box id="B-collision-02-broken-nose" position="77.3 46.3 0.4" width="1.1" depth="2.9" height="1.7" material="fracture" rotation="0 8 -9" />
+    <wall id="lower-rail-26.8" path="lower-rail-26.8-axis" height=".045" thickness=".075" material="steel" />
+    <wall id="lower-rail-29.2" path="lower-rail-29.2-axis" height=".045" thickness=".075" material="steel" />
+    <wall id="lower-tie-0" path="lower-tie-0-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-2" path="lower-tie-2-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-4" path="lower-tie-4-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-6" path="lower-tie-6-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-8" path="lower-tie-8-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-10" path="lower-tie-10-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-12" path="lower-tie-12-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-14" path="lower-tie-14-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-16" path="lower-tie-16-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-18" path="lower-tie-18-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-20" path="lower-tie-20-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-22" path="lower-tie-22-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-24" path="lower-tie-24-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-26" path="lower-tie-26-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-28" path="lower-tie-28-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-30" path="lower-tie-30-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-32" path="lower-tie-32-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-34" path="lower-tie-34-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-36" path="lower-tie-36-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-38" path="lower-tie-38-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-40" path="lower-tie-40-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-42" path="lower-tie-42-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-44" path="lower-tie-44-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-46" path="lower-tie-46-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-48" path="lower-tie-48-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-50" path="lower-tie-50-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-52" path="lower-tie-52-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-tie-54" path="lower-tie-54-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-rail-33.8" path="upper-rail-33.8-axis" height=".045" thickness=".075" material="steel" />
+    <wall id="upper-rail-36.2" path="upper-rail-36.2-axis" height=".045" thickness=".075" material="steel" />
+    <wall id="upper-tie-0" path="upper-tie-0-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-2" path="upper-tie-2-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-4" path="upper-tie-4-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-6" path="upper-tie-6-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-8" path="upper-tie-8-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-10" path="upper-tie-10-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-12" path="upper-tie-12-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-14" path="upper-tie-14-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-16" path="upper-tie-16-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-18" path="upper-tie-18-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-20" path="upper-tie-20-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-22" path="upper-tie-22-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-24" path="upper-tie-24-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-26" path="upper-tie-26-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-28" path="upper-tie-28-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-30" path="upper-tie-30-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-32" path="upper-tie-32-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-34" path="upper-tie-34-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-36" path="upper-tie-36-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-38" path="upper-tie-38-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-40" path="upper-tie-40-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-42" path="upper-tie-42-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-44" path="upper-tie-44-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-46" path="upper-tie-46-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-48" path="upper-tie-48-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-50" path="upper-tie-50-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-52" path="upper-tie-52-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="upper-tie-54" path="upper-tie-54-axis" height="0.025" thickness="0.16" material="dark" />
+    <wall id="lower-rib-0-light" path="lower-rib-0-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="lower-rib-1-light" path="lower-rib-1-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="lower-rib-2-light" path="lower-rib-2-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="lower-rib-3-light" path="lower-rib-3-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="lower-rib-4-light" path="lower-rib-4-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="lower-rib-5-light" path="lower-rib-5-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="lower-rib-6-light" path="lower-rib-6-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="upper-rib-0-light" path="upper-rib-0-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="upper-rib-1-light" path="upper-rib-1-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="upper-rib-2-light" path="upper-rib-2-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="upper-rib-3-light" path="upper-rib-3-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="upper-rib-4-light" path="upper-rib-4-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="upper-rib-5-light" path="upper-rib-5-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="upper-rib-6-light" path="upper-rib-6-light-axis" height="0.09" thickness="0.11" material="white" />
+    <wall id="floor-fracture-0" path="floor-fracture-0-axis" height="0.008" thickness="0.045" material="dark" />
+    <wall id="floor-fracture-1" path="floor-fracture-1-axis" height="0.008" thickness="0.045" material="dark" />
+    <wall id="floor-fracture-2" path="floor-fracture-2-axis" height="0.008" thickness="0.045" material="dark" />
+    <wall id="floor-fracture-3" path="floor-fracture-3-axis" height="0.008" thickness="0.045" material="dark" />
+    <wall id="floor-fracture-4" path="floor-fracture-4-axis" height="0.008" thickness="0.045" material="dark" />
+    <wall id="drum-band-3.8" path="drum-band-3.8-axis" height=".22" thickness=".12" material="steel" />
+    <wall id="drum-band-8.7" path="drum-band-8.7-axis" height=".22" thickness=".12" material="steel" />
+    <wall id="drum-band-12.8" path="drum-band-12.8-axis" height=".22" thickness=".12" material="steel" />
+    <box id="drum-fracture-0" position="37.71 60.269 1" width="0.08" depth="0.1" height="1.7" material="dark" rotation="0 0 25" />
+    <box id="drum-fracture-1" position="38.758 58.417 2.35" width="0.08" depth="0.1" height="1.7" material="dark" rotation="0 0 25" />
+    <box id="drum-fracture-2" position="40.083 56.752 3.7" width="0.08" depth="0.1" height="1.7" material="dark" rotation="0 0 25" />
+    <box id="drum-fracture-3" position="41.652 55.315 5.05" width="0.08" depth="0.1" height="1.7" material="dark" rotation="0 0 25" />
+    <box id="drum-fracture-4" position="43.426 54.14 6.4" width="0.08" depth="0.1" height="1.7" material="dark" rotation="0 0 25" />
+    <box id="drum-fracture-5" position="45.362 53.258 7.75" width="0.08" depth="0.1" height="1.7" material="dark" rotation="0 0 25" />
+    <box id="drum-fracture-6" position="47.413 52.689 9.1" width="0.08" depth="0.1" height="1.7" material="dark" rotation="0 0 25" />
+  </assembly>
+  <assembly id="severed-ring" label="Inaccessible collapsed former ring outside playable floors" coincident-material="retained-face">
+    <box id="deck-foundation-0" position="75.653 86.989 -2.5" width="2.2" depth="2.2" height="0.5" material="concrete" />
+    <box id="deck-foundation-1" position="53.91 98.55 -2.5" width="2.2" depth="2.2" height="0.5" material="concrete" />
+    <box id="deck-foundation-2" position="29.823 93.43 -2.5" width="2.2" depth="2.2" height="0.5" material="concrete" />
+    <box id="deck-foundation-3" position="14.662 74.025 -2.5" width="2.2" depth="2.2" height="0.5" material="concrete" />
+    <box id="fallen-slab-0" position="42 29 -0.3" width="5" depth="3" height="0.6" material="fracture" rotation="18 0 0" />
+    <box id="fallen-slab-1" position="46 31 -0.2" width="4" depth="2" height="0.6" material="fracture" rotation="-15 0 21" />
+    <box id="fallen-slab-2" position="40 34 -0.4" width="3" depth="3" height="0.6" material="fracture" rotation="10 0 42" />
+    <box id="crushed-car-void" position="42 27 0.3" width="3.4" depth="9" height="2.7" material="red" rotation="0 9 -12" />
+    <box id="severed-girder-void" position="39 29 -0.1" width="9" depth="0.6" height="0.8" material="steel" rotation="0 10 18" />
+  </assembly>
+  <profile id="lower-plan" points="61.877 15.91; 60.226 14.988; 58.527 14.157; 56.787 13.419; 55.009 12.777; 53.199 12.231; 51.362 11.783; 49.504 11.435; 47.63 11.189; 45.745 11.044; 43.855 11; 41.965 11.059; 40.081 11.22; 38.209 11.482; 36.354 11.845; 34.521 12.308; 32.715 12.869; 30.943 13.527; 29.208 14.279; 27.517 15.124; 25.874 16.059; 24.284 17.082; 22.751 18.188; 21.28 19.376; 19.876 20.642; 18.542 21.982; 17.282 23.391; 16.1 24.867; 15 26.404; 13.984 27.999; 13.056 29.646; 12.218 31.34; 11.473 33.078; 10.823 34.853; 10.269 36.661; 9.814 38.496; 9.526 40; 2 40; 2 54; 18 54; 18 52; 22 52; 27.714 52; 27.421 51.772; 34.421 42.772; 37.579 45.228; 33.497 50.476; 35.711 49; 38 49; 38 48; 46.938 48; 53.938 52; 54 52; 56 56; 72 60; 78 55.5; 78 64; 82 64; 82 60; 86 60; 86 64; 92 64; 92 42; 80 42; 80 36; 70 29.333; 70 20; 65.817 20; 66.498 19.188; 65.017 18.013; 63.475 16.919">
+    <hole points="23.665 35.253; 24.275 34.171; 24.943 33.123; 25.666 32.112; 26.443 31.143; 27.27 30.216; 28.147 29.336; 29.07 28.504; 30.036 27.724; 31.044 26.997; 32.089 26.325; 33.168 25.71; 34.28 25.155; 35.42 24.66; 36.584 24.228; 37.771 23.86; 38.975 23.556; 40.194 23.317; 41.425 23.145; 42.663 23.039; 43.904 23; 45.146 23.029; 46.385 23.124; 47.617 23.286; 48.838 23.515; 50.045 23.809; 51.235 24.167; 52.403 24.59; 53.547 25.075; 54.663 25.621; 55.747 26.226; 56.798 26.889; 57.811 27.608; 58 27.758; 58 29.25; 52 30; 50.458 40.797; 49.062 40; 34.789 40; 33.289 41; 32 41; 32 41.859; 28.789 44; 22 44; 22 40; 21.8 40; 21.834 39.863; 22.198 38.675; 22.625 37.508; 23.115 36.366" />
+  </profile>
+  <path id="lower-boundary-0-0-0-axis" points="65.817 20 0; 66.498 19.188 0" />
+  <path id="lower-boundary-0-1-0-axis" points="66.498 19.188 0; 65.017 18.013 0" />
+  <path id="lower-boundary-0-2-0-axis" points="65.017 18.013 0; 63.475 16.919 0" />
+  <path id="lower-boundary-0-3-0-axis" points="63.475 16.919 0; 61.877 15.91 0" />
+  <path id="lower-boundary-0-4-0-axis" points="61.877 15.91 0; 60.226 14.988 0" />
+  <path id="lower-boundary-0-5-0-axis" points="60.226 14.988 0; 58.527 14.157 0" />
+  <path id="lower-boundary-0-6-0-axis" points="58.527 14.157 0; 56.787 13.419 0" />
+  <path id="lower-boundary-0-7-0-axis" points="56.787 13.419 0; 55.009 12.777 0" />
+  <path id="lower-boundary-0-8-0-axis" points="55.009 12.777 0; 53.199 12.231 0" />
+  <path id="lower-boundary-0-9-0-axis" points="53.199 12.231 0; 51.362 11.783 0" />
+  <path id="lower-boundary-0-10-0-axis" points="51.362 11.783 0; 49.504 11.435 0" />
+  <path id="lower-boundary-0-11-0-axis" points="49.504 11.435 0; 47.63 11.189 0" />
+  <path id="lower-boundary-0-12-0-axis" points="47.63 11.189 0; 45.745 11.044 0" />
+  <path id="lower-boundary-0-13-0-axis" points="45.745 11.044 0; 43.855 11 0" />
+  <path id="lower-boundary-0-14-0-axis" points="43.855 11 0; 41.965 11.059 0" />
+  <path id="lower-boundary-0-15-0-axis" points="41.965 11.059 0; 40.081 11.22 0" />
+  <path id="lower-boundary-0-16-0-axis" points="40.081 11.22 0; 38.209 11.482 0" />
+  <path id="lower-boundary-0-17-0-axis" points="38.209 11.482 0; 36.354 11.845 0" />
+  <path id="lower-boundary-0-18-0-axis" points="36.354 11.845 0; 34.521 12.308 0" />
+  <path id="lower-boundary-0-19-0-axis" points="34.521 12.308 0; 32.715 12.869 0" />
+  <path id="lower-boundary-0-20-0-axis" points="32.715 12.869 0; 30.943 13.527 0" />
+  <path id="lower-boundary-0-21-0-axis" points="30.943 13.527 0; 29.208 14.279 0" />
+  <path id="lower-boundary-0-22-0-axis" points="29.208 14.279 0; 27.517 15.124 0" />
+  <path id="lower-boundary-0-23-0-axis" points="27.517 15.124 0; 25.874 16.059 0" />
+  <path id="lower-boundary-0-24-0-axis" points="25.874 16.059 0; 24.284 17.082 0" />
+  <path id="lower-boundary-0-25-0-axis" points="24.284 17.082 0; 22.751 18.188 0" />
+  <path id="lower-boundary-0-26-0-axis" points="22.751 18.188 0; 21.28 19.376 0" />
+  <path id="lower-boundary-0-27-0-axis" points="21.28 19.376 0; 19.876 20.642 0" />
+  <path id="lower-boundary-0-28-0-axis" points="19.876 20.642 0; 18.542 21.982 0" />
+  <path id="lower-boundary-0-29-0-axis" points="18.542 21.982 0; 17.282 23.391 0" />
+  <path id="lower-boundary-0-30-0-axis" points="17.282 23.391 0; 16.1 24.867 0" />
+  <path id="lower-boundary-0-31-0-axis" points="16.1 24.867 0; 15 26.404 0" />
+  <path id="lower-boundary-0-32-0-axis" points="15 26.404 0; 13.984 27.999 0" />
+  <path id="lower-boundary-0-33-0-axis" points="13.984 27.999 0; 13.056 29.646 0" />
+  <path id="lower-boundary-0-34-0-axis" points="13.056 29.646 0; 12.218 31.34 0" />
+  <path id="lower-boundary-0-35-0-axis" points="12.218 31.34 0; 11.473 33.078 0" />
+  <path id="lower-boundary-0-36-0-axis" points="11.473 33.078 0; 10.823 34.853 0" />
+  <path id="lower-boundary-0-37-0-axis" points="10.823 34.853 0; 10.269 36.661 0" />
+  <path id="lower-boundary-0-38-0-axis" points="10.269 36.661 0; 9.814 38.496 0" />
+  <path id="lower-boundary-0-39-0-axis" points="9.814 38.496 0; 9.526 40 0" />
+  <path id="lower-boundary-0-40-0-axis" points="9.526 40 0; 2 40 0" />
+  <path id="lower-boundary-0-41-0-axis" points="2 40 0; 2 54 0" />
+  <path id="lower-boundary-0-42-0-axis" points="2 54 0; 17.96 54 0" />
+  <path id="lower-boundary-0-47-0-axis" points="22.04 52 0; 27.714 52 0" />
+  <path id="lower-boundary-0-48-0-axis" points="33.602 50.406 0; 35.711 49 0" />
+  <path id="lower-boundary-0-49-0-axis" points="35.711 49 0; 38 49 0" />
+  <path id="lower-boundary-0-50-0-axis" points="38 49 0; 38 48 0" />
+  <path id="lower-boundary-0-51-0-axis" points="38 48 0; 46.938 48 0" />
+  <path id="lower-boundary-0-52-0-axis" points="46.938 48 0; 53.938 52 0" />
+  <path id="lower-boundary-0-53-0-axis" points="53.938 52 0; 54 52 0" />
+  <path id="lower-boundary-0-54-0-axis" points="54 52 0; 56 56 0" />
+  <path id="lower-boundary-0-55-0-axis" points="56 56 0; 72 60 0" />
+  <path id="lower-boundary-0-56-0-axis" points="72 60 0; 78 55.5 0" />
+  <path id="lower-boundary-0-57-0-axis" points="78 55.5 0; 78 64 0" />
+  <path id="lower-boundary-0-58-0-axis" points="78 64 0; 81.96 64 0" />
+  <path id="lower-boundary-0-62-0-axis" points="86.04 64 0; 92 64 0" />
+  <path id="lower-boundary-0-63-0-axis" points="92 64 0; 92 42 0" />
+  <path id="lower-boundary-0-64-0-axis" points="92 42 0; 80 42 0" />
+  <path id="lower-boundary-0-65-0-axis" points="80 42 0; 80 36 0" />
+  <path id="lower-boundary-0-66-0-axis" points="80 36 0; 70 29.333 0" />
+  <path id="lower-boundary-0-67-0-axis" points="70 29.333 0; 70 20 0" />
+  <path id="lower-boundary-0-68-0-axis" points="70 20 0; 65.817 20 0" />
+  <path id="lower-boundary-1-0-0-axis" points="21.834 39.863 0; 22.198 38.675 0" />
+  <path id="lower-boundary-1-1-0-axis" points="22.198 38.675 0; 22.625 37.508 0" />
+  <path id="lower-boundary-1-2-0-axis" points="22.625 37.508 0; 23.115 36.366 0" />
+  <path id="lower-boundary-1-3-0-axis" points="23.115 36.366 0; 23.665 35.253 0" />
+  <path id="lower-boundary-1-4-0-axis" points="23.665 35.253 0; 24.275 34.171 0" />
+  <path id="lower-boundary-1-5-0-axis" points="24.275 34.171 0; 24.943 33.123 0" />
+  <path id="lower-boundary-1-6-0-axis" points="24.943 33.123 0; 25.666 32.112 0" />
+  <path id="lower-boundary-1-7-0-axis" points="25.666 32.112 0; 26.443 31.143 0" />
+  <path id="lower-boundary-1-8-0-axis" points="26.443 31.143 0; 27.27 30.216 0" />
+  <path id="lower-boundary-1-9-0-axis" points="27.27 30.216 0; 28.147 29.336 0" />
+  <path id="lower-boundary-1-10-0-axis" points="28.147 29.336 0; 29.07 28.504 0" />
+  <path id="lower-boundary-1-11-0-axis" points="29.07 28.504 0; 30.036 27.724 0" />
+  <path id="lower-boundary-1-12-0-axis" points="30.036 27.724 0; 31.044 26.997 0" />
+  <path id="lower-boundary-1-13-0-axis" points="31.044 26.997 0; 32.089 26.325 0" />
+  <path id="lower-boundary-1-14-0-axis" points="32.089 26.325 0; 33.168 25.71 0" />
+  <path id="lower-boundary-1-15-0-axis" points="33.168 25.71 0; 34.28 25.155 0" />
+  <path id="lower-boundary-1-16-0-axis" points="34.28 25.155 0; 35.42 24.66 0" />
+  <path id="lower-boundary-1-17-0-axis" points="35.42 24.66 0; 36.584 24.228 0" />
+  <path id="lower-boundary-1-18-0-axis" points="36.584 24.228 0; 37.771 23.86 0" />
+  <path id="lower-boundary-1-19-0-axis" points="37.771 23.86 0; 38.975 23.556 0" />
+  <path id="lower-boundary-1-20-0-axis" points="38.975 23.556 0; 40.194 23.317 0" />
+  <path id="lower-boundary-1-21-0-axis" points="40.194 23.317 0; 41.425 23.145 0" />
+  <path id="lower-boundary-1-22-0-axis" points="41.425 23.145 0; 42.663 23.039 0" />
+  <path id="lower-boundary-1-23-0-axis" points="42.663 23.039 0; 43.904 23 0" />
+  <path id="lower-boundary-1-24-0-axis" points="43.904 23 0; 45.146 23.029 0" />
+  <path id="lower-boundary-1-25-0-axis" points="45.146 23.029 0; 46.385 23.124 0" />
+  <path id="lower-boundary-1-26-0-axis" points="46.385 23.124 0; 47.617 23.286 0" />
+  <path id="lower-boundary-1-27-0-axis" points="47.617 23.286 0; 48.838 23.515 0" />
+  <path id="lower-boundary-1-28-0-axis" points="48.838 23.515 0; 50.045 23.809 0" />
+  <path id="lower-boundary-1-29-0-axis" points="50.045 23.809 0; 51.235 24.167 0" />
+  <path id="lower-boundary-1-30-0-axis" points="51.235 24.167 0; 52.403 24.59 0" />
+  <path id="lower-boundary-1-31-0-axis" points="52.403 24.59 0; 53.547 25.075 0" />
+  <path id="lower-boundary-1-32-0-axis" points="53.547 25.075 0; 54.663 25.621 0" />
+  <path id="lower-boundary-1-33-0-axis" points="54.663 25.621 0; 55.747 26.226 0" />
+  <path id="lower-boundary-1-34-0-axis" points="55.747 26.226 0; 56.798 26.889 0" />
+  <path id="lower-boundary-1-35-0-axis" points="56.798 26.889 0; 57.811 27.608 0" />
+  <path id="lower-boundary-1-36-0-axis" points="57.811 27.608 0; 58 27.758 0" />
+  <path id="lower-boundary-1-37-0-axis" points="58 27.758 0; 58 29.25 0" />
+  <path id="lower-boundary-1-38-0-axis" points="58 29.25 0; 52 30 0" />
+  <path id="lower-boundary-1-39-0-axis" points="52 30 0; 50.458 40.797 0" />
+  <path id="lower-boundary-1-40-0-axis" points="50.458 40.797 0; 49.062 40 0" />
+  <path id="lower-boundary-1-41-0-axis" points="49.062 40 0; 34.789 40 0" />
+  <path id="lower-boundary-1-42-0-axis" points="34.789 40 0; 33.289 41 0" />
+  <path id="lower-boundary-1-43-0-axis" points="33.289 41 0; 32 41 0" />
+  <path id="lower-boundary-1-44-0-axis" points="32 41 0; 32 41.859 0" />
+  <path id="lower-boundary-1-45-0-axis" points="32 41.859 0; 28.789 44 0" />
+  <path id="lower-boundary-1-46-0-axis" points="28.789 44 0; 22 44 0" />
+  <path id="lower-boundary-1-47-0-axis" points="22 44 0; 22 40 0" />
+  <path id="lower-boundary-1-48-0-axis" points="22 40 0; 21.8 40 0" />
+  <path id="lower-boundary-1-49-0-axis" points="21.8 40 0; 21.834 39.863 0" />
+  <profile id="upper-plan" points="16 68; 16 69.995; 11.592 70.772; 12.074 73.089; 12.322 74; 12 74; 12 84; 16.519 84; 16.52 84.003; 17.795 85.996; 19.188 87.908; 20.694 89.733; 22.308 91.462; 24.025 93.091; 25.836 94.612; 27.737 96.021; 29.719 97.312; 31.777 98.481; 33.901 99.522; 36.084 100.433; 38.319 101.21; 40.596 101.849; 42.909 102.35; 45.247 102.709; 47.603 102.926; 49.968 103; 52.332 102.93; 54.689 102.717; 57.027 102.362; 59.341 101.865; 61.619 101.229; 63.855 100.456; 66.04 99.549; 68.166 98.511; 70.225 97.346; 72.21 96.058; 74.113 94.652; 75.927 93.134; 77.646 91.508; 79.263 89.781; 80.739 88; 88 88; 88 90; 102 90; 102 76; 90 76; 90 74; 78 74; 78 76.466; 72.839 74.168; 72.18 75.534; 71.44 76.858; 70.621 78.134; 69.726 79.359; 68.758 80.527; 67.722 81.634; 66.62 82.676; 65.457 83.649; 64.237 84.55; 62.965 85.375; 61.645 86.122; 60.282 86.788; 58.882 87.369; 57.448 87.865; 55.988 88.272; 54.505 88.591; 53.005 88.819; 51.495 88.955; 49.979 89; 48.463 88.953; 46.953 88.814; 45.454 88.583; 43.972 88.262; 43.363 88.091; 43.872 87.752; 41.577 84.31; 34.521 80.277; 34 79.583; 34 74; 27.091 74; 26.572 72.726; 26.086 71.289; 25.688 69.826; 25.38 68.341; 24 68.585; 24 68" />
+  <path id="upper-boundary-0-0-0-axis" points="16 68 5; 16 69.995 5" />
+  <path id="upper-boundary-0-1-0-axis" points="16 69.995 5; 11.592 70.772 5" />
+  <path id="upper-boundary-0-2-0-axis" points="11.592 70.772 5; 12.074 73.089 5" />
+  <path id="upper-boundary-0-3-0-axis" points="12.074 73.089 5; 12.322 74 5" />
+  <path id="upper-boundary-0-4-0-axis" points="12.322 74 5; 12 74 5" />
+  <path id="upper-boundary-0-5-0-axis" points="12 74 5; 12 84 5" />
+  <path id="upper-boundary-0-6-0-axis" points="12 84 5; 16.519 84 5" />
+  <path id="upper-boundary-0-8-0-axis" points="16.52 84.003 5; 17.795 85.996 5" />
+  <path id="upper-boundary-0-9-0-axis" points="17.795 85.996 5; 19.188 87.908 5" />
+  <path id="upper-boundary-0-10-0-axis" points="19.188 87.908 5; 20.694 89.733 5" />
+  <path id="upper-boundary-0-11-0-axis" points="20.694 89.733 5; 22.308 91.462 5" />
+  <path id="upper-boundary-0-12-0-axis" points="22.308 91.462 5; 24.025 93.091 5" />
+  <path id="upper-boundary-0-13-0-axis" points="24.025 93.091 5; 25.836 94.612 5" />
+  <path id="upper-boundary-0-14-0-axis" points="25.836 94.612 5; 27.737 96.021 5" />
+  <path id="upper-boundary-0-15-0-axis" points="27.737 96.021 5; 29.719 97.312 5" />
+  <path id="upper-boundary-0-16-0-axis" points="29.719 97.312 5; 31.777 98.481 5" />
+  <path id="upper-boundary-0-17-0-axis" points="31.777 98.481 5; 33.901 99.522 5" />
+  <path id="upper-boundary-0-18-0-axis" points="33.901 99.522 5; 36.084 100.433 5" />
+  <path id="upper-boundary-0-19-0-axis" points="36.084 100.433 5; 38.319 101.21 5" />
+  <path id="upper-boundary-0-20-0-axis" points="38.319 101.21 5; 40.596 101.849 5" />
+  <path id="upper-boundary-0-21-0-axis" points="40.596 101.849 5; 42.909 102.35 5" />
+  <path id="upper-boundary-0-22-0-axis" points="42.909 102.35 5; 45.247 102.709 5" />
+  <path id="upper-boundary-0-23-0-axis" points="45.247 102.709 5; 47.603 102.926 5" />
+  <path id="upper-boundary-0-24-0-axis" points="47.603 102.926 5; 49.968 103 5" />
+  <path id="upper-boundary-0-25-0-axis" points="49.968 103 5; 52.332 102.93 5" />
+  <path id="upper-boundary-0-26-0-axis" points="52.332 102.93 5; 54.689 102.717 5" />
+  <path id="upper-boundary-0-27-0-axis" points="54.689 102.717 5; 57.027 102.362 5" />
+  <path id="upper-boundary-0-28-0-axis" points="57.027 102.362 5; 59.341 101.865 5" />
+  <path id="upper-boundary-0-29-0-axis" points="59.341 101.865 5; 61.619 101.229 5" />
+  <path id="upper-boundary-0-30-0-axis" points="61.619 101.229 5; 63.855 100.456 5" />
+  <path id="upper-boundary-0-31-0-axis" points="63.855 100.456 5; 66.04 99.549 5" />
+  <path id="upper-boundary-0-32-0-axis" points="66.04 99.549 5; 68.166 98.511 5" />
+  <path id="upper-boundary-0-33-0-axis" points="68.166 98.511 5; 70.225 97.346 5" />
+  <path id="upper-boundary-0-34-0-axis" points="70.225 97.346 5; 72.21 96.058 5" />
+  <path id="upper-boundary-0-35-0-axis" points="72.21 96.058 5; 74.113 94.652 5" />
+  <path id="upper-boundary-0-36-0-axis" points="74.113 94.652 5; 75.927 93.134 5" />
+  <path id="upper-boundary-0-37-0-axis" points="75.927 93.134 5; 77.646 91.508 5" />
+  <path id="upper-boundary-0-38-0-axis" points="77.646 91.508 5; 79.263 89.781 5" />
+  <path id="upper-boundary-0-39-0-axis" points="79.263 89.781 5; 80.739 88 5" />
+  <path id="upper-boundary-0-40-0-axis" points="80.739 88 5; 88 88 5" />
+  <path id="upper-boundary-0-41-0-axis" points="88 88 5; 88 90 5" />
+  <path id="upper-boundary-0-42-0-axis" points="88 90 5; 102 90 5" />
+  <path id="upper-boundary-0-43-0-axis" points="102 90 5; 102 76 5" />
+  <path id="upper-boundary-0-44-0-axis" points="102 76 5; 90 76 5" />
+  <path id="upper-boundary-0-45-0-axis" points="90 76 5; 90 74 5" />
+  <path id="upper-boundary-0-46-0-axis" points="90 74 5; 86 74 5" />
+  <path id="upper-boundary-0-46-1-axis" points="82 74 5; 78 74 5" />
+  <path id="upper-boundary-0-47-0-axis" points="78 74 5; 78 76.466 5" />
+  <path id="upper-boundary-0-48-0-axis" points="78 76.466 5; 72.839 74.168 5" />
+  <path id="upper-boundary-0-49-0-axis" points="72.839 74.168 5; 72.18 75.534 5" />
+  <path id="upper-boundary-0-50-0-axis" points="72.18 75.534 5; 71.44 76.858 5" />
+  <path id="upper-boundary-0-51-0-axis" points="71.44 76.858 5; 70.621 78.134 5" />
+  <path id="upper-boundary-0-52-0-axis" points="70.621 78.134 5; 69.726 79.359 5" />
+  <path id="upper-boundary-0-53-0-axis" points="69.726 79.359 5; 68.758 80.527 5" />
+  <path id="upper-boundary-0-54-0-axis" points="68.758 80.527 5; 67.722 81.634 5" />
+  <path id="upper-boundary-0-55-0-axis" points="67.722 81.634 5; 66.62 82.676 5" />
+  <path id="upper-boundary-0-56-0-axis" points="66.62 82.676 5; 65.457 83.649 5" />
+  <path id="upper-boundary-0-57-0-axis" points="65.457 83.649 5; 64.237 84.55 5" />
+  <path id="upper-boundary-0-58-0-axis" points="64.237 84.55 5; 62.965 85.375 5" />
+  <path id="upper-boundary-0-59-0-axis" points="62.965 85.375 5; 61.645 86.122 5" />
+  <path id="upper-boundary-0-60-0-axis" points="61.645 86.122 5; 60.282 86.788 5" />
+  <path id="upper-boundary-0-61-0-axis" points="60.282 86.788 5; 58.882 87.369 5" />
+  <path id="upper-boundary-0-62-0-axis" points="58.882 87.369 5; 57.448 87.865 5" />
+  <path id="upper-boundary-0-63-0-axis" points="57.448 87.865 5; 55.988 88.272 5" />
+  <path id="upper-boundary-0-64-0-axis" points="55.988 88.272 5; 54.505 88.591 5" />
+  <path id="upper-boundary-0-65-0-axis" points="54.505 88.591 5; 53.005 88.819 5" />
+  <path id="upper-boundary-0-66-0-axis" points="53.005 88.819 5; 51.495 88.955 5" />
+  <path id="upper-boundary-0-67-0-axis" points="51.495 88.955 5; 49.979 89 5" />
+  <path id="upper-boundary-0-68-0-axis" points="49.979 89 5; 48.463 88.953 5" />
+  <path id="upper-boundary-0-69-0-axis" points="48.463 88.953 5; 46.953 88.814 5" />
+  <path id="upper-boundary-0-70-0-axis" points="46.953 88.814 5; 45.454 88.583 5" />
+  <path id="upper-boundary-0-71-0-axis" points="45.454 88.583 5; 43.972 88.262 5" />
+  <path id="upper-boundary-0-72-0-axis" points="43.972 88.262 5; 43.363 88.091 5" />
+  <path id="upper-boundary-0-73-0-axis" points="43.363 88.091 5; 43.872 87.752 5" />
+  <path id="upper-boundary-0-74-0-axis" points="43.872 87.752 5; 41.577 84.31 5" />
+  <path id="upper-boundary-0-75-0-axis" points="41.577 84.31 5; 34.521 80.277 5" />
+  <path id="upper-boundary-0-76-0-axis" points="34.521 80.277 5; 34 79.583 5" />
+  <path id="upper-boundary-0-77-0-axis" points="34 79.583 5; 34 74 5" />
+  <path id="upper-boundary-0-78-0-axis" points="34 74 5; 31 74 5" />
+  <path id="upper-boundary-0-79-0-axis" points="27.083 73.98 5; 26.572 72.726 5" />
+  <path id="upper-boundary-0-80-0-axis" points="26.572 72.726 5; 26.086 71.289 5" />
+  <path id="upper-boundary-0-81-0-axis" points="26.086 71.289 5; 25.688 69.826 5" />
+  <path id="upper-boundary-0-82-0-axis" points="25.688 69.826 5; 25.38 68.341 5" />
+  <path id="upper-boundary-0-83-0-axis" points="25.38 68.341 5; 24 68.585 5" />
+  <path id="upper-boundary-0-84-0-axis" points="24 68.585 5; 24 68 5" />
+  <path id="upper-boundary-0-85-0-axis" points="24 68 5; 22 68 5" />
+  <path id="upper-boundary-0-85-1-axis" points="18 68 5; 16 68 5" />
+  <profile id="fan-landing-plan" points="27.421 51.772; 30.579 54.228; 32 57; 26 57" />
+  <profile id="outer-landing-plan" points="16 68; 24 68; 24 76; 16 76" />
+  <profile id="drum-landing-plan" points="26 74; 34 74; 34 82; 26 82" />
+  <path id="S1-outer-axis" points="20 52 0; 20 68 5" />
+  <path id="S2-fan-axis" points="36 44 0; 29 53 2" />
+  <path id="S3-drum-axis" points="29 56 2; 29 74 5" />
+  <path id="S4-east-axis" points="84 74 5; 84 60 0" />
+  <path id="S1-outer-cheek-top" points="0 0.18 0; 16 5 0" />
+  <path id="S1-outer-cheek-0-axis" points="18 52 0; 18 68 0" />
+  <path id="S1-outer-cheek-1-axis" points="22 52 0; 22 68 0" />
+  <path id="S4-east-cheek-top" points="0 0.18 0; 14 5 0" />
+  <path id="S4-east-cheek-0-axis" points="82 60 0; 82 74 0" />
+  <path id="S4-east-cheek-1-axis" points="86 60 0; 86 74 0" />
+  <path id="fan-pad-guard-1-0-axis" points="30.579 54.228 2; 32 57 2" />
+  <path id="fan-pad-guard-2-0-axis" points="32 57 2; 31 57 2" />
+  <path id="fan-pad-guard-2-1-axis" points="27 57 2; 26 57 2" />
+  <path id="fan-pad-guard-3-0-axis" points="26 57 2; 27.413 51.803 2" />
+  <path id="east-arc-inner-screen-axis" points="72.839 74.168 5; 72.363 75.177 5; 71.842 76.163 5; 71.278 77.124 5; 70.672 78.06 5; 70.024 78.968 5; 69.337 79.846 5; 68.611 80.692 5; 67.848 81.505 5; 67.05 82.284 5; 66.218 83.026 5; 65.353 83.73 5; 64.458 84.395 5; 63.535 85.019 5; 62.584 85.602 5; 61.608 86.142 5; 60.609 86.637 5; 59.589 87.088 5; 58.551 87.492 5" />
+  <profile id="T-roof-plan" points="2 40; 22 40; 22 54; 2 54" />
+  <profile id="CT-roof-plan" points="90 76; 102 76; 102 90; 90 90" />
+  <profile id="east-fan-canopy-plan" points="80 42; 92 42; 92 58; 80 58" />
+  <profile id="lower-trackbed-0-plan" points="18.021 44.947; 18.085 43.895; 18.192 42.847; 18.341 41.805; 18.532 40.769; 18.764 39.741; 19.039 38.724; 19.354 37.719; 19.71 36.728; 20.105 35.752; 20.54 34.792; 21.013 33.851; 21.524 32.93; 22.072 32.03; 22.656 31.153; 23.275 30.301; 23.927 29.474; 24.613 28.675; 25.331 27.904; 26.079 27.163; 26.857 26.452; 27.663 25.774; 28.496 25.129; 29.354 24.518; 30.236 23.942; 31.141 23.403; 32.066 22.9; 33.012 22.436; 33.975 22.01; 34.955 21.624; 35.95 21.278; 36.958 20.972; 37.978 20.707; 39.007 20.484; 40.045 20.303; 41.089 20.163; 42.138 20.067; 43.19 20.013; 44.243 20.001; 45.296 20.032; 46.347 20.106; 47.394 20.222; 48.435 20.381; 49.469 20.582; 50.494 20.824; 51.509 21.108; 52.511 21.432; 53.499 21.797; 54.471 22.202; 55.427 22.646; 56.363 23.128; 57.28 23.647; 58.174 24.203; 59.045 24.795; 59.892 25.422; 60.712 26.083; 63.284 23.019; 62.337 22.256; 61.36 21.533; 60.355 20.85; 59.323 20.208; 58.265 19.609; 57.185 19.053; 56.082 18.541; 54.96 18.074; 53.82 17.653; 52.664 17.278; 51.493 16.951; 50.31 16.671; 49.117 16.44; 47.916 16.257; 46.708 16.122; 45.495 16.037; 44.28 16.001; 43.065 16.015; 41.851 16.077; 40.641 16.189; 39.436 16.349; 38.239 16.558; 37.051 16.816; 35.875 17.121; 34.712 17.474; 33.564 17.874; 32.433 18.32; 31.321 18.811; 30.231 19.347; 29.162 19.926; 28.118 20.549; 27.1 21.213; 26.11 21.918; 25.149 22.662; 24.22 23.445; 23.322 24.265; 22.459 25.12; 21.631 26.01; 20.839 26.932; 20.086 27.886; 19.372 28.869; 18.698 29.881; 18.066 30.919; 17.477 31.982; 16.93 33.068; 16.429 34.175; 15.973 35.301; 15.562 36.445; 15.199 37.605; 14.882 38.779; 14.613 39.964; 14.393 41.159; 14.221 42.362; 14.098 43.572; 14.025 44.785; 14 46; 18 46" />
+  <face-material id="lower-trackbed-0" host="lower" face="top" profile="lower-trackbed-0-plan" material="track" />
+  <profile id="lower-safety-line-0-plan" points="18.721 44.975; 18.783 43.952; 18.887 42.932; 19.032 41.918; 19.217 40.91; 19.444 39.91; 19.711 38.92; 20.017 37.942; 20.364 36.977; 20.748 36.027; 21.171 35.094; 21.632 34.178; 22.129 33.282; 22.662 32.406; 23.23 31.553; 23.833 30.724; 24.468 29.919; 25.135 29.141; 25.834 28.391; 26.562 27.67; 27.319 26.978; 28.103 26.318; 28.913 25.691; 29.748 25.096; 30.606 24.536; 31.487 24.011; 32.388 23.522; 33.308 23.07; 34.245 22.656; 35.199 22.28; 36.167 21.943; 37.148 21.646; 38.14 21.388; 39.142 21.171; 40.151 20.994; 41.167 20.859; 42.188 20.765; 43.212 20.712; 44.237 20.701; 45.261 20.731; 46.284 20.803; 47.302 20.916; 48.316 21.071; 49.322 21.266; 50.319 21.502; 51.306 21.778; 52.282 22.094; 53.243 22.449; 54.189 22.843; 55.119 23.274; 56.031 23.743; 56.922 24.249; 57.793 24.79; 58.64 25.366; 59.464 25.976; 60.263 26.619; 60.423 26.428; 59.617 25.778; 58.785 25.162; 57.929 24.581; 57.05 24.034; 56.149 23.523; 55.229 23.05; 54.29 22.614; 53.334 22.216; 52.363 21.858; 51.379 21.539; 50.382 21.26; 49.374 21.022; 48.358 20.824; 47.335 20.669; 46.306 20.554; 45.274 20.482; 44.239 20.451; 43.204 20.462; 42.17 20.516; 41.139 20.611; 40.113 20.747; 39.094 20.926; 38.082 21.145; 37.08 21.405; 36.089 21.705; 35.112 22.046; 34.149 22.425; 33.202 22.844; 32.273 23.3; 31.363 23.794; 30.474 24.324; 29.607 24.89; 28.764 25.49; 27.946 26.124; 27.154 26.79; 26.389 27.489; 25.654 28.217; 24.949 28.975; 24.275 29.76; 23.633 30.573; 23.025 31.41; 22.451 32.272; 21.913 33.156; 21.411 34.061; 20.946 34.986; 20.519 35.929; 20.13 36.888; 19.78 37.863; 19.471 38.85; 19.201 39.85; 18.972 40.859; 18.785 41.877; 18.639 42.902; 18.534 43.932; 18.471 44.965; 18.45 46; 18.7 46" />
+  <face-material id="lower-safety-line-0" host="lower" face="top" profile="lower-safety-line-0-plan" material="yellow" />
+  <path id="lower-rail-26.8-axis" points="17.2 46 0.025; 17.222 44.914 0.025; 17.288 43.831 0.025; 17.398 42.75 0.025; 17.551 41.676 0.025; 17.748 40.608 0.025; 17.988 39.549 0.025; 18.271 38.501 0.025; 18.596 37.465 0.025; 18.962 36.443 0.025; 19.37 35.436 0.025; 19.818 34.447 0.025; 20.306 33.477 0.025; 20.832 32.528 0.025; 21.397 31.6 0.025; 21.999 30.697 0.025; 22.637 29.818 0.025; 23.31 28.966 0.025; 24.017 28.142 0.025; 24.757 27.347 0.025; 25.528 26.583 0.025; 26.33 25.851 0.025; 27.16 25.151 0.025; 28.018 24.486 0.025; 28.903 23.857 0.025; 29.812 23.263 0.025; 30.745 22.707 0.025; 31.699 22.19 0.025; 32.674 21.711 0.025; 33.667 21.272 0.025; 34.677 20.874 0.025; 35.702 20.517 0.025; 36.741 20.202 0.025; 37.792 19.929 0.025; 38.854 19.699 0.025; 39.923 19.512 0.025; 40.999 19.369 0.025; 42.081 19.269 0.025; 43.165 19.213 0.025; 44.251 19.201 0.025; 45.336 19.233 0.025; 46.419 19.309 0.025; 47.498 19.429 0.025; 48.571 19.593 0.025; 49.637 19.8 0.025; 50.694 20.049 0.025; 51.74 20.342 0.025; 52.773 20.676 0.025; 53.791 21.053 0.025; 54.794 21.47 0.025; 55.778 21.927 0.025; 56.744 22.424 0.025; 57.688 22.959 0.025; 58.61 23.533 0.025; 59.508 24.143 0.025; 60.381 24.789 0.025; 61.227 25.47 0.025" />
+  <path id="lower-rail-29.2-axis" points="14.8 46 0.025; 14.824 44.817 0.025; 14.896 43.636 0.025; 15.015 42.459 0.025; 15.183 41.288 0.025; 15.397 40.125 0.025; 15.659 38.971 0.025; 15.967 37.829 0.025; 16.321 36.7 0.025; 16.72 35.587 0.025; 17.164 34.49 0.025; 17.652 33.413 0.025; 18.184 32.356 0.025; 18.758 31.321 0.025; 19.373 30.311 0.025; 20.029 29.326 0.025; 20.724 28.369 0.025; 21.457 27.441 0.025; 22.227 26.543 0.025; 23.033 25.677 0.025; 23.874 24.844 0.025; 24.747 24.046 0.025; 25.652 23.284 0.025; 26.587 22.56 0.025; 27.551 21.874 0.025; 28.542 21.227 0.025; 29.558 20.622 0.025; 30.598 20.057 0.025; 31.66 19.536 0.025; 32.742 19.058 0.025; 33.842 18.624 0.025; 34.959 18.235 0.025; 36.091 17.891 0.025; 37.237 17.594 0.025; 38.393 17.343 0.025; 39.558 17.14 0.025; 40.731 16.984 0.025; 41.909 16.875 0.025; 43.09 16.814 0.025; 44.273 16.801 0.025; 45.455 16.836 0.025; 46.636 16.919 0.025; 47.811 17.05 0.025; 48.981 17.228 0.025; 50.142 17.453 0.025; 51.293 17.726 0.025; 52.433 18.044 0.025; 53.558 18.409 0.025; 54.668 18.818 0.025; 55.76 19.273 0.025; 56.833 19.771 0.025; 57.885 20.313 0.025; 58.914 20.896 0.025; 59.919 21.521 0.025; 60.897 22.186 0.025; 61.848 22.89 0.025; 62.769 23.632 0.025" />
+  <path id="lower-tie-0-axis" points="17.7 46 0.01; 14.3 46 0.01" />
+  <path id="lower-tie-2-axis" points="17.786 43.871 0.01; 14.397 43.596 0.01" />
+  <path id="lower-tie-4-axis" points="18.045 41.756 0.01; 14.689 41.208 0.01" />
+  <path id="lower-tie-6-axis" points="18.473 39.669 0.01; 15.173 38.851 0.01" />
+  <path id="lower-tie-8-axis" points="19.07 37.624 0.01; 15.847 36.541 0.01" />
+  <path id="lower-tie-10-axis" points="19.829 35.633 0.01; 16.705 34.293 0.01" />
+  <path id="lower-tie-12-axis" points="20.748 33.711 0.01; 17.742 32.122 0.01" />
+  <path id="lower-tie-14-axis" points="21.819 31.869 0.01; 18.951 30.042 0.01" />
+  <path id="lower-tie-16-axis" points="23.035 30.12 0.01; 20.325 28.067 0.01" />
+  <path id="lower-tie-18-axis" points="24.39 28.475 0.01; 21.854 26.21 0.01" />
+  <path id="lower-tie-20-axis" points="25.873 26.945 0.01; 23.529 24.482 0.01" />
+  <path id="lower-tie-22-axis" points="27.474 25.54 0.01; 25.338 22.895 0.01" />
+  <path id="lower-tie-24-axis" points="29.185 24.27 0.01; 27.269 21.461 0.01" />
+  <path id="lower-tie-26-axis" points="30.992 23.142 0.01; 29.311 20.187 0.01" />
+  <path id="lower-tie-28-axis" points="32.885 22.164 0.01; 31.448 19.083 0.01" />
+  <path id="lower-tie-30-axis" points="34.851 21.343 0.01; 33.668 18.155 0.01" />
+  <path id="lower-tie-32-axis" points="36.877 20.683 0.01; 35.956 17.41 0.01" />
+  <path id="lower-tie-34-axis" points="38.95 20.189 0.01; 38.297 16.853 0.01" />
+  <path id="lower-tie-36-axis" points="41.055 19.865 0.01; 40.675 16.487 0.01" />
+  <path id="lower-tie-38-axis" points="43.18 19.713 0.01; 43.075 16.314 0.01" />
+  <path id="lower-tie-40-axis" points="45.311 19.733 0.01; 45.48 16.337 0.01" />
+  <path id="lower-tie-42-axis" points="47.433 19.925 0.01; 47.877 16.554 0.01" />
+  <path id="lower-tie-44-axis" points="49.532 20.288 0.01; 50.247 16.965 0.01" />
+  <path id="lower-tie-46-axis" points="51.595 20.821 0.01; 52.577 17.565 0.01" />
+  <path id="lower-tie-48-axis" points="53.608 21.518 0.01; 54.851 18.353 0.01" />
+  <path id="lower-tie-50-axis" points="55.559 22.376 0.01; 57.053 19.322 0.01" />
+  <path id="lower-tie-52-axis" points="57.433 23.389 0.01; 59.169 20.466 0.01" />
+  <path id="lower-tie-54-axis" points="59.219 24.551 0.01; 61.187 21.778 0.01" />
+  <profile id="upper-trackbed-0-plan" points="79.505 78.78; 78.802 80.107; 78.04 81.4; 77.219 82.657; 76.343 83.876; 75.411 85.054; 74.427 86.188; 73.393 87.276; 72.31 88.316; 71.18 89.306; 70.007 90.243; 68.793 91.126; 67.54 91.953; 66.25 92.722; 64.927 93.431; 63.572 94.08; 62.19 94.666; 60.783 95.189; 59.353 95.647; 57.904 96.04; 56.438 96.366; 54.959 96.625; 53.47 96.817; 51.974 96.941; 51 96.977; 51 98; 45 98; 45 96.611; 44.493 96.537; 43.018 96.253; 41.558 95.902; 40.116 95.485; 38.694 95.003; 37.295 94.456; 35.923 93.847; 34.58 93.176; 33.269 92.444; 31.992 91.654; 30.753 90.806; 29.554 89.903; 28.397 88.946; 27.284 87.937; 26.219 86.879; 25.203 85.774; 24.238 84.623; 23.327 83.43; 22.47 82.197; 21.671 80.926; 20.931 79.62; 20.25 78.281; 19.631 76.913; 19.075 75.518; 18.584 74.1; 18.157 72.66; 17.796 71.203; 17.501 69.73; 13.562 70.425; 13.892 72.076; 14.297 73.71; 14.775 75.324; 15.327 76.914; 15.95 78.478; 16.644 80.012; 17.407 81.513; 18.237 82.977; 19.134 84.402; 20.094 85.785; 21.115 87.123; 22.197 88.413; 23.336 89.653; 24.531 90.839; 25.778 91.97; 27.075 93.042; 28.42 94.055; 29.81 95.006; 31.241 95.892; 32.711 96.712; 34.217 97.465; 35.756 98.148; 37.324 98.761; 38.918 99.301; 40.535 99.769; 42.172 100.162; 43.825 100.481; 45.491 100.724; 47.166 100.891; 48.847 100.982; 50.53 100.996; 52.213 100.934; 53.89 100.795; 55.56 100.58; 57.218 100.289; 58.862 99.923; 60.486 99.483; 62.09 98.969; 63.668 98.383; 65.218 97.726; 66.736 96.999; 68.22 96.203; 69.666 95.341; 71.071 94.414; 72.433 93.424; 73.748 92.373; 75.014 91.264; 76.228 90.098; 77.388 88.878; 78.491 87.606; 79.536 86.286; 80.519 84.919; 81.439 83.509; 82.294 82.059; 83.082 80.571; 83.801 79.049; 80.147 77.422" />
+  <face-material id="upper-trackbed-0" host="upper" face="top" profile="upper-trackbed-0-plan" material="track" />
+  <profile id="upper-safety-line-0-plan" points="78.879 78.466; 78.191 79.765; 77.445 81.031; 76.642 82.262; 75.784 83.455; 74.872 84.607; 73.909 85.717; 72.896 86.783; 71.836 87.8; 70.731 88.769; 69.583 89.686; 68.394 90.551; 67.168 91.36; 65.905 92.112; 64.61 92.807; 63.285 93.442; 61.932 94.015; 60.554 94.527; 59.154 94.976; 57.736 95.36; 56.301 95.679; 54.854 95.933; 53.396 96.121; 51.932 96.242; 51 96.277; 51 96.527; 51.947 96.492; 53.423 96.37; 54.891 96.18; 56.35 95.925; 57.796 95.603; 59.225 95.215; 60.636 94.763; 62.024 94.248; 63.387 93.67; 64.723 93.03; 66.028 92.33; 67.3 91.572; 68.537 90.756; 69.735 89.885; 70.892 88.961; 72.005 87.985; 73.074 86.959; 74.094 85.886; 75.065 84.767; 75.983 83.605; 76.848 82.403; 77.658 81.163; 78.41 79.887; 79.103 78.578; 79.736 77.239; 79.508 77.138" />
+  <face-material id="upper-safety-line-0" host="upper" face="top" profile="upper-safety-line-0-plan" material="yellow" />
+  <profile id="upper-safety-line-1-plan" points="44.609 95.847; 43.166 95.569; 41.737 95.225; 40.326 94.817; 38.934 94.345; 37.565 93.81; 36.222 93.214; 34.907 92.557; 33.624 91.841; 32.374 91.067; 31.161 90.237; 29.987 89.353; 28.855 88.417; 27.766 87.43; 26.723 86.394; 25.729 85.312; 24.785 84.186; 23.892 83.018; 23.054 81.811; 22.272 80.567; 21.547 79.288; 20.881 77.978; 20.276 76.639; 19.731 75.274; 19.25 73.885; 18.832 72.476; 18.479 71.05; 18.191 69.609; 17.945 69.652; 18.235 71.105; 18.591 72.542; 19.012 73.962; 19.497 75.361; 20.046 76.737; 20.656 78.086; 21.327 79.407; 22.057 80.695; 22.846 81.949; 23.69 83.165; 24.589 84.342; 25.541 85.477; 26.543 86.567; 27.594 87.611; 28.691 88.606; 29.833 89.55; 31.016 90.44; 32.238 91.277; 33.497 92.056; 34.79 92.778; 36.115 93.44; 37.469 94.041; 38.848 94.58; 40.251 95.056; 41.673 95.467; 43.113 95.813; 44.568 96.093; 45 96.157; 45 95.904" />
+  <face-material id="upper-safety-line-1" host="upper" face="top" profile="upper-safety-line-1-plan" material="yellow" />
+  <path id="upper-rail-33.8-axis" points="80.878 77.748 5.025; 80.221 79.138 5.025; 79.501 80.497 5.025; 78.72 81.822 5.025; 77.879 83.11 5.025; 76.981 84.358 5.025; 76.027 85.564 5.025; 75.019 86.726 5.025; 73.96 87.841 5.025; 72.85 88.906 5.025; 71.694 89.919 5.025; 70.492 90.879 5.025; 69.249 91.784 5.025; 67.965 92.63 5.025; 66.644 93.418 5.025; 65.289 94.145 5.025; 63.902 94.809 5.025; 62.486 95.409 5.025; 61.044 95.945 5.025; 59.58 96.414 5.025; 58.095 96.816 5.025; 56.594 97.151 5.025; 55.079 97.416 5.025; 53.554 97.613 5.025; 52.021 97.74 5.025; 50.485 97.797 5.025; 48.947 97.784 5.025; 47.411 97.701 5.025; 45.881 97.548 5.025; 44.359 97.326 5.025; 42.849 97.035 5.025; 41.354 96.675 5.025; 39.876 96.248 5.025; 38.42 95.754 5.025; 36.987 95.195 5.025; 35.582 94.571 5.025; 34.206 93.883 5.025; 32.863 93.134 5.025; 31.556 92.324 5.025; 30.287 91.456 5.025; 29.058 90.531 5.025; 27.873 89.551 5.025; 26.734 88.518 5.025; 25.642 87.434 5.025; 24.602 86.302 5.025; 23.614 85.123 5.025; 22.68 83.901 5.025; 21.803 82.638 5.025; 20.984 81.336 5.025; 20.226 79.998 5.025; 19.529 78.627 5.025; 18.895 77.226 5.025; 18.326 75.798 5.025; 17.822 74.345 5.025; 17.385 72.87 5.025; 17.015 71.377 5.025; 16.713 69.869 5.025" />
+  <path id="upper-rail-36.2-axis" points="83.07 78.724 5.025; 82.366 80.213 5.025; 81.595 81.668 5.025; 80.759 83.087 5.025; 79.859 84.467 5.025; 78.897 85.804 5.025; 77.875 87.096 5.025; 76.796 88.34 5.025; 75.661 89.533 5.025; 74.473 90.674 5.025; 73.234 91.76 5.025; 71.948 92.788 5.025; 70.615 93.756 5.025; 69.24 94.663 5.025; 67.826 95.507 5.025; 66.374 96.285 5.025; 64.889 96.997 5.025; 63.372 97.64 5.025; 61.828 98.213 5.025; 60.26 98.716 5.025; 58.67 99.146 5.025; 57.062 99.504 5.025; 55.44 99.789 5.025; 53.806 99.999 5.025; 52.165 100.135 5.025; 50.519 100.196 5.025; 48.872 100.182 5.025; 47.227 100.094 5.025; 45.588 99.93 5.025; 43.959 99.692 5.025; 42.341 99.381 5.025; 40.74 98.996 5.025; 39.157 98.538 5.025; 37.598 98.009 5.025; 36.064 97.41 5.025; 34.558 96.741 5.025; 33.085 96.005 5.025; 31.647 95.202 5.025; 30.246 94.335 5.025; 28.887 93.405 5.025; 27.571 92.414 5.025; 26.302 91.365 5.025; 25.082 90.259 5.025; 23.913 89.098 5.025; 22.798 87.885 5.025; 21.74 86.623 5.025; 20.74 85.314 5.025; 19.801 83.961 5.025; 18.924 82.567 5.025; 18.112 81.134 5.025; 17.365 79.666 5.025; 16.687 78.165 5.025; 16.077 76.635 5.025; 15.537 75.079 5.025; 15.069 73.5 5.025; 14.673 71.901 5.025; 14.35 70.286 5.025" />
+  <path id="upper-tie-0-axis" points="80.421 77.544 5.01; 83.527 78.927 5.01" />
+  <path id="upper-tie-2-axis" points="79.064 80.253 5.01; 82.032 81.912 5.01" />
+  <path id="upper-tie-4-axis" points="77.467 82.827 5.01; 80.271 84.749 5.01" />
+  <path id="upper-tie-6-axis" points="75.642 85.245 5.01; 78.26 87.415 5.01" />
+  <path id="upper-tie-8-axis" points="73.605 87.488 5.01; 76.015 89.886 5.01" />
+  <path id="upper-tie-10-axis" points="71.373 89.536 5.01; 73.555 92.143 5.01" />
+  <path id="upper-tie-12-axis" points="68.964 91.373 5.01; 70.9 94.167 5.01" />
+  <path id="upper-tie-14-axis" points="66.398 92.983 5.01; 68.072 95.942 5.01" />
+  <path id="upper-tie-16-axis" points="63.696 94.353 5.01; 65.094 97.452 5.01" />
+  <path id="upper-tie-18-axis" points="60.881 95.472 5.01; 61.992 98.686 5.01" />
+  <path id="upper-tie-20-axis" points="57.975 96.331 5.01; 58.79 99.632 5.01" />
+  <path id="upper-tie-22-axis" points="55.004 96.922 5.01; 55.515 100.283 5.01" />
+  <path id="upper-tie-24-axis" points="51.991 97.24 5.01; 52.195 100.634 5.01" />
+  <path id="upper-tie-26-axis" points="48.962 97.284 5.01; 48.856 100.682 5.01" />
+  <path id="upper-tie-28-axis" points="45.942 97.052 5.01; 45.527 100.426 5.01" />
+  <path id="upper-tie-30-axis" points="42.955 96.546 5.01; 42.235 99.869 5.01" />
+  <path id="upper-tie-32-axis" points="40.026 95.771 5.01; 39.008 99.015 5.01" />
+  <path id="upper-tie-34-axis" points="37.18 94.733 5.01; 35.871 97.871 5.01" />
+  <path id="upper-tie-36-axis" points="34.44 93.441 5.01; 32.851 96.447 5.01" />
+  <path id="upper-tie-38-axis" points="31.829 91.905 5.01; 29.973 94.754 5.01" />
+  <path id="upper-tie-40-axis" points="29.368 90.138 5.01; 27.261 92.807 5.01" />
+  <path id="upper-tie-42-axis" points="27.078 88.155 5.01; 24.737 90.621 5.01" />
+  <path id="upper-tie-44-axis" points="24.977 85.972 5.01; 22.423 88.215 5.01" />
+  <path id="upper-tie-46-axis" points="23.084 83.607 5.01; 20.336 85.609 5.01" />
+  <path id="upper-tie-48-axis" points="21.414 81.08 5.01; 18.495 82.823 5.01" />
+  <path id="upper-tie-50-axis" points="19.98 78.411 5.01; 16.915 79.882 5.01" />
+  <path id="upper-tie-52-axis" points="18.794 75.623 5.01; 15.608 76.81 5.01" />
+  <path id="upper-tie-54-axis" points="17.867 72.739 5.01; 14.586 73.631 5.01" />
+  <profile id="plant-A-plan" points="45 92; 51 92; 51 98; 45 98" />
+  <face-material id="plant-A-surface" host="upper" face="top" profile="plant-A-plan" material="plant-a" />
+  <zone id="plant-A" profile="plant-A-plan" elevation="5" height="2" role="objective" movement="land">
+    <property name="mode" value="bomb-defuse" />
+    <property name="site" value="A" />
+  </zone>
+  <profile id="plant-B-plan" points="63 38; 70 38; 70 44; 63 44" />
+  <face-material id="plant-B-surface" host="lower" face="top" profile="plant-B-plan" material="plant-b" />
+  <zone id="plant-B" profile="plant-B-plan" elevation="0" height="2" role="objective" movement="land">
+    <property name="mode" value="bomb-defuse" />
+    <property name="site" value="B" />
+  </zone>
+  <path id="lower-rib-0-crown-axis" points="21.224 42.799 5.1; 9.341 41.129 5.1" />
+  <path id="lower-rib-0-light-axis" points="21.224 42.799 4.98; 9.341 41.129 4.98" />
+  <path id="lower-rib-1-crown-axis" points="23.328 35.917 5.1; 12.542 30.657 5.1" />
+  <path id="lower-rib-1-light-axis" points="23.328 35.917 4.98; 12.542 30.657 4.98" />
+  <path id="lower-rib-2-crown-axis" points="27.455 30.023 5.1; 18.823 21.687 5.1" />
+  <path id="lower-rib-2-light-axis" points="27.455 30.023 4.98; 18.823 21.687 4.98" />
+  <path id="lower-rib-3-crown-axis" points="33.202 25.692 5.1; 27.568 15.097 5.1" />
+  <path id="lower-rib-3-light-axis" points="33.202 25.692 4.98; 27.568 15.097 4.98" />
+  <path id="lower-rib-4-crown-axis" points="40.006 23.349 5.1; 37.922 11.532 5.1" />
+  <path id="lower-rib-4-light-axis" points="40.006 23.349 4.98; 37.922 11.532 4.98" />
+  <path id="lower-rib-5-crown-axis" points="47.201 23.224 5.1; 48.871 11.341 5.1" />
+  <path id="lower-rib-5-light-axis" points="47.201 23.224 4.98; 48.871 11.341 4.98" />
+  <path id="lower-rib-6-crown-axis" points="54.083 25.328 5.1; 59.343 14.542 5.1" />
+  <path id="lower-rib-6-light-axis" points="54.083 25.328 4.98; 59.343 14.542 4.98" />
+  <path id="upper-rib-0-crown-axis" points="70.967 77.616 10.1; 82.708 85.241 10.1" />
+  <path id="upper-rib-0-light-axis" points="70.967 77.616 9.98; 82.708 85.241 9.98" />
+  <path id="upper-rib-1-crown-axis" points="65.733 83.429 10.1; 74.543 94.309 10.1" />
+  <path id="upper-rib-1-light-axis" points="65.733 83.429 9.98; 74.543 94.309 9.98" />
+  <path id="upper-rib-2-crown-axis" points="58.959 87.34 10.1; 63.976 100.41 10.1" />
+  <path id="upper-rib-2-light-axis" points="58.959 87.34 9.98; 63.976 100.41 9.98" />
+  <path id="upper-rib-3-crown-axis" points="51.308 88.966 10.1; 52.041 102.947 10.1" />
+  <path id="upper-rib-3-light-axis" points="51.308 88.966 9.98; 52.041 102.947 9.98" />
+  <path id="upper-rib-4-crown-axis" points="43.53 88.148 10.1; 39.906 101.671 10.1" />
+  <path id="upper-rib-4-light-axis" points="43.53 88.148 9.98; 39.906 101.671 9.98" />
+  <path id="upper-rib-5-crown-axis" points="36.384 84.967 10.1; 28.759 96.708 10.1" />
+  <path id="upper-rib-5-light-axis" points="36.384 84.967 9.98; 28.759 96.708 9.98" />
+  <path id="upper-rib-6-crown-axis" points="30.571 79.733 10.1; 19.691 88.543 10.1" />
+  <path id="upper-rib-6-light-axis" points="30.571 79.733 9.98; 19.691 88.543 9.98" />
+  <path id="floor-fracture-0-axis" points="60 31 0.012; 65 37 0.012" />
+  <path id="floor-fracture-1-axis" points="65.08 37.06 0.012; 72 40 0.012" />
+  <path id="floor-fracture-2-axis" points="43 95 5.012; 47 98 5.012" />
+  <path id="floor-fracture-3-axis" points="47.08 98.06 5.012; 50 99 5.012" />
+  <path id="floor-fracture-4-axis" points="22 32 0.012; 26 30 0.012" />
+  <path id="drum-band-3.8-axis" points="63.55 66 3.8; 63.344 68.353 3.8; 62.733 70.634 3.8; 61.735 72.775 3.8; 60.38 74.71 3.8; 58.71 76.38 3.8; 56.775 77.735 3.8; 54.634 78.733 3.8; 52.353 79.344 3.8; 50 79.55 3.8; 47.647 79.344 3.8; 45.366 78.733 3.8; 43.225 77.735 3.8; 41.29 76.38 3.8; 39.62 74.71 3.8; 38.265 72.775 3.8; 37.267 70.634 3.8; 36.656 68.353 3.8; 36.45 66 3.8; 36.656 63.647 3.8; 37.267 61.366 3.8; 38.265 59.225 3.8; 39.62 57.29 3.8; 41.29 55.62 3.8; 43.225 54.265 3.8; 45.366 53.267 3.8; 47.647 52.656 3.8; 50 52.45 3.8; 52.353 52.656 3.8; 54.634 53.267 3.8; 56.775 54.265 3.8; 58.71 55.62 3.8; 60.38 57.29 3.8; 61.735 59.225 3.8; 62.733 61.366 3.8; 63.344 63.647 3.8; 63.55 66 3.8" />
+  <path id="drum-band-8.7-axis" points="63.55 66 8.7; 63.344 68.353 8.7; 62.733 70.634 8.7; 61.735 72.775 8.7; 60.38 74.71 8.7; 58.71 76.38 8.7; 56.775 77.735 8.7; 54.634 78.733 8.7; 52.353 79.344 8.7; 50 79.55 8.7; 47.647 79.344 8.7; 45.366 78.733 8.7; 43.225 77.735 8.7; 41.29 76.38 8.7; 39.62 74.71 8.7; 38.265 72.775 8.7; 37.267 70.634 8.7; 36.656 68.353 8.7; 36.45 66 8.7; 36.656 63.647 8.7; 37.267 61.366 8.7; 38.265 59.225 8.7; 39.62 57.29 8.7; 41.29 55.62 8.7; 43.225 54.265 8.7; 45.366 53.267 8.7; 47.647 52.656 8.7; 50 52.45 8.7; 52.353 52.656 8.7; 54.634 53.267 8.7; 56.775 54.265 8.7; 58.71 55.62 8.7; 60.38 57.29 8.7; 61.735 59.225 8.7; 62.733 61.366 8.7; 63.344 63.647 8.7; 63.55 66 8.7" />
+  <path id="drum-band-12.8-axis" points="63.55 66 12.8; 63.344 68.353 12.8; 62.733 70.634 12.8; 61.735 72.775 12.8; 60.38 74.71 12.8; 58.71 76.38 12.8; 56.775 77.735 12.8; 54.634 78.733 12.8; 52.353 79.344 12.8; 50 79.55 12.8; 47.647 79.344 12.8; 45.366 78.733 12.8; 43.225 77.735 12.8; 41.29 76.38 12.8; 39.62 74.71 12.8; 38.265 72.775 12.8; 37.267 70.634 12.8; 36.656 68.353 12.8; 36.45 66 12.8; 36.656 63.647 12.8; 37.267 61.366 12.8; 38.265 59.225 12.8; 39.62 57.29 12.8; 41.29 55.62 12.8; 43.225 54.265 12.8; 45.366 53.267 12.8; 47.647 52.656 12.8; 50 52.45 12.8; 52.353 52.656 12.8; 54.634 53.267 12.8; 56.775 54.265 12.8; 58.71 55.62 12.8; 60.38 57.29 12.8; 61.735 59.225 12.8; 62.733 61.366 12.8; 63.344 63.647 12.8; 63.55 66 12.8" />
+  <player radius=".30" height="2" crouch="1.1" step=".25" slope="42" vault="0" rappel="false" ladder="false" />
+  <marker id="t-spawn" position="8 45 0" kind="attacker_spawn" team="T" element="lower" group="lower" movement="land" />
+  <marker id="t-spawn-2" position="10 45 0" kind="attacker_spawn" team="T" element="lower" group="lower" movement="land" />
+  <marker id="t-spawn-3" position="12 45 0" kind="attacker_spawn" team="T" element="lower" group="lower" movement="land" />
+  <marker id="t-spawn-4" position="8 48 0" kind="attacker_spawn" team="T" element="lower" group="lower" movement="land" />
+  <marker id="t-spawn-5" position="11 48 0" kind="attacker_spawn" team="T" element="lower" group="lower" movement="land" />
+  <marker id="ct-spawn" position="93 79 5" kind="defender_spawn" team="CT" element="upper" group="upper" movement="land" />
+  <marker id="ct-spawn-2" position="96 79 5" kind="defender_spawn" team="CT" element="upper" group="upper" movement="land" />
+  <marker id="ct-spawn-3" position="99 79 5" kind="defender_spawn" team="CT" element="upper" group="upper" movement="land" />
+  <marker id="ct-spawn-4" position="94 83 5" kind="defender_spawn" team="CT" element="upper" group="upper" movement="land" />
+  <marker id="ct-spawn-5" position="98 83 5" kind="defender_spawn" team="CT" element="upper" group="upper" movement="land" />
+  <marker id="site-a" position="48 95 5" kind="objective" element="upper" movement="land" />
+  <marker id="site-b" position="65 41 0" kind="objective" element="lower" movement="land" />
+  <marker id="cable" position="45 46 0" kind="poi" element="lower" movement="land" />
+  <marker id="red-south" position="44 17 0" kind="poi" element="lower" movement="land" />
+  <marker id="A-west" position="25 86 5" kind="poi" element="upper" movement="land" />
+  <marker id="A-inner" position="40 86 5" kind="poi" element="upper" movement="land" />
+  <marker id="B-fan" position="76 54 0" kind="poi" element="lower" movement="land" />
+  <route id="T-A" to="site-a" min-routes="1" max-distance="120" movement="land" from="t-spawn" />
+  <route id="T-B" to="site-b" min-routes="1" max-distance="105" movement="land" from="t-spawn" />
+  <route id="CT-A" to="site-a" min-routes="1" max-distance="100" movement="land" from="ct-spawn" />
+  <route id="CT-B" to="site-b" min-routes="1" max-distance="105" movement="land" from="ct-spawn" />
+  <route id="A-B" to="site-b" min-routes="1" max-distance="150" movement="land" from="site-a" />
+  <route id="cable-B" to="site-b" min-routes="1" max-distance="50" movement="land" from="cable" />
+  <route id="red-B" to="site-b" min-routes="1" max-distance="65" movement="land" from="red-south" />
+  <marker id="S1-outer-foot" position="20 51.4 0" kind="poi" movement="land" />
+  <marker id="S1-outer-head" position="20 68.6 5" kind="poi" movement="land" />
+  <route id="S1-outer-local" to="S1-outer-head" min-routes="1" max-distance="21.0" movement="land" from="S1-outer-foot" />
+  <path id="S1-outer-in-portal" points="18.1 52 0; 21.9 52 0" />
+  <connection id="S1-outer-in" from="lower" to="S1-outer" path="S1-outer-in-portal" />
+  <path id="S1-outer-out-portal" points="18.1 68 5; 21.9 68 5" />
+  <connection id="S1-outer-out" from="S1-outer" to="upper" path="S1-outer-out-portal" />
+  <marker id="S2-fan-foot" position="36.368 43.526 0" kind="poi" movement="land" />
+  <marker id="S2-fan-head" position="28.632 53.474 2" kind="poi" movement="land" />
+  <route id="S2-fan-local" to="S2-fan-head" min-routes="1" max-distance="16.40175425099138" movement="land" from="S2-fan-foot" />
+  <path id="S2-fan-in-portal" points="34.5 42.834 0; 37.5 45.166 0" />
+  <connection id="S2-fan-in" from="lower" to="S2-fan" path="S2-fan-in-portal" />
+  <path id="S2-fan-out-portal" points="27.5 51.834 2; 30.5 54.166 2" />
+  <connection id="S2-fan-out" from="S2-fan" to="fan-landing" path="S2-fan-out-portal" />
+  <marker id="S3-drum-foot" position="29 55.4 2" kind="poi" movement="land" />
+  <marker id="S3-drum-head" position="29 74.6 5" kind="poi" movement="land" />
+  <route id="S3-drum-local" to="S3-drum-head" min-routes="1" max-distance="23.0" movement="land" from="S3-drum-foot" />
+  <path id="S3-drum-in-portal" points="27.1 56 2; 30.9 56 2" />
+  <connection id="S3-drum-in" from="fan-landing" to="S3-drum" path="S3-drum-in-portal" />
+  <path id="S3-drum-out-portal" points="27.1 74 5; 30.9 74 5" />
+  <connection id="S3-drum-out" from="S3-drum" to="upper" path="S3-drum-out-portal" />
+  <marker id="S4-east-foot" position="84 74.6 5" kind="poi" movement="land" />
+  <marker id="S4-east-head" position="84 59.4 0" kind="poi" movement="land" />
+  <route id="S4-east-local" to="S4-east-head" min-routes="1" max-distance="19.0" movement="land" from="S4-east-foot" />
+  <path id="S4-east-in-portal" points="85.9 74 5; 82.1 74 5" />
+  <connection id="S4-east-in" from="upper" to="S4-east" path="S4-east-in-portal" />
+  <path id="S4-east-out-portal" points="85.9 60 0; 82.1 60 0" />
+  <connection id="S4-east-out" from="S4-east" to="lower" path="S4-east-out-portal" />
+  <no-spawn-los markers="t-spawn ct-spawn" />
+</architecture>

@@ -1,0 +1,101 @@
+[
+  {
+    "route": "west-public",
+    "length_m": 110.87,
+    "hypothetical_5_5mps_s": 20.16,
+    "harness_3_4mps_s": 32.61,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "west-service",
+    "length_m": 140.46,
+    "hypothetical_5_5mps_s": 25.54,
+    "harness_3_4mps_s": 41.31,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "east-public",
+    "length_m": 113.42,
+    "hypothetical_5_5mps_s": 20.62,
+    "harness_3_4mps_s": 33.36,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "east-service",
+    "length_m": 129.56,
+    "hypothetical_5_5mps_s": 23.56,
+    "harness_3_4mps_s": 38.11,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "lower-change",
+    "length_m": 73.14,
+    "hypothetical_5_5mps_s": 13.3,
+    "harness_3_4mps_s": 21.51,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "upper-west-switch",
+    "length_m": 62.97,
+    "hypothetical_5_5mps_s": 11.45,
+    "harness_3_4mps_s": 18.52,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "upper-east-switch",
+    "length_m": 34.96,
+    "hypothetical_5_5mps_s": 6.36,
+    "harness_3_4mps_s": 10.28,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "west-public-escape",
+    "length_m": 62.12,
+    "hypothetical_5_5mps_s": 11.3,
+    "harness_3_4mps_s": 18.27,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "west-service-escape",
+    "length_m": 33.25,
+    "hypothetical_5_5mps_s": 6.04,
+    "harness_3_4mps_s": 9.78,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "east-public-escape",
+    "length_m": 47.41,
+    "hypothetical_5_5mps_s": 8.62,
+    "harness_3_4mps_s": 13.95,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  },
+  {
+    "route": "east-service-escape",
+    "length_m": 55.03,
+    "hypothetical_5_5mps_s": 10.01,
+    "harness_3_4mps_s": 16.19,
+    "sample_spacing_m": 0.35,
+    "failure_count": 0,
+    "examples": []
+  }
+]

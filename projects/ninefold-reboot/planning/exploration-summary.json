@@ -1,0 +1,129 @@
+[
+  {
+    "experiment": "well",
+    "candidate": "candidate-1-r3-p1104",
+    "nodes": 25,
+    "regions": 3,
+    "depth": [
+      2
+    ],
+    "levels": [
+      0,
+      8,
+      4
+    ],
+    "issues": [
+      "depart-834: Stair pitch exceeds profile / provisional 38° envelope",
+      "Unresolved shared floor contact area-5-entry (entry) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+      "local-473-3 crosses unrelated area stage-473-2; physical portal reconstruction required",
+      "new-759 crosses unrelated area stage-473-1; physical portal reconstruction required"
+    ]
+  },
+  {
+    "experiment": "well",
+    "candidate": "candidate-2-r3-p1300",
+    "nodes": 26,
+    "regions": 3,
+    "depth": [
+      2
+    ],
+    "levels": [
+      0,
+      8,
+      4
+    ],
+    "issues": [
+      "Shared/special crossing requires manual reconciliation: local-949-1 / new-1147",
+      "Unresolved shared floor contact area-11-stage-949-0 (stage-949-0) / shared-floor (explore-shared-space): overlapping envelopes at grade; physical portal reconstruction required",
+      "Unresolved shared floor contact shared-floor (explore-shared-space) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+      "new-1147 crosses unrelated area stage-949-0; physical portal reconstruction required"
+    ]
+  },
+  {
+    "experiment": "well",
+    "candidate": "candidate-3-r2-p900",
+    "nodes": 13,
+    "regions": 3,
+    "depth": [
+      2
+    ],
+    "levels": [
+      4,
+      0,
+      8
+    ],
+    "issues": [
+      "Shared/special crossing requires manual reconciliation: local-61-0 / new-163",
+      "Shared/special crossing requires manual reconciliation: local-61-0 / new-680",
+      "local-449-0 crosses unrelated area stage-449-2; physical portal reconstruction required",
+      "new-163 crosses unrelated area stage-61-0; physical portal reconstruction required",
+      "split-775 crosses unrelated area stage-61-0; physical portal reconstruction required"
+    ]
+  },
+  {
+    "experiment": "seam",
+    "candidate": "candidate-1-r1-p1235",
+    "nodes": 20,
+    "regions": 3,
+    "depth": [
+      2
+    ],
+    "levels": [
+      0,
+      8,
+      4
+    ],
+    "issues": [
+      "new-1199: Stair pitch exceeds profile / provisional 38° envelope",
+      "split-1214: Local slope 84.0° exceeds profile",
+      "Unresolved shared floor contact area-9-node-1228 (node-1228) / shared-floor-5 (explore-shared-space-5): overlapping envelopes at grade; physical portal reconstruction required",
+      "local-1016-0 crosses unrelated area node-1228; physical portal reconstruction required",
+      "split-693 crosses unrelated area node-1141; physical portal reconstruction required"
+    ]
+  },
+  {
+    "experiment": "seam",
+    "candidate": "candidate-2-r3-p1140",
+    "nodes": 22,
+    "regions": 3,
+    "depth": [
+      2
+    ],
+    "levels": [
+      8,
+      4
+    ],
+    "issues": [
+      "split-1058: Local slope 71.2° exceeds profile",
+      "Shared/special crossing requires manual reconciliation: local-299-0 / new-1104",
+      "Shared/special crossing requires manual reconciliation: local-4-3 / new-878",
+      "Unresolved shared floor contact area-11-stage-135-0 (stage-135-0) / shared-floor (explore-shared-space): overlapping envelopes at grade; physical portal reconstruction required",
+      "Unresolved shared floor contact shared-floor (explore-shared-space) / shared-floor-2 (explore-shared-space-2): overlapping envelopes at grade; physical portal reconstruction required",
+      "depart-135 crosses unrelated area entry; physical portal reconstruction required",
+      "depart-135 crosses unrelated area stage-108-0; physical portal reconstruction required",
+      "depart-135 crosses unrelated area stage-299-0; physical portal reconstruction required",
+      "split-725 crosses unrelated area stage-603-0; physical portal reconstruction required",
+      "local-603-2 crosses unrelated area node-846; physical portal reconstruction required",
+      "new-640 crosses unrelated area stage-108-0; physical portal reconstruction required",
+      "split-1010 crosses unrelated area stage-603-1; physical portal reconstruction required"
+    ]
+  },
+  {
+    "experiment": "seam",
+    "candidate": "candidate-3-r1-p1100",
+    "nodes": 18,
+    "regions": 3,
+    "depth": [
+      3
+    ],
+    "levels": [
+      0,
+      4,
+      8
+    ],
+    "issues": [
+      "new-781: Local slope 57.9° exceeds profile",
+      "split-857: Local slope 70.8° exceeds profile"
+    ]
+  }
+]

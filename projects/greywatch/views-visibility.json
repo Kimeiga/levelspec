@@ -1,0 +1,274 @@
+[
+  {
+    "id": "aisle-to-nave",
+    "position": [
+      81,
+      66,
+      1.87
+    ],
+    "target": [
+      67,
+      66,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "nave-to-aisle",
+    "position": [
+      67,
+      66,
+      1.87
+    ],
+    "target": [
+      81,
+      66,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "aisle-south-to-north",
+    "position": [
+      81,
+      54,
+      1.87
+    ],
+    "target": [
+      81,
+      68,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "aisle-north-to-south",
+    "position": [
+      81,
+      68,
+      1.87
+    ],
+    "target": [
+      81,
+      54,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "aisle-bench-low",
+    "position": [
+      82.5,
+      56.4,
+      1.033
+    ],
+    "target": [
+      82.5,
+      66,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "kitchen-south",
+    "position": [
+      69,
+      29,
+      1.87
+    ],
+    "target": [
+      70,
+      43,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "kitchen-north",
+    "position": [
+      69,
+      44,
+      1.87
+    ],
+    "target": [
+      70,
+      29,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "crosslane-A-to-vestibule",
+    "position": [
+      12,
+      58,
+      1.87
+    ],
+    "target": [
+      72,
+      50,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "crosslane-vestibule-to-A",
+    "position": [
+      72,
+      50,
+      1.87
+    ],
+    "target": [
+      12,
+      58,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-fountain-low-v-upper",
+    "position": [
+      19,
+      68,
+      1.033
+    ],
+    "target": [
+      26,
+      46,
+      4.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-upper-v-fountain-low",
+    "position": [
+      26,
+      46,
+      4.87
+    ],
+    "target": [
+      19,
+      68,
+      1.033
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-fountain-low-v-ward",
+    "position": [
+      19,
+      68,
+      1.033
+    ],
+    "target": [
+      14.5,
+      58,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "bridge-low-refuge-west",
+    "position": [
+      33.3,
+      38.9,
+      4.033
+    ],
+    "target": [
+      47,
+      38.9,
+      4.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "bridge-east-v-low-refuge",
+    "position": [
+      47,
+      38.9,
+      4.87
+    ],
+    "target": [
+      33.3,
+      38.9,
+      4.033
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-sector-candidate",
+    "position": [
+      10,
+      72,
+      1.87
+    ],
+    "target": [
+      24,
+      64,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "B-sector-candidate",
+    "position": [
+      56,
+      72,
+      1.87
+    ],
+    "target": [
+      67,
+      66,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  }
+]

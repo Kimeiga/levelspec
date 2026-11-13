@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 972 960" font-family="Helvetica,Arial,sans-serif">
+<rect width="972" height="960" fill="#f7f5ee"/>
+<text x="14" y="26" font-size="20" font-weight="bold" fill="#222">Dragon Ford S01-A — storey 0 (z 0–3.4): low city, Yamen front</text>
+<text x="14" y="46" font-size="12" fill="#555">Meters; +Y north (up); grid 10 m; origin SW. Dark = solid city mass at this storey. Floor elevation z shown per label. Hatched pale = open air above a lower floor.</text>
+<path d="M936.0,96.0 L936.0,924.0 L36.0,924.0 L36.0,96.0Z M252.0,834.0 L252.0,906.0 L738.0,906.0 L738.0,834.0 L715.5,834.0 L715.5,699.0 L792.0,699.0 L792.0,667.5 L792.0,474.0 L846.0,474.0 L846.0,294.0 L630.0,294.0 L630.0,474.0 L634.5,474.0 L634.5,501.0 L612.0,501.0 L612.0,591.0 L594.0,591.0 L594.0,564.0 L508.5,564.0 L508.5,533.4 L594.0,533.4 L594.0,438.0 L594.0,407.4 L567.0,407.4 L567.0,438.0 L405.0,438.0 L405.0,407.4 L378.0,407.4 L378.0,438.0 L378.0,533.4 L463.5,533.4 L463.5,564.0 L378.0,564.0 L378.0,600.0 L333.0,600.0 L333.0,564.0 L318.6,564.0 L318.6,502.8 L297.0,502.8 L297.0,564.0 L297.0,694.5 L193.5,694.5 L193.5,600.0 L193.5,538.8 L162.0,538.8 L162.0,600.0 L162.0,694.5 L162.0,726.0 L252.0,726.0Z " fill="#5b5f66" fill-rule="evenodd" stroke="#2c2e33" stroke-width="1"/>
+<path d="M657.0,667.5 L657.0,645.0 L666.0,645.0 L666.0,501.0 L661.5,501.0 L661.5,474.0 L760.5,474.0 L760.5,667.5Z " fill="#5b5f66" fill-rule="evenodd" stroke="#2c2e33" stroke-width="1"/>
+<path d="M594.0,699.0 L684.0,699.0 L684.0,834.0 L504.0,834.0 L504.0,762.0 L594.0,762.0Z " fill="#5b5f66" fill-rule="evenodd" stroke="#2c2e33" stroke-width="1"/>
+<path d="M594.0,618.0 L612.0,618.0 L612.0,645.0 L630.0,645.0 L630.0,667.5 L594.0,667.5 L594.0,654.0 L504.0,654.0 L504.0,645.0 L594.0,645.0Z " fill="#5b5f66" fill-rule="evenodd" stroke="#2c2e33" stroke-width="1"/>
+<path d="M468.0,645.0 L468.0,654.0 L378.0,654.0 L378.0,694.5 L333.0,694.5 L333.0,627.0 L378.0,627.0 L378.0,645.0Z " fill="#5b5f66" fill-rule="evenodd" stroke="#2c2e33" stroke-width="1"/>
+<path d="M468.0,834.0 L283.5,834.0 L283.5,726.0 L378.0,726.0 L378.0,762.0 L468.0,762.0Z " fill="#5b5f66" fill-rule="evenodd" stroke="#2c2e33" stroke-width="1"/>
+<defs><pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#9aa3ad" stroke-width="1.5"/></pattern></defs>
+<path d="M252.0,906.0 L738.0,906.0 L738.0,834.0 L252.0,834.0Z " fill="#b9d39a" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M252.0,834.0 L283.5,834.0 L283.5,726.0 L252.0,726.0Z " fill="#d9d2bd" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M468.0,834.0 L504.0,834.0 L504.0,762.0 L468.0,762.0Z " fill="#d9d2bd" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M684.0,834.0 L715.5,834.0 L715.5,699.0 L684.0,699.0Z " fill="#d9d2bd" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M378.0,762.0 L594.0,762.0 L594.0,654.0 L378.0,654.0Z " fill="#e8dcae" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M162.0,726.0 L378.0,726.0 L378.0,694.5 L162.0,694.5Z " fill="#d9d2bd" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M594.0,699.0 L792.0,699.0 L792.0,667.5 L594.0,667.5Z " fill="#d9d2bd" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M162.0,694.5 L193.5,694.5 L193.5,600.0 L162.0,600.0Z " fill="#d9d2bd" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M297.0,694.5 L333.0,694.5 L333.0,564.0 L297.0,564.0Z " fill="#cfd9c2" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M378.0,645.0 L594.0,645.0 L594.0,564.0 L378.0,564.0Z " fill="#e8dcae" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M378.0,533.4 L594.0,533.4 L594.0,438.0 L378.0,438.0Z " fill="#e8dcae" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M612.0,645.0 L666.0,645.0 L666.0,501.0 L612.0,501.0Z " fill="#c9d6cf" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M760.5,667.5 L792.0,667.5 L792.0,474.0 L760.5,474.0Z " fill="#d9d2bd" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M630.0,474.0 L846.0,474.0 L846.0,294.0 L630.0,294.0Z " fill="#f0b56a" stroke="#7b7566" stroke-width="0.8"/>
+<path d="M333.0,627.0 L378.0,627.0 L378.0,600.0 L333.0,600.0Z " fill="#fff6d8" stroke="#b08a2e" stroke-width="1"/>
+<path d="M468.0,654.0 L504.0,654.0 L504.0,645.0 L468.0,645.0Z " fill="#fff6d8" stroke="#b08a2e" stroke-width="1"/>
+<path d="M594.0,618.0 L612.0,618.0 L612.0,591.0 L594.0,591.0Z " fill="#fff6d8" stroke="#b08a2e" stroke-width="1"/>
+<path d="M630.0,667.5 L657.0,667.5 L657.0,645.0 L630.0,645.0Z " fill="#fff6d8" stroke="#b08a2e" stroke-width="1"/>
+<path d="M634.5,501.0 L661.5,501.0 L661.5,474.0 L634.5,474.0Z " fill="#fff6d8" stroke="#b08a2e" stroke-width="1"/>
+<path d="M162.0,600.0 L193.5,600.0 L193.5,538.8 L162.0,538.8Z " fill="#e9a48d" stroke="#8a3d24" stroke-width="1"/>
+<line x1="162.0" y1="593.2" x2="193.5" y2="593.2" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="162.0" y1="586.4" x2="193.5" y2="586.4" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="162.0" y1="579.6" x2="193.5" y2="579.6" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="162.0" y1="572.8" x2="193.5" y2="572.8" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="162.0" y1="566.0" x2="193.5" y2="566.0" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="162.0" y1="559.2" x2="193.5" y2="559.2" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="162.0" y1="552.4" x2="193.5" y2="552.4" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="162.0" y1="545.6" x2="193.5" y2="545.6" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="177.8" y1="600.0" x2="177.8" y2="538.8" stroke="#5a1d0c" stroke-width="2" marker-end="url(#arr)"/>
+<text x="177.8" y="565.4" font-size="9.5" text-anchor="middle" fill="#5a1d0c" font-weight="bold">SL1 ↑0→3.4</text>
+<path d="M297.0,564.0 L318.6,564.0 L318.6,502.8 L297.0,502.8Z " fill="#e9a48d" stroke="#8a3d24" stroke-width="1"/>
+<line x1="297.0" y1="557.2" x2="318.6" y2="557.2" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="297.0" y1="550.4" x2="318.6" y2="550.4" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="297.0" y1="543.6" x2="318.6" y2="543.6" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="297.0" y1="536.8" x2="318.6" y2="536.8" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="297.0" y1="530.0" x2="318.6" y2="530.0" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="297.0" y1="523.2" x2="318.6" y2="523.2" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="297.0" y1="516.4" x2="318.6" y2="516.4" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="297.0" y1="509.6" x2="318.6" y2="509.6" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="307.8" y1="564.0" x2="307.8" y2="502.8" stroke="#5a1d0c" stroke-width="2" marker-end="url(#arr)"/>
+<text x="307.8" y="529.4" font-size="9.5" text-anchor="middle" fill="#5a1d0c" font-weight="bold">SW1 ↑0→3.4</text>
+<path d="M463.5,564.0 L508.5,564.0 L508.5,533.4 L463.5,533.4Z " fill="#e9a48d" stroke="#8a3d24" stroke-width="1"/>
+<line x1="463.5" y1="556.3" x2="508.5" y2="556.3" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="463.5" y1="548.7" x2="508.5" y2="548.7" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="463.5" y1="541.0" x2="508.5" y2="541.0" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="486.0" y1="564.0" x2="486.0" y2="533.4" stroke="#5a1d0c" stroke-width="2" marker-end="url(#arr)"/>
+<text x="486.0" y="544.7" font-size="9.5" text-anchor="middle" fill="#5a1d0c" font-weight="bold">SY1 ↑0→1.7</text>
+<path d="M378.0,438.0 L405.0,438.0 L405.0,407.4 L378.0,407.4Z " fill="#e9a48d" stroke="#8a3d24" stroke-width="1"/>
+<line x1="378.0" y1="430.3" x2="405.0" y2="430.3" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="378.0" y1="422.7" x2="405.0" y2="422.7" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="378.0" y1="415.1" x2="405.0" y2="415.1" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="391.5" y1="438.0" x2="391.5" y2="407.4" stroke="#5a1d0c" stroke-width="2" marker-end="url(#arr)"/>
+<text x="391.5" y="418.7" font-size="9.5" text-anchor="middle" fill="#5a1d0c" font-weight="bold">SY2a ↑1.7→3.4</text>
+<path d="M567.0,438.0 L594.0,438.0 L594.0,407.4 L567.0,407.4Z " fill="#e9a48d" stroke="#8a3d24" stroke-width="1"/>
+<line x1="567.0" y1="430.3" x2="594.0" y2="430.3" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="567.0" y1="422.7" x2="594.0" y2="422.7" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="567.0" y1="415.1" x2="594.0" y2="415.1" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="580.5" y1="438.0" x2="580.5" y2="407.4" stroke="#5a1d0c" stroke-width="2" marker-end="url(#arr)"/>
+<text x="580.5" y="418.7" font-size="9.5" text-anchor="middle" fill="#5a1d0c" font-weight="bold">SY2b ↑1.7→3.4</text>
+<path d="M673.2,400.2 L694.8,400.2 L694.8,339.0 L673.2,339.0Z " fill="#e9a48d" stroke="#8a3d24" stroke-width="1"/>
+<line x1="673.2" y1="393.4" x2="694.8" y2="393.4" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="673.2" y1="386.6" x2="694.8" y2="386.6" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="673.2" y1="379.8" x2="694.8" y2="379.8" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="673.2" y1="373.0" x2="694.8" y2="373.0" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="673.2" y1="366.2" x2="694.8" y2="366.2" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="673.2" y1="359.4" x2="694.8" y2="359.4" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="673.2" y1="352.6" x2="694.8" y2="352.6" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="673.2" y1="345.8" x2="694.8" y2="345.8" stroke="#8a3d24" stroke-width="0.6"/>
+<line x1="684.0" y1="400.2" x2="684.0" y2="339.0" stroke="#5a1d0c" stroke-width="2" marker-end="url(#arr)"/>
+<text x="684.0" y="365.6" font-size="9.5" text-anchor="middle" fill="#5a1d0c" font-weight="bold">SB ↑0→3.4</text>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5a1d0c"/></marker></defs>
+<line x1="36.0" y1="942.0" x2="36.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="36.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">0</text>
+<line x1="126.0" y1="942.0" x2="126.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="126.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">10</text>
+<line x1="216.0" y1="942.0" x2="216.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="216.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">20</text>
+<line x1="306.0" y1="942.0" x2="306.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="306.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">30</text>
+<line x1="396.0" y1="942.0" x2="396.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="396.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">40</text>
+<line x1="486.0" y1="942.0" x2="486.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="486.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">50</text>
+<line x1="576.0" y1="942.0" x2="576.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="576.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">60</text>
+<line x1="666.0" y1="942.0" x2="666.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="666.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">70</text>
+<line x1="756.0" y1="942.0" x2="756.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="756.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">80</text>
+<line x1="846.0" y1="942.0" x2="846.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="846.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">90</text>
+<line x1="936.0" y1="942.0" x2="936.0" y2="78.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="936.0" y="953.0" font-size="9" text-anchor="middle" fill="#444">100</text>
+<line x1="18.0" y1="924.0" x2="954.0" y2="924.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="927.0" font-size="9" text-anchor="end" fill="#444">0</text>
+<line x1="18.0" y1="834.0" x2="954.0" y2="834.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="837.0" font-size="9" text-anchor="end" fill="#444">10</text>
+<line x1="18.0" y1="744.0" x2="954.0" y2="744.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="747.0" font-size="9" text-anchor="end" fill="#444">20</text>
+<line x1="18.0" y1="654.0" x2="954.0" y2="654.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="657.0" font-size="9" text-anchor="end" fill="#444">30</text>
+<line x1="18.0" y1="564.0" x2="954.0" y2="564.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="567.0" font-size="9" text-anchor="end" fill="#444">40</text>
+<line x1="18.0" y1="474.0" x2="954.0" y2="474.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="477.0" font-size="9" text-anchor="end" fill="#444">50</text>
+<line x1="18.0" y1="384.0" x2="954.0" y2="384.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="387.0" font-size="9" text-anchor="end" fill="#444">60</text>
+<line x1="18.0" y1="294.0" x2="954.0" y2="294.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="297.0" font-size="9" text-anchor="end" fill="#444">70</text>
+<line x1="18.0" y1="204.0" x2="954.0" y2="204.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="207.0" font-size="9" text-anchor="end" fill="#444">80</text>
+<line x1="18.0" y1="114.0" x2="954.0" y2="114.0" stroke="#000" stroke-opacity="0.13" stroke-width="0.6"/><text x="14.0" y="117.0" font-size="9" text-anchor="end" fill="#444">90</text>
+<text x="495.0" y="865.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Sai Tau apron</text>
+<text x="495.0" y="876.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">(T spawn, squatter sheds)</text>
+<text x="495.0" y="887.0" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">T_APRON z0 sky</text>
+<text x="267.8" y="780.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">West slot</text>
+<text x="267.8" y="791.0" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">W_SLOT z0</text>
+<text x="486.0" y="793.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">South Gate</text>
+<text x="486.0" y="804.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">tunnel</text>
+<text x="486.0" y="815.0" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">GATE z0</text>
+<text x="699.8" y="766.5" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">East slot</text>
+<text x="699.8" y="777.5" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">E_SLOT z0</text>
+<text x="486.0" y="703.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Cannon Court</text>
+<text x="486.0" y="714.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">(gate ruin stumps)</text>
+<text x="486.0" y="725.0" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">CANNON z0 sky</text>
+<text x="270.0" y="710.2" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Lung Chun Road W (tunnel)</text>
+<text x="270.0" y="721.2" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">SPINE_W z0</text>
+<text x="693.0" y="683.2" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Lung Chun Road E (tunnel)</text>
+<text x="693.0" y="694.2" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">SPINE_E z0</text>
+<text x="177.8" y="642.2" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Sai Shing</text>
+<text x="177.8" y="653.2" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Lane</text>
+<text x="177.8" y="664.2" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">STEP_LO z0</text>
+<text x="315.0" y="624.2" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Free School</text>
+<text x="315.0" y="635.2" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">arcade</text>
+<text x="315.0" y="646.2" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">ARCADE z0</text>
+<text x="486.0" y="604.5" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Yamen front court</text>
+<text x="486.0" y="615.5" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">Y_FRONT z0 sky</text>
+<text x="486.0" y="480.7" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Yamen middle hall + court</text>
+<text x="486.0" y="491.7" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">(open pavilion, spirit screen)</text>
+<text x="486.0" y="502.7" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">Y_MID z1.7 sky</text>
+<text x="639.0" y="568.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Old People's</text>
+<text x="639.0" y="579.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">wing</text>
+<text x="639.0" y="590.0" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">E_WING z0</text>
+<text x="776.2" y="560.8" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Kwong Ming</text>
+<text x="776.2" y="571.8" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">Street</text>
+<text x="776.2" y="582.8" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">(factories)</text>
+<text x="776.2" y="593.8" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">KWONG z0</text>
+<text x="756.0" y="397.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">B — Noodle Works floor</text>
+<text x="756.0" y="408.0" font-size="10.5" text-anchor="middle" fill="#1b1b1b" font-weight="bold" stroke="#fff" stroke-width="2.5" paint-order="stroke">(double height)</text>
+<text x="756.0" y="419.0" font-size="8" text-anchor="middle" fill="#444" stroke="#fff" stroke-width="2" paint-order="stroke">B_FLOOR z0</text>
+<circle cx="486.0" cy="870.0" r="7" fill="#c0392b" stroke="#fff" stroke-width="2"/><text x="486.0" y="860.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#c0392b" stroke="#fff" stroke-width="2.5" paint-order="stroke">T</text>
+<circle cx="774.0" cy="411.0" r="7" fill="#d35400" stroke="#fff" stroke-width="2"/><text x="774.0" y="401.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#d35400" stroke="#fff" stroke-width="2.5" paint-order="stroke">B</text>
+<rect x="14" y="938.0" width="12" height="12" fill="#d9d2bd" stroke="#555"/><text x="30" y="948.0" font-size="10" fill="#333">alley/lane</text>
+<rect x="106" y="938.0" width="12" height="12" fill="#e8dcae" stroke="#555"/><text x="122" y="948.0" font-size="10" fill="#333">open court</text>
+<rect x="198" y="938.0" width="12" height="12" fill="#c9d6cf" stroke="#555"/><text x="214" y="948.0" font-size="10" fill="#333">interior</text>
+<rect x="290" y="938.0" width="12" height="12" fill="#cfd9c2" stroke="#555"/><text x="306" y="948.0" font-size="10" fill="#333">hall</text>
+<rect x="382" y="938.0" width="12" height="12" fill="#f0b56a" stroke="#555"/><text x="398" y="948.0" font-size="10" fill="#333">bomb site</text>
+<rect x="474" y="938.0" width="12" height="12" fill="#b9d39a" stroke="#555"/><text x="490" y="948.0" font-size="10" fill="#333">spawn</text>
+<rect x="566" y="938.0" width="12" height="12" fill="#b7cfe3" stroke="#555"/><text x="582" y="948.0" font-size="10" fill="#333">gallery/bridge</text>
+<rect x="658" y="938.0" width="12" height="12" fill="#d5c7df" stroke="#555"/><text x="674" y="948.0" font-size="10" fill="#333">roof terrace</text>
+<rect x="750" y="938.0" width="12" height="12" fill="#e3c9b5" stroke="#555"/><text x="766" y="948.0" font-size="10" fill="#333">landing</text>
+<text x="842" y="948.0" font-size="10" fill="#1d6f95">blue dashed = view aperture (no passage)</text><text x="1052" y="948.0" font-size="10" fill="#0b6b3a">green = guard rail</text><text x="1152" y="948.0" font-size="10" fill="#8a3d24">red = stair (arrow up)</text>
+<g transform="translate(926.0,92)"><path d="M0,22 L0,-18 M-6,-8 L0,-20 L6,-8" stroke="#222" stroke-width="2" fill="none"/><text x="0" y="-24" font-size="12" text-anchor="middle" font-weight="bold">N</text></g>
+</svg>

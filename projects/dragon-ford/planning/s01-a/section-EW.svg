@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 226" font-family="Helvetica,Arial,sans-serif">
+<rect width="1220" height="226" fill="#f7f5ee"/>
+<text x="14" y="22" font-size="15" font-weight="bold">Dragon Ford S01-A — section EW: west→east through A, North Lane, rear terrace, B</text>
+<text x="14" y="38" font-size="10.5" fill="#555">from (0,60.5) to (100,60.5); horizontal = distance along cut (m); vertical = z (m). Figure = 2.0 m standing body.</text>
+<rect x="60" y="184.2" width="1100.0" height="13.2" fill="#3d3f44"/>
+<rect x="60.0" y="146.8" width="726.0" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="1050.0" y="146.8" width="110.0" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="60.0" y="109.4" width="61.6" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="1050.0" y="109.4" width="110.0" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="60.0" y="72.0" width="61.6" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="346.0" y="72.0" width="132.0" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="742.0" y="72.0" width="418.0" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="786.0" y="184.2" width="52.8" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="865.2" y="184.2" width="184.8" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="121.6" y="146.8" width="713.9" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<polygon points="838.8,171.6 865.2,171.6 865.2,184.2 838.8,184.2" fill="#e9a48d" stroke="#8a3d24"/>
+<text x="852.0" y="167.6" font-size="9" text-anchor="middle" fill="#5a1d0c">SB</text>
+<rect x="834.0" y="135.2" width="3" height="11.6" fill="#0b6b3a"/>
+<text x="610.0" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Rear hall terrace</text>
+<rect x="607.25" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="918.0" y="159.45" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">B — Noodle Works floor (double height)</text>
+<rect x="915.25" y="162.2" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="810.8" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">mezz</text>
+<rect x="808.05" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="764.0" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">N.Lane E</text>
+<rect x="761.25" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="247.0" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">A — Tin Hau temple court (hemmed sky slot, debris net)</text>
+<rect x="244.25" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="412.0" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">North Lane W</text>
+<rect x="409.25" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="134.8" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">ALAND</text>
+<rect x="132.05" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<line x1="52" y1="184.2" x2="1168.0" y2="184.2" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="187.2" font-size="9" text-anchor="end">0</text>
+<line x1="52" y1="146.8" x2="1168.0" y2="146.8" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="149.8" font-size="9" text-anchor="end">3.4</text>
+<line x1="52" y1="109.4" x2="1168.0" y2="109.4" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="112.4" font-size="9" text-anchor="end">6.8</text>
+<line x1="52" y1="72.0" x2="1168.0" y2="72.0" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="75.0" font-size="9" text-anchor="end">10.2</text>
+<line x1="60" y1="197.39999999999998" x2="60" y2="202.39999999999998" stroke="#333"/><text x="60" y="213.39999999999998" font-size="9" text-anchor="middle">0</text>
+<line x1="170" y1="197.39999999999998" x2="170" y2="202.39999999999998" stroke="#333"/><text x="170" y="213.39999999999998" font-size="9" text-anchor="middle">10</text>
+<line x1="280" y1="197.39999999999998" x2="280" y2="202.39999999999998" stroke="#333"/><text x="280" y="213.39999999999998" font-size="9" text-anchor="middle">20</text>
+<line x1="390" y1="197.39999999999998" x2="390" y2="202.39999999999998" stroke="#333"/><text x="390" y="213.39999999999998" font-size="9" text-anchor="middle">30</text>
+<line x1="500" y1="197.39999999999998" x2="500" y2="202.39999999999998" stroke="#333"/><text x="500" y="213.39999999999998" font-size="9" text-anchor="middle">40</text>
+<line x1="610" y1="197.39999999999998" x2="610" y2="202.39999999999998" stroke="#333"/><text x="610" y="213.39999999999998" font-size="9" text-anchor="middle">50</text>
+<line x1="720" y1="197.39999999999998" x2="720" y2="202.39999999999998" stroke="#333"/><text x="720" y="213.39999999999998" font-size="9" text-anchor="middle">60</text>
+<line x1="830" y1="197.39999999999998" x2="830" y2="202.39999999999998" stroke="#333"/><text x="830" y="213.39999999999998" font-size="9" text-anchor="middle">70</text>
+<line x1="940" y1="197.39999999999998" x2="940" y2="202.39999999999998" stroke="#333"/><text x="940" y="213.39999999999998" font-size="9" text-anchor="middle">80</text>
+<line x1="1050" y1="197.39999999999998" x2="1050" y2="202.39999999999998" stroke="#333"/><text x="1050" y="213.39999999999998" font-size="9" text-anchor="middle">90</text>
+<line x1="1160" y1="197.39999999999998" x2="1160" y2="202.39999999999998" stroke="#333"/><text x="1160" y="213.39999999999998" font-size="9" text-anchor="middle">100</text>
+</svg>

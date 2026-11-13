@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-09",
+  "preservedOriginal": true,
+  "files": [
+    {
+      "path": "projects/galini/level.aml",
+      "sha256": "a393a80702338e800205c9ecaa9076b59250f5d9b21d2e6c13fa51d2329ca929"
+    },
+    {
+      "path": "projects/galini/plan.json",
+      "sha256": "421e13d13c5628dabcfe7c7291cb8e3a1151ae27f68d06becc7aacd8c36f7129"
+    },
+    {
+      "path": "projects/galini/brief.md",
+      "sha256": "9be48dcc28cfece027b3776b6f0380905a238f302dc4916744aee0bffc8ce468"
+    },
+    {
+      "path": "projects/galini/design.md",
+      "sha256": "dbf8b88603e1a13d9fd5e2706d984481aca08d09cec76cba0f2bb9ece539ee2d"
+    }
+  ],
+  "visuallyInspected": [
+    "projects/galini/reviews/evidence/layout-l04-b09.png",
+    "projects/galini/reviews/evidence/b09-cutaway/overview.png"
+  ],
+  "observation": "Historical plan/cutaway show broad open fronts partitioned largely by wall ribbons; this is author observation, not a required future layout.",
+  "inspectionScope": "Source, original brief/design/plan, historical rendered evidence; original successful checks are not reboot acceptance."
+}

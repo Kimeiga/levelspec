@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1300" viewBox="0 0 1700 1300"><rect width="1700" height="1300" fill="#f6f2e9"/><style>text{font-family:Arial,sans-serif;fill:#25392f}.label{font-size:16px;font-weight:700}.tiny{font-size:12px}.note{font-size:15px}</style><text x="70" y="45" font-size="32" font-weight="700">GREYWATCH — castle defuse layout · r5</text><text x="70" y="76" font-size="18">5v5 · two objectives · meters · right-handed Z-up · North ↑ · common origin (0,0) at lower-left</text>
+<polygon points="390.00,1076.00 610.00,1076.00 610.00,922.00 808.00,922.00 808.00,834.00 610.00,834.00 610.00,768.00 434.00,768.00 434.00,856.00 170.00,856.00 170.00,944.00 390.00,944.00" fill="#d9cab3" stroke="#6c7567" stroke-width="2" />
+<polygon points="148.00,856.00 280.00,856.00 280.00,856.00 390.00,856.00 390.00,790.00 280.00,790.00 280.00,614.00 346.00,614.00 346.00,504.00 148.00,504.00" fill="#d5d0bb" stroke="#6c7567" stroke-width="2" />
+<polygon points="434.00,856.00 588.00,856.00 588.00,614.00 720.00,614.00 720.00,482.00 588.00,482.00 588.00,460.00 368.00,460.00 368.00,548.00 456.00,548.00 456.00,768.00 434.00,768.00" fill="#d8d8cd" stroke="#6c7567" stroke-width="2" />
+<polygon points="148.00,504.00 368.00,504.00 368.00,548.00 434.00,548.00 434.00,306.00 368.00,306.00 368.00,262.00 148.00,262.00" fill="#e8c7a0" stroke="#6c7567" stroke-width="2" />
+<polygon points="720.00,834.00 874.00,834.00 874.00,570.00 918.00,570.00 918.00,284.00 654.00,284.00 654.00,526.00 720.00,526.00" fill="#c4d5cd" stroke="#6c7567" stroke-width="2" />
+<polygon points="368.00,306.00 654.00,306.00 654.00,284.00 808.00,284.00 808.00,218.00 610.00,218.00 610.00,152.00 456.00,152.00 456.00,218.00 280.00,218.00 280.00,262.00 368.00,262.00" fill="#bdced9" stroke="#6c7567" stroke-width="2" />
+<polygon points="918.00,570.00 984.00,570.00 984.00,350.00 918.00,350.00" fill="#d0d9c1" stroke="#6c7567" stroke-width="2" />
+<polygon points="808.00,922.00 610.00,922.00 610.00,1076.00 390.00,1076.00 390.00,944.00 170.00,944.00 170.00,856.00 148.00,856.00 148.00,504.00 148.00,262.00 280.00,262.00 280.00,218.00 456.00,218.00 456.00,152.00 610.00,152.00 610.00,218.00 808.00,218.00 808.00,284.00 918.00,284.00 918.00,350.00 984.00,350.00 984.00,570.00 918.00,570.00 874.00,570.00 874.00,834.00 808.00,834.00 808.00,922.00" fill="none" stroke="#344539" stroke-width="5" />
+<polygon points="434.00,460.00 654.00,460.00 654.00,306.00 434.00,306.00" fill="#969b8b" stroke="#4e5c4c" stroke-width="2" />
+<text x="544" y="383" text-anchor="middle" font-size="17" font-weight="700">KEEP</text>
+<text x="544" y="416" text-anchor="middle" font-size="12">solid / +10 m</text>
+<polygon points="302.00,702.00 390.00,702.00 390.00,592.00 302.00,592.00" fill="#d0a767" stroke="#4e5c4c" stroke-width="2" fill-opacity=".82" stroke-dasharray="6 3"/>
+<polygon points="390.00,702.00 632.00,702.00 632.00,636.00 390.00,636.00" fill="#d0a767" stroke="#4e5c4c" stroke-width="2" fill-opacity=".82" stroke-dasharray="6 3"/>
+<polygon points="632.00,702.00 720.00,702.00 720.00,636.00 632.00,636.00" fill="#d0a767" stroke="#4e5c4c" stroke-width="2" fill-opacity=".82" stroke-dasharray="6 3"/>
+<polygon points="313.00,834.00 379.00,834.00 379.00,702.00 313.00,702.00" fill="#d6b98a" stroke="#4e5c4c" stroke-width="2" />
+<path d="M313.0 823 L379.0 823" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 812 L379.0 812" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 801 L379.0 801" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 790 L379.0 790" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 779 L379.0 779" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 768 L379.0 768" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 757 L379.0 757" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 746 L379.0 746" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 735 L379.0 735" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 724 L379.0 724" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 713 L379.0 713" fill="none" stroke="#937444" stroke-width="1"/>
+<text x="346" y="818.6" text-anchor="middle" font-size="11" font-weight="700">W-rise</text>
+<polygon points="313.00,592.00 379.00,592.00 379.00,482.00 313.00,482.00" fill="#d6b98a" stroke="#4e5c4c" stroke-width="2" />
+<path d="M313.0 581 L379.0 581" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 570 L379.0 570" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 559 L379.0 559" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 548 L379.0 548" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 537 L379.0 537" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 526 L379.0 526" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 515 L379.0 515" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 504 L379.0 504" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M313.0 493 L379.0 493" fill="none" stroke="#937444" stroke-width="1"/>
+<text x="346" y="576.6" text-anchor="middle" font-size="11" font-weight="700">W-fall</text>
+<polygon points="643.00,834.00 709.00,834.00 709.00,702.00 643.00,702.00" fill="#d6b98a" stroke="#4e5c4c" stroke-width="2" />
+<path d="M643.0 823 L709.0 823" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 812 L709.0 812" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 801 L709.0 801" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 790 L709.0 790" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 779 L709.0 779" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 768 L709.0 768" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 757 L709.0 757" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 746 L709.0 746" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 735 L709.0 735" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 724 L709.0 724" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 713 L709.0 713" fill="none" stroke="#937444" stroke-width="1"/>
+<text x="676" y="818.6" text-anchor="middle" font-size="11" font-weight="700">E-rise</text>
+<polygon points="643.00,636.00 709.00,636.00 709.00,526.00 643.00,526.00" fill="#d6b98a" stroke="#4e5c4c" stroke-width="2" />
+<path d="M643.0 625 L709.0 625" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 614 L709.0 614" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 603 L709.0 603" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 592 L709.0 592" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 581 L709.0 581" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 570 L709.0 570" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 559 L709.0 559" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 548 L709.0 548" fill="none" stroke="#937444" stroke-width="1"/>
+<path d="M643.0 537 L709.0 537" fill="none" stroke="#937444" stroke-width="1"/>
+<text x="676" y="620.6" text-anchor="middle" font-size="11" font-weight="700">E-fall</text>
+<path d="M423 971.5 L577 971.5" fill="none" stroke="#344539" stroke-width="7.699999999999999"/>
+<text x="500.0" y="956.1" text-anchor="middle" font-size="10">T-inner-screen</text>
+<path d="M390 944 L478 944" fill="none" stroke="#344539" stroke-width="7.699999999999999"/>
+<text x="434.0" y="928.6" text-anchor="middle" font-size="10">T-gate-west</text>
+<path d="M533 944 L610 944" fill="none" stroke="#344539" stroke-width="7.699999999999999"/>
+<text x="571.5" y="928.6" text-anchor="middle" font-size="10">T-gate-east</text>
+<path d="M452.70000000000005 812 L522 812" fill="none" stroke="#344539" stroke-width="7.699999999999999"/>
+<text x="487.35" y="796.6" text-anchor="middle" font-size="10">T-mid-screen</text>
+<path d="M148 658 L214 658" fill="none" stroke="#344539" stroke-width="6.6"/>
+<text x="181.0" y="642.6" text-anchor="middle" font-size="10">W-ward-turn</text>
+<path d="M148 504 L192 504" fill="none" stroke="#344539" stroke-width="7.15"/>
+<text x="170.0" y="488.6" text-anchor="middle" font-size="10">W-court-west</text>
+<path d="M247 504 L316.3 504" fill="none" stroke="#344539" stroke-width="7.15"/>
+<text x="281.65" y="488.6" text-anchor="middle" font-size="10">W-court-east</text>
+<path d="M148 306 L302 306" fill="none" stroke="#344539" stroke-width="7.699999999999999"/>
+<text x="225.0" y="290.5999999999999" text-anchor="middle" font-size="10">A-cloister-west</text>
+<path d="M357 306 L434 306" fill="none" stroke="#344539" stroke-width="7.699999999999999"/>
+<text x="395.5" y="290.5999999999999" text-anchor="middle" font-size="10">A-cloister-east</text>
+<path d="M489 515 L489 460" fill="none" stroke="#344539" stroke-width="8.8"/>
+<text x="489.0" y="472.1" text-anchor="middle" font-size="10">M-keep-cheek</text>
+<path d="M720 746 L797 746" fill="none" stroke="#344539" stroke-width="7.15"/>
+<text x="758.5" y="730.6" text-anchor="middle" font-size="10">E-entry-west</text>
+<path d="M841 658 L874 658" fill="none" stroke="#344539" stroke-width="7.15"/>
+<text x="857.5" y="642.6" text-anchor="middle" font-size="10">E-entry-east</text>
+<path d="M654 482 L742 482" fill="none" stroke="#344539" stroke-width="8.8"/>
+<text x="698.0" y="466.6" text-anchor="middle" font-size="10">B-nave-west</text>
+<path d="M797 482 L918 482" fill="none" stroke="#344539" stroke-width="8.8"/>
+<text x="857.5" y="466.6" text-anchor="middle" font-size="10">B-nave-east</text>
+<path d="M654 306 L720 306" fill="none" stroke="#344539" stroke-width="8.25"/>
+<text x="687.0" y="290.5999999999999" text-anchor="middle" font-size="10">B-apse-west</text>
+<path d="M775 306 L918 306" fill="none" stroke="#344539" stroke-width="8.25"/>
+<text x="846.5" y="290.5999999999999" text-anchor="middle" font-size="10">B-apse-east</text>
+<path d="M918 504 L918 416" fill="none" stroke="#344539" stroke-width="7.699999999999999"/>
+<text x="918.0" y="444.6" text-anchor="middle" font-size="10">B-aisle-screen</text>
+<path d="M478 251 L566 251" fill="none" stroke="#344539" stroke-width="8.8"/>
+<text x="522.0" y="235.5999999999999" text-anchor="middle" font-size="10">CT-screen</text>
+<polygon points="280.00,922.00 313.00,922.00 313.00,903.30 280.00,903.30" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="296.5" y="891.2" text-anchor="middle" font-size="10">T-cart</text>
+<polygon points="150.75,757.00 181.00,757.00 181.00,724.00 150.75,724.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="165.875" y="711.9" text-anchor="middle" font-size="10">W-bench</text>
+<polygon points="247.00,592.00 269.00,592.00 269.00,559.00 247.00,559.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="258.0" y="546.9" text-anchor="middle" font-size="10">W-rubble</text>
+<polygon points="533.00,746.00 560.50,746.00 560.50,718.50 533.00,718.50" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="546.75" y="706.4" text-anchor="middle" font-size="10">M-well</text>
+<polygon points="467.00,592.00 494.50,592.00 494.50,575.50 467.00,575.50" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="480.75" y="563.4" text-anchor="middle" font-size="10">M-chest</text>
+<polygon points="247.00,427.00 291.00,427.00 291.00,383.00 247.00,383.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="269.0" y="370.9000000000001" text-anchor="middle" font-size="10">A-fountain</text>
+<polygon points="379.00,427.00 401.00,427.00 401.00,394.00 379.00,394.00" fill="#b17a53" stroke="#4e5c4c" stroke-width="2" />
+<text x="390.0" y="381.9000000000001" text-anchor="middle" font-size="10">A-stone</text>
+<polygon points="150.75,383.00 181.00,383.00 181.00,339.00 150.75,339.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="165.875" y="326.9000000000001" text-anchor="middle" font-size="10">A-bench</text>
+<polygon points="841.00,801.00 860.80,801.00 860.80,768.00 841.00,768.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="850.9000000000001" y="755.9" text-anchor="middle" font-size="10">E-trough</text>
+<polygon points="731.00,636.00 753.00,636.00 753.00,614.00 731.00,614.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="742.0" y="601.9" text-anchor="middle" font-size="10">E-cask</text>
+<polygon points="808.00,416.00 830.00,416.00 830.00,372.00 808.00,372.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="819.0" y="359.9000000000001" text-anchor="middle" font-size="10">B-sarcophagus</text>
+<polygon points="670.50,394.00 692.50,394.00 692.50,372.00 670.50,372.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="681.5" y="359.9000000000001" text-anchor="middle" font-size="10">B-lectern</text>
+<polygon points="720.00,427.00 735.40,427.00 735.40,411.60 720.00,411.60" fill="#b17a53" stroke="#4e5c4c" stroke-width="2" />
+<text x="727.7" y="399.5" text-anchor="middle" font-size="10">B-pier-west</text>
+<polygon points="863.00,427.00 878.40,427.00 878.40,411.60 863.00,411.60" fill="#b17a53" stroke="#4e5c4c" stroke-width="2" />
+<text x="870.7" y="399.5" text-anchor="middle" font-size="10">B-pier-east</text>
+<polygon points="962.00,493.00 986.20,493.00 986.20,460.00 962.00,460.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="974.0999999999999" y="447.9" text-anchor="middle" font-size="10">B-aisle-bench</text>
+<polygon points="610.00,273.00 643.00,273.00 643.00,256.50 610.00,256.50" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="626.5" y="244.4000000000001" text-anchor="middle" font-size="10">CT-bench</text>
+<polygon points="395.50,702.00 412.00,702.00 412.00,686.60 395.50,686.60" fill="#b17a53" stroke="#4e5c4c" stroke-width="2" />
+<text x="403.75" y="674.5" text-anchor="middle" font-size="10">U-WM</text>
+<polygon points="588.00,651.40 604.50,651.40 604.50,636.00 588.00,636.00" fill="#b17a53" stroke="#4e5c4c" stroke-width="2" />
+<text x="596.25" y="623.9" text-anchor="middle" font-size="10">U-EM</text>
+<polygon points="434.00,702.00 456.00,702.00 456.00,683.30 434.00,683.30" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="445.0" y="671.1999999999999" text-anchor="middle" font-size="10">U-WR</text>
+<polygon points="505.50,654.70 527.50,654.70 527.50,636.00 505.50,636.00" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="516.5" y="623.9" text-anchor="middle" font-size="10">U-CR</text>
+<polygon points="555.00,702.00 577.00,702.00 577.00,683.30 555.00,683.30" fill="#8eaa99" stroke="#4e5c4c" stroke-width="2" />
+<text x="566.0" y="671.1999999999999" text-anchor="middle" font-size="10">U-ER</text>
+<circle cx="247" cy="350" r="18" fill="#b8763f"/><text x="247" y="356" fill="#fff" style="fill:white" text-anchor="middle" font-size="17" font-weight="bold">A</text>
+<circle cx="819" cy="339" r="18" fill="#438476"/><text x="819" y="345" fill="#fff" style="fill:white" text-anchor="middle" font-size="17" font-weight="bold">B</text>
+<circle cx="489" cy="999" r="18" fill="#975634"/><text x="489" y="1005" fill="#fff" style="fill:white" text-anchor="middle" font-size="17" font-weight="bold">T</text>
+<circle cx="533" cy="185" r="18" fill="#326887"/><text x="533" y="191" fill="#fff" style="fill:white" text-anchor="middle" font-size="17" font-weight="bold">CT</text>
+<polygon points="192.00,372.00 291.00,372.00 291.00,328.00 192.00,328.00" fill="none" stroke="#c17b3a" stroke-width="2" stroke-dasharray="5 3"/>
+<polygon points="775.00,372.00 852.00,372.00 852.00,328.00 775.00,328.00" fill="none" stroke="#438476" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="247" y="460" text-anchor="middle" font-size="13" font-weight="700">ROSE COURT · 0</text>
+<text x="808" y="460" text-anchor="middle" font-size="13" font-weight="700">NAVE · 0</text>
+<text x="786" y="548" text-anchor="middle" font-size="13" font-weight="700">VESTIBULE</text>
+<text x="951" y="405" text-anchor="middle" font-size="13" font-weight="700">AISLE</text>
+<text x="808" y="702" text-anchor="middle" font-size="13" font-weight="700">KITCHEN LANE</text>
+<text x="203" y="801" text-anchor="middle" font-size="13" font-weight="700">OUTER WARD</text>
+<text x="533" y="779" text-anchor="middle" font-size="13" font-weight="700">LOWER MID</text>
+<text x="511" y="614" text-anchor="middle" font-size="13" font-weight="700">UNDERPASS · 0</text>
+<text x="346" y="621.7" text-anchor="middle" font-size="13" font-weight="700">W LANDING +3</text>
+<text x="533" y="276.29999999999995" text-anchor="middle" font-size="13" font-weight="700">REAR CLOISTER</text>
+<path d="M346 614 L401 438" fill="none" stroke="#b65757" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M577 669 L445 669" fill="none" stroke="#b65757" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M566 570 L698 559" fill="none" stroke="#b65757" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M269 361 L225 493" fill="none" stroke="#b65757" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M148 1109 L258 1109" fill="none" stroke="#344539" stroke-width="3"/>
+<text x="203" y="1131" text-anchor="middle" font-size="13">10 m</text>
+<text x="1050" y="140" class="label">DRAWING / ENGINE ASSUMPTIONS</text>
+<text x="1050" y="170" class="note">Ground 0 m; wall walk +3 m.</text>
+<text x="1050" y="193" class="note">Bridge slab: top +3 / soffit +2.65.</text>
+<text x="1050" y="216" class="note">Main screens +5–8 m; keep +10 m.</text>
+<text x="1050" y="239" class="note">No doorway at bridge / mid crossing.</text>
+<text x="1050" y="262" class="note">Four stairs: 3 m rise, 6 m width,</text>
+<text x="1050" y="285" class="note">18 treads; 10–12 m horizontal run.</text>
+<text x="1050" y="308" class="note"></text>
+<text x="1050" y="331" class="note">Player radius .30; standing 2.0 m;</text>
+<text x="1050" y="354" class="note">crouch 1.1 m; step .25 m; slope 42°.</text>
+<text x="1050" y="377" class="note">Inspection eyes: +1.86 / +1.023 m.</text>
+<text x="1050" y="400" class="note">View studies: HFOV 90°, VFOV 65°.</text>
+<text x="1050" y="423" class="note"></text>
+<text x="1050" y="446" class="note">Green objects = low cover top +1.15</text>
+<text x="1050" y="469" class="note">above their own floor; brown = tall.</text>
+<text x="1050" y="492" class="note">Bridge parapets: +1.15 above deck.</text>
+<text x="1050" y="515" class="note">Standing sees over low cover; duck</text>
+<text x="1050" y="538" class="note">protection is directional and provisional.</text>
+<text x="1050" y="561" class="note"></text>
+<text x="1050" y="584" class="note">Red dashed rays = predicted LOS.</text>
+<text x="1050" y="607" class="note">Wide lines = walls; gaps = doors.</text>
+<text x="1050" y="630" class="note">No boost-only or mandatory jump route.</text>
+<text x="1050" y="653" class="note"></text>
+<text x="1050" y="676" class="note">A: rose garden / fountain ruin.</text>
+<text x="1050" y="699" class="note">B: chapel nave / broken pillars.</text>
+<text x="1050" y="722" class="note">Outer walls: old curtain masonry.</text>
+<text x="1050" y="745" class="note">Keep: inaccessible central tower mass.</text>
+<text x="1050" y="840" class="label">SECTION S–S · y=41, looking north</text>
+<rect x="1050" y="960.0" width="330" height="10.5" fill="#a8875a"/>
+<rect x="1050" y="970.5" width="75" height="79.5" fill="#9b9989"/>
+<rect x="1320" y="970.5" width="60" height="79.5" fill="#9b9989"/>
+<rect x="1140" y="1050.0" width="180" height="9.0" fill="#9b9989"/>
+<rect x="1200" y="990" width="9.0" height="60" fill="#425e6c"/>
+<rect x="1200" y="900" width="9.0" height="60" fill="#425e6c"/>
+<text x="1050" y="1090" class="note">Clear lower throat x36–48; 2.65 m headroom.</text><text x="1050" y="1115" class="note">Piers outside the 12 m-wide lower-mid floor.</text><text x="1050" y="1140" class="note">Upper eyes +4.86 / +4.023 m.</text><text x="1050" y="1165" class="note">Keep +10 m stops bridge-to-CT sightlines.</text><text x="70" y="1210" class="note">Walkable connections: T→ward/mid/kitchen; ward→A / W stairs; mid→A-short / vestibule; wall walk→both upper landings→sites;</text><text x="70" y="1235" class="note">A and B→rear cloister→CT. Four stairs are reversible. No intended one-way drop. Site, cover and wall IDs map directly to AML.</text></svg>

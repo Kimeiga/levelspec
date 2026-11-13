@@ -1,0 +1,845 @@
+{
+  "sourceHashes": {
+    "config.ts": "195713ca687162db283af60f130e1efcc301ef2a96bb116476323e8073fa3169",
+    "index.ts": "5650e7513a56500080a3a78673237d2122e25b3654f9715a51769439981dd60e",
+    "levels.ts": "a5d4b7decadb104cb8c0d139551a1551afa685fe104fd944ee56ee9c85014049",
+    "metrics.ts": "1bdc0cf4aa671dbda692f2fe350639e94319487ea86335db48cc479dfaa683de",
+    "presentation.ts": "0221eb9ef8141497921aa06ea4396165d40052cab664221a1adfc2d67b6f473f",
+    "search.ts": "5ae6b73abfa8dc5a7f9a309ab5b83a77d4bce9d0a9d69f2fef6ce4eb0471cc9f",
+    "spatial.ts": "a41650106a3b3801c7a995f39c7a9a1b2de6fa4cef421593a2499676f1b2d1e7",
+    "structure.ts": "060cb63cb1730a263095aaa3bd99a7fff9a4d54311f9fbb0620ad6f94df00f7a",
+    "types.ts": "93ef9e6d0155235e6236f7a6b4275a2bb57a9bfa089f62fd9c09a5daab26f3c8"
+  },
+  "summaries": [
+    {
+      "label": "folded",
+      "config": {
+        "seed": "galini-folded-11",
+        "restarts": 2,
+        "proposals": 1200,
+        "traceEvery": 100,
+        "bounds": [
+          120,
+          110
+        ],
+        "nodes": [
+          4,
+          28
+        ],
+        "maxEdges": 48,
+        "elevations": [
+          0,
+          4,
+          8
+        ],
+        "verticality": 0.75,
+        "initial": {
+          "nodes": [
+            {
+              "id": "entry",
+              "role": "entry",
+              "position": [
+                -30,
+                -14,
+                0
+              ],
+              "radius": 6
+            },
+            {
+              "id": "key",
+              "role": "key",
+              "position": [
+                27,
+                16,
+                8
+              ],
+              "radius": 8
+            },
+            {
+              "id": "a",
+              "role": "area",
+              "position": [
+                -12,
+                18,
+                0
+              ],
+              "radius": 7
+            },
+            {
+              "id": "b",
+              "role": "area",
+              "position": [
+                12,
+                -18,
+                0
+              ],
+              "radius": 6
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "entry",
+              "to": "a",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e1",
+              "from": "a",
+              "to": "key",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0,
+              "crossLevel": true
+            },
+            {
+              "id": "e2",
+              "from": "key",
+              "to": "b",
+              "mode": "stairs",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0,
+              "crossLevel": true
+            },
+            {
+              "id": "e3",
+              "from": "b",
+              "to": "entry",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            }
+          ]
+        },
+        "targets": {
+          "cycles": 3,
+          "crossings": 0,
+          "lengthVariation": 0.35,
+          "decisionDepth": 2,
+          "territories": 3,
+          "stackedRegions": 0,
+          "approaches": [
+            {
+              "from": "entry",
+              "to": "key",
+              "edge": 2,
+              "vertex": 2
+            }
+          ]
+        },
+        "profile": {
+          "modes": [
+            "walk",
+            "ramp",
+            "stairs"
+          ],
+          "height": 1.8,
+          "radius": 0.35,
+          "crouchHeight": 1.1,
+          "step": 0.25,
+          "maxSlope": 42,
+          "maxJump": 3,
+          "maxDrop": 3,
+          "speed": 3.4
+        }
+      },
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p983",
+          "nodes": 21,
+          "edges": 28,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 194.27213576006562,
+                "depth": 2,
+                "path": [
+                  "entry",
+                  "node-519",
+                  "node-150",
+                  "stage-15-1",
+                  "stage-291-0",
+                  "stage-435-0",
+                  "stage-435-1",
+                  "stage-612-2",
+                  "stage-612-1",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-15",
+                "nodes": [
+                  "stage-15-0",
+                  "stage-15-1",
+                  "stage-15-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-15-1",
+                  "stage-15-2"
+                ]
+              },
+              {
+                "id": "region-291",
+                "nodes": [
+                  "stage-291-0",
+                  "stage-291-1",
+                  "stage-291-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-291-0",
+                  "stage-291-1"
+                ]
+              },
+              {
+                "id": "region-435",
+                "nodes": [
+                  "stage-435-0",
+                  "stage-435-1",
+                  "stage-435-3"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-435-0",
+                  "stage-435-1"
+                ]
+              }
+            ],
+            "stacked": [],
+            "excessDegree": 0
+          },
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r1-p1100",
+          "nodes": 22,
+          "edges": 29,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 190.4066135083933,
+                "depth": 3,
+                "path": [
+                  "entry",
+                  "node-519",
+                  "node-150",
+                  "stage-15-1",
+                  "stage-291-0",
+                  "stage-435-0",
+                  "stage-435-1",
+                  "stage-612-2",
+                  "stage-612-1",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-15",
+                "nodes": [
+                  "stage-15-0",
+                  "stage-15-1",
+                  "stage-15-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-15-1",
+                  "stage-15-2"
+                ]
+              },
+              {
+                "id": "region-291",
+                "nodes": [
+                  "stage-291-0",
+                  "stage-291-1",
+                  "stage-291-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-291-0",
+                  "stage-291-1"
+                ]
+              },
+              {
+                "id": "region-435",
+                "nodes": [
+                  "stage-435-0",
+                  "stage-435-1",
+                  "stage-435-3"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-435-0",
+                  "stage-435-1"
+                ]
+              }
+            ],
+            "stacked": [],
+            "excessDegree": 1
+          },
+          "deficits": []
+        }
+      ]
+    },
+    {
+      "label": "ravine",
+      "config": {
+        "seed": "galini-ravine-23",
+        "restarts": 2,
+        "proposals": 1200,
+        "traceEvery": 100,
+        "bounds": [
+          120,
+          110
+        ],
+        "nodes": [
+          4,
+          28
+        ],
+        "maxEdges": 48,
+        "elevations": [
+          0,
+          4,
+          8
+        ],
+        "verticality": 0.45,
+        "initial": {
+          "nodes": [
+            {
+              "id": "entry",
+              "role": "entry",
+              "position": [
+                -30,
+                -14,
+                0
+              ],
+              "radius": 6
+            },
+            {
+              "id": "key",
+              "role": "key",
+              "position": [
+                27,
+                16,
+                0
+              ],
+              "radius": 8
+            },
+            {
+              "id": "a",
+              "role": "area",
+              "position": [
+                -12,
+                18,
+                0
+              ],
+              "radius": 7
+            },
+            {
+              "id": "b",
+              "role": "area",
+              "position": [
+                12,
+                -18,
+                0
+              ],
+              "radius": 6
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "entry",
+              "to": "a",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e1",
+              "from": "a",
+              "to": "key",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e2",
+              "from": "key",
+              "to": "b",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e3",
+              "from": "b",
+              "to": "entry",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            }
+          ]
+        },
+        "targets": {
+          "cycles": 3,
+          "crossings": 0,
+          "lengthVariation": 0.35,
+          "decisionDepth": 2,
+          "territories": 3,
+          "stackedRegions": 0,
+          "approaches": [
+            {
+              "from": "entry",
+              "to": "key",
+              "edge": 2,
+              "vertex": 2
+            }
+          ]
+        },
+        "profile": {
+          "modes": [
+            "walk",
+            "ramp",
+            "stairs"
+          ],
+          "height": 1.8,
+          "radius": 0.35,
+          "crouchHeight": 1.1,
+          "step": 0.25,
+          "maxSlope": 42,
+          "maxJump": 3,
+          "maxDrop": 3,
+          "speed": 3.4
+        }
+      },
+      "candidates": [
+        {
+          "id": "candidate-1-r1-p505",
+          "nodes": 15,
+          "edges": 23,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 97.68662940449184,
+                "depth": 2,
+                "path": [
+                  "entry",
+                  "stage-30-2",
+                  "b",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-13",
+                "nodes": [
+                  "stage-13-0",
+                  "stage-13-1",
+                  "stage-13-2"
+                ],
+                "elevation": 0,
+                "ports": [
+                  "stage-13-0",
+                  "stage-13-1",
+                  "stage-13-2"
+                ]
+              },
+              {
+                "id": "region-328",
+                "nodes": [
+                  "stage-328-0",
+                  "stage-328-1",
+                  "stage-328-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-328-0",
+                  "stage-328-1"
+                ]
+              },
+              {
+                "id": "region-372",
+                "nodes": [
+                  "stage-372-0",
+                  "stage-372-1",
+                  "stage-372-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-372-0",
+                  "stage-372-1"
+                ]
+              }
+            ],
+            "stacked": [
+              [
+                "region-13",
+                "region-372"
+              ]
+            ],
+            "excessDegree": 0
+          },
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r2-p1200",
+          "nodes": 19,
+          "edges": 26,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 115.55392773627567,
+                "depth": 2,
+                "path": [
+                  "entry",
+                  "node-774",
+                  "stage-13-3",
+                  "stage-902-1",
+                  "stage-902-2",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-412",
+                "nodes": [
+                  "stage-412-0",
+                  "stage-412-1",
+                  "stage-412-2"
+                ],
+                "elevation": 8,
+                "ports": [
+                  "stage-412-0",
+                  "stage-412-1",
+                  "stage-412-2"
+                ]
+              },
+              {
+                "id": "region-608",
+                "nodes": [
+                  "stage-608-0",
+                  "stage-608-1",
+                  "stage-608-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-608-0",
+                  "stage-608-1",
+                  "stage-608-2"
+                ]
+              },
+              {
+                "id": "region-902",
+                "nodes": [
+                  "stage-902-0",
+                  "stage-902-1",
+                  "stage-902-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-902-1",
+                  "stage-902-2"
+                ]
+              }
+            ],
+            "stacked": [
+              [
+                "region-412",
+                "region-608"
+              ]
+            ],
+            "excessDegree": 0
+          },
+          "deficits": []
+        }
+      ]
+    },
+    {
+      "label": "contour",
+      "config": {
+        "seed": "galini-contour-37",
+        "restarts": 2,
+        "proposals": 1200,
+        "traceEvery": 100,
+        "bounds": [
+          120,
+          110
+        ],
+        "nodes": [
+          4,
+          28
+        ],
+        "maxEdges": 48,
+        "elevations": [
+          0,
+          4,
+          8
+        ],
+        "verticality": 0.2,
+        "initial": {
+          "nodes": [
+            {
+              "id": "entry",
+              "role": "entry",
+              "position": [
+                -30,
+                -14,
+                0
+              ],
+              "radius": 6
+            },
+            {
+              "id": "key",
+              "role": "key",
+              "position": [
+                27,
+                16,
+                0
+              ],
+              "radius": 8
+            },
+            {
+              "id": "a",
+              "role": "area",
+              "position": [
+                -12,
+                18,
+                0
+              ],
+              "radius": 7
+            },
+            {
+              "id": "b",
+              "role": "area",
+              "position": [
+                12,
+                -18,
+                0
+              ],
+              "radius": 6
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "from": "entry",
+              "to": "a",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e1",
+              "from": "a",
+              "to": "key",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e2",
+              "from": "key",
+              "to": "b",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            },
+            {
+              "id": "e3",
+              "from": "b",
+              "to": "entry",
+              "mode": "walk",
+              "bidirectional": true,
+              "width": 4,
+              "bend": 0
+            }
+          ]
+        },
+        "targets": {
+          "cycles": 3,
+          "crossings": 0,
+          "lengthVariation": 0.35,
+          "decisionDepth": 2,
+          "territories": 3,
+          "stackedRegions": 0,
+          "approaches": [
+            {
+              "from": "entry",
+              "to": "key",
+              "edge": 2,
+              "vertex": 2
+            }
+          ]
+        },
+        "profile": {
+          "modes": [
+            "walk",
+            "ramp",
+            "stairs"
+          ],
+          "height": 1.8,
+          "radius": 0.35,
+          "crouchHeight": 1.1,
+          "step": 0.25,
+          "maxSlope": 42,
+          "maxJump": 3,
+          "maxDrop": 3,
+          "speed": 3.4
+        }
+      },
+      "candidates": [
+        {
+          "id": "candidate-1-r2-p1197",
+          "nodes": 18,
+          "edges": 29,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 114.13076748540179,
+                "depth": 2,
+                "path": [
+                  "entry",
+                  "stage-192-1",
+                  "stage-192-2",
+                  "stage-3-1",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-192",
+                "nodes": [
+                  "stage-192-0",
+                  "stage-192-1",
+                  "stage-192-2"
+                ],
+                "elevation": 8,
+                "ports": [
+                  "stage-192-0",
+                  "stage-192-1",
+                  "stage-192-2"
+                ]
+              },
+              {
+                "id": "region-589",
+                "nodes": [
+                  "stage-589-0",
+                  "stage-589-1",
+                  "stage-589-2"
+                ],
+                "elevation": 8,
+                "ports": [
+                  "stage-589-0",
+                  "stage-589-1",
+                  "stage-589-2"
+                ]
+              },
+              {
+                "id": "region-853",
+                "nodes": [
+                  "stage-853-0",
+                  "stage-853-1",
+                  "stage-853-2"
+                ],
+                "elevation": 8,
+                "ports": [
+                  "stage-853-0",
+                  "stage-853-1",
+                  "stage-853-2"
+                ]
+              }
+            ],
+            "stacked": [],
+            "excessDegree": 0
+          },
+          "deficits": []
+        },
+        {
+          "id": "candidate-2-r1-p1100",
+          "nodes": 15,
+          "edges": 19,
+          "structure": {
+            "journeys": [
+              {
+                "from": "entry",
+                "to": "key",
+                "distance": 99.81612469314544,
+                "depth": 2,
+                "path": [
+                  "entry",
+                  "node-306",
+                  "stage-285-0",
+                  "stage-285-1",
+                  "key"
+                ]
+              }
+            ],
+            "territories": [
+              {
+                "id": "region-203",
+                "nodes": [
+                  "stage-203-0",
+                  "stage-203-2",
+                  "stage-203-3"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-203-0",
+                  "stage-203-2"
+                ]
+              },
+              {
+                "id": "region-285",
+                "nodes": [
+                  "stage-285-0",
+                  "stage-285-1",
+                  "stage-285-2"
+                ],
+                "elevation": 4,
+                "ports": [
+                  "stage-285-0",
+                  "stage-285-1"
+                ]
+              }
+            ],
+            "stacked": [],
+            "excessDegree": 0
+          },
+          "deficits": [
+            "developed territories: 2/3"
+          ]
+        }
+      ]
+    }
+  ]
+}

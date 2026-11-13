@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1140" viewBox="0 0 1440 1140"><rect width="1440" height="1140" fill="#111e2c"/><style>text{font-family:Arial,sans-serif;fill:#e9eef3}.room{stroke:#111e2c;stroke-width:2}.label{font-size:12px;text-anchor:middle;font-weight:600}.small{font-size:13px}</style><text x="55" y="44" font-size="29" font-weight="700">APOGEE / mountain observatory</text><text x="55" y="71" font-size="16">S01 spatial sketch • 5v5 bomb defusal • 104 × 102 m • 26 spaces / 37 connections</text>
+<path d="M20 1080 L25 490 L118 410 L170 122 L366 83 L720 107 L1008 358 L1030 1020 L790 1100Z" fill="#213747" stroke="#365263" stroke-width="4"/>
+<polygon class="room" points="380.4,1040 579.6,1040 579.6,923.8 380.4,923.8" fill="#435e69"/>
+<polygon class="room" points="280.8,957 380.4,957 380.4,857.4 280.8,857.4" fill="#435e69"/>
+<polygon class="room" points="148,907.2 314,907.2 314,774.4 148,774.4" fill="#435e69"/>
+<polygon class="room" points="148,774.4 197.8,774.4 197.8,641.6 148,641.6" fill="#c39150"/>
+<polygon class="room" points="98.2,641.6 197.8,641.6 197.8,492.2 98.2,492.2" fill="#607d9c"/>
+<polygon class="room" points="197.8,641.6 280.8,641.6 280.8,542 197.8,542" fill="#607d9c"/>
+<polygon class="room" points="280.8,641.6 413.6,641.6 413.6,542 280.8,542" fill="#607d9c"/>
+<polygon class="room" points="148,459 231,542 330.6,542 413.6,459 413.6,359.4 330.6,276.4 231,276.4 148,359.4" fill="#a45e49"/>
+<polygon class="room" points="297.4,276.4 430.2,276.4 430.2,193.4 297.4,193.4" fill="#607d9c"/>
+<polygon class="room" points="430.2,293 745.6,293 745.6,193.4 430.2,193.4" fill="#607d9c"/>
+<polygon class="room" points="563,342.8 629.4,342.8 629.4,243.2 563,243.2" fill="#607d9c"/>
+<polygon class="room" points="413.6,392.6 629.4,392.6 629.4,342.8 413.6,342.8" fill="#607d9c"/>
+<polygon class="room" points="380.4,923.8 496.6,923.8 496.6,774.4 380.4,774.4" fill="#435e69"/>
+<polygon class="room" points="380.4,774.4 579.6,774.4 579.6,625 380.4,625" fill="#435e69"/>
+<polygon class="room" points="330.6,774.4 380.4,774.4 380.4,641.6 330.6,641.6" fill="#c39150"/>
+<polygon class="room" points="579.6,957 729,957 729,824.2 579.6,824.2" fill="#435e69"/>
+<polygon class="room" points="729,890.6 895,890.6 895,724.6 729,724.6" fill="#435e69"/>
+<polygon class="room" points="579.6,824.2 712.4,824.2 712.4,691.4 579.6,691.4" fill="#435e69"/>
+<polygon class="room" points="712.4,724.6 812,724.6 812,641.6 712.4,641.6" fill="#435e69"/>
+<polygon class="room" points="712.4,641.6 812,641.6 812,691.4 928.2,691.4 928.2,475.6 712.4,475.6" fill="#a45e49"/>
+<polygon class="room" points="446.8,625 546.4,625 546.4,342.8 446.8,342.8" fill="#435e69"/>
+<polygon class="room" points="546.4,625 712.4,625 712.4,475.6 546.4,475.6" fill="#435e69"/>
+<polygon class="room" points="546.4,475.6 712.4,475.6 712.4,425.8 629.4,425.8 629.4,342.8 546.4,342.8" fill="#435e69"/>
+<polygon class="room" points="712.4,475.6 828.6,475.6 828.6,376 712.4,376" fill="#435e69"/>
+<polygon class="room" points="629.4,425.8 679.2,425.8 679.2,293 629.4,293" fill="#c39150"/>
+<polygon class="room" points="828.6,475.6 928.2,475.6 928.2,309.6 828.6,309.6" fill="#435e69"/>
+<path d="M380.40000000000003 898.9L380.40000000000003 874.0" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M430.20000000000005 923.8L471.70000000000005 923.8" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M579.6 957.0L579.6 923.8" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M280.8 898.9L280.8 865.7" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M380.40000000000003 874.0L380.40000000000003 840.8" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M156.3 774.4L189.5 774.4" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M156.3 641.5999999999999L189.5 641.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M197.8 616.7L197.8 583.5" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M280.8 625.0L280.8 591.8" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M231.0 542.0L272.5 542.0" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M305.70000000000005 542.0L330.6 542.0" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M338.90000000000003 641.5999999999999L372.1 641.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M305.70000000000005 276.4L330.6 276.4" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M430.20000000000005 259.79999999999995L430.20000000000005 218.29999999999995" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M413.6 392.5999999999999L413.6 359.4" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M563.0 292.9999999999999L604.5 292.9999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M587.9000000000001 342.79999999999995L621.1 342.79999999999995" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M637.7 292.9999999999999L670.9000000000001 292.9999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M430.20000000000005 774.4L471.70000000000005 774.4" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M380.40000000000003 766.0999999999999L380.40000000000003 732.9" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M579.6 766.0999999999999L579.6 732.9" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M463.40000000000003 625.0L504.90000000000003 625.0" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M729.0 874.0L729.0 840.8" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M621.1 824.2L662.6 824.2" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M762.2 724.5999999999999L795.4000000000001 724.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M712.4000000000001 716.3L712.4000000000001 691.4" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M604.5 691.4L662.6 691.4" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M745.6 641.5999999999999L787.1 641.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M712.4000000000001 591.8L712.4000000000001 550.3" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M729.0 475.5999999999999L770.5000000000001 475.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M861.8000000000001 475.5999999999999L903.3000000000001 475.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M546.4000000000001 591.8L546.4000000000001 550.3" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M546.4000000000001 392.5999999999999L546.4000000000001 359.4" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M596.2 475.5999999999999L637.7 475.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M712.4000000000001 467.29999999999995L712.4000000000001 434.0999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M637.7 425.79999999999995L670.9000000000001 425.79999999999995" stroke="#f2dd9d" stroke-width="5"/>
+<path d="M828.6 450.69999999999993L828.6 417.5" stroke="#f2dd9d" stroke-width="5"/>
+<text class="label" x="480.00000000000006" y="975.9">01</text>
+<text class="label" x="480.00000000000006" y="990.9"><tspan>Cable arrivals</tspan></text>
+<text class="label" x="330.6" y="901.2">02</text>
+<text class="label" x="330.6" y="916.2"><tspan>Boot room</tspan></text>
+<text class="label" x="231.0" y="834.8">03</text>
+<text class="label" x="231.0" y="849.8"><tspan>Service court</tspan></text>
+<text class="label" x="172.9" y="702.0">04</text>
+<text class="label" x="172.9" y="717.0"><tspan>Rim ascent</tspan></text>
+<path d="M148.0 759.6444444444444L197.8 759.6444444444444" stroke="#d5b382" stroke-width="1"/>
+<path d="M148.0 744.8888888888889L197.8 744.8888888888889" stroke="#d5b382" stroke-width="1"/>
+<path d="M148.0 730.1333333333332L197.8 730.1333333333332" stroke="#d5b382" stroke-width="1"/>
+<path d="M148.0 715.3777777777777L197.8 715.3777777777777" stroke="#d5b382" stroke-width="1"/>
+<path d="M148.0 700.6222222222223L197.8 700.6222222222223" stroke="#d5b382" stroke-width="1"/>
+<path d="M148.0 685.8666666666667L197.8 685.8666666666667" stroke="#d5b382" stroke-width="1"/>
+<path d="M148.0 671.1111111111111L197.8 671.1111111111111" stroke="#d5b382" stroke-width="1"/>
+<path d="M148.0 656.3555555555556L197.8 656.3555555555556" stroke="#d5b382" stroke-width="1"/>
+<text class="label" x="148.0" y="560.9">05</text>
+<text class="label" x="148.0" y="575.9"><tspan>Rim walk</tspan></text>
+<text class="label" x="239.3" y="585.8">06</text>
+<text class="label" x="239.3" y="600.8"><tspan>A airlock</tspan></text>
+<text class="label" x="347.20000000000005" y="585.8">07</text>
+<text class="label" x="347.20000000000005" y="600.8"><tspan>Optics</tspan></text>
+<text class="label" x="280.8" y="403.19999999999993">08</text>
+<text class="label" x="280.8" y="418.19999999999993"><tspan>A telescope</tspan></text>
+<text class="label" x="363.8" y="228.89999999999998">09</text>
+<text class="label" x="363.8" y="243.89999999999998"><tspan>A control</tspan></text>
+<text class="label" x="587.9000000000001" y="237.19999999999993">10</text>
+<text class="label" x="587.9000000000001" y="252.19999999999993"><tspan>CT operations</tspan></text>
+<text class="label" x="596.2" y="286.9999999999999">11</text>
+<text class="label" x="596.2" y="301.9999999999999"><tspan>Upper spine</tspan></text>
+<text class="label" x="521.5" y="361.69999999999993">12</text>
+<text class="label" x="521.5" y="376.69999999999993"><tspan>Skybridge</tspan></text>
+<text class="label" x="438.50000000000006" y="843.1">13</text>
+<text class="label" x="438.50000000000006" y="858.1"><tspan>Intake</tspan></text>
+<text class="label" x="480.00000000000006" y="693.7">14</text>
+<text class="label" x="480.00000000000006" y="708.7"><tspan>Calibration</tspan><tspan x="480" dy="13">court</tspan></text>
+<text class="label" x="355.5" y="702.0">15</text>
+<text class="label" x="355.5" y="717.0"><tspan>Optics ascent</tspan></text>
+<path d="M330.6 759.6444444444444L380.40000000000003 759.6444444444444" stroke="#d5b382" stroke-width="1"/>
+<path d="M330.6 744.8888888888889L380.40000000000003 744.8888888888889" stroke="#d5b382" stroke-width="1"/>
+<path d="M330.6 730.1333333333332L380.40000000000003 730.1333333333332" stroke="#d5b382" stroke-width="1"/>
+<path d="M330.6 715.3777777777777L380.40000000000003 715.3777777777777" stroke="#d5b382" stroke-width="1"/>
+<path d="M330.6 700.6222222222223L380.40000000000003 700.6222222222223" stroke="#d5b382" stroke-width="1"/>
+<path d="M330.6 685.8666666666667L380.40000000000003 685.8666666666667" stroke="#d5b382" stroke-width="1"/>
+<path d="M330.6 671.1111111111111L380.40000000000003 671.1111111111111" stroke="#d5b382" stroke-width="1"/>
+<path d="M330.6 656.3555555555556L380.40000000000003 656.3555555555556" stroke="#d5b382" stroke-width="1"/>
+<text class="label" x="654.3000000000001" y="884.6">16</text>
+<text class="label" x="654.3000000000001" y="899.6"><tspan>Equipment</tspan></text>
+<text class="label" x="812.0000000000001" y="801.5999999999999">17</text>
+<text class="label" x="812.0000000000001" y="816.5999999999999"><tspan>Snow yard</tspan></text>
+<text class="label" x="646.0" y="751.8">18</text>
+<text class="label" x="646.0" y="766.8"><tspan>Cleanroom</tspan></text>
+<text class="label" x="762.2" y="677.0999999999999">19</text>
+<text class="label" x="762.2" y="692.0999999999999"><tspan>B airlock</tspan></text>
+<text class="label" x="817.5333333333334" y="596.8666666666667">20</text>
+<text class="label" x="817.5333333333334" y="611.8666666666667"><tspan>B cryolab</tspan></text>
+<text class="label" x="496.6" y="477.9">21</text>
+<text class="label" x="496.6" y="492.9"><tspan>Transit</tspan><tspan x="496.6" dy="13">underpass</tspan></text>
+<text class="label" x="629.4000000000001" y="544.3">22</text>
+<text class="label" x="629.4000000000001" y="559.3"><tspan>Data hall</tspan></text>
+<text class="label" x="587.9000000000001" y="436.4">23</text>
+<text class="label" x="587.9000000000001" y="451.4"><tspan>Archive</tspan></text>
+<text class="label" x="770.5000000000001" y="419.79999999999995">24</text>
+<text class="label" x="770.5000000000001" y="434.79999999999995"><tspan>B control</tspan></text>
+<text class="label" x="654.3000000000001" y="361.69999999999993">25</text>
+<text class="label" x="654.3000000000001" y="376.69999999999993"><tspan>CT descent</tspan></text>
+<path d="M629.4000000000001 411.0444444444445L679.2 411.0444444444445" stroke="#d5b382" stroke-width="1"/>
+<path d="M629.4000000000001 396.2888888888888L679.2 396.2888888888888" stroke="#d5b382" stroke-width="1"/>
+<path d="M629.4000000000001 381.5333333333333L679.2 381.5333333333333" stroke="#d5b382" stroke-width="1"/>
+<path d="M629.4000000000001 366.7777777777777L679.2 366.7777777777777" stroke="#d5b382" stroke-width="1"/>
+<path d="M629.4000000000001 352.02222222222224L679.2 352.02222222222224" stroke="#d5b382" stroke-width="1"/>
+<path d="M629.4000000000001 337.26666666666654L679.2 337.26666666666654" stroke="#d5b382" stroke-width="1"/>
+<path d="M629.4000000000001 322.51111111111106L679.2 322.51111111111106" stroke="#d5b382" stroke-width="1"/>
+<path d="M629.4000000000001 307.7555555555555L679.2 307.7555555555555" stroke="#d5b382" stroke-width="1"/>
+<text class="label" x="878.4000000000001" y="386.5999999999999">26</text>
+<text class="label" x="878.4000000000001" y="401.5999999999999"><tspan>Decon</tspan></text>
+<text x="1010" y="135" font-size="23" font-weight="700">HEIGHT / ROUTES</text>
+<rect x="1010" y="165" width="30" height="20" fill="#435e69"/><text x="1052" y="181">Lower lab campus Z=0</text>
+<rect x="1010" y="205" width="30" height="20" fill="#607d9c"/><text x="1052" y="221">Telescope terrace Z=4</text>
+<rect x="1010" y="245" width="30" height="20" fill="#c39150"/><text x="1052" y="261">Three 16 m ascents</text>
+<path d="M1010 298h32" stroke="#f2dd9d" stroke-width="5"/><text x="1052" y="302">Movement threshold</text>
+<text x="1010" y="355" font-size="17">Skybridge 12 crosses above</text>
+<text x="1010" y="378" font-size="17">Transit 21 / Archive 23.</text>
+<text x="1010" y="401" font-size="17">No transfer at the crossing.</text>
+<text x="1010" y="460" font-size="18">SECTION • north connector</text>
+<path d="M1010 510h330v6h-330z" fill="#607d9c"/><text x="1010" y="494">Upper bridge Z=4</text>
+<path d="M1010 590h330v8h-330z" fill="#435e69"/><text x="1010" y="624">Transit Z=0 / clearance 3.65 m</text>
+<text x="1010" y="690" font-size="18">Representative scale</text>
+<text x="1010" y="722">Dome 32 m • labs 16–26 m</text>
+<text x="1010" y="748">Passages 4–6 m clear target</text>
+<text x="1010" y="774">Rim 12 m / narrowed by rock</text>
+<text x="1010" y="830" font-size="18">N ↑ / +Y / meters / Z up</text>
+<text x="55" y="1100" font-size="14">Seed 11092026 → clustered lab wings, shared airlocks, terraced dome, protected lower transit. Counts are authoring floors, not balance evidence.</text>
+</svg>

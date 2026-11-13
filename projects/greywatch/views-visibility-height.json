@@ -1,0 +1,70 @@
+[
+  {
+    "id": "A-east-crest-v-fountain-low",
+    "position": [
+      28,
+      48,
+      4.87
+    ],
+    "target": [
+      19,
+      68,
+      1.033
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-fountain-low-v-east-crest",
+    "position": [
+      19,
+      68,
+      1.033
+    ],
+    "target": [
+      28,
+      48,
+      4.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "bridge-east-supported-v-low-refuge",
+    "position": [
+      47.5,
+      38.9,
+      4.87
+    ],
+    "target": [
+      33.3,
+      38.9,
+      4.033
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  },
+  {
+    "id": "bridge-low-refuge-v-east-supported",
+    "position": [
+      33.3,
+      38.9,
+      4.033
+    ],
+    "target": [
+      47.5,
+      38.9,
+      4.87
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902,
+    "appearance": "materials"
+  }
+]

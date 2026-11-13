@@ -1,0 +1,638 @@
+{
+  "local_counter_positions": [
+    {
+      "id": "W-public-inside",
+      "feet": [
+        21,
+        16,
+        0
+      ],
+      "intruder": [
+        26,
+        16,
+        0
+      ],
+      "standing_eye_visible": true,
+      "body_footprint_blockers": []
+    },
+    {
+      "id": "W-service-inside",
+      "feet": [
+        15,
+        27,
+        0
+      ],
+      "intruder": [
+        26,
+        16,
+        0
+      ],
+      "standing_eye_visible": true,
+      "body_footprint_blockers": []
+    },
+    {
+      "id": "E-public-return",
+      "feet": [
+        101,
+        80,
+        0
+      ],
+      "intruder": [
+        108,
+        74,
+        0
+      ],
+      "standing_eye_visible": true,
+      "body_footprint_blockers": []
+    },
+    {
+      "id": "E-service-inside",
+      "feet": [
+        108,
+        78,
+        0
+      ],
+      "intruder": [
+        108,
+        74,
+        0
+      ],
+      "standing_eye_visible": true,
+      "body_footprint_blockers": []
+    }
+  ],
+  "revision": "L02",
+  "scope": "roof seam centerlines and named local frontier probes; no compiled or whole-area acceptance",
+  "roof_seams": [
+    {
+      "id": "RC-HL-00",
+      "a": [
+        40.0,
+        30.0
+      ],
+      "b": [
+        26.0,
+        30.0
+      ],
+      "z0": 4.75,
+      "z1": 10.8,
+      "width": 0.3,
+      "length": 14.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-HL-00-p0"
+      ]
+    },
+    {
+      "id": "RC-HL-01",
+      "a": [
+        26.0,
+        30.0
+      ],
+      "b": [
+        26.0,
+        34.0
+      ],
+      "z0": 4.75,
+      "z1": 10.8,
+      "width": 0.3,
+      "length": 4.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-HL-01-p0"
+      ]
+    },
+    {
+      "id": "RC-HL-02",
+      "a": [
+        26.0,
+        84.01
+      ],
+      "b": [
+        26.0,
+        86.0
+      ],
+      "z0": 4.75,
+      "z1": 10.8,
+      "width": 0.3,
+      "length": 1.9899999999999949,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-HL-02-p0"
+      ]
+    },
+    {
+      "id": "RC-HL-03",
+      "a": [
+        26.0,
+        86.0
+      ],
+      "b": [
+        98.0,
+        86.0
+      ],
+      "z0": 4.75,
+      "z1": 10.8,
+      "width": 0.3,
+      "length": 72.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-HL-03-p0"
+      ]
+    },
+    {
+      "id": "RC-HL-04",
+      "a": [
+        98.0,
+        86.0
+      ],
+      "b": [
+        98.0,
+        50.0
+      ],
+      "z0": 4.75,
+      "z1": 10.8,
+      "width": 0.3,
+      "length": 36.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-HL-04-p0"
+      ]
+    },
+    {
+      "id": "RC-HM-00",
+      "a": [
+        26.0,
+        52.0
+      ],
+      "b": [
+        26.0,
+        84.01
+      ],
+      "z0": 8.15,
+      "z1": 10.8,
+      "width": 0.3,
+      "length": 32.010000000000005,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-HM-00-p0"
+      ]
+    },
+    {
+      "id": "RC-HM-01",
+      "a": [
+        98.0,
+        50.0
+      ],
+      "b": [
+        98.0,
+        30.0
+      ],
+      "z0": 8.15,
+      "z1": 10.8,
+      "width": 0.3,
+      "length": 20.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-HM-01-p0"
+      ]
+    },
+    {
+      "id": "RC-HM-02",
+      "a": [
+        98.0,
+        30.0
+      ],
+      "b": [
+        60.0,
+        30.0
+      ],
+      "z0": 8.15,
+      "z1": 10.8,
+      "width": 0.3,
+      "length": 38.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-HM-02-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-00",
+      "a": [
+        98.0,
+        50.0
+      ],
+      "b": [
+        104.0,
+        50.0
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 6.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-00-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-01",
+      "a": [
+        104.0,
+        50.0
+      ],
+      "b": [
+        104.0,
+        30.01
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 19.99,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-01-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-02",
+      "a": [
+        104.01,
+        30.0
+      ],
+      "b": [
+        104.01,
+        20.0
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 10.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-02-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-03",
+      "a": [
+        104.0,
+        19.99
+      ],
+      "b": [
+        50.0,
+        19.99
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 54.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-03-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-04",
+      "a": [
+        49.99,
+        20.0
+      ],
+      "b": [
+        49.99,
+        22.0
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 2.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-04-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-05",
+      "a": [
+        24.0,
+        84.01
+      ],
+      "b": [
+        26.0,
+        84.01
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 2.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-05-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-06",
+      "a": [
+        24.0,
+        52.0
+      ],
+      "b": [
+        22.0,
+        52.0
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 2.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-06-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-07",
+      "a": [
+        22.0,
+        52.0
+      ],
+      "b": [
+        22.0,
+        75.99
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 23.989999999999995,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-07-p0"
+      ]
+    },
+    {
+      "id": "RC-ML-08",
+      "a": [
+        21.99,
+        76.0
+      ],
+      "b": [
+        21.99,
+        78.0
+      ],
+      "z0": 4.75,
+      "z1": 7.8,
+      "width": 0.3,
+      "length": 2.0,
+      "role": "opaque exterior roof-step fascia",
+      "uncovered_centerline_m": 0.0,
+      "objects": [
+        "RC-ML-08-p0"
+      ]
+    }
+  ],
+  "frontier_probes": [
+    {
+      "side": "west",
+      "station": "W-REG",
+      "feet": [
+        26,
+        30,
+        0
+      ],
+      "stance": "standing",
+      "portal_ids": [
+        "P-WP1",
+        "P-WS1"
+      ],
+      "visible_samples": [
+        0,
+        4
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "west",
+      "station": "W-REG",
+      "feet": [
+        26,
+        30,
+        0
+      ],
+      "stance": "crouched-eye",
+      "portal_ids": [
+        "P-WP1",
+        "P-WS1"
+      ],
+      "visible_samples": [
+        0,
+        4
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "west",
+      "station": "W-PRESS",
+      "feet": [
+        36,
+        16,
+        0
+      ],
+      "stance": "standing",
+      "portal_ids": [
+        "P-WP1",
+        "P-WS1"
+      ],
+      "visible_samples": [
+        5,
+        0
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "west",
+      "station": "W-PRESS",
+      "feet": [
+        36,
+        16,
+        0
+      ],
+      "stance": "crouched-eye",
+      "portal_ids": [
+        "P-WP1",
+        "P-WS1"
+      ],
+      "visible_samples": [
+        5,
+        0
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "west",
+      "station": "W-DEEP",
+      "feet": [
+        26,
+        16,
+        0
+      ],
+      "stance": "standing",
+      "portal_ids": [
+        "P-WP1",
+        "P-WS1"
+      ],
+      "visible_samples": [
+        5,
+        3
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "west",
+      "station": "W-DEEP",
+      "feet": [
+        26,
+        16,
+        0
+      ],
+      "stance": "crouched-eye",
+      "portal_ids": [
+        "P-WP1",
+        "P-WS1"
+      ],
+      "visible_samples": [
+        5,
+        3
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "east",
+      "station": "E-REG",
+      "feet": [
+        94,
+        74,
+        0
+      ],
+      "stance": "standing",
+      "portal_ids": [
+        "P-EP1",
+        "P-ES1"
+      ],
+      "visible_samples": [
+        5,
+        0
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "east",
+      "station": "E-REG",
+      "feet": [
+        94,
+        74,
+        0
+      ],
+      "stance": "crouched-eye",
+      "portal_ids": [
+        "P-EP1",
+        "P-ES1"
+      ],
+      "visible_samples": [
+        5,
+        0
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "east",
+      "station": "E-PRESS",
+      "feet": [
+        108,
+        64,
+        0
+      ],
+      "stance": "standing",
+      "portal_ids": [
+        "P-EP1",
+        "P-ES1"
+      ],
+      "visible_samples": [
+        0,
+        5
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "east",
+      "station": "E-PRESS",
+      "feet": [
+        108,
+        64,
+        0
+      ],
+      "stance": "crouched-eye",
+      "portal_ids": [
+        "P-EP1",
+        "P-ES1"
+      ],
+      "visible_samples": [
+        0,
+        5
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "east",
+      "station": "E-DEEP",
+      "feet": [
+        108,
+        74,
+        0
+      ],
+      "stance": "standing",
+      "portal_ids": [
+        "P-EP1",
+        "P-ES1"
+      ],
+      "visible_samples": [
+        5,
+        5
+      ],
+      "total_per_portal": 5
+    },
+    {
+      "side": "east",
+      "station": "E-DEEP",
+      "feet": [
+        108,
+        74,
+        0
+      ],
+      "stance": "crouched-eye",
+      "portal_ids": [
+        "P-EP1",
+        "P-ES1"
+      ],
+      "visible_samples": [
+        5,
+        5
+      ],
+      "total_per_portal": 5
+    }
+  ]
+}

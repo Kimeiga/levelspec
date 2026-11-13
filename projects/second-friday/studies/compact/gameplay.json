@@ -1,0 +1,42 @@
+{
+  "id": "second-friday",
+  "units": "meters",
+  "axes": "right-handed Z-up",
+  "status": "proposed target-engine integration settings; not executable hero-shooter rules",
+  "mode": {
+    "type": "control",
+    "playersPerTeam": 5,
+    "pointBounds": {
+      "min": [
+        34,
+        24,
+        0
+      ],
+      "max": [
+        50,
+        40,
+        2
+      ]
+    },
+    "unlockSeconds": 25,
+    "percentPerSecond": 1,
+    "winPercent": 100,
+    "contested": "pause",
+    "respawnWaveSeconds": 10,
+    "swapSidesBetweenRounds": true
+  },
+  "movement": {
+    "nominalSpeed": 5.5,
+    "radius": 0.35,
+    "height": 1.8,
+    "crouchHeight": 1.1,
+    "step": 0.25
+  },
+  "requiredEngineWork": [
+    "team-filtered protected garage volumes and exits",
+    "control scoring / overtime rules / wave respawn",
+    "hero collision capsules and mobility bounds",
+    "ballistic and utility material rules",
+    "multiplayer playtesting"
+  ]
+}

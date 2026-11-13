@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1430" height="1090" viewBox="0 0 1430 1090">
+<rect width="1430" height="1090" fill="#f3f0e7"/>
+<style>text{font-family:Arial,sans-serif;fill:#263c45}.label{font-size:16px;font-weight:bold;paint-order:stroke;stroke:#f3f0e7;stroke-width:3;stroke-linejoin:round}.small{font-size:12px}.note{font-size:15px}</style>
+<text x="45" y="40" font-size="31" font-weight="bold">KILN YARD / L04</text>
+<text x="45" y="66" font-size="17">5v5 defusal · ground level · metres · +Y north / +Z up · native AML blockout proposal</text>
+<polygon points="274,866 482,866 522,794 466,722 338,722 266,770" fill="#e4d2b2" stroke="#566964" stroke-width="2"/>
+<polygon points="266,770 338,722 266,642 242,546 194,482 130,506 154,650" fill="#e4d2b2" stroke="#566964" stroke-width="2"/>
+<polygon points="130,506 194,482 242,546 322,530 330,418 274,362 170,386 114,442" fill="#e4d2b2" stroke="#566964" stroke-width="2"/>
+<polygon points="170,386 274,362 330,418 402,402 410,290 338,226 202,242 146,306" fill="#dfb591" stroke="#566964" stroke-width="2"/>
+<polygon points="338,722 466,722 506,642 466,530 362,530 314,594" fill="#e4d2b2" stroke="#566964" stroke-width="2"/>
+<polygon points="362,530 466,530 498,466 450,402 402,402 330,418 322,530" fill="#d6d5bc" stroke="#566964" stroke-width="2"/>
+<polygon points="466,722 522,794 618,754 730,682 754,570 690,522 626,570 626,642 538,666" fill="#e4d2b2" stroke="#566964" stroke-width="2"/>
+<polygon points="626,570 690,522 754,570 786,474 730,378 626,370 570,434 570,506" fill="#a3c1c6" stroke="#566964" stroke-width="2"/>
+<polygon points="450,402 498,466 570,506 570,434 626,370 578,314 482,330" fill="#d6d5bc" stroke="#566964" stroke-width="2"/>
+<polygon points="338,226 410,290 482,330 578,314 626,370 730,378 730,306 650,242 610,170 458,138 394,186" fill="#bfd0ce" stroke="#566964" stroke-width="2"/>
+<polygon points="266,706 306,714 314,594 322,530 242,546" fill="#7d8e7e" stroke="#566964" stroke-width="2"/>
+<text x="274.0" y="618.0" class="label">K0</text>
+<polygon points="466,650 562,642 586,562 546,514 498,490 466,530" fill="#7d8e7e" stroke="#566964" stroke-width="2"/>
+<text x="504.6666666666667" y="564.6666666666667" class="label">K1</text>
+<polygon points="402,386 450,386 482,330 410,290" fill="#7d8e7e" stroke="#566964" stroke-width="2"/>
+<text x="420.0" y="348.0" class="label">K2</text>
+<polygon points="326.0,658 402,658 426,634 426,610 317.0,610" fill="#7d8e7e" stroke="#566964" stroke-width="2"/>
+<text x="363.4" y="634.0" class="label">K3-office</text>
+<line x1="280.4" y1="760.4" x2="323.6" y2="731.6" stroke="#168da0" stroke-width="6"/>
+<text x="307.6" y="741.2" class="small">P01</text>
+<line x1="410" y1="722" x2="458" y2="722" stroke="#168da0" stroke-width="6"/>
+<text x="439.6" y="717.2" class="small">P02</text>
+<line x1="477.2" y1="736.4" x2="510.8" y2="779.6" stroke="#168da0" stroke-width="6"/>
+<text x="499.6" y="753.2" class="small">P03</text>
+<line x1="146" y1="500.0" x2="178" y2="488.0" stroke="#168da0" stroke-width="6"/>
+<text x="167.6" y="489.2" class="small">P04</text>
+<line x1="211.6" y1="376.4" x2="253.2" y2="366.79999999999995" stroke="#168da0" stroke-width="6"/>
+<text x="237.99999999999997" y="366.79999999999995" class="small">P05</text>
+<line x1="362" y1="530" x2="394" y2="530" stroke="#168da0" stroke-width="6"/>
+<text x="383.6" y="525.2" class="small">P06</text>
+<line x1="344.4" y1="414.8" x2="387.6" y2="405.2" stroke="#168da0" stroke-width="6"/>
+<text x="371.6" y="405.2" class="small">P07</text>
+<line x1="459.6" y1="414.8" x2="488.4" y2="453.2" stroke="#168da0" stroke-width="6"/>
+<text x="479.6" y="429.2" class="small">P08</text>
+<line x1="570" y1="490" x2="570" y2="450" stroke="#168da0" stroke-width="6"/>
+<text x="575.6" y="465.2" class="small">P09</text>
+<line x1="645.2" y1="555.6" x2="677.2" y2="531.6" stroke="#168da0" stroke-width="6"/>
+<text x="666.8000000000001" y="538.8" class="small">P10</text>
+<line x1="657.2" y1="372.4" x2="709.2" y2="376.4" stroke="#168da0" stroke-width="6"/>
+<text x="688.8000000000001" y="369.6" class="small">P11</text>
+<line x1="359.6" y1="245.20000000000005" x2="395.6" y2="277.20000000000005" stroke="#168da0" stroke-width="6"/>
+<text x="383.20000000000005" y="256.4000000000001" class="small">P12</text>
+<line x1="510.8" y1="325.20000000000005" x2="558.8" y2="317.20000000000005" stroke="#168da0" stroke-width="6"/>
+<text x="540.4000000000001" y="316.4000000000001" class="small">P13</text>
+<line x1="324.857142856" y1="490" x2="327.142857144" y2="458" stroke="#168da0" stroke-width="6"/>
+<text x="331.6" y="469.2" class="small">P14</text>
+<polygon points="186,602 210,602 210,590.8 186,590.8" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="186" y="614.0" class="small">L1</text>
+<polygon points="250,458 282,458 282,446.0 250,446.0" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="250" y="470.0" class="small">L2</text>
+<polygon points="210,314 242,314 242,302.0 210,302.0" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="210" y="326.0" class="small">L3</text>
+<polygon points="450,610 474,610 474,598.0 450,598.0" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="450" y="622.0" class="small">L4</text>
+<polygon points="418,466 442,466 442,454.0 418,454.0" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="418" y="478.0" class="small">L5</text>
+<polygon points="578,706 610,706 610,694.0 578,694.0" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="578" y="718.0" class="small">L6</text>
+<polygon points="650,594 682,594 682,582.0 650,582.0" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="650" y="606.0" class="small">L7</text>
+<polygon points="674,458 706,458 706,446.0 674,446.0" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="674" y="470.0" class="small">L8</text>
+<polygon points="626,298 658,298 658,286.0 626,286.0" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="626" y="310.0" class="small">L9</text>
+<polygon points="274,338 314,338 314,306 274,306" fill="#9b7657" stroke="#566964" stroke-width="1"/>
+<text x="274" y="350.0" class="small">A-press</text>
+<polygon points="642,434 666,434 666,394 642,394" fill="#9b7657" stroke="#566964" stroke-width="1"/>
+<text x="642" y="446.0" class="small">B-filter</text>
+<polygon points="482,394 514,394 514,386 485.2,386" fill="#9b7657" stroke="#566964" stroke-width="1"/>
+<text x="482" y="406.0" class="small">R4-return</text>
+<polygon points="498,250 546,250 546,226 498,226" fill="#9b7657" stroke="#566964" stroke-width="1"/>
+<text x="498" y="262.0" class="small">D-store</text>
+<polygon points="354,378 378,378 378,368.4 354,368.4" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="354" y="390.0" class="small">A-short-bench</text>
+<polygon points="530,378 554,378 554,368.4 530,368.4" fill="#c5ae62" stroke="#566964" stroke-width="1"/>
+<text x="530" y="390.0" class="small">R4-bench</text>
+<text x="306" y="834" class="label">T / Loading spawn</text>
+<text x="146" y="634" class="label">W1 / Arcade approach</text>
+<text x="130" y="434" class="label">W2 / Arcade court</text>
+<text x="194" y="274" class="label">A / Press site</text>
+<text x="330" y="586" class="label">M1 / Forecourt</text>
+<text x="346" y="506" class="label">M2 / Saddle</text>
+<text x="570" y="738" class="label">E1 / Wash</text>
+<text x="674" y="410" class="label">B / Basin site</text>
+<text x="482" y="354" class="label">R4 / Inspection passage</text>
+<text x="442" y="178" class="label">D / Service yard and defender spawn</text>
+<polygon points="248.4,330 270.0,330 270.0,282 248.4,282" fill="none" stroke="#855574" stroke-width="2"/>
+<text x="255.2" y="306" class="label">A</text>
+<polygon points="674,438.0 714,438.0 714,394 674,394" fill="none" stroke="#855574" stroke-width="2"/>
+<text x="690.0" y="416.0" class="label">B</text>
+<circle cx="378" cy="802" r="7" fill="#f5f4ed" stroke="#3c5d68" stroke-width="3"/>
+<text x="394" y="802" class="small">T ×5</text>
+<circle cx="522" cy="210" r="7" fill="#f5f4ed" stroke="#3c5d68" stroke-width="3"/>
+<text x="538" y="210" class="small">CT ×5</text>
+<line x1="90" y1="810" x2="170" y2="810" stroke="#263c45" stroke-width="4"/>
+<text x="90" y="794" class="small">10m</text>
+<line x1="90" y1="290" x2="90" y2="210" stroke="#263c45" stroke-width="3"/>
+<text x="82" y="194" class="label">N</text>
+<text x="50" y="890" class="small">0,0</text>
+<text x="875" y="115" class="note" font-weight="bold">SPACE AND CONNECTIONS</text>
+<text x="875" y="137" class="note" font-weight="normal">T → arcade or forecourt or wash.</text>
+<text x="875" y="159" class="note" font-weight="normal">Arcade shares a wall and P14 with Saddle.</text>
+<text x="875" y="181" class="note" font-weight="normal">A is adjacent to both Arcade and Saddle.</text>
+<text x="875" y="203" class="note" font-weight="normal">Wash wraps the solid kiln K1 into B.</text>
+<text x="875" y="225" class="note" font-weight="normal">Inspection joins Saddle, B and service.</text>
+<text x="875" y="247" class="note" font-weight="normal">CT service yard joins both sites and R4.</text>
+<text x="875" y="269" class="note" font-weight="normal"></text>
+<text x="875" y="291" class="note" font-weight="bold">LOCAL CHOICES</text>
+<text x="875" y="313" class="note" font-weight="normal">P14 lets a stalled Arcade pair transfer Mid.</text>
+<text x="875" y="335" class="note" font-weight="normal">A-press: main/short protection, north exposure.</text>
+<text x="875" y="357" class="note" font-weight="normal">B-filter: splits main from CT arrival.</text>
+<text x="875" y="379" class="note" font-weight="normal">R4-return: changes CT-to-Mid reveal order.</text>
+<text x="875" y="401" class="note" font-weight="normal">D-store: service rotation around shared mass.</text>
+<text x="875" y="423" class="note" font-weight="normal"></text>
+<text x="875" y="445" class="note" font-weight="bold">BOUNDS / MATERIALS</text>
+<text x="875" y="467" class="note" font-weight="normal">Colored shapes = real floor footprints, Z=0.</text>
+<text x="875" y="489" class="note" font-weight="normal">Heavy edges = opaque 6m walls.</text>
+<text x="875" y="511" class="note" font-weight="normal">Cyan spans = 3m-head movement portals.</text>
+<text x="875" y="533" class="note" font-weight="normal">Green masses = closed buildings, +6m.</text>
+<text x="875" y="555" class="note" font-weight="normal">Ochre low cover = +1.15m or +1.25m.</text>
+<text x="875" y="577" class="note" font-weight="normal">Brown machines = +3.2m; D-store +4m.</text>
+<text x="875" y="599" class="note" font-weight="normal">No rectangular arena or playable outer floor.</text>
+<text x="875" y="621" class="note" font-weight="normal">Unfilled interstices are outside circulation.</text>
+<text x="875" y="643" class="note" font-weight="normal"></text>
+<text x="875" y="665" class="note" font-weight="bold">REVIEW BEFORE PRODUCTION</text>
+<text x="875" y="687" class="note" font-weight="normal">Standing eye +1.674 / crouched +1.023m.</text>
+<text x="875" y="709" class="note" font-weight="normal">Body 1.8m, radius .3m, crouch 1.1m.</text>
+<text x="875" y="731" class="note" font-weight="normal">Nominal walk 3.4m/s (estimates only).</text>
+<text x="875" y="753" class="note" font-weight="normal">Test opening 5v5, rush, 4+1 and retakes.</text>
+<text x="875" y="775" class="note" font-weight="normal">Also 2v2 / 1v2 post-plant.</text>
+<text x="875" y="797" class="note" font-weight="normal">No shooting, bomb logic or utility simulation.</text>
+<text x="875" y="819" class="note" font-weight="normal"></text>
+<text x="875" y="841" class="note" font-weight="bold">RAW → REFINED</text>
+<text x="875" y="863" class="note" font-weight="normal">Seed 110826, three arrangements compared.</text>
+<text x="875" y="885" class="note" font-weight="normal">Selected folded middle; packed shared edges.</text>
+<text x="875" y="907" class="note" font-weight="normal">Removed long direct spawn connection.</text>
+<text x="875" y="929" class="note" font-weight="normal">Added local Arcade–Saddle response.</text>
+<text x="875" y="951" class="note" font-weight="normal">No incline requirement; all floors level.</text>
+<text x="45" y="955" font-size="20">Encounter studies to verify in compiled geometry</text>
+<text x="45" y="987" class="note">P05 Arcade → A main • P07 Saddle → A short • P10 Wash → B • P09 Inspection → B • P13 CT → Inspection</text>
+<text x="45" y="1014" class="note">Inspect opposing and following positions, portal side peeks, crouched cover and site ownership reversal.</text>
+<text x="45" y="1041" class="note">Layout hypotheses only: actual clearance, visibility and travel await compilation; competitive balance awaits playtests.</text>
+</svg>

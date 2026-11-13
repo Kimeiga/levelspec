@@ -1,0 +1,114 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      75,
+      -100,
+      100
+    ],
+    "target": [
+      0,
+      -1,
+      2
+    ],
+    "projection": "orthographic",
+    "viewHeight": 108,
+    "appearance": "full-render"
+  },
+  {
+    "id": "north-cutaway",
+    "position": [
+      -75,
+      100,
+      80
+    ],
+    "target": [
+      0,
+      4,
+      2
+    ],
+    "projection": "orthographic",
+    "viewHeight": 98,
+    "appearance": "full-render"
+  },
+  {
+    "id": "reactor-hall",
+    "position": [
+      13,
+      -18,
+      8
+    ],
+    "target": [
+      0,
+      4,
+      2.3
+    ],
+    "projection": "perspective",
+    "fov": 68,
+    "appearance": "full-render"
+  },
+  {
+    "id": "north-vessel-interior",
+    "position": [
+      0,
+      10.5,
+      1.684
+    ],
+    "target": [
+      -6,
+      8,
+      1.684
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "exterior-enclosure",
+    "position": [
+      75,
+      -95,
+      65
+    ],
+    "target": [
+      0,
+      0,
+      4
+    ],
+    "projection": "perspective",
+    "fov": 58,
+    "appearance": "full-render"
+  },
+  {
+    "id": "reactor-supports",
+    "position": [
+      9,
+      -3,
+      -6
+    ],
+    "target": [
+      3,
+      8,
+      -7
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "crown-in-hall",
+    "position": [
+      15,
+      -12,
+      11
+    ],
+    "target": [
+      -4,
+      19,
+      7
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "appearance": "full-render"
+  }
+]

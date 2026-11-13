@@ -1,0 +1,3159 @@
+{
+  "revision": "L01",
+  "status": "Predicted layouts and requested measurements only",
+  "body": {
+    "radius": 0.3,
+    "standing": 1.8,
+    "crouch": 1.1,
+    "standingEye": 1.674,
+    "crouchEye": 1.023,
+    "horizontalFov": 90
+  },
+  "sections": [
+    {
+      "id": "SEC01",
+      "name": "Ferry spawn and departures",
+      "level": 0,
+      "bounds": [
+        -2,
+        2,
+        51,
+        49
+      ],
+      "ids": [
+        "SPAWN-T",
+        "M01",
+        "M02",
+        "M03",
+        "S1",
+        "S2",
+        "W01"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            18,
+            31,
+            0
+          ],
+          "look": [
+            18,
+            46,
+            4
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            18,
+            28,
+            0
+          ],
+          "look": [
+            18,
+            40,
+            2
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            23.5,
+            46.9,
+            4
+          ],
+          "look": [
+            26,
+            30,
+            0
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            27,
+            32,
+            0
+          ],
+          "look": [
+            46.5,
+            34,
+            0
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "The five-body ferry spawn separates into a near S1 ascent, a Cooper/S2 approach and the Shore Toe commitment. M03 blocks a direct lower diagonal into S2; Net Street behind it is 4 m deep. W01 may reveal a standing Net player without revealing the bomb or Shore Toe.",
+      "follower": "A follower can remain below the S1 mouth or shift along Net Street toward S2. Supporting an ascending leader is height-dependent; do not infer a clear trade over the crest wall.",
+      "opponent": "The W01 observer must approach the sill and turn away from Press. A ground player can challenge the aperture or crouch behind the lower crest; the whole spawn is not assumed visible.",
+      "walks": [
+        "R01",
+        "R02",
+        "R03"
+      ],
+      "captures": [
+        "Ferry five-body separation",
+        "S1 bottom/mid/top and reverse",
+        "S2 bottom/mid/top and reverse",
+        "W01 reciprocal standing/crouch"
+      ]
+    },
+    {
+      "id": "SEC02",
+      "name": "Ridge spawn and departures",
+      "level": 8,
+      "bounds": [
+        65,
+        76,
+        133,
+        113
+      ],
+      "ids": [
+        "SPAWN-CT",
+        "M16",
+        "M17",
+        "M18",
+        "S7",
+        "S8",
+        "BR-U"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            98,
+            97,
+            8
+          ],
+          "look": [
+            90,
+            81,
+            8
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            106,
+            100,
+            8
+          ],
+          "look": [
+            98,
+            97,
+            8
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            68,
+            89,
+            8
+          ],
+          "look": [
+            93,
+            89,
+            8
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            119,
+            87,
+            8
+          ],
+          "look": [
+            117,
+            78,
+            8
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "CT divides around Bell Building: Inn/upper bridge, School ascent and Bell ascent reach different fronts. M17 prevents a ridge player from treating both descents as one visible launch pad.",
+      "follower": "The follower can support the Inn-facing lane or join Bell court; the building prevents immediate support across its body. Five spawn centers are 2 m apart.",
+      "opponent": "A captured upper bridge can challenge the Inn porch. That does not automatically expose the S8 approach behind Bell Building.",
+      "walks": [
+        "R04",
+        "R05",
+        "R06"
+      ],
+      "captures": [
+        "Ridge five-body separation",
+        "Inn porch to bridge / reciprocal",
+        "S7 upper approach",
+        "S8 upper approach"
+      ]
+    },
+    {
+      "id": "SEC03",
+      "name": "Laundry to Press territory",
+      "level": 4,
+      "bounds": [
+        3,
+        43,
+        55,
+        70
+      ],
+      "ids": [
+        "M04",
+        "M05",
+        "M06",
+        "I01",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "BR-M"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            25,
+            52,
+            4
+          ],
+          "look": [
+            43,
+            52,
+            4
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            21,
+            52,
+            4
+          ],
+          "look": [
+            30,
+            52,
+            4
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            44,
+            52,
+            4
+          ],
+          "look": [
+            28,
+            52,
+            4
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            18,
+            63,
+            4
+          ],
+          "look": [
+            17,
+            66,
+            4
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "The Press passage is a 4 m clear, 3 m high supported connection, with a straight reciprocal challenge. Going around the occupied Press/Potter fronts reaches S3 or the north side of Press porch instead; those are distinct onward decisions.",
+      "follower": "F can see along I01 once L passes the west mouth. It cannot support around the northeastern M05 return without taking another position. A failed passage challenge can withdraw toward Laundry.",
+      "opponent": "O can deny I01 from the porch, but must leave that angle to cover the north Press route or the bridge. M05 is a complete full-height occluder, not low cover.",
+      "walks": [
+        "R02",
+        "R07"
+      ],
+      "captures": [
+        "I01 opposing door views",
+        "Press return / S4 approach",
+        "Laundry withdrawal toward S1"
+      ]
+    },
+    {
+      "id": "SEC04",
+      "name": "A precinct and two local ascents",
+      "level": 8,
+      "bounds": [
+        3,
+        63,
+        55,
+        109
+      ],
+      "ids": [
+        "SITE-A",
+        "M07",
+        "M08",
+        "M09",
+        "O01",
+        "S3",
+        "S4",
+        "BR-U"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            26,
+            82,
+            8
+          ],
+          "look": [
+            28,
+            91,
+            8
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            23,
+            80,
+            8
+          ],
+          "look": [
+            26,
+            85,
+            8
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            30,
+            97,
+            8
+          ],
+          "look": [
+            28,
+            90,
+            8
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            47,
+            82,
+            8
+          ],
+          "look": [
+            46.5,
+            78,
+            8
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "S3 arrives below Chapel and turns into the A approach; S4 reaches the bridge-facing shoulder beside West Homes. M08 blocks the direct diagonal from the bridge stance to both A local ascents. A 6×6 m plant footprint is an authoring assumption.",
+      "follower": "F at the Chapel edge can follow/trade into A but cannot simultaneously support a teammate at S4 through M08. The cistern rim offers crouch preparation with open side exposure.",
+      "opponent": "An A anchor can yield north around the cistern, or contest the Chapel approach. Watching Upper Bridge requires a separate position east of M08 and gives up immediate S3 coverage.",
+      "walks": [
+        "R01",
+        "R08",
+        "R09"
+      ],
+      "captures": [
+        "A entry / O01 standing and crouching",
+        "S3 bottom/mid/top and reverse",
+        "S4 bottom/mid/top and reverse",
+        "West Lookout versus A approaches"
+      ]
+    },
+    {
+      "id": "SEC05",
+      "name": "Middle span and Taverna receiving territory",
+      "level": 4,
+      "bounds": [
+        39,
+        45,
+        101,
+        67
+      ],
+      "ids": [
+        "BR-M",
+        "M05",
+        "M13",
+        "I04",
+        "O03",
+        "S5",
+        "S7"
+      ],
+      "poses": [
+        {
+          "id": "L0",
+          "role": "leader before turn",
+          "p": [
+            82,
+            57,
+            4
+          ],
+          "look": [
+            86,
+            55,
+            4
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F0",
+          "role": "follower on span",
+          "p": [
+            75,
+            57,
+            4
+          ],
+          "look": [
+            82,
+            57,
+            4
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "L1",
+          "role": "leader after turn",
+          "p": [
+            84,
+            52,
+            4
+          ],
+          "look": [
+            94,
+            52,
+            4
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F1",
+          "role": "follower supporting turn",
+          "p": [
+            82,
+            54,
+            4
+          ],
+          "look": [
+            94,
+            52,
+            4
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            94,
+            52,
+            4
+          ],
+          "look": [
+            84,
+            52,
+            4
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "north support",
+          "p": [
+            93,
+            64,
+            4
+          ],
+          "look": [
+            93,
+            60,
+            4
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "A 28 m span reaches the western half of I04. O03 blocks the bridge-facing stance from the two district departures; the crossers go south of its tip, then choose Fountain or the north School porch. This is an occupied receiving room with 3 m clear height, not a safe zone.",
+      "follower": "F0 cannot trade around the return immediately. F1 must advance to (82,54,+4), where the ray to O passes south of the return tip. The 5.55 m gap south of O03 permits two-body movement and a retreat.",
+      "opponent": "O can hold the east departure or push the room; S can pressure the north doorway. One defender may reposition between them, but the return prevents the same fixed bridge stance from seeing all three fronts. No peeker or utility claim is made.",
+      "walks": [
+        "R07",
+        "R10",
+        "R11"
+      ],
+      "captures": [
+        "Middle bridge opposing ends",
+        "L0/F0 before the turn",
+        "L1/F1/O after the turn",
+        "North exit and bridge return"
+      ]
+    },
+    {
+      "id": "SEC06",
+      "name": "Shore Toe commitment and Lower Harbor bend",
+      "level": 0,
+      "bounds": [
+        39,
+        7,
+        112,
+        37
+      ],
+      "ids": [
+        "M03",
+        "M10",
+        "M11",
+        "M19",
+        "S5",
+        "SITE-B"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            94,
+            25,
+            0
+          ],
+          "look": [
+            105,
+            25,
+            0
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            85,
+            24,
+            0
+          ],
+          "look": [
+            94,
+            25,
+            0
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            107,
+            22,
+            0
+          ],
+          "look": [
+            101,
+            25,
+            0
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "descent pressure",
+          "p": [
+            101,
+            48,
+            4
+          ],
+          "look": [
+            101,
+            34,
+            0
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "The shore route remains at 0 m and has no middle-ravine escape. The Boat Shed corner and Salt Store form a 6 m-deep lower-harbor bend before B. L can stop before the final corner while F retains the paid return to Shore Toe.",
+      "follower": "F sees L in the harbor approach but loses immediate site support when L rounds the M10 corner. The retreat is through the same ground route; a middle teammate can relieve it by threatening S5.",
+      "opponent": "A B defender can push the bend but leaves a site-facing position and must account for the east descents. Salt Store blocks an automatic upper reserve view into the entire harbor; exact S5 grade exposures remain to capture.",
+      "walks": [
+        "R03",
+        "R10"
+      ],
+      "captures": [
+        "Shore Toe approach and return",
+        "Harbor bend leader/follower",
+        "B defender pushing the bend",
+        "S5 descent toward harbor"
+      ]
+    },
+    {
+      "id": "SEC07",
+      "name": "B precinct, Customs and east descents",
+      "level": 0,
+      "bounds": [
+        77,
+        7,
+        132,
+        50
+      ],
+      "ids": [
+        "SITE-B",
+        "M10",
+        "M11",
+        "M12",
+        "M20",
+        "I02",
+        "O02",
+        "S5",
+        "S6"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "shore leader",
+          "p": [
+            103,
+            25,
+            0
+          ],
+          "look": [
+            108,
+            21,
+            0
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "shore follower",
+          "p": [
+            95,
+            25,
+            0
+          ],
+          "look": [
+            103,
+            25,
+            0
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "site opponent",
+          "p": [
+            111,
+            23,
+            0
+          ],
+          "look": [
+            105,
+            25,
+            0
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "Customs support",
+          "p": [
+            122,
+            27,
+            0
+          ],
+          "look": [
+            121,
+            34,
+            0
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "B is bounded by complete Boat Shed, Customs and Waterfront Homes. S5 arrives on the Salt-store side; S6 arrives behind Customs through the L porch. The 6×6 m site is an authoring footprint, not implemented planting behavior.",
+      "follower": "The shore follower needs to round the same M10 corner to trade the final entry. A teammate through I02 can support the S6 front, but Customs prevents immediate fire support across the whole site.",
+      "opponent": "O02 hides a crouching body from some ground positions; S5/S6 elevation can reveal behind it. A lone holder must move between shore, S5 and Customs fronts. That is a hypothesis, not proof that all three are independently contestable.",
+      "walks": [
+        "R03",
+        "R05",
+        "R06",
+        "R10"
+      ],
+      "captures": [
+        "B all three entry pairs",
+        "O02 standing/crouch and elevated reverse",
+        "I02 west/north mouths",
+        "S5 and S6 bottom/mid/top and reverse"
+      ]
+    },
+    {
+      "id": "SEC08",
+      "name": "East middle reserve and ascent choice",
+      "level": 4,
+      "bounds": [
+        76,
+        44,
+        132,
+        81
+      ],
+      "ids": [
+        "M13",
+        "M14",
+        "M15",
+        "I03",
+        "I04",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            98,
+            62,
+            4
+          ],
+          "look": [
+            113,
+            62,
+            4
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            93,
+            64,
+            4
+          ],
+          "look": [
+            100,
+            62,
+            4
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            114,
+            63,
+            4
+          ],
+          "look": [
+            105,
+            62,
+            4
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "School stair support",
+          "p": [
+            86,
+            64.5,
+            4
+          ],
+          "look": [
+            86,
+            70,
+            5.4
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "Winning the Taverna north exit reaches a narrow public porch, then either S7 or the School arcade toward S8. Fountain Court instead reaches S5/S6. School and East Homes keep these from becoming one undivided middle pad.",
+      "follower": "The arcade provides 4 m clear passage and straight support, while F at Taverna cannot fire through School mass. School porch depth is 4 m north of Taverna, sufficient for passing but exposed to a push from either ascent.",
+      "opponent": "O can defend the arcade east mouth or fall to Bell stepside; it cannot see S7 through School. A CT yielding this reserve territory concedes alternate B pressure as well as upper access.",
+      "walks": [
+        "R11",
+        "R12"
+      ],
+      "captures": [
+        "School arcade opposite mouths",
+        "S7 bottom/mid/top and reverse",
+        "S8 bottom/mid/top and reverse",
+        "Fountain to S5/S6 split"
+      ]
+    },
+    {
+      "id": "SEC09",
+      "name": "Upper crossing and West Lookout",
+      "level": 8,
+      "bounds": [
+        37,
+        77,
+        101,
+        102
+      ],
+      "ids": [
+        "BR-U",
+        "M08",
+        "M16",
+        "I05",
+        "W02",
+        "S4"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "westbound leader",
+          "p": [
+            72,
+            89,
+            8
+          ],
+          "look": [
+            47,
+            91,
+            8
+          ],
+          "color": "#bd654e",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "follower in arch",
+          "p": [
+            82,
+            89,
+            8
+          ],
+          "look": [
+            72,
+            89,
+            8
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "opponent at shoulder",
+          "p": [
+            47,
+            91,
+            8
+          ],
+          "look": [
+            70,
+            89,
+            8
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "S",
+          "role": "Inn support",
+          "p": [
+            93,
+            89,
+            8
+          ],
+          "look": [
+            62,
+            89,
+            8
+          ],
+          "color": "#588373",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        },
+        {
+          "id": "V",
+          "role": "middle observer",
+          "p": [
+            62.5,
+            86.8,
+            8
+          ],
+          "look": [
+            62.5,
+            57,
+            4
+          ],
+          "color": "#8b6ba3",
+          "stance": "standing",
+          "eye": 9.674,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "The 26 m civic span and 4 m-high Inn arch retain direct long support. West Homes creates an occupied receiving shoulder: north around its end reaches A, south reaches S4 and a lower district. W02 gives limited cross-level information from the span itself.",
+      "follower": "F can trade along the span, unlike F0 at the Taverna return. After L goes north behind M08, that support ends. The bridge remains an exposed commitment with an ordinary reversible retreat.",
+      "opponent": "O can challenge the span but cannot simultaneously defend S3 or A through M08. CT pressure from the bridge plus a west-middle survivor on S3 is a real two-front scenario only when that survivor is already west.",
+      "walks": [
+        "R04",
+        "R08",
+        "R09"
+      ],
+      "captures": [
+        "Upper bridge opposing ends",
+        "Inn follower through-arch support",
+        "West Lookout north retreat and S4 option",
+        "W02 reciprocal views"
+      ]
+    },
+    {
+      "id": "SEC10",
+      "name": "Bounded Laundry information",
+      "level": 4,
+      "bounds": [
+        15,
+        25,
+        32,
+        54
+      ],
+      "ids": [
+        "W01",
+        "R-F04W-1",
+        "S1",
+        "M03"
+      ],
+      "poses": [
+        {
+          "id": "V",
+          "role": "standing observer",
+          "p": [
+            23.5,
+            46.9,
+            4
+          ],
+          "look": [
+            26,
+            30,
+            0
+          ],
+          "color": "#8b6ba3",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "F",
+          "role": "observer support",
+          "p": [
+            21,
+            48.5,
+            4
+          ],
+          "look": [
+            23.5,
+            46.9,
+            4
+          ],
+          "color": "#507b9d",
+          "stance": "standing",
+          "eye": 5.6739999999999995,
+          "horizontalFov": 90
+        },
+        {
+          "id": "O",
+          "role": "ground opponent",
+          "p": [
+            26,
+            30,
+            0
+          ],
+          "look": [
+            23.5,
+            46.9,
+            4
+          ],
+          "color": "#a74464",
+          "stance": "standing",
+          "eye": 1.674,
+          "horizontalFov": 90
+        }
+      ],
+      "prediction": "W01 is a 3 m-wide observation aperture: global sill 5.20, head 6.30, panel top 6.60. The selected standing eye ray crosses the wall at z5.461. Crouching eye crosses below the sill; this is a geometric prediction to test.",
+      "follower": "The support can stay in Laundry, but cannot shoot through the wall beside W01. Approaching the opening is a deliberate exposure; it is not a route or a safe omniscient window.",
+      "opponent": "The selected ground standing ray is reciprocal and clears the lower crest wall at y34 by about .22 m. Crouching ground exposure and exact body slices need compiled images; do not mistake the eye ray for full-body visibility.",
+      "walks": [
+        "R01",
+        "R02"
+      ],
+      "captures": [
+        "W01 both standing eyes",
+        "Both crouched eyes and body silhouettes",
+        "Observer approach/withdrawal from Laundry"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "R01",
+      "name": "T → A via S1 / S3",
+      "waypoints": [
+        [
+          13,
+          20,
+          0
+        ],
+        [
+          18,
+          28,
+          0
+        ],
+        [
+          18,
+          34,
+          0
+        ],
+        [
+          18,
+          40,
+          2
+        ],
+        [
+          18,
+          46,
+          4
+        ],
+        [
+          20,
+          49,
+          4
+        ],
+        [
+          21,
+          57,
+          4
+        ],
+        [
+          17,
+          63,
+          4
+        ],
+        [
+          17,
+          66,
+          4
+        ],
+        [
+          17,
+          72,
+          6
+        ],
+        [
+          17,
+          78,
+          8
+        ],
+        [
+          17,
+          80,
+          8
+        ],
+        [
+          25,
+          80,
+          8
+        ],
+        [
+          28,
+          85,
+          8
+        ],
+        [
+          28,
+          91,
+          8
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 84.44206588293945
+    },
+    {
+      "id": "R02",
+      "name": "T → Press via S2",
+      "waypoints": [
+        [
+          13,
+          20,
+          0
+        ],
+        [
+          26,
+          22,
+          0
+        ],
+        [
+          28,
+          32,
+          0
+        ],
+        [
+          46.5,
+          32,
+          0
+        ],
+        [
+          46.5,
+          34,
+          0
+        ],
+        [
+          46.5,
+          40,
+          2
+        ],
+        [
+          46.5,
+          46,
+          4
+        ],
+        [
+          46,
+          52,
+          4
+        ],
+        [
+          47,
+          58,
+          4
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 68.60365592551935
+    },
+    {
+      "id": "R03",
+      "name": "T → B via shore commitment",
+      "waypoints": [
+        [
+          13,
+          20,
+          0
+        ],
+        [
+          25,
+          21,
+          0
+        ],
+        [
+          34,
+          21,
+          0
+        ],
+        [
+          45,
+          21,
+          0
+        ],
+        [
+          52,
+          22,
+          0
+        ],
+        [
+          64,
+          23,
+          0
+        ],
+        [
+          75,
+          23,
+          0
+        ],
+        [
+          84,
+          24,
+          0
+        ],
+        [
+          94,
+          25,
+          0
+        ],
+        [
+          103,
+          25,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 96.66264196614122
+    },
+    {
+      "id": "R04",
+      "name": "CT → A via civic bridge",
+      "waypoints": [
+        [
+          108,
+          102,
+          8
+        ],
+        [
+          98,
+          98,
+          8
+        ],
+        [
+          94,
+          92,
+          8
+        ],
+        [
+          89,
+          89,
+          8
+        ],
+        [
+          82,
+          89,
+          8
+        ],
+        [
+          74,
+          89,
+          8
+        ],
+        [
+          61,
+          89,
+          8
+        ],
+        [
+          48,
+          91,
+          8
+        ],
+        [
+          47,
+          96,
+          8
+        ],
+        [
+          44.7,
+          98,
+          8
+        ],
+        [
+          35,
+          97,
+          8
+        ],
+        [
+          30,
+          97,
+          8
+        ],
+        [
+          30,
+          92,
+          8
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 92.86371029686069
+    },
+    {
+      "id": "R05",
+      "name": "CT → B via S7 / S5",
+      "waypoints": [
+        [
+          108,
+          102,
+          8
+        ],
+        [
+          98,
+          97,
+          8
+        ],
+        [
+          92,
+          82,
+          8
+        ],
+        [
+          86,
+          80,
+          8
+        ],
+        [
+          86,
+          78,
+          8
+        ],
+        [
+          86,
+          72,
+          6
+        ],
+        [
+          86,
+          66,
+          4
+        ],
+        [
+          87,
+          64,
+          4
+        ],
+        [
+          98,
+          64,
+          4
+        ],
+        [
+          98,
+          53,
+          4
+        ],
+        [
+          101,
+          49,
+          4
+        ],
+        [
+          101,
+          46,
+          4
+        ],
+        [
+          101,
+          40,
+          2
+        ],
+        [
+          101,
+          34,
+          0
+        ],
+        [
+          102,
+          31,
+          0
+        ],
+        [
+          110,
+          30,
+          0
+        ],
+        [
+          111,
+          25,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 114.51823381014574
+    },
+    {
+      "id": "R06",
+      "name": "CT → B via S8 / S6 / Customs",
+      "waypoints": [
+        [
+          108,
+          102,
+          8
+        ],
+        [
+          117,
+          96,
+          8
+        ],
+        [
+          119,
+          89,
+          8
+        ],
+        [
+          117,
+          81,
+          8
+        ],
+        [
+          117,
+          78,
+          8
+        ],
+        [
+          117,
+          72,
+          6
+        ],
+        [
+          117,
+          66,
+          4
+        ],
+        [
+          117,
+          63,
+          4
+        ],
+        [
+          113.5,
+          62,
+          4
+        ],
+        [
+          113.5,
+          49,
+          4
+        ],
+        [
+          121,
+          49,
+          4
+        ],
+        [
+          121,
+          46,
+          4
+        ],
+        [
+          121,
+          40,
+          2
+        ],
+        [
+          121,
+          34,
+          0
+        ],
+        [
+          122,
+          31,
+          0
+        ],
+        [
+          122,
+          27,
+          0
+        ],
+        [
+          122,
+          24,
+          0
+        ],
+        [
+          113,
+          24,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 109.77448074790878
+    },
+    {
+      "id": "R07",
+      "name": "Press → Taverna → Fountain",
+      "waypoints": [
+        [
+          25,
+          52,
+          4
+        ],
+        [
+          29,
+          52,
+          4
+        ],
+        [
+          39,
+          52,
+          4
+        ],
+        [
+          45,
+          52,
+          4
+        ],
+        [
+          47,
+          57,
+          4
+        ],
+        [
+          52,
+          57,
+          4
+        ],
+        [
+          66,
+          57,
+          4
+        ],
+        [
+          75,
+          57,
+          4
+        ],
+        [
+          82,
+          57,
+          4
+        ],
+        [
+          83.5,
+          52,
+          4
+        ],
+        [
+          90,
+          52,
+          4
+        ],
+        [
+          98,
+          52,
+          4
+        ],
+        [
+          105,
+          52,
+          4
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 87.10531806158977
+    },
+    {
+      "id": "R08",
+      "name": "Press → A via S4 / West Lookout",
+      "waypoints": [
+        [
+          47,
+          58,
+          4
+        ],
+        [
+          46.5,
+          63,
+          4
+        ],
+        [
+          46.5,
+          66,
+          4
+        ],
+        [
+          46.5,
+          72,
+          6
+        ],
+        [
+          46.5,
+          78,
+          8
+        ],
+        [
+          47,
+          83,
+          8
+        ],
+        [
+          47,
+          92,
+          8
+        ],
+        [
+          47,
+          96,
+          8
+        ],
+        [
+          44.7,
+          98,
+          8
+        ],
+        [
+          35,
+          97,
+          8
+        ],
+        [
+          30,
+          97,
+          8
+        ],
+        [
+          30,
+          92,
+          8
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 61.49834654705412
+    },
+    {
+      "id": "R09",
+      "name": "A → B via upper / S7 / S5",
+      "waypoints": [
+        [
+          30,
+          92,
+          8
+        ],
+        [
+          30,
+          97,
+          8
+        ],
+        [
+          35,
+          97,
+          8
+        ],
+        [
+          44.7,
+          98,
+          8
+        ],
+        [
+          47,
+          96,
+          8
+        ],
+        [
+          48,
+          91,
+          8
+        ],
+        [
+          61,
+          89,
+          8
+        ],
+        [
+          74,
+          89,
+          8
+        ],
+        [
+          82,
+          89,
+          8
+        ],
+        [
+          90,
+          89,
+          8
+        ],
+        [
+          92,
+          82,
+          8
+        ],
+        [
+          86,
+          80,
+          8
+        ],
+        [
+          86,
+          78,
+          8
+        ],
+        [
+          86,
+          72,
+          6
+        ],
+        [
+          86,
+          66,
+          4
+        ],
+        [
+          87,
+          64,
+          4
+        ],
+        [
+          98,
+          64,
+          4
+        ],
+        [
+          98,
+          53,
+          4
+        ],
+        [
+          101,
+          49,
+          4
+        ],
+        [
+          101,
+          46,
+          4
+        ],
+        [
+          101,
+          40,
+          2
+        ],
+        [
+          101,
+          34,
+          0
+        ],
+        [
+          102,
+          31,
+          0
+        ],
+        [
+          110,
+          30,
+          0
+        ],
+        [
+          111,
+          25,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 164.51383562734225
+    },
+    {
+      "id": "R10",
+      "name": "Captured middle → B via Salt stair",
+      "waypoints": [
+        [
+          82,
+          57,
+          4
+        ],
+        [
+          83.5,
+          52,
+          4
+        ],
+        [
+          90,
+          52,
+          4
+        ],
+        [
+          98,
+          52,
+          4
+        ],
+        [
+          101,
+          49,
+          4
+        ],
+        [
+          101,
+          46,
+          4
+        ],
+        [
+          101,
+          40,
+          2
+        ],
+        [
+          101,
+          34,
+          0
+        ],
+        [
+          102,
+          31,
+          0
+        ],
+        [
+          110,
+          30,
+          0
+        ],
+        [
+          111,
+          25,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 60.93545950430779
+    },
+    {
+      "id": "R11",
+      "name": "Captured middle → CT via School stair",
+      "waypoints": [
+        [
+          82,
+          57,
+          4
+        ],
+        [
+          83.5,
+          52,
+          4
+        ],
+        [
+          90,
+          52,
+          4
+        ],
+        [
+          93,
+          57,
+          4
+        ],
+        [
+          93,
+          64,
+          4
+        ],
+        [
+          86,
+          64,
+          4
+        ],
+        [
+          86,
+          66,
+          4
+        ],
+        [
+          86,
+          72,
+          6
+        ],
+        [
+          86,
+          78,
+          8
+        ],
+        [
+          86,
+          80,
+          8
+        ],
+        [
+          92,
+          82,
+          8
+        ],
+        [
+          98,
+          97,
+          8
+        ],
+        [
+          108,
+          102,
+          8
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 81.8606054192133
+    },
+    {
+      "id": "R12",
+      "name": "Taverna north → School arcade → Bell stair",
+      "waypoints": [
+        [
+          93,
+          64,
+          4
+        ],
+        [
+          98,
+          64,
+          4
+        ],
+        [
+          98,
+          62,
+          4
+        ],
+        [
+          102,
+          62,
+          4
+        ],
+        [
+          110,
+          62,
+          4
+        ],
+        [
+          114,
+          62,
+          4
+        ],
+        [
+          117,
+          63,
+          4
+        ],
+        [
+          117,
+          66,
+          4
+        ],
+        [
+          117,
+          72,
+          6
+        ],
+        [
+          117,
+          78,
+          8
+        ],
+        [
+          117,
+          81,
+          8
+        ],
+        [
+          119,
+          89,
+          8
+        ],
+        [
+          117,
+          96,
+          8
+        ],
+        [
+          108,
+          102,
+          8
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Expected centers/levels only. Later body collision walk must visit these or document a corrected route. No teleport, jump or fly segment permitted.",
+      "estimatedPolylineMeters": 71.1543632677497
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SC01",
+      "state": "5v5 opening / A development",
+      "attack": "Two T establish Laundry/Press; one stays to keep bridge pressure credible, two can work S3/S4 toward A. Shore presence remains a separate commitment.",
+      "defense": "CT may send an upper-crossing A anchor, lower B anchor and east-middle reserve; actual opening races remain unmeasured.",
+      "routes": [
+        "R01",
+        "R02",
+        "R04",
+        "R05",
+        "R07",
+        "R08"
+      ],
+      "sections": [
+        "SEC01",
+        "SEC02",
+        "SEC03",
+        "SEC04",
+        "SEC05"
+      ]
+    },
+    {
+      "id": "SC02",
+      "state": "5v5 split B pressure",
+      "attack": "Shore pair stops at Lower Harbor while the middle group earns I04 and chooses S5 pressure. The shore group cannot escape upward inside the ravine.",
+      "defense": "B holder can push the bend or delay a ground entry while reserve chooses between retaining Taverna and descending. Visible bridge pressure is incomplete bomb information.",
+      "routes": [
+        "R03",
+        "R07",
+        "R10"
+      ],
+      "sections": [
+        "SEC05",
+        "SEC06",
+        "SEC07"
+      ]
+    },
+    {
+      "id": "SC03",
+      "state": "3v3 learned middle hold / changed plan",
+      "attack": "Press player shows span pressure, then withdraws to S4/A or all the way to Shore Toe. This is only credible when the actual remaining time supports the journey.",
+      "defense": "Taverna observer can retain crossing information or leave to reinforce a site, giving up the entry. O03 does not grant both fronts from one fixed stance.",
+      "routes": [
+        "R07",
+        "R08",
+        "R03"
+      ],
+      "sections": [
+        "SEC03",
+        "SEC05",
+        "SEC06",
+        "SEC09"
+      ]
+    },
+    {
+      "id": "SC04",
+      "state": "3v3 split across shoulders after loss",
+      "attack": "One player retaining the bridgehead gives two advancing players a potential return. If that player is lost, upper or shore reconnection is an expensive territorial consequence.",
+      "defense": "Pressure the north bridgehead or middle span rather than automatically adding a new graph edge. Reconnection is contingent, not guaranteed.",
+      "routes": [
+        "R10",
+        "R11",
+        "R12",
+        "R09"
+      ],
+      "sections": [
+        "SEC05",
+        "SEC08",
+        "SEC09"
+      ]
+    },
+    {
+      "id": "SC05",
+      "state": "2v2 A postplant",
+      "attack": "One player chooses A/Chapel while another elects West Lookout or local-ascent delay; M08 prevents one fixed player covering all of them.",
+      "defense": "Upper crossing plus a survivor ALREADY on west middle can create two fronts. If both CTs are east, the middle-plus-ascent investment must be measured against the clock.",
+      "routes": [
+        "R04",
+        "R01",
+        "R08"
+      ],
+      "sections": [
+        "SEC04",
+        "SEC09"
+      ]
+    },
+    {
+      "id": "SC06",
+      "state": "2v2 B postplant",
+      "attack": "One player holds ground; the partner repositions between descent and shore pressure. O02 is conditional crouch cover, not full elevated protection.",
+      "defense": "A survivor already on east middle can choose S5 or S6. A survivor at A must pay R09; the shore route is not advertised as an emergency retake.",
+      "routes": [
+        "R05",
+        "R06",
+        "R09",
+        "R10"
+      ],
+      "sections": [
+        "SEC06",
+        "SEC07",
+        "SEC08"
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "id": "CAM-ROOF",
+      "view": "orthographic roof-on overview",
+      "purpose": "Complete town volumes, cliff foundations, actual bridge abutments and roofs."
+    },
+    {
+      "id": "CAM-CUT",
+      "view": "same overview pose cutaway",
+      "purpose": "Verify playable floors and exact correspondence with roof-on source."
+    },
+    {
+      "id": "CAM-SEC01-L",
+      "section": "SEC01",
+      "body": [
+        18,
+        31,
+        0
+      ],
+      "eye": [
+        18,
+        31,
+        1.674
+      ],
+      "look": [
+        18,
+        46,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "leader"
+    },
+    {
+      "id": "CAM-SEC01-F",
+      "section": "SEC01",
+      "body": [
+        18,
+        28,
+        0
+      ],
+      "eye": [
+        18,
+        28,
+        1.674
+      ],
+      "look": [
+        18,
+        40,
+        2
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower"
+    },
+    {
+      "id": "CAM-SEC01-O",
+      "section": "SEC01",
+      "body": [
+        23.5,
+        46.9,
+        4
+      ],
+      "eye": [
+        23.5,
+        46.9,
+        5.6739999999999995
+      ],
+      "look": [
+        26,
+        30,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "opponent"
+    },
+    {
+      "id": "CAM-SEC01-S",
+      "section": "SEC01",
+      "body": [
+        27,
+        32,
+        0
+      ],
+      "eye": [
+        27,
+        32,
+        1.674
+      ],
+      "look": [
+        46.5,
+        34,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "support"
+    },
+    {
+      "id": "CAM-SEC02-L",
+      "section": "SEC02",
+      "body": [
+        98,
+        97,
+        8
+      ],
+      "eye": [
+        98,
+        97,
+        9.674
+      ],
+      "look": [
+        90,
+        81,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "leader"
+    },
+    {
+      "id": "CAM-SEC02-F",
+      "section": "SEC02",
+      "body": [
+        106,
+        100,
+        8
+      ],
+      "eye": [
+        106,
+        100,
+        9.674
+      ],
+      "look": [
+        98,
+        97,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower"
+    },
+    {
+      "id": "CAM-SEC02-O",
+      "section": "SEC02",
+      "body": [
+        68,
+        89,
+        8
+      ],
+      "eye": [
+        68,
+        89,
+        9.674
+      ],
+      "look": [
+        93,
+        89,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "opponent"
+    },
+    {
+      "id": "CAM-SEC02-S",
+      "section": "SEC02",
+      "body": [
+        119,
+        87,
+        8
+      ],
+      "eye": [
+        119,
+        87,
+        9.674
+      ],
+      "look": [
+        117,
+        78,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "support"
+    },
+    {
+      "id": "CAM-SEC03-L",
+      "section": "SEC03",
+      "body": [
+        25,
+        52,
+        4
+      ],
+      "eye": [
+        25,
+        52,
+        5.6739999999999995
+      ],
+      "look": [
+        43,
+        52,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "leader"
+    },
+    {
+      "id": "CAM-SEC03-F",
+      "section": "SEC03",
+      "body": [
+        21,
+        52,
+        4
+      ],
+      "eye": [
+        21,
+        52,
+        5.6739999999999995
+      ],
+      "look": [
+        30,
+        52,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower"
+    },
+    {
+      "id": "CAM-SEC03-O",
+      "section": "SEC03",
+      "body": [
+        44,
+        52,
+        4
+      ],
+      "eye": [
+        44,
+        52,
+        5.6739999999999995
+      ],
+      "look": [
+        28,
+        52,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "opponent"
+    },
+    {
+      "id": "CAM-SEC03-S",
+      "section": "SEC03",
+      "body": [
+        18,
+        63,
+        4
+      ],
+      "eye": [
+        18,
+        63,
+        5.6739999999999995
+      ],
+      "look": [
+        17,
+        66,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "support"
+    },
+    {
+      "id": "CAM-SEC04-L",
+      "section": "SEC04",
+      "body": [
+        26,
+        82,
+        8
+      ],
+      "eye": [
+        26,
+        82,
+        9.674
+      ],
+      "look": [
+        28,
+        91,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "leader"
+    },
+    {
+      "id": "CAM-SEC04-F",
+      "section": "SEC04",
+      "body": [
+        23,
+        80,
+        8
+      ],
+      "eye": [
+        23,
+        80,
+        9.674
+      ],
+      "look": [
+        26,
+        85,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower"
+    },
+    {
+      "id": "CAM-SEC04-O",
+      "section": "SEC04",
+      "body": [
+        30,
+        97,
+        8
+      ],
+      "eye": [
+        30,
+        97,
+        9.674
+      ],
+      "look": [
+        28,
+        90,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "opponent"
+    },
+    {
+      "id": "CAM-SEC04-S",
+      "section": "SEC04",
+      "body": [
+        47,
+        82,
+        8
+      ],
+      "eye": [
+        47,
+        82,
+        9.674
+      ],
+      "look": [
+        46.5,
+        78,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "support"
+    },
+    {
+      "id": "CAM-SEC05-L0",
+      "section": "SEC05",
+      "body": [
+        82,
+        57,
+        4
+      ],
+      "eye": [
+        82,
+        57,
+        5.6739999999999995
+      ],
+      "look": [
+        86,
+        55,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "leader before turn"
+    },
+    {
+      "id": "CAM-SEC05-F0",
+      "section": "SEC05",
+      "body": [
+        75,
+        57,
+        4
+      ],
+      "eye": [
+        75,
+        57,
+        5.6739999999999995
+      ],
+      "look": [
+        82,
+        57,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower on span"
+    },
+    {
+      "id": "CAM-SEC05-L1",
+      "section": "SEC05",
+      "body": [
+        84,
+        52,
+        4
+      ],
+      "eye": [
+        84,
+        52,
+        5.6739999999999995
+      ],
+      "look": [
+        94,
+        52,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "leader after turn"
+    },
+    {
+      "id": "CAM-SEC05-F1",
+      "section": "SEC05",
+      "body": [
+        82,
+        54,
+        4
+      ],
+      "eye": [
+        82,
+        54,
+        5.6739999999999995
+      ],
+      "look": [
+        94,
+        52,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower supporting turn"
+    },
+    {
+      "id": "CAM-SEC05-O",
+      "section": "SEC05",
+      "body": [
+        94,
+        52,
+        4
+      ],
+      "eye": [
+        94,
+        52,
+        5.6739999999999995
+      ],
+      "look": [
+        84,
+        52,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "opponent"
+    },
+    {
+      "id": "CAM-SEC05-S",
+      "section": "SEC05",
+      "body": [
+        93,
+        64,
+        4
+      ],
+      "eye": [
+        93,
+        64,
+        5.6739999999999995
+      ],
+      "look": [
+        93,
+        60,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "north support"
+    },
+    {
+      "id": "CAM-SEC06-L",
+      "section": "SEC06",
+      "body": [
+        94,
+        25,
+        0
+      ],
+      "eye": [
+        94,
+        25,
+        1.674
+      ],
+      "look": [
+        105,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "leader"
+    },
+    {
+      "id": "CAM-SEC06-F",
+      "section": "SEC06",
+      "body": [
+        85,
+        24,
+        0
+      ],
+      "eye": [
+        85,
+        24,
+        1.674
+      ],
+      "look": [
+        94,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower"
+    },
+    {
+      "id": "CAM-SEC06-O",
+      "section": "SEC06",
+      "body": [
+        107,
+        22,
+        0
+      ],
+      "eye": [
+        107,
+        22,
+        1.674
+      ],
+      "look": [
+        101,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "opponent"
+    },
+    {
+      "id": "CAM-SEC06-S",
+      "section": "SEC06",
+      "body": [
+        101,
+        48,
+        4
+      ],
+      "eye": [
+        101,
+        48,
+        5.6739999999999995
+      ],
+      "look": [
+        101,
+        34,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "descent pressure"
+    },
+    {
+      "id": "CAM-SEC07-L",
+      "section": "SEC07",
+      "body": [
+        103,
+        25,
+        0
+      ],
+      "eye": [
+        103,
+        25,
+        1.674
+      ],
+      "look": [
+        108,
+        21,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "shore leader"
+    },
+    {
+      "id": "CAM-SEC07-F",
+      "section": "SEC07",
+      "body": [
+        95,
+        25,
+        0
+      ],
+      "eye": [
+        95,
+        25,
+        1.674
+      ],
+      "look": [
+        103,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "shore follower"
+    },
+    {
+      "id": "CAM-SEC07-O",
+      "section": "SEC07",
+      "body": [
+        111,
+        23,
+        0
+      ],
+      "eye": [
+        111,
+        23,
+        1.674
+      ],
+      "look": [
+        105,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "site opponent"
+    },
+    {
+      "id": "CAM-SEC07-S",
+      "section": "SEC07",
+      "body": [
+        122,
+        27,
+        0
+      ],
+      "eye": [
+        122,
+        27,
+        1.674
+      ],
+      "look": [
+        121,
+        34,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "Customs support"
+    },
+    {
+      "id": "CAM-SEC08-L",
+      "section": "SEC08",
+      "body": [
+        98,
+        62,
+        4
+      ],
+      "eye": [
+        98,
+        62,
+        5.6739999999999995
+      ],
+      "look": [
+        113,
+        62,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "leader"
+    },
+    {
+      "id": "CAM-SEC08-F",
+      "section": "SEC08",
+      "body": [
+        93,
+        64,
+        4
+      ],
+      "eye": [
+        93,
+        64,
+        5.6739999999999995
+      ],
+      "look": [
+        100,
+        62,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower"
+    },
+    {
+      "id": "CAM-SEC08-O",
+      "section": "SEC08",
+      "body": [
+        114,
+        63,
+        4
+      ],
+      "eye": [
+        114,
+        63,
+        5.6739999999999995
+      ],
+      "look": [
+        105,
+        62,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "opponent"
+    },
+    {
+      "id": "CAM-SEC08-S",
+      "section": "SEC08",
+      "body": [
+        86,
+        64.5,
+        4
+      ],
+      "eye": [
+        86,
+        64.5,
+        5.6739999999999995
+      ],
+      "look": [
+        86,
+        70,
+        5.4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "School stair support"
+    },
+    {
+      "id": "CAM-SEC09-L",
+      "section": "SEC09",
+      "body": [
+        72,
+        89,
+        8
+      ],
+      "eye": [
+        72,
+        89,
+        9.674
+      ],
+      "look": [
+        47,
+        91,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "westbound leader"
+    },
+    {
+      "id": "CAM-SEC09-F",
+      "section": "SEC09",
+      "body": [
+        82,
+        89,
+        8
+      ],
+      "eye": [
+        82,
+        89,
+        9.674
+      ],
+      "look": [
+        72,
+        89,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "follower in arch"
+    },
+    {
+      "id": "CAM-SEC09-O",
+      "section": "SEC09",
+      "body": [
+        47,
+        91,
+        8
+      ],
+      "eye": [
+        47,
+        91,
+        9.674
+      ],
+      "look": [
+        70,
+        89,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "opponent at shoulder"
+    },
+    {
+      "id": "CAM-SEC09-S",
+      "section": "SEC09",
+      "body": [
+        93,
+        89,
+        8
+      ],
+      "eye": [
+        93,
+        89,
+        9.674
+      ],
+      "look": [
+        62,
+        89,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "Inn support"
+    },
+    {
+      "id": "CAM-SEC09-V",
+      "section": "SEC09",
+      "body": [
+        62.5,
+        86.8,
+        8
+      ],
+      "eye": [
+        62.5,
+        86.8,
+        9.674
+      ],
+      "look": [
+        62.5,
+        57,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "middle observer"
+    },
+    {
+      "id": "CAM-SEC10-V",
+      "section": "SEC10",
+      "body": [
+        23.5,
+        46.9,
+        4
+      ],
+      "eye": [
+        23.5,
+        46.9,
+        5.6739999999999995
+      ],
+      "look": [
+        26,
+        30,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "standing observer"
+    },
+    {
+      "id": "CAM-SEC10-F",
+      "section": "SEC10",
+      "body": [
+        21,
+        48.5,
+        4
+      ],
+      "eye": [
+        21,
+        48.5,
+        5.6739999999999995
+      ],
+      "look": [
+        23.5,
+        46.9,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "observer support"
+    },
+    {
+      "id": "CAM-SEC10-O",
+      "section": "SEC10",
+      "body": [
+        26,
+        30,
+        0
+      ],
+      "eye": [
+        26,
+        30,
+        1.674
+      ],
+      "look": [
+        23.5,
+        46.9,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "purpose": "ground opponent"
+    }
+  ],
+  "captureProtocol": "Compile frozen AML later; hash source and active rendered identity. Apply public camera form AFTER compile ready, assert actual #model.dataset.view equals request, then capture. URL-only poses are not accepted. Pair roof-on/cutaway and opposing/follower views. Every stair additionally needs bottom, midpoint and top plus reverse views; every route walked both directions with unchanged body. Capture scripts examples: projects/tidebreak/capture.mjs and projects/last-light/capture.mjs.",
+  "unavailable": [
+    "Target-engine shooting, penetration, destructibility, utility, sound, economy and actual defusal clock",
+    "Competitive balance",
+    "Compiled collision, navigation and measured timing at this developed stage"
+  ]
+}

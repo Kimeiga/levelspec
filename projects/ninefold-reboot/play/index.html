@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ninefold — Loft Street</title>
+  <link rel="icon" href="data:,">
+  <style>
+    html, body { margin: 0; height: 100%; background: #07090d; color: #e9e6df; font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; overflow: hidden; }
+    canvas { display: block; }
+    #hud { position: fixed; left: 16px; top: 16px; padding: 12px 14px; max-width: 330px; background: rgb(8 10 14 / 0.62); border: 1px solid rgb(255 255 255 / 0.08); border-radius: 4px; backdrop-filter: blur(6px); }
+    #hud h1 { margin: 0 0 2px; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; }
+    #hud .sub { color: #e2a45a; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; margin-bottom: 8px; }
+    #hud kbd { background: rgb(255 255 255 / 0.12); border-radius: 3px; padding: 0 5px; font: 11px ui-monospace, monospace; }
+    #hud .keys { color: #b9b6ad; }
+    #status { color: #7f8a95; font: 11px ui-monospace, monospace; margin-top: 8px; }
+    #place { position: fixed; left: 50%; bottom: 34px; transform: translateX(-50%); font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #f3efe6; text-shadow: 0 1px 8px #000; opacity: 0.85; pointer-events: none; }
+    #crosshair { position: fixed; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: #fff; opacity: 0.75; pointer-events: none; box-shadow: 0 0 3px #000; }
+    #loading { position: fixed; inset: 0; display: grid; place-items: center; background: #07090d; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #e2a45a; transition: opacity 0.6s; }
+    #loading.done { opacity: 0; pointer-events: none; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div id="hud">
+    <h1>Ninefold</h1>
+    <div class="sub">Loft Street · bomb defusal · late afternoon</div>
+    <div class="keys">
+      Click to look. <kbd>WASD</kbd> move · <kbd>Shift</kbd> walk · <kbd>C</kbd> crouch · <kbd>Space</kbd> jump<br>
+      <kbd>1</kbd> T spawn · <kbd>2</kbd> CT spawn · <kbd>3</kbd> site A · <kbd>4</kbd> site B<br>
+      <kbd>F</kbd> free-fly · <kbd>O</kbd> overview · <kbd>[</kbd> <kbd>]</kbd> exposure · <kbd>H</kbd> hide panel<br><kbd>G</kbd> ambient occlusion · <kbd>Q</kbd> force full quality<br>Reloads itself when a new build is published.
+    </div>
+    <div id="status"></div>
+  </div>
+  <div id="place"></div>
+  <div id="crosshair"></div>
+  <div id="loading">Loading Ninefold…</div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

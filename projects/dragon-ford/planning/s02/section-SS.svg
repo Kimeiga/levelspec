@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 694 226" font-family="Helvetica,Arial,sans-serif">
+<rect width="694" height="226" fill="#f7f5ee"/>
+<text x="14" y="22" font-size="15" font-weight="bold">Dragon Ford S02 — section SS: Lung Chun W → Well Court → Sai Shing → A</text>
+<text x="14" y="38" font-size="10.5" fill="#555">from (19.77,20.72) to (23.953,72.705); horizontal = distance along cut (m); vertical = z (m). Figure = 2.0 m standing body.</text>
+<rect x="60" y="184.2" width="573.7" height="13.2" fill="#3d3f44"/>
+<rect x="60.0" y="146.8" width="24.8" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="269.6" y="146.8" width="364.1" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="60.0" y="109.4" width="63.4" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="269.6" y="109.4" width="121.4" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="60.0" y="72.0" width="63.4" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="192.4" y="72.0" width="198.6" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="620.3" y="72.0" width="13.4" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="84.8" y="184.2" width="38.6" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="123.4" y="184.2" width="68.9" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="229.9" y="165.5" width="39.7" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="391.0" y="146.8" width="198.6" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="589.6" y="146.8" width="44.1" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="229.9" y="168.8" width="39.7" height="15.4" fill="#6d7178"/>
+<polygon points="192.4,184.2 229.9,165.5 229.9,184.2 192.4,184.2" fill="#e9a48d" stroke="#8a3d24"/>
+<text x="211.1" y="161.5" font-size="9" text-anchor="middle" fill="#5a1d0c">SS1</text>
+<text x="104.1" y="159.45" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Lung Chun Road W (tunnel)</text>
+<rect x="101.35" y="162.2" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="157.9" y="159.45" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Well Court (lit junction)</text>
+<rect x="155.15" y="162.2" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="249.8" y="140.75" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Sai Shing landing</text>
+<rect x="247.05" y="143.5" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="490.3" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">A — Tin Hau lot (hall porch = plant)</text>
+<rect x="487.55" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<line x1="52" y1="184.2" x2="641.7" y2="184.2" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="187.2" font-size="9" text-anchor="end">0</text>
+<line x1="52" y1="146.8" x2="641.7" y2="146.8" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="149.8" font-size="9" text-anchor="end">3.4</text>
+<line x1="52" y1="109.4" x2="641.7" y2="109.4" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="112.4" font-size="9" text-anchor="end">6.8</text>
+<line x1="52" y1="72.0" x2="641.7" y2="72.0" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="75.0" font-size="9" text-anchor="end">10.2</text>
+<line x1="60" y1="197.39999999999998" x2="60" y2="202.39999999999998" stroke="#333"/><text x="60" y="213.39999999999998" font-size="9" text-anchor="middle">0</text>
+<line x1="170" y1="197.39999999999998" x2="170" y2="202.39999999999998" stroke="#333"/><text x="170" y="213.39999999999998" font-size="9" text-anchor="middle">10</text>
+<line x1="280" y1="197.39999999999998" x2="280" y2="202.39999999999998" stroke="#333"/><text x="280" y="213.39999999999998" font-size="9" text-anchor="middle">20</text>
+<line x1="390" y1="197.39999999999998" x2="390" y2="202.39999999999998" stroke="#333"/><text x="390" y="213.39999999999998" font-size="9" text-anchor="middle">30</text>
+<line x1="500" y1="197.39999999999998" x2="500" y2="202.39999999999998" stroke="#333"/><text x="500" y="213.39999999999998" font-size="9" text-anchor="middle">40</text>
+<line x1="610" y1="197.39999999999998" x2="610" y2="202.39999999999998" stroke="#333"/><text x="610" y="213.39999999999998" font-size="9" text-anchor="middle">50</text>
+</svg>

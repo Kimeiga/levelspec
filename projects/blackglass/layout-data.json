@@ -1,0 +1,1323 @@
+{
+  "revision": "L05",
+  "units": "meters, right-handed Z-up",
+  "seed": 731904,
+  "provisional_floors": {
+    "nodes": 18,
+    "edges": 24
+  },
+  "actual_counts": {
+    "nodes": 24,
+    "edges": 32
+  },
+  "rooms": [
+    {
+      "id": "T",
+      "name": "Insertion dock",
+      "bounds": [
+        10,
+        0,
+        36,
+        12
+      ],
+      "z": 0
+    },
+    {
+      "id": "F",
+      "name": "Freight hall",
+      "bounds": [
+        4,
+        12,
+        24,
+        28
+      ],
+      "z": 0
+    },
+    {
+      "id": "C",
+      "name": "Arrival concourse",
+      "bounds": [
+        24,
+        12,
+        44,
+        24
+      ],
+      "z": 0
+    },
+    {
+      "id": "E",
+      "name": "Cable port",
+      "bounds": [
+        44,
+        12,
+        60,
+        24
+      ],
+      "z": 0
+    },
+    {
+      "id": "P",
+      "name": "Cooling pumps",
+      "bounds": [
+        4,
+        28,
+        18,
+        42
+      ],
+      "z": 0
+    },
+    {
+      "id": "L",
+      "name": "Lower gallery",
+      "bounds": [
+        18,
+        28,
+        30,
+        42
+      ],
+      "z": 0
+    },
+    {
+      "id": "K",
+      "name": "Cold airlock",
+      "bounds": [
+        4,
+        42,
+        18,
+        52
+      ],
+      "z": 0
+    },
+    {
+      "id": "PC",
+      "name": "Pump control",
+      "bounds": [
+        18,
+        42,
+        26,
+        52
+      ],
+      "z": 0
+    },
+    {
+      "id": "B",
+      "name": "B / Data vault",
+      "bounds": [
+        2,
+        52,
+        26,
+        72
+      ],
+      "z": 0
+    },
+    {
+      "id": "M",
+      "name": "Mid / Atrium",
+      "bounds": [
+        30,
+        36,
+        48,
+        50
+      ],
+      "z": 6
+    },
+    {
+      "id": "H",
+      "name": "Heat exchangers",
+      "bounds": [
+        48,
+        36,
+        64,
+        46
+      ],
+      "z": 6
+    },
+    {
+      "id": "Q",
+      "name": "Suspended gallery",
+      "bounds": [
+        18,
+        38,
+        30,
+        44
+      ],
+      "z": 6
+    },
+    {
+      "id": "D",
+      "name": "Cleanroom",
+      "bounds": [
+        32,
+        50,
+        52,
+        58
+      ],
+      "z": 6
+    },
+    {
+      "id": "J",
+      "name": "Short airlock",
+      "bounds": [
+        26,
+        56,
+        32,
+        62
+      ],
+      "z": 0
+    },
+    {
+      "id": "W",
+      "name": "Service spine",
+      "bounds": [
+        32,
+        58,
+        38,
+        72
+      ],
+      "z": 6
+    },
+    {
+      "id": "R",
+      "name": "CT operations / rear bridge",
+      "bounds": [
+        26,
+        72,
+        44,
+        78
+      ],
+      "z": 6
+    },
+    {
+      "id": "U",
+      "name": "Switchgear",
+      "bounds": [
+        20,
+        84,
+        38,
+        90
+      ],
+      "z": 6
+    },
+    {
+      "id": "V",
+      "name": "Vault stair head",
+      "bounds": [
+        14,
+        84,
+        20,
+        90
+      ],
+      "z": 6
+    },
+    {
+      "id": "N",
+      "name": "Coolant manifold",
+      "bounds": [
+        26,
+        78,
+        32,
+        84
+      ],
+      "z": 6
+    },
+    {
+      "id": "I",
+      "name": "Security vestibule",
+      "bounds": [
+        38,
+        90,
+        48,
+        96
+      ],
+      "z": 12
+    },
+    {
+      "id": "CT",
+      "name": "Summit command pad",
+      "bounds": [
+        48,
+        84,
+        70,
+        96
+      ],
+      "z": 12
+    },
+    {
+      "id": "A",
+      "name": "A / Reactor hall",
+      "bounds": [
+        48,
+        58,
+        72,
+        78
+      ],
+      "z": 12
+    },
+    {
+      "id": "AW",
+      "name": "Scrubber landing",
+      "bounds": [
+        42,
+        70,
+        48,
+        78
+      ],
+      "z": 12
+    },
+    {
+      "id": "AC",
+      "name": "Command access",
+      "bounds": [
+        56,
+        78,
+        64,
+        84
+      ],
+      "z": 12
+    }
+  ],
+  "stairs": [
+    {
+      "id": "S1",
+      "from": "C",
+      "to": "M",
+      "bounds": [
+        38,
+        24,
+        44,
+        36
+      ],
+      "z0": 0,
+      "z1": 6
+    },
+    {
+      "id": "S2",
+      "from": "E",
+      "to": "H",
+      "bounds": [
+        54,
+        24,
+        60,
+        36
+      ],
+      "z0": 0,
+      "z1": 6
+    },
+    {
+      "id": "S3",
+      "from": "H",
+      "to": "A",
+      "bounds": [
+        58,
+        46,
+        64,
+        58
+      ],
+      "z0": 6,
+      "z1": 12
+    },
+    {
+      "id": "S4",
+      "from": "D",
+      "to": "AW",
+      "bounds": [
+        42,
+        58,
+        48,
+        70
+      ],
+      "z0": 6,
+      "z1": 12
+    },
+    {
+      "id": "S5",
+      "from": "Q",
+      "to": "J",
+      "bounds": [
+        26,
+        44,
+        30,
+        56
+      ],
+      "z0": 6,
+      "z1": 0
+    },
+    {
+      "id": "S6",
+      "from": "B",
+      "to": "V",
+      "bounds": [
+        14,
+        72,
+        20,
+        84
+      ],
+      "z0": 0,
+      "z1": 6
+    },
+    {
+      "id": "S7",
+      "from": "R",
+      "to": "I",
+      "bounds": [
+        38,
+        78,
+        44,
+        90
+      ],
+      "z0": 6,
+      "z1": 12
+    }
+  ],
+  "flat_links": [
+    [
+      "T",
+      "F"
+    ],
+    [
+      "T",
+      "C"
+    ],
+    [
+      "F",
+      "C"
+    ],
+    [
+      "C",
+      "E"
+    ],
+    [
+      "F",
+      "P"
+    ],
+    [
+      "F",
+      "L"
+    ],
+    [
+      "P",
+      "L"
+    ],
+    [
+      "P",
+      "K"
+    ],
+    [
+      "K",
+      "PC"
+    ],
+    [
+      "L",
+      "PC"
+    ],
+    [
+      "K",
+      "B"
+    ],
+    [
+      "PC",
+      "B"
+    ],
+    [
+      "M",
+      "H"
+    ],
+    [
+      "M",
+      "Q"
+    ],
+    [
+      "M",
+      "D"
+    ],
+    [
+      "J",
+      "B"
+    ],
+    [
+      "D",
+      "W"
+    ],
+    [
+      "W",
+      "R"
+    ],
+    [
+      "R",
+      "N"
+    ],
+    [
+      "N",
+      "U"
+    ],
+    [
+      "U",
+      "V"
+    ],
+    [
+      "I",
+      "CT"
+    ],
+    [
+      "CT",
+      "AC"
+    ],
+    [
+      "AC",
+      "A"
+    ],
+    [
+      "A",
+      "AW"
+    ]
+  ],
+  "raw_seed": [
+    {
+      "id": "T",
+      "candidate_xy": [
+        27.82,
+        7.6
+      ]
+    },
+    {
+      "id": "F",
+      "candidate_xy": [
+        12.35,
+        21.36
+      ]
+    },
+    {
+      "id": "C",
+      "candidate_xy": [
+        34.87,
+        22.31
+      ]
+    },
+    {
+      "id": "E",
+      "candidate_xy": [
+        54.29,
+        22.76
+      ]
+    },
+    {
+      "id": "P",
+      "candidate_xy": [
+        8.64,
+        34.83
+      ]
+    },
+    {
+      "id": "L",
+      "candidate_xy": [
+        25.68,
+        33.88
+      ]
+    },
+    {
+      "id": "K",
+      "candidate_xy": [
+        15.57,
+        44.54
+      ]
+    },
+    {
+      "id": "PC",
+      "candidate_xy": [
+        21.36,
+        50.9
+      ]
+    },
+    {
+      "id": "B",
+      "candidate_xy": [
+        18.49,
+        64.7
+      ]
+    },
+    {
+      "id": "M",
+      "candidate_xy": [
+        41.65,
+        44.46
+      ]
+    },
+    {
+      "id": "H",
+      "candidate_xy": [
+        53.63,
+        44.85
+      ]
+    },
+    {
+      "id": "Q",
+      "candidate_xy": [
+        26.23,
+        43.9
+      ]
+    },
+    {
+      "id": "D",
+      "candidate_xy": [
+        37.88,
+        55.79
+      ]
+    },
+    {
+      "id": "J",
+      "candidate_xy": [
+        25.48,
+        60.22
+      ]
+    },
+    {
+      "id": "W",
+      "candidate_xy": [
+        39.17,
+        64.51
+      ]
+    },
+    {
+      "id": "R",
+      "candidate_xy": [
+        32.91,
+        79.84
+      ]
+    },
+    {
+      "id": "U",
+      "candidate_xy": [
+        30.89,
+        90.5
+      ]
+    },
+    {
+      "id": "V",
+      "candidate_xy": [
+        14.31,
+        86.79
+      ]
+    },
+    {
+      "id": "N",
+      "candidate_xy": [
+        28.79,
+        80.93
+      ]
+    },
+    {
+      "id": "I",
+      "candidate_xy": [
+        46.26,
+        91.57
+      ]
+    },
+    {
+      "id": "CT",
+      "candidate_xy": [
+        54.13,
+        87.53
+      ]
+    },
+    {
+      "id": "A",
+      "candidate_xy": [
+        59.79,
+        64.7
+      ]
+    },
+    {
+      "id": "AW",
+      "candidate_xy": [
+        47.25,
+        75.78
+      ]
+    },
+    {
+      "id": "AC",
+      "candidate_xy": [
+        62.25,
+        82.89
+      ]
+    }
+  ],
+  "seed_notes": "Jittered spatial anchors reshaped into three coherent cliffside wings; retained the separated objective levels, gallery-over-pumps crossing, mid-to-rear spine and two independent ascents toward Reactor. Raw positions are scaffolding, not authored room corners.",
+  "doors": [
+    {
+      "id": "T-F",
+      "from": "T",
+      "to": "F",
+      "center": [
+        16,
+        12,
+        0
+      ],
+      "width": 4.5,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "T-C",
+      "from": "T",
+      "to": "C",
+      "center": [
+        30,
+        12,
+        0
+      ],
+      "width": 4.5,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "F-C",
+      "from": "F",
+      "to": "C",
+      "center": [
+        24,
+        18,
+        0
+      ],
+      "width": 4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "C-E",
+      "from": "C",
+      "to": "E",
+      "center": [
+        44,
+        19,
+        0
+      ],
+      "width": 4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "F-P",
+      "from": "F",
+      "to": "P",
+      "center": [
+        10,
+        28,
+        0
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "F-L",
+      "from": "F",
+      "to": "L",
+      "center": [
+        22,
+        28,
+        0
+      ],
+      "width": 3,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "P-L",
+      "from": "P",
+      "to": "L",
+      "center": [
+        18,
+        32,
+        0
+      ],
+      "width": 3.4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "P-K",
+      "from": "P",
+      "to": "K",
+      "center": [
+        9,
+        42,
+        0
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "K-PC",
+      "from": "K",
+      "to": "PC",
+      "center": [
+        18,
+        48,
+        0
+      ],
+      "width": 3.4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "L-PC",
+      "from": "L",
+      "to": "PC",
+      "center": [
+        22,
+        42,
+        0
+      ],
+      "width": 3.4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "K-B",
+      "from": "K",
+      "to": "B",
+      "center": [
+        10,
+        52,
+        0
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "PC-B",
+      "from": "PC",
+      "to": "B",
+      "center": [
+        22,
+        52,
+        0
+      ],
+      "width": 3.4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "M-H",
+      "from": "M",
+      "to": "H",
+      "center": [
+        48,
+        39.5,
+        6
+      ],
+      "width": 4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "M-Q",
+      "from": "M",
+      "to": "Q",
+      "center": [
+        30,
+        40.5,
+        6
+      ],
+      "width": 4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "M-D",
+      "from": "M",
+      "to": "D",
+      "center": [
+        35,
+        50,
+        6
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "J-B",
+      "from": "J",
+      "to": "B",
+      "center": [
+        26,
+        59,
+        0
+      ],
+      "width": 4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "D-W",
+      "from": "D",
+      "to": "W",
+      "center": [
+        35,
+        58,
+        6
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "W-R",
+      "from": "W",
+      "to": "R",
+      "center": [
+        35,
+        72,
+        6
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "R-N",
+      "from": "R",
+      "to": "N",
+      "center": [
+        29,
+        78,
+        6
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "N-U",
+      "from": "N",
+      "to": "U",
+      "center": [
+        29,
+        84,
+        6
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "U-V",
+      "from": "U",
+      "to": "V",
+      "center": [
+        20,
+        87,
+        6
+      ],
+      "width": 4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "I-CT",
+      "from": "I",
+      "to": "CT",
+      "center": [
+        48,
+        93,
+        12
+      ],
+      "width": 4,
+      "axis": "y",
+      "height": 3.6
+    },
+    {
+      "id": "CT-AC",
+      "from": "CT",
+      "to": "AC",
+      "center": [
+        60,
+        84,
+        12
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "AC-A",
+      "from": "AC",
+      "to": "A",
+      "center": [
+        60,
+        78,
+        12
+      ],
+      "width": 4,
+      "axis": "x",
+      "height": 3.6
+    },
+    {
+      "id": "A-AW",
+      "from": "A",
+      "to": "AW",
+      "center": [
+        48,
+        74,
+        12
+      ],
+      "width": 4,
+      "axis": "y",
+      "height": 3.6
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "F-cargo",
+      "bounds": [
+        7,
+        18,
+        14,
+        22
+      ],
+      "base": 0,
+      "height": 3.2,
+      "role": "opaque freight stack / break dock-to-cooling view"
+    },
+    {
+      "id": "F-low",
+      "bounds": [
+        17,
+        23,
+        21,
+        25
+      ],
+      "base": 0,
+      "height": 1.25,
+      "role": "freight crossing refuge"
+    },
+    {
+      "id": "C-kiosk",
+      "bounds": [
+        30,
+        16,
+        34,
+        20
+      ],
+      "base": 0,
+      "height": 3.4,
+      "role": "offset concourse sight screen"
+    },
+    {
+      "id": "E-low",
+      "bounds": [
+        47,
+        20,
+        51,
+        22
+      ],
+      "base": 0,
+      "height": 1.25,
+      "role": "cable stair preparation"
+    },
+    {
+      "id": "P-pump1",
+      "bounds": [
+        7,
+        32,
+        11,
+        36
+      ],
+      "base": 0,
+      "height": 2.8,
+      "role": "coolant equipment, western lane split"
+    },
+    {
+      "id": "P-pump2",
+      "bounds": [
+        12,
+        37,
+        16,
+        40
+      ],
+      "base": 0,
+      "height": 1.25,
+      "role": "pump retreat refuge"
+    },
+    {
+      "id": "K-low",
+      "bounds": [
+        5.5,
+        46,
+        9,
+        48
+      ],
+      "base": 0,
+      "height": 1.25,
+      "role": "B long preparation"
+    },
+    {
+      "id": "PC-rack",
+      "bounds": [
+        21,
+        45,
+        24,
+        48
+      ],
+      "base": 0,
+      "height": 2.8,
+      "role": "control room offset screen"
+    },
+    {
+      "id": "B-core",
+      "bounds": [
+        11,
+        59,
+        17,
+        65
+      ],
+      "base": 0,
+      "height": 4.2,
+      "role": "data core divides plant and rear paths"
+    },
+    {
+      "id": "B-low1",
+      "bounds": [
+        5,
+        55,
+        9,
+        57
+      ],
+      "base": 0,
+      "height": 1.25,
+      "role": "long-entry refuge"
+    },
+    {
+      "id": "B-rack",
+      "bounds": [
+        21,
+        64,
+        24,
+        67
+      ],
+      "base": 0,
+      "height": 2.8,
+      "role": "short versus rear angle separator"
+    },
+    {
+      "id": "B-low2",
+      "bounds": [
+        18,
+        68,
+        22,
+        70
+      ],
+      "base": 0,
+      "height": 1.25,
+      "role": "rear reposition refuge"
+    },
+    {
+      "id": "M-array",
+      "bounds": [
+        39,
+        41,
+        44,
+        45
+      ],
+      "base": 6,
+      "height": 3.5,
+      "role": "atrium optical baffle"
+    },
+    {
+      "id": "M-low",
+      "bounds": [
+        32,
+        46,
+        35,
+        48
+      ],
+      "base": 6,
+      "height": 1.25,
+      "role": "gallery-to-cleanroom retreat"
+    },
+    {
+      "id": "H-exchanger",
+      "bounds": [
+        50,
+        40.5,
+        54,
+        44
+      ],
+      "base": 6,
+      "height": 3.4,
+      "role": "main ascent approach screen"
+    },
+    {
+      "id": "H-low",
+      "bounds": [
+        59,
+        38,
+        62,
+        40
+      ],
+      "base": 6,
+      "height": 1.25,
+      "role": "upper main preparation"
+    },
+    {
+      "id": "Q-low",
+      "bounds": [
+        19,
+        42,
+        23,
+        44
+      ],
+      "base": 6,
+      "height": 1.25,
+      "role": "gallery reverse-peek refuge; 3.8m passage remains"
+    },
+    {
+      "id": "D-screen",
+      "bounds": [
+        32,
+        53,
+        37,
+        55
+      ],
+      "base": 6,
+      "height": 3.4,
+      "role": "west-wall baffle closes Mid-to-CT ray; circulation east"
+    },
+    {
+      "id": "D-low",
+      "bounds": [
+        41,
+        54,
+        44,
+        56
+      ],
+      "base": 6,
+      "height": 1.25,
+      "role": "split staging refuge"
+    },
+    {
+      "id": "R-low",
+      "bounds": [
+        27,
+        72.8,
+        30,
+        74.3
+      ],
+      "base": 6,
+      "height": 1.25,
+      "role": "rear bridge duck/reposition refuge"
+    },
+    {
+      "id": "U-low",
+      "bounds": [
+        22,
+        85,
+        24,
+        87
+      ],
+      "base": 6,
+      "height": 1.25,
+      "role": "vault stair head refuge"
+    },
+    {
+      "id": "AW-low",
+      "bounds": [
+        43,
+        71,
+        45.5,
+        72.5
+      ],
+      "base": 12,
+      "height": 1.25,
+      "role": "reactor short landing refuge"
+    },
+    {
+      "id": "A-reactor",
+      "bounds": [
+        56.6,
+        64.6,
+        63.4,
+        71.4
+      ],
+      "base": 12,
+      "height": 5,
+      "role": "circular reactor core radius3.4"
+    },
+    {
+      "id": "A-screen",
+      "bounds": [
+        50,
+        64,
+        54,
+        66
+      ],
+      "base": 12,
+      "height": 3.4,
+      "role": "short entrance angle separator"
+    },
+    {
+      "id": "A-low1",
+      "bounds": [
+        55,
+        60.5,
+        59,
+        62.5
+      ],
+      "base": 12,
+      "height": 1.25,
+      "role": "main-entry duck refuge"
+    },
+    {
+      "id": "A-low2",
+      "bounds": [
+        65,
+        73,
+        69,
+        75
+      ],
+      "base": 12,
+      "height": 1.25,
+      "role": "rear retake reposition refuge"
+    }
+  ],
+  "markers": {
+    "T": [
+      22,
+      6,
+      0
+    ],
+    "CT": [
+      35,
+      75,
+      6
+    ],
+    "A": [
+      65,
+      66,
+      12
+    ],
+    "B": [
+      8,
+      63,
+      0
+    ]
+  },
+  "heights": {
+    "walls": 5.2,
+    "doors": 3.6,
+    "stair_screens": 3.4,
+    "slab": 0.35,
+    "low_cover": 1.25,
+    "standing_eye": 1.674,
+    "crouched_eye": 1.023,
+    "standing_body": 1.8,
+    "crouched_body": 1.1,
+    "gallery_slab": 0.8
+  },
+  "stair_screen_overrides": {
+    "S1-west": 5.2
+  }
+}

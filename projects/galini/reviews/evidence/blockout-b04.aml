@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="de_galini" name="Galini · Greek Coastal Town / 5v5 Defusal" units="meters" validation="playable" description="L03 / B01. Original calm coastal cliff town, two bombsites and five spawns per side. Multiplayer rules and balance require destination-engine integration/playtests.">
+  <material id="plaster" color="#f6f0df" />
+  <material id="warm-plaster" color="#e8dcc4" />
+  <material id="paving" color="#d5c7ac" />
+  <material id="upper-paving" color="#eee0bd" />
+  <material id="stone" color="#b7aa8b" />
+  <material id="blue" color="#467fa0" />
+  <material id="blue-dark" color="#335f79" />
+  <material id="terra" color="#c39376" />
+  <material id="olive" color="#8a9c76" />
+  <material id="soil" color="#786c53" />
+  <material id="sea" color="#95cbd0" />
+  <material id="rock" color="#9d9b89" />
+  <material id="rock-light" color="#c4bea4" />
+  <material id="paint-a" color="#bd8759" />
+  <material id="paint-b" color="#76a9a5" />
+  <material id="white" color="#fff8e9" />
+  <assembly id="town" label="Cliff town physical blockout" coincident-material="retained-face">
+    <slab id="F-T" label="Ferry Piazza" profile="F-T-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-W" label="Sea Ribbon" profile="F-W-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-M0" label="Bakery Alley" profile="F-M0-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-M" label="Olive Piazza" profile="F-M-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-AS0" label="Bell Alley" profile="F-AS0-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-SWITCH" label="Sea Landing" profile="F-SWITCH-plan" elevation="2" thickness=".35" material="upper-paving" group="streets" playable="true" />
+    <extrusion id="F-SWITCH-foundation" profile="F-SWITCH-plan" position="0 0 -6" distance="7.65" material="rock-light" group="foundations" />
+    <slab id="F-A" label="Chapel Court" profile="F-A-plan" elevation="4" thickness=".35" material="upper-paving" group="streets" playable="true" />
+    <extrusion id="F-A-foundation" profile="F-A-plan" position="0 0 -6" distance="9.65" material="rock-light" group="foundations" />
+    <slab id="F-GATE0" label="Gate Foot" profile="F-GATE0-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-M1" label="Town Gate" profile="F-M1-plan" elevation="4" thickness=".35" material="upper-paving" group="streets" playable="true" />
+    <extrusion id="F-M1-foundation" profile="F-M1-plan" position="0 0 -6" distance="9.65" material="rock-light" group="foundations" />
+    <slab id="F-CT" label="Upper Ribbon" profile="F-CT-plan" elevation="4" thickness=".35" material="upper-paving" group="streets" playable="true" />
+    <extrusion id="F-CT-foundation" profile="F-CT-plan" position="0 0 -6" distance="9.65" material="rock-light" group="foundations" />
+    <slab id="F-E0" label="Taverna Stepside" profile="F-E0-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-E" label="Harbor Crescent" profile="F-E-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-BM" label="Fishmarket" profile="F-BM-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <slab id="F-B" label="Boat Court" profile="F-B-plan" elevation="0" thickness=".35" material="paving" group="streets" playable="true" />
+    <stairs id="S-CLIFF1" label="Cliff lower" path="S-CLIFF1-axis" width="6" count="13" thickness=".35" underside="filled" material="upper-paving" group="stairs" />
+    <enclosure id="S-CLIFF1-left" host="S-CLIFF1" side="left" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <enclosure id="S-CLIFF1-right" host="S-CLIFF1" side="right" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <stairs id="S-CLIFF2" label="Cliff upper" path="S-CLIFF2-axis" width="6" count="13" thickness=".35" underside="filled" material="upper-paving" group="stairs" />
+    <enclosure id="S-CLIFF2-left" host="S-CLIFF2" side="left" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <enclosure id="S-CLIFF2-right" host="S-CLIFF2" side="right" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <stairs id="S-SHORT" label="Bell Stair" path="S-SHORT-axis" width="6" count="25" thickness=".35" underside="filled" material="upper-paving" group="stairs" />
+    <enclosure id="S-SHORT-left" host="S-SHORT" side="left" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <enclosure id="S-SHORT-right" host="S-SHORT" side="right" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <stairs id="S-GATE" label="Gate Stair" path="S-GATE-axis" width="6" count="25" thickness=".35" underside="filled" material="upper-paving" group="stairs" />
+    <enclosure id="S-GATE-left" host="S-GATE" side="left" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <enclosure id="S-GATE-right" host="S-GATE" side="right" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <stairs id="S-BOAT" label="Boat Stair" path="S-BOAT-axis" width="6" count="25" thickness=".35" underside="filled" material="upper-paving" group="stairs" />
+    <enclosure id="S-BOAT-left" host="S-BOAT" side="left" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <enclosure id="S-BOAT-right" host="S-BOAT" side="right" construction="wall" height="3.2" thickness=".4" material="plaster" group="facades" />
+    <wall id="W-000" path="W-000-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-001" path="W-001-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-002" path="W-002-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-003" path="W-003-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-004" path="W-004-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-005" path="W-005-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-006" path="W-006-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-007" path="W-007-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-008" path="W-008-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-009" path="W-009-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-010" path="W-010-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-011" path="W-011-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-012" path="W-012-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-013" path="W-013-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-014" path="W-014-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-015" path="W-015-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-016" path="W-016-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-017" path="W-017-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-018" path="W-018-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-019" path="W-019-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-020" path="W-020-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-021" path="W-021-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-022" path="W-022-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-023" path="W-023-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-024" path="W-024-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-025" path="W-025-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-026" path="W-026-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-027" path="W-027-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-028" path="W-028-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-029" path="W-029-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-030" path="W-030-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-031" path="W-031-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-032" path="W-032-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-033" path="W-033-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-034" path="W-034-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-035" path="W-035-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-036" path="W-036-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-037" path="W-037-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-038" path="W-038-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-039" path="W-039-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-040" path="W-040-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-041" path="W-041-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-042" path="W-042-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-043" path="W-043-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-044" path="W-044-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-045" path="W-045-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-046" path="W-046-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-047" path="W-047-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-048" path="W-048-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-049" path="W-049-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-050" path="W-050-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-051" path="W-051-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-052" path="W-052-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-053" path="W-053-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-054" path="W-054-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-055" path="W-055-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-056" path="W-056-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-057" path="W-057-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-058" path="W-058-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-059" path="W-059-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-060" path="W-060-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-061" path="W-061-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-062" path="W-062-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-063" path="W-063-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-064" path="W-064-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-065" path="W-065-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-066" path="W-066-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-067" path="W-067-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-068" path="W-068-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-069" path="W-069-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-070" path="W-070-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-071" path="W-071-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-072" path="W-072-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-073" path="W-073-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-074" path="W-074-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-075" path="W-075-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-076" path="W-076-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-077" path="W-077-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-078" path="W-078-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-079" path="W-079-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-080" path="W-080-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-081" path="W-081-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-082" path="W-082-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-083" path="W-083-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-084" path="W-084-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-085" path="W-085-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-086" path="W-086-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-087" path="W-087-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-088" path="W-088-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-089" path="W-089-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-090" path="W-090-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-091" path="W-091-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-092" path="W-092-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-093" path="W-093-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-094" path="W-094-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-095" path="W-095-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-096" path="W-096-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-097" path="W-097-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-098" path="W-098-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-099" path="W-099-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-100" path="W-100-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-101" path="W-101-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-102" path="W-102-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-103" path="W-103-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-104" path="W-104-axis" thickness=".4" height="1.2" material="plaster" group="facades" />
+    <wall id="W-105" path="W-105-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-106" path="W-106-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-107" path="W-107-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-108" path="W-108-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-109" path="W-109-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-110" path="W-110-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-111" path="W-111-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-112" path="W-112-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-113" path="W-113-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-114" path="W-114-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-115" path="W-115-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-116" path="W-116-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-117" path="W-117-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-118" path="W-118-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-119" path="W-119-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-120" path="W-120-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-121" path="W-121-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-122" path="W-122-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-123" path="W-123-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-124" path="W-124-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-125" path="W-125-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-126" path="W-126-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-127" path="W-127-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-128" path="W-128-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-129" path="W-129-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-130" path="W-130-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-131" path="W-131-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-132" path="W-132-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-133" path="W-133-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-134" path="W-134-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-135" path="W-135-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-136" path="W-136-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-137" path="W-137-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-138" path="W-138-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-139" path="W-139-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-140" path="W-140-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-141" path="W-141-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-142" path="W-142-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-143" path="W-143-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-144" path="W-144-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-145" path="W-145-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-146" path="W-146-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-147" path="W-147-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-148" path="W-148-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-149" path="W-149-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-150" path="W-150-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-151" path="W-151-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-152" path="W-152-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-153" path="W-153-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-154" path="W-154-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-155" path="W-155-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-156" path="W-156-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-157" path="W-157-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-158" path="W-158-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-159" path="W-159-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-160" path="W-160-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-161" path="W-161-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-162" path="W-162-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-163" path="W-163-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-164" path="W-164-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-165" path="W-165-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-166" path="W-166-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-167" path="W-167-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-168" path="W-168-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-169" path="W-169-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-170" path="W-170-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-171" path="W-171-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-172" path="W-172-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-173" path="W-173-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-174" path="W-174-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-175" path="W-175-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-176" path="W-176-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-177" path="W-177-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-178" path="W-178-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-179" path="W-179-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-180" path="W-180-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-181" path="W-181-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-182" path="W-182-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-183" path="W-183-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-184" path="W-184-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-185" path="W-185-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-186" path="W-186-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-187" path="W-187-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-188" path="W-188-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-189" path="W-189-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-190" path="W-190-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-191" path="W-191-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-192" path="W-192-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-193" path="W-193-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-194" path="W-194-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-195" path="W-195-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-196" path="W-196-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-197" path="W-197-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-198" path="W-198-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-199" path="W-199-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-200" path="W-200-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-201" path="W-201-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-202" path="W-202-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-203" path="W-203-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-204" path="W-204-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-205" path="W-205-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-206" path="W-206-axis" thickness=".4" height="3.2" material="plaster" group="facades" />
+    <wall id="W-207" path="W-207-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-208" path="W-208-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-209" path="W-209-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-210" path="W-210-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-211" path="W-211-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-212" path="W-212-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-213" path="W-213-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-214" path="W-214-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-215" path="W-215-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-216" path="W-216-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-217" path="W-217-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-218" path="W-218-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-219" path="W-219-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-220" path="W-220-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-221" path="W-221-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-222" path="W-222-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-223" path="W-223-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-224" path="W-224-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-225" path="W-225-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-226" path="W-226-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-227" path="W-227-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-228" path="W-228-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-229" path="W-229-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-230" path="W-230-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-231" path="W-231-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-232" path="W-232-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-233" path="W-233-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-234" path="W-234-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-235" path="W-235-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-236" path="W-236-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-237" path="W-237-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-238" path="W-238-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-239" path="W-239-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-240" path="W-240-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-241" path="W-241-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-242" path="W-242-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-243" path="W-243-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-244" path="W-244-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-245" path="W-245-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-246" path="W-246-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-247" path="W-247-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-248" path="W-248-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-249" path="W-249-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-250" path="W-250-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-251" path="W-251-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-252" path="W-252-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-253" path="W-253-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-254" path="W-254-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-255" path="W-255-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-256" path="W-256-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-257" path="W-257-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-258" path="W-258-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-259" path="W-259-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-260" path="W-260-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-261" path="W-261-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-262" path="W-262-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-263" path="W-263-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-264" path="W-264-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-265" path="W-265-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-266" path="W-266-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <wall id="W-267" path="W-267-axis" thickness=".4" height="5.8" material="plaster" group="facades" />
+    <extrusion id="O-CHAPEL" label="Blue dome chapel" profile="O-CHAPEL-plan" position="0 0 4" distance="7" material="plaster" group="fixtures" />
+    <extrusion id="O-CISTERN" label="Cistern" profile="O-CISTERN-plan" position="0 0 4" distance="2.5" material="stone" group="fixtures" />
+    <extrusion id="O-A-PLANTER" label="Olive planter" profile="O-A-PLANTER-plan" position="0 0 4" distance="1.1" material="stone" group="fixtures" />
+    <extrusion id="O-BAKERY" label="Bakery corner" profile="O-BAKERY-plan" position="0 0 0" distance="3.2" material="plaster" group="fixtures" />
+    <extrusion id="O-FOUNTAIN" label="Village fountain" profile="O-FOUNTAIN-plan" position="0 0 0" distance="1.1" material="stone" group="fixtures" />
+    <extrusion id="O-MID-WALL" label="Bell house corner" profile="O-MID-WALL-plan" position="0 0 0" distance="3.2" material="plaster" group="fixtures" />
+    <extrusion id="O-T-GATE" label="Ferry arcade screen" profile="O-T-GATE-plan" position="0 0 0" distance="3.2" material="plaster" group="fixtures" />
+    <extrusion id="O-TOWN" label="Town gate screen" profile="O-TOWN-plan" position="0 0 4" distance="3.2" material="plaster" group="fixtures" />
+    <extrusion id="O-ROTATE" label="Upper lane corner" profile="O-ROTATE-plan" position="0 0 4" distance="3.2" material="plaster" group="fixtures" />
+    <extrusion id="O-MARKET" label="Fishmarket corner" profile="O-MARKET-plan" position="0 0 0" distance="3.2" material="plaster" group="fixtures" />
+    <extrusion id="O-BOAT" label="Boathouse" profile="O-BOAT-plan" position="0 0 0" distance="3.4" material="plaster" group="fixtures" />
+    <roof id="O-BOAT-roof" profile="O-BOAT-plan" elevation="3.58" thickness=".18" material="terra" playable="false" group="roofs" />
+    <extrusion id="O-B-SALT" label="Salt bins" profile="O-B-SALT-plan" position="0 0 0" distance="1.1" material="stone" group="fixtures" />
+    <extrusion id="O-BACK" label="Retaining house" profile="O-BACK-plan" position="0 0 0" distance="8" material="plaster" group="fixtures" />
+    <extrusion id="O-COAST" label="Boat repair shed" profile="O-COAST-plan" position="0 0 0" distance="4.2" material="plaster" group="fixtures" />
+    <roof id="O-COAST-roof" profile="O-COAST-plan" elevation="4.38" thickness=".18" material="terra" playable="false" group="roofs" />
+    <extrusion id="O-WEST" label="Seafront planter" profile="O-WEST-plan" position="0 0 0" distance="1.1" material="stone" group="fixtures" />
+    <extrusion id="O-EAST" label="Harbor planter" profile="O-EAST-plan" position="0 0 0" distance="1.1" material="stone" group="fixtures" />
+    <extrusion id="cliff" profile="cliff-plan" position="0 0 -7" distance="6.65" material="rock" group="foundations" />
+    <extrusion id="parcel-0" profile="parcel-0-plan" position="0 0 -.35" distance="5.95" material="warm-plaster" group="urban-masses" />
+    <extrusion id="parcel-1" profile="parcel-1-plan" position="0 0 -.35" distance="5.95" material="warm-plaster" group="urban-masses" />
+    <extrusion id="parcel-2" profile="parcel-2-plan" position="0 0 -.35" distance="7.35" material="warm-plaster" group="urban-masses" />
+    <extrusion id="parcel-3" profile="parcel-3-plan" position="0 0 -.35" distance="7.35" material="warm-plaster" group="urban-masses" />
+    <extrusion id="parcel-4" profile="parcel-4-plan" position="0 0 -.35" distance="5.95" material="warm-plaster" group="urban-masses" />
+    <cylinder id="chapel-drum" position="15 71 11" radius="3.1" height="1.2" segments="24" material="plaster" group="roofs" />
+    <sphere id="chapel-dome" position="15 71 11.9" radius="3.15" scale="1 1 .8" segments="24" material="blue" group="roofs" />
+  </assembly>
+  <profile id="F-T-plan" points="40 24; 52 25; 60 16; 58 8; 47 2; 34 4; 33 17" />
+  <profile id="F-W-plan" points="30.717 16.204; 28.267 16.42; 26.546 16.713; 24.586 17.21; 22.367 18.012; 20.602 18.867; 19.281 19.655; 17.735 20.775; 16.037 22.313; 14.783 23.722; 13.671 25.243; 12.871 26.552; 11.87 28.573; 11.18 30.362; 10.704 31.932; 10.208 34.151; 9.995 35.624; 9.146 36.473; 8.294 38.146; 8 40; 8.294 41.854; 9.146 43.527; 9.533 43.914; 11.329 41.219; 16.671 44.781; 16.157 45.552; 17.527 44.854; 18.854 43.527; 19.706 41.854; 20 40; 19.706 38.146; 18.854 36.473; 18.067 35.687; 18.403 34.111; 18.789 32.839; 19.253 31.659; 19.792 30.569; 20.402 29.57; 21.081 28.659; 21.831 27.833; 22.653 27.088; 23.553 26.422; 24.536 25.835; 25.61 25.328; 26.784 24.904; 28.062 24.57; 29.451 24.333; 30.955 24.202; 32.575 24.185; 34.311 24.291; 36.165 24.529; 38.246 24.928; 39.754 17.072; 37.551 16.649; 34.933 16.314; 32.92 16.191" />
+  <profile id="F-M0-plan" points="41.339 21.12; 40.592 21.929; 39.951 22.797; 39.428 23.717; 39.032 24.676; 38.769 25.652; 38.614 27.163; 38.662 28.106; 38.883 29.332; 39.323 30.662; 39.763 31.614; 40.442 32.782; 41.306 33.995; 42.262 35.142; 43.506 36.456; 48.494 31.544; 47.472 30.467; 46.591 29.377; 45.963 28.363; 45.727 27.805; 45.628 27.391; 45.673 26.9; 46.017 26.356; 46.646 25.766; 47.838 24.979; 44.162 19.021; 43.344 19.526; 42.186 20.369" />
+  <profile id="F-M-plan" points="36 47; 45 54; 56 51; 61 42; 58 34; 47 29; 36 32; 32 40" />
+  <profile id="F-AS0-plan" points="29.605 42.151; 28.809 45.336; 29.02 44.808; 34.98 47.192; 34.779 47.695; 35.395 47.849; 36.067 45.162; 37.941 43.912; 34.059 38.088; 31.059 40.088; 30.139 40.984" />
+  <profile id="F-SWITCH-plan" points="10.534 56.055; 15.466 51.945; 16.732 53.465; 14.225 48.45; 12.671 50.781; 7.329 47.219; 8.247 45.843; 6 45; 5 53; 11.8 57.857; 11.948 57.752; 12.049 57.873" />
+  <profile id="F-A-plan" points="6 62; 4 67; 6 73; 15 79; 24 80; 33 74; 36 66; 32 59; 31.011 58.67; 31.357 56.249; 30.98 57.192; 25.02 54.808; 25.108 54.587; 24.535 54.505; 24.262 56.421; 23 56; 19.165 56.384; 20.466 57.945; 15.534 62.055; 11.948 57.752" />
+  <profile id="F-GATE0-plan" points="45.516 52.176; 44.926 52.766; 44.386 53.826; 44.2 55; 44.386 56.174; 44.926 57.234; 45.766 58.074; 45.775 58.078; 45.02 56.192; 50.98 53.808; 51.703 55.615; 51.8 55; 51.614 53.826; 51.401 53.407; 51.97 49.424; 46.03 48.576" />
+  <profile id="F-M1-plan" points="56 64; 54.965 63.77; 54.98 63.808; 49.02 66.192; 47.377 62.084; 47 62; 44 67; 45 73; 48.621 75.586; 47.724 78.726; 45.87 82.435; 52.13 85.565; 54.13 81.565; 54.365 80.962; 55.626 76.55; 57 76; 60 71" />
+  <profile id="F-CT-plan" points="36.83 87.077; 39.152 87.661; 41.502 88.055; 43.411 88.234; 46 96; 57 94; 61.81 86.304; 76.405 82.998; 81.753 81.929; 81.34 79.772; 81.486 79.714; 81.304 79.26; 82.236 78.351; 82.804 77.236; 83 76; 82.901 75.376; 81.871 77.436; 76.129 74.564; 77.159 72.504; 76.649 72.764; 76.202 73.211; 73.514 74.286; 73.942 75.355; 61.724 78.151; 56.931 79.149; 52.403 79.893; 50.248 80.142; 48.169 80.296; 46.171 80.346; 44.255 80.285; 42.423 80.107; 40.672 79.805; 38.998 79.374; 37.392 78.805; 35.844 78.087; 34.343 77.205; 32.877 76.141; 31.438 74.872; 29.907 73.252; 24.093 78.748; 25.749 80.5; 27.727 82.267; 29.801 83.794; 31.961 85.084; 34.543 86.282" />
+  <profile id="F-E0-plan" points="61.825 20.24; 63.874 20.014; 64.895 20.004; 66.912 20.181; 67.897 20.363; 69.799 20.901; 70.704 21.251; 72.397 22.095; 73.176 22.581; 74.572 23.661; 75.183 24.244; 76.211 25.473; 76.971 26.753; 77.323 27.574; 84.677 24.426; 84.103 23.123; 83.593 22.174; 82.826 20.971; 81.966 19.837; 80.816 18.562; 79.788 17.593; 78.69 16.694; 77.527 15.867; 76.306 15.114; 75.03 14.435; 73.704 13.834; 72.333 13.312; 70.921 12.872; 69.472 12.518; 67.99 12.253; 66.481 12.08; 65.209 12.01; 63.665 12.016; 62.108 12.125; 60.544 12.342; 58.978 12.67; 57.418 13.113; 55.871 13.675; 54.343 14.359; 57.657 21.641; 58.785 21.127; 60.804 20.46" />
+  <profile id="F-E-plan" points="75.965 37.806; 76.054 39.248; 76.216 40.174; 76.864 42.181; 77.584 43.614; 78.26 44.669; 79.776 46.54; 78.255 50.596; 78.078 52.784; 79.078 57.784; 86.922 56.216; 86.146 52.335; 88.745 45.404; 86.336 44.501; 87.662 43.014; 86.408 41.897; 85.523 40.977; 84.884 40.179; 84.454 39.508; 84.191 38.96; 83.982 38.141; 84.005 37.396; 84.251 36.437; 85.754 32.812; 86.082 31.847; 86.358 30.764; 86.561 28.986; 86.481 27.574; 86.164 26.143; 85.61 24.756; 84.842 23.45; 84.193 22.59; 84.038 22.707; 83.25 22.103; 82.165 21.653; 81 21.5; 79.835 21.653; 78.75 22.103; 77.818 22.818; 77.103 23.75; 76.653 24.835; 76.5 26; 76.653 27.165; 77.103 28.25; 77.818 29.182; 78.384 29.616; 76.707 33.771; 76.382 34.826; 76.125 36.001" />
+  <profile id="F-BM-plan" points="59.652 48.307; 60.097 48.831; 62 51.624; 62 55; 68 61; 69.408 60.061; 70.288 60.541; 71.75 61.095; 73.348 61.439; 74.652 54.561; 73.707 54.362; 73 48; 68 44; 65.754 44.749; 64.892 43.663; 64.046 42.808; 63.068 42.017; 61.916 41.332; 60.563 40.827; 59.821 40.673; 59.036 40.598; 58.269 40.609; 56.752 40.867; 55.321 41.397; 54.356 41.91; 57.644 48.09; 58.351 47.714; 58.751 47.603; 58.991 47.713" />
+  <profile id="F-B-plan" points="73 67; 78 67; 79.042 68.737; 81.129 64.564; 86.871 67.436; 83.533 74.111; 87 77; 95 70; 97 61; 91 53; 80 51; 70 55; 68 61" />
+  <path id="S-CLIFF1-axis" points="14 43 0; 10 49 2" />
+  <path id="S-CLIFF2-axis" points="13 54 2; 18 60 4" />
+  <path id="S-SHORT-axis" points="32 46 0; 28 56 4" />
+  <path id="S-GATE-axis" points="48 55 0; 52 65 4" />
+  <path id="S-BOAT-axis" points="84 66 0; 79 76 4" />
+  <path id="W-000-axis" points="34 4 0; 33.062 16.2 0" />
+  <path id="W-001-axis" points="33.062 16.2 0; 32.92 16.191 0" />
+  <path id="W-002-axis" points="32.92 16.191 0; 30.717 16.204 0" />
+  <path id="W-003-axis" points="30.717 16.204 0; 28.267 16.42 0" />
+  <path id="W-004-axis" points="28.267 16.42 0; 26.546 16.713 0" />
+  <path id="W-005-axis" points="26.546 16.713 0; 24.586 17.21 0" />
+  <path id="W-006-axis" points="24.586 17.21 0; 22.367 18.012 0" />
+  <path id="W-007-axis" points="22.367 18.012 0; 20.602 18.867 0" />
+  <path id="W-008-axis" points="20.602 18.867 0; 19.281 19.655 0" />
+  <path id="W-009-axis" points="19.281 19.655 0; 17.735 20.775 0" />
+  <path id="W-010-axis" points="17.735 20.775 0; 16.037 22.313 0" />
+  <path id="W-011-axis" points="16.037 22.313 0; 14.783 23.722 0" />
+  <path id="W-012-axis" points="14.783 23.722 0; 13.671 25.243 0" />
+  <path id="W-013-axis" points="13.671 25.243 0; 12.871 26.552 0" />
+  <path id="W-014-axis" points="12.871 26.552 0; 11.87 28.573 0" />
+  <path id="W-015-axis" points="11.87 28.573 0; 11.18 30.362 0" />
+  <path id="W-016-axis" points="11.18 30.362 0; 10.704 31.932 0" />
+  <path id="W-017-axis" points="10.704 31.932 0; 10.208 34.151 0" />
+  <path id="W-018-axis" points="10.208 34.151 0; 9.995 35.624 0" />
+  <path id="W-019-axis" points="9.995 35.624 0; 9.146 36.473 0" />
+  <path id="W-020-axis" points="9.146 36.473 0; 8.294 38.146 0" />
+  <path id="W-021-axis" points="8.294 38.146 0; 8 40 0" />
+  <path id="W-022-axis" points="8 40 0; 8.294 41.854 0" />
+  <path id="W-023-axis" points="8.294 41.854 0; 9.146 43.527 0" />
+  <path id="W-024-axis" points="9.146 43.527 0; 9.533 43.914 0" />
+  <path id="W-025-axis" points="8.246 45.843 2; 6 45 2" />
+  <path id="W-026-axis" points="6 45 2; 5 53 2" />
+  <path id="W-027-axis" points="5 53 2; 11.8 57.857 2" />
+  <path id="W-028-axis" points="11.8 57.857 4; 6 62 4" />
+  <path id="W-029-axis" points="6 62 4; 4 67 4" />
+  <path id="W-030-axis" points="4 67 4; 6 73 4" />
+  <path id="W-031-axis" points="6 73 4; 15 79 4" />
+  <path id="W-032-axis" points="15 79 4; 24 80 4" />
+  <path id="W-033-axis" points="24 80 4; 24.783 79.478 4" />
+  <path id="W-034-axis" points="24.783 79.478 4; 25.749 80.5 4" />
+  <path id="W-035-axis" points="25.749 80.5 4; 27.727 82.267 4" />
+  <path id="W-036-axis" points="27.727 82.267 4; 29.801 83.794 4" />
+  <path id="W-037-axis" points="29.801 83.794 4; 31.961 85.084 4" />
+  <path id="W-038-axis" points="31.961 85.084 4; 34.543 86.282 4" />
+  <path id="W-039-axis" points="34.543 86.282 4; 36.83 87.077 4" />
+  <path id="W-040-axis" points="36.83 87.077 4; 39.152 87.661 4" />
+  <path id="W-041-axis" points="39.152 87.661 4; 41.502 88.055 4" />
+  <path id="W-042-axis" points="41.502 88.055 4; 43.411 88.234 4" />
+  <path id="W-043-axis" points="43.411 88.234 4; 46 96 4" />
+  <path id="W-044-axis" points="46 96 4; 57 94 4" />
+  <path id="W-045-axis" points="57 94 4; 61.81 86.304 4" />
+  <path id="W-046-axis" points="61.81 86.304 4; 76.405 82.998 4" />
+  <path id="W-047-axis" points="76.405 82.998 4; 81.753 81.929 4" />
+  <path id="W-048-axis" points="81.753 81.929 4; 81.34 79.772 4" />
+  <path id="W-049-axis" points="81.34 79.772 4; 81.486 79.714 4" />
+  <path id="W-050-axis" points="81.486 79.714 4; 81.304 79.26 4" />
+  <path id="W-051-axis" points="81.304 79.26 4; 82.236 78.351 4" />
+  <path id="W-052-axis" points="82.236 78.351 4; 82.804 77.236 4" />
+  <path id="W-053-axis" points="82.804 77.236 4; 83 76 4" />
+  <path id="W-054-axis" points="83 76 4; 82.901 75.376 4" />
+  <path id="W-055-axis" points="83.533 74.111 0; 87 77 0" />
+  <path id="W-056-axis" points="87 77 0; 95 70 0" />
+  <path id="W-057-axis" points="95 70 0; 97 61 0" />
+  <path id="W-058-axis" points="97 61 0; 91 53 0" />
+  <path id="W-059-axis" points="91 53 0; 86.222 52.131 0" />
+  <path id="W-060-axis" points="86.222 52.131 0; 88.745 45.404 0" />
+  <path id="W-061-axis" points="88.745 45.404 0; 86.336 44.501 0" />
+  <path id="W-062-axis" points="86.336 44.501 0; 87.662 43.014 0" />
+  <path id="W-063-axis" points="87.662 43.014 0; 86.408 41.897 0" />
+  <path id="W-064-axis" points="86.408 41.897 0; 85.523 40.977 0" />
+  <path id="W-065-axis" points="85.523 40.977 0; 84.884 40.179 0" />
+  <path id="W-066-axis" points="84.884 40.179 0; 84.454 39.508 0" />
+  <path id="W-067-axis" points="84.454 39.508 0; 84.191 38.96 0" />
+  <path id="W-068-axis" points="84.191 38.96 0; 83.982 38.141 0" />
+  <path id="W-069-axis" points="83.982 38.141 0; 84.005 37.396 0" />
+  <path id="W-070-axis" points="84.005 37.396 0; 84.251 36.437 0" />
+  <path id="W-071-axis" points="84.251 36.437 0; 85.754 32.812 0" />
+  <path id="W-072-axis" points="85.754 32.812 0; 86.082 31.847 0" />
+  <path id="W-073-axis" points="86.082 31.847 0; 86.358 30.764 0" />
+  <path id="W-074-axis" points="86.358 30.764 0; 86.561 28.986 0" />
+  <path id="W-075-axis" points="86.561 28.986 0; 86.481 27.574 0" />
+  <path id="W-076-axis" points="86.481 27.574 0; 86.164 26.143 0" />
+  <path id="W-077-axis" points="86.164 26.143 0; 85.61 24.756 0" />
+  <path id="W-078-axis" points="85.61 24.756 0; 84.842 23.45 0" />
+  <path id="W-079-axis" points="84.842 23.45 0; 84.193 22.59 0" />
+  <path id="W-080-axis" points="84.193 22.59 0; 84.038 22.707 0" />
+  <path id="W-081-axis" points="84.038 22.707 0; 83.768 22.5 0" />
+  <path id="W-082-axis" points="83.768 22.5 0; 83.593 22.174 0" />
+  <path id="W-083-axis" points="83.593 22.174 0; 82.826 20.971 0" />
+  <path id="W-084-axis" points="82.826 20.971 0; 81.966 19.837 0" />
+  <path id="W-085-axis" points="81.966 19.837 0; 80.816 18.562 0" />
+  <path id="W-086-axis" points="80.816 18.562 0; 79.788 17.593 0" />
+  <path id="W-087-axis" points="79.788 17.593 0; 78.69 16.694 0" />
+  <path id="W-088-axis" points="78.69 16.694 0; 77.527 15.867 0" />
+  <path id="W-089-axis" points="77.527 15.867 0; 76.306 15.114 0" />
+  <path id="W-090-axis" points="76.306 15.114 0; 75.03 14.435 0" />
+  <path id="W-091-axis" points="75.03 14.435 0; 73.704 13.834 0" />
+  <path id="W-092-axis" points="73.704 13.834 0; 72.333 13.312 0" />
+  <path id="W-093-axis" points="72.333 13.312 0; 70.921 12.872 0" />
+  <path id="W-094-axis" points="70.921 12.872 0; 69.472 12.518 0" />
+  <path id="W-095-axis" points="69.472 12.518 0; 67.99 12.253 0" />
+  <path id="W-096-axis" points="67.99 12.253 0; 66.481 12.08 0" />
+  <path id="W-097-axis" points="66.481 12.08 0; 65.209 12.01 0" />
+  <path id="W-098-axis" points="65.209 12.01 0; 63.665 12.016 0" />
+  <path id="W-099-axis" points="63.665 12.016 0; 62.108 12.125 0" />
+  <path id="W-100-axis" points="62.108 12.125 0; 60.544 12.342 0" />
+  <path id="W-101-axis" points="60.544 12.342 0; 59.158 12.632 0" />
+  <path id="W-102-axis" points="59.158 12.632 0; 58 8 0" />
+  <path id="W-103-axis" points="58 8 0; 47 2 0" />
+  <path id="W-104-axis" points="47 2 0; 34 4 0" />
+  <path id="W-105-axis" points="16.731 53.463 2; 14.225 48.45 2" />
+  <path id="W-106-axis" points="16.157 45.552 0; 17.527 44.854 0" />
+  <path id="W-107-axis" points="17.527 44.854 0; 18.854 43.527 0" />
+  <path id="W-108-axis" points="18.854 43.527 0; 19.706 41.854 0" />
+  <path id="W-109-axis" points="19.706 41.854 0; 20 40 0" />
+  <path id="W-110-axis" points="20 40 0; 19.706 38.146 0" />
+  <path id="W-111-axis" points="19.706 38.146 0; 18.854 36.473 0" />
+  <path id="W-112-axis" points="18.854 36.473 0; 18.067 35.687 0" />
+  <path id="W-113-axis" points="18.067 35.687 0; 18.403 34.111 0" />
+  <path id="W-114-axis" points="18.403 34.111 0; 18.789 32.839 0" />
+  <path id="W-115-axis" points="18.789 32.839 0; 19.253 31.659 0" />
+  <path id="W-116-axis" points="19.253 31.659 0; 19.792 30.569 0" />
+  <path id="W-117-axis" points="19.792 30.569 0; 20.402 29.57 0" />
+  <path id="W-118-axis" points="20.402 29.57 0; 21.081 28.659 0" />
+  <path id="W-119-axis" points="21.081 28.659 0; 21.831 27.833 0" />
+  <path id="W-120-axis" points="21.831 27.833 0; 22.653 27.088 0" />
+  <path id="W-121-axis" points="22.653 27.088 0; 23.553 26.422 0" />
+  <path id="W-122-axis" points="23.553 26.422 0; 24.536 25.835 0" />
+  <path id="W-123-axis" points="24.536 25.835 0; 25.61 25.328 0" />
+  <path id="W-124-axis" points="25.61 25.328 0; 26.784 24.904 0" />
+  <path id="W-125-axis" points="26.784 24.904 0; 28.062 24.57 0" />
+  <path id="W-126-axis" points="28.062 24.57 0; 29.451 24.333 0" />
+  <path id="W-127-axis" points="29.451 24.333 0; 30.955 24.202 0" />
+  <path id="W-128-axis" points="30.955 24.202 0; 32.575 24.185 0" />
+  <path id="W-129-axis" points="32.575 24.185 0; 34.311 24.291 0" />
+  <path id="W-130-axis" points="34.311 24.291 0; 36.165 24.529 0" />
+  <path id="W-131-axis" points="36.165 24.529 0; 38.246 24.928 0" />
+  <path id="W-132-axis" points="38.246 24.928 0; 38.678 22.678 0" />
+  <path id="W-133-axis" points="38.678 22.678 0; 39.533 23.533 0" />
+  <path id="W-134-axis" points="39.533 23.533 0; 39.428 23.717 0" />
+  <path id="W-135-axis" points="39.428 23.717 0; 39.032 24.676 0" />
+  <path id="W-136-axis" points="39.032 24.676 0; 38.769 25.652 0" />
+  <path id="W-137-axis" points="38.769 25.652 0; 38.614 27.163 0" />
+  <path id="W-138-axis" points="38.614 27.163 0; 38.662 28.106 0" />
+  <path id="W-139-axis" points="38.662 28.106 0; 38.883 29.332 0" />
+  <path id="W-140-axis" points="38.883 29.332 0; 39.323 30.662 0" />
+  <path id="W-141-axis" points="39.323 30.662 0; 39.5 31.045 0" />
+  <path id="W-142-axis" points="39.5 31.045 0; 36 32 0" />
+  <path id="W-143-axis" points="36 32 0; 32.404 39.191 0" />
+  <path id="W-144-axis" points="32.404 39.191 0; 31.059 40.088 0" />
+  <path id="W-145-axis" points="31.059 40.088 0; 30.139 40.984 0" />
+  <path id="W-146-axis" points="30.139 40.984 0; 29.605 42.151 0" />
+  <path id="W-147-axis" points="29.605 42.151 0; 28.809 45.335 0" />
+  <path id="W-148-axis" points="25.108 54.587 4; 24.535 54.505 4" />
+  <path id="W-149-axis" points="24.535 54.505 4; 24.262 56.421 4" />
+  <path id="W-150-axis" points="24.262 56.421 4; 23 56 4" />
+  <path id="W-151-axis" points="23 56 4; 19.165 56.384 4" />
+  <path id="W-152-axis" points="34.779 47.695 0; 35.395 47.849 0" />
+  <path id="W-153-axis" points="35.395 47.849 0; 35.727 46.522 0" />
+  <path id="W-154-axis" points="35.727 46.522 0; 36 47 0" />
+  <path id="W-155-axis" points="36 47 0; 44.497 53.609 0" />
+  <path id="W-156-axis" points="44.497 53.609 0; 44.386 53.826 0" />
+  <path id="W-157-axis" points="44.386 53.826 0; 44.2 55 0" />
+  <path id="W-158-axis" points="44.2 55 0; 44.386 56.174 0" />
+  <path id="W-159-axis" points="44.386 56.174 0; 44.926 57.234 0" />
+  <path id="W-160-axis" points="44.926 57.234 0; 45.766 58.074 0" />
+  <path id="W-161-axis" points="47.377 62.084 4; 47 62 4" />
+  <path id="W-162-axis" points="47 62 4; 44 67 4" />
+  <path id="W-163-axis" points="44 67 4; 45 73 4" />
+  <path id="W-164-axis" points="45 73 4; 48.621 75.586 4" />
+  <path id="W-165-axis" points="48.621 75.586 4; 47.724 78.726 4" />
+  <path id="W-166-axis" points="47.724 78.726 4; 46.924 80.327 4" />
+  <path id="W-167-axis" points="46.924 80.327 4; 46.171 80.346 4" />
+  <path id="W-168-axis" points="46.171 80.346 4; 44.255 80.285 4" />
+  <path id="W-169-axis" points="44.255 80.285 4; 42.423 80.107 4" />
+  <path id="W-170-axis" points="42.423 80.107 4; 40.672 79.805 4" />
+  <path id="W-171-axis" points="40.672 79.805 4; 38.998 79.374 4" />
+  <path id="W-172-axis" points="38.998 79.374 4; 37.392 78.805 4" />
+  <path id="W-173-axis" points="37.392 78.805 4; 35.844 78.087 4" />
+  <path id="W-174-axis" points="35.844 78.087 4; 34.343 77.205 4" />
+  <path id="W-175-axis" points="34.343 77.205 4; 32.877 76.141 4" />
+  <path id="W-176-axis" points="32.877 76.141 4; 31.547 74.968 4" />
+  <path id="W-177-axis" points="31.547 74.968 4; 33 74 4" />
+  <path id="W-178-axis" points="33 74 4; 36 66 4" />
+  <path id="W-179-axis" points="36 66 4; 32 59 4" />
+  <path id="W-180-axis" points="32 59 4; 31.011 58.67 4" />
+  <path id="W-181-axis" points="31.011 58.67 4; 31.357 56.25 4" />
+  <path id="W-182-axis" points="56 51 0; 57.631 48.065 0" />
+  <path id="W-183-axis" points="57.631 48.065 0; 57.644 48.09 0" />
+  <path id="W-184-axis" points="57.644 48.09 0; 58.351 47.714 0" />
+  <path id="W-185-axis" points="58.351 47.714 0; 58.751 47.603 0" />
+  <path id="W-186-axis" points="58.751 47.603 0; 58.991 47.713 0" />
+  <path id="W-187-axis" points="58.991 47.713 0; 59.652 48.307 0" />
+  <path id="W-188-axis" points="59.652 48.307 0; 60.097 48.831 0" />
+  <path id="W-189-axis" points="60.097 48.831 0; 62 51.624 0" />
+  <path id="W-190-axis" points="62 51.624 0; 62 55 0" />
+  <path id="W-191-axis" points="62 55 0; 68 61 0" />
+  <path id="W-192-axis" points="68 61 0; 73 67 0" />
+  <path id="W-193-axis" points="73 67 0; 78 67 0" />
+  <path id="W-194-axis" points="78 67 0; 79.042 68.737 0" />
+  <path id="W-195-axis" points="77.159 72.504 4; 76.649 72.764 4" />
+  <path id="W-196-axis" points="76.649 72.764 4; 76.202 73.211 4" />
+  <path id="W-197-axis" points="76.202 73.211 4; 73.514 74.286 4" />
+  <path id="W-198-axis" points="73.514 74.286 4; 73.942 75.355 4" />
+  <path id="W-199-axis" points="73.942 75.355 4; 61.724 78.151 4" />
+  <path id="W-200-axis" points="61.724 78.151 4; 56.931 79.149 4" />
+  <path id="W-201-axis" points="56.931 79.149 4; 54.782 79.502 4" />
+  <path id="W-202-axis" points="54.782 79.502 4; 55.626 76.55 4" />
+  <path id="W-203-axis" points="55.626 76.55 4; 57 76 4" />
+  <path id="W-204-axis" points="57 76 4; 60 71 4" />
+  <path id="W-205-axis" points="60 71 4; 56 64 4" />
+  <path id="W-206-axis" points="56 64 4; 54.965 63.77 4" />
+  <path id="W-207-axis" points="51.703 55.615 0; 51.8 55 0" />
+  <path id="W-208-axis" points="51.8 55 0; 51.614 53.826 0" />
+  <path id="W-209-axis" points="51.614 53.826 0; 51.401 53.407 0" />
+  <path id="W-210-axis" points="51.401 53.407 0; 51.572 52.208 0" />
+  <path id="W-211-axis" points="51.572 52.208 0; 56 51 0" />
+  <path id="W-212-axis" points="58 34 0; 47 29 0" />
+  <path id="W-213-axis" points="47 29 0; 46.45 29.15 0" />
+  <path id="W-214-axis" points="46.45 29.15 0; 45.963 28.363 0" />
+  <path id="W-215-axis" points="45.963 28.363 0; 45.727 27.805 0" />
+  <path id="W-216-axis" points="45.727 27.805 0; 45.628 27.391 0" />
+  <path id="W-217-axis" points="45.628 27.391 0; 45.673 26.9 0" />
+  <path id="W-218-axis" points="45.673 26.9 0; 46.017 26.356 0" />
+  <path id="W-219-axis" points="46.017 26.356 0; 46.646 25.766 0" />
+  <path id="W-220-axis" points="46.646 25.766 0; 47.838 24.979 0" />
+  <path id="W-221-axis" points="47.838 24.979 0; 47.626 24.636 0" />
+  <path id="W-222-axis" points="47.626 24.636 0; 52 25 0" />
+  <path id="W-223-axis" points="52 25 0; 56.752 19.653 0" />
+  <path id="W-224-axis" points="56.752 19.653 0; 57.657 21.641 0" />
+  <path id="W-225-axis" points="57.657 21.641 0; 58.785 21.127 0" />
+  <path id="W-226-axis" points="58.785 21.127 0; 60.804 20.46 0" />
+  <path id="W-227-axis" points="60.804 20.46 0; 61.825 20.24 0" />
+  <path id="W-228-axis" points="61.825 20.24 0; 63.874 20.014 0" />
+  <path id="W-229-axis" points="63.874 20.014 0; 64.895 20.004 0" />
+  <path id="W-230-axis" points="64.895 20.004 0; 66.912 20.181 0" />
+  <path id="W-231-axis" points="66.912 20.181 0; 67.897 20.363 0" />
+  <path id="W-232-axis" points="67.897 20.363 0; 69.799 20.901 0" />
+  <path id="W-233-axis" points="69.799 20.901 0; 70.704 21.251 0" />
+  <path id="W-234-axis" points="70.704 21.251 0; 72.397 22.095 0" />
+  <path id="W-235-axis" points="72.397 22.095 0; 73.176 22.581 0" />
+  <path id="W-236-axis" points="73.176 22.581 0; 74.572 23.661 0" />
+  <path id="W-237-axis" points="74.572 23.661 0; 75.183 24.244 0" />
+  <path id="W-238-axis" points="75.183 24.244 0; 76.211 25.473 0" />
+  <path id="W-239-axis" points="76.211 25.473 0; 76.504 25.967 0" />
+  <path id="W-240-axis" points="76.504 25.967 0; 76.5 26 0" />
+  <path id="W-241-axis" points="76.5 26 0; 76.653 27.165 0" />
+  <path id="W-242-axis" points="76.653 27.165 0; 77.103 28.25 0" />
+  <path id="W-243-axis" points="77.103 28.25 0; 77.818 29.182 0" />
+  <path id="W-244-axis" points="77.818 29.182 0; 78.384 29.616 0" />
+  <path id="W-245-axis" points="78.384 29.616 0; 76.707 33.771 0" />
+  <path id="W-246-axis" points="76.707 33.771 0; 76.382 34.826 0" />
+  <path id="W-247-axis" points="76.382 34.826 0; 76.125 36.001 0" />
+  <path id="W-248-axis" points="76.125 36.001 0; 75.965 37.806 0" />
+  <path id="W-249-axis" points="75.965 37.806 0; 76.054 39.248 0" />
+  <path id="W-250-axis" points="76.054 39.248 0; 76.216 40.174 0" />
+  <path id="W-251-axis" points="76.216 40.174 0; 76.864 42.181 0" />
+  <path id="W-252-axis" points="76.864 42.181 0; 77.584 43.614 0" />
+  <path id="W-253-axis" points="77.584 43.614 0; 78.26 44.669 0" />
+  <path id="W-254-axis" points="78.26 44.669 0; 79.776 46.54 0" />
+  <path id="W-255-axis" points="79.776 46.54 0; 78.255 50.596 0" />
+  <path id="W-256-axis" points="78.255 50.596 0; 78.163 51.735 0" />
+  <path id="W-257-axis" points="78.163 51.735 0; 73.617 53.553 0" />
+  <path id="W-258-axis" points="73.617 53.553 0; 73 48 0" />
+  <path id="W-259-axis" points="73 48 0; 68 44 0" />
+  <path id="W-260-axis" points="68 44 0; 65.754 44.749 0" />
+  <path id="W-261-axis" points="65.754 44.749 0; 64.892 43.663 0" />
+  <path id="W-262-axis" points="64.892 43.663 0; 64.046 42.808 0" />
+  <path id="W-263-axis" points="64.046 42.808 0; 63.068 42.017 0" />
+  <path id="W-264-axis" points="63.068 42.017 0; 61.916 41.332 0" />
+  <path id="W-265-axis" points="61.916 41.332 0; 60.563 40.827 0" />
+  <path id="W-266-axis" points="60.563 40.827 0; 60.56 40.826 0" />
+  <path id="W-267-axis" points="60.56 40.826 0; 58 34 0" />
+  <profile id="O-CHAPEL-plan" points="17.414 65.484; 20.195 74.044; 12.586 76.516; 9.805 67.956" />
+  <profile id="O-CISTERN-plan" points="25.2 65; 25.033 64.158; 24.556 63.444; 23.842 62.967; 23 62.8; 22.158 62.967; 21.444 63.444; 20.967 64.158; 20.8 65; 20.967 65.842; 21.444 66.556; 22.158 67.033; 23 67.2; 23.842 67.033; 24.556 66.556; 25.033 65.842" />
+  <profile id="O-A-PLANTER-plan" points="32.752 67.573; 32.068 69.453; 29.248 68.427; 29.932 66.547" />
+  <profile id="O-BAKERY-plan" points="44.423 26.603; 43.397 29.423; 40.577 28.397; 41.603 25.577" />
+  <profile id="O-FOUNTAIN-plan" points="47.8 41; 47.663 40.311; 47.273 39.727; 46.689 39.337; 46 39.2; 45.311 39.337; 44.727 39.727; 44.337 40.311; 44.2 41; 44.337 41.689; 44.727 42.273; 45.311 42.663; 46 42.8; 46.689 42.663; 47.273 42.273; 47.663 41.689" />
+  <profile id="O-MID-WALL-plan" points="36.014 42.553; 37.705 46.179; 34.986 47.447; 33.295 43.821" />
+  <profile id="O-T-GATE-plan" points="51.303 14.1; 53.416 18.632; 50.697 19.9; 48.584 15.368" />
+  <profile id="O-TOWN-plan" points="55.027 67.904; 55.803 70.802; 50.973 72.096; 50.197 69.198" />
+  <profile id="O-ROTATE-plan" points="61.931 79.68; 62.967 83.544; 60.069 84.32; 59.033 80.456" />
+  <profile id="O-MARKET-plan" points="66.173 47.615; 67.208 51.479; 63.827 52.385; 62.792 48.521" />
+  <profile id="O-BOAT-plan" points="90.251 57.809; 91.545 62.638; 85.749 64.191; 84.455 59.362" />
+  <profile id="O-B-SALT-plan" points="79.923 59.103; 78.897 61.923; 76.077 60.897; 77.103 58.077" />
+  <profile id="O-BACK-plan" points="74.527 66.666; 75.919 76.569; 70.473 77.334; 69.081 67.431" />
+  <profile id="O-COAST-plan" points="89.992 42.843; 91.804 49.604; 86.008 51.157; 84.196 44.396" />
+  <profile id="O-WEST-plan" points="15.4 32; 15.293 31.464; 14.99 31.01; 14.536 30.707; 14 30.6; 13.464 30.707; 13.01 31.01; 12.707 31.464; 12.6 32; 12.707 32.536; 13.01 32.99; 13.464 33.293; 14 33.4; 14.536 33.293; 14.99 32.99; 15.293 32.536" />
+  <profile id="O-EAST-plan" points="81.3 34; 81.201 33.503; 80.919 33.081; 80.497 32.799; 80 32.7; 79.503 32.799; 79.081 33.081; 78.799 33.503; 78.7 34; 78.799 34.497; 79.081 34.919; 79.503 35.201; 80 35.3; 80.497 35.201; 80.919 34.919; 81.201 34.497" />
+  <profile id="cliff-plan" points="28 0; 54 -1; 65 8; 80 11; 90 20; 94 37; 100 50; 102 72; 91 88; 70 101; 39 102; 20 94; 3 78; -1 62; 1 45; 5 24; 16 14; 29 15" />
+  <profile id="parcel-0-plan" points="29.02 14.999; 29.02 15.001; 29.02 15.003; 29.019 15.005; 29.019 15.007; 29.018 15.008; 29.017 15.01; 29.016 15.012; 29.015 15.013; 29.013 15.015; 29.012 15.016; 29.01 15.017; 29.008 15.018; 29.006 15.019; 29.004 15.019; 29.002 15.02; 29 15.02; 28.998 15.02; 16.007 14.021; 5.018 24.01; 1.02 45.003; -0.98 61.999; 3.018 77.989; 20.011 93.983; 39.004 101.98; 69.994 100.98; 90.986 87.985; 101.979 71.995; 99.98 50.005; 93.982 37.008; 93.981 37.007; 93.981 37.005; 89.982 20.011; 79.991 11.019; 64.996 8.02; 64.994 8.019; 64.992 8.018; 64.991 8.018; 64.989 8.017; 64.987 8.015; 53.993 -0.98; 28.021 0.019">
+    <hole points="9.414 44.092; 8.976 43.654; 8.975 43.653; 8.974 43.651; 8.973 43.649; 8.093 41.923; 8.092 41.921; 8.092 41.919; 8.091 41.917; 7.788 40.003; 7.788 40.001; 7.788 39.999; 7.788 39.997; 8.091 38.083; 8.092 38.081; 8.092 38.079; 8.093 38.077; 8.973 36.351; 8.974 36.349; 8.975 36.347; 8.976 36.346; 9.797 35.525; 10.001 34.114; 10.001 34.112; 10.501 31.879; 10.501 31.878; 10.981 30.294; 10.982 30.293; 11.677 28.489; 11.678 28.488; 12.687 26.451; 12.687 26.45; 13.496 25.127; 13.497 25.125; 14.619 23.591; 14.62 23.589; 15.887 22.166; 15.888 22.164; 17.602 20.612; 17.603 20.611; 19.165 19.48; 19.166 19.479; 20.502 18.682; 20.503 18.682; 22.284 17.819; 22.286 17.818; 24.523 17.009; 24.525 17.009; 26.502 16.508; 26.503 16.507; 28.239 16.212; 28.241 16.211; 30.706 15.994; 30.708 15.994; 32.868 15.981; 33.802 3.834; 33.802 3.832; 33.803 3.83; 33.803 3.828; 33.804 3.826; 33.805 3.825; 33.806 3.823; 33.807 3.822; 33.809 3.82; 33.81 3.819; 33.812 3.818; 33.814 3.817; 33.815 3.816; 33.817 3.816; 33.819 3.815; 47.032 1.783; 47.033 1.782; 47.035 1.782; 47.037 1.783; 47.039 1.783; 47.041 1.783; 47.042 1.784; 47.044 1.785; 58.174 7.856; 58.175 7.857; 58.177 7.858; 58.179 7.859; 58.18 7.861; 58.181 7.863; 58.182 7.864; 58.183 7.866; 58.184 7.868; 59.313 12.385; 60.507 12.135; 60.509 12.135; 62.086 11.916; 62.087 11.916; 63.657 11.806; 63.658 11.806; 65.214 11.8; 65.215 11.8; 66.498 11.871; 66.499 11.871; 68.02 12.045; 68.021 12.045; 69.515 12.312; 69.516 12.313; 70.977 12.669; 70.978 12.67; 72.401 13.113; 72.402 13.114; 73.784 13.64; 73.785 13.64; 75.122 14.246; 75.123 14.247; 76.41 14.931; 76.411 14.932; 77.643 15.692; 77.644 15.692; 78.817 16.527; 78.818 16.527; 79.926 17.435; 79.927 17.436; 80.966 18.414; 80.967 18.416; 82.127 19.702; 82.128 19.704; 82.998 20.85; 82.999 20.852; 83.774 22.067; 83.775 22.068; 83.932 22.361; 84.039 22.443; 84.218 22.308; 84.22 22.307; 84.221 22.306; 84.223 22.305; 84.225 22.305; 84.227 22.304; 84.229 22.304; 84.231 22.304; 84.233 22.304; 84.235 22.304; 84.237 22.305; 84.239 22.306; 84.24 22.307; 84.242 22.308; 84.244 22.309; 84.245 22.31; 84.246 22.312; 85.016 23.332; 85.017 23.334; 85.798 24.662; 85.799 24.663; 85.8 24.665; 86.365 26.079; 86.365 26.081; 86.366 26.083; 86.689 27.544; 86.69 27.545; 86.69 27.547; 86.772 28.99; 86.772 28.992; 86.771 28.994; 86.565 30.801; 86.565 30.803; 86.284 31.906; 86.283 31.908; 85.951 32.885; 85.95 32.887; 84.451 36.504; 84.214 37.426; 84.193 38.118; 84.389 38.888; 84.638 39.406; 85.055 40.056; 85.681 40.838; 86.554 41.746; 87.944 42.984; 87.945 42.985; 87.946 42.987; 87.947 42.988; 87.948 42.99; 87.949 42.992; 87.95 42.994; 87.95 42.995; 87.95 42.997; 87.95 42.999; 87.95 43.001; 87.95 43.003; 87.949 43.005; 87.948 43.007; 87.948 43.009; 87.946 43.01; 87.945 43.012; 86.697 44.412; 88.997 45.274; 88.998 45.275; 89 45.276; 89.002 45.277; 89.003 45.278; 89.005 45.28; 89.006 45.281; 89.007 45.283; 89.008 45.285; 89.009 45.286; 89.009 45.288; 89.009 45.29; 89.01 45.292; 89.01 45.294; 89.009 45.296; 89.009 45.298; 89.008 45.3; 86.507 51.97; 91.111 52.807; 91.113 52.807; 91.114 52.808; 91.116 52.808; 91.118 52.809; 91.119 52.81; 91.121 52.812; 91.122 52.813; 91.123 52.814; 97.22 60.944; 97.222 60.945; 97.222 60.947; 97.223 60.949; 97.224 60.951; 97.224 60.953; 97.224 60.955; 97.224 60.956; 97.224 60.958; 97.224 60.96; 95.191 70.106; 95.191 70.108; 95.19 70.11; 95.189 70.112; 95.188 70.114; 95.187 70.116; 95.185 70.117; 87.016 77.265; 87.015 77.266; 87.013 77.267; 87.011 77.268; 87.009 77.269; 87.007 77.269; 87.005 77.27; 87.003 77.27; 87.001 77.27; 86.999 77.269; 86.997 77.269; 86.995 77.268; 86.994 77.267; 86.992 77.266; 86.99 77.265; 83.437 74.304; 83.062 75.053; 83.212 75.997; 83.212 75.999; 83.212 76.001; 83.212 76.003; 83.007 77.299; 83.006 77.301; 83.006 77.303; 83.005 77.305; 82.409 78.474; 82.408 78.476; 82.407 78.478; 82.405 78.479; 81.551 79.312; 81.752 79.813; 81.752 79.815; 81.753 79.817; 81.753 79.818; 81.753 79.82; 81.753 79.822; 81.753 79.824; 81.752 79.826; 81.752 79.828; 81.751 79.83; 81.75 79.832; 81.749 79.833; 81.747 79.835; 81.746 79.836; 81.744 79.837; 81.742 79.838; 81.741 79.839; 81.579 79.903; 81.995 82.075; 81.995 82.077; 81.995 82.078; 81.995 82.08; 81.995 82.082; 81.994 82.084; 81.993 82.086; 81.993 82.088; 81.992 82.09; 81.99 82.091; 81.989 82.093; 81.988 82.094; 81.986 82.095; 81.984 82.096; 81.983 82.097; 81.981 82.098; 81.979 82.098; 76.449 83.203; 61.942 86.489; 57.134 94.183; 57.132 94.184; 57.131 94.186; 57.129 94.187; 57.128 94.188; 57.126 94.19; 57.124 94.19; 57.122 94.191; 57.12 94.192; 45.875 96.236; 45.874 96.236; 45.872 96.236; 45.87 96.236; 45.868 96.236; 45.866 96.236; 45.864 96.235; 45.863 96.234; 45.861 96.233; 45.859 96.232; 45.858 96.231; 45.857 96.229; 45.855 96.228; 45.854 96.226; 45.854 96.225; 45.853 96.223; 43.255 88.43; 41.476 88.263; 41.474 88.263; 39.11 87.867; 39.108 87.867; 36.771 87.279; 36.769 87.278; 34.465 86.477; 34.463 86.476; 31.864 85.27; 31.862 85.269; 29.685 83.97; 29.684 83.969; 27.595 82.431; 27.594 82.43; 25.603 80.651; 25.602 80.65; 24.752 79.751; 24.059 80.213; 24.057 80.214; 24.055 80.215; 24.053 80.216; 24.052 80.216; 24.05 80.216; 24.048 80.216; 24.046 80.216; 14.931 79.204; 14.929 79.203; 14.927 79.203; 14.925 79.202; 14.924 79.201; 14.922 79.2; 5.829 73.139; 5.828 73.137; 5.826 73.136; 5.825 73.135; 5.824 73.133; 5.823 73.132; 5.822 73.13; 5.821 73.128; 3.779 67; 3.778 66.998; 3.778 66.996; 3.778 66.994; 3.778 66.992; 3.778 66.99; 3.779 66.989; 3.779 66.987; 5.826 61.87; 5.826 61.869; 5.827 61.867; 5.829 61.865; 5.83 61.864; 5.831 61.863; 5.833 61.861; 11.439 57.857; 4.786 53.105; 4.784 53.104; 4.783 53.103; 4.782 53.101; 4.78 53.099; 4.78 53.098; 4.779 53.096; 4.778 53.094; 4.778 53.092; 4.777 53.09; 4.777 53.088; 4.778 53.086; 5.821 44.735; 5.822 44.733; 5.822 44.731; 5.823 44.729; 5.824 44.728; 5.825 44.726; 5.826 44.724; 5.828 44.723; 5.829 44.722; 5.831 44.72; 5.833 44.719; 5.835 44.719; 5.837 44.718; 5.838 44.718; 5.84 44.718; 5.842 44.718; 5.844 44.718; 5.846 44.718; 5.848 44.719; 8.366 45.664" />
+  </profile>
+  <profile id="parcel-1-plan" points="60.723 40.662; 62.005 41.141; 62.007 41.142; 62.009 41.143; 63.187 41.843; 63.189 41.845; 64.186 42.651; 64.188 42.653; 65.049 43.523; 65.05 43.524; 65.827 44.503; 68.032 43.768; 68.034 43.768; 68.036 43.767; 68.038 43.767; 68.039 43.767; 68.041 43.767; 68.043 43.768; 68.045 43.768; 68.047 43.769; 68.049 43.77; 68.05 43.771; 73.193 47.885; 73.194 47.886; 73.195 47.888; 73.197 47.889; 73.198 47.891; 73.199 47.893; 73.199 47.895; 73.2 47.897; 73.2 47.899; 73.795 53.256; 77.964 51.588; 78.048 50.553; 78.048 50.551; 78.048 50.549; 78.049 50.547; 79.537 46.579; 78.09 44.793; 78.089 44.791; 77.402 43.719; 77.401 43.717; 76.67 42.262; 76.669 42.261; 76.669 42.259; 76.012 40.226; 76.011 40.223; 75.845 39.274; 75.845 39.272; 75.755 37.805; 75.754 37.803; 75.755 37.802; 75.917 35.97; 75.917 35.968; 76.179 34.773; 76.179 34.772; 76.509 33.701; 76.509 33.7; 78.129 29.685; 77.67 29.333; 77.669 29.332; 77.668 29.331; 77.667 29.33; 76.921 28.358; 76.92 28.357; 76.919 28.355; 76.919 28.354; 76.449 27.222; 76.449 27.221; 76.448 27.219; 76.448 27.217; 76.291 26.018; 76.039 25.595; 75.029 24.388; 74.435 23.82; 73.056 22.754; 72.294 22.278; 70.619 21.443; 69.732 21.1; 67.849 20.568; 66.884 20.389; 64.887 20.214; 63.887 20.224; 61.859 20.448; 60.859 20.663; 58.862 21.323; 57.571 21.911; 57.569 21.912; 57.567 21.912; 57.565 21.913; 57.563 21.913; 57.562 21.913; 57.56 21.912; 57.558 21.912; 57.556 21.911; 57.554 21.911; 57.552 21.91; 57.551 21.909; 57.549 21.907; 57.548 21.906; 57.547 21.904; 57.546 21.903; 57.545 21.901; 56.695 20.034; 52.094 25.211; 52.092 25.212; 52.091 25.213; 52.089 25.214; 52.087 25.215; 52.085 25.216; 52.083 25.217; 52.081 25.217; 52.079 25.217; 52.077 25.217; 48.023 24.879; 48.113 25.026; 48.114 25.027; 48.115 25.029; 48.116 25.031; 48.116 25.033; 48.116 25.035; 48.116 25.037; 48.116 25.038; 48.116 25.04; 48.115 25.042; 48.115 25.044; 48.114 25.046; 48.113 25.047; 48.112 25.049; 48.11 25.05; 48.109 25.052; 48.107 25.053; 46.777 25.931; 46.18 26.491; 45.878 26.97; 45.84 27.376; 45.927 27.739; 46.15 28.266; 46.546 28.906; 47.011 28.779; 47.013 28.779; 47.015 28.779; 47.017 28.779; 47.019 28.779; 47.021 28.779; 47.023 28.78; 47.024 28.78; 58.159 33.841; 58.16 33.842; 58.162 33.843; 58.163 33.845; 58.165 33.846; 58.166 33.847; 58.167 33.849; 58.168 33.851; 58.169 33.853" />
+  <profile id="parcel-2-plan" points="54.871 63.534; 56.128 63.813; 56.13 63.814; 56.132 63.815; 56.133 63.816; 56.135 63.817; 56.137 63.818; 56.138 63.819; 56.14 63.821; 56.141 63.823; 60.238 70.992; 60.238 70.994; 60.239 70.996; 60.24 70.998; 60.24 71; 60.24 71.002; 60.24 71.004; 60.24 71.005; 60.24 71.007; 60.239 71.009; 60.238 71.011; 60.237 71.013; 57.147 76.163; 57.146 76.164; 57.145 76.166; 57.144 76.167; 57.142 76.168; 57.141 76.169; 57.139 76.17; 57.137 76.171; 55.8 76.707; 55.075 79.241; 56.893 78.943; 61.679 77.946; 73.656 75.205; 73.248 74.188; 73.248 74.186; 73.247 74.184; 73.247 74.182; 73.247 74.18; 73.247 74.178; 73.247 74.176; 73.248 74.174; 73.249 74.172; 73.249 74.171; 73.25 74.169; 73.252 74.167; 73.253 74.166; 73.254 74.165; 73.256 74.163; 73.258 74.162; 73.26 74.162; 76.084 73.032; 76.522 72.594; 76.523 72.593; 76.525 72.592; 76.527 72.591; 77.317 72.188; 78.931 68.96; 77.881 67.21; 72.911 67.21; 72.909 67.21; 72.907 67.21; 72.905 67.209; 72.903 67.209; 72.902 67.208; 72.9 67.207; 72.898 67.206; 72.897 67.204; 72.896 67.203; 67.845 61.142; 61.796 55.093; 61.795 55.091; 61.793 55.09; 61.792 55.088; 61.792 55.086; 61.791 55.085; 61.79 55.083; 61.79 55.081; 61.79 55.079; 61.79 51.689; 59.93 48.958; 59.501 48.454; 58.874 47.891; 58.733 47.826; 58.429 47.91; 57.759 48.267; 56.145 51.172; 56.144 51.174; 56.142 51.175; 56.141 51.177; 56.14 51.178; 56.138 51.179; 56.136 51.18; 56.134 51.181; 56.132 51.182; 51.761 52.374; 51.618 53.371; 51.815 53.758; 51.816 53.759; 51.816 53.761; 51.817 53.764; 52.012 54.997; 52.012 54.999; 52.012 55.001; 52.012 55.003; 51.856 55.996" />
+  <profile id="parcel-3-plan" points="31.244 58.526; 32.135 58.824; 32.137 58.825; 32.139 58.825; 32.141 58.827; 32.142 58.828; 32.144 58.829; 32.145 58.831; 32.146 58.833; 36.227 65.973; 36.227 65.975; 36.228 65.977; 36.229 65.979; 36.229 65.981; 36.229 65.983; 36.229 65.985; 36.229 65.986; 36.229 65.988; 36.228 65.99; 33.175 74.131; 33.174 74.133; 33.173 74.135; 33.172 74.137; 33.171 74.138; 33.169 74.139; 33.167 74.141; 31.891 74.992; 33.008 75.977; 34.458 77.029; 35.942 77.901; 37.471 78.61; 39.059 79.173; 40.716 79.6; 42.451 79.899; 44.269 80.075; 46.172 80.136; 46.792 80.12; 47.527 78.65; 48.378 75.671; 44.814 73.125; 44.812 73.124; 44.811 73.123; 44.81 73.121; 44.809 73.119; 44.808 73.118; 44.807 73.116; 44.806 73.114; 44.806 73.112; 43.781 66.966; 43.781 66.964; 43.781 66.962; 43.781 66.959; 43.782 66.958; 43.782 66.956; 43.783 66.954; 43.784 66.952; 46.89 61.774; 46.891 61.773; 46.893 61.771; 46.894 61.77; 46.896 61.769; 46.897 61.768; 46.899 61.767; 46.901 61.766; 46.902 61.765; 46.904 61.765; 46.906 61.765; 46.908 61.765; 46.91 61.765; 46.912 61.765; 47.282 61.848; 45.885 58.357; 45.648 58.252; 45.647 58.251; 45.645 58.25; 45.644 58.249; 45.642 58.247; 44.756 57.361; 44.755 57.36; 44.754 57.358; 44.753 57.356; 44.185 56.243; 44.184 56.241; 44.184 56.239; 44.183 56.237; 43.988 55.003; 43.988 55.001; 43.988 54.999; 43.988 54.997; 44.183 53.763; 44.184 53.761; 44.184 53.759; 44.185 53.757; 44.231 53.668; 35.841 47.143; 35.84 47.141; 35.839 47.14; 35.837 47.138; 35.836 47.137; 35.804 47.08; 35.553 48.084; 35.552 48.086; 35.551 48.088; 35.55 48.09; 35.549 48.091; 35.548 48.093; 35.547 48.094; 35.545 48.095; 35.544 48.097; 35.542 48.097; 35.54 48.098; 35.538 48.099; 35.536 48.099; 35.534 48.099; 35.532 48.099; 35.53 48.099; 35.528 48.099; 34.701 47.892; 31.687 55.426" />
+  <profile id="parcel-4-plan" points="23.02 55.787; 23.022 55.787; 23.024 55.787; 23.026 55.787; 23.028 55.788; 24.09 56.142; 24.354 54.287; 24.354 54.285; 24.355 54.283; 24.356 54.282; 24.357 54.28; 24.358 54.278; 24.359 54.277; 24.36 54.275; 24.362 54.274; 24.363 54.273; 24.365 54.272; 24.367 54.271; 24.369 54.271; 24.371 54.27; 24.373 54.27; 24.375 54.27; 24.377 54.27; 25.188 54.386; 28.447 46.239; 28.391 46.22; 28.389 46.22; 28.387 46.219; 28.385 46.218; 28.384 46.216; 28.382 46.215; 28.381 46.213; 28.38 46.212; 28.379 46.21; 28.378 46.208; 28.378 46.206; 28.377 46.204; 28.377 46.202; 28.377 46.2; 28.377 46.198; 28.378 46.196; 29.406 42.083; 29.406 42.081; 29.407 42.08; 29.963 40.864; 29.964 40.863; 29.965 40.861; 29.966 40.86; 29.967 40.858; 30.925 39.925; 30.926 39.924; 30.928 39.923; 32.242 39.047; 35.85 31.83; 35.851 31.828; 35.852 31.827; 35.853 31.826; 35.855 31.824; 35.856 31.823; 35.858 31.822; 35.859 31.821; 35.861 31.82; 35.863 31.82; 39.205 30.908; 39.128 30.74; 39.127 30.738; 38.679 29.385; 38.679 29.382; 38.453 28.131; 38.453 28.129; 38.404 27.159; 38.404 27.158; 38.404 27.156; 38.562 25.615; 38.562 25.614; 38.562 25.612; 38.832 24.61; 38.833 24.607; 39.238 23.626; 39.24 23.624; 39.271 23.568; 38.809 23.106; 38.416 25.154; 38.416 25.156; 38.415 25.158; 38.414 25.16; 38.413 25.161; 38.412 25.163; 38.411 25.164; 38.41 25.166; 38.408 25.167; 38.406 25.168; 38.405 25.169; 38.403 25.169; 38.401 25.17; 38.399 25.17; 38.397 25.17; 38.395 25.17; 38.393 25.17; 36.132 24.736; 34.291 24.5; 32.57 24.395; 30.965 24.412; 29.478 24.541; 28.106 24.775; 26.846 25.105; 25.691 25.522; 24.635 26.021; 23.67 26.597; 22.786 27.251; 21.98 27.982; 21.243 28.793; 20.576 29.688; 19.976 30.67; 19.445 31.744; 18.988 32.908; 18.607 34.163; 18.296 35.619; 19.024 36.346; 19.025 36.347; 19.026 36.349; 19.027 36.351; 19.907 38.077; 19.908 38.079; 19.908 38.081; 19.909 38.083; 20.212 39.997; 20.212 39.999; 20.212 40.001; 20.212 40.003; 19.909 41.917; 19.908 41.919; 19.908 41.921; 19.907 41.923; 19.027 43.649; 19.026 43.651; 19.025 43.653; 19.024 43.654; 17.654 45.024; 17.653 45.025; 17.651 45.026; 17.649 45.027; 15.918 45.909; 14.359 48.248; 17.318 54.167; 19.003 56.189" />
+  <group id="coastal-details" collidable="false">
+    <roof id="sea-water" profile="sea-plan" elevation="-5.8" thickness=".1" material="sea" playable="false" collidable="false" group="scenery" />
+    <box id="shutter-0" position="33.531 10.1 2.2" rotation="0 0 94.397" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-2" position="31.819 16.197 2.2" rotation="0 0 179.662" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-6" position="23.477 17.611 2.2" rotation="0 0 160.129" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-32" position="19.5 79.5 6.2" rotation="0 0 6.34" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-36" position="28.764 83.03 6.2" rotation="0 0 36.363" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-38" position="33.252 85.683 6.2" rotation="0 0 24.89" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-40" position="37.991 87.369 6.2" rotation="0 0 14.117" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-44" position="51.5 95 6.2" rotation="0 0 -10.305" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-46" position="69.108 84.651 6.2" rotation="0 0 -12.763" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-48" position="81.547 80.851 6.2" rotation="0 0 -100.839" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-60" position="87.483 48.767 2.2" rotation="0 0 -69.441" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-102" position="58.579 10.316 2.2" rotation="0 0 -104.036" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-132" position="38.462 23.803 2.2" rotation="0 0 -79.131" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-142" position="37.75 31.523 2.2" rotation="0 0 164.738" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-162" position="45.5 64.5 6.2" rotation="0 0 120.964" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-164" position="46.811 74.293 6.2" rotation="0 0 35.533" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-178" position="34.5 70 6.2" rotation="0 0 -69.444" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-182" position="56.816 49.532 2.2" rotation="0 0 -60.939" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-190" position="62 53.312 2.2" rotation="0 0 90" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-192" position="70.5 64 2.2" rotation="0 0 50.194" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-200" position="59.328 78.65 6.2" rotation="0 0 168.238" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-202" position="55.204 78.026 6.2" rotation="0 0 -74.044" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-204" position="58.5 73.5 6.2" rotation="0 0 -59.036" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-212" position="52.5 31.5 2.2" rotation="0 0 -155.556" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-222" position="49.813 24.818 2.2" rotation="0 0 4.757" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-224" position="57.204 20.647 2.2" rotation="0 0 65.523" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-226" position="59.794 20.794 2.2" rotation="0 0 -18.282" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-254" position="79.018 45.605 2.2" rotation="0 0 50.983" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-258" position="73.309 50.776 2.2" rotation="0 0 -96.34" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <box id="shutter-260" position="66.877 44.374 2.2" rotation="0 0 161.557" width="1.1" depth=".46" height="1.3" anchor="bottom-center" material="blue" collidable="false" group="shutters" />
+    <roof id="O-A-PLANTER-inset" profile="O-A-PLANTER-inset-plan" elevation="5.115" thickness=".02" material="olive" playable="false" collidable="false" />
+    <roof id="O-FOUNTAIN-inset" profile="O-FOUNTAIN-inset-plan" elevation="1.115" thickness=".02" material="blue" playable="false" collidable="false" />
+    <roof id="O-B-SALT-inset" profile="O-B-SALT-inset-plan" elevation="1.115" thickness=".02" material="olive" playable="false" collidable="false" />
+    <roof id="O-WEST-inset" profile="O-WEST-inset-plan" elevation="1.115" thickness=".02" material="olive" playable="false" collidable="false" />
+    <roof id="O-EAST-inset" profile="O-EAST-inset-plan" elevation="1.115" thickness=".02" material="olive" playable="false" collidable="false" />
+  </group>
+  <profile id="sea-plan" points="-100 -100; 200 -100; 200 200; -100 200" />
+  <profile id="O-A-PLANTER-inset-plan" points="32.56 67.663; 30.022 66.739; 29.44 68.337; 31.978 69.261" />
+  <profile id="O-FOUNTAIN-inset-plan" points="47.647 41; 47.522 40.37; 47.165 39.835; 46.63 39.478; 46 39.353; 45.37 39.478; 44.835 39.835; 44.478 40.37; 44.353 41; 44.478 41.63; 44.835 42.165; 45.37 42.522; 46 42.647; 46.63 42.522; 47.165 42.165; 47.522 41.63" />
+  <profile id="O-B-SALT-inset-plan" points="79.731 59.193; 77.193 58.269; 76.269 60.807; 78.807 61.731" />
+  <profile id="O-WEST-inset-plan" points="15.247 32; 15.152 31.523; 14.882 31.118; 14.477 30.848; 14 30.753; 13.523 30.848; 13.118 31.118; 12.848 31.523; 12.753 32; 12.848 32.477; 13.118 32.882; 13.523 33.152; 14 33.247; 14.477 33.152; 14.882 32.882; 15.152 32.477" />
+  <profile id="O-EAST-inset-plan" points="81.147 34; 81.06 33.562; 80.811 33.189; 80.438 32.94; 80 32.853; 79.562 32.94; 79.189 33.189; 78.94 33.562; 78.853 34; 78.94 34.438; 79.189 34.811; 79.562 35.06; 80 35.147; 80.438 35.06; 80.811 34.811; 81.06 34.438" />
+  <profile id="plant-A-plan" points="25.5 62.5; 28.5 62.5; 28.5 65.5; 25.5 65.5" />
+  <face-material id="plant-A-paint" host="F-A" face="top" profile="plant-A-plan" material="paint-a" />
+  <profile id="plant-B-plan" points="81.5 61.5; 84.5 61.5; 84.5 64.5; 81.5 64.5" />
+  <face-material id="plant-B-paint" host="F-B" face="top" profile="plant-B-plan" material="paint-b" />
+  <player radius=".3" height="1.8" step=".3" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="t-spawn" position="44 11 0" kind="attacker_spawn" element="F-T" label="T 1" team="attack" movement="land" group="markers" />
+  <marker id="t-spawn-2" position="41 10 0" kind="attacker_spawn" element="F-T" label="T 2" team="attack" movement="land" group="markers" />
+  <marker id="t-spawn-3" position="43 14 0" kind="attacker_spawn" element="F-T" label="T 3" team="attack" movement="land" group="markers" />
+  <marker id="t-spawn-4" position="47 8 0" kind="attacker_spawn" element="F-T" label="T 4" team="attack" movement="land" group="markers" />
+  <marker id="t-spawn-5" position="48 12 0" kind="attacker_spawn" element="F-T" label="T 5" team="attack" movement="land" group="markers" />
+  <marker id="ct-spawn" position="51 90 4" kind="defender_spawn" element="F-CT" label="CT 1" team="defend" movement="land" group="markers" />
+  <marker id="ct-spawn-2" position="49 88 4" kind="defender_spawn" element="F-CT" label="CT 2" team="defend" movement="land" group="markers" />
+  <marker id="ct-spawn-3" position="54 90 4" kind="defender_spawn" element="F-CT" label="CT 3" team="defend" movement="land" group="markers" />
+  <marker id="ct-spawn-4" position="48 91 4" kind="defender_spawn" element="F-CT" label="CT 4" team="defend" movement="land" group="markers" />
+  <marker id="ct-spawn-5" position="52 93 4" kind="defender_spawn" element="F-CT" label="CT 5" team="defend" movement="land" group="markers" />
+  <marker id="site-a" position="27 64 4" kind="objective" element="F-A" label="A · Chapel Court" team="neutral" movement="land" group="markers" />
+  <marker id="site-b" position="83 63 0" kind="objective" element="F-B" label="B · Boat Court" team="neutral" movement="land" group="markers" />
+  <marker id="sea-overlook" position="14 40 0" kind="poi" element="F-W" label="sea-overlook" team="neutral" movement="land" group="markers" />
+  <marker id="cliff1-foot" position="14.7 42 0" kind="poi" element="F-W" label="cliff1-foot" team="neutral" movement="land" group="markers" />
+  <marker id="cliff1-head" position="9.4 50 2" kind="poi" element="F-SWITCH" label="cliff1-head" team="neutral" movement="land" group="markers" />
+  <marker id="cliff2-foot" position="12.2 53 2" kind="poi" element="F-SWITCH" label="cliff2-foot" team="neutral" movement="land" group="markers" />
+  <marker id="cliff2-head" position="19 61.2 4" kind="poi" element="F-A" label="cliff2-head" team="neutral" movement="land" group="markers" />
+  <marker id="bell-foot" position="32.6 44.5 0" kind="poi" element="F-AS0" label="bell-foot" team="neutral" movement="land" group="markers" />
+  <marker id="bell-head" position="27.4 57.5 4" kind="poi" element="F-A" label="bell-head" team="neutral" movement="land" group="markers" />
+  <marker id="gate-foot" position="47.5 53.5 0" kind="poi" element="F-GATE0" label="gate-foot" team="neutral" movement="land" group="markers" />
+  <marker id="gate-head" position="52.6 66.5 4" kind="poi" element="F-M1" label="gate-head" team="neutral" movement="land" group="markers" />
+  <marker id="boat-foot" position="84.7 64.6 0" kind="poi" element="F-B" label="boat-foot" team="neutral" movement="land" group="markers" />
+  <marker id="boat-head" position="78.3 77.4 4" kind="poi" element="F-CT" label="boat-head" team="neutral" movement="land" group="markers" />
+  <marker id="mid" position="49 43 0" kind="poi" element="F-M" label="mid" team="neutral" movement="land" group="markers" />
+  <marker id="market" position="69 55 0" kind="poi" element="F-BM" label="market" team="neutral" movement="land" group="markers" />
+  <marker id="harbor" position="81.5 36 0" kind="poi" element="F-E" label="harbor" team="neutral" movement="land" group="markers" />
+  <marker id="harbor-entry" position="81 51 0" kind="poi" element="F-E" label="harbor-entry" team="neutral" movement="land" group="markers" />
+  <marker id="a-back" position="29 76 4" kind="poi" element="F-A" label="a-back" team="neutral" movement="land" group="markers" />
+  <marker id="upper-west" position="39 83 4" kind="poi" element="F-CT" label="upper-west" team="neutral" movement="land" group="markers" />
+  <marker id="upper-east" position="68 81 4" kind="poi" element="F-CT" label="upper-east" team="neutral" movement="land" group="markers" />
+  <route id="T-A" to="site-a" min-routes="1" max-distance="150" movement="land" from="t-spawn" />
+  <route id="T-B" to="site-b" min-routes="1" max-distance="150" movement="land" from="t-spawn" />
+  <route id="CT-A" to="site-a" min-routes="1" max-distance="110" movement="land" from="ct-spawn" />
+  <route id="CT-B" to="site-b" min-routes="1" max-distance="110" movement="land" from="ct-spawn" />
+  <route id="A-B" to="site-b" min-routes="1" max-distance="160" movement="land" from="site-a" />
+  <route id="Cliff-lower" to="cliff1-head" min-routes="1" max-distance="14" movement="land" from="cliff1-foot" />
+  <route id="Cliff-landing" to="cliff2-foot" min-routes="1" max-distance="10" movement="land" from="cliff1-head" />
+  <route id="Cliff-upper" to="cliff2-head" min-routes="1" max-distance="15" movement="land" from="cliff2-foot" />
+  <route id="Bell-climb" to="bell-head" min-routes="1" max-distance="16" movement="land" from="bell-foot" />
+  <route id="Gate-climb" to="gate-head" min-routes="1" max-distance="16" movement="land" from="gate-foot" />
+  <route id="Boat-climb" to="boat-head" min-routes="1" max-distance="17" movement="land" from="boat-foot" />
+  <route id="Ferry-Sea" to="sea-overlook" min-routes="1" max-distance="70" movement="land" from="t-spawn" />
+  <route id="Sea-Cliff" to="cliff1-foot" min-routes="1" max-distance="12" movement="land" from="sea-overlook" />
+  <route id="Cliff-A" to="site-a" min-routes="1" max-distance="20" movement="land" from="cliff2-head" />
+  <route id="Ferry-Harbor" to="harbor" min-routes="1" max-distance="90" movement="land" from="t-spawn" />
+  <route id="Harbor-entry" to="harbor-entry" min-routes="1" max-distance="36" movement="land" from="harbor" />
+  <route id="Harbor-B" to="site-b" min-routes="1" max-distance="30" movement="land" from="harbor-entry" />
+  <route id="Mid-Market" to="market" min-routes="1" max-distance="40" movement="land" from="mid" />
+  <route id="Market-B" to="site-b" min-routes="1" max-distance="28" movement="land" from="market" />
+  <route id="Upper-rotation" to="upper-east" min-routes="1" max-distance="45" movement="land" from="upper-west" />
+  <route id="A-Upper" to="upper-west" min-routes="1" max-distance="28" movement="land" from="a-back" />
+  <route id="Upper-Boat" to="boat-head" min-routes="1" max-distance="27" movement="land" from="upper-east" />
+  <connection id="S-CLIFF1-foot-contact" to="S-CLIFF1" from="F-W" />
+  <connection id="S-CLIFF1-head-contact" to="F-SWITCH" from="S-CLIFF1" />
+  <connection id="S-CLIFF2-foot-contact" to="S-CLIFF2" from="F-SWITCH" />
+  <connection id="S-CLIFF2-head-contact" to="F-A" from="S-CLIFF2" />
+  <connection id="S-SHORT-foot-contact" to="S-SHORT" from="F-AS0" />
+  <connection id="S-SHORT-head-contact" to="F-A" from="S-SHORT" />
+  <connection id="S-GATE-foot-contact" to="S-GATE" from="F-GATE0" />
+  <connection id="S-GATE-head-contact" to="F-M1" from="S-GATE" />
+  <connection id="S-BOAT-foot-contact" to="S-BOAT" from="F-B" />
+  <connection id="S-BOAT-head-contact" to="F-CT" from="S-BOAT" />
+  <sky color="#cde4e3" intensity=".8" />
+  <light id="afternoon-sun" kind="directional" position="-30 -50 90" target="45 50 0" color="#fff2d4" intensity="2" />
+</architecture>

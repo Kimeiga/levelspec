@@ -1,0 +1,10 @@
+{
+  "id": "second-friday",
+  "status": "proposed target-engine settings, not executable game rules",
+  "units": "meters",
+  "axes": "right-handed Z-up",
+  "mode": {"type": "control", "playersPerTeam": 5, "unlockSeconds": 25, "percentPerSecond": 1, "winPercent": 100, "contested": "pause", "respawnWaveSeconds": 10, "swapSidesBetweenRounds": true},
+  "captureBounds": {"min": [76,56,0], "max": [90,70,2]},
+  "spawnProtection": [{"team":"west","min":[2,84,0],"max":[14,104,5]},{"team":"east","min":[116,2,0],"max":[134,18,5]}],
+  "requiredEngineWork": ["team filtering and spawn enemy exclusion", "control scoring, waves and overtime", "hero collision and ability bounds", "ballistic/utility/audio material rules", "5v5 playtest, spawn pressure and tea-roof counterplay"]
+}

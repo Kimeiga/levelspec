@@ -1,0 +1,393 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<architecture version="1" id="spillway" name="Spillway · 5v5 defusal" units="meters" validation="playable" description="Original waterworks blockout; upper maintenance crossing over lower mid. Review and gameplay limits in projects/spillway/README.md.">
+  <material id="floor" color="#c7c3b3" />
+  <material id="wall" color="#aab8b3" />
+  <material id="cover" color="#768f96" />
+  <material id="low-cover" color="#8ba6ad" />
+  <material id="upper" color="#c4a477" />
+  <material id="guard" color="#738a8a" />
+  <material id="zone-a" color="#d9a466" />
+  <material id="zone-b" color="#9dbf98" />
+  <profile id="west-landing-footprint" points="24 58; 36 58; 36 66; 24 66" />
+  <profile id="plant-a-footprint" points="18 70; 24 70; 24 77; 18 77" />
+  <profile id="plant-b-footprint" points="76 74; 80 74; 80 80; 76 80" />
+  <path id="boundary-outer-00-axis" points="40 4 -0.3; 40 12 -0.3" />
+  <path id="boundary-outer-01-axis" points="40 12 -0.3; 20 12 -0.3" />
+  <path id="boundary-outer-02-axis" points="20 12 -0.3; 20 18 -0.3" />
+  <path id="boundary-outer-03-axis" points="20 18 -0.3; 6 18 -0.3" />
+  <path id="boundary-outer-04-axis" points="6 18 -0.3; 6 86 -0.3" />
+  <path id="boundary-outer-05-axis" points="6 86 -0.3; 24 86 -0.3" />
+  <path id="boundary-outer-06-axis" points="24 86 -0.3; 24 90 -0.3" />
+  <path id="boundary-outer-07-axis" points="24 90 -0.3; 40 90 -0.3" />
+  <path id="boundary-outer-08-axis" points="40 90 -0.3; 40 96 -0.3" />
+  <path id="boundary-outer-09-axis" points="40 96 -0.3; 56 96 -0.3" />
+  <path id="boundary-outer-10-axis" points="56 96 -0.3; 56 90 -0.3" />
+  <path id="boundary-outer-11-axis" points="56 90 -0.3; 78 90 -0.3" />
+  <path id="boundary-outer-12-axis" points="78 90 -0.3; 78 86 -0.3" />
+  <path id="boundary-outer-13-axis" points="78 86 -0.3; 80 86 -0.3" />
+  <path id="boundary-outer-14-axis" points="80 86 -0.3; 80 84 -0.3" />
+  <path id="boundary-outer-15-axis" points="80 84 -0.3; 90 84 -0.3" />
+  <path id="boundary-outer-16-axis" points="90 84 -0.3; 90 20 -0.3" />
+  <path id="boundary-outer-17-axis" points="90 20 -0.3; 84 20 -0.3" />
+  <path id="boundary-outer-18-axis" points="84 20 -0.3; 84 12 -0.3" />
+  <path id="boundary-outer-19-axis" points="84 12 -0.3; 56 12 -0.3" />
+  <path id="boundary-outer-20-axis" points="56 12 -0.3; 56 4 -0.3" />
+  <path id="boundary-outer-21-axis" points="56 4 -0.3; 40 4 -0.3" />
+  <path id="boundary-hole-0-00-axis" points="36 78 -0.3; 44 78 -0.3" />
+  <path id="boundary-hole-0-01-axis" points="44 78 -0.3; 44 82 -0.3" />
+  <path id="boundary-hole-0-02-axis" points="44 82 -0.3; 36 82 -0.3" />
+  <path id="boundary-hole-0-03-axis" points="36 82 -0.3; 36 78 -0.3" />
+  <path id="boundary-hole-1-00-axis" points="36 72 -0.3; 36 44 -0.3" />
+  <path id="boundary-hole-1-01-axis" points="36 44 -0.3; 40 44 -0.3" />
+  <path id="boundary-hole-1-02-axis" points="40 44 -0.3; 40 72 -0.3" />
+  <path id="boundary-hole-1-03-axis" points="40 72 -0.3; 36 72 -0.3" />
+  <path id="boundary-hole-2-00-axis" points="60 44 -0.3; 60 38 -0.3" />
+  <path id="boundary-hole-2-01-axis" points="60 38 -0.3; 82 38 -0.3" />
+  <path id="boundary-hole-2-02-axis" points="82 38 -0.3; 82 58 -0.3" />
+  <path id="boundary-hole-2-03-axis" points="82 58 -0.3; 70 58 -0.3" />
+  <path id="boundary-hole-2-04-axis" points="70 58 -0.3; 70 68 -0.3" />
+  <path id="boundary-hole-2-05-axis" points="70 68 -0.3; 56 68 -0.3" />
+  <path id="boundary-hole-2-06-axis" points="56 68 -0.3; 56 44 -0.3" />
+  <path id="boundary-hole-2-07-axis" points="56 44 -0.3; 60 44 -0.3" />
+  <path id="boundary-hole-3-00-axis" points="60 28 -0.3; 56 28 -0.3" />
+  <path id="boundary-hole-3-01-axis" points="56 28 -0.3; 56 22 -0.3" />
+  <path id="boundary-hole-3-02-axis" points="56 22 -0.3; 82 22 -0.3" />
+  <path id="boundary-hole-3-03-axis" points="82 22 -0.3; 82 30 -0.3" />
+  <path id="boundary-hole-3-04-axis" points="82 30 -0.3; 60 30 -0.3" />
+  <path id="boundary-hole-3-05-axis" points="60 30 -0.3; 60 28 -0.3" />
+  <path id="boundary-hole-4-00-axis" points="28 22 -0.3; 40 22 -0.3" />
+  <path id="boundary-hole-4-01-axis" points="40 22 -0.3; 40 28 -0.3" />
+  <path id="boundary-hole-4-02-axis" points="40 28 -0.3; 36 28 -0.3" />
+  <path id="boundary-hole-4-03-axis" points="36 28 -0.3; 36 36 -0.3" />
+  <path id="boundary-hole-4-04-axis" points="36 36 -0.3; 30 36 -0.3" />
+  <path id="boundary-hole-4-05-axis" points="30 36 -0.3; 30 38 -0.3" />
+  <path id="boundary-hole-4-06-axis" points="30 38 -0.3; 24 38 -0.3" />
+  <path id="boundary-hole-4-07-axis" points="24 38 -0.3; 24 48 -0.3" />
+  <path id="boundary-hole-4-08-axis" points="24 48 -0.3; 14 48 -0.3" />
+  <path id="boundary-hole-4-09-axis" points="14 48 -0.3; 14 30 -0.3" />
+  <path id="boundary-hole-4-10-axis" points="14 30 -0.3; 28 30 -0.3" />
+  <path id="boundary-hole-4-11-axis" points="28 30 -0.3; 28 22 -0.3" />
+  <path id="boundary-hole-5-00-axis" points="70 74 -0.3; 70 82 -0.3" />
+  <path id="boundary-hole-5-01-axis" points="70 82 -0.3; 52 82 -0.3" />
+  <path id="boundary-hole-5-02-axis" points="52 82 -0.3; 52 78 -0.3" />
+  <path id="boundary-hole-5-03-axis" points="52 78 -0.3; 56 78 -0.3" />
+  <path id="boundary-hole-5-04-axis" points="56 78 -0.3; 56 74 -0.3" />
+  <path id="boundary-hole-5-05-axis" points="56 74 -0.3; 70 74 -0.3" />
+  <profile id="R-01-fill-section" points="0 0; 16 0; 0 4" />
+  <path id="S-01-axis" points="30 42 0; 30 58 4" />
+  <path id="S-02-axis" points="28 66 4; 28 82 0" />
+  <path id="R-01-axis" points="69.5 61 4; 70 61 4; 86 61 0" />
+  <assembly id="facility" label="Physical facility shell and combat geometry" coincident-material="retained-face">
+    <slab id="ground" group="ground" profile="ground-footprint" thickness=".30" material="floor" />
+    <wall id="boundary-outer-00" group="ground" path="boundary-outer-00-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-01" group="ground" path="boundary-outer-01-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-02" group="ground" path="boundary-outer-02-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-03" group="ground" path="boundary-outer-03-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-04" group="ground" path="boundary-outer-04-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-05" group="ground" path="boundary-outer-05-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-06" group="ground" path="boundary-outer-06-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-07" group="ground" path="boundary-outer-07-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-08" group="ground" path="boundary-outer-08-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-09" group="ground" path="boundary-outer-09-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-10" group="ground" path="boundary-outer-10-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-11" group="ground" path="boundary-outer-11-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-12" group="ground" path="boundary-outer-12-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-13" group="ground" path="boundary-outer-13-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-14" group="ground" path="boundary-outer-14-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-15" group="ground" path="boundary-outer-15-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-16" group="ground" path="boundary-outer-16-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-17" group="ground" path="boundary-outer-17-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-18" group="ground" path="boundary-outer-18-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-19" group="ground" path="boundary-outer-19-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-20" group="ground" path="boundary-outer-20-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-outer-21" group="ground" path="boundary-outer-21-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-0-00" group="ground" path="boundary-hole-0-00-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-0-01" group="ground" path="boundary-hole-0-01-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-0-02" group="ground" path="boundary-hole-0-02-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-0-03" group="ground" path="boundary-hole-0-03-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-1-00" group="ground" path="boundary-hole-1-00-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-1-01" group="ground" path="boundary-hole-1-01-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-1-02" group="ground" path="boundary-hole-1-02-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-1-03" group="ground" path="boundary-hole-1-03-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-2-00" group="ground" path="boundary-hole-2-00-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-2-01" group="ground" path="boundary-hole-2-01-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-2-02" group="ground" path="boundary-hole-2-02-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-2-03" group="ground" path="boundary-hole-2-03-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-2-04" group="ground" path="boundary-hole-2-04-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-2-05" group="ground" path="boundary-hole-2-05-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-2-06" group="ground" path="boundary-hole-2-06-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-2-07" group="ground" path="boundary-hole-2-07-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-3-00" group="ground" path="boundary-hole-3-00-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-3-01" group="ground" path="boundary-hole-3-01-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-3-02" group="ground" path="boundary-hole-3-02-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-3-03" group="ground" path="boundary-hole-3-03-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-3-04" group="ground" path="boundary-hole-3-04-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-3-05" group="ground" path="boundary-hole-3-05-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-00" group="ground" path="boundary-hole-4-00-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-01" group="ground" path="boundary-hole-4-01-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-02" group="ground" path="boundary-hole-4-02-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-03" group="ground" path="boundary-hole-4-03-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-04" group="ground" path="boundary-hole-4-04-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-05" group="ground" path="boundary-hole-4-05-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-06" group="ground" path="boundary-hole-4-06-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-07" group="ground" path="boundary-hole-4-07-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-08" group="ground" path="boundary-hole-4-08-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-09" group="ground" path="boundary-hole-4-09-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-10" group="ground" path="boundary-hole-4-10-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-4-11" group="ground" path="boundary-hole-4-11-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-5-00" group="ground" path="boundary-hole-5-00-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-5-01" group="ground" path="boundary-hole-5-01-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-5-02" group="ground" path="boundary-hole-5-02-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-5-03" group="ground" path="boundary-hole-5-03-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-5-04" group="ground" path="boundary-hole-5-04-axis" thickness=".40" height="3.30" material="wall" />
+    <wall id="boundary-hole-5-05" group="ground" path="boundary-hole-5-05-axis" thickness=".40" height="3.30" material="wall" />
+    <slab id="bridge" group="upper" profile="bridge-footprint" elevation="4" thickness=".30" material="upper" />
+    <slab id="west-landing" group="upper" profile="west-landing-footprint" elevation="4" thickness=".30" material="upper" />
+    <stairs id="S-01" group="upper" path="S-01-axis" width="4" count="24" thickness=".30" underside="filled" material="upper" />
+    <stairs id="S-02" group="upper" path="S-02-axis" width="4" count="24" thickness=".30" underside="filled" material="upper" />
+    <extrusion id="R-01-fill" group="structure" profile="R-01-fill-section" distance="6" position="70 64 0" rotation="90 0 0" material="upper" />
+    <ramp id="R-01" group="upper" path="R-01-axis" width="6" thickness=".30" material="upper" />
+    <enclosure id="S-01-L" group="upper" host="S-01" side="left" construction="parapet" offset="-.125" thickness=".25" height="2.4" material="guard" />
+    <enclosure id="S-01-R" group="upper" host="S-01" side="right" construction="parapet" offset="-.125" thickness=".25" height="2.4" material="guard" />
+    <enclosure id="S-02-L" group="upper" host="S-02" side="left" construction="parapet" offset="-.125" thickness=".25" height="2.4" material="guard" />
+    <enclosure id="S-02-R" group="upper" host="S-02" side="right" construction="parapet" offset="-.125" thickness=".25" height="2.4" material="guard" />
+    <enclosure id="R-01-L" group="upper" host="R-01" side="left" construction="parapet" offset="-.125" thickness=".25" height="2.4" material="guard" />
+    <enclosure id="R-01-R" group="upper" host="R-01" side="right" construction="parapet" offset="-.125" thickness=".25" height="2.4" material="guard" />
+    <box id="T-01" group="ground" position="44 22 0" width="12" depth="2" height="7" material="wall" />
+    <box id="A-gate-W" group="ground" position="6 64 0" width="8" depth="2" height="3" material="guard" />
+    <box id="A-gate-E" group="ground" position="20 64 0" width="10" depth="2" height="3" material="guard" />
+    <box id="A-01" group="ground" position="14 74 0" width="4" depth="3" height="2.6" material="guard" />
+    <box id="A-02" group="ground" position="18 80 0" width="3" depth="2" height="1.1" material="low-cover" />
+    <box id="M-01" group="ground" position="40 46 0" width="7" depth="6" height="3" material="guard" />
+    <box id="B-gate" group="ground" position="70 64 0" width="8" depth="2" height="3" material="guard" />
+    <box id="B-01" group="ground" position="80 72 0" width="4" depth="3" height="2.6" material="guard" />
+    <box id="B-03" group="ground" position="72 78 0" width="3" depth="2" height="1.1" material="low-cover" />
+    <box id="CT-01" group="ground" position="44 78 0" width="5" depth="3" height="3" material="guard" />
+    <box id="P-01" group="structure" position="37 58 -0.3" width="2" depth="6" height="4" material="wall" />
+    <box id="P-02" group="structure" position="62 64.5 -0.3" width="2" depth="2" height="4" material="wall" />
+    <box id="M-02" group="ground" position="45 60 0" width="11" depth="2" height="3.6" material="guard" />
+    <box id="U-LB" group="upper" position="24.2 61.8 4" width="6.8" depth="1.2" height="2.4" material="wall" />
+    <box id="W-L01" group="ground" position="7 30 0" width="2" depth="2" height="1.1" material="low-cover" />
+    <box id="W-L02" group="ground" position="18 58 0" width="3" depth="2" height="1.1" material="low-cover" />
+    <box id="E-L01" group="ground" position="82.2 44 1.2" width="2.4" depth="2" height="1.1" material="low-cover" />
+    <box id="E-L02" group="ground" position="87 54 0" width="2" depth="2" height="1.1" material="low-cover" />
+    <box id="M-L01" group="ground" position="36.2 34 0" width="3.4" depth="2" height="1.1" material="low-cover" />
+    <box id="M-L02" group="ground" position="50 69 0" width="3" depth="2" height="1.1" material="low-cover" />
+    <box id="A-L01" group="ground" position="12 68 0" width="3" depth="2" height="1.1" material="low-cover" />
+    <box id="B-L01" group="ground" position="74 67 0" width="3" depth="1.3" height="1.1" material="low-cover" />
+    <box id="T-04" group="ground" position="40 28 0" width="8" depth="2" height="7" material="wall" />
+    <box id="U-C01" group="upper" position="40.2 66 4" width="1.8" depth="3" height="1.25" material="low-cover" />
+    <box id="U-C02" group="upper" position="53 73 4" width="3" depth="1.8" height="1.25" material="low-cover" />
+    <box id="U-C03" group="upper" position="65 65 4" width="1.8" depth="3" height="1.25" material="low-cover" />
+    <extrusion id="BLD-0-0" group="buildings" profile="BLD-0-0-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-1-0" group="buildings" profile="BLD-1-0-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-1-1" group="buildings" profile="BLD-1-1-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-2-0" group="buildings" profile="BLD-2-0-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-2-1" group="buildings" profile="BLD-2-1-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-2-2" group="buildings" profile="BLD-2-2-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-3-0" group="buildings" profile="BLD-3-0-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-4-0" group="buildings" profile="BLD-4-0-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-5-0" group="buildings" profile="BLD-5-0-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-T" group="buildings" profile="BLD-T-footprint" distance="7.3" position="0 0 -.3" material="wall" />
+    <extrusion id="W-03" group="buildings" profile="W-03-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="W-01" group="buildings" profile="W-01-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="W-02" group="buildings" profile="W-02-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="E-01" group="buildings" profile="E-01-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="E-02" group="buildings" profile="E-02-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="B-02" group="buildings" profile="B-02-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="B-04" group="buildings" profile="B-04-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="CT-02" group="buildings" profile="CT-02-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="CT-03" group="buildings" profile="CT-03-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="T-02" group="buildings" profile="T-02-footprint" distance="7.3" position="0 0 -.3" material="wall" />
+    <extrusion id="T-03" group="buildings" profile="T-03-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-LW" group="buildings" profile="BLD-LW-footprint" distance="9.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-LE" group="buildings" profile="BLD-LE-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <extrusion id="BLD-AW" group="buildings" profile="BLD-AW-footprint" distance="8.3" position="0 0 -.3" material="wall" />
+    <cylinder id="P-03" group="structure" position="43 72 -.3" radius=".6" height="4" segments="16" material="wall" />
+    <cylinder id="P-04" group="structure" position="64 72 -.3" radius=".6" height="4" segments="16" material="wall" />
+    <wall id="upper-guard-00" group="upper" path="upper-guard-00-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-01" group="upper" path="upper-guard-01-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-02" group="upper" path="upper-guard-02-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-03" group="upper" path="upper-guard-03-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-04" group="upper" path="upper-guard-04-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-05" group="upper" path="upper-guard-05-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-06" group="upper" path="upper-guard-06-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-07" group="upper" path="upper-guard-07-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-08" group="upper" path="upper-guard-08-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-09" group="upper" path="upper-guard-09-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-10" group="upper" path="upper-guard-10-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-11" group="upper" path="upper-guard-11-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-12" group="upper" path="upper-guard-12-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-13" group="upper" path="upper-guard-13-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-14" group="upper" path="upper-guard-14-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-15" group="upper" path="upper-guard-15-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-16" group="upper" path="upper-guard-16-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-17" group="upper" path="upper-guard-17-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-18" group="upper" path="upper-guard-18-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-19" group="upper" path="upper-guard-19-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-20" group="upper" path="upper-guard-20-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-21" group="upper" path="upper-guard-21-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-22" group="upper" path="upper-guard-22-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-23" group="upper" path="upper-guard-23-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-24" group="upper" path="upper-guard-24-axis" thickness=".40" height="2.4" material="guard" />
+    <wall id="upper-guard-25" group="upper" path="upper-guard-25-axis" thickness=".40" height="2.4" material="guard" />
+    <slab id="A-dais" group="ground" profile="A-dais-footprint" elevation=".6" thickness=".9" material="floor" />
+    <stairs id="A-south-stairs" group="ground" path="A-south-stairs-axis" width="6" count="3" thickness=".3" underside="filled" material="floor" />
+    <stairs id="A-north-stairs" group="ground" path="A-north-stairs-axis" width="6" count="3" thickness=".3" underside="filled" material="floor" />
+    <slab id="E-crest" group="ground" profile="E-crest-footprint" elevation="1.2" thickness="1.5" material="floor" />
+    <extrusion id="E-rise-fill" group="structure" profile="E-rise-fill-section" distance="8" position="82 40 -.15" rotation="90 0 90" material="floor" />
+    <ramp id="E-rise" group="ground" path="E-rise-axis" width="8" thickness=".3" material="floor" />
+    <extrusion id="E-fall-fill" group="structure" profile="E-fall-fill-section" distance="8" position="82 46 -.15" rotation="90 0 90" material="floor" />
+    <ramp id="E-fall" group="ground" path="E-fall-axis" width="8" thickness=".3" material="floor" />
+  </assembly>
+  <face-material id="plant-a" host="A-dais" face="top" profile="plant-a-footprint" material="zone-a" />
+  <face-material id="plant-b" host="ground" face="top" profile="plant-b-footprint" material="zone-b" />
+  <path id="S01-in-portal" points="28 42 0; 32 42 0" />
+  <connection id="S01-in" from="ground" to="S-01" path="S01-in-portal" />
+  <path id="S01-out-portal" points="28 58 4; 32 58 4" />
+  <connection id="S01-out" from="S-01" to="west-landing" path="S01-out-portal" />
+  <path id="S02-in-portal" points="26 66 4; 30 66 4" />
+  <connection id="S02-in" from="west-landing" to="S-02" path="S02-in-portal" />
+  <path id="S02-out-portal" points="26 82 0; 30 82 0" />
+  <connection id="S02-out" from="S-02" to="ground" path="S02-out-portal" />
+  <path id="R01-in-portal" points="70 58 4; 70 64 4" />
+  <connection id="R01-in" from="bridge" to="R-01" path="R01-in-portal" />
+  <path id="R01-out-portal" points="86 58 0; 86 64 0" />
+  <connection id="R01-out" from="R-01" to="ground" path="R01-out-portal" />
+  <path id="upper-union-portal" points="34 58 4; 34 64 4" />
+  <connection id="upper-union" from="west-landing" to="bridge" path="upper-union-portal" />
+  <player radius=".25" height="2" step=".25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="t-spawn" position="55 8 0" kind="attacker_spawn" element="ground" group="ground" movement="land" />
+  <marker id="ct-spawn" position="44 92 0" kind="defender_spawn" element="ground" group="ground" movement="land" />
+  <marker id="site-a" position="21 74 .6" kind="objective" element="A-dais" group="ground" movement="land" />
+  <marker id="site-b" position="78 75 0" kind="objective" element="ground" group="ground" movement="land" />
+  <marker id="south-stair-foot" position="30 40 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="south-stair-top" position="30 60 4" kind="poi" element="west-landing" group="upper" movement="land" />
+  <marker id="north-stair-top" position="28 64 4" kind="poi" element="west-landing" group="upper" movement="land" />
+  <marker id="north-stair-foot" position="28 84 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="ramp-top" position="68 61 4" kind="poi" element="bridge" group="upper" movement="land" />
+  <marker id="ramp-foot" position="88 61 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="mid-south" position="51 55 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="mid-north" position="51 67 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="a-gate-south" position="17 62 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="a-gate-north" position="17 69 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="b-short-west" position="66 71 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="b-short-east" position="76 71 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="east-elbow" position="79 32 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="east-long" position="88 41 .3" kind="poi" element="E-rise" group="ground" movement="land" />
+  <route id="T-to-A" from="t-spawn" to="site-a" min-routes="1" max-distance="160" movement="land" />
+  <route id="T-to-B" from="t-spawn" to="site-b" min-routes="1" max-distance="160" movement="land" />
+  <route id="CT-to-A" from="ct-spawn" to="site-a" min-routes="1" max-distance="75" movement="land" />
+  <route id="CT-to-B" from="ct-spawn" to="site-b" min-routes="1" max-distance="75" movement="land" />
+  <route id="A-B-rotation" from="site-a" to="site-b" min-routes="1" max-distance="110" movement="land" />
+  <route id="S-01-local" from="south-stair-foot" to="south-stair-top" min-routes="1" max-distance="27" movement="land" />
+  <route id="S-02-local" from="north-stair-top" to="north-stair-foot" min-routes="1" max-distance="27" movement="land" />
+  <route id="R-01-local" from="ramp-top" to="ramp-foot" min-routes="1" max-distance="27" movement="land" />
+  <route id="under-bridge-local" from="mid-south" to="mid-north" min-routes="1" max-distance="24" movement="land" />
+  <route id="upper-crossing-local" from="south-stair-top" to="ramp-top" min-routes="1" max-distance="80" movement="land" />
+  <route id="A-gate-local" from="a-gate-south" to="a-gate-north" min-routes="1" max-distance="14" movement="land" />
+  <route id="B-short-local" from="b-short-west" to="b-short-east" min-routes="1" max-distance="18" movement="land" />
+  <route id="east-elbow-local" from="east-elbow" to="east-long" min-routes="1" max-distance="24" movement="land" />
+  <light id="sun" position="-20 -35 100" target="48 50 0" color="#fff1dc" intensity="2.2" kind="directional" />
+  <sky color="#e5f0ff" intensity=".6" />
+  <profile id="ground-footprint" points="38 12; 38 18; 32 18; 32 12; 20 12; 20 18; 6 18; 6 40; 10.5 40; 10.5 46; 6 46; 6 70; 14 70; 14 80; 18 80; 18 86; 24 86; 24 90; 40 90; 40 96; 56 96; 56 90; 60 90; 60 85; 66 85; 66 90; 78 90; 78 86; 80 86; 80 84; 84 84; 84 78; 90 78; 90 73; 86 73; 86 68; 90 68; 90 53; 86 53; 86 50; 82 50; 82 57.6; 82 58; 86 58; 86 64; 70 64; 70 64.4; 70 68; 67 68; 61 68; 56 68; 56 64.4; 56 57.6; 56 44; 60 44; 60 38; 82 38; 82 34; 86.5 34; 86.5 39; 82 39; 82 40; 90 40; 90 20; 84 20; 84 12; 56 12; 56 4; 40 4; 40 12">
+    <hole points="44 82; 40 82; 40 86; 34 86; 34 82; 36 82; 36 78; 44 78" />
+    <hole points="40 44; 40 57.6; 40 64.4; 40 72; 36 72; 36 64.4; 36 57.6; 36 44" />
+    <hole points="56 22; 64 22; 64 17; 70 17; 70 22; 82 22; 82 30; 60 30; 60 34; 57 34; 54 31; 54 28; 56 28" />
+    <hole points="40 28; 42 28; 42 34; 36 34; 36 36; 30 36; 30 38; 24 38; 24 48; 24 56; 14 56; 14 48; 14 37; 10 37; 10 34; 14 34; 14 30; 28 30; 28 22; 40 22" />
+    <hole points="52 82; 52 78; 56 78; 56 75.4; 56 74; 70 74; 70 75.4; 70 78; 70 82" />
+    <hole points="50 12; 50 22; 46 22; 46 12" />
+    <hole points="24 68; 24 79; 18 79; 18 68" />
+  </profile>
+  <profile id="bridge-footprint" points="34 64; 40 64; 40 75; 43 75; 46 75; 61 75; 64 75; 67 75; 67 64; 70 64; 70 58; 64 58; 64 61; 61 61; 61 69; 46 69; 46 64; 46 61; 46 58; 34 58" />
+  <profile id="BLD-0-0-footprint" points="44 78; 44 82; 36 82; 36 78" />
+  <profile id="BLD-1-0-footprint" points="40 44; 36 44; 36 57.6; 40 57.6" />
+  <profile id="BLD-1-1-footprint" points="36 72; 40 72; 40 64.4; 36 64.4" />
+  <profile id="BLD-2-0-footprint" points="82 38; 60 38; 60 44; 56 44; 56 57.6; 82 57.6" />
+  <profile id="BLD-2-1-footprint" points="61 64.4; 61 68; 56 68; 56 64.4" />
+  <profile id="BLD-2-2-footprint" points="70 64.4; 70 68; 67 68; 67 64.4" />
+  <profile id="BLD-3-0-footprint" points="56 28; 56 22; 82 22; 82 30; 60 30; 60 28" />
+  <profile id="BLD-4-0-footprint" points="40 22; 40 28; 36 28; 36 36; 30 36; 30 38; 24 38; 24 48; 14 48; 14 30; 28 30; 28 22" />
+  <profile id="BLD-5-0-footprint" points="70 75.4; 56 75.4; 56 78; 52 78; 52 82; 70 82; 70 78" />
+  <profile id="BLD-T-footprint" points="50 12; 50 22; 46 22; 46 12" />
+  <profile id="W-03-footprint" points="14 34; 14 37; 10 37; 10 34" />
+  <profile id="W-01-footprint" points="10.5 40; 10.5 46; 6 46; 6 40" />
+  <profile id="W-02-footprint" points="24 48; 24 56; 14 56; 14 48" />
+  <profile id="E-01-footprint" points="86.5 34; 86.5 39; 82 39; 82 34" />
+  <profile id="E-02-footprint" points="90 48; 90 53; 86 53; 86 48" />
+  <profile id="B-02-footprint" points="90 68; 90 73; 86 73; 86 68" />
+  <profile id="B-04-footprint" points="90 78; 90 84; 84 84; 84 78" />
+  <profile id="CT-02-footprint" points="40 82; 40 86; 34 86; 34 82" />
+  <profile id="CT-03-footprint" points="66 85; 66 90; 60 90; 60 85" />
+  <profile id="T-02-footprint" points="38 12; 38 18; 32 18; 32 12" />
+  <profile id="T-03-footprint" points="70 17; 70 22; 64 22; 64 17" />
+  <profile id="BLD-LW-footprint" points="42 28; 42 34; 36 34; 36 28" />
+  <profile id="BLD-LE-footprint" points="54 28; 60 28; 60 34; 57 34; 54 31" />
+  <profile id="BLD-AW-footprint" points="14 70; 6 70; 6 86; 14 86; 18 86; 18 80; 14 80" />
+  <path id="upper-guard-00-axis" points="24 58 4; 24 66 4" />
+  <path id="upper-guard-01-axis" points="24 66 4; 26 66 4" />
+  <path id="upper-guard-02-axis" points="30 66 4; 36 66 4" />
+  <path id="upper-guard-03-axis" points="36 66 4; 36 64 4" />
+  <path id="upper-guard-04-axis" points="36 64 4; 40 64 4" />
+  <path id="upper-guard-05-axis" points="40 64 4; 40 75 4" />
+  <path id="upper-guard-06-axis" points="40 75 4; 43 75 4" />
+  <path id="upper-guard-07-axis" points="43 75 4; 46 75 4" />
+  <path id="upper-guard-08-axis" points="46 75 4; 61 75 4" />
+  <path id="upper-guard-09-axis" points="61 75 4; 64 75 4" />
+  <path id="upper-guard-10-axis" points="64 75 4; 67 75 4" />
+  <path id="upper-guard-11-axis" points="67 75 4; 67 64 4" />
+  <path id="upper-guard-12-axis" points="67 64 4; 69.9 64 4" />
+  <path id="upper-guard-13-axis" points="69.9 58 4; 64 58 4" />
+  <path id="upper-guard-14-axis" points="64 58 4; 64 61 4" />
+  <path id="upper-guard-15-axis" points="64 61 4; 61 61 4" />
+  <path id="upper-guard-16-axis" points="61 61 4; 61 69 4" />
+  <path id="upper-guard-17-axis" points="61 69 4; 50 69 4" />
+  <path id="upper-guard-18-axis" points="47 69 4; 46 69 4" />
+  <path id="upper-guard-19-axis" points="46 69 4; 46 64 4" />
+  <path id="upper-guard-20-axis" points="46 64 4; 46 61 4" />
+  <path id="upper-guard-21-axis" points="46 61 4; 46 58 4" />
+  <path id="upper-guard-22-axis" points="46 58 4; 36 58 4" />
+  <path id="upper-guard-23-axis" points="36 58 4; 34 58 4" />
+  <path id="upper-guard-24-axis" points="34 58 4; 32 58 4" />
+  <path id="upper-guard-25-axis" points="28 58 4; 24 58 4" />
+  <profile id="A-dais-footprint" points="24 70; 24 77; 18 77; 18 70" />
+  <path id="A-south-stairs-axis" points="21 68 0; 21 70 .6" />
+  <path id="A-north-stairs-axis" points="21 79 0; 21 77 .6" />
+  <profile id="E-crest-footprint" points="90 44; 90 46; 82 46; 82 44" />
+  <profile id="E-rise-fill-section" points="0 0; 4 0; 4 1.2" />
+  <path id="E-rise-axis" points="86 40 0; 86 44 1.2" />
+  <profile id="E-fall-fill-section" points="0 0; 4 0; 0 1.2" />
+  <path id="E-fall-axis" points="86 46 1.2; 86 50 0" />
+  <path id="A-S-in-portal" points="18 68 0; 24 68 0" />
+  <connection id="A-S-in" from="ground" to="A-south-stairs" path="A-S-in-portal" />
+  <path id="A-S-out-portal" points="18 70 .6; 24 70 .6" />
+  <connection id="A-S-out" from="A-south-stairs" to="A-dais" path="A-S-out-portal" />
+  <path id="A-N-in-portal" points="18 77 .6; 24 77 .6" />
+  <connection id="A-N-in" from="A-dais" to="A-north-stairs" path="A-N-in-portal" />
+  <path id="A-N-out-portal" points="18 79 0; 24 79 0" />
+  <connection id="A-N-out" from="A-north-stairs" to="ground" path="A-N-out-portal" />
+  <path id="E-S-in-portal" points="82 40 0; 90 40 0" />
+  <connection id="E-S-in" from="ground" to="E-rise" path="E-S-in-portal" />
+  <path id="E-S-out-portal" points="82 44 1.2; 90 44 1.2" />
+  <connection id="E-S-out" from="E-rise" to="E-crest" path="E-S-out-portal" />
+  <path id="E-N-in-portal" points="82 46 1.2; 90 46 1.2" />
+  <connection id="E-N-in" from="E-crest" to="E-fall" path="E-N-in-portal" />
+  <path id="E-N-out-portal" points="82 50 0; 90 50 0" />
+  <connection id="E-N-out" from="E-fall" to="ground" path="E-N-out-portal" />
+  <marker id="A-south-foot" position="21 67 0" element="ground" group="ground" kind="poi" movement="land" />
+  <marker id="A-north-foot" position="22.5 79.5 0" element="ground" group="ground" kind="poi" movement="land" />
+  <marker id="A-north-top" position="22.5 76 .6" element="A-dais" group="ground" kind="poi" movement="land" />
+  <marker id="E-south-foot" position="85 39.5 0" element="ground" group="ground" kind="poi" movement="land" />
+  <marker id="E-crest-mark" position="86 45 1.2" element="E-crest" group="ground" kind="poi" movement="land" />
+  <marker id="E-north-foot" position="85 50.5 0" element="ground" group="ground" kind="poi" movement="land" />
+  <marker id="D01-start" position="48.5 69.5 4" element="bridge" group="upper" kind="poi" movement="land" />
+  <marker id="D01-landing" position="48.5 67.5 0" element="ground" group="ground" kind="poi" movement="land" />
+  <marker id="spawn-offset-t" position="55 10 0" element="ground" group="ground" kind="poi" movement="land" />
+  <marker id="spawn-offset-ct" position="51 92 0" element="ground" group="ground" kind="poi" movement="land" />
+  <route id="A-south-local" from="A-south-foot" to="site-a" min-routes="1" max-distance="12" movement="land" />
+  <route id="A-north-local" from="A-north-top" to="A-north-foot" min-routes="1" max-distance="8" movement="land" />
+  <route id="E-rise-local" from="E-south-foot" to="E-crest-mark" min-routes="1" max-distance="12" movement="land" />
+  <route id="E-fall-local" from="E-crest-mark" to="E-north-foot" min-routes="1" max-distance="12" movement="land" />
+  <no-spawn-los markers="t-spawn ct-spawn" />
+  <no-spawn-los markers="spawn-offset-t spawn-offset-ct" />
+</architecture>

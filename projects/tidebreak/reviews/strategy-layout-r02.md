@@ -1,0 +1,17 @@
+# Tidebreak R02 — strategy layout return review
+
+Reviewed the actual `planning/proposal-r02.png` and SVG coordinates on 2026-11-09. Scope is the changed northern journey, G1 and D2/hall interface. The original R01 strategy review remains the baseline; this return review does not repeat unaffected findings or claim compiled acceptance.
+
+**STR-R01-01 is closed at layout.** The northern journey now travels outside the apse via the `y=43` strip before returning to S2. G1 is drawn inside the west apron, with its flight from approximately `(17,5,0)` to `(17,18,4)` joining the shortened west gallery leg. The label now identifies an internal apron-to-gallery commitment rather than implying an entrance through the curved exterior wall. The former geometric conflict and the mistaken northern journey are no longer present in the drawing.
+
+The selected portal-offset experiment preserves D2 and A while closing the hall's `x=12, y=6..14` opening and creating one at `y=0..4`. This has a clear strategic mechanism: an emerging D2 player must turn south along the outside wall, then enter and choose whether to contest G1 or continue around H2's bow toward B. A B group cannot use the old direct doorway to pressure the stair without moving to that threshold. The external dock-head route likewise reaches G1 through the hall opening rather than entering the gallery directly.
+
+The specific R01 diagonal identified in the strategy review now meets a wall in plan. A segment from an illustrative gallery eye `(17,18,5.6)` to the D2 top `(10,8,1.6)` crosses `x=12` near `y=10.9`; R02 closes that interval. A floor-level segment from B near `(28,17)` toward the same D2 point also crosses the closed interval. This supports the hypothesis that the gallery/B holding group must give up some immediate dock-exit information. It is a geometric prediction, not an optical or body-exposure result.
+
+The cost is deliberate: lower-to-hall reinforcement takes an extra turn and a more identifiable threshold. A teammate still on the dock side may support the exterior turn but cannot automatically follow the lead player's view into the west apron. The defender retains a meaningful door to contest, and the lead player may encounter G1-foot and bow threats after entering. The experiment should therefore be judged on staged information, usable follower support and remaining opponent responses, not simply reduced exposure.
+
+The explicit hull and guard heights make the next comparison reviewable: H1 top `+2 m`, H2 top `+5.5 m`, dock guard `1.2 m`, gallery guard `1.1 m`. Those labels do not establish which portions of standing or crouched bodies will be visible.
+
+For the compiled comparison, keep the corrected internal G1 and all other geometry identical in both variants; vary only the west-hall portal position. Inspect D2 upper/lower landing, exterior turn, portal approach, G1 foot/top and occupied B from both sides, including the follower. Verify the northern strip and G1 with the unchanged body. If the offset merely replaces a useful supported crossing with an unsupported forced peek, retaining the control remains a valid outcome.
+
+**Strategy layout status: accepted to proceed to the bounded blockout comparison.** STR-R01-02's strategic concern remains an experiment requiring compiled assessment; no claim of balance, playable reachability or final acceptance is made. A different compiled reviewer should assess the consequences of the adopted proposals.

@@ -1,0 +1,3423 @@
+{
+  "revision": "L01",
+  "phase": "Developed layout; pending independent gates",
+  "selected": "B / Ravine Quarter",
+  "units": "meters",
+  "up": "Z",
+  "north": "+Y",
+  "origin": "Common world origin (0,0) at southwest quay",
+  "body": {
+    "radius": 0.3,
+    "standing": 1.8,
+    "crouch": 1.1,
+    "step": 0.3,
+    "maxSlope": 42,
+    "standingEye": 1.674,
+    "crouchEye": 1.023,
+    "inspectionSpeed": 3.4,
+    "crouchSpeed": 1.7
+  },
+  "defaults": {
+    "floorThickness": 0.3,
+    "wallOpaque": true,
+    "collision": true,
+    "ballistic": "unknown",
+    "destructibility": "unknown",
+    "utilitySound": "unavailable",
+    "roofsWalkable": false,
+    "scenicRavineBed": -6,
+    "stairsRequiredJump": false
+  },
+  "floors": [
+    {
+      "id": "F00",
+      "name": "Ferry / Shore Toe / Boat District",
+      "z": 0,
+      "p": [
+        [
+          0,
+          2
+        ],
+        [
+          42,
+          2
+        ],
+        [
+          48,
+          9
+        ],
+        [
+          58,
+          11
+        ],
+        [
+          66,
+          17
+        ],
+        [
+          74,
+          12
+        ],
+        [
+          84,
+          12
+        ],
+        [
+          90,
+          2
+        ],
+        [
+          128,
+          2
+        ],
+        [
+          131,
+          21
+        ],
+        [
+          127,
+          34
+        ],
+        [
+          76,
+          34
+        ],
+        [
+          73,
+          29
+        ],
+        [
+          65,
+          27
+        ],
+        [
+          57,
+          29
+        ],
+        [
+          49,
+          34
+        ],
+        [
+          4,
+          34
+        ],
+        [
+          -1,
+          24
+        ]
+      ]
+    },
+    {
+      "id": "F04W",
+      "name": "Laundry / Press district",
+      "z": 4,
+      "p": [
+        [
+          5,
+          46
+        ],
+        [
+          50,
+          46
+        ],
+        [
+          50,
+          66
+        ],
+        [
+          8,
+          66
+        ],
+        [
+          3,
+          57
+        ]
+      ]
+    },
+    {
+      "id": "F04E",
+      "name": "Taverna / School district",
+      "z": 4,
+      "p": [
+        [
+          78,
+          46
+        ],
+        [
+          127,
+          46
+        ],
+        [
+          130,
+          57
+        ],
+        [
+          125,
+          66
+        ],
+        [
+          78,
+          66
+        ]
+      ]
+    },
+    {
+      "id": "F08W",
+      "name": "Chapel / Cistern district",
+      "z": 8,
+      "p": [
+        [
+          8,
+          78
+        ],
+        [
+          50,
+          78
+        ],
+        [
+          50,
+          96
+        ],
+        [
+          32,
+          107
+        ],
+        [
+          10,
+          100
+        ],
+        [
+          4,
+          88
+        ]
+      ]
+    },
+    {
+      "id": "F08E",
+      "name": "Inn / Bell / Ridge district",
+      "z": 8,
+      "p": [
+        [
+          78,
+          78
+        ],
+        [
+          127,
+          78
+        ],
+        [
+          131,
+          101
+        ],
+        [
+          112,
+          111
+        ],
+        [
+          84,
+          106
+        ],
+        [
+          76,
+          96
+        ],
+        [
+          76,
+          84
+        ]
+      ]
+    },
+    {
+      "id": "BR-M",
+      "name": "Middle market bridge",
+      "z": 4,
+      "p": [
+        [
+          50,
+          54
+        ],
+        [
+          78,
+          54
+        ],
+        [
+          78,
+          60
+        ],
+        [
+          50,
+          60
+        ]
+      ],
+      "bridge": true,
+      "clearWidth": 5.3,
+      "deckThickness": 0.6,
+      "piers": [
+        {
+          "x": 58,
+          "y": 57,
+          "width": 2,
+          "base": -6,
+          "top": 3.4
+        },
+        {
+          "x": 70,
+          "y": 57,
+          "width": 2,
+          "base": -6,
+          "top": 3.4
+        }
+      ]
+    },
+    {
+      "id": "BR-U",
+      "name": "Upper civic bridge",
+      "z": 8,
+      "p": [
+        [
+          50,
+          86
+        ],
+        [
+          76,
+          86
+        ],
+        [
+          76,
+          92
+        ],
+        [
+          50,
+          92
+        ]
+      ],
+      "bridge": true,
+      "clearWidth": 5.3,
+      "deckThickness": 0.7,
+      "piers": [
+        {
+          "x": 58,
+          "y": 89,
+          "width": 2,
+          "base": -6,
+          "top": 7.3
+        },
+        {
+          "x": 68,
+          "y": 89,
+          "width": 2,
+          "base": -6,
+          "top": 7.3
+        }
+      ]
+    }
+  ],
+  "buildings": [
+    {
+      "id": "M01",
+      "name": "Ferry store",
+      "z": 0,
+      "p": [
+        [
+          0,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          0,
+          14
+        ]
+      ],
+      "eaves": 4.8,
+      "roof": "hipped",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M02",
+      "name": "Fish houses",
+      "z": 0,
+      "p": [
+        [
+          20,
+          5
+        ],
+        [
+          31,
+          5
+        ],
+        [
+          31,
+          16
+        ],
+        [
+          23,
+          18
+        ],
+        [
+          19,
+          14
+        ]
+      ],
+      "eaves": 6.2,
+      "roof": "paired gables",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M03",
+      "name": "Net shed",
+      "z": 0,
+      "p": [
+        [
+          33,
+          24
+        ],
+        [
+          43,
+          24
+        ],
+        [
+          43,
+          30
+        ],
+        [
+          34,
+          31
+        ]
+      ],
+      "eaves": 3.8,
+      "roof": "shed",
+      "wallThickness": 0.45,
+      "roofRise": 0.8,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M04",
+      "name": "Laundry row",
+      "z": 4,
+      "p": [
+        [
+          5,
+          48
+        ],
+        [
+          15,
+          48
+        ],
+        [
+          15,
+          59
+        ],
+        [
+          11,
+          62
+        ],
+        [
+          5,
+          59
+        ]
+      ],
+      "eaves": 6.3,
+      "roof": "paired gables",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M05",
+      "name": "Press house and return",
+      "z": 4,
+      "p": [
+        [
+          27,
+          47
+        ],
+        [
+          41,
+          47
+        ],
+        [
+          41,
+          58
+        ],
+        [
+          43,
+          58
+        ],
+        [
+          43,
+          65
+        ],
+        [
+          36,
+          65
+        ],
+        [
+          36,
+          57
+        ],
+        [
+          27,
+          57
+        ]
+      ],
+      "eaves": 6,
+      "roof": "two gables",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M06",
+      "name": "Potter house",
+      "z": 4,
+      "p": [
+        [
+          25,
+          60
+        ],
+        [
+          36,
+          60
+        ],
+        [
+          36,
+          66
+        ],
+        [
+          25,
+          66
+        ]
+      ],
+      "eaves": 5.2,
+      "roof": "hipped",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M07",
+      "name": "Chapel",
+      "z": 8,
+      "p": [
+        [
+          12,
+          82
+        ],
+        [
+          22,
+          82
+        ],
+        [
+          22,
+          99
+        ],
+        [
+          16,
+          102
+        ],
+        [
+          12,
+          99
+        ]
+      ],
+      "eaves": 6.7,
+      "roof": "gable with apse",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M08",
+      "name": "West Homes / bridge return",
+      "z": 8,
+      "p": [
+        [
+          33,
+          78
+        ],
+        [
+          43,
+          78
+        ],
+        [
+          43,
+          87
+        ],
+        [
+          44,
+          87
+        ],
+        [
+          44,
+          95
+        ],
+        [
+          39,
+          95
+        ],
+        [
+          39,
+          89
+        ],
+        [
+          33,
+          89
+        ]
+      ],
+      "eaves": 6.4,
+      "roof": "two gables",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M09",
+      "name": "Cistern house",
+      "z": 8,
+      "p": [
+        [
+          29,
+          100
+        ],
+        [
+          38,
+          98.8
+        ],
+        [
+          38,
+          102.5
+        ],
+        [
+          30,
+          105
+        ]
+      ],
+      "eaves": 4.5,
+      "roof": "hipped",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M10",
+      "name": "Boat shed / harbor bend",
+      "z": 0,
+      "p": [
+        [
+          86,
+          8
+        ],
+        [
+          101,
+          8
+        ],
+        [
+          101,
+          23
+        ],
+        [
+          96,
+          23
+        ],
+        [
+          96,
+          20
+        ],
+        [
+          87,
+          20
+        ]
+      ],
+      "eaves": 5.2,
+      "roof": "two gables",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M11",
+      "name": "Salt store",
+      "z": 0,
+      "p": [
+        [
+          78,
+          29
+        ],
+        [
+          95,
+          29
+        ],
+        [
+          95,
+          34
+        ],
+        [
+          79,
+          34
+        ]
+      ],
+      "eaves": 5,
+      "roof": "shed",
+      "wallThickness": 0.45,
+      "roofRise": 0.8,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M12",
+      "name": "Customs house",
+      "z": 0,
+      "p": [
+        [
+          114,
+          19
+        ],
+        [
+          126,
+          19
+        ],
+        [
+          126,
+          29
+        ],
+        [
+          114,
+          29
+        ]
+      ],
+      "eaves": 6.5,
+      "roof": "hipped",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M13",
+      "name": "Taverna / middle gateway",
+      "z": 4,
+      "p": [
+        [
+          78,
+          48
+        ],
+        [
+          96,
+          48
+        ],
+        [
+          96,
+          62
+        ],
+        [
+          78,
+          62
+        ]
+      ],
+      "eaves": 6.3,
+      "roof": "two gables",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M14",
+      "name": "School / arcade",
+      "z": 4,
+      "p": [
+        [
+          100,
+          57
+        ],
+        [
+          112,
+          57
+        ],
+        [
+          112,
+          66
+        ],
+        [
+          100,
+          66
+        ]
+      ],
+      "eaves": 6.2,
+      "roof": "gable",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M15",
+      "name": "East homes",
+      "z": 4,
+      "p": [
+        [
+          116,
+          51
+        ],
+        [
+          127,
+          51
+        ],
+        [
+          127,
+          61
+        ],
+        [
+          116,
+          61
+        ]
+      ],
+      "eaves": 6,
+      "roof": "paired gables",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M16",
+      "name": "Upper Inn / civic arch",
+      "z": 8,
+      "p": [
+        [
+          76,
+          83
+        ],
+        [
+          87,
+          83
+        ],
+        [
+          87,
+          97
+        ],
+        [
+          76,
+          97
+        ]
+      ],
+      "eaves": 7,
+      "roof": "hipped",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M17",
+      "name": "Bell building",
+      "z": 8,
+      "p": [
+        [
+          102,
+          81
+        ],
+        [
+          113,
+          81
+        ],
+        [
+          114,
+          93
+        ],
+        [
+          103,
+          94
+        ]
+      ],
+      "eaves": 7.3,
+      "roof": "gable + bell turret",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M18",
+      "name": "Gatehouse",
+      "z": 8,
+      "p": [
+        [
+          118,
+          97
+        ],
+        [
+          128,
+          98
+        ],
+        [
+          127,
+          103
+        ],
+        [
+          118,
+          106
+        ]
+      ],
+      "eaves": 6.2,
+      "roof": "hipped",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M19",
+      "name": "Shore workshop",
+      "z": 0,
+      "p": [
+        [
+          53,
+          11
+        ],
+        [
+          62,
+          12
+        ],
+        [
+          62,
+          18
+        ],
+        [
+          54,
+          18
+        ]
+      ],
+      "eaves": 4.6,
+      "roof": "shed",
+      "wallThickness": 0.45,
+      "roofRise": 0.8,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    },
+    {
+      "id": "M20",
+      "name": "Waterfront homes",
+      "z": 0,
+      "p": [
+        [
+          115,
+          3
+        ],
+        [
+          126,
+          3
+        ],
+        [
+          126,
+          14
+        ],
+        [
+          116,
+          14
+        ]
+      ],
+      "eaves": 6,
+      "roof": "paired gables",
+      "wallThickness": 0.45,
+      "roofRise": 1.6,
+      "roofWalkable": false,
+      "foundation": "Solid rock/retaining foundation from -6 m scenic bed or adjoining terrace to base; no exposed floating slab."
+    }
+  ],
+  "interiors": [
+    {
+      "id": "I01",
+      "building": "M05",
+      "name": "Press passage",
+      "z": 4,
+      "p": [
+        [
+          27,
+          50
+        ],
+        [
+          41,
+          50
+        ],
+        [
+          41,
+          54
+        ],
+        [
+          27,
+          54
+        ]
+      ],
+      "clear": 3,
+      "doors": [
+        [
+          [
+            27,
+            50
+          ],
+          [
+            27,
+            54
+          ]
+        ],
+        [
+          [
+            41,
+            50
+          ],
+          [
+            41,
+            54
+          ]
+        ]
+      ],
+      "role": "4 m clear vaulted passage from Laundry to Press porch; ordinary reverse route."
+    },
+    {
+      "id": "I02",
+      "building": "M12",
+      "name": "Customs porch",
+      "z": 0,
+      "p": [
+        [
+          114,
+          22
+        ],
+        [
+          124,
+          22
+        ],
+        [
+          124,
+          29
+        ],
+        [
+          120,
+          29
+        ],
+        [
+          120,
+          26
+        ],
+        [
+          114,
+          26
+        ]
+      ],
+      "clear": 3,
+      "doors": [
+        [
+          [
+            114,
+            22
+          ],
+          [
+            114,
+            26
+          ]
+        ],
+        [
+          [
+            120,
+            29
+          ],
+          [
+            124,
+            29
+          ]
+        ]
+      ],
+      "role": "L-shaped roofed connection from B court to S6 receiving stepside."
+    },
+    {
+      "id": "I03",
+      "building": "M14",
+      "name": "School arcade",
+      "z": 4,
+      "p": [
+        [
+          100,
+          60
+        ],
+        [
+          112,
+          60
+        ],
+        [
+          112,
+          64
+        ],
+        [
+          100,
+          64
+        ]
+      ],
+      "clear": 3,
+      "doors": [
+        [
+          [
+            100,
+            60
+          ],
+          [
+            100,
+            64
+          ]
+        ],
+        [
+          [
+            112,
+            60
+          ],
+          [
+            112,
+            64
+          ]
+        ]
+      ],
+      "role": "4 m clear arcade joins the north bridgehead to the Bell ascent side."
+    },
+    {
+      "id": "I04",
+      "building": "M13",
+      "name": "Taverna receiving room",
+      "z": 4,
+      "p": [
+        [
+          78.45,
+          48.45
+        ],
+        [
+          95.55,
+          48.45
+        ],
+        [
+          95.55,
+          61.55
+        ],
+        [
+          78.45,
+          61.55
+        ]
+      ],
+      "clear": 3,
+      "doors": [
+        [
+          [
+            78,
+            54
+          ],
+          [
+            78,
+            60
+          ]
+        ],
+        [
+          [
+            96,
+            49
+          ],
+          [
+            96,
+            54
+          ]
+        ],
+        [
+          [
+            91,
+            62
+          ],
+          [
+            95,
+            62
+          ]
+        ]
+      ],
+      "channels": [
+        [
+          [
+            78,
+            54
+          ],
+          [
+            78.45,
+            54
+          ],
+          [
+            78.45,
+            60
+          ],
+          [
+            78,
+            60
+          ]
+        ],
+        [
+          [
+            95.55,
+            49
+          ],
+          [
+            96,
+            49
+          ],
+          [
+            96,
+            54
+          ],
+          [
+            95.55,
+            54
+          ]
+        ],
+        [
+          [
+            91,
+            61.55
+          ],
+          [
+            95,
+            61.55
+          ],
+          [
+            95,
+            62
+          ],
+          [
+            91,
+            62
+          ]
+        ]
+      ],
+      "role": "Bridge entry, shallow return, then Fountain or School departure. Roof remains occupied building mass above."
+    },
+    {
+      "id": "I05",
+      "building": "M16",
+      "name": "Inn archway",
+      "z": 8,
+      "p": [
+        [
+          76,
+          86
+        ],
+        [
+          87,
+          86
+        ],
+        [
+          87,
+          92
+        ],
+        [
+          76,
+          92
+        ]
+      ],
+      "clear": 4,
+      "doors": [
+        [
+          [
+            76,
+            86
+          ],
+          [
+            76,
+            92
+          ]
+        ],
+        [
+          [
+            87,
+            86
+          ],
+          [
+            87,
+            92
+          ]
+        ]
+      ],
+      "role": "Straight civic arch; useful through-support retained, unlike the middle gateway."
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "O01",
+      "name": "Cistern rim",
+      "z": 8,
+      "p": [
+        [
+          25,
+          95
+        ],
+        [
+          29,
+          95
+        ],
+        [
+          29,
+          96.2
+        ],
+        [
+          25,
+          96.2
+        ]
+      ],
+      "height": 1.2,
+      "role": "Crouch preparation north of A; open flanks remain. Does not secure bridge stance.",
+      "collision": true,
+      "opaque": true,
+      "ballistic": "unknown",
+      "destructible": "unknown"
+    },
+    {
+      "id": "O02",
+      "name": "Boat handling bench",
+      "z": 0,
+      "p": [
+        [
+          104,
+          27
+        ],
+        [
+          108,
+          27
+        ],
+        [
+          108,
+          28.2
+        ],
+        [
+          104,
+          28.2
+        ]
+      ],
+      "height": 1.2,
+      "role": "Ground-level crouch reset toward S5; elevated S5/S6 can look behind it. Not universal site cover.",
+      "collision": true,
+      "opaque": true,
+      "ballistic": "unknown",
+      "destructible": "unknown"
+    },
+    {
+      "id": "O03",
+      "name": "Taverna internal return",
+      "z": 4,
+      "p": [
+        [
+          86,
+          54
+        ],
+        [
+          86.45,
+          54
+        ],
+        [
+          86.45,
+          61.55
+        ],
+        [
+          86,
+          61.55
+        ]
+      ],
+      "height": 3,
+      "role": "Separates the bridge-facing stance from east/north exits; 5.55 m clear path south of tip.",
+      "collision": true,
+      "opaque": true,
+      "ballistic": "unknown",
+      "destructible": "unknown"
+    }
+  ],
+  "stairs": [
+    {
+      "id": "S1",
+      "name": "Harbor stair",
+      "from": "F00",
+      "to": "F04W",
+      "a": [
+        18,
+        34,
+        0
+      ],
+      "b": [
+        18,
+        46,
+        4
+      ],
+      "width": 4,
+      "p": [
+        [
+          16,
+          34
+        ],
+        [
+          20,
+          34
+        ],
+        [
+          20,
+          46
+        ],
+        [
+          16,
+          46
+        ]
+      ],
+      "bottomLanding": [
+        [
+          16,
+          31
+        ],
+        [
+          20,
+          31
+        ],
+        [
+          20,
+          34
+        ],
+        [
+          16,
+          34
+        ]
+      ],
+      "topLanding": [
+        [
+          16,
+          46
+        ],
+        [
+          20,
+          46
+        ],
+        [
+          20,
+          49
+        ],
+        [
+          16,
+          49
+        ]
+      ],
+      "risers": 20,
+      "riser": 0.2,
+      "goings": 19,
+      "going": 0.631578947368421,
+      "guardHeight": 1.1,
+      "guardThickness": 0.2,
+      "clearHeadroom": "Open sky throughout flight and both landings; no overhead slab or roof intersects the footprint.",
+      "support": "Solid stepped stone/retaining fill, not a floating flight."
+    },
+    {
+      "id": "S2",
+      "name": "Cooper stair",
+      "from": "F00",
+      "to": "F04W",
+      "a": [
+        46.5,
+        34,
+        0
+      ],
+      "b": [
+        46.5,
+        46,
+        4
+      ],
+      "width": 4,
+      "p": [
+        [
+          44.5,
+          34
+        ],
+        [
+          48.5,
+          34
+        ],
+        [
+          48.5,
+          46
+        ],
+        [
+          44.5,
+          46
+        ]
+      ],
+      "bottomLanding": [
+        [
+          44.5,
+          31
+        ],
+        [
+          48.5,
+          31
+        ],
+        [
+          48.5,
+          34
+        ],
+        [
+          44.5,
+          34
+        ]
+      ],
+      "topLanding": [
+        [
+          44.5,
+          46
+        ],
+        [
+          48.5,
+          46
+        ],
+        [
+          48.5,
+          49
+        ],
+        [
+          44.5,
+          49
+        ]
+      ],
+      "risers": 20,
+      "riser": 0.2,
+      "goings": 19,
+      "going": 0.631578947368421,
+      "guardHeight": 1.1,
+      "guardThickness": 0.2,
+      "clearHeadroom": "Open sky throughout flight and both landings; no overhead slab or roof intersects the footprint.",
+      "support": "Solid stepped stone/retaining fill, not a floating flight."
+    },
+    {
+      "id": "S3",
+      "name": "Cypress stair",
+      "from": "F04W",
+      "to": "F08W",
+      "a": [
+        17,
+        66,
+        4
+      ],
+      "b": [
+        17,
+        78,
+        8
+      ],
+      "width": 4,
+      "p": [
+        [
+          15,
+          66
+        ],
+        [
+          19,
+          66
+        ],
+        [
+          19,
+          78
+        ],
+        [
+          15,
+          78
+        ]
+      ],
+      "bottomLanding": [
+        [
+          15,
+          63
+        ],
+        [
+          19,
+          63
+        ],
+        [
+          19,
+          66
+        ],
+        [
+          15,
+          66
+        ]
+      ],
+      "topLanding": [
+        [
+          15,
+          78
+        ],
+        [
+          19,
+          78
+        ],
+        [
+          19,
+          81
+        ],
+        [
+          15,
+          81
+        ]
+      ],
+      "risers": 20,
+      "riser": 0.2,
+      "goings": 19,
+      "going": 0.631578947368421,
+      "guardHeight": 1.1,
+      "guardThickness": 0.2,
+      "clearHeadroom": "Open sky throughout flight and both landings; no overhead slab or roof intersects the footprint.",
+      "support": "Solid stepped stone/retaining fill, not a floating flight."
+    },
+    {
+      "id": "S4",
+      "name": "Press stair",
+      "from": "F04W",
+      "to": "F08W",
+      "a": [
+        46.5,
+        66,
+        4
+      ],
+      "b": [
+        46.5,
+        78,
+        8
+      ],
+      "width": 4,
+      "p": [
+        [
+          44.5,
+          66
+        ],
+        [
+          48.5,
+          66
+        ],
+        [
+          48.5,
+          78
+        ],
+        [
+          44.5,
+          78
+        ]
+      ],
+      "bottomLanding": [
+        [
+          44.5,
+          63
+        ],
+        [
+          48.5,
+          63
+        ],
+        [
+          48.5,
+          66
+        ],
+        [
+          44.5,
+          66
+        ]
+      ],
+      "topLanding": [
+        [
+          44.5,
+          78
+        ],
+        [
+          48.5,
+          78
+        ],
+        [
+          48.5,
+          81
+        ],
+        [
+          44.5,
+          81
+        ]
+      ],
+      "risers": 20,
+      "riser": 0.2,
+      "goings": 19,
+      "going": 0.631578947368421,
+      "guardHeight": 1.1,
+      "guardThickness": 0.2,
+      "clearHeadroom": "Open sky throughout flight and both landings; no overhead slab or roof intersects the footprint.",
+      "support": "Solid stepped stone/retaining fill, not a floating flight."
+    },
+    {
+      "id": "S5",
+      "name": "Salt stair",
+      "from": "F00",
+      "to": "F04E",
+      "a": [
+        101,
+        34,
+        0
+      ],
+      "b": [
+        101,
+        46,
+        4
+      ],
+      "width": 4,
+      "p": [
+        [
+          99,
+          34
+        ],
+        [
+          103,
+          34
+        ],
+        [
+          103,
+          46
+        ],
+        [
+          99,
+          46
+        ]
+      ],
+      "bottomLanding": [
+        [
+          99,
+          31
+        ],
+        [
+          103,
+          31
+        ],
+        [
+          103,
+          34
+        ],
+        [
+          99,
+          34
+        ]
+      ],
+      "topLanding": [
+        [
+          99,
+          46
+        ],
+        [
+          103,
+          46
+        ],
+        [
+          103,
+          49
+        ],
+        [
+          99,
+          49
+        ]
+      ],
+      "risers": 20,
+      "riser": 0.2,
+      "goings": 19,
+      "going": 0.631578947368421,
+      "guardHeight": 1.1,
+      "guardThickness": 0.2,
+      "clearHeadroom": "Open sky throughout flight and both landings; no overhead slab or roof intersects the footprint.",
+      "support": "Solid stepped stone/retaining fill, not a floating flight."
+    },
+    {
+      "id": "S6",
+      "name": "Sea stair",
+      "from": "F00",
+      "to": "F04E",
+      "a": [
+        121,
+        34,
+        0
+      ],
+      "b": [
+        121,
+        46,
+        4
+      ],
+      "width": 4,
+      "p": [
+        [
+          119,
+          34
+        ],
+        [
+          123,
+          34
+        ],
+        [
+          123,
+          46
+        ],
+        [
+          119,
+          46
+        ]
+      ],
+      "bottomLanding": [
+        [
+          119,
+          31
+        ],
+        [
+          123,
+          31
+        ],
+        [
+          123,
+          34
+        ],
+        [
+          119,
+          34
+        ]
+      ],
+      "topLanding": [
+        [
+          119,
+          46
+        ],
+        [
+          123,
+          46
+        ],
+        [
+          123,
+          49
+        ],
+        [
+          119,
+          49
+        ]
+      ],
+      "risers": 20,
+      "riser": 0.2,
+      "goings": 19,
+      "going": 0.631578947368421,
+      "guardHeight": 1.1,
+      "guardThickness": 0.2,
+      "clearHeadroom": "Open sky throughout flight and both landings; no overhead slab or roof intersects the footprint.",
+      "support": "Solid stepped stone/retaining fill, not a floating flight."
+    },
+    {
+      "id": "S7",
+      "name": "School stair",
+      "from": "F04E",
+      "to": "F08E",
+      "a": [
+        86,
+        66,
+        4
+      ],
+      "b": [
+        86,
+        78,
+        8
+      ],
+      "width": 4,
+      "p": [
+        [
+          84,
+          66
+        ],
+        [
+          88,
+          66
+        ],
+        [
+          88,
+          78
+        ],
+        [
+          84,
+          78
+        ]
+      ],
+      "bottomLanding": [
+        [
+          84,
+          63
+        ],
+        [
+          88,
+          63
+        ],
+        [
+          88,
+          66
+        ],
+        [
+          84,
+          66
+        ]
+      ],
+      "topLanding": [
+        [
+          84,
+          78
+        ],
+        [
+          88,
+          78
+        ],
+        [
+          88,
+          81
+        ],
+        [
+          84,
+          81
+        ]
+      ],
+      "risers": 20,
+      "riser": 0.2,
+      "goings": 19,
+      "going": 0.631578947368421,
+      "guardHeight": 1.1,
+      "guardThickness": 0.2,
+      "clearHeadroom": "Open sky throughout flight and both landings; no overhead slab or roof intersects the footprint.",
+      "support": "Solid stepped stone/retaining fill, not a floating flight."
+    },
+    {
+      "id": "S8",
+      "name": "Bell stair",
+      "from": "F04E",
+      "to": "F08E",
+      "a": [
+        117,
+        66,
+        4
+      ],
+      "b": [
+        117,
+        78,
+        8
+      ],
+      "width": 4,
+      "p": [
+        [
+          115,
+          66
+        ],
+        [
+          119,
+          66
+        ],
+        [
+          119,
+          78
+        ],
+        [
+          115,
+          78
+        ]
+      ],
+      "bottomLanding": [
+        [
+          115,
+          63
+        ],
+        [
+          119,
+          63
+        ],
+        [
+          119,
+          66
+        ],
+        [
+          115,
+          66
+        ]
+      ],
+      "topLanding": [
+        [
+          115,
+          78
+        ],
+        [
+          119,
+          78
+        ],
+        [
+          119,
+          81
+        ],
+        [
+          115,
+          81
+        ]
+      ],
+      "risers": 20,
+      "riser": 0.2,
+      "goings": 19,
+      "going": 0.631578947368421,
+      "guardHeight": 1.1,
+      "guardThickness": 0.2,
+      "clearHeadroom": "Open sky throughout flight and both landings; no overhead slab or roof intersects the footprint.",
+      "support": "Solid stepped stone/retaining fill, not a floating flight."
+    }
+  ],
+  "openings": [
+    {
+      "id": "W01",
+      "name": "Laundry observation window",
+      "a": [
+        22,
+        46
+      ],
+      "b": [
+        25,
+        46
+      ],
+      "z": 4,
+      "sill": 1.2,
+      "head": 2.3,
+      "wallHeight": 2.6,
+      "thickness": 0.45,
+      "movement": false,
+      "role": "Bounded standing view of Net street; crouching cannot look over sill. Reciprocal lower challenge."
+    },
+    {
+      "id": "W02",
+      "name": "Civic bridge south aperture",
+      "a": [
+        61,
+        86
+      ],
+      "b": [
+        64,
+        86
+      ],
+      "z": 8,
+      "sill": 1.1,
+      "head": 2.1,
+      "wallHeight": 2.4,
+      "thickness": 0.35,
+      "movement": false,
+      "role": "Middle-span information requires standing on upper span, turning away from both bridge ends."
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "R-F00-1",
+      "floor": "F00",
+      "a": [
+        0,
+        2
+      ],
+      "b": [
+        42,
+        2
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-2",
+      "floor": "F00",
+      "a": [
+        42,
+        2
+      ],
+      "b": [
+        48,
+        9
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-3",
+      "floor": "F00",
+      "a": [
+        48,
+        9
+      ],
+      "b": [
+        58,
+        11
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-4",
+      "floor": "F00",
+      "a": [
+        58,
+        11
+      ],
+      "b": [
+        66,
+        17
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-5",
+      "floor": "F00",
+      "a": [
+        66,
+        17
+      ],
+      "b": [
+        74,
+        12
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-6",
+      "floor": "F00",
+      "a": [
+        74,
+        12
+      ],
+      "b": [
+        84,
+        12
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-7",
+      "floor": "F00",
+      "a": [
+        84,
+        12
+      ],
+      "b": [
+        90,
+        2
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-8",
+      "floor": "F00",
+      "a": [
+        90,
+        2
+      ],
+      "b": [
+        128,
+        2
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-9",
+      "floor": "F00",
+      "a": [
+        128,
+        2
+      ],
+      "b": [
+        131,
+        21
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-10",
+      "floor": "F00",
+      "a": [
+        131,
+        21
+      ],
+      "b": [
+        127,
+        34
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-11",
+      "floor": "F00",
+      "a": [
+        127,
+        34
+      ],
+      "b": [
+        76,
+        34
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "S5",
+          "a": [
+            98.8,
+            34
+          ],
+          "b": [
+            103.2,
+            34
+          ]
+        },
+        {
+          "kind": "movement",
+          "id": "S6",
+          "a": [
+            118.8,
+            34
+          ],
+          "b": [
+            123.2,
+            34
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-12",
+      "floor": "F00",
+      "a": [
+        76,
+        34
+      ],
+      "b": [
+        73,
+        29
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-13",
+      "floor": "F00",
+      "a": [
+        73,
+        29
+      ],
+      "b": [
+        65,
+        27
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-14",
+      "floor": "F00",
+      "a": [
+        65,
+        27
+      ],
+      "b": [
+        57,
+        29
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-15",
+      "floor": "F00",
+      "a": [
+        57,
+        29
+      ],
+      "b": [
+        49,
+        34
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-16",
+      "floor": "F00",
+      "a": [
+        49,
+        34
+      ],
+      "b": [
+        4,
+        34
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "S1",
+          "a": [
+            15.8,
+            34
+          ],
+          "b": [
+            20.2,
+            34
+          ]
+        },
+        {
+          "kind": "movement",
+          "id": "S2",
+          "a": [
+            44.3,
+            34
+          ],
+          "b": [
+            48.7,
+            34
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-17",
+      "floor": "F00",
+      "a": [
+        4,
+        34
+      ],
+      "b": [
+        -1,
+        24
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F00-18",
+      "floor": "F00",
+      "a": [
+        -1,
+        24
+      ],
+      "b": [
+        0,
+        2
+      ],
+      "z": 0,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04W-1",
+      "floor": "F04W",
+      "a": [
+        5,
+        46
+      ],
+      "b": [
+        50,
+        46
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 2.6,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "S1",
+          "a": [
+            15.8,
+            46
+          ],
+          "b": [
+            20.2,
+            46
+          ]
+        },
+        {
+          "kind": "movement",
+          "id": "S2",
+          "a": [
+            44.3,
+            46
+          ],
+          "b": [
+            48.7,
+            46
+          ]
+        },
+        {
+          "kind": "observation",
+          "id": "W01",
+          "a": [
+            22,
+            46
+          ],
+          "b": [
+            25,
+            46
+          ],
+          "sill": 1.2,
+          "head": 2.3
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04W-2",
+      "floor": "F04W",
+      "a": [
+        50,
+        46
+      ],
+      "b": [
+        50,
+        66
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "BR-M",
+          "a": [
+            50,
+            54
+          ],
+          "b": [
+            50,
+            60
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04W-3",
+      "floor": "F04W",
+      "a": [
+        50,
+        66
+      ],
+      "b": [
+        8,
+        66
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "S3",
+          "a": [
+            14.8,
+            66
+          ],
+          "b": [
+            19.2,
+            66
+          ]
+        },
+        {
+          "kind": "movement",
+          "id": "S4",
+          "a": [
+            44.3,
+            66
+          ],
+          "b": [
+            48.7,
+            66
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04W-4",
+      "floor": "F04W",
+      "a": [
+        8,
+        66
+      ],
+      "b": [
+        3,
+        57
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04W-5",
+      "floor": "F04W",
+      "a": [
+        3,
+        57
+      ],
+      "b": [
+        5,
+        46
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04E-1",
+      "floor": "F04E",
+      "a": [
+        78,
+        46
+      ],
+      "b": [
+        127,
+        46
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "S5",
+          "a": [
+            98.8,
+            46
+          ],
+          "b": [
+            103.2,
+            46
+          ]
+        },
+        {
+          "kind": "movement",
+          "id": "S6",
+          "a": [
+            118.8,
+            46
+          ],
+          "b": [
+            123.2,
+            46
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04E-2",
+      "floor": "F04E",
+      "a": [
+        127,
+        46
+      ],
+      "b": [
+        130,
+        57
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04E-3",
+      "floor": "F04E",
+      "a": [
+        130,
+        57
+      ],
+      "b": [
+        125,
+        66
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04E-4",
+      "floor": "F04E",
+      "a": [
+        125,
+        66
+      ],
+      "b": [
+        78,
+        66
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "S7",
+          "a": [
+            83.8,
+            66
+          ],
+          "b": [
+            88.2,
+            66
+          ]
+        },
+        {
+          "kind": "movement",
+          "id": "S8",
+          "a": [
+            114.8,
+            66
+          ],
+          "b": [
+            119.2,
+            66
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F04E-5",
+      "floor": "F04E",
+      "a": [
+        78,
+        66
+      ],
+      "b": [
+        78,
+        46
+      ],
+      "z": 4,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "BR-M",
+          "a": [
+            78,
+            54
+          ],
+          "b": [
+            78,
+            60
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08W-1",
+      "floor": "F08W",
+      "a": [
+        8,
+        78
+      ],
+      "b": [
+        50,
+        78
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "S3",
+          "a": [
+            14.8,
+            78
+          ],
+          "b": [
+            19.2,
+            78
+          ]
+        },
+        {
+          "kind": "movement",
+          "id": "S4",
+          "a": [
+            44.3,
+            78
+          ],
+          "b": [
+            48.7,
+            78
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08W-2",
+      "floor": "F08W",
+      "a": [
+        50,
+        78
+      ],
+      "b": [
+        50,
+        96
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "BR-U",
+          "a": [
+            50,
+            86
+          ],
+          "b": [
+            50,
+            92
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08W-3",
+      "floor": "F08W",
+      "a": [
+        50,
+        96
+      ],
+      "b": [
+        32,
+        107
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08W-4",
+      "floor": "F08W",
+      "a": [
+        32,
+        107
+      ],
+      "b": [
+        10,
+        100
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08W-5",
+      "floor": "F08W",
+      "a": [
+        10,
+        100
+      ],
+      "b": [
+        4,
+        88
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08W-6",
+      "floor": "F08W",
+      "a": [
+        4,
+        88
+      ],
+      "b": [
+        8,
+        78
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08E-1",
+      "floor": "F08E",
+      "a": [
+        78,
+        78
+      ],
+      "b": [
+        127,
+        78
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "S7",
+          "a": [
+            83.8,
+            78
+          ],
+          "b": [
+            88.2,
+            78
+          ]
+        },
+        {
+          "kind": "movement",
+          "id": "S8",
+          "a": [
+            114.8,
+            78
+          ],
+          "b": [
+            119.2,
+            78
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08E-2",
+      "floor": "F08E",
+      "a": [
+        127,
+        78
+      ],
+      "b": [
+        131,
+        101
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08E-3",
+      "floor": "F08E",
+      "a": [
+        131,
+        101
+      ],
+      "b": [
+        112,
+        111
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08E-4",
+      "floor": "F08E",
+      "a": [
+        112,
+        111
+      ],
+      "b": [
+        84,
+        106
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08E-5",
+      "floor": "F08E",
+      "a": [
+        84,
+        106
+      ],
+      "b": [
+        76,
+        96
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08E-6",
+      "floor": "F08E",
+      "a": [
+        76,
+        96
+      ],
+      "b": [
+        76,
+        84
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 2.4,
+      "thickness": 0.45,
+      "gaps": [
+        {
+          "kind": "movement",
+          "id": "BR-U",
+          "a": [
+            76,
+            86
+          ],
+          "b": [
+            76,
+            92
+          ]
+        }
+      ],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-F08E-7",
+      "floor": "F08E",
+      "a": [
+        76,
+        84
+      ],
+      "b": [
+        78,
+        78
+      ],
+      "z": 8,
+      "base": -6,
+      "parapetHeight": 1.1,
+      "thickness": 0.45,
+      "gaps": [],
+      "role": "Continuous retaining foundation with crest wall; scenic side inaccessible"
+    },
+    {
+      "id": "R-BR-M-1",
+      "floor": "BR-M",
+      "a": [
+        50,
+        54
+      ],
+      "b": [
+        78,
+        54
+      ],
+      "z": 4,
+      "base": 3.4,
+      "parapetHeight": 1.1,
+      "thickness": 0.35,
+      "gaps": [],
+      "role": "Bridge side parapet"
+    },
+    {
+      "id": "R-BR-M-3",
+      "floor": "BR-M",
+      "a": [
+        78,
+        60
+      ],
+      "b": [
+        50,
+        60
+      ],
+      "z": 4,
+      "base": 3.4,
+      "parapetHeight": 1.1,
+      "thickness": 0.35,
+      "gaps": [],
+      "role": "Bridge side parapet"
+    },
+    {
+      "id": "R-BR-U-1",
+      "floor": "BR-U",
+      "a": [
+        50,
+        86
+      ],
+      "b": [
+        76,
+        86
+      ],
+      "z": 8,
+      "base": 7.3,
+      "parapetHeight": 2.4,
+      "thickness": 0.35,
+      "gaps": [
+        {
+          "kind": "observation",
+          "id": "W02",
+          "a": [
+            61,
+            86
+          ],
+          "b": [
+            64,
+            86
+          ],
+          "sill": 1.1,
+          "head": 2.1
+        }
+      ],
+      "role": "Bridge side parapet"
+    },
+    {
+      "id": "R-BR-U-3",
+      "floor": "BR-U",
+      "a": [
+        76,
+        92
+      ],
+      "b": [
+        50,
+        92
+      ],
+      "z": 8,
+      "base": 7.3,
+      "parapetHeight": 1.1,
+      "thickness": 0.35,
+      "gaps": [],
+      "role": "Bridge side parapet"
+    }
+  ],
+  "places": [
+    {
+      "id": "T",
+      "name": "Ferry landing",
+      "p": [
+        13,
+        20,
+        0
+      ]
+    },
+    {
+      "id": "N1",
+      "name": "Net street",
+      "p": [
+        27,
+        32,
+        0
+      ]
+    },
+    {
+      "id": "N2",
+      "name": "Cooper yard",
+      "p": [
+        46,
+        23,
+        0
+      ]
+    },
+    {
+      "id": "N3",
+      "name": "Shore toe",
+      "p": [
+        65,
+        23,
+        0
+      ]
+    },
+    {
+      "id": "N4",
+      "name": "Lower harbor bend",
+      "p": [
+        92,
+        25,
+        0
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Boat court",
+      "p": [
+        108,
+        21,
+        0
+      ]
+    },
+    {
+      "id": "N5",
+      "name": "Customs stepside",
+      "p": [
+        121,
+        31,
+        0
+      ]
+    },
+    {
+      "id": "W1",
+      "name": "Laundry court",
+      "p": [
+        21,
+        56,
+        4
+      ]
+    },
+    {
+      "id": "W2",
+      "name": "Press porch",
+      "p": [
+        47,
+        58,
+        4
+      ]
+    },
+    {
+      "id": "W3",
+      "name": "Potter pocket",
+      "p": [
+        18,
+        63,
+        4
+      ]
+    },
+    {
+      "id": "M",
+      "name": "Middle bridge",
+      "p": [
+        64,
+        57,
+        4
+      ]
+    },
+    {
+      "id": "E1",
+      "name": "Taverna bridgehead",
+      "p": [
+        91,
+        52,
+        4
+      ]
+    },
+    {
+      "id": "E2",
+      "name": "Fountain court",
+      "p": [
+        105,
+        52,
+        4
+      ]
+    },
+    {
+      "id": "E3",
+      "name": "School court",
+      "p": [
+        117,
+        64,
+        4
+      ]
+    },
+    {
+      "id": "A",
+      "name": "Cistern court",
+      "p": [
+        28,
+        91,
+        8
+      ]
+    },
+    {
+      "id": "A1",
+      "name": "Chapel approach",
+      "p": [
+        26,
+        83,
+        8
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "West lookout",
+      "p": [
+        47,
+        91,
+        8
+      ]
+    },
+    {
+      "id": "U",
+      "name": "Upper bridge",
+      "p": [
+        64,
+        89,
+        8
+      ]
+    },
+    {
+      "id": "E4",
+      "name": "Inn porch",
+      "p": [
+        93,
+        91,
+        8
+      ]
+    },
+    {
+      "id": "E5",
+      "name": "Bell court",
+      "p": [
+        119,
+        87,
+        8
+      ]
+    },
+    {
+      "id": "CT",
+      "name": "Ridge arrival",
+      "p": [
+        108,
+        102,
+        8
+      ]
+    }
+  ],
+  "objectives": [
+    {
+      "id": "SITE-A",
+      "p": [
+        [
+          25,
+          88
+        ],
+        [
+          31,
+          88
+        ],
+        [
+          31,
+          94
+        ],
+        [
+          25,
+          94
+        ]
+      ],
+      "z": 8,
+      "anchor": [
+        28,
+        91,
+        8
+      ]
+    },
+    {
+      "id": "SITE-B",
+      "p": [
+        [
+          105,
+          18
+        ],
+        [
+          111,
+          18
+        ],
+        [
+          111,
+          24
+        ],
+        [
+          105,
+          24
+        ]
+      ],
+      "z": 0,
+      "anchor": [
+        108,
+        21,
+        0
+      ]
+    }
+  ],
+  "spawns": [
+    {
+      "id": "SPAWN-T",
+      "z": 0,
+      "positions": [
+        [
+          10,
+          19
+        ],
+        [
+          12,
+          19
+        ],
+        [
+          14,
+          19
+        ],
+        [
+          16,
+          19
+        ],
+        [
+          14,
+          21
+        ]
+      ]
+    },
+    {
+      "id": "SPAWN-CT",
+      "z": 8,
+      "positions": [
+        [
+          104,
+          102
+        ],
+        [
+          106,
+          102
+        ],
+        [
+          108,
+          102
+        ],
+        [
+          110,
+          102
+        ],
+        [
+          108,
+          104
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Working L01 spatial return — rework
+
+Root visually inspected the actual developed overview, +4 floor plan and S1–S8 coordinate sections while the author was still preparing the packet. The inspected working artifact is retained under `evidence/root-l01-working/` with source data and hashes. This is a spatial-development review of that artifact, not a verdict on a later frozen revision.
+
+**Rework before production.** The ravine creates a meaningful district-transfer commitment, but the architectural development currently reads as four broad pads connected by eight nearly identical, parallel straight stair flights. Two straight bridges cross between those rows. The occupied building footprints mostly sit on those pads rather than generating substantially different streets and level transitions. The repeated geometry makes the first successful local journey too predictive of the next one: cross a terrace, climb the next paired flight, then cross a similar terrace. It underdelivers on the user's explicit concern about rooms connected with stairs and the original Greek-town brief's rejection of a grid-like composition.
+
+This is not a rejection by stair count, rectangularity, or a demand for decorative curves. The S01 territory comparison still supports testing the two shoulders and committed shoreline route. What needs development is the architecture and section within those territories: buildings and retaining structures should give different transitions different arrival conditions, exposure, preparation and continuation. The reference studies support occupied passages, stairs belonging to building edges, and inhabited landings. Those relationships are largely absent from the repeated gap-and-flight organization.
+
+## Required next comparison
+
+Reopen terrace footprints, transfer placement and selected district boundaries within the brief. Develop a materially different town composition while retaining or explicitly revising its territorial commitments. Embedding an ascent in a building/retaining frontage, turning through an occupied landing, or letting a path and upper place share a supported volume are possible directions, not mandatory feature quotas. Do not simply curve the same eight connectors or decorate their ends.
+
+Show actual journeys through the reworked composition and compare their preparation, view and continuation conditions. A fresh interest recheck and the detailed strategy/local reviews must judge the revised relationships before production. Earlier promising verdicts do not oblige preservation of the working geometry. Existing reference research and unaffected bridge/shore strategy can be reused.

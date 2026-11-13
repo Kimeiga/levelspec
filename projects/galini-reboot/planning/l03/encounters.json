@@ -1,0 +1,5361 @@
+{
+  "revision": "L03",
+  "status": "Predicted routes/poses, not physical walk evidence",
+  "body": {
+    "radius": 0.3,
+    "height": 1.8,
+    "crouch": 1.1,
+    "step": 0.3,
+    "slope": 42,
+    "standingEye": 1.674,
+    "crouchEye": 1.023,
+    "walkSpeed": 3.4
+  },
+  "sections": [
+    {
+      "id": "SEC01",
+      "name": "Ferry departures and shore choice",
+      "level": 0,
+      "bounds": [
+        -2,
+        2,
+        54,
+        43
+      ],
+      "objects": [
+        "M01",
+        "M02",
+        "M03",
+        "S1",
+        "S2",
+        "R6"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            10,
+            32,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            6.5,
+            45,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            13,
+            25,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            10,
+            32,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            46,
+            30,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            27,
+            27,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            37,
+            26,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            54,
+            25,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "Ferry exits divide before Laundry undercroft and Cooper rise; shore remains a separate ground commitment. A sighting at Cooper does not identify the whole attack. Buildings, not a spawn screen, form departures.",
+      "supportAndCounterplay": "Follower can keep the near return or move toward Cooper. The long shore is not a free late rotation; its usefulness is conditional on remaining time.",
+      "routes": [
+        "R01",
+        "R02",
+        "R03"
+      ]
+    },
+    {
+      "id": "SEC02",
+      "name": "Laundry lower / upper transfer",
+      "level": 4,
+      "bounds": [
+        4,
+        35,
+        36,
+        65
+      ],
+      "objects": [
+        "M04",
+        "I01",
+        "I02",
+        "I03",
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "S1a",
+        "S1b",
+        "H-L"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            22,
+            44.5,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            26,
+            44.5,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            22,
+            49,
+            3
+          ],
+          "eye": 4.6739999999999995,
+          "look": [
+            22,
+            46,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            30,
+            48,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            27,
+            46,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            17,
+            59.5,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            17,
+            58,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        },
+        {
+          "id": "L1",
+          "role": "leader",
+          "p": [
+            26,
+            44.5,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            30,
+            48,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        }
+      ],
+      "prediction": "The lower undercroft is roofed at 3.7 m and feeds an internal returning stair. Upper exit D03 reaches Press frontage; D04 reaches the civic street through a 3 m-deep gallery. The stair hole stays open over both flights and its +2 landing.",
+      "supportAndCounterplay": "The narrow east gallery separates the follower from an immediate north-door trade. A player can withdraw down the stair, but the lower entry is another potential opponent front. The upper floor is not a scenic roof.",
+      "routes": [
+        "R01",
+        "R07"
+      ]
+    },
+    {
+      "id": "SEC03",
+      "name": "Cooper / Press receiving district",
+      "level": 4,
+      "bounds": [
+        25,
+        29,
+        56,
+        79
+      ],
+      "objects": [
+        "M03",
+        "M05",
+        "M06",
+        "I04",
+        "S2a",
+        "S2b",
+        "D05",
+        "D06",
+        "D07"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            37,
+            55,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            37,
+            59,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            30,
+            55,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            37,
+            55,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            49,
+            59,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            42,
+            59,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            49.5,
+            68,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            49.5,
+            74,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        },
+        {
+          "id": "F1",
+          "role": "follower",
+          "p": [
+            37,
+            59,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            49,
+            59,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        }
+      ],
+      "prediction": "Cooper ascent arrives south of Press after a quarter turn. Laundry reaches a bent passage through the Press building. The east receiving street then offers the bridge or the occupied S4 house; they remain decisions after initial contact.",
+      "supportAndCounterplay": "Passage bends interrupt instant follower trades. Press is full-height masonry: support must move to the next mouth. The east street was widened during joining so it is not a sub-body pinch beside the press wall.",
+      "routes": [
+        "R02",
+        "R07",
+        "R09"
+      ]
+    },
+    {
+      "id": "SEC04",
+      "name": "Chapel porch and A precinct",
+      "level": 8,
+      "bounds": [
+        4,
+        63,
+        56,
+        106
+      ],
+      "objects": [
+        "M07",
+        "M08",
+        "M09",
+        "S3a",
+        "S3b",
+        "S4a",
+        "S4b",
+        "I06",
+        "O01"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            10,
+            94,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            14,
+            100,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            10,
+            81,
+            7
+          ],
+          "eye": 8.674,
+          "look": [
+            10,
+            84,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            31,
+            95,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            29,
+            87,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            50,
+            91,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            64,
+            91,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "Civic ascent occupies the +6 Chapel porch before climbing the separate edge flight and circling Chapel. The Press house exits into A\u2019s southern street. Upper bridge arrivals reach the other side of West Homes. These are different clearing sequences, not two identical stair mouths.",
+      "supportAndCounterplay": "O01 gives conditional crouch preparation; flanks remain. The bridge stance cannot fire through M08 to assist the southern street. A CT two-front retake requires a survivor already on west middle or time for that transfer.",
+      "routes": [
+        "R01",
+        "R04",
+        "R09"
+      ]
+    },
+    {
+      "id": "SEC05",
+      "name": "Middle bridge and Taverna gateway",
+      "level": 4,
+      "bounds": [
+        39,
+        44,
+        104,
+        69
+      ],
+      "objects": [
+        "BR-M",
+        "I04",
+        "M13",
+        "I09",
+        "O03",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "poses": [
+        {
+          "id": "L0",
+          "role": "leader",
+          "p": [
+            82,
+            59,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            83.5,
+            53,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F0",
+          "role": "follower",
+          "p": [
+            75,
+            59,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            82,
+            59,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "L1",
+          "role": "leader",
+          "p": [
+            83.5,
+            53,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            93,
+            53,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F1",
+          "role": "follower",
+          "p": [
+            82,
+            54.5,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            93,
+            53,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            93,
+            53,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            83.5,
+            53,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            92,
+            65,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            92,
+            61,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The span reaches a roofed receiving room. O03 blocks the bridge-facing stance from the two district exits; moving south of the tip opens the Fountain challenge, then the north School door. The crossing remains an exposed commitment.",
+      "supportAndCounterplay": "F0 cannot trade the next corner. F1 advances off the span to support the leader around the shallow return. The selected turn costs support and another clear; it does not grant a protected holding room against an organized push.",
+      "routes": [
+        "R07",
+        "R08",
+        "R10"
+      ]
+    },
+    {
+      "id": "SEC06",
+      "name": "Shore commitment and B precinct",
+      "level": 0,
+      "bounds": [
+        49,
+        8,
+        133,
+        43
+      ],
+      "objects": [
+        "M10",
+        "M11",
+        "M12",
+        "M19",
+        "M20",
+        "I08",
+        "O02",
+        "S5a",
+        "S5b",
+        "R6"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            94,
+            25,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            104,
+            25,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            84,
+            25,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            94,
+            25,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            110,
+            23,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            104,
+            25,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            121,
+            24,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            121,
+            29,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "Boat Shed and Salt-store frontage make a pause before the final B exposure. The shore still has no climb out of the ravine toe. Salt loft and Customs road bring different reserve arrivals; the ground plant area remains outside the civic bridge observation.",
+      "supportAndCounterplay": "The named F and L can both see O. Support is lost only for deeper southern movement around M10, not automatically at the shown bend. O02 hides only selected ground crouch exposures; the descending players can gain height over it. A B defender pushing the bend gives up some site control.",
+      "routes": [
+        "R03",
+        "R05",
+        "R06",
+        "R10"
+      ]
+    },
+    {
+      "id": "SEC07",
+      "name": "Salt loft and Customs road",
+      "level": 4,
+      "bounds": [
+        87,
+        25,
+        137,
+        64
+      ],
+      "objects": [
+        "M11",
+        "I07",
+        "S5a",
+        "S5b",
+        "L5",
+        "R6a",
+        "LR6",
+        "R6b",
+        "D09",
+        "D10"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            93,
+            38,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            95,
+            37,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            94,
+            45,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            93,
+            42,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            103,
+            29,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            103,
+            35,
+            2
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            130,
+            42,
+            2
+          ],
+          "eye": 3.674,
+          "look": [
+            129,
+            54,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The Salt route enters an upper loading room, descends in two different directions around a +2 turning platform and emerges beside the Boat approach. Customs is a 5 m-wide sloped cart road with a +2 turning court; its upper arrival wraps the East Homes frontage.",
+      "supportAndCounterplay": "These connections trade enclosed short-stage clearing against a longer exposed exterior road. Every indispensable route is reversible; no drop, boost or jump is claimed. Both intermediate +2 landings are local transfers, not a new cross-town level.",
+      "routes": [
+        "R05",
+        "R06",
+        "R10"
+      ]
+    },
+    {
+      "id": "SEC08",
+      "name": "School lower arcade and east reserve",
+      "level": 4,
+      "bounds": [
+        87,
+        61,
+        131,
+        92
+      ],
+      "objects": [
+        "M14",
+        "I10",
+        "D16",
+        "D17",
+        "D18",
+        "O04",
+        "O05",
+        "S7a",
+        "S7b",
+        "S8b"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            98,
+            84,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            110,
+            84,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            92,
+            84,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            98,
+            84,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            116,
+            83,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            110,
+            84,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            108,
+            68,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            108,
+            71,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The lower arcade at y82\u201386 is usable beneath the occupied +8 room with 3.7 m clearance. It passes north of the +6 stair landing, not underneath its low soffit. It connects Taverna\u2019s north street to the Bell-side court while the south door feeds the internal stair.",
+      "supportAndCounterplay": "The straight arcade offers a reciprocal trade, but the next outdoor turn toward Bell and the cart road interrupts it. O04/O05 are structural columns supporting the upper public terrace; they are collidable and opaque, with unknown ballistics.",
+      "routes": [
+        "R08",
+        "R05"
+      ]
+    },
+    {
+      "id": "SEC09",
+      "name": "School upper room / CT / Bell stair",
+      "level": 8,
+      "bounds": [
+        91,
+        62,
+        132,
+        114
+      ],
+      "objects": [
+        "M14",
+        "I11",
+        "D19",
+        "D20",
+        "D23",
+        "H-S",
+        "S7b",
+        "S8a",
+        "W03",
+        "M17",
+        "M18"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            103,
+            87,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            103,
+            92,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            98,
+            84,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            103,
+            87,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            106,
+            99,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            103,
+            92,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            112,
+            79,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            114,
+            79,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        },
+        {
+          "id": "V",
+          "role": "observer",
+          "p": [
+            105.5,
+            63.6,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            106,
+            57,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#8a6394"
+        },
+        {
+          "id": "F1",
+          "role": "follower",
+          "p": [
+            102,
+            86,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            106,
+            99,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        }
+      ],
+      "prediction": "The upper room exits north through D19 into the CT district. D23 joins the Bell public stair at its actual upper landing. D20 reaches a small balcony with W03, allowing partial Fountain information at the cost of leaving the ridge/bridge-facing position.",
+      "supportAndCounterplay": "The open well separates the two galleries; followers must use real floor around it. Lower arcade activity is not automatically visible through the upper slab. W03 is reciprocal standing information, not a movement opening or an all-B overlook.",
+      "routes": [
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "SEC10",
+      "name": "Civic crossing and Inn receiving street",
+      "level": 8,
+      "bounds": [
+        44,
+        84,
+        112,
+        108
+      ],
+      "objects": [
+        "BR-U",
+        "W02",
+        "M08",
+        "M16",
+        "I12",
+        "D21",
+        "D22"
+      ],
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            74,
+            95,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            55,
+            90,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            85,
+            95,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            74,
+            95,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            50,
+            91,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            64,
+            91,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "S",
+          "role": "support",
+          "p": [
+            94,
+            99,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            90,
+            95,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        },
+        {
+          "id": "V",
+          "role": "observer",
+          "p": [
+            60.5,
+            88.6,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            60.5,
+            59,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#8a6394"
+        }
+      ],
+      "prediction": "The bent civic span reaches a short high Inn arch, retaining direct support on parts of its length. On the west, an occupied receiving shoulder enters A around West Homes. W02 preserves one cross-level observation; the rest of the south edge is opaque.",
+      "supportAndCounterplay": "A cross-span follower loses the target when the leader rounds West Homes. Watching W02 means standing on the span and facing away from its ends. A learned bridge hold can be avoided by paying for middle or shore territory, not by a free extra bypass.",
+      "routes": [
+        "R04"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "R01",
+      "name": "Ferry \u2192 Laundry \u2192 Chapel porch \u2192 A",
+      "waypoints": [
+        [
+          13,
+          23,
+          0
+        ],
+        [
+          10,
+          32,
+          0
+        ],
+        [
+          6.5,
+          40,
+          0
+        ],
+        [
+          6.5,
+          45,
+          0
+        ],
+        [
+          10,
+          45,
+          0
+        ],
+        [
+          15,
+          46,
+          0
+        ],
+        [
+          17,
+          46,
+          0
+        ],
+        [
+          17,
+          49,
+          1
+        ],
+        [
+          17,
+          52,
+          2
+        ],
+        [
+          17,
+          53.5,
+          2
+        ],
+        [
+          22,
+          53.5,
+          2
+        ],
+        [
+          22,
+          52,
+          2
+        ],
+        [
+          22,
+          49,
+          3
+        ],
+        [
+          22,
+          46,
+          4
+        ],
+        [
+          22,
+          44.5,
+          4
+        ],
+        [
+          26,
+          44.5,
+          4
+        ],
+        [
+          26,
+          53,
+          4
+        ],
+        [
+          26,
+          56.5,
+          4
+        ],
+        [
+          17,
+          56.5,
+          4
+        ],
+        [
+          17,
+          59.5,
+          4
+        ],
+        [
+          15,
+          64,
+          4
+        ],
+        [
+          15,
+          66,
+          4
+        ],
+        [
+          15,
+          69,
+          5
+        ],
+        [
+          15,
+          72,
+          6
+        ],
+        [
+          15,
+          75,
+          6
+        ],
+        [
+          10,
+          76,
+          6
+        ],
+        [
+          10,
+          78,
+          6
+        ],
+        [
+          10,
+          81,
+          7
+        ],
+        [
+          10,
+          84,
+          8
+        ],
+        [
+          10,
+          94,
+          8
+        ],
+        [
+          11,
+          100,
+          8
+        ],
+        [
+          14,
+          100,
+          8
+        ],
+        [
+          18,
+          102,
+          8
+        ],
+        [
+          24,
+          102.7,
+          8
+        ],
+        [
+          28,
+          101.7,
+          8
+        ],
+        [
+          28,
+          98.2,
+          8
+        ],
+        [
+          31,
+          95,
+          8
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R02",
+      "name": "Ferry \u2192 Cooper rise \u2192 Press",
+      "waypoints": [
+        [
+          13,
+          23,
+          0
+        ],
+        [
+          25,
+          25,
+          0
+        ],
+        [
+          27,
+          26.2,
+          0
+        ],
+        [
+          36,
+          26,
+          0
+        ],
+        [
+          46,
+          30,
+          0
+        ],
+        [
+          46,
+          34,
+          0
+        ],
+        [
+          46,
+          37,
+          1
+        ],
+        [
+          46,
+          40,
+          2
+        ],
+        [
+          47,
+          42,
+          2
+        ],
+        [
+          44,
+          42,
+          2
+        ],
+        [
+          41,
+          42,
+          3
+        ],
+        [
+          38,
+          42,
+          4
+        ],
+        [
+          36.5,
+          42,
+          4
+        ],
+        [
+          36.5,
+          45,
+          4
+        ],
+        [
+          40,
+          47,
+          4
+        ],
+        [
+          47.8,
+          49,
+          4
+        ],
+        [
+          48,
+          51,
+          4
+        ],
+        [
+          49,
+          59,
+          4
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R03",
+      "name": "Ferry \u2192 shore commitment \u2192 B",
+      "waypoints": [
+        [
+          13,
+          23,
+          0
+        ],
+        [
+          25,
+          24,
+          0
+        ],
+        [
+          37,
+          26,
+          0
+        ],
+        [
+          48,
+          25,
+          0
+        ],
+        [
+          54,
+          25,
+          0
+        ],
+        [
+          64,
+          24,
+          0
+        ],
+        [
+          74,
+          24,
+          0
+        ],
+        [
+          84,
+          25,
+          0
+        ],
+        [
+          94,
+          25,
+          0
+        ],
+        [
+          104,
+          25,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R04",
+      "name": "CT \u2192 civic crossing \u2192 A",
+      "waypoints": [
+        [
+          106,
+          104,
+          8
+        ],
+        [
+          94,
+          99,
+          8
+        ],
+        [
+          90,
+          95,
+          8
+        ],
+        [
+          85,
+          95,
+          8
+        ],
+        [
+          78,
+          95,
+          8
+        ],
+        [
+          74,
+          95,
+          8
+        ],
+        [
+          64,
+          91,
+          8
+        ],
+        [
+          55,
+          90,
+          8
+        ],
+        [
+          50,
+          91,
+          8
+        ],
+        [
+          46,
+          94,
+          8
+        ],
+        [
+          39,
+          94,
+          8
+        ],
+        [
+          32,
+          95,
+          8
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R05",
+      "name": "CT \u2192 School internal stair \u2192 Salt loft \u2192 B",
+      "waypoints": [
+        [
+          106,
+          104,
+          8
+        ],
+        [
+          103,
+          92,
+          8
+        ],
+        [
+          103,
+          87,
+          8
+        ],
+        [
+          98,
+          84,
+          8
+        ],
+        [
+          98,
+          70,
+          8
+        ],
+        [
+          102,
+          69,
+          8
+        ],
+        [
+          102,
+          71,
+          8
+        ],
+        [
+          102,
+          74,
+          7
+        ],
+        [
+          102,
+          77,
+          6
+        ],
+        [
+          102,
+          79,
+          6
+        ],
+        [
+          108,
+          79,
+          6
+        ],
+        [
+          108,
+          77,
+          6
+        ],
+        [
+          108,
+          74,
+          5
+        ],
+        [
+          108,
+          71,
+          4
+        ],
+        [
+          108,
+          68,
+          4
+        ],
+        [
+          108,
+          65,
+          4
+        ],
+        [
+          107,
+          58,
+          4
+        ],
+        [
+          99,
+          48,
+          4
+        ],
+        [
+          94,
+          45,
+          4
+        ],
+        [
+          93,
+          42,
+          4
+        ],
+        [
+          93,
+          38,
+          4
+        ],
+        [
+          95,
+          37,
+          4
+        ],
+        [
+          98,
+          37,
+          3
+        ],
+        [
+          101,
+          37,
+          2
+        ],
+        [
+          103,
+          37,
+          2
+        ],
+        [
+          103,
+          35,
+          2
+        ],
+        [
+          103,
+          32,
+          1
+        ],
+        [
+          103,
+          29,
+          0
+        ],
+        [
+          103,
+          28.6,
+          0
+        ],
+        [
+          109,
+          28.6,
+          0
+        ],
+        [
+          111,
+          25,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R06",
+      "name": "CT \u2192 Bell public stair \u2192 cart road \u2192 B",
+      "waypoints": [
+        [
+          106,
+          104,
+          8
+        ],
+        [
+          103,
+          92,
+          8
+        ],
+        [
+          103,
+          87,
+          8
+        ],
+        [
+          112,
+          84,
+          8
+        ],
+        [
+          112,
+          79,
+          8
+        ],
+        [
+          114,
+          79,
+          8
+        ],
+        [
+          117,
+          79,
+          7
+        ],
+        [
+          120,
+          79,
+          6
+        ],
+        [
+          122,
+          79,
+          6
+        ],
+        [
+          122,
+          77,
+          6
+        ],
+        [
+          122,
+          74,
+          5
+        ],
+        [
+          122,
+          71,
+          4
+        ],
+        [
+          122,
+          69,
+          4
+        ],
+        [
+          125,
+          70,
+          4
+        ],
+        [
+          129,
+          63,
+          4
+        ],
+        [
+          129,
+          57,
+          4
+        ],
+        [
+          129,
+          54,
+          4
+        ],
+        [
+          129.5,
+          49,
+          3
+        ],
+        [
+          130,
+          44,
+          2
+        ],
+        [
+          130,
+          42,
+          2
+        ],
+        [
+          130,
+          40,
+          2
+        ],
+        [
+          128,
+          35,
+          1
+        ],
+        [
+          126,
+          30,
+          0
+        ],
+        [
+          124,
+          30,
+          0
+        ],
+        [
+          121,
+          29,
+          0
+        ],
+        [
+          121,
+          24,
+          0
+        ],
+        [
+          112,
+          24,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R07",
+      "name": "Laundry upper \u2192 Press passage \u2192 Taverna \u2192 Fountain",
+      "waypoints": [
+        [
+          26,
+          44.5,
+          4
+        ],
+        [
+          28,
+          45.5,
+          4
+        ],
+        [
+          28,
+          50,
+          4
+        ],
+        [
+          28,
+          55,
+          4
+        ],
+        [
+          30,
+          55,
+          4
+        ],
+        [
+          37,
+          55,
+          4
+        ],
+        [
+          37,
+          59,
+          4
+        ],
+        [
+          46,
+          59,
+          4
+        ],
+        [
+          50,
+          59,
+          4
+        ],
+        [
+          65,
+          59,
+          4
+        ],
+        [
+          77,
+          59,
+          4
+        ],
+        [
+          82,
+          59,
+          4
+        ],
+        [
+          83.5,
+          53,
+          4
+        ],
+        [
+          91,
+          53,
+          4
+        ],
+        [
+          96,
+          53,
+          4
+        ],
+        [
+          107,
+          58,
+          4
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R08",
+      "name": "Taverna north \u2192 lower School arcade \u2192 Bell bottom",
+      "waypoints": [
+        [
+          91,
+          53,
+          4
+        ],
+        [
+          92,
+          61,
+          4
+        ],
+        [
+          92,
+          65,
+          4
+        ],
+        [
+          92,
+          74,
+          4
+        ],
+        [
+          92,
+          84,
+          4
+        ],
+        [
+          96,
+          84,
+          4
+        ],
+        [
+          109,
+          84,
+          4
+        ],
+        [
+          112,
+          84,
+          4
+        ],
+        [
+          116,
+          83,
+          4
+        ],
+        [
+          125.5,
+          83,
+          4
+        ],
+        [
+          126,
+          77,
+          4
+        ],
+        [
+          125,
+          70,
+          4
+        ],
+        [
+          122,
+          69,
+          4
+        ],
+        [
+          122,
+          71,
+          4
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R09",
+      "name": "Press \u2192 inhabited stair house \u2192 A street",
+      "waypoints": [
+        [
+          49,
+          59,
+          4
+        ],
+        [
+          49.5,
+          68,
+          4
+        ],
+        [
+          49.5,
+          74,
+          4
+        ],
+        [
+          46,
+          74,
+          4
+        ],
+        [
+          42,
+          74,
+          4
+        ],
+        [
+          42,
+          76,
+          4
+        ],
+        [
+          42,
+          79,
+          5
+        ],
+        [
+          42,
+          82,
+          6
+        ],
+        [
+          42,
+          83.5,
+          6
+        ],
+        [
+          38,
+          83.5,
+          6
+        ],
+        [
+          38,
+          82,
+          6
+        ],
+        [
+          38,
+          79,
+          7
+        ],
+        [
+          38,
+          76,
+          8
+        ],
+        [
+          38,
+          74.5,
+          8
+        ],
+        [
+          33.5,
+          74.5,
+          8
+        ],
+        [
+          33.5,
+          81,
+          8
+        ],
+        [
+          31,
+          81,
+          8
+        ],
+        [
+          29,
+          84,
+          8
+        ],
+        [
+          29,
+          91,
+          8
+        ],
+        [
+          32,
+          95,
+          8
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    },
+    {
+      "id": "R10",
+      "name": "Taverna \u2192 Salt loft \u2192 B",
+      "waypoints": [
+        [
+          91,
+          53,
+          4
+        ],
+        [
+          96,
+          53,
+          4
+        ],
+        [
+          99,
+          48,
+          4
+        ],
+        [
+          94,
+          45,
+          4
+        ],
+        [
+          93,
+          42,
+          4
+        ],
+        [
+          93,
+          38,
+          4
+        ],
+        [
+          95,
+          37,
+          4
+        ],
+        [
+          98,
+          37,
+          3
+        ],
+        [
+          101,
+          37,
+          2
+        ],
+        [
+          103,
+          37,
+          2
+        ],
+        [
+          103,
+          35,
+          2
+        ],
+        [
+          103,
+          32,
+          1
+        ],
+        [
+          103,
+          29,
+          0
+        ],
+        [
+          103,
+          28.6,
+          0
+        ],
+        [
+          109,
+          28.6,
+          0
+        ],
+        [
+          111,
+          25,
+          0
+        ],
+        [
+          108,
+          21,
+          0
+        ]
+      ],
+      "reverseRequired": true,
+      "status": "Predicted physical-walk centers; no teleport/fly/jump segment; actual collision-aware walk still required"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SC01",
+      "state": "5v5 A development",
+      "planAndCounterplan": "Use Laundry and Cooper to gain west middle. Keep a Press player to preserve the middle option while civic/Press-house players develop different A approaches. CT must decide between an A anchor, B setup and east reserve; opening races are unmeasured.",
+      "routes": [
+        "R01",
+        "R02",
+        "R04",
+        "R09"
+      ]
+    },
+    {
+      "id": "SC02",
+      "state": "5v5 split B pressure",
+      "planAndCounterplan": "Shore pair stops before M10 while a middle group earns Taverna and Salt/road access. A reserve leaving the bridge concedes that entry; retaining it may delay B help.",
+      "routes": [
+        "R03",
+        "R07",
+        "R10"
+      ]
+    },
+    {
+      "id": "SC03",
+      "state": "3v3 learned middle hold",
+      "planAndCounterplan": "Show at Press, then redirect through the occupied S4 house toward A or withdraw toward Shore Toe. The bluff is credible only if the measured remaining clock permits it.",
+      "routes": [
+        "R07",
+        "R09",
+        "R03"
+      ]
+    },
+    {
+      "id": "SC04",
+      "state": "3v3 split across shoulders",
+      "planAndCounterplan": "Retaining the Taverna bridgehead preserves a paid return route for an advance through the lower arcade. If that holder is lost, upper/shore reconnection is a costly consequence.",
+      "routes": [
+        "R08",
+        "R04",
+        "R03"
+      ]
+    },
+    {
+      "id": "SC05",
+      "state": "2v2 A postplant",
+      "planAndCounterplan": "Upper crossing plus a survivor already on west middle can create two fronts. If both CTs are east, the extra crossing and ascent cannot be credited as an automatic timely retake.",
+      "routes": [
+        "R04",
+        "R09",
+        "R01"
+      ]
+    },
+    {
+      "id": "SC06",
+      "state": "2v2 B postplant",
+      "planAndCounterplan": "An east reserve can choose Salt loft or Customs road. A survivor at A must first cross town. The shore transfer is not advertised as an emergency retake.",
+      "routes": [
+        "R05",
+        "R06",
+        "R10"
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "id": "CAM-ROOF",
+      "type": "actual roof-on overview",
+      "purpose": "Complete volumes, foundations, bridge supports and roofs"
+    },
+    {
+      "id": "CAM-CUT",
+      "type": "same-pose cutaway",
+      "purpose": "Matching source, floor and occupied-level comparison"
+    },
+    {
+      "id": "CAM-SEC01-L",
+      "body": [
+        10,
+        32,
+        0
+      ],
+      "eye": [
+        10,
+        32,
+        1.674
+      ],
+      "look": [
+        6.5,
+        45,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC01"
+    },
+    {
+      "id": "CAM-SEC01-F",
+      "body": [
+        13,
+        25,
+        0
+      ],
+      "eye": [
+        13,
+        25,
+        1.674
+      ],
+      "look": [
+        10,
+        32,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC01"
+    },
+    {
+      "id": "CAM-SEC01-O",
+      "body": [
+        46,
+        30,
+        0
+      ],
+      "eye": [
+        46,
+        30,
+        1.674
+      ],
+      "look": [
+        27,
+        27,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC01"
+    },
+    {
+      "id": "CAM-SEC01-S",
+      "body": [
+        37,
+        26,
+        0
+      ],
+      "eye": [
+        37,
+        26,
+        1.674
+      ],
+      "look": [
+        54,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC01"
+    },
+    {
+      "id": "CAM-SEC02-L",
+      "body": [
+        22,
+        44.5,
+        4
+      ],
+      "eye": [
+        22,
+        44.5,
+        5.6739999999999995
+      ],
+      "look": [
+        26,
+        44.5,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC02"
+    },
+    {
+      "id": "CAM-SEC02-F",
+      "body": [
+        22,
+        49,
+        3
+      ],
+      "eye": [
+        22,
+        49,
+        4.6739999999999995
+      ],
+      "look": [
+        22,
+        46,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC02"
+    },
+    {
+      "id": "CAM-SEC02-O",
+      "body": [
+        30,
+        48,
+        4
+      ],
+      "eye": [
+        30,
+        48,
+        5.6739999999999995
+      ],
+      "look": [
+        27,
+        46,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC02"
+    },
+    {
+      "id": "CAM-SEC02-S",
+      "body": [
+        17,
+        59.5,
+        4
+      ],
+      "eye": [
+        17,
+        59.5,
+        5.6739999999999995
+      ],
+      "look": [
+        17,
+        58,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC02"
+    },
+    {
+      "id": "CAM-SEC02-L1",
+      "body": [
+        26,
+        44.5,
+        4
+      ],
+      "eye": [
+        26,
+        44.5,
+        5.6739999999999995
+      ],
+      "look": [
+        30,
+        48,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC02"
+    },
+    {
+      "id": "CAM-SEC03-L",
+      "body": [
+        37,
+        55,
+        4
+      ],
+      "eye": [
+        37,
+        55,
+        5.6739999999999995
+      ],
+      "look": [
+        37,
+        59,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC03"
+    },
+    {
+      "id": "CAM-SEC03-F",
+      "body": [
+        30,
+        55,
+        4
+      ],
+      "eye": [
+        30,
+        55,
+        5.6739999999999995
+      ],
+      "look": [
+        37,
+        55,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC03"
+    },
+    {
+      "id": "CAM-SEC03-O",
+      "body": [
+        49,
+        59,
+        4
+      ],
+      "eye": [
+        49,
+        59,
+        5.6739999999999995
+      ],
+      "look": [
+        42,
+        59,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC03"
+    },
+    {
+      "id": "CAM-SEC03-S",
+      "body": [
+        49.5,
+        68,
+        4
+      ],
+      "eye": [
+        49.5,
+        68,
+        5.6739999999999995
+      ],
+      "look": [
+        49.5,
+        74,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC03"
+    },
+    {
+      "id": "CAM-SEC03-F1",
+      "body": [
+        37,
+        59,
+        4
+      ],
+      "eye": [
+        37,
+        59,
+        5.6739999999999995
+      ],
+      "look": [
+        49,
+        59,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC03"
+    },
+    {
+      "id": "CAM-SEC04-L",
+      "body": [
+        10,
+        94,
+        8
+      ],
+      "eye": [
+        10,
+        94,
+        9.674
+      ],
+      "look": [
+        14,
+        100,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC04"
+    },
+    {
+      "id": "CAM-SEC04-F",
+      "body": [
+        10,
+        81,
+        7
+      ],
+      "eye": [
+        10,
+        81,
+        8.674
+      ],
+      "look": [
+        10,
+        84,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC04"
+    },
+    {
+      "id": "CAM-SEC04-O",
+      "body": [
+        31,
+        95,
+        8
+      ],
+      "eye": [
+        31,
+        95,
+        9.674
+      ],
+      "look": [
+        29,
+        87,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC04"
+    },
+    {
+      "id": "CAM-SEC04-S",
+      "body": [
+        50,
+        91,
+        8
+      ],
+      "eye": [
+        50,
+        91,
+        9.674
+      ],
+      "look": [
+        64,
+        91,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC04"
+    },
+    {
+      "id": "CAM-SEC05-L0",
+      "body": [
+        82,
+        59,
+        4
+      ],
+      "eye": [
+        82,
+        59,
+        5.6739999999999995
+      ],
+      "look": [
+        83.5,
+        53,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC05"
+    },
+    {
+      "id": "CAM-SEC05-F0",
+      "body": [
+        75,
+        59,
+        4
+      ],
+      "eye": [
+        75,
+        59,
+        5.6739999999999995
+      ],
+      "look": [
+        82,
+        59,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC05"
+    },
+    {
+      "id": "CAM-SEC05-L1",
+      "body": [
+        83.5,
+        53,
+        4
+      ],
+      "eye": [
+        83.5,
+        53,
+        5.6739999999999995
+      ],
+      "look": [
+        93,
+        53,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC05"
+    },
+    {
+      "id": "CAM-SEC05-F1",
+      "body": [
+        82,
+        54.5,
+        4
+      ],
+      "eye": [
+        82,
+        54.5,
+        5.6739999999999995
+      ],
+      "look": [
+        93,
+        53,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC05"
+    },
+    {
+      "id": "CAM-SEC05-O",
+      "body": [
+        93,
+        53,
+        4
+      ],
+      "eye": [
+        93,
+        53,
+        5.6739999999999995
+      ],
+      "look": [
+        83.5,
+        53,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC05"
+    },
+    {
+      "id": "CAM-SEC05-S",
+      "body": [
+        92,
+        65,
+        4
+      ],
+      "eye": [
+        92,
+        65,
+        5.6739999999999995
+      ],
+      "look": [
+        92,
+        61,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC05"
+    },
+    {
+      "id": "CAM-SEC06-L",
+      "body": [
+        94,
+        25,
+        0
+      ],
+      "eye": [
+        94,
+        25,
+        1.674
+      ],
+      "look": [
+        104,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC06"
+    },
+    {
+      "id": "CAM-SEC06-F",
+      "body": [
+        84,
+        25,
+        0
+      ],
+      "eye": [
+        84,
+        25,
+        1.674
+      ],
+      "look": [
+        94,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC06"
+    },
+    {
+      "id": "CAM-SEC06-O",
+      "body": [
+        110,
+        23,
+        0
+      ],
+      "eye": [
+        110,
+        23,
+        1.674
+      ],
+      "look": [
+        104,
+        25,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC06"
+    },
+    {
+      "id": "CAM-SEC06-S",
+      "body": [
+        121,
+        24,
+        0
+      ],
+      "eye": [
+        121,
+        24,
+        1.674
+      ],
+      "look": [
+        121,
+        29,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC06"
+    },
+    {
+      "id": "CAM-SEC07-L",
+      "body": [
+        93,
+        38,
+        4
+      ],
+      "eye": [
+        93,
+        38,
+        5.6739999999999995
+      ],
+      "look": [
+        95,
+        37,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC07"
+    },
+    {
+      "id": "CAM-SEC07-F",
+      "body": [
+        94,
+        45,
+        4
+      ],
+      "eye": [
+        94,
+        45,
+        5.6739999999999995
+      ],
+      "look": [
+        93,
+        42,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC07"
+    },
+    {
+      "id": "CAM-SEC07-O",
+      "body": [
+        103,
+        29,
+        0
+      ],
+      "eye": [
+        103,
+        29,
+        1.674
+      ],
+      "look": [
+        103,
+        35,
+        2
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC07"
+    },
+    {
+      "id": "CAM-SEC07-S",
+      "body": [
+        130,
+        42,
+        2
+      ],
+      "eye": [
+        130,
+        42,
+        3.674
+      ],
+      "look": [
+        129,
+        54,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC07"
+    },
+    {
+      "id": "CAM-SEC08-L",
+      "body": [
+        98,
+        84,
+        4
+      ],
+      "eye": [
+        98,
+        84,
+        5.6739999999999995
+      ],
+      "look": [
+        110,
+        84,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC08"
+    },
+    {
+      "id": "CAM-SEC08-F",
+      "body": [
+        92,
+        84,
+        4
+      ],
+      "eye": [
+        92,
+        84,
+        5.6739999999999995
+      ],
+      "look": [
+        98,
+        84,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC08"
+    },
+    {
+      "id": "CAM-SEC08-O",
+      "body": [
+        116,
+        83,
+        4
+      ],
+      "eye": [
+        116,
+        83,
+        5.6739999999999995
+      ],
+      "look": [
+        110,
+        84,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC08"
+    },
+    {
+      "id": "CAM-SEC08-S",
+      "body": [
+        108,
+        68,
+        4
+      ],
+      "eye": [
+        108,
+        68,
+        5.6739999999999995
+      ],
+      "look": [
+        108,
+        71,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC08"
+    },
+    {
+      "id": "CAM-SEC09-L",
+      "body": [
+        103,
+        87,
+        8
+      ],
+      "eye": [
+        103,
+        87,
+        9.674
+      ],
+      "look": [
+        103,
+        92,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC09"
+    },
+    {
+      "id": "CAM-SEC09-F",
+      "body": [
+        98,
+        84,
+        8
+      ],
+      "eye": [
+        98,
+        84,
+        9.674
+      ],
+      "look": [
+        103,
+        87,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC09"
+    },
+    {
+      "id": "CAM-SEC09-O",
+      "body": [
+        106,
+        99,
+        8
+      ],
+      "eye": [
+        106,
+        99,
+        9.674
+      ],
+      "look": [
+        103,
+        92,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC09"
+    },
+    {
+      "id": "CAM-SEC09-S",
+      "body": [
+        112,
+        79,
+        8
+      ],
+      "eye": [
+        112,
+        79,
+        9.674
+      ],
+      "look": [
+        114,
+        79,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC09"
+    },
+    {
+      "id": "CAM-SEC09-V",
+      "body": [
+        105.5,
+        63.6,
+        8
+      ],
+      "eye": [
+        105.5,
+        63.6,
+        9.674
+      ],
+      "look": [
+        106,
+        57,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC09"
+    },
+    {
+      "id": "CAM-SEC09-F1",
+      "body": [
+        102,
+        86,
+        8
+      ],
+      "eye": [
+        102,
+        86,
+        9.674
+      ],
+      "look": [
+        106,
+        99,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC09"
+    },
+    {
+      "id": "CAM-SEC10-L",
+      "body": [
+        74,
+        95,
+        8
+      ],
+      "eye": [
+        74,
+        95,
+        9.674
+      ],
+      "look": [
+        55,
+        90,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC10"
+    },
+    {
+      "id": "CAM-SEC10-F",
+      "body": [
+        85,
+        95,
+        8
+      ],
+      "eye": [
+        85,
+        95,
+        9.674
+      ],
+      "look": [
+        74,
+        95,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC10"
+    },
+    {
+      "id": "CAM-SEC10-O",
+      "body": [
+        50,
+        91,
+        8
+      ],
+      "eye": [
+        50,
+        91,
+        9.674
+      ],
+      "look": [
+        64,
+        91,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC10"
+    },
+    {
+      "id": "CAM-SEC10-S",
+      "body": [
+        94,
+        99,
+        8
+      ],
+      "eye": [
+        94,
+        99,
+        9.674
+      ],
+      "look": [
+        90,
+        95,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC10"
+    },
+    {
+      "id": "CAM-SEC10-V",
+      "body": [
+        60.5,
+        88.6,
+        8
+      ],
+      "eye": [
+        60.5,
+        88.6,
+        9.674
+      ],
+      "look": [
+        60.5,
+        59,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "section": "SEC10"
+    },
+    {
+      "id": "CAM-S1a-bottom",
+      "body": [
+        17,
+        46,
+        0
+      ],
+      "eye": [
+        17,
+        46,
+        1.674
+      ],
+      "look": [
+        17,
+        52,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S1a-mid",
+      "body": [
+        17.0,
+        49.0,
+        1.0
+      ],
+      "eye": [
+        17.0,
+        49.0,
+        2.674
+      ],
+      "look": [
+        17,
+        52,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S1a-top",
+      "body": [
+        17,
+        52,
+        2
+      ],
+      "eye": [
+        17,
+        52,
+        3.674
+      ],
+      "look": [
+        17,
+        52,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S1b-bottom",
+      "body": [
+        22,
+        52,
+        2
+      ],
+      "eye": [
+        22,
+        52,
+        3.674
+      ],
+      "look": [
+        22,
+        46,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S1b-mid",
+      "body": [
+        22.0,
+        49.0,
+        3.0
+      ],
+      "eye": [
+        22.0,
+        49.0,
+        4.6739999999999995
+      ],
+      "look": [
+        22,
+        46,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S1b-top",
+      "body": [
+        22,
+        46,
+        4
+      ],
+      "eye": [
+        22,
+        46,
+        5.6739999999999995
+      ],
+      "look": [
+        22,
+        46,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S2a-bottom",
+      "body": [
+        46,
+        34,
+        0
+      ],
+      "eye": [
+        46,
+        34,
+        1.674
+      ],
+      "look": [
+        46,
+        40,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S2a-mid",
+      "body": [
+        46.0,
+        37.0,
+        1.0
+      ],
+      "eye": [
+        46.0,
+        37.0,
+        2.674
+      ],
+      "look": [
+        46,
+        40,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S2a-top",
+      "body": [
+        46,
+        40,
+        2
+      ],
+      "eye": [
+        46,
+        40,
+        3.674
+      ],
+      "look": [
+        46,
+        40,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S2b-bottom",
+      "body": [
+        44,
+        42,
+        2
+      ],
+      "eye": [
+        44,
+        42,
+        3.674
+      ],
+      "look": [
+        38,
+        42,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S2b-mid",
+      "body": [
+        41.0,
+        42.0,
+        3.0
+      ],
+      "eye": [
+        41.0,
+        42.0,
+        4.6739999999999995
+      ],
+      "look": [
+        38,
+        42,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S2b-top",
+      "body": [
+        38,
+        42,
+        4
+      ],
+      "eye": [
+        38,
+        42,
+        5.6739999999999995
+      ],
+      "look": [
+        38,
+        42,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S3a-bottom",
+      "body": [
+        15,
+        66,
+        4
+      ],
+      "eye": [
+        15,
+        66,
+        5.6739999999999995
+      ],
+      "look": [
+        15,
+        72,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S3a-mid",
+      "body": [
+        15.0,
+        69.0,
+        5.0
+      ],
+      "eye": [
+        15.0,
+        69.0,
+        6.6739999999999995
+      ],
+      "look": [
+        15,
+        72,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S3a-top",
+      "body": [
+        15,
+        72,
+        6
+      ],
+      "eye": [
+        15,
+        72,
+        7.6739999999999995
+      ],
+      "look": [
+        15,
+        72,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S3b-bottom",
+      "body": [
+        10,
+        78,
+        6
+      ],
+      "eye": [
+        10,
+        78,
+        7.6739999999999995
+      ],
+      "look": [
+        10,
+        84,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S3b-mid",
+      "body": [
+        10.0,
+        81.0,
+        7.0
+      ],
+      "eye": [
+        10.0,
+        81.0,
+        8.674
+      ],
+      "look": [
+        10,
+        84,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S3b-top",
+      "body": [
+        10,
+        84,
+        8
+      ],
+      "eye": [
+        10,
+        84,
+        9.674
+      ],
+      "look": [
+        10,
+        84,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S4a-bottom",
+      "body": [
+        42,
+        76,
+        4
+      ],
+      "eye": [
+        42,
+        76,
+        5.6739999999999995
+      ],
+      "look": [
+        42,
+        82,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S4a-mid",
+      "body": [
+        42.0,
+        79.0,
+        5.0
+      ],
+      "eye": [
+        42.0,
+        79.0,
+        6.6739999999999995
+      ],
+      "look": [
+        42,
+        82,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S4a-top",
+      "body": [
+        42,
+        82,
+        6
+      ],
+      "eye": [
+        42,
+        82,
+        7.6739999999999995
+      ],
+      "look": [
+        42,
+        82,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S4b-bottom",
+      "body": [
+        38,
+        82,
+        6
+      ],
+      "eye": [
+        38,
+        82,
+        7.6739999999999995
+      ],
+      "look": [
+        38,
+        76,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S4b-mid",
+      "body": [
+        38.0,
+        79.0,
+        7.0
+      ],
+      "eye": [
+        38.0,
+        79.0,
+        8.674
+      ],
+      "look": [
+        38,
+        76,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S4b-top",
+      "body": [
+        38,
+        76,
+        8
+      ],
+      "eye": [
+        38,
+        76,
+        9.674
+      ],
+      "look": [
+        38,
+        76,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S5a-bottom",
+      "body": [
+        103,
+        29,
+        0
+      ],
+      "eye": [
+        103,
+        29,
+        1.674
+      ],
+      "look": [
+        103,
+        35,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S5a-mid",
+      "body": [
+        103.0,
+        32.0,
+        1.0
+      ],
+      "eye": [
+        103.0,
+        32.0,
+        2.674
+      ],
+      "look": [
+        103,
+        35,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S5a-top",
+      "body": [
+        103,
+        35,
+        2
+      ],
+      "eye": [
+        103,
+        35,
+        3.674
+      ],
+      "look": [
+        103,
+        35,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S5b-bottom",
+      "body": [
+        101,
+        37,
+        2
+      ],
+      "eye": [
+        101,
+        37,
+        3.674
+      ],
+      "look": [
+        95,
+        37,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S5b-mid",
+      "body": [
+        98.0,
+        37.0,
+        3.0
+      ],
+      "eye": [
+        98.0,
+        37.0,
+        4.6739999999999995
+      ],
+      "look": [
+        95,
+        37,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S5b-top",
+      "body": [
+        95,
+        37,
+        4
+      ],
+      "eye": [
+        95,
+        37,
+        5.6739999999999995
+      ],
+      "look": [
+        95,
+        37,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S7a-bottom",
+      "body": [
+        108,
+        71,
+        4
+      ],
+      "eye": [
+        108,
+        71,
+        5.6739999999999995
+      ],
+      "look": [
+        108,
+        77,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S7a-mid",
+      "body": [
+        108.0,
+        74.0,
+        5.0
+      ],
+      "eye": [
+        108.0,
+        74.0,
+        6.6739999999999995
+      ],
+      "look": [
+        108,
+        77,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S7a-top",
+      "body": [
+        108,
+        77,
+        6
+      ],
+      "eye": [
+        108,
+        77,
+        7.6739999999999995
+      ],
+      "look": [
+        108,
+        77,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S7b-bottom",
+      "body": [
+        102,
+        77,
+        6
+      ],
+      "eye": [
+        102,
+        77,
+        7.6739999999999995
+      ],
+      "look": [
+        102,
+        71,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S7b-mid",
+      "body": [
+        102.0,
+        74.0,
+        7.0
+      ],
+      "eye": [
+        102.0,
+        74.0,
+        8.674
+      ],
+      "look": [
+        102,
+        71,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S7b-top",
+      "body": [
+        102,
+        71,
+        8
+      ],
+      "eye": [
+        102,
+        71,
+        9.674
+      ],
+      "look": [
+        102,
+        71,
+        8
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S8a-bottom",
+      "body": [
+        114,
+        79,
+        8
+      ],
+      "eye": [
+        114,
+        79,
+        9.674
+      ],
+      "look": [
+        120,
+        79,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S8a-mid",
+      "body": [
+        117.0,
+        79.0,
+        7.0
+      ],
+      "eye": [
+        117.0,
+        79.0,
+        8.674
+      ],
+      "look": [
+        120,
+        79,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S8a-top",
+      "body": [
+        120,
+        79,
+        6
+      ],
+      "eye": [
+        120,
+        79,
+        7.6739999999999995
+      ],
+      "look": [
+        120,
+        79,
+        6
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S8b-bottom",
+      "body": [
+        122,
+        77,
+        6
+      ],
+      "eye": [
+        122,
+        77,
+        7.6739999999999995
+      ],
+      "look": [
+        122,
+        71,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S8b-mid",
+      "body": [
+        122.0,
+        74.0,
+        5.0
+      ],
+      "eye": [
+        122.0,
+        74.0,
+        6.6739999999999995
+      ],
+      "look": [
+        122,
+        71,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-S8b-top",
+      "body": [
+        122,
+        71,
+        4
+      ],
+      "eye": [
+        122,
+        71,
+        5.6739999999999995
+      ],
+      "look": [
+        122,
+        71,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-R6a-bottom",
+      "body": [
+        126,
+        30,
+        0
+      ],
+      "eye": [
+        126,
+        30,
+        1.674
+      ],
+      "look": [
+        130,
+        40,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-R6a-mid",
+      "body": [
+        128.0,
+        35.0,
+        1.0
+      ],
+      "eye": [
+        128.0,
+        35.0,
+        2.674
+      ],
+      "look": [
+        130,
+        40,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-R6a-top",
+      "body": [
+        130,
+        40,
+        2
+      ],
+      "eye": [
+        130,
+        40,
+        3.674
+      ],
+      "look": [
+        130,
+        40,
+        2
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-R6b-bottom",
+      "body": [
+        130,
+        44,
+        2
+      ],
+      "eye": [
+        130,
+        44,
+        3.674
+      ],
+      "look": [
+        129,
+        54,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-R6b-mid",
+      "body": [
+        129.5,
+        49.0,
+        3.0
+      ],
+      "eye": [
+        129.5,
+        49.0,
+        4.6739999999999995
+      ],
+      "look": [
+        129,
+        54,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-R6b-top",
+      "body": [
+        129,
+        54,
+        4
+      ],
+      "eye": [
+        129,
+        54,
+        5.6739999999999995
+      ],
+      "look": [
+        129,
+        54,
+        4
+      ],
+      "reverseAlsoRequired": true,
+      "note": "Actual grounded tread/grade eye is to be measured; this is an envelope prediction"
+    },
+    {
+      "id": "CAM-TURN-S1-L",
+      "body": [
+        20,
+        53.5,
+        2
+      ],
+      "eye": [
+        20,
+        53.5,
+        3.674
+      ],
+      "look": [
+        22,
+        49,
+        3
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S1-F",
+      "body": [
+        17,
+        49,
+        1
+      ],
+      "eye": [
+        17,
+        49,
+        2.674
+      ],
+      "look": [
+        20,
+        53.5,
+        2
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S1-O",
+      "body": [
+        26,
+        44.5,
+        4
+      ],
+      "eye": [
+        26,
+        44.5,
+        5.6739999999999995
+      ],
+      "look": [
+        22,
+        46,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S1-N",
+      "body": [
+        10,
+        45,
+        0
+      ],
+      "eye": [
+        10,
+        45,
+        1.674
+      ],
+      "look": [
+        15,
+        46,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S2-L",
+      "body": [
+        47,
+        42,
+        2
+      ],
+      "eye": [
+        47,
+        42,
+        3.674
+      ],
+      "look": [
+        41,
+        42,
+        3
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S2-F",
+      "body": [
+        46,
+        37,
+        1
+      ],
+      "eye": [
+        46,
+        37,
+        2.674
+      ],
+      "look": [
+        47,
+        42,
+        2
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S2-O",
+      "body": [
+        36.5,
+        45,
+        4
+      ],
+      "eye": [
+        36.5,
+        45,
+        5.6739999999999995
+      ],
+      "look": [
+        38,
+        42,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S2-N",
+      "body": [
+        37,
+        26,
+        0
+      ],
+      "eye": [
+        37,
+        26,
+        1.674
+      ],
+      "look": [
+        46,
+        30,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S4-L",
+      "body": [
+        40,
+        83.5,
+        6
+      ],
+      "eye": [
+        40,
+        83.5,
+        7.6739999999999995
+      ],
+      "look": [
+        38,
+        79,
+        7
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S4-F",
+      "body": [
+        42,
+        79,
+        5
+      ],
+      "eye": [
+        42,
+        79,
+        6.6739999999999995
+      ],
+      "look": [
+        40,
+        83.5,
+        6
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S4-O",
+      "body": [
+        33.5,
+        81,
+        8
+      ],
+      "eye": [
+        33.5,
+        81,
+        9.674
+      ],
+      "look": [
+        38,
+        74.5,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S4-N",
+      "body": [
+        49.5,
+        74,
+        4
+      ],
+      "eye": [
+        49.5,
+        74,
+        5.6739999999999995
+      ],
+      "look": [
+        46,
+        74,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S5-L",
+      "body": [
+        103,
+        37,
+        2
+      ],
+      "eye": [
+        103,
+        37,
+        3.674
+      ],
+      "look": [
+        98,
+        37,
+        3
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S5-F",
+      "body": [
+        103,
+        32,
+        1
+      ],
+      "eye": [
+        103,
+        32,
+        2.674
+      ],
+      "look": [
+        103,
+        37,
+        2
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S5-O",
+      "body": [
+        93,
+        38,
+        4
+      ],
+      "eye": [
+        93,
+        38,
+        5.6739999999999995
+      ],
+      "look": [
+        95,
+        37,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S5-N",
+      "body": [
+        109,
+        28.6,
+        0
+      ],
+      "eye": [
+        109,
+        28.6,
+        1.674
+      ],
+      "look": [
+        103,
+        28.6,
+        0
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S7-L",
+      "body": [
+        105,
+        79,
+        6
+      ],
+      "eye": [
+        105,
+        79,
+        7.6739999999999995
+      ],
+      "look": [
+        102,
+        74,
+        7
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S7-F",
+      "body": [
+        108,
+        74,
+        5
+      ],
+      "eye": [
+        108,
+        74,
+        6.6739999999999995
+      ],
+      "look": [
+        105,
+        79,
+        6
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S7-O",
+      "body": [
+        98,
+        84,
+        8
+      ],
+      "eye": [
+        98,
+        84,
+        9.674
+      ],
+      "look": [
+        102,
+        69,
+        8
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S7-N",
+      "body": [
+        106,
+        84,
+        4
+      ],
+      "eye": [
+        106,
+        84,
+        5.6739999999999995
+      ],
+      "look": [
+        112,
+        84,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S8-L",
+      "body": [
+        122,
+        79,
+        6
+      ],
+      "eye": [
+        122,
+        79,
+        7.6739999999999995
+      ],
+      "look": [
+        122,
+        74,
+        5
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S8-F",
+      "body": [
+        117,
+        79,
+        7
+      ],
+      "eye": [
+        117,
+        79,
+        8.674
+      ],
+      "look": [
+        122,
+        79,
+        6
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S8-O",
+      "body": [
+        122,
+        69,
+        4
+      ],
+      "eye": [
+        122,
+        69,
+        5.6739999999999995
+      ],
+      "look": [
+        122,
+        74,
+        5
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    },
+    {
+      "id": "CAM-TURN-S8-N",
+      "body": [
+        116,
+        83,
+        4
+      ],
+      "eye": [
+        116,
+        83,
+        5.6739999999999995
+      ],
+      "look": [
+        125.5,
+        83,
+        4
+      ],
+      "horizontalFov": 90,
+      "stance": "standing",
+      "reverseAlsoRequired": true,
+      "note": "Added exact turn/neighbor witness. Camera request only; compiled validation remains."
+    }
+  ],
+  "captureProtocol": "Later frozen AML must compile first. Apply public camera form after ready; assert actual #model.dataset.view matches request and verify source hash. Pair actual roof-on/cutaway, opposing, follower and standing/crouched cover views. URL-only camera poses are not accepted. Walk every named route both ways with unchanged body; no fly/teleport substitutes. Examples: projects/tidebreak/capture.mjs and projects/last-light/capture.mjs.",
+  "unavailable": [
+    "Continuous collision movement and nav acceptance at layout stage",
+    "Actual grenade/sound/ballistic/destruction/plant/defuse behavior",
+    "Competitive balance and timings"
+  ],
+  "turningTransfers": [
+    {
+      "id": "TURN-S1",
+      "name": "Laundry return / 180 degrees",
+      "stairs": [
+        "S1a",
+        "S1b"
+      ],
+      "landing": "L1",
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            20,
+            53.5,
+            2
+          ],
+          "eye": 3.674,
+          "look": [
+            22,
+            49,
+            3
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            17,
+            49,
+            1
+          ],
+          "eye": 2.674,
+          "look": [
+            20,
+            53.5,
+            2
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            26,
+            44.5,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            22,
+            46,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "N",
+          "role": "neighbor",
+          "p": [
+            10,
+            45,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            15,
+            46,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The +2 turn reverses the climb. F must reach the return and upper gallery before a D03 trade; N occupies the undercroft below a real slab, not an imaginary second window.",
+      "inspection": "Capture leader/follower/opponent/neighbor before turn, on landing and after turn; use actual standing and crouch poses. Check guard ends, inner/outer body paths, roof/well headroom and reverse travel."
+    },
+    {
+      "id": "TURN-S2",
+      "name": "Cooper quarter-turn / 90 degrees",
+      "stairs": [
+        "S2a",
+        "S2b"
+      ],
+      "landing": "L2",
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            47,
+            42,
+            2
+          ],
+          "eye": 3.674,
+          "look": [
+            41,
+            42,
+            3
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            46,
+            37,
+            1
+          ],
+          "eye": 2.674,
+          "look": [
+            47,
+            42,
+            2
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            36.5,
+            45,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            38,
+            42,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "N",
+          "role": "neighbor",
+          "p": [
+            37,
+            26,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            46,
+            30,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The outdoor turn changes the uphill challenge from north to west. Press is another arrival after the crest. The lower quay and upper street remain different territories; crest and guards bound support.",
+      "inspection": "Capture leader/follower/opponent/neighbor before turn, on landing and after turn; use actual standing and crouch poses. Check guard ends, inner/outer body paths, roof/well headroom and reverse travel."
+    },
+    {
+      "id": "TURN-S4",
+      "name": "Press house return / 180 degrees",
+      "stairs": [
+        "S4a",
+        "S4b"
+      ],
+      "landing": "L4",
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            40,
+            83.5,
+            6
+          ],
+          "eye": 7.6739999999999995,
+          "look": [
+            38,
+            79,
+            7
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            42,
+            79,
+            5
+          ],
+          "eye": 6.6739999999999995,
+          "look": [
+            40,
+            83.5,
+            6
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            33.5,
+            81,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            38,
+            74.5,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "N",
+          "role": "neighbor",
+          "p": [
+            49.5,
+            74,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            46,
+            74,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The lower entry passes through the house before returning toward the A-facing gallery. Walls prevent N trading through the facade. The +6 landing and both flights stay inside the same open slab well.",
+      "inspection": "Capture leader/follower/opponent/neighbor before turn, on landing and after turn; use actual standing and crouch poses. Check guard ends, inner/outer body paths, roof/well headroom and reverse travel."
+    },
+    {
+      "id": "TURN-S5",
+      "name": "Salt store quarter-turn / 90 degrees",
+      "stairs": [
+        "S5a",
+        "S5b"
+      ],
+      "landing": "L5",
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            103,
+            37,
+            2
+          ],
+          "eye": 3.674,
+          "look": [
+            98,
+            37,
+            3
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            103,
+            32,
+            1
+          ],
+          "eye": 2.674,
+          "look": [
+            103,
+            37,
+            2
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            93,
+            38,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            95,
+            37,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "N",
+          "role": "neighbor",
+          "p": [
+            109,
+            28.6,
+            0
+          ],
+          "eye": 1.674,
+          "look": [
+            103,
+            28.6,
+            0
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The public foot turns toward a roofed loading loft. D09 and the crest delay the outside follower. N shares the low apron but cannot replace the follower at the upper threshold; inspect both descending and climbing bodies.",
+      "inspection": "Capture leader/follower/opponent/neighbor before turn, on landing and after turn; use actual standing and crouch poses. Check guard ends, inner/outer body paths, roof/well headroom and reverse travel."
+    },
+    {
+      "id": "TURN-S7",
+      "name": "School return / 180 degrees",
+      "stairs": [
+        "S7a",
+        "S7b"
+      ],
+      "landing": "L7",
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            105,
+            79,
+            6
+          ],
+          "eye": 7.6739999999999995,
+          "look": [
+            102,
+            74,
+            7
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            108,
+            74,
+            5
+          ],
+          "eye": 6.6739999999999995,
+          "look": [
+            105,
+            79,
+            6
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            98,
+            84,
+            8
+          ],
+          "eye": 9.674,
+          "look": [
+            102,
+            69,
+            8
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "N",
+          "role": "neighbor",
+          "p": [
+            106,
+            84,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            112,
+            84,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The occupied lower arcade passes north of the +6 landing. N has 3.7 m under the +8 slab, not 1.7 m under the landing. Slab and well-side enclosure prevent automatic upper-to-lower sight; the stair arrival is a separate challenge.",
+      "inspection": "Capture leader/follower/opponent/neighbor before turn, on landing and after turn; use actual standing and crouch poses. Check guard ends, inner/outer body paths, roof/well headroom and reverse travel."
+    },
+    {
+      "id": "TURN-S8",
+      "name": "Bell public quarter-turn / 90 degrees",
+      "stairs": [
+        "S8a",
+        "S8b"
+      ],
+      "landing": "L8",
+      "poses": [
+        {
+          "id": "L",
+          "role": "leader",
+          "p": [
+            122,
+            79,
+            6
+          ],
+          "eye": 7.6739999999999995,
+          "look": [
+            122,
+            74,
+            5
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#b9674e"
+        },
+        {
+          "id": "F",
+          "role": "follower",
+          "p": [
+            117,
+            79,
+            7
+          ],
+          "eye": 8.674,
+          "look": [
+            122,
+            79,
+            6
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#497a9c"
+        },
+        {
+          "id": "O",
+          "role": "opponent",
+          "p": [
+            122,
+            69,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            122,
+            74,
+            5
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#a54c69"
+        },
+        {
+          "id": "N",
+          "role": "neighbor",
+          "p": [
+            116,
+            83,
+            4
+          ],
+          "eye": 5.6739999999999995,
+          "look": [
+            125.5,
+            83,
+            4
+          ],
+          "stance": "standing",
+          "horizontalFov": 90,
+          "color": "#4f8068"
+        }
+      ],
+      "prediction": "The public descent bends beside the School while N uses the lower arcade below the neighboring deck. The H-B well stays open; SS03 supports the deck without filling N\u2019s journey. The follower must clear the corner before covering the lower foot.",
+      "inspection": "Capture leader/follower/opponent/neighbor before turn, on landing and after turn; use actual standing and crouch poses. Check guard ends, inner/outer body paths, roof/well headroom and reverse travel."
+    }
+  ],
+  "repairWitnesses": {
+    "GA-L02-SP1": [
+      "SS01",
+      "SS02",
+      "SS03"
+    ],
+    "GA-L02-SP2": {
+      "R02": "Quay witness (27,27,0) becomes (27,26.2,0)",
+      "R07": "Press witness (30,50,4) becomes (28,50,4)",
+      "R05/R10": "Salt foot continues to(103,28.6,0), then(109,28.6,0) before(111,25,0)"
+    },
+    "supportClarifications": [
+      "SEC06 named F retains F\u2192O sight; deeper southern move may lose it",
+      "SEC03 advanced F1=(37,59,4)",
+      "SEC09 advanced F1=(102,86,8)"
+    ]
+  }
+}

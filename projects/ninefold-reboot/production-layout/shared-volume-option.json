@@ -1,0 +1,122 @@
+{
+  "id": "NF-V01",
+  "status": "unselected comparison only; not in AML",
+  "lowerFlight": {
+    "a": [
+      40,
+      43,
+      3.2
+    ],
+    "b": [
+      40,
+      49,
+      4.8
+    ],
+    "width": 4,
+    "risers": 10,
+    "tread": 0.6
+  },
+  "midlanding": {
+    "polygon": [
+      [
+        38,
+        49
+      ],
+      [
+        42,
+        49
+      ],
+      [
+        42,
+        53
+      ],
+      [
+        38,
+        53
+      ]
+    ],
+    "z": 4.8
+  },
+  "upperFlight": {
+    "a": [
+      38,
+      51,
+      4.8
+    ],
+    "b": [
+      32,
+      51,
+      6.4
+    ],
+    "width": 4,
+    "risers": 10,
+    "tread": 0.6
+  },
+  "roofGallery": {
+    "polygons": [
+      [
+        [
+          29,
+          49
+        ],
+        [
+          32,
+          49
+        ],
+        [
+          32,
+          53
+        ],
+        [
+          29,
+          53
+        ]
+      ],
+      [
+        [
+          29,
+          53
+        ],
+        [
+          33,
+          53
+        ],
+        [
+          33,
+          64
+        ],
+        [
+          29,
+          64
+        ]
+      ],
+      [
+        [
+          29,
+          61
+        ],
+        [
+          36,
+          61
+        ],
+        [
+          36,
+          65
+        ],
+        [
+          29,
+          65
+        ]
+      ]
+    ],
+    "z": 6.4
+  },
+  "requiredReview": [
+    "School staging and S1/B support",
+    "lower Boiler ground movement and tank clearances",
+    "new lower/upper information and roof approach timing",
+    "School context rebuilt as attached inhabited volume",
+    "all cutouts, guards, two flights and landing headroom"
+  ],
+  "decision": "Retain R08 pending independent comparison; geometry not implemented."
+}

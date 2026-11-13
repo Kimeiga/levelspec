@@ -1,0 +1,47 @@
+{
+  "diagnostics": [],
+  "route": [
+    {
+      "id": "walk",
+      "reachable": true,
+      "path": [
+        [
+          2,
+          5,
+          0.009999990463256836
+        ],
+        [
+          18,
+          5,
+          0.009999990463256836
+        ]
+      ],
+      "distance": 16,
+      "disjointRoutes": 0,
+      "maximumDisjointRoutes": 0
+    }
+  ],
+  "physical": {
+    "entrances": [],
+    "components": [
+      {
+        "id": "component/0",
+        "area": "left"
+      },
+      {
+        "id": "component/1",
+        "area": "right"
+      }
+    ],
+    "resources": [],
+    "connections": [],
+    "routes": [
+      {
+        "id": "walk",
+        "physicalDisjointRoutes": 0,
+        "maximumDisjointRoutes": 0
+      }
+    ],
+    "method": "One resource per contiguous native mouth or enabled traversal. Verified crossings use floor-clipped navigation and can undercount. The optimistic bound retains unverified mouths and only partitions flat declared domains using independent closed-solid sections; other intra-area connectivity stays unrestricted. Neither bound is continuous gameplay proof."
+  }
+}

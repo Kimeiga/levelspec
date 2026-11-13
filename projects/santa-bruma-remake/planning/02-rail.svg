@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1110" height="754" viewBox="0 0 1110 754"><defs><pattern id="grid" width="32.5" height="32.5" patternUnits="userSpaceOnUse"><path d="M32.5 0H0V32.5" fill="none" stroke="#435450" stroke-opacity=".15"/></pattern><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#a76932"/></marker></defs><style>text {font-family:system-ui,sans-serif}</style>
+<rect x="0" y="0" width="1110" height="754" rx="0" fill="#f3efe4" stroke="none" stroke-width="1"/>
+<text x="30" y="40" fill="#153741" font-size="25" font-weight="750" text-anchor="start">SANTA BRUMA   /   STATION REMAKE</text>
+<text x="30" y="65" fill="#153741" font-size="16" font-weight="700" text-anchor="start">02   RAIL AND PARCEL LEVEL  /  0.00 m</text>
+<text x="30" y="85" fill="#526864" font-size="12" font-weight="600" text-anchor="start">C06 compiled layout  •  Railheads below platform at −0.85 m.  •  The public and staff stair footprints are shown at both levels.</text>
+<line x1="30" y1="100" x2="1080" y2="100" stroke="#99a69b" stroke-width="1" />
+<rect x="9.5" y="380.5" width="786.5" height="91.0" rx="0" fill="#c2c5be" stroke="#7d8b80" stroke-width="1"/>
+<line x1="9.5" y1="459.8" x2="796.0" y2="459.8" stroke="#697e7f" stroke-width="1.2" />
+<line x1="9.5" y1="450.05" x2="796.0" y2="450.05" stroke="#697e7f" stroke-width="1.2" />
+<line x1="9.5" y1="401.3" x2="796.0" y2="401.3" stroke="#697e7f" stroke-width="1.2" />
+<line x1="9.5" y1="391.55" x2="796.0" y2="391.55" stroke="#697e7f" stroke-width="1.2" />
+<rect x="172.0" y="413.0" width="604.5" height="26.0" rx="0" fill="#d4d1bf" stroke="#7d8b80" stroke-width="1"/>
+<rect x="250.0" y="443.55" width="156.0" height="22.75" rx="0" fill="#557979" stroke="#153741" stroke-width="1"/>
+<rect x="523.0" y="385.05" width="175.5" height="22.75" rx="0" fill="#557979" stroke="#153741" stroke-width="1"/>
+<line x1="34.2" y1="471.5" x2="34.2" y2="380.5" stroke="#153741" stroke-width="3.4" />
+<text x="49.15" y="426.0" fill="#153741" font-size="9" font-weight="650" text-anchor="start">WEST TUNNELS</text>
+<text x="633.5" y="426.0" fill="#153741" font-size="9" font-weight="650" text-anchor="start">TO EAST TUNNELS →</text>
+<rect x="172.0" y="328.5" width="604.5" height="52.0" rx="0" fill="#c2c5be" stroke="#7d8b80" stroke-width="1"/>
+<rect x="354.0" y="341.5" width="32.5" height="39.0" rx="0" fill="#9dada1" stroke="#153741" stroke-width="1"/>
+<rect x="412.5" y="413.0" width="45.5" height="26.0" rx="0" fill="#9dada1" stroke="#153741" stroke-width="1"/>
+<rect x="172.0" y="471.5" width="572.0" height="65.0" rx="0" fill="#ddd5bc" stroke="#7d8b80" stroke-width="1"/>
+<rect x="276.0" y="530.0" width="130.0" height="58.5" rx="0" fill="#e7dec3" stroke="#7d8b80" stroke-width="1"/>
+<rect x="354.0" y="588.5" width="52.0" height="45.5" rx="0" fill="#e7dec3" stroke="#7d8b80" stroke-width="1"/>
+<rect x="406.0" y="530.0" width="234.0" height="123.5" rx="0" fill="#ddd5bc" stroke="#7d8b80" stroke-width="1"/>
+<rect x="640.0" y="530.0" width="104.0" height="97.5" rx="0" fill="#e7dec3" stroke="#7d8b80" stroke-width="1"/>
+<rect x="685.5" y="536.5" width="52.0" height="52.0" rx="0" fill="#e7dec3" stroke="#7d8b80" stroke-width="1"/>
+<rect x="172.0" y="497.5" width="104.0" height="45.5" rx="0" fill="#e7dec3" stroke="#7d8b80" stroke-width="1"/>
+<rect x="438.5" y="591.75" width="39.0" height="35.75" rx="0" fill="#41636b" stroke="#153741" stroke-width="1"/>
+<rect x="516.5" y="541.05" width="39.0" height="14.950000000000005" rx="0" fill="#a48159" stroke="#153741" stroke-width="1"/>
+<rect x="555.5" y="575.5" width="26.0" height="32.5" rx="0" fill="#41636b" stroke="#153741" stroke-width="1"/>
+<rect x="607.5" y="497.5" width="26.0" height="26.0" rx="0" fill="#41636b" stroke="#153741" stroke-width="1"/>
+<rect x="308.5" y="536.5" width="32.5" height="26.0" rx="0" fill="#41636b" stroke="#153741" stroke-width="1"/>
+<rect x="295.5" y="471.825" width="39.0" height="19.825000000000028" rx="0" fill="#41636b" stroke="#153741" stroke-width="1"/>
+<rect x="474.25" y="552.75" width="19.5" height="29.25" rx="0" fill="#41636b" stroke="#153741" stroke-width="1"/>
+<rect x="159.0" y="497.5" width="117.0" height="45.5" rx="0" fill="#b4c6c0" stroke="#153741" stroke-width="1.4"/>
+<line x1="168.75" y1="543.0" x2="168.75" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="178.5" y1="543.0" x2="178.5" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="188.25" y1="543.0" x2="188.25" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="198.0" y1="543.0" x2="198.0" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="207.75" y1="543.0" x2="207.75" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="217.5" y1="543.0" x2="217.5" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="227.25" y1="543.0" x2="227.25" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="237.0" y1="543.0" x2="237.0" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="246.75" y1="543.0" x2="246.75" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="256.5" y1="543.0" x2="256.5" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<line x1="266.25" y1="543.0" x2="266.25" y2="497.5" stroke="#748a83" stroke-width="0.8" />
+<rect x="412.5" y="491.0" width="91.0" height="39.0" rx="0" fill="#b4c6c0" stroke="#153741" stroke-width="1.4"/>
+<line x1="420.0833333333333" y1="530.0" x2="420.0833333333333" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="427.6666666666667" y1="530.0" x2="427.6666666666667" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="435.25" y1="530.0" x2="435.25" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="442.8333333333333" y1="530.0" x2="442.8333333333333" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="450.4166666666667" y1="530.0" x2="450.4166666666667" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="458.0" y1="530.0" x2="458.0" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="465.58333333333337" y1="530.0" x2="465.58333333333337" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="473.16666666666663" y1="530.0" x2="473.16666666666663" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="480.75" y1="530.0" x2="480.75" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="488.33333333333337" y1="530.0" x2="488.33333333333337" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<line x1="495.91666666666663" y1="530.0" x2="495.91666666666663" y2="491.0" stroke="#748a83" stroke-width="0.8" />
+<rect x="640.0" y="497.5" width="45.5" height="110.5" rx="0" fill="#b4c6c0" stroke="#153741" stroke-width="1.4"/>
+<line x1="640.0" y1="598.7916666666666" x2="685.5" y2="598.7916666666666" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="589.5833333333334" x2="685.5" y2="589.5833333333334" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="580.375" x2="685.5" y2="580.375" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="571.1666666666666" x2="685.5" y2="571.1666666666666" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="561.9583333333334" x2="685.5" y2="561.9583333333334" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="552.75" x2="685.5" y2="552.75" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="543.5416666666667" x2="685.5" y2="543.5416666666667" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="534.3333333333333" x2="685.5" y2="534.3333333333333" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="525.125" x2="685.5" y2="525.125" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="515.9166666666667" x2="685.5" y2="515.9166666666667" stroke="#748a83" stroke-width="0.8" />
+<line x1="640.0" y1="506.7083333333333" x2="685.5" y2="506.7083333333333" stroke="#748a83" stroke-width="0.8" />
+<line x1="172.0" y1="471.5" x2="744.0" y2="471.5" stroke="#153741" stroke-width="3.4" />
+<line x1="172.0" y1="497.5" x2="172.0" y2="471.5" stroke="#153741" stroke-width="3.4" />
+<line x1="276.0" y1="588.5" x2="354.0" y2="588.5" stroke="#153741" stroke-width="3.4" />
+<line x1="354.0" y1="588.5" x2="354.0" y2="634.0" stroke="#153741" stroke-width="3.4" />
+<line x1="354.0" y1="634.0" x2="406.0" y2="634.0" stroke="#153741" stroke-width="3.4" />
+<line x1="276.0" y1="588.5" x2="276.0" y2="543.0" stroke="#153741" stroke-width="3.4" />
+<line x1="406.0" y1="653.5" x2="406.0" y2="621.0" stroke="#153741" stroke-width="3.4" />
+<line x1="406.0" y1="575.5" x2="406.0" y2="536.5" stroke="#153741" stroke-width="3.4" />
+<line x1="406.0" y1="653.5" x2="640.0" y2="653.5" stroke="#153741" stroke-width="3.4" />
+<line x1="406.0" y1="536.5" x2="490.5" y2="536.5" stroke="#153741" stroke-width="3.4" />
+<line x1="536.0" y1="536.5" x2="640.0" y2="536.5" stroke="#153741" stroke-width="3.4" />
+<line x1="640.0" y1="653.5" x2="640.0" y2="626.1999999999999" stroke="#153741" stroke-width="3.4" />
+<line x1="640.0" y1="595.0" x2="640.0" y2="536.5" stroke="#153741" stroke-width="3.4" />
+<line x1="744.0" y1="627.5" x2="744.0" y2="471.5" stroke="#153741" stroke-width="3.4" />
+<line x1="640.0" y1="627.5" x2="744.0" y2="627.5" stroke="#153741" stroke-width="3.4" />
+<line x1="172.0" y1="536.5" x2="276.0" y2="536.5" stroke="#153741" stroke-width="3.4" />
+<line x1="640.0" y1="608.0" x2="640.0" y2="500.75" stroke="#153741" stroke-width="3.4" />
+<line x1="685.5" y1="608.0" x2="685.5" y2="500.75" stroke="#153741" stroke-width="3.4" />
+<line x1="412.5" y1="530.0" x2="490.5" y2="530.0" stroke="#153741" stroke-width="3.4" />
+<line x1="412.5" y1="491.0" x2="484.0" y2="491.0" stroke="#153741" stroke-width="3.4" />
+<rect x="42" y="114" width="754" height="617.5" rx="0" fill="url(#grid)" stroke="none" stroke-width="1"/>
+<polyline points="269.5,517.0 302.0,517.0 354.0,504.0 367.0,480.59999999999997 497.0,480.59999999999997 516.5,504.0 523.0,530.0 516.5,575.5" fill="none" stroke="#a76932" stroke-width="2.3" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<polyline points="341.0,517.0 360.5,562.5 393.0,582.0 425.5,582.0 464.5,585.9 510.0,585.9" fill="none" stroke="#a76932" stroke-width="2.3" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<polyline points="497.0,510.5 536.0,504.0 529.5,530.0 523.0,575.5" fill="none" stroke="#a76932" stroke-width="2.3" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<polyline points="659.5,616.45 643.9,616.45 643.9,610.6 633.5,615.8 581.5,615.8 542.5,575.5" fill="none" stroke="#a76932" stroke-width="2.3" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<polyline points="659.5,616.45 711.5,588.5 718.0,530.0 705.0,484.5 614.0,484.5 523.0,510.5" fill="none" stroke="#a76932" stroke-width="2.3" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<rect x="509.75" y="565.5" width="20" height="20" rx="4" fill="#aa751f" stroke="#fff9e6" stroke-width="1"/>
+<text x="519.75" y="579.5" fill="#fff9e6" font-size="12" font-weight="800" text-anchor="middle">A</text>
+<text x="165.5" y="569.0" fill="#153741" font-size="11" font-weight="650" text-anchor="start">WEST RAMP</text>
+<text x="185.0" y="491.0" fill="#153741" font-size="11" font-weight="650" text-anchor="start">PLATFORM 1</text>
+<text x="341.0" y="328.5" fill="#153741" font-size="9" font-weight="650" text-anchor="start">LIFT CORE</text>
+<text x="412.5" y="400.0" fill="#153741" font-size="9" font-weight="650" text-anchor="start">ISLAND LIFT</text>
+<text x="282.5" y="575.5" fill="#153741" font-size="11" font-weight="650" text-anchor="start">TROLLEY COURT</text>
+<text x="412.5" y="640.5" fill="#153741" font-size="11" font-weight="650" text-anchor="start">PARCELS HALL</text>
+<text x="458.0" y="572.25" fill="#153741" font-size="11" font-weight="650" text-anchor="start">A  ·  MAIL BANK</text>
+<text x="425.5" y="478.0" fill="#153741" font-size="11" font-weight="650" text-anchor="start">PUBLIC STAIR</text>
+<text x="607.5" y="510.5" fill="#fff9e6" font-size="9" font-weight="650" text-anchor="start">SIGNAL</text>
+<text x="685.5" y="601.5" fill="#153741" font-size="11" font-weight="650" text-anchor="start">STAFF</text>
+<text x="685.5" y="614.5" fill="#153741" font-size="11" font-weight="650" text-anchor="start">LANDING</text>
+<text x="61.5" y="660.0" fill="#153741" font-size="11" font-weight="650" text-anchor="start">SECTION LOCATORS   A–A   x52   /   B–B   y34</text>
+<rect x="820" y="124" width="258" height="532" rx="4" fill="#ece7d8" stroke="none" stroke-width="1"/>
+<text x="838" y="151" fill="#153741" font-size="13" font-weight="760" text-anchor="start">01   WEST ARRIVAL</text>
+<text x="838" y="169" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">The street ramp opens onto</text>
+<text x="838" y="184" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">the end of Platform 1. The</text>
+<text x="838" y="199" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">trolley court offers a second</text>
+<text x="838" y="214" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">approach to the parcels hall.</text>
+<text x="838" y="248" fill="#153741" font-size="13" font-weight="760" text-anchor="start">02   A   MAIL BANK</text>
+<text x="838" y="266" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">Plant sits between a low</text>
+<text x="838" y="281" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">sorting counter and tall cage.</text>
+<text x="838" y="296" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">The north portal and west</text>
+<text x="838" y="311" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">delivery door expose different</text>
+<text x="838" y="326" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">faces of the plant area.</text>
+<text x="838" y="360" fill="#153741" font-size="13" font-weight="760" text-anchor="start">03   PUBLIC STAIR</text>
+<text x="838" y="378" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">Opens east, between the rail</text>
+<text x="838" y="393" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">edge and the north portal.</text>
+<text x="838" y="408" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">The stair flank is screened.</text>
+<text x="838" y="442" fill="#153741" font-size="13" font-weight="760" text-anchor="start">04   CT ARRIVAL</text>
+<text x="838" y="460" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">Staff stair exits south. CT can</text>
+<text x="838" y="475" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">take the east door or loop</text>
+<text x="838" y="490" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">through the 4 m band under</text>
+<text x="838" y="505" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">the bridge deck at y36–40.</text>
+<text x="838" y="539" fill="#153741" font-size="13" font-weight="760" text-anchor="start">05   RAIL EDGE</text>
+<text x="838" y="557" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">Platform guards control access</text>
+<text x="838" y="572" fill="#40595b" font-size="11" font-weight="450" text-anchor="start">to the recessed rail corridor.</text>
+<text x="838" y="622" fill="#153741" font-size="12" font-weight="650" text-anchor="start">N ↑      1 grid cell = 5 m</text>
+<text x="838" y="641" fill="#153741" font-size="11" font-weight="500" text-anchor="start">Dashed arrows show movement.</text>
+</svg>

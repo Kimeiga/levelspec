@@ -1,0 +1,37 @@
+[
+  {
+    "file": "vessel-0.webp",
+    "page": "https://www.iter.org/machine/vacuum-vessel",
+    "image": "https://www.iter.org/sites/default/files/styles/responsive_16_9_1300w/public/media/2024-03/vacuum-full1_tight_0.jpg.webp?itok=D_aQ-WI4"
+  },
+  {
+    "file": "vessel-1.webp",
+    "page": "https://www.iter.org/machine/vacuum-vessel",
+    "image": "https://www.iter.org/sites/default/files/styles/responsive_1300w/public/media/2024-03/f4e_vvfabrication1.jpg.webp?itok=axZnbbM4"
+  },
+  {
+    "file": "magnets-0.webp",
+    "page": "https://www.iter.org/machine/magnets",
+    "image": "https://www.iter.org/sites/default/files/styles/responsive_16_9_1300w/public/media/2023-06/hero_l.jpg.webp?itok=TSp7htcz"
+  },
+  {
+    "file": "magnets-1.webp",
+    "page": "https://www.iter.org/machine/magnets",
+    "image": "https://www.iter.org/sites/default/files/styles/responsive_1300w/public/media/2023-06/tf_bluebackground_fsu.jpg.webp?itok=XuKoSVV6"
+  },
+  {
+    "file": "assembly-0.webp",
+    "page": "https://www.iter.org/project/tokamak-assembly",
+    "image": "https://www.iter.org/sites/default/files/styles/responsive_16_9_1300w/public/media/2024-06/pf6_above_pit_1_smaller.jpg.webp?itok=qJNJbfCY"
+  },
+  {
+    "file": "assembly-1.webp",
+    "page": "https://www.iter.org/project/tokamak-assembly",
+    "image": "https://www.iter.org/sites/default/files/styles/responsive_1300w/public/media/2023-10/tokamak.jpg.webp?itok=sXL99tE_"
+  },
+  {
+    "file": "assembly-2.webp",
+    "page": "https://www.iter.org/project/tokamak-assembly",
+    "image": "https://www.iter.org/sites/default/files/styles/responsive_1300w/public/media/2026-02/sma8_thmb_2.png.webp?itok=iGN-HynE"
+  }
+]

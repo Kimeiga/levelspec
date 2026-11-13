@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000">
+<defs><pattern id="rock" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M0 18L18 0" stroke="#35473e" stroke-width="1"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#c5e1c8"/></marker></defs>
+<rect width="1200" height="1000" fill="#14241f"/><text x="60" y="54" fill="#f5edda" font-family="sans-serif" font-size="34">VEILCREST / mountain mansion</text><text x="60" y="84" fill="#b7c4b5" font-family="sans-serif" font-size="17">Spatial proposal 01 · provisional 5v5 CT/T defuse · meters · north ↑</text>
+<g transform="translate(90 880) scale(9 -9)" stroke-linejoin="round">
+<path d="M-5 -7L43 -14L97 0L106 33L110 77L80 100L28 102L-14 76L-18 28Z" fill="url(#rock)" stroke="#57745d" stroke-width="1"/>
+<path d="M3 4L47 -3L91 10L100 37L98 75L78 91L30 93L0 73L-6 31Z" fill="none" stroke="#405e48" stroke-width=".6"/>
+<path d="M13 14L13 37L7 39L7 64L18 78L31 88L83 89L97 70L96 25L80 8L50 4Z" fill="#35463b" stroke="#6d7e68" stroke-width=".5"/>
+<path d="M54 8H76V18H84V30H88V44H90V64H80V76H80V84H36V76H24V58H12V40H16V28H18V16H54Z" fill="#b8b09b" stroke="#e5d8bb" stroke-width=".4"/>
+<path d="M18 16H54V22H62V28H24V28H18Z" fill="#b8b09b"/>
+<path d="M24 40H34V56H38V36H48V26H54V22H62V34H60V38H70V46H72V64H80V76H46V76H46V58H34V58H24Z" fill="#88735e" stroke="#d5bea0" stroke-width=".35"/>
+<path d="M34 40H38V58H34Z M46 56H66V70H46Z M60 46H72V64H66V56H60Z" fill="#26342d" stroke="#b1bfa7" stroke-width=".5"/>
+<path d="M16 28H24V40H16Z M54 18H60V26H54Z M70 38H78V46H70Z M72 64H80V76H72Z" fill="#718f80" stroke="#c5e1c8" stroke-width=".35"/>
+<g stroke="#d4e5d0" stroke-width=".25"><path d="M16 30H24M16 32H24M16 34H24M16 36H24M16 38H24M54 20H60M54 22H60M54 24H60M72 38V46M74 38V46M76 38V46M72 66H80M72 68H80M72 70H80M72 72H80M72 74H80"/></g>
+<path d="M20 30V38M57 19V25M71 42H77M76 65V75" stroke="#c5e1c8" stroke-width=".5" fill="none" marker-end="url(#arrow)"/>
+<path d="M26 58H44V74H26Z" fill="#c37b54" stroke="#ffd4a9" stroke-width=".6"/><path d="M74 46H88V62H74Z" fill="#b48a49" stroke="#ffd788" stroke-width=".6"/>
+<rect x="55" y="9" width="18" height="8" rx="2" fill="#aa655a"/><rect x="54" y="77" width="15" height="6" rx="2" fill="#578491"/>
+<path d="M30 63H34V69H30Z M39 70H43V72H39Z M80 50H84V56H80Z M74 58H78V60H74Z M48 43H52V49H48Z M21 46H25V50H21Z" fill="#514f47"/>
+</g>
+<g font-family="sans-serif" text-anchor="middle" fill="#16251f" font-size="16" font-weight="600">
+<text x="665" y="765">T / covert road · +0</text><text x="645" y="165">CT / rear court · +3</text>
+<text x="397" y="285">A · SALON +3</text><text x="822" y="405">B · VAULT +0</text>
+<text x="519" y="485">GREAT HALL +3</text><text x="501" y="608">FOYER +3</text>
+<text x="290" y="453">GARDEN +3</text><text x="422" y="693">LOWER SWITCHBACK +0</text>
+<text x="847" y="573" transform="rotate(-90 847 573)">DRAIN / +0</text>
+<text x="599" y="322" fill="#d5ddc5">SOLID ROCK / LIBRARY CORE</text>
+<text x="724" y="501" font-size="13">SERVICE ↓</text>
+</g>
+<g font-family="sans-serif" fill="#c9d6c0" font-size="16"><text x="940" y="190">Steep scenic ridges</text><text x="940" y="216">enclose the estate.</text><text x="940" y="270">Green flights:</text><text x="940" y="296">reversible ±3 m</text><text x="940" y="350">Dark masses:</text><text x="940" y="376">nontraversable</text><text x="940" y="430">Rust / amber:</text><text x="940" y="456">two plant areas</text><text x="940" y="510">Light route:</text><text x="940" y="536">lower level +0</text><text x="940" y="590">Warm route:</text><text x="940" y="616">upper level +3</text></g>
+<text x="60" y="956" fill="#b7c4b5" font-family="sans-serif" font-size="17">Mansion rooms share thresholds; garden wraps the west cliff; drainage enters below the east wing. No scenic terrain is a route.</text>
+</svg>

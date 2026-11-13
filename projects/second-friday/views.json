@@ -1,0 +1,415 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      185,
+      -155,
+      205
+    ],
+    "target": [
+      68,
+      54,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 150,
+    "fov": 55
+  },
+  {
+    "id": "plan",
+    "position": [
+      68,
+      53.9,
+      200
+    ],
+    "target": [
+      68,
+      54,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 120,
+    "fov": 55
+  },
+  {
+    "id": "north-overview",
+    "position": [
+      -70,
+      205,
+      150
+    ],
+    "target": [
+      68,
+      54,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 150,
+    "fov": 55
+  },
+  {
+    "id": "auction-square",
+    "position": [
+      74,
+      54,
+      12
+    ],
+    "target": [
+      87,
+      65,
+      0
+    ],
+    "fov": 70
+  },
+  {
+    "id": "point-west",
+    "position": [
+      50,
+      64,
+      1.684
+    ],
+    "target": [
+      86,
+      64,
+      1.684
+    ]
+  },
+  {
+    "id": "point-east",
+    "position": [
+      112,
+      66,
+      1.684
+    ],
+    "target": [
+      82,
+      64,
+      1.684
+    ]
+  },
+  {
+    "id": "point-south",
+    "position": [
+      82,
+      50,
+      1.684
+    ],
+    "target": [
+      84,
+      65,
+      1.684
+    ]
+  },
+  {
+    "id": "point-north",
+    "position": [
+      86,
+      76,
+      1.684
+    ],
+    "target": [
+      84,
+      62,
+      1.684
+    ]
+  },
+  {
+    "id": "roof-west-front",
+    "position": [
+      64,
+      78.6,
+      4.884
+    ],
+    "target": [
+      86,
+      64,
+      1.684
+    ]
+  },
+  {
+    "id": "roof-east-front",
+    "position": [
+      76,
+      78.6,
+      4.884
+    ],
+    "target": [
+      86,
+      64,
+      1.684
+    ]
+  },
+  {
+    "id": "point-to-roof",
+    "position": [
+      86,
+      64,
+      1.684
+    ],
+    "target": [
+      64,
+      78.6,
+      4.884
+    ]
+  },
+  {
+    "id": "books-standing",
+    "position": [
+      88,
+      66.8,
+      1.684
+    ],
+    "target": [
+      76,
+      78.6,
+      4.884
+    ]
+  },
+  {
+    "id": "books-crouch",
+    "position": [
+      88,
+      66.8,
+      1.033
+    ],
+    "target": [
+      76,
+      78.6,
+      4.884
+    ]
+  },
+  {
+    "id": "clocks-standing",
+    "position": [
+      78.5,
+      59,
+      1.684
+    ],
+    "target": [
+      64,
+      78.6,
+      4.884
+    ]
+  },
+  {
+    "id": "clocks-crouch",
+    "position": [
+      78.5,
+      59,
+      1.033
+    ],
+    "target": [
+      64,
+      78.6,
+      4.884
+    ]
+  },
+  {
+    "id": "west-stair-mid",
+    "position": [
+      60,
+      70.9,
+      3.604
+    ],
+    "target": [
+      86,
+      64,
+      1.684
+    ]
+  },
+  {
+    "id": "west-stair-follower",
+    "position": [
+      60,
+      68.5,
+      3.124
+    ],
+    "target": [
+      86,
+      64,
+      1.684
+    ]
+  },
+  {
+    "id": "west-stair-reverse",
+    "position": [
+      86,
+      64,
+      1.684
+    ],
+    "target": [
+      60,
+      70.9,
+      3.604
+    ]
+  },
+  {
+    "id": "east-stair-mid",
+    "position": [
+      85.9,
+      88,
+      3.444
+    ],
+    "target": [
+      86,
+      76,
+      1.684
+    ]
+  },
+  {
+    "id": "east-stair-reverse",
+    "position": [
+      86,
+      76,
+      1.684
+    ],
+    "target": [
+      85.9,
+      88,
+      3.444
+    ]
+  },
+  {
+    "id": "west-spawn",
+    "position": [
+      7,
+      94,
+      1.684
+    ],
+    "target": [
+      14,
+      82,
+      1.684
+    ]
+  },
+  {
+    "id": "west-close-south",
+    "position": [
+      14,
+      82,
+      1.684
+    ],
+    "target": [
+      10,
+      80,
+      1.684
+    ]
+  },
+  {
+    "id": "west-close-north",
+    "position": [
+      14,
+      82,
+      1.684
+    ],
+    "target": [
+      10,
+      104,
+      1.684
+    ]
+  },
+  {
+    "id": "east-spawn",
+    "position": [
+      124,
+      6,
+      1.684
+    ],
+    "target": [
+      131,
+      20,
+      1.684
+    ]
+  },
+  {
+    "id": "east-close-west",
+    "position": [
+      131,
+      20,
+      1.684
+    ],
+    "target": [
+      116,
+      10,
+      1.684
+    ]
+  },
+  {
+    "id": "east-close-north",
+    "position": [
+      131,
+      20,
+      1.684
+    ],
+    "target": [
+      133,
+      20,
+      1.684
+    ]
+  },
+  {
+    "id": "clothes-yard",
+    "position": [
+      24,
+      80,
+      1.684
+    ],
+    "target": [
+      46,
+      70,
+      1.684
+    ]
+  },
+  {
+    "id": "tailor-street",
+    "position": [
+      40,
+      38,
+      1.684
+    ],
+    "target": [
+      68,
+      36,
+      1.684
+    ]
+  },
+  {
+    "id": "repair-alley",
+    "position": [
+      106,
+      41,
+      1.684
+    ],
+    "target": [
+      112,
+      53,
+      1.684
+    ]
+  },
+  {
+    "id": "north-service",
+    "position": [
+      48,
+      104,
+      1.684
+    ],
+    "target": [
+      50,
+      82,
+      1.684
+    ]
+  },
+  {
+    "id": "east-service",
+    "position": [
+      133,
+      25,
+      1.684
+    ],
+    "target": [
+      133,
+      55,
+      1.684
+    ]
+  }
+]

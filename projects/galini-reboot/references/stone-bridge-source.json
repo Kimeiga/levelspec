@@ -1,0 +1,19 @@
+{
+  "sourcePage": "https://www.visitgreece.gr/en/experiences/culture/archaeological-sites-monuments/famous-stone-bridges",
+  "imageUrl": "https://cdn.visitgreece.gr/wp-uploads/featured-famous-stone-bridges-01.jpg",
+  "credit": "Greek National Tourism Organisation / Visit Greece; individual photographer not established",
+  "sha256": "5e584dc71478d685fb41e03ab968d76a9f8df9e87f548cc331e00c3904651a89",
+  "purpose": "Research inspiration for bridge abutment/arch treatment, not a game texture or source reconstruction",
+  "inspected": true,
+  "observations": [
+    "A continuous stone arch transfers visually into broad masonry abutments at rocky banks.",
+    "The parapet belongs to the bridge masonry; a small relieving arch appears beside the main span.",
+    "The real deck is humped; the invented flat gameplay deck would be an adaptation, not a reconstruction."
+  ],
+  "notEstablished": [
+    "Exact span, height, load capacity or gameplay body clearance",
+    "Individual bridge or photographer identity from this image alone"
+  ],
+  "localInspection": "This Galini author opened and visually inspected the actual image during L02 work, 2026-11-09.",
+  "localFile": "images/stone-bridge-gnto.jpg"
+}

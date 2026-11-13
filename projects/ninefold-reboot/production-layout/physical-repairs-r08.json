@@ -1,0 +1,1145 @@
+{
+  "revision": "R08",
+  "sourceSha256": "d44fb0afd227ac731300adc53726895efc51cf4f2cc4aa5d18172cb29c20d075",
+  "acceptedLayoutSha256": "54b34581aec7c036426797653870cfe13700a665b73dca6587806d993d8ac49d",
+  "changes": [
+    {
+      "id": "AWNING-JOIN",
+      "floorAdd": [
+        [
+          37.91987426415539,
+          29.386750490563074
+        ],
+        [
+          42.08012573584461,
+          26.613249509436926
+        ],
+        [
+          38.08012573584461,
+          20.613249509436926
+        ],
+        [
+          33.91987426415539,
+          23.386750490563074
+        ],
+        [
+          37.91987426415539,
+          29.386750490563074
+        ]
+      ],
+      "floorZ": 0,
+      "wallRepairZoneBuffer": 0.6,
+      "contextSetbackBuffer": 0.45,
+      "purpose": "Realize the already intended Awning to Underpass connection; J10 walks that link directly."
+    },
+    {
+      "id": "D-PAPER-lintel",
+      "newEndpoint": [
+        24,
+        40
+      ],
+      "oldEndpoint": [
+        24,
+        41
+      ],
+      "purpose": "Clear the S1 side of the ascent, preserving the ground movement portal."
+    },
+    {
+      "id": "ROOF-JOINTS",
+      "buildings": [
+        "F1",
+        "F2",
+        "F5",
+        "F6"
+      ],
+      "newThickness": 0.25,
+      "oldThickness": 0.24,
+      "roofTopsUnchanged": true
+    },
+    {
+      "id": "WELL-ATTACHMENT",
+      "lowerWellFacades": [
+        {
+          "id": "EDGE-0-059-0-p3-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            54.0,
+            51.58
+          ],
+          "b": [
+            54.0,
+            51.0
+          ]
+        },
+        {
+          "id": "EDGE-0-060-0-p3-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            54.0,
+            51.0
+          ],
+          "b": [
+            55.58,
+            51.0
+          ]
+        },
+        {
+          "id": "EDGE-0-061-0-p5-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            56.0,
+            46.58
+          ],
+          "b": [
+            56.0,
+            43.42
+          ]
+        },
+        {
+          "id": "EDGE-0-062-0-p3-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            55.58,
+            42.0
+          ],
+          "b": [
+            54.0,
+            42.0
+          ]
+        },
+        {
+          "id": "EDGE-0-063-0-p3-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            54.0,
+            42.0
+          ],
+          "b": [
+            54.0,
+            41.42
+          ]
+        },
+        {
+          "id": "EDGE-0-108-0-p3-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            50.0,
+            41.42
+          ],
+          "b": [
+            50.0,
+            42.0
+          ]
+        },
+        {
+          "id": "EDGE-0-109-0-p3-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            50.0,
+            42.0
+          ],
+          "b": [
+            46.42,
+            42.0
+          ]
+        },
+        {
+          "id": "EDGE-0-111-0-p3-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            46.42,
+            51.0
+          ],
+          "b": [
+            50.0,
+            51.0
+          ]
+        },
+        {
+          "id": "EDGE-0-112-0-p3-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            50.0,
+            51.0
+          ],
+          "b": [
+            50.0,
+            51.58
+          ]
+        },
+        {
+          "id": "EDGE-0-117-0-p5-a0",
+          "previousTop": 9.5,
+          "top": 3.2,
+          "a": [
+            41.58,
+            51.58
+          ],
+          "b": [
+            41.42,
+            51.42
+          ]
+        }
+      ],
+      "setbackCaps": [
+        {
+          "id": "WELL-S-RETURN",
+          "polygon": [
+            [
+              46,
+              41
+            ],
+            [
+              56,
+              41
+            ],
+            [
+              56,
+              42.15
+            ],
+            [
+              46,
+              42.15
+            ]
+          ],
+          "top": 3.2,
+          "thickness": 0.24
+        },
+        {
+          "id": "WELL-N-RETURN",
+          "polygon": [
+            [
+              46,
+              50.85
+            ],
+            [
+              56,
+              50.85
+            ],
+            [
+              56,
+              52
+            ],
+            [
+              46,
+              52
+            ]
+          ],
+          "top": 3.2,
+          "thickness": 0.24
+        }
+      ],
+      "coreFooting": {
+        "id": "CORE-FOOTING",
+        "polygon": [
+          [
+            56,
+            43
+          ],
+          [
+            62,
+            43
+          ],
+          [
+            62,
+            47
+          ],
+          [
+            56,
+            47
+          ]
+        ],
+        "base": 0,
+        "top": 3.2
+      },
+      "purpose": "Remove detached ground-wall fins; attach ground facade to loft through real nonplayable setback returns. Upper V-WELL aperture and roof hole unchanged."
+    }
+  ],
+  "nativeRepairObjects": [
+    {
+      "type": "wall",
+      "id": "WELL-W-p1",
+      "group": "walls",
+      "path": "WELL-W-p1-axis",
+      "thickness": "0.3",
+      "height": "3.45",
+      "material": "concrete",
+      "label": "opaque west lightwell edge; rejected School aperture absent",
+      "path-data": {
+        "id": "WELL-W-p1-axis",
+        "points": "46 41 3.2; 46 52 3.2"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "WELL-S-p1",
+      "group": "walls",
+      "path": "WELL-S-p1-axis",
+      "thickness": "0.3",
+      "height": "3.45",
+      "material": "concrete",
+      "label": "opaque wall keeps southern bomb floor from lower information",
+      "path-data": {
+        "id": "WELL-S-p1-axis",
+        "points": "46 41 3.2; 56 41 3.2"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "WELL-N-p1",
+      "group": "walls",
+      "path": "WELL-N-p1-axis",
+      "thickness": "0.3",
+      "height": "3.45",
+      "material": "concrete",
+      "label": "opaque north well edge below receiving bay",
+      "path-data": {
+        "id": "WELL-N-p1-axis",
+        "points": "46 52 3.2; 56 52 3.2"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "WELL-E-1-p1",
+      "group": "walls",
+      "path": "WELL-E-1-p1-axis",
+      "thickness": "0.3",
+      "height": "3.45",
+      "material": "concrete",
+      "label": "east well edge",
+      "path-data": {
+        "id": "WELL-E-1-p1-axis",
+        "points": "56 41 3.2; 56 47.6 3.2"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "WELL-E-2-p1",
+      "group": "walls",
+      "path": "WELL-E-2-p1-axis",
+      "thickness": "0.3",
+      "height": "3.45",
+      "material": "concrete",
+      "label": "east well edge",
+      "path-data": {
+        "id": "WELL-E-2-p1-axis",
+        "points": "56 49.6 3.2; 56 52 3.2"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "WELL-AP-sill-p0",
+      "group": "walls",
+      "path": "WELL-AP-sill-p0-axis",
+      "thickness": "0.3",
+      "height": "0.95",
+      "material": "concrete",
+      "label": "opaque sill",
+      "path-data": {
+        "id": "WELL-AP-sill-p0-axis",
+        "points": "56 47.6 3.2; 56 49.6 3.2"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "WELL-AP-head-p1",
+      "group": "walls",
+      "path": "WELL-AP-head-p1-axis",
+      "thickness": "0.3",
+      "height": "0.9",
+      "material": "concrete",
+      "label": "opaque head",
+      "path-data": {
+        "id": "WELL-AP-head-p1-axis",
+        "points": "56 47.6 5.75; 56 49.6 5.75"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S1-crest-bearing",
+      "group": "supports",
+      "path": "S1-crest-bearing-axis",
+      "thickness": "0.3",
+      "height": "2.96",
+      "material": "concrete",
+      "label": "Seal the reviewed nonwalkable underside of the School landing; top entry stays open",
+      "path-data": {
+        "id": "S1-crest-bearing-axis",
+        "points": "33 40 0; 33 44 0"
+      }
+    },
+    {
+      "type": "stairs",
+      "id": "S1",
+      "group": "stairs",
+      "path": "S1-axis",
+      "width": "4",
+      "count": "20",
+      "thickness": "0.24",
+      "underside": "custom",
+      "underside-profile": "S1-soffit",
+      "material": "rust",
+      "label": "Butcher \u2192 School",
+      "path-data": {
+        "id": "S1-axis",
+        "points": "21 42 0; 33 42 3.2"
+      },
+      "underside-profile-data": {
+        "id": "S1-soffit",
+        "points": "0 -0.24 0; 9.9 -0.24 0; 9.9 2.4 0; 12 2.96 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S1-L-bearing",
+      "group": "supports",
+      "path": "S1-L-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S1-L-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S1-L-bearing-axis",
+        "points": "21 44.09 0; 33 44.09 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S1-R-bearing",
+      "group": "supports",
+      "path": "S1-R-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S1-R-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S1-R-bearing-axis",
+        "points": "21 39.91 0; 33 39.91 0"
+      }
+    },
+    {
+      "type": "stairs",
+      "id": "S2",
+      "group": "stairs",
+      "path": "S2-axis",
+      "width": "4",
+      "count": "20",
+      "thickness": "0.24",
+      "underside": "custom",
+      "underside-profile": "S2-soffit",
+      "material": "rust",
+      "label": "Tailor \u2192 East",
+      "path-data": {
+        "id": "S2-axis",
+        "points": "65 23 0; 65 35 3.2"
+      },
+      "underside-profile-data": {
+        "id": "S2-soffit",
+        "points": "0 -0.24 0; 9.9 -0.24 0; 9.9 2.4 0; 12 2.96 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S2-L-bearing",
+      "group": "supports",
+      "path": "S2-L-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S2-L-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S2-L-bearing-axis",
+        "points": "62.91 23 0; 62.91 35 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S2-R-bearing",
+      "group": "supports",
+      "path": "S2-R-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S2-R-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S2-R-bearing-axis",
+        "points": "67.09 23 0; 67.09 35 0"
+      }
+    },
+    {
+      "type": "stairs",
+      "id": "S3",
+      "group": "stairs",
+      "path": "S3-axis",
+      "width": "4",
+      "count": "20",
+      "thickness": "0.24",
+      "underside": "custom",
+      "underside-profile": "S3-soffit",
+      "material": "rust",
+      "label": "Water / Dye \u2192 Boiler",
+      "path-data": {
+        "id": "S3-axis",
+        "points": "68 73 0; 68 61 3.2"
+      },
+      "underside-profile-data": {
+        "id": "S3-soffit",
+        "points": "0 -0.24 0; 9.9 -0.24 0; 9.9 2.4 0; 12 2.96 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S3-L-bearing",
+      "group": "supports",
+      "path": "S3-L-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S3-L-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S3-L-bearing-axis",
+        "points": "70.09 73 0; 70.09 61 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S3-R-bearing",
+      "group": "supports",
+      "path": "S3-R-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S3-R-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S3-R-bearing-axis",
+        "points": "65.91 73 0; 65.91 61 0"
+      }
+    },
+    {
+      "type": "stairs",
+      "id": "S4",
+      "group": "stairs",
+      "path": "S4-axis",
+      "width": "4",
+      "count": "20",
+      "thickness": "0.24",
+      "underside": "custom",
+      "underside-profile": "S4-soffit",
+      "material": "rust",
+      "label": "A rear \u2192 Sign",
+      "path-data": {
+        "id": "S4-axis",
+        "points": "88 64 0; 88 52 3.2"
+      },
+      "underside-profile-data": {
+        "id": "S4-soffit",
+        "points": "0 -0.24 0; 9.9 -0.24 0; 9.9 2.4 0; 12 2.96 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S4-L-bearing",
+      "group": "supports",
+      "path": "S4-L-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S4-L-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S4-L-bearing-axis",
+        "points": "90.09 64 0; 90.09 52 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S4-R-bearing",
+      "group": "supports",
+      "path": "S4-R-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S4-R-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S4-R-bearing-axis",
+        "points": "85.91 64 0; 85.91 52 0"
+      }
+    },
+    {
+      "type": "stairs",
+      "id": "S5",
+      "group": "stairs",
+      "path": "S5-axis",
+      "width": "4",
+      "count": "20",
+      "thickness": "0.24",
+      "underside": "custom",
+      "underside-profile": "S5-soffit",
+      "material": "rust",
+      "label": "School \u2192 School roof",
+      "path-data": {
+        "id": "S5-axis",
+        "points": "36 49 3.2; 36 61 6.4"
+      },
+      "underside-profile-data": {
+        "id": "S5-soffit",
+        "points": "0 2.96 0; 2.3 2.96 0; 2.3 3.573333 0; 12 6.16 0"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S5-L-bearing",
+      "group": "supports",
+      "path": "S5-L-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S5-L-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S5-L-bearing-axis",
+        "points": "33.91 49 3.2; 33.91 51.3 3.2"
+      }
+    },
+    {
+      "type": "wall",
+      "id": "S5-R-bearing",
+      "group": "supports",
+      "path": "S5-R-bearing-axis",
+      "thickness": "0.18",
+      "height": "3.2",
+      "top": "S5-R-bearing-top",
+      "material": "concrete",
+      "label": "Bearing skirt under outward-mounted stair guard; no sub-body floor slit",
+      "path-data": {
+        "id": "S5-R-bearing-axis",
+        "points": "38.09 49 3.2; 38.09 51.3 3.2"
+      }
+    },
+    {
+      "type": "stairs",
+      "id": "S6",
+      "group": "stairs",
+      "path": "S6-axis",
+      "width": "4",
+      "count": "20",
+      "thickness": "0.24",
+      "underside": "sloped",
+      "material": "rust",
+      "label": "Boiler \u2192 Reservoir",
+      "path-data": {
+        "id": "S6-axis",
+        "points": "62 63 3.2; 62 75 6.4"
+      }
+    },
+    {
+      "type": "canopy",
+      "id": "WELL-S-RETURN-0",
+      "group": "roofs",
+      "profile": "WELL-S-RETURN-0-plan",
+      "elevation": "3.2",
+      "thickness": "0.24",
+      "playable": "false",
+      "material": "concrete",
+      "label": "Attached nonplayable courtyard setback cap; lower passage clearance2.96 m",
+      "profile-data": "<profile id=\"WELL-S-RETURN-0-plan\" points=\"46 41; 46 42.15; 56 42.15; 56 41\" />\n  "
+    },
+    {
+      "type": "canopy",
+      "id": "WELL-N-RETURN-0",
+      "group": "roofs",
+      "profile": "WELL-N-RETURN-0-plan",
+      "elevation": "3.2",
+      "thickness": "0.24",
+      "playable": "false",
+      "material": "concrete",
+      "label": "Attached nonplayable courtyard setback cap; lower passage clearance2.96 m",
+      "profile-data": "<profile id=\"WELL-N-RETURN-0-plan\" points=\"46 50.85; 46 52; 56 52; 56 50.85\" />\n  "
+    },
+    {
+      "type": "extrusion",
+      "id": "CORE-FOOTING",
+      "group": "supports",
+      "profile": "CORE-FOOTING-plan",
+      "distance": "3.2",
+      "material": "concrete",
+      "label": "Service core carried continuously to ground outside the well walking surface",
+      "profile-data": "<profile id=\"CORE-FOOTING-plan\" points=\"56 43; 62 43; 62 47; 56 47\" />\n  "
+    },
+    {
+      "type": "box",
+      "id": "J-S1",
+      "group": "supports",
+      "position": "32.85 39.85 0",
+      "width": "0.3",
+      "depth": "0.3",
+      "height": "2.96",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    },
+    {
+      "type": "box",
+      "id": "J-WEST",
+      "group": "supports",
+      "position": "41.85 51.85 3.2",
+      "width": "0.3",
+      "depth": "0.3",
+      "height": "3.45",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    },
+    {
+      "type": "box",
+      "id": "J-SIGN",
+      "group": "supports",
+      "position": "85.85 57.85 3.2",
+      "width": "0.3",
+      "depth": "0.3",
+      "height": "3.2",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    },
+    {
+      "type": "box",
+      "id": "J-S3",
+      "group": "supports",
+      "position": "69.85 69.85 0",
+      "width": "0.3",
+      "depth": "0.5",
+      "height": "6.4",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    },
+    {
+      "type": "box",
+      "id": "J-S4-W",
+      "group": "supports",
+      "position": "85.8 61.85 0",
+      "width": "0.3",
+      "depth": "0.3",
+      "height": "6.4",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    },
+    {
+      "type": "box",
+      "id": "J-S4-E",
+      "group": "supports",
+      "position": "89.9 61.85 0",
+      "width": "0.3",
+      "depth": "0.3",
+      "height": "6.4",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    },
+    {
+      "type": "box",
+      "id": "J-S5-W",
+      "group": "supports",
+      "position": "33.85 50.8 3.2",
+      "width": "0.3",
+      "depth": "0.4",
+      "height": "3.45",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    },
+    {
+      "type": "box",
+      "id": "J-S5-E",
+      "group": "supports",
+      "position": "37.85 50.8 3.2",
+      "width": "0.3",
+      "depth": "0.4",
+      "height": "3.45",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    },
+    {
+      "type": "box",
+      "id": "J-AWNING",
+      "group": "supports",
+      "position": "35.05 25.1 0",
+      "width": "0.45",
+      "depth": "0.45",
+      "height": "9.5",
+      "material": "concrete",
+      "label": "Physical wall/guard junction cap; closes a sub-body residual seam"
+    }
+  ],
+  "awningWalls": [
+    {
+      "id": "AWNING-join-wall-0-0",
+      "a": [
+        42.44277777572938,
+        27.090403155998942
+      ],
+      "b": [
+        42.041808383601854,
+        26.55577348107279
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    },
+    {
+      "id": "AWNING-join-wall-0-1",
+      "a": [
+        42.041808383601854,
+        26.55577348107279
+      ],
+      "b": [
+        38.602775637731995,
+        21.397224362268005
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    },
+    {
+      "id": "AWNING-join-wall-0-2",
+      "a": [
+        38.602775637731995,
+        21.397224362268005
+      ],
+      "b": [
+        39.0,
+        21.0
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    },
+    {
+      "id": "AWNING-join-wall-0-3",
+      "a": [
+        39.0,
+        21.0
+      ],
+      "b": [
+        39.0,
+        20.91139552303081
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    },
+    {
+      "id": "AWNING-join-wall-1-0",
+      "a": [
+        35.0,
+        25.5
+      ],
+      "b": [
+        37.5,
+        28.8333
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    },
+    {
+      "id": "AWNING-join-wall-1-1",
+      "a": [
+        37.5,
+        28.8333
+      ],
+      "b": [
+        37.5,
+        29.814960459395255
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    },
+    {
+      "id": "AWNING-join-wall-2-0",
+      "a": [
+        34.22744198408638,
+        24.929767453098762
+      ],
+      "b": [
+        34.99507548144323,
+        24.99955231649484
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    },
+    {
+      "id": "AWNING-join-wall-2-1",
+      "a": [
+        34.99507548144323,
+        24.99955231649484
+      ],
+      "b": [
+        35.21913818029778,
+        25.335646364776665
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    },
+    {
+      "id": "AWNING-join-wall-2-2",
+      "a": [
+        35.21913818029778,
+        25.335646364776665
+      ],
+      "b": [
+        35.0,
+        25.5
+      ],
+      "z": 0,
+      "top": 9.5,
+      "thickness": 0.3,
+      "role": "Complete facade around repaired Awning/underpass paving junction"
+    }
+  ],
+  "journeyChanges": [
+    {
+      "id": "J02",
+      "waypoints": [
+        [
+          11,
+          14,
+          0
+        ],
+        [
+          24,
+          15,
+          0
+        ],
+        [
+          25,
+          15,
+          0
+        ],
+        [
+          25,
+          20,
+          0
+        ],
+        [
+          39,
+          17,
+          0
+        ],
+        [
+          56,
+          17,
+          0
+        ],
+        [
+          56,
+          24,
+          0
+        ],
+        [
+          60,
+          24,
+          0
+        ],
+        [
+          60,
+          20,
+          0
+        ],
+        [
+          70,
+          20,
+          0
+        ],
+        [
+          70,
+          39,
+          0
+        ],
+        [
+          78,
+          39,
+          0
+        ],
+        [
+          78,
+          44,
+          0
+        ],
+        [
+          79,
+          44,
+          0
+        ],
+        [
+          87,
+          44,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "J05",
+      "waypoints": [
+        [
+          78,
+          78,
+          0
+        ],
+        [
+          78,
+          80,
+          0
+        ],
+        [
+          69,
+          80,
+          0
+        ],
+        [
+          68,
+          76,
+          0
+        ],
+        [
+          68,
+          73,
+          0
+        ],
+        [
+          68,
+          67,
+          1.6
+        ],
+        [
+          68,
+          61,
+          3.2
+        ],
+        [
+          68,
+          60,
+          3.2
+        ],
+        [
+          66,
+          60,
+          3.2
+        ],
+        [
+          64,
+          61,
+          3.2
+        ],
+        [
+          54,
+          61,
+          3.2
+        ],
+        [
+          50,
+          61,
+          3.2
+        ],
+        [
+          50,
+          59,
+          3.2
+        ],
+        [
+          50,
+          57,
+          3.2
+        ],
+        [
+          44,
+          57,
+          3.2
+        ],
+        [
+          44,
+          49,
+          3.2
+        ],
+        [
+          44,
+          39.5,
+          3.2
+        ],
+        [
+          46,
+          39.5,
+          3.2
+        ],
+        [
+          55,
+          39.5,
+          3.2
+        ],
+        [
+          57,
+          35,
+          3.2
+        ]
+      ]
+    },
+    {
+      "id": "J10",
+      "waypoints": [
+        [
+          30,
+          20,
+          0
+        ],
+        [
+          36,
+          22,
+          0
+        ],
+        [
+          40,
+          28,
+          0
+        ],
+        [
+          40,
+          34,
+          0
+        ],
+        [
+          43,
+          34,
+          0
+        ],
+        [
+          52,
+          34,
+          0
+        ]
+      ]
+    }
+  ],
+  "limits": "Overlay supplements the frozen L02 drawing. Full current AML is authoritative; no new strategic edge or objective, no changed player body."
+}

@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='utf-8'?>
+<architecture version="1" id="apogee" name="Apogee · Mountain Observatory / 5v5 Defusal" units="meters" validation="playable" description="L06 / R06. Telescope A at +4m; Cryolab B at0. Original mountain observatory. Geometry and objective metadata; target-engine combat integration and playtest pending.">
+  <material id="snow" color="#e5e8e5" />
+  <material id="concrete" color="#b7c4c9" />
+  <material id="floor" color="#758c99" />
+  <material id="upper-floor" color="#abbcc4" />
+  <material id="metal" color="#254958" />
+  <material id="blue" color="#268bb1" />
+  <material id="amber" color="#e4a84d" />
+  <material id="red" color="#b85138" />
+  <material id="rock" color="#435460" />
+  <material id="rock-dark" color="#31444e" />
+  <material id="low" color="#aac7bd" />
+  <material id="ink" color="#182e3a" />
+  <material id="white" color="#ece8d9" />
+  <assembly id="campus" label="Physical observatory blockout" coincident-material="retained-face">
+    <ramp id="S-RIM" path="S-RIM-axis" width="6" thickness=".35" underside="filled" material="floor" group="circulation" />
+    <enclosure id="S-RIM-left" host="S-RIM" side="left" construction="wall" height="1.35" thickness=".3" offset="0" material="concrete" group="circulation" />
+    <enclosure id="S-RIM-right" host="S-RIM" side="right" construction="wall" height="2.8" thickness=".3" offset="0" material="concrete" group="circulation" />
+    <stairs id="S-OPT" path="S-OPT-axis" width="6" thickness=".35" underside="filled" material="floor" group="circulation" count="24" />
+    <enclosure id="S-OPT-left" host="S-OPT" side="left" construction="wall" height="2.8" thickness=".3" offset="0" material="concrete" group="circulation" />
+    <enclosure id="S-OPT-right" host="S-OPT" side="right" construction="wall" height="2.8" thickness=".3" offset="0" material="concrete" group="circulation" />
+    <stairs id="S-CT" path="S-CT-axis" width="5.7" thickness=".35" underside="filled" material="floor" group="circulation" count="24" />
+    <enclosure id="S-CT-left" host="S-CT" side="left" construction="wall" height="2.8" thickness=".3" offset="0" material="concrete" group="circulation" />
+    <enclosure id="S-CT-right" host="S-CT" side="right" construction="wall" height="2.8" thickness=".3" offset="0" material="concrete" group="circulation" />
+    <slab id="floor-01" label="Cable arrivals" profile="plan-01" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-02" label="Boot room" profile="plan-02" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-03" label="Service court" profile="plan-03" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-05" label="Rim walk" profile="plan-05" elevation="4" thickness=".35" material="upper-floor" group="upper" />
+    <slab id="floor-06" label="A airlock" profile="plan-06" elevation="4" thickness=".35" material="upper-floor" group="upper" />
+    <slab id="floor-07" label="Optics" profile="plan-07" elevation="4" thickness=".35" material="upper-floor" group="upper" />
+    <slab id="floor-08" label="A telescope" profile="plan-08" elevation="4" thickness=".35" material="upper-floor" group="upper" />
+    <slab id="floor-09" label="A control" profile="plan-09" elevation="4" thickness=".35" material="upper-floor" group="upper" />
+    <slab id="floor-10" label="CT operations" profile="plan-10" elevation="4" thickness=".35" material="upper-floor" group="upper" />
+    <slab id="floor-11" label="Upper spine" profile="plan-11" elevation="4" thickness=".35" material="upper-floor" group="upper" />
+    <slab id="floor-12" label="Skybridge" profile="plan-12" elevation="4" thickness=".35" material="upper-floor" group="upper" />
+    <slab id="floor-13" label="Intake" profile="plan-13" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-14" label="Calibration court" profile="plan-14" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-15" label="Optics ascent" profile="plan-15" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-16" label="Equipment" profile="plan-16" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-17" label="Snow yard" profile="plan-17" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-18" label="Cleanroom" profile="plan-18" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-19" label="B airlock" profile="plan-19" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-20" label="B cryolab" profile="plan-20" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-21" label="Transit underpass" profile="plan-21" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-22" label="Data hall" profile="plan-22" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-23" label="Archive" profile="plan-23" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-24" label="B control" profile="plan-24" elevation="0" thickness=".35" material="floor" group="lower" />
+    <slab id="floor-26" label="Decon" profile="plan-26" elevation="0" thickness=".35" material="floor" group="lower" />
+    <wall id="wall-000" path="wall-000-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-001" path="wall-001-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-002" path="wall-002-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-003" path="wall-003-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-004" path="wall-004-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-005" path="wall-005-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-006" path="wall-006-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-007" path="wall-007-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-008" path="wall-008-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-009" path="wall-009-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-010" path="wall-010-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-011" path="wall-011-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-012" path="wall-012-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-013" path="wall-013-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-014" path="wall-014-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-015" path="wall-015-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-016" path="wall-016-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-017" path="wall-017-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-018" path="wall-018-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-019" path="wall-019-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-020" path="wall-020-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-021" path="wall-021-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-022" path="wall-022-axis" thickness=".36" height="2.8" material="concrete" group="upper" />
+    <wall id="wall-023" path="wall-023-axis" thickness=".36" height="2.8" material="concrete" group="upper" />
+    <wall id="wall-024" path="wall-024-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-025" path="wall-025-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-026" path="wall-026-axis" thickness=".36" height="2.8" material="concrete" group="upper" />
+    <wall id="wall-027" path="wall-027-axis" thickness=".36" height="1.35" material="concrete" group="upper" />
+    <wall id="wall-028" path="wall-028-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-029" path="wall-029-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-030" path="wall-030-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-031" path="wall-031-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-032" path="wall-032-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-033" path="wall-033-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-034" path="wall-034-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-035" path="wall-035-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-036" path="wall-036-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-037" path="wall-037-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-038" path="wall-038-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-039" path="wall-039-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-040" path="wall-040-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-041" path="wall-041-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-042" path="wall-042-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-043" path="wall-043-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-044" path="wall-044-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-045" path="wall-045-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-046" path="wall-046-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-047" path="wall-047-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-048" path="wall-048-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-049" path="wall-049-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-050" path="wall-050-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-051" path="wall-051-axis" thickness=".36" height="4.2" material="concrete" group="upper" />
+    <wall id="wall-052" path="wall-052-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-053" path="wall-053-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-054" path="wall-054-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-055" path="wall-055-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-056" path="wall-056-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-057" path="wall-057-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-058" path="wall-058-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-059" path="wall-059-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-060" path="wall-060-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-061" path="wall-061-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-062" path="wall-062-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-063" path="wall-063-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-064" path="wall-064-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-065" path="wall-065-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-066" path="wall-066-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-067" path="wall-067-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-068" path="wall-068-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-069" path="wall-069-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-070" path="wall-070-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-071" path="wall-071-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-072" path="wall-072-axis" thickness=".36" height="3.2" material="concrete" group="upper" />
+    <wall id="wall-073" path="wall-073-axis" thickness=".36" height="2.8" material="concrete" group="upper" />
+    <wall id="wall-074" path="wall-074-axis" thickness=".36" height="2.8" material="concrete" group="upper" />
+    <wall id="wall-075" path="wall-075-axis" thickness=".36" height="2.8" material="concrete" group="upper" />
+    <wall id="wall-076" path="wall-076-axis" thickness=".36" height="1.35" material="concrete" group="upper" />
+    <wall id="wall-077" path="wall-077-axis" thickness=".36" height="2.8" material="concrete" group="upper" />
+    <wall id="wall-078" path="wall-078-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-079" path="wall-079-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-080" path="wall-080-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-081" path="wall-081-axis" thickness=".36" height="4.2" material="concrete" group="lower" />
+    <wall id="wall-082" path="wall-082-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-083" path="wall-083-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-084" path="wall-084-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-085" path="wall-085-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-086" path="wall-086-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-087" path="wall-087-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-088" path="wall-088-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-089" path="wall-089-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-090" path="wall-090-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-091" path="wall-091-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-092" path="wall-092-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-093" path="wall-093-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-094" path="wall-094-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-095" path="wall-095-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-096" path="wall-096-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-097" path="wall-097-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-098" path="wall-098-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-099" path="wall-099-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-100" path="wall-100-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-101" path="wall-101-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-102" path="wall-102-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-103" path="wall-103-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-104" path="wall-104-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-105" path="wall-105-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-106" path="wall-106-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-107" path="wall-107-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-108" path="wall-108-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-109" path="wall-109-axis" thickness=".36" height="3.2" material="concrete" group="lower" />
+    <wall id="wall-110" path="wall-110-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-111" path="wall-111-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-112" path="wall-112-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-113" path="wall-113-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-114" path="wall-114-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-115" path="wall-115-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-116" path="wall-116-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-117" path="wall-117-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-118" path="wall-118-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-119" path="wall-119-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-120" path="wall-120-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-121" path="wall-121-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-122" path="wall-122-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-123" path="wall-123-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-124" path="wall-124-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-125" path="wall-125-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-126" path="wall-126-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-127" path="wall-127-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-128" path="wall-128-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-129" path="wall-129-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-130" path="wall-130-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-131" path="wall-131-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-132" path="wall-132-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-133" path="wall-133-axis" thickness=".36" height="3.65" material="concrete" group="lower" />
+    <wall id="wall-134" path="wall-134-axis" thickness=".36" height="3.65" material="concrete" group="lower" />
+    <wall id="wall-135" path="wall-135-axis" thickness=".36" height="3.65" material="concrete" group="lower" />
+    <wall id="wall-136" path="wall-136-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-137" path="wall-137-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-138" path="wall-138-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-139" path="wall-139-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-140" path="wall-140-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-141" path="wall-141-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-142" path="wall-142-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-143" path="wall-143-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-144" path="wall-144-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-145" path="wall-145-axis" thickness=".36" height="3.65" material="concrete" group="lower" />
+    <wall id="wall-146" path="wall-146-axis" thickness=".36" height="3.65" material="concrete" group="lower" />
+    <wall id="wall-147" path="wall-147-axis" thickness=".36" height="3.65" material="concrete" group="lower" />
+    <wall id="wall-148" path="wall-148-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-149" path="wall-149-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-150" path="wall-150-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-151" path="wall-151-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-152" path="wall-152-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-153" path="wall-153-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-154" path="wall-154-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-155" path="wall-155-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-156" path="wall-156-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-157" path="wall-157-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-158" path="wall-158-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="wall-159" path="wall-159-axis" thickness=".36" height="6.4" material="concrete" group="lower" />
+    <wall id="P01-lintel" label="P01 clear threshold 2.8m" path="P01-lintel-axis" thickness=".36" height="1.4000000000000004" material="concrete" group="lower" />
+    <wall id="P02-lintel" label="P02 clear threshold 2.8m" path="P02-lintel-axis" thickness=".36" height="1.4000000000000004" material="concrete" group="lower" />
+    <wall id="P03-lintel" label="P03 clear threshold 2.8m" path="P03-lintel-axis" thickness=".36" height="1.4000000000000004" material="concrete" group="lower" />
+    <wall id="P04-lintel" label="P04 clear threshold 2.8m" path="P04-lintel-axis" thickness=".36" height="1.4000000000000004" material="concrete" group="lower" />
+    <wall id="P05-lintel" label="P05 clear threshold 2.8m" path="P05-lintel-axis" thickness=".36" height="1.4000000000000004" material="concrete" group="lower" />
+    <wall id="P06-lintel" label="P06 clear threshold 2.8m" path="P06-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="lower" />
+    <wall id="P07-lintel" label="P07 clear threshold 2.8m" path="P07-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P08-lintel" label="P08 clear threshold 2.8m" path="P08-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P09-lintel" label="P09 clear threshold 2.8m" path="P09-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P10-lintel" label="P10 clear threshold 2.8m" path="P10-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P11-lintel" label="P11 clear threshold 2.8m" path="P11-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P12-lintel" label="P12 clear threshold 2.8m" path="P12-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P13-lintel" label="P13 clear threshold 2.8m" path="P13-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P15-lintel" label="P15 clear threshold 2.8m" path="P15-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P16-lintel" label="P16 clear threshold 2.8m" path="P16-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P17-lintel" label="P17 clear threshold 2.8m" path="P17-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="upper" />
+    <wall id="P19-lintel" label="P19 clear threshold 2.8m" path="P19-lintel-axis" thickness=".36" height="1.4000000000000004" material="concrete" group="lower" />
+    <wall id="P20-lintel" label="P20 clear threshold 2.8m" path="P20-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P21-lintel" label="P21 clear threshold 2.8m" path="P21-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P22-lintel" label="P22 clear threshold 2.8m" path="P22-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P23-lintel" label="P23 clear threshold 2.8m" path="P23-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P24-lintel" label="P24 clear threshold 2.8m" path="P24-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P25-lintel" label="P25 clear threshold 2.8m" path="P25-lintel-axis" thickness=".36" height="0.40000000000000036" material="concrete" group="lower" />
+    <wall id="P26-lintel" label="P26 clear threshold 2.8m" path="P26-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P27-lintel" label="P27 clear threshold 2.8m" path="P27-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P28-lintel" label="P28 clear threshold 2.8m" path="P28-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P29-lintel" label="P29 clear threshold 2.8m" path="P29-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P30-lintel" label="P30 clear threshold 2.8m" path="P30-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P31-lintel" label="P31 clear threshold 2.8m" path="P31-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P32-lintel" label="P32 clear threshold 2.8m" path="P32-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P33-lintel" label="P33 clear threshold 2.8m" path="P33-lintel-axis" thickness=".36" height="0.8500000000000001" material="concrete" group="lower" />
+    <wall id="P34-lintel" label="P34 clear threshold 2.8m" path="P34-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P35-lintel" label="P35 clear threshold 2.8m" path="P35-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P36-lintel" label="P36 clear threshold 2.8m" path="P36-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <wall id="P37-lintel" label="P37 clear threshold 2.8m" path="P37-lintel-axis" thickness=".36" height="3.6000000000000005" material="concrete" group="lower" />
+    <box id="IT-S1" label="Intake dogleg" position="42 20 0" width="4" depth="6" height="3.2" material="metal" group="equipment" />
+    <box id="SV-L1" label="Service preparation" position="18 24 0" width="5" depth="1.2" height="1.25" material="low" group="equipment" />
+    <box id="RM-L1" label="Rim refuge" position="5 52 4" width="3" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="AA-L1" label="A airlock preparation" position="18 55 4" width="2" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="OP-S1" label="Spectrometer screen" position="31 53 4" width="2" depth="3" height="2.8" material="metal" group="equipment" />
+    <box id="OP-L1" label="Optics duck refuge" position="38 55 4" width="2" depth="2" height="1.25" material="low" group="equipment" />
+    <assembly id="A-TEL" label="Azimuth telescope and pier" coincident-material="retained-face">
+      <cylinder id="A-TEL-pier" position="26 75 4" radius="2.7" height="2.4" segments="24" material="white" group="telescope" />
+      <box id="A-TEL-yoke" position="24.3 73.3 6.4" width="3.4" depth="3.4" height="1.6" material="amber" group="telescope" />
+      <cylinder id="A-TEL-tube" position="26 75 7.4" rotation="0 32 0" radius="1.7" height="5.3" segments="24" material="white" group="telescope" />
+      <cylinder id="A-TEL-lens" position="28.8 75 11.9" rotation="0 32 0" radius="1.5" height=".08" segments="24" material="blue" group="telescope" />
+    </assembly>
+    <box id="A-L1" label="West instrument bench" position="15 73 4" width="5" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="A-L2" label="Rear service bench" position="30 83 4" width="4" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="A-L3" label="Front bench" position="25 65 4" width="3" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="A-S1" label="Electronics rack" position="36 74 4" width="3" depth="2" height="2.6" material="metal" group="equipment" />
+    <box id="MD-S1" label="Calibration screen" position="47 38 0" width="3" depth="6" height="3.2" material="metal" group="equipment" />
+    <box id="MD-L1" label="Mid repositioning" position="40 39 0" width="4" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="CL-S1" label="Cleanroom instrument island" position="68 33 0" width="2" depth="7" height="2.8" material="metal" group="equipment" />
+    <box id="CL-L1" label="B approach prep" position="73 44 0" width="3" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="EQ-S1" label="Shipping instruments" position="68 17 0" width="5" depth="3" height="2.8" material="metal" group="equipment" />
+    <box id="SN-L1" label="Snow crossing 1" position="85 25 0" width="5" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="SN-L2" label="Snow crossing 2" position="94 32 0" width="3" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="BA-L1" label="B airlock preparation" position="79 44 0" width="3" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="B-CRYO" label="Cryogenic chamber" position="88 54 0" width="4" depth="6" height="3.2" material="blue" group="equipment" />
+    <box id="B-L1" label="West site refuge" position="81 61 0" width="3" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="B-L2" label="Front site refuge" position="96 48 0" width="4" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="B-L3" label="Rear site refuge" position="96 63 0" width="3" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="DA-S1" label="Server spine" position="64 56 0" width="3" depth="5" height="3" material="metal" group="equipment" />
+    <box id="DA-L1" label="Data support bench" position="71 62 0" width="4" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="TR-S1" label="Transit offset baffle" position="46 64 0" width="4" depth="4" height="2.8" material="metal" group="equipment" />
+    <box id="TR-L1" label="Underpass preparation" position="53 73 0" width="3" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="AR-L1" label="Archive refuge" position="60 70 0" width="4" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="SK-L1" label="Bridge refuge 1" position="49 78.18 4" width="3" depth="1.5" height="1.25" material="low" group="equipment" />
+    <box id="SK-L2" label="Bridge refuge 2" position="57 82.32 4" width="3" depth="1.5" height="1.25" material="low" group="equipment" />
+    <box id="AC-S1" label="Control partition" position="33 95 4" width="2" depth="4" height="3.2" material="metal" group="equipment" />
+    <box id="CT-S1" label="Spawn sight screen" position="55 92 4" width="4" depth="3" height="3.2" material="metal" group="equipment" />
+    <box id="BC-L1" label="B control refuge" position="86 74 0" width="4" depth="2" height="1.25" material="low" group="equipment" />
+    <box id="DC-S1" label="Decon machinery" position="96 77 0" width="3" depth="4" height="2.8" material="metal" group="equipment" />
+  </assembly>
+  <path id="S-RIM-axis" points="13 32 0; 13 48 4" />
+  <path id="S-OPT-axis" points="35 36 0; 35 48 4" />
+  <path id="S-CT-axis" points="71.15 74 0; 71.15 90 4" />
+  <profile id="plan-01" points="38 0; 62 0; 62 14; 38 14" />
+  <profile id="plan-02" points="30 10; 38 10; 38 22; 30 22" />
+  <profile id="plan-03" points="10 16; 30 16; 30 32; 10 32" />
+  <profile id="plan-05" points="4 48; 16 48; 16 60; 4 60" />
+  <profile id="plan-06" points="16 48; 26 48; 26 60; 16 60" />
+  <profile id="plan-07" points="26 48; 38 48; 38 50; 42 50; 42 60; 26 60" />
+  <profile id="plan-08" points="10 70; 20 60; 32 60; 42 70; 42 82; 32 92; 20 92; 10 82" />
+  <profile id="plan-09" points="20 92; 44 92; 44 102; 20 102" />
+  <profile id="plan-10" points="44 90; 82 90; 82 102; 44 102" />
+  <profile id="plan-11" points="60 84; 68 84; 68 90; 60 90" />
+  <profile id="plan-12" points="42 78; 68 78; 68 84; 42 84" />
+  <profile id="plan-13" points="38 14; 52 14; 52 32; 38 32" />
+  <profile id="plan-14" points="38 32; 62 32; 62 50; 38 50" />
+  <profile id="plan-15" points="32 32; 38 32; 38 36; 32 36" />
+  <profile id="plan-16" points="62 10; 80 10; 80 26; 62 26" />
+  <profile id="plan-17" points="80 18; 100 18; 100 38; 80 38" />
+  <profile id="plan-18" points="62 26; 78 26; 78 50; 62 50" />
+  <profile id="plan-19" points="78 38; 90 38; 90 48; 78 48" />
+  <profile id="plan-20" points="78 48; 90 48; 90 42; 104 42; 104 68; 78 68" />
+  <profile id="plan-21" points="46 50; 58 50; 58 84; 46 84" />
+  <profile id="plan-22" points="58 50; 78 50; 78 68; 58 68" />
+  <profile id="plan-23" points="58 68; 78 68; 78 74; 68 74; 68 84; 58 84" />
+  <profile id="plan-24" points="78 68; 92 68; 92 80; 78 80" />
+  <profile id="plan-26" points="92 68; 104 68; 104 88; 92 88" />
+  <path id="wall-000-axis" points="38 0 0; 42 0 0" />
+  <path id="wall-001-axis" points="42 0 0; 60 0 0" />
+  <path id="wall-002-axis" points="60 0 0; 62 0 0" />
+  <path id="wall-003-axis" points="62 0 0; 62 10 0" />
+  <path id="wall-004-axis" points="62 14 0; 60 14 0" />
+  <path id="wall-005-axis" points="60 14 0; 52 14 0" />
+  <path id="wall-006-axis" points="52 14 0; 49 14 0" />
+  <path id="wall-007-axis" points="44 14 0; 42 14 0" />
+  <path id="wall-008-axis" points="42 14 0; 38 14 0" />
+  <path id="wall-009-axis" points="38 10 0; 38 0 0" />
+  <path id="wall-010-axis" points="30 10 0; 38 10 0" />
+  <path id="wall-011-axis" points="38 14 0; 38 17 0" />
+  <path id="wall-012-axis" points="38 21 0; 38 22 0" />
+  <path id="wall-013-axis" points="38 22 0; 30 22 0" />
+  <path id="wall-014-axis" points="30 22 0; 30 21 0" />
+  <path id="wall-015-axis" points="30 17 0; 30 16 0" />
+  <path id="wall-016-axis" points="30 16 0; 30 10 0" />
+  <path id="wall-017-axis" points="10 16 0; 30 16 0" />
+  <path id="wall-018-axis" points="30 22 0; 30 32 0" />
+  <path id="wall-019-axis" points="30 32 0; 15 32 0" />
+  <path id="wall-020-axis" points="11 32 0; 10 32 0" />
+  <path id="wall-021-axis" points="10 32 0; 10 16 0" />
+  <path id="wall-022-axis" points="4 48 4; 11 48 4" />
+  <path id="wall-023-axis" points="15 48 4; 16 48 4" />
+  <path id="wall-024-axis" points="16 51 4; 16 48 4" />
+  <path id="wall-025-axis" points="16 60 4; 16 55 4" />
+  <path id="wall-026-axis" points="16 60 4; 4 60 4" />
+  <path id="wall-027-axis" points="4 60 4; 4 48 4" />
+  <path id="wall-028-axis" points="16 48 4; 26 48 4" />
+  <path id="wall-029-axis" points="26 48 4; 26 50 4" />
+  <path id="wall-030-axis" points="26 54 4; 26 60 4" />
+  <path id="wall-031-axis" points="25 60 4; 26 60 4" />
+  <path id="wall-032-axis" points="20 60 4; 21 60 4" />
+  <path id="wall-033-axis" points="20 60 4; 16 60 4" />
+  <path id="wall-034-axis" points="26 48 4; 33 48 4" />
+  <path id="wall-035-axis" points="37 48 4; 38 48 4" />
+  <path id="wall-036-axis" points="38 48 4; 38 50 4" />
+  <path id="wall-037-axis" points="38 50 4; 42 50 4" />
+  <path id="wall-038-axis" points="42 50 4; 42 60 4" />
+  <path id="wall-039-axis" points="42 60 4; 32 60 4" />
+  <path id="wall-040-axis" points="26 60 4; 28 60 4" />
+  <path id="wall-041-axis" points="10 70 4; 20 60 4" />
+  <path id="wall-042-axis" points="32 60 4; 42 70 4" />
+  <path id="wall-043-axis" points="42 70 4; 42 78 4" />
+  <path id="wall-044-axis" points="42 82 4; 40 84 4" />
+  <path id="wall-045-axis" points="40 84 4; 32 92 4" />
+  <path id="wall-046-axis" points="32 92 4; 28 92 4" />
+  <path id="wall-047-axis" points="24 92 4; 20 92 4" />
+  <path id="wall-048-axis" points="20 92 4; 12 84 4" />
+  <path id="wall-049-axis" points="12 84 4; 10 82 4" />
+  <path id="wall-050-axis" points="10 82 4; 10 78 4" />
+  <path id="wall-051-axis" points="10 78 4; 10 70 4" />
+  <path id="wall-052-axis" points="32 92 4; 42 92 4" />
+  <path id="wall-053-axis" points="42 92 4; 44 92 4" />
+  <path id="wall-054-axis" points="44 92 4; 44 94 4" />
+  <path id="wall-055-axis" points="44 99 4; 44 102 4" />
+  <path id="wall-056-axis" points="44 102 4; 42 102 4" />
+  <path id="wall-057-axis" points="42 102 4; 20 102 4" />
+  <path id="wall-058-axis" points="20 102 4; 20 92 4" />
+  <path id="wall-059-axis" points="44 90 4; 60 90 4" />
+  <path id="wall-060-axis" points="60 90 4; 62 90 4" />
+  <path id="wall-061-axis" points="67 90 4; 68 90 4" />
+  <path id="wall-062-axis" points="68 90 4; 69 90 4" />
+  <path id="wall-063-axis" points="73 90 4; 82 90 4" />
+  <path id="wall-064-axis" points="82 90 4; 82 102 4" />
+  <path id="wall-065-axis" points="82 102 4; 68 102 4" />
+  <path id="wall-066-axis" points="68 102 4; 60 102 4" />
+  <path id="wall-067-axis" points="60 102 4; 44 102 4" />
+  <path id="wall-068-axis" points="44 92 4; 44 90 4" />
+  <path id="wall-069-axis" points="60 84 4; 62 84 4" />
+  <path id="wall-070-axis" points="67 84 4; 68 84 4" />
+  <path id="wall-071-axis" points="68 84 4; 68 90 4" />
+  <path id="wall-072-axis" points="60 90 4; 60 84 4" />
+  <path id="wall-073-axis" points="42 78 4; 60 78 4" />
+  <path id="wall-074-axis" points="60 78 4; 68 78 4" />
+  <path id="wall-075-axis" points="68 78 4; 68 84 4" />
+  <path id="wall-076-axis" points="60 84 4; 42 84 4" />
+  <path id="wall-077-axis" points="42 84 4; 42 82 4" />
+  <path id="wall-078-axis" points="52 14 0; 52 32 0" />
+  <path id="wall-079-axis" points="44 32 0; 52 32 0" />
+  <path id="wall-080-axis" points="38 32 0; 40 32 0" />
+  <path id="wall-081-axis" points="38 32 0; 38 22 0" />
+  <path id="wall-082-axis" points="52 32 0; 60 32 0" />
+  <path id="wall-083-axis" points="60 32 0; 62 32 0" />
+  <path id="wall-084-axis" points="62 32 0; 62 33 0" />
+  <path id="wall-085-axis" points="62 37 0; 62 50 0" />
+  <path id="wall-086-axis" points="62 50 0; 60 50 0" />
+  <path id="wall-087-axis" points="60 50 0; 58 50 0" />
+  <path id="wall-088-axis" points="58 50 0; 53 50 0" />
+  <path id="wall-089-axis" points="48 50 0; 46 50 0" />
+  <path id="wall-090-axis" points="46 50 0; 42 50 0" />
+  <path id="wall-091-axis" points="42 50 0; 38 50 0" />
+  <path id="wall-092-axis" points="38 50 0; 38 36 0" />
+  <path id="wall-093-axis" points="32 32 0; 38 32 0" />
+  <path id="wall-094-axis" points="32 36 0; 32 32 0" />
+  <path id="wall-095-axis" points="62 10 0; 68 10 0" />
+  <path id="wall-096-axis" points="68 10 0; 80 10 0" />
+  <path id="wall-097-axis" points="80 10 0; 80 18 0" />
+  <path id="wall-098-axis" points="80 18 0; 80 20 0" />
+  <path id="wall-099-axis" points="80 24 0; 80 26 0" />
+  <path id="wall-100-axis" points="80 26 0; 78 26 0" />
+  <path id="wall-101-axis" points="78 26 0; 72 26 0" />
+  <path id="wall-102-axis" points="67 26 0; 62 26 0" />
+  <path id="wall-103-axis" points="62 26 0; 62 14 0" />
+  <path id="wall-104-axis" points="80 18 0; 100 18 0" />
+  <path id="wall-105-axis" points="100 18 0; 100 38 0" />
+  <path id="wall-106-axis" points="100 38 0; 90 38 0" />
+  <path id="wall-107-axis" points="88 38 0; 90 38 0" />
+  <path id="wall-108-axis" points="80 38 0; 84 38 0" />
+  <path id="wall-109-axis" points="80 38 0; 80 26 0" />
+  <path id="wall-110-axis" points="78 26 0; 78 38 0" />
+  <path id="wall-111-axis" points="78 38 0; 78 39 0" />
+  <path id="wall-112-axis" points="78 43 0; 78 48 0" />
+  <path id="wall-113-axis" points="78 48 0; 78 50 0" />
+  <path id="wall-114-axis" points="78 50 0; 71 50 0" />
+  <path id="wall-115-axis" points="65 50 0; 62 50 0" />
+  <path id="wall-116-axis" points="62 32 0; 62 26 0" />
+  <path id="wall-117-axis" points="78 38 0; 80 38 0" />
+  <path id="wall-118-axis" points="90 38 0; 90 42 0" />
+  <path id="wall-119-axis" points="90 42 0; 90 48 0" />
+  <path id="wall-120-axis" points="90 48 0; 87 48 0" />
+  <path id="wall-121-axis" points="82 48 0; 78 48 0" />
+  <path id="wall-122-axis" points="90 42 0; 104 42 0" />
+  <path id="wall-123-axis" points="104 42 0; 104 68 0" />
+  <path id="wall-124-axis" points="104 68 0; 101 68 0" />
+  <path id="wall-125-axis" points="96 68 0; 92 68 0" />
+  <path id="wall-126-axis" points="92 68 0; 85 68 0" />
+  <path id="wall-127-axis" points="80 68 0; 78 68 0" />
+  <path id="wall-128-axis" points="78 68 0; 78 59 0" />
+  <path id="wall-129-axis" points="78 54 0; 78 50 0" />
+  <path id="wall-130-axis" points="58 50 0; 58 54 0" />
+  <path id="wall-131-axis" points="58 59 0; 58 68 0" />
+  <path id="wall-132-axis" points="58 68 0; 58 78 0" />
+  <path id="wall-133-axis" points="58 82 0; 58 84 0" />
+  <path id="wall-134-axis" points="58 84 0; 46 84 0" />
+  <path id="wall-135-axis" points="46 84 0; 46 78 0" />
+  <path id="wall-136-axis" points="46 78 0; 46 50 0" />
+  <path id="wall-137-axis" points="78 68 0; 69 68 0" />
+  <path id="wall-138-axis" points="64 68 0; 60 68 0" />
+  <path id="wall-139-axis" points="60 68 0; 58 68 0" />
+  <path id="wall-140-axis" points="78 68 0; 78 69 0" />
+  <path id="wall-141-axis" points="78 73 0; 78 74 0" />
+  <path id="wall-142-axis" points="78 74 0; 73 74 0" />
+  <path id="wall-143-axis" points="69 74 0; 68 74 0" />
+  <path id="wall-144-axis" points="68 74 0; 68 78 0" />
+  <path id="wall-145-axis" points="68 78 0; 68 84 0" />
+  <path id="wall-146-axis" points="68 84 0; 60 84 0" />
+  <path id="wall-147-axis" points="60 84 0; 58 84 0" />
+  <path id="wall-148-axis" points="92 68 0; 92 71 0" />
+  <path id="wall-149-axis" points="92 75 0; 92 78 0" />
+  <path id="wall-150-axis" points="92 78 0; 92 80 0" />
+  <path id="wall-151-axis" points="92 80 0; 78 80 0" />
+  <path id="wall-152-axis" points="78 80 0; 78 78 0" />
+  <path id="wall-153-axis" points="78 78 0; 78 74 0" />
+  <path id="wall-154-axis" points="104 68 0; 104 78 0" />
+  <path id="wall-155-axis" points="104 78 0; 104 84 0" />
+  <path id="wall-156-axis" points="104 84 0; 104 88 0" />
+  <path id="wall-157-axis" points="104 88 0; 92 88 0" />
+  <path id="wall-158-axis" points="92 88 0; 92 84 0" />
+  <path id="wall-159-axis" points="92 84 0; 92 80 0" />
+  <path id="P01-lintel-axis" points="38 10 2.8; 38 14 2.8" />
+  <path id="P02-lintel-axis" points="44 14 2.8; 49 14 2.8" />
+  <path id="P03-lintel-axis" points="62 10 2.8; 62 14 2.8" />
+  <path id="P04-lintel-axis" points="30 17 2.8; 30 21 2.8" />
+  <path id="P05-lintel-axis" points="38 17 2.8; 38 21 2.8" />
+  <path id="P06-lintel-axis" points="11 32 2.8; 15 32 2.8" />
+  <path id="P07-lintel-axis" points="11 48 6.8; 15 48 6.8" />
+  <path id="P08-lintel-axis" points="16 51 6.8; 16 55 6.8" />
+  <path id="P09-lintel-axis" points="26 50 6.8; 26 54 6.8" />
+  <path id="P10-lintel-axis" points="21 60 6.8; 25 60 6.8" />
+  <path id="P11-lintel-axis" points="28 60 6.8; 32 60 6.8" />
+  <path id="P12-lintel-axis" points="33 48 6.8; 37 48 6.8" />
+  <path id="P13-lintel-axis" points="24 92 6.8; 28 92 6.8" />
+  <path id="P15-lintel-axis" points="44 94 6.8; 44 99 6.8" />
+  <path id="P16-lintel-axis" points="62 90 6.8; 67 90 6.8" />
+  <path id="P17-lintel-axis" points="69 90 6.8; 73 90 6.8" />
+  <path id="P19-lintel-axis" points="40 32 2.8; 44 32 2.8" />
+  <path id="P20-lintel-axis" points="38 32 2.8; 38 36 2.8" />
+  <path id="P21-lintel-axis" points="62 33 2.8; 62 37 2.8" />
+  <path id="P22-lintel-axis" points="48 50 2.8; 53 50 2.8" />
+  <path id="P23-lintel-axis" points="80 20 2.8; 80 24 2.8" />
+  <path id="P24-lintel-axis" points="67 26 2.8; 72 26 2.8" />
+  <path id="P25-lintel-axis" points="84 38 2.8; 88 38 2.8" />
+  <path id="P26-lintel-axis" points="78 39 2.8; 78 43 2.8" />
+  <path id="P27-lintel-axis" points="65 50 2.8; 71 50 2.8" />
+  <path id="P28-lintel-axis" points="82 48 2.8; 87 48 2.8" />
+  <path id="P29-lintel-axis" points="78 54 2.8; 78 59 2.8" />
+  <path id="P30-lintel-axis" points="80 68 2.8; 85 68 2.8" />
+  <path id="P31-lintel-axis" points="96 68 2.8; 101 68 2.8" />
+  <path id="P32-lintel-axis" points="58 54 2.8; 58 59 2.8" />
+  <path id="P33-lintel-axis" points="58 78 2.8; 58 82 2.8" />
+  <path id="P34-lintel-axis" points="64 68 2.8; 69 68 2.8" />
+  <path id="P35-lintel-axis" points="78 69 2.8; 78 73 2.8" />
+  <path id="P36-lintel-axis" points="69 74 2.8; 73 74 2.8" />
+  <path id="P37-lintel-axis" points="92 71 2.8; 92 75 2.8" />
+  <path id="P01-axis" points="38 10 0; 38 14 0" />
+  <connection id="P01" from="floor-01" to="floor-02" path="P01-axis" />
+  <path id="P02-axis" points="44 14 0; 49 14 0" />
+  <connection id="P02" from="floor-01" to="floor-13" path="P02-axis" />
+  <path id="P03-axis" points="62 10 0; 62 14 0" />
+  <connection id="P03" from="floor-01" to="floor-16" path="P03-axis" />
+  <path id="P04-axis" points="30 17 0; 30 21 0" />
+  <connection id="P04" from="floor-02" to="floor-03" path="P04-axis" />
+  <path id="P05-axis" points="38 17 0; 38 21 0" />
+  <connection id="P05" from="floor-02" to="floor-13" path="P05-axis" />
+  <path id="P06-axis" points="11 32 0; 15 32 0" />
+  <connection id="P06" from="floor-03" to="S-RIM" path="P06-axis" />
+  <path id="P07-axis" points="11 48 4; 15 48 4" />
+  <connection id="P07" from="S-RIM" to="floor-05" path="P07-axis" />
+  <path id="P08-axis" points="16 51 4; 16 55 4" />
+  <connection id="P08" from="floor-05" to="floor-06" path="P08-axis" />
+  <path id="P09-axis" points="26 50 4; 26 54 4" />
+  <connection id="P09" from="floor-06" to="floor-07" path="P09-axis" />
+  <path id="P10-axis" points="21 60 4; 25 60 4" />
+  <connection id="P10" from="floor-06" to="floor-08" path="P10-axis" />
+  <path id="P11-axis" points="28 60 4; 32 60 4" />
+  <connection id="P11" from="floor-07" to="floor-08" path="P11-axis" />
+  <path id="P12-axis" points="33 48 4; 37 48 4" />
+  <connection id="P12" from="floor-07" to="S-OPT" path="P12-axis" />
+  <path id="P13-axis" points="24 92 4; 28 92 4" />
+  <connection id="P13" from="floor-08" to="floor-09" path="P13-axis" />
+  <path id="P14-axis" points="42 78 4; 42 82 4" />
+  <connection id="P14" from="floor-08" to="floor-12" path="P14-axis" />
+  <path id="P15-axis" points="44 94 4; 44 99 4" />
+  <connection id="P15" from="floor-09" to="floor-10" path="P15-axis" />
+  <path id="P16-axis" points="62 90 4; 67 90 4" />
+  <connection id="P16" from="floor-10" to="floor-11" path="P16-axis" />
+  <path id="P17-axis" points="69 90 4; 73 90 4" />
+  <connection id="P17" from="floor-10" to="S-CT" path="P17-axis" />
+  <path id="P18-axis" points="62 84 4; 67 84 4" />
+  <connection id="P18" from="floor-11" to="floor-12" path="P18-axis" />
+  <path id="P19-axis" points="40 32 0; 44 32 0" />
+  <connection id="P19" from="floor-13" to="floor-14" path="P19-axis" />
+  <path id="P20-axis" points="38 32 0; 38 36 0" />
+  <connection id="P20" from="floor-14" to="floor-15" path="P20-axis" />
+  <path id="P21-axis" points="62 33 0; 62 37 0" />
+  <connection id="P21" from="floor-14" to="floor-18" path="P21-axis" />
+  <path id="P22-axis" points="48 50 0; 53 50 0" />
+  <connection id="P22" from="floor-14" to="floor-21" path="P22-axis" />
+  <path id="P23-axis" points="80 20 0; 80 24 0" />
+  <connection id="P23" from="floor-16" to="floor-17" path="P23-axis" />
+  <path id="P24-axis" points="67 26 0; 72 26 0" />
+  <connection id="P24" from="floor-16" to="floor-18" path="P24-axis" />
+  <path id="P25-axis" points="84 38 0; 88 38 0" />
+  <connection id="P25" from="floor-17" to="floor-19" path="P25-axis" />
+  <path id="P26-axis" points="78 39 0; 78 43 0" />
+  <connection id="P26" from="floor-18" to="floor-19" path="P26-axis" />
+  <path id="P27-axis" points="65 50 0; 71 50 0" />
+  <connection id="P27" from="floor-18" to="floor-22" path="P27-axis" />
+  <path id="P28-axis" points="82 48 0; 87 48 0" />
+  <connection id="P28" from="floor-19" to="floor-20" path="P28-axis" />
+  <path id="P29-axis" points="78 54 0; 78 59 0" />
+  <connection id="P29" from="floor-20" to="floor-22" path="P29-axis" />
+  <path id="P30-axis" points="80 68 0; 85 68 0" />
+  <connection id="P30" from="floor-20" to="floor-24" path="P30-axis" />
+  <path id="P31-axis" points="96 68 0; 101 68 0" />
+  <connection id="P31" from="floor-20" to="floor-26" path="P31-axis" />
+  <path id="P32-axis" points="58 54 0; 58 59 0" />
+  <connection id="P32" from="floor-21" to="floor-22" path="P32-axis" />
+  <path id="P33-axis" points="58 78 0; 58 82 0" />
+  <connection id="P33" from="floor-21" to="floor-23" path="P33-axis" />
+  <path id="P34-axis" points="64 68 0; 69 68 0" />
+  <connection id="P34" from="floor-22" to="floor-23" path="P34-axis" />
+  <path id="P35-axis" points="78 69 0; 78 73 0" />
+  <connection id="P35" from="floor-23" to="floor-24" path="P35-axis" />
+  <path id="P36-axis" points="69 74 0; 73 74 0" />
+  <connection id="P36" from="floor-23" to="S-CT" path="P36-axis" />
+  <path id="P37-axis" points="92 71 0; 92 75 0" />
+  <connection id="P37" from="floor-24" to="floor-26" path="P37-axis" />
+  <path id="P-OPT-start-axis" points="33 36 0; 37 36 0" />
+  <connection id="P-OPT-start" from="floor-15" to="S-OPT" path="P-OPT-start-axis" />
+  <profile id="site-A-area" points="31 77; 36 77; 36 82; 31 82" />
+  <face-material id="site-A-paint" host="floor-08" face="top" profile="site-A-area" material="amber" />
+  <profile id="site-B-area" points="96 55; 102 55; 102 60; 96 60" />
+  <face-material id="site-B-paint" host="floor-20" face="top" profile="site-B-area" material="blue" />
+  <assembly id="scenic-mountain" label="Inaccessible snow and rock scenery" collidable="false" coincident-material="retained-face">
+    <faceted-solid id="mountain-mass" points="-4 44 -0.36; 5 11 -0.36; 30 -7 -0.36; 66 -7 -0.36; 108 13 -0.36; 114 70 -0.36; 91 109 -0.36; 17 111 -0.36; -5 84 -0.36; -20 40 -27; -10 -2 -30; 24 -23 -33; 76 -19 -27; 124 5 -30; 132 81 -33; 99 126 -27; 7 128 -30; -23 91 -33" triangles="0 1 2; 9 11 10; 0 2 3; 9 12 11; 0 3 4; 9 13 12; 0 4 5; 9 14 13; 0 5 6; 9 15 14; 0 6 7; 9 16 15; 0 7 8; 9 17 16; 0 9 10; 0 10 1; 1 10 11; 1 11 2; 2 11 12; 2 12 3; 3 12 13; 3 13 4; 4 13 14; 4 14 5; 5 14 15; 5 15 6; 6 15 16; 6 16 7; 7 16 17; 7 17 8; 8 17 9; 8 9 0" material="rock" group="scenery" />
+    <slab id="snow-shelf" profile="snow-table" elevation="-.355" thickness=".16" material="snow" group="scenery" />
+    <extrusion id="summit-foundation-5" profile="podium-plan-5" position="0 0 -.35" distance="4" material="rock-dark" group="scenery" />
+    <extrusion id="summit-foundation-6" profile="podium-plan-6" position="0 0 -.35" distance="4" material="rock-dark" group="scenery" />
+    <extrusion id="summit-foundation-7" profile="podium-plan-7" position="0 0 -.35" distance="4" material="rock-dark" group="scenery" />
+    <extrusion id="summit-foundation-8" profile="podium-plan-8" position="0 0 -.35" distance="4" material="rock-dark" group="scenery" />
+    <extrusion id="summit-foundation-9" profile="podium-plan-9" position="0 0 -.35" distance="4" material="rock-dark" group="scenery" />
+    <extrusion id="summit-foundation-10" profile="podium-plan-10" position="0 0 -.35" distance="4" material="rock-dark" group="scenery" />
+    <sweep id="dome-rib-0" profile="dome-rib-profile-0" path="dome-rib-axis-0" material="white" group="dome" />
+    <sweep id="dome-rib-1" profile="dome-rib-profile-1" path="dome-rib-axis-1" material="white" group="dome" />
+    <sweep id="dome-rib-2" profile="dome-rib-profile-2" path="dome-rib-axis-2" material="white" group="dome" />
+    <sweep id="dome-rib-3" profile="dome-rib-profile-3" path="dome-rib-axis-3" material="white" group="dome" />
+    <sweep id="dome-rib-4" profile="dome-rib-profile-4" path="dome-rib-axis-4" material="white" group="dome" />
+    <box id="roof-band-0" position="62 26 6.4" width="3" depth="24" height=".35" material="snow" group="roof-detail" />
+    <box id="roof-band-1" position="75 26 6.4" width="3" depth="24" height=".35" material="snow" group="roof-detail" />
+    <box id="roof-band-2" position="90 42 6.4" width="14" depth="3" height=".35" material="snow" group="roof-detail" />
+    <box id="roof-band-3" position="101 45 6.4" width="3" depth="23" height=".35" material="snow" group="roof-detail" />
+    <box id="roof-band-4" position="44 99 7.2" width="38" depth="3" height=".35" material="snow" group="roof-detail" />
+    <box id="roof-band-5" position="20 99 7.2" width="24" depth="3" height=".35" material="snow" group="roof-detail" />
+    <box id="solar-0" position="91.0 43 6.8" width="2.2" depth="4" height=".18" rotation="12 0 0" material="blue" group="roof-detail" />
+    <box id="solar-1" position="93.6 43 6.8" width="2.2" depth="4" height=".18" rotation="12 0 0" material="blue" group="roof-detail" />
+    <box id="solar-2" position="96.2 43 6.8" width="2.2" depth="4" height=".18" rotation="12 0 0" material="blue" group="roof-detail" />
+    <box id="solar-3" position="98.8 43 6.8" width="2.2" depth="4" height=".18" rotation="12 0 0" material="blue" group="roof-detail" />
+    <box id="arrival-canopy" position="38 -1 5" width="24" depth="7" height=".45" material="concrete" group="cable-station" />
+    <box id="canopy-pier-39" position="39 0 0" width=".5" depth=".5" height="5" material="metal" group="cable-station" />
+    <box id="canopy-pier-61" position="61 0 0" width=".5" depth=".5" height="5" material="metal" group="cable-station" />
+    <box id="gondola" position="46 -12 -1" width="6" depth="4" height="3.4" material="red" group="cable-station" />
+    <box id="gondola-windows" position="45.9 -12.1 .4" width="6.2" depth="4.2" height="1.5" material="blue" group="cable-station" />
+    <sweep id="cable-0" profile="cable-profile-0" path="cable-axis-0" material="ink" group="cable-station" />
+    <sweep id="cable-1" profile="cable-profile-1" path="cable-axis-1" material="ink" group="cable-station" />
+    <cylinder id="cryostat-0" position="89.0 57 3.2" radius=".4" height=".6" segments="12" material="white" group="lab-detail" />
+    <cylinder id="cryostat-1" position="90.1 57 3.2" radius=".4" height=".6" segments="12" material="white" group="lab-detail" />
+    <cylinder id="cryostat-2" position="91.2 57 3.2" radius=".4" height=".6" segments="12" material="white" group="lab-detail" />
+    <cylinder id="antenna-mast" position="80 99 4" radius=".18" height="8.7" segments="8" material="metal" group="roof-detail" />
+    <box id="antenna-panel" position="79.2 98.8 11" width="1.6" depth=".4" height="2" material="white" group="roof-detail" />
+  </assembly>
+  <profile id="snow-table" points="-4 44; 5 11; 30 -7; 66 -7; 108 13; 114 70; 91 109; 17 111; -5 84" />
+  <profile id="podium-plan-5" points="4 48; 16 48; 16 60; 4 60" />
+  <profile id="podium-plan-6" points="16 48; 26 48; 26 60; 16 60" />
+  <profile id="podium-plan-7" points="26 48; 38 48; 38 50; 42 50; 42 60; 26 60" />
+  <profile id="podium-plan-8" points="10 70; 20 60; 32 60; 42 70; 42 82; 32 92; 20 92; 10 82" />
+  <profile id="podium-plan-9" points="20 92; 44 92; 44 102; 20 102" />
+  <profile id="podium-plan-10" points="44 90; 82 90; 82 102; 44 102" />
+  <profile id="dome-rib-profile-0" points="-.15 -.15; .15 -.15; .15 .15; -.15 .15" />
+  <path id="dome-rib-axis-0" points="39.1557 80.7883 8.4; 38.9937 80.7293 9.49504; 38.5118 80.5539 10.5631; 37.7218 80.2664 11.5779; 36.6432 79.8738 12.5145; 35.3025 79.3858 13.3497; 33.7327 78.8145 14.0631; 31.9726 78.1738 14.637; 30.0653 77.4797 15.0574; 28.058 76.7491 15.3138; 26 76 15.4" />
+  <profile id="dome-rib-profile-1" points="-.15 -.15; .15 -.15; .15 .15; -.15 .15" />
+  <path id="dome-rib-axis-1" points="34.0301 87.4681 8.4; 33.9312 87.3269 9.49504; 33.6371 86.9068 10.5631; 33.1548 86.2182 11.5779; 32.4965 85.2779 12.5145; 31.6781 84.1092 13.3497; 30.72 82.7408 14.0631; 29.6456 81.2064 14.637; 28.4814 79.5438 15.0574; 27.2562 77.794 15.3138; 26 76 15.4" />
+  <profile id="dome-rib-profile-2" points="-.15 -.15; .15 -.15; .15 .15; -.15 .15" />
+  <path id="dome-rib-axis-2" points="26 90 8.4; 26 89.8276 9.49504; 26 89.3148 10.5631; 26 88.4741 11.5779; 26 87.3262 12.5145; 26 85.8995 13.3497; 26 84.229 14.0631; 26 82.3559 14.637; 26 80.3262 15.0574; 26 78.1901 15.3138; 26 76 15.4" />
+  <profile id="dome-rib-profile-3" points="-.15 -.15; .15 -.15; .15 .15; -.15 .15" />
+  <path id="dome-rib-axis-3" points="17.9699 87.4681 8.4; 18.0688 87.3269 9.49504; 18.3629 86.9068 10.5631; 18.8452 86.2182 11.5779; 19.5035 85.2779 12.5145; 20.3219 84.1092 13.3497; 21.28 82.7408 14.0631; 22.3544 81.2064 14.637; 23.5186 79.5438 15.0574; 24.7438 77.794 15.3138; 26 76 15.4" />
+  <profile id="dome-rib-profile-4" points="-.15 -.15; .15 -.15; .15 .15; -.15 .15" />
+  <path id="dome-rib-axis-4" points="12.8443 80.7883 8.4; 13.0063 80.7293 9.49504; 13.4882 80.5539 10.5631; 14.2782 80.2664 11.5779; 15.3568 79.8738 12.5145; 16.6975 79.3858 13.3497; 18.2673 78.8145 14.0631; 20.0274 78.1738 14.637; 21.9347 77.4797 15.0574; 23.942 76.7491 15.3138; 26 76 15.4" />
+  <path id="cable-axis-0" points="47 5 7; 47 -24 2" />
+  <profile id="cable-profile-0" points="-.04 -.04; .04 -.04; .04 .04; -.04 .04" />
+  <path id="cable-axis-1" points="51 5 7; 51 -24 2" />
+  <profile id="cable-profile-1" points="-.04 -.04; .04 -.04; .04 .04; -.04 .04" />
+  <player radius=".30" height="2" step=".25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="t-spawn" position="44 5 0" kind="attacker_spawn" element="floor-01" movement="land" group="markers" />
+  <marker id="t-spawn-2" position="48 5 0" kind="attacker_spawn" element="floor-01" movement="land" group="markers" />
+  <marker id="t-spawn-3" position="52 5 0" kind="attacker_spawn" element="floor-01" movement="land" group="markers" />
+  <marker id="t-spawn-4" position="46 9 0" kind="attacker_spawn" element="floor-01" movement="land" group="markers" />
+  <marker id="t-spawn-5" position="52 9 0" kind="attacker_spawn" element="floor-01" movement="land" group="markers" />
+  <marker id="ct-spawn" position="61 97 4" kind="defender_spawn" element="floor-10" movement="land" group="markers" />
+  <marker id="ct-spawn-2" position="65 97 4" kind="defender_spawn" element="floor-10" movement="land" group="markers" />
+  <marker id="ct-spawn-3" position="69 97 4" kind="defender_spawn" element="floor-10" movement="land" group="markers" />
+  <marker id="ct-spawn-4" position="73 97 4" kind="defender_spawn" element="floor-10" movement="land" group="markers" />
+  <marker id="ct-spawn-5" position="77 97 4" kind="defender_spawn" element="floor-10" movement="land" group="markers" />
+  <marker id="site-a" position="33.5 79.5 4" kind="objective" element="floor-08" movement="land" group="markers" />
+  <marker id="site-b" position="99 57.5 0" kind="objective" element="floor-20" movement="land" group="markers" />
+  <marker id="rim-foot" position="13 30 0" kind="poi" element="floor-03" movement="land" group="markers" />
+  <marker id="rim-top" position="13 50 4" kind="poi" element="floor-05" movement="land" group="markers" />
+  <marker id="optics-foot" position="35 34 0" kind="poi" element="floor-15" movement="land" group="markers" />
+  <marker id="optics-top" position="35 50 4" kind="poi" element="floor-07" movement="land" group="markers" />
+  <marker id="ct-foot" position="71 72.5 0" kind="poi" element="floor-23" movement="land" group="markers" />
+  <marker id="ct-top" position="71 92 4" kind="poi" element="floor-10" movement="land" group="markers" />
+  <marker id="bridge-west" position="43.5 81 4" kind="poi" element="floor-12" movement="land" group="markers" />
+  <marker id="bridge-east" position="65.5 81 4" kind="poi" element="floor-12" movement="land" group="markers" />
+  <marker id="under-south" position="52 74 0" kind="poi" element="floor-21" movement="land" group="markers" />
+  <marker id="under-north" position="63 80 0" kind="poi" element="floor-23" movement="land" group="markers" />
+  <marker id="mid" position="43 35 0" kind="poi" element="floor-14" movement="land" group="markers" />
+  <marker id="data" position="72 58 0" kind="poi" element="floor-22" movement="land" group="markers" />
+  <marker id="airlock-a" position="22 57 4" kind="poi" element="floor-06" movement="land" group="markers" />
+  <marker id="airlock-b" position="85 46 0" kind="poi" element="floor-19" movement="land" group="markers" />
+  <route id="T-A" from="t-spawn" to="site-a" max-distance="180" min-routes="1" movement="land" />
+  <route id="T-B" from="t-spawn" to="site-b" max-distance="160" min-routes="1" movement="land" />
+  <route id="CT-A" from="ct-spawn" to="site-a" max-distance="100" min-routes="1" movement="land" />
+  <route id="CT-B" from="ct-spawn" to="site-b" max-distance="130" min-routes="1" movement="land" />
+  <route id="A-B" from="site-a" to="site-b" max-distance="170" min-routes="1" movement="land" />
+  <route id="Rim-climb" from="rim-foot" to="rim-top" max-distance="30" min-routes="1" movement="land" />
+  <route id="Optics-climb" from="optics-foot" to="optics-top" max-distance="30" min-routes="1" movement="land" />
+  <route id="CT-climb" from="ct-foot" to="ct-top" max-distance="32" min-routes="1" movement="land" />
+  <route id="Skybridge" from="bridge-west" to="bridge-east" max-distance="32" min-routes="1" movement="land" />
+  <route id="Underpass" from="under-south" to="under-north" max-distance="28" min-routes="1" movement="land" />
+  <route id="Mid-Data" from="mid" to="data" max-distance="70" min-routes="1" movement="land" />
+  <route id="A-fronts" from="airlock-a" to="optics-top" max-distance="35" min-routes="1" movement="land" />
+  <route id="B-fronts" from="airlock-b" to="data" max-distance="60" min-routes="1" movement="land" />
+  <no-spawn-los markers="t-spawn ct-spawn" />
+  <no-spawn-los markers="t-spawn ct-spawn-2" />
+  <no-spawn-los markers="t-spawn ct-spawn-3" />
+  <no-spawn-los markers="t-spawn ct-spawn-4" />
+  <no-spawn-los markers="t-spawn ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-5" />
+</architecture>

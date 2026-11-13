@@ -1,0 +1,18 @@
+[
+  {
+    "id": "hero",
+    "position": [
+      137,
+      -115,
+      128
+    ],
+    "target": [
+      47,
+      50,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 108,
+    "appearance": "materials"
+  }
+]

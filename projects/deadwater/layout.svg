@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1180"><rect width="1500" height="1180" fill="#102b38"/><style>text{font-family:Arial,sans-serif;fill:#edf2ed}.label{font-size:12px;text-anchor:middle;font-weight:bold}.small{font-size:11px;fill:#bdc9c9}.side{font-size:14px}.id{font-size:9px;fill:#ffda92}</style><text x="60" y="44" font-size="30" font-weight="bold">DEADWATER / layout L05</text><text x="60" y="71" font-size="15">5v5 defusal · meters · north ↑ · origin at southwest · walls shown at body height · independent review packet</text><g transform="translate(80 940) scale(10 -10)">
+<polygon points="4,4 30,4 30,20 4,20" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<polygon points="30,8 48,8 48,22 40,22 40,20 30,20" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<polygon points="48,8 70,8 70,26 58,26 58,30 48,30" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<polygon points="4,20 18,20 18,38 4,38" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<polygon points="18,20 40,20 40,42 28,42 28,38 18,38" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<polygon points="40,22 48,22 48,30 58,30 58,48 42,48 42,42 40,42" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<polygon points="58,26 86,26 86,52 66,52 66,48 58,48" fill="#a06d4b" stroke="#12252c" stroke-width=".3"/>
+<polygon points="4,38 18,38 18,50 4,50" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<polygon points="28,42 40,42 40,58 28,58" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<polygon points="4,50 28,50 28,58 44,58 44,76 4,76" fill="#a06d4b" stroke="#12252c" stroke-width=".3"/>
+<polygon points="44,62 66,62 66,76 44,76" fill="#526f77" stroke="#12252c" stroke-width=".3"/>
+<polygon points="66,62 86,62 86,80 66,80" fill="#526f77" stroke="#12252c" stroke-width=".3"/>
+<polygon points="66,52 86,52 86,62 66,62" fill="#374e59" stroke="#12252c" stroke-width=".3"/>
+<path d="M18 50 L28 50" stroke="#e3a3c4" stroke-width=".65"/>
+<path d="M40 58 L44 58" stroke="#e3a3c4" stroke-width=".65"/>
+<path d="M44 58 L44 62" stroke="#e3a3c4" stroke-width=".65"/>
+<path d="M44 62 L66 62" stroke="#e3a3c4" stroke-width=".65"/>
+<path d="M 7 20 L 13 20" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 30 11 L 30 17" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 18 24 L 18 30" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 32 20 L 37 20" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 48 13 L 48 19" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 43 22 L 47 22" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 40 32 L 40 38" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 58 32 L 58 38" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 64 26 L 69 26" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 7 38 L 13 38" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 7 50 L 13 50" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 30 42 L 37 42" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 32 58 L 38 58" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 44 65 L 44 71" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 66 66 L 66 72" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 72 52 L 78 52" stroke="#e1f7df" stroke-width=".6"/>
+<path d="M 72 62 L 78 62" stroke="#e1f7df" stroke-width=".6"/>
+<rect x="18" y="12" width="10" height="4" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="7" y="26" width="3" height="5" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="22" y="24" width="8" height="4" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="24" y="33" width="7" height="3" fill="#3c6d6e" stroke="#d9b973" stroke-width=".12"/>
+<rect x="51" y="12" width="5" height="11" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="46" y="35" width="6" height="3" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="52" y="42" width="3" height="2" fill="#3c6d6e" stroke="#d9b973" stroke-width=".12"/>
+<rect x="14" y="59" width="6" height="6" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="28" y="67" width="6" height="4" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="9" y="68" width="3" height="2" fill="#3c6d6e" stroke="#d9b973" stroke-width=".12"/>
+<rect x="22" y="54" width="3" height="2" fill="#3c6d6e" stroke="#d9b973" stroke-width=".12"/>
+<rect x="69" y="34" width="4" height="9" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="78" y="34" width="4" height="9" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="61" y="40" width="3" height="3" fill="#3c6d6e" stroke="#d9b973" stroke-width=".12"/>
+<rect x="80" y="47" width="3" height="2" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="50" y="65" width="2" height="8.75" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<rect x="70" y="66" width="3" height="5" fill="#1e3039" stroke="#d9b973" stroke-width=".12"/>
+<path d="M7 40.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 40.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 41.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 41.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 42.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 42.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 43.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 43.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 44.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 44.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 45.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 45.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 46.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 46.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 47.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 47.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M7 48.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M10 40 V48 l-1 -1 M10 48 l1 -1" stroke="#f2bd72" stroke-width=".3" fill="none"/>
+<path d="M31 44.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 44.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 45.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 45.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 46.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 46.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 47.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 47.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 48.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 48.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 49.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 49.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 50.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 50.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 51.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 51.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M31 52.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M34 44 V52 l-1 -1 M34 52 l1 -1" stroke="#f2bd72" stroke-width=".3" fill="none"/>
+<path d="M72 54.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 54.375 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 54.75 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 55.125 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 55.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 55.875 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 56.25 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 56.625 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 57.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 57.375 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 57.75 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 58.125 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 58.5 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 58.875 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 59.25 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 59.625 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M72 60.0 h6" stroke="#d0a76b" stroke-width=".12"/>
+<path d="M75 54 V60 l-1 -1 M75 60 l1 -1" stroke="#f2bd72" stroke-width=".3" fill="none"/>
+<circle cx="12" cy="8" r=".55" fill="#ecad5b"/>
+<circle cx="10" cy="6" r=".55" fill="#ecad5b"/>
+<circle cx="14" cy="6" r=".55" fill="#ecad5b"/>
+<circle cx="10" cy="10" r=".55" fill="#ecad5b"/>
+<circle cx="14" cy="10" r=".55" fill="#ecad5b"/>
+<circle cx="58" cy="72" r=".55" fill="#83d9e2"/>
+<circle cx="55" cy="71" r=".55" fill="#83d9e2"/>
+<circle cx="61" cy="71" r=".55" fill="#83d9e2"/>
+<circle cx="55" cy="74" r=".55" fill="#83d9e2"/>
+<circle cx="61" cy="74" r=".55" fill="#83d9e2"/>
+<rect x="21" y="61" width="6" height="6" fill="none" stroke="#ffdb83" stroke-width=".2" stroke-dasharray=".8 .4"/>
+<rect x="63" y="41" width="6" height="6" fill="none" stroke="#ffdb83" stroke-width=".2" stroke-dasharray=".8 .4"/>
+<path d="M10 48 L21 60" stroke="#a7dfe0" stroke-width=".15" stroke-dasharray=".6 .4"/>
+<path d="M34 55 L24 64" stroke="#a7dfe0" stroke-width=".15" stroke-dasharray=".6 .4"/>
+<path d="M65 28 L74 44" stroke="#a7dfe0" stroke-width=".15" stroke-dasharray=".6 .4"/>
+<path d="M55 35 L66 37" stroke="#a7dfe0" stroke-width=".15" stroke-dasharray=".6 .4"/>
+<path d="M46 68 L52 68" stroke="#a7dfe0" stroke-width=".15" stroke-dasharray=".6 .4"/>
+</g>
+<text class="label" x="250" y="770">T / T · CARGO DOCK</text><text class="small" text-anchor="middle" x="250" y="784">deck 0</text>
+<text class="label" x="470" y="800">F / FREIGHT</text><text class="small" text-anchor="middle" x="470" y="814">deck 0</text>
+<text class="label" x="670" y="770">C / COMPRESSORS</text><text class="small" text-anchor="middle" x="670" y="784">deck 0</text>
+<text class="label" x="190" y="600">W / SEA WALK</text><text class="small" text-anchor="middle" x="190" y="614">deck 0</text>
+<text class="label" x="370" y="550">V / VALVE HALL</text><text class="small" text-anchor="middle" x="370" y="564">deck 0</text>
+<text class="label" x="570" y="480">P / PIPE BEND</text><text class="small" text-anchor="middle" x="570" y="494">deck 0</text>
+<text class="label" x="810" y="640">B / B · SEPARATORS</text><text class="small" text-anchor="middle" x="810" y="654">deck 0</text>
+<text class="label" x="190" y="500">SW / WEST STAIR</text><text class="small" text-anchor="middle" x="190" y="514">deck 0 / stair → +2.4</text>
+<text class="label" x="420" y="460">SA / SHORT STAIR</text><text class="small" text-anchor="middle" x="420" y="474">deck 0 / stair → +2.4</text>
+<text class="label" x="300" y="210">A / A · DRILL FLOOR</text><text class="small" text-anchor="middle" x="300" y="224">+2.4 m</text>
+<text class="label" x="650" y="300">R / CT · MUSTER</text><text class="small" text-anchor="middle" x="650" y="314">+2.4 m</text>
+<text class="label" x="840" y="220">Q / CONTROL</text><text class="small" text-anchor="middle" x="840" y="234">+2.4 m</text>
+<text class="label" x="840" y="370">SB / PROCESS STAIR</text><text class="small" text-anchor="middle" x="840" y="384">deck 0 / stair → +2.4</text>
+<text class="id" text-anchor="middle" x="310.0" y="800.0">T-container</text>
+<text class="id" text-anchor="middle" x="165.0" y="655.0">W-winch</text>
+<text class="id" text-anchor="middle" x="340.0" y="680.0">V-filter</text>
+<text class="id" text-anchor="middle" x="355.0" y="595.0">V-console</text>
+<text class="id" text-anchor="middle" x="615.0" y="765.0">C-compressor</text>
+<text class="id" text-anchor="middle" x="570.0" y="575.0">P-manifold</text>
+<text class="id" text-anchor="middle" x="615.0" y="510.0">P-cart</text>
+<text class="id" text-anchor="middle" x="250.0" y="320.0">A-derrick</text>
+<text class="id" text-anchor="middle" x="390.0" y="250.0">A-toolhouse</text>
+<text class="id" text-anchor="middle" x="185.0" y="250.0">A-cable</text>
+<text class="id" text-anchor="middle" x="315.0" y="390.0">A-reel</text>
+<text class="id" text-anchor="middle" x="790.0" y="555.0">B-tank-1</text>
+<text class="id" text-anchor="middle" x="880.0" y="555.0">B-tank-2</text>
+<text class="id" text-anchor="middle" x="705.0" y="525.0">B-pump</text>
+<text class="id" text-anchor="middle" x="895.0" y="460.0">B-panel</text>
+<text class="id" text-anchor="middle" x="590.0" y="246.25">CT-screen</text>
+<text class="id" text-anchor="middle" x="795.0" y="255.0">Q-lockers</text>
+<text class="id" x="184.0" y="736.0">O01</text>
+<text class="id" x="384.0" y="796.0">O02</text>
+<text class="id" x="264.0" y="666.0">O03</text>
+<text class="id" x="429.0" y="736.0">O04</text>
+<text class="id" x="564.0" y="776.0">O05</text>
+<text class="id" x="534.0" y="716.0">O06</text>
+<text class="id" x="484.0" y="586.0">O07</text>
+<text class="id" x="664.0" y="586.0">O08</text>
+<text class="id" x="749.0" y="676.0">O09</text>
+<text class="id" x="184.0" y="556.0">O10</text>
+<text class="id" x="184.0" y="436.0">O11</text>
+<text class="id" x="419.0" y="516.0">O12</text>
+<text class="id" x="434.0" y="356.0">O13</text>
+<text class="id" x="524.0" y="256.0">O14</text>
+<text class="id" x="744.0" y="246.0">O15</text>
+<text class="id" x="834.0" y="416.0">O16</text>
+<text class="id" x="834.0" y="316.0">O17</text>
+<text class="small" x="80" y="975">0</text>
+<text class="small" x="180" y="975">10</text>
+<text class="small" x="280" y="975">20</text>
+<text class="small" x="380" y="975">30</text>
+<text class="small" x="480" y="975">40</text>
+<text class="small" x="580" y="975">50</text>
+<text class="small" x="680" y="975">60</text>
+<text class="small" x="780" y="975">70</text>
+<text class="small" x="880" y="975">80</text>
+<text class="small" x="980" y="975">90</text>
+<text class="small" x="45" y="940">0</text>
+<text class="small" x="45" y="840">10</text>
+<text class="small" x="45" y="740">20</text>
+<text class="small" x="45" y="640">30</text>
+<text class="small" x="45" y="540">40</text>
+<text class="small" x="45" y="440">50</text>
+<text class="small" x="45" y="340">60</text>
+<text class="small" x="45" y="240">70</text>
+<text class="small" x="45" y="140">80</text>
+<text x="1000" y="132" class="side" font-weight="bold">LEVELS / CONSTRUCTION</text>
+<text x="1000" y="155" class="side" font-weight="normal">Lower deck = 0.00; raised deck = +2.40.</text>
+<text x="1000" y="178" class="side" font-weight="normal">Slabs 0.35 thick; solid steel bulkheads 0.30.</text>
+<text x="1000" y="201" class="side" font-weight="normal">Internal wall tops: +4.60 above local deck.</text>
+<text x="1000" y="224" class="side" font-weight="normal">Sea guards 1.25; pink wind baffles 2.80.</text>
+<text x="1000" y="247" class="side" font-weight="normal">SW: y40→48; SA: y44→52; SB: y54→60.</text>
+<text x="1000" y="270" class="side" font-weight="normal">All stairs: 16 risers × 0.15; width 6.00.</text>
+<text x="1000" y="293" class="side" font-weight="normal">Both ends have ≥2.00 deep landings.</text>
+<text x="1000" y="316" class="side" font-weight="normal"></text>
+<text x="1000" y="339" class="side" font-weight="bold">BODY / VIEW ASSUMPTIONS</text>
+<text x="1000" y="362" class="side" font-weight="normal">Radius 0.30; standing 1.80; crouch 1.10.</text>
+<text x="1000" y="385" class="side" font-weight="normal">Eye = 1.674 standing / 1.023 crouching.</text>
+<text x="1000" y="408" class="side" font-weight="normal">Step 0.25; slope limit 42°; FOV 75° study.</text>
+<text x="1000" y="431" class="side" font-weight="normal">Dashes = predicted view lines, not movement.</text>
+<text x="1000" y="454" class="side" font-weight="normal">Low cover 1.20 hides crouched eye nominally.</text>
+<text x="1000" y="477" class="side" font-weight="normal">Tall masses 2.6–4.0 above supporting deck.</text>
+<text x="1000" y="500" class="side" font-weight="normal"></text>
+<text x="1000" y="523" class="side" font-weight="bold">FOCUSED REVIEW SECTIONS</text>
+<text x="1000" y="546" class="side" font-weight="normal">1 T/F: five spawns, two exits, freight loop.</text>
+<text x="1000" y="569" class="side" font-weight="normal">2 W/V: machinery turns, lateral threshold.</text>
+<text x="1000" y="592" class="side" font-weight="normal">3 SW/SA: ascent, follower, head and foot.</text>
+<text x="1000" y="615" class="side" font-weight="normal">4 A: two attack entries, CT doorway, holds.</text>
+<text x="1000" y="638" class="side" font-weight="normal">5 C/P: outer vs valve route, narrow O06.</text>
+<text x="1000" y="661" class="side" font-weight="normal">6 B: tanks, crossfire, plant and rear stair.</text>
+<text x="1000" y="684" class="side" font-weight="normal">7 SB/Q: reverse ascent, stair head, exit.</text>
+<text x="1000" y="707" class="side" font-weight="normal">8 R: five CT spawns behind CT-screen.</text>
+<text x="1000" y="730" class="side" font-weight="normal"></text>
+<text x="1000" y="753" class="side" font-weight="bold">UNAVAILABLE IN HARNESS</text>
+<text x="1000" y="776" class="side" font-weight="normal">Multiplayer; bullets; utility; sound; round rules.</text>
+<text x="1000" y="799" class="side" font-weight="normal">Geometry checks cannot prove game balance.</text>
+<text x="1000" y="822" class="side" font-weight="normal">See brief.md / inventory.md / design.md.</text>
+<text x="80" y="1020" font-size="16">SECTION / stairs (all rise +2.40)  ·  width 6.00  ·  guards +1.10 following flight  ·  no overhead crossing</text><path d="M100 1110 H200 L440 1050 H540" fill="none" stroke="#e6c089" stroke-width="5"/><path d="M100 1100 H200 L440 1040 H540" fill="none" stroke="#97c7c9" stroke-width="2"/><text x="100" y="1145" class="side">foot landing ≥2 m</text><text x="280" y="1145" class="side">16 × 0.15 m</text><text x="460" y="1080" class="side">head landing ≥2 m</text><text x="740" y="1070" class="side">Ocean / voids stay outside playable circulation.</text><text x="740" y="1100" class="side">Dark: full height occluders. Teal: low cover. White: openings.</text><text x="740" y="1130" class="side">O01–O17 and named objects map to editable AML IDs.</text></svg>

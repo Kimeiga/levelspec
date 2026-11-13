@@ -1,0 +1,3 @@
+# S02 spatial proposal packet (raw)
+
+Drawings: `plan-0.png` (storey 0, z 0–3.4), `plan-1.png` (storey 1, z 3.4–6.8), `section-NS.png`, `section-EW.png`, `section-SS.png`; exact polygons, stairs, apertures and anchors in `layout-data.json`. Meters, +Y north, z up, storey 3.4 m. The city is a solid block; only drawn spaces are open. Dark = solid mass at that storey; hatched = open air above a lower floor; half-levels are at z 1.7. T = attacker spawn (south apron, z 0); CT = defender spawn (north frontage, z 3.4); A and B = bomb sites. Blue dashed = view-only aperture; green = guard; small dark blocks = principal tall masses (provisional). Tower masses above the two carved storeys rise 10–14 storeys and are not drawn.

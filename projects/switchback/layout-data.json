@@ -1,0 +1,683 @@
+{
+  "revision": "L01",
+  "rooms": [
+    {
+      "id": "T",
+      "name": "Freight yard",
+      "bounds": [
+        -8,
+        -6,
+        8,
+        6
+      ],
+      "z": 0
+    },
+    {
+      "id": "W0",
+      "name": "West gate",
+      "bounds": [
+        -32,
+        -5,
+        -20,
+        5
+      ],
+      "z": 0
+    },
+    {
+      "id": "E0",
+      "name": "East gate",
+      "bounds": [
+        20,
+        -5,
+        32,
+        5
+      ],
+      "z": 0
+    },
+    {
+      "id": "W1",
+      "name": "Orchard landing",
+      "bounds": [
+        -32,
+        17,
+        -20,
+        25
+      ],
+      "z": 8
+    },
+    {
+      "id": "M1",
+      "name": "Market",
+      "bounds": [
+        -6,
+        17,
+        6,
+        25
+      ],
+      "z": 8
+    },
+    {
+      "id": "E1",
+      "name": "Cistern",
+      "bounds": [
+        20,
+        17,
+        32,
+        25
+      ],
+      "z": 8
+    },
+    {
+      "id": "AP",
+      "name": "A staging",
+      "bounds": [
+        -32,
+        37,
+        -20,
+        43
+      ],
+      "z": 16
+    },
+    {
+      "id": "MID",
+      "name": "Mid crest",
+      "bounds": [
+        -6,
+        37,
+        6,
+        45
+      ],
+      "z": 16
+    },
+    {
+      "id": "BP",
+      "name": "B staging",
+      "bounds": [
+        20,
+        41,
+        32,
+        47
+      ],
+      "z": 20
+    },
+    {
+      "id": "A",
+      "name": "Reservoir A",
+      "bounds": [
+        -36,
+        47,
+        -16,
+        63
+      ],
+      "z": 16
+    },
+    {
+      "id": "V",
+      "name": "Valve room",
+      "bounds": [
+        -6,
+        51,
+        6,
+        59
+      ],
+      "z": 16
+    },
+    {
+      "id": "B",
+      "name": "Turbine B",
+      "bounds": [
+        16,
+        51,
+        36,
+        67
+      ],
+      "z": 20
+    },
+    {
+      "id": "AW",
+      "name": "West service",
+      "bounds": [
+        -32,
+        75,
+        -20,
+        83
+      ],
+      "z": 24
+    },
+    {
+      "id": "CT",
+      "name": "Service road",
+      "bounds": [
+        -8,
+        75,
+        8,
+        83
+      ],
+      "z": 24
+    },
+    {
+      "id": "BE",
+      "name": "East service",
+      "bounds": [
+        20,
+        75,
+        32,
+        83
+      ],
+      "z": 24
+    }
+  ],
+  "edges": [
+    {
+      "id": "T-west",
+      "a": "T",
+      "b": "W0",
+      "start": [
+        -8,
+        0,
+        0
+      ],
+      "end": [
+        -20,
+        0,
+        0
+      ],
+      "width": 5,
+      "kind": "flat"
+    },
+    {
+      "id": "T-east",
+      "a": "T",
+      "b": "E0",
+      "start": [
+        8,
+        0,
+        0
+      ],
+      "end": [
+        20,
+        0,
+        0
+      ],
+      "width": 5,
+      "kind": "flat"
+    },
+    {
+      "id": "Orchard-low",
+      "a": "W0",
+      "b": "W1",
+      "start": [
+        -28,
+        5,
+        0
+      ],
+      "end": [
+        -28,
+        17,
+        8
+      ],
+      "width": 4.5,
+      "kind": "stairs"
+    },
+    {
+      "id": "Market-low",
+      "a": "T",
+      "b": "M1",
+      "start": [
+        2,
+        6,
+        0
+      ],
+      "end": [
+        2,
+        17,
+        8
+      ],
+      "width": 4.5,
+      "kind": "stairs"
+    },
+    {
+      "id": "Cistern-low",
+      "a": "E0",
+      "b": "E1",
+      "start": [
+        28,
+        5,
+        0
+      ],
+      "end": [
+        28,
+        17,
+        8
+      ],
+      "width": 4.5,
+      "kind": "stairs"
+    },
+    {
+      "id": "Orchard-high",
+      "a": "W1",
+      "b": "AP",
+      "start": [
+        -24,
+        25,
+        8
+      ],
+      "end": [
+        -24,
+        37,
+        16
+      ],
+      "width": 4.5,
+      "kind": "stairs"
+    },
+    {
+      "id": "Market-high",
+      "a": "M1",
+      "b": "MID",
+      "start": [
+        -2,
+        25,
+        8
+      ],
+      "end": [
+        -2,
+        37,
+        16
+      ],
+      "width": 4.5,
+      "kind": "stairs"
+    },
+    {
+      "id": "Cistern-high",
+      "a": "E1",
+      "b": "BP",
+      "start": [
+        24,
+        25,
+        8
+      ],
+      "end": [
+        24,
+        41,
+        20
+      ],
+      "width": 4.5,
+      "kind": "stairs"
+    },
+    {
+      "id": "A-main",
+      "a": "AP",
+      "b": "A",
+      "start": [
+        -28,
+        43,
+        16
+      ],
+      "end": [
+        -28,
+        47,
+        16
+      ],
+      "width": 5,
+      "kind": "flat"
+    },
+    {
+      "id": "Mid-valve",
+      "a": "MID",
+      "b": "V",
+      "start": [
+        2,
+        45,
+        16
+      ],
+      "end": [
+        2,
+        51,
+        16
+      ],
+      "width": 4,
+      "kind": "flat"
+    },
+    {
+      "id": "B-main",
+      "a": "BP",
+      "b": "B",
+      "start": [
+        24,
+        47,
+        20
+      ],
+      "end": [
+        24,
+        51,
+        20
+      ],
+      "width": 5,
+      "kind": "flat"
+    },
+    {
+      "id": "A-short",
+      "a": "V",
+      "b": "A",
+      "start": [
+        -6,
+        55,
+        16
+      ],
+      "end": [
+        -16,
+        55,
+        16
+      ],
+      "width": 4,
+      "kind": "flat"
+    },
+    {
+      "id": "B-short",
+      "a": "V",
+      "b": "B",
+      "start": [
+        6,
+        55,
+        16
+      ],
+      "end": [
+        16,
+        55,
+        20
+      ],
+      "width": 4,
+      "kind": "ramp"
+    },
+    {
+      "id": "A-retake",
+      "a": "A",
+      "b": "AW",
+      "start": [
+        -24,
+        63,
+        16
+      ],
+      "end": [
+        -24,
+        75,
+        24
+      ],
+      "width": 4.5,
+      "kind": "stairs"
+    },
+    {
+      "id": "B-retake",
+      "a": "B",
+      "b": "BE",
+      "start": [
+        28,
+        67,
+        20
+      ],
+      "end": [
+        28,
+        75,
+        24
+      ],
+      "width": 4.5,
+      "kind": "ramp"
+    },
+    {
+      "id": "CT-west",
+      "a": "CT",
+      "b": "AW",
+      "start": [
+        -8,
+        79,
+        24
+      ],
+      "end": [
+        -20,
+        79,
+        24
+      ],
+      "width": 4.5,
+      "kind": "flat"
+    },
+    {
+      "id": "CT-east",
+      "a": "CT",
+      "b": "BE",
+      "start": [
+        8,
+        79,
+        24
+      ],
+      "end": [
+        20,
+        79,
+        24
+      ],
+      "width": 4.5,
+      "kind": "flat"
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "W0-bench",
+      "room": "W0",
+      "bounds": [
+        -31,
+        0,
+        -29,
+        3
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "E0-bench",
+      "room": "E0",
+      "bounds": [
+        21,
+        0,
+        23,
+        3
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "W1-bed",
+      "room": "W1",
+      "bounds": [
+        -31,
+        20,
+        -28,
+        22
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "M1-stall",
+      "room": "M1",
+      "bounds": [
+        -5,
+        20,
+        -2,
+        22
+      ],
+      "height": 2.7
+    },
+    {
+      "id": "E1-pump",
+      "room": "E1",
+      "bounds": [
+        21,
+        20,
+        24,
+        22
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "AP-bench",
+      "room": "AP",
+      "bounds": [
+        -31,
+        39,
+        -29,
+        41
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "MID-bench",
+      "room": "MID",
+      "bounds": [
+        -5,
+        40,
+        -3,
+        43
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "BP-bench",
+      "room": "BP",
+      "bounds": [
+        29,
+        43,
+        31,
+        45
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "A-tank",
+      "room": "A",
+      "bounds": [
+        -29,
+        53,
+        -24,
+        57
+      ],
+      "height": 3.2
+    },
+    {
+      "id": "A-low-west",
+      "room": "A",
+      "bounds": [
+        -34,
+        57,
+        -31,
+        59
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "A-low-east",
+      "room": "A",
+      "bounds": [
+        -20,
+        59,
+        -17,
+        61
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "A-entry-low",
+      "room": "A",
+      "bounds": [
+        -33,
+        49,
+        -31,
+        51
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "V-divider",
+      "room": "V",
+      "bounds": [
+        -1,
+        54,
+        1,
+        57
+      ],
+      "height": 3.2
+    },
+    {
+      "id": "V-bench",
+      "room": "V",
+      "bounds": [
+        -5,
+        57,
+        -3,
+        58
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "B-turbine",
+      "room": "B",
+      "bounds": [
+        24,
+        58,
+        28,
+        62
+      ],
+      "height": 3.6
+    },
+    {
+      "id": "B-entry-low",
+      "room": "B",
+      "bounds": [
+        18,
+        52,
+        21,
+        54
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "B-low-east",
+      "room": "B",
+      "bounds": [
+        31,
+        60,
+        34,
+        62
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "B-low-north",
+      "room": "B",
+      "bounds": [
+        18,
+        63,
+        21,
+        65
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "AW-bench",
+      "room": "AW",
+      "bounds": [
+        -31,
+        78,
+        -28,
+        80
+      ],
+      "height": 1.25
+    },
+    {
+      "id": "BE-bench",
+      "room": "BE",
+      "bounds": [
+        21,
+        78,
+        24,
+        80
+      ],
+      "height": 1.25
+    }
+  ]
+}

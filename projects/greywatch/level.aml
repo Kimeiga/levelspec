@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="greywatch" name="Greywatch · abandoned castle · 5v5 defuse" units="meters" validation="playable" description="Original two-site castle blockout. Rose court, ruined chapel, wall walk over lower mid. See projects/greywatch/README.md for review and engine limits.">
+  <material id="paving" color="#bdb6a3" roughness="1" />
+  <material id="stone" color="#929585" roughness="1" />
+  <material id="cut-stone" color="#c9c5b3" roughness="1" />
+  <material id="moss" color="#758267" roughness="1" />
+  <material id="wood" color="#85715a" roughness="1" />
+  <material id="low-cover" color="#9aab8c" roughness="1" />
+  <material id="upper" color="#b7a586" roughness="1" />
+  <material id="tint-a" color="#d9a16e" roughness="1" />
+  <material id="tint-b" color="#82a99b" roughness="1" />
+  <profile id="ground-plan" points="50 18; 50 4; 30 4; 30 16; 10 16; 10 24; 8 24; 8 56; 8 78; 20 78; 20 82; 36 82; 36 88; 50 88; 50 82; 68 82; 68 76; 78 76; 78 70; 84 70; 84 50; 78 50; 74 50; 74 26; 68 26; 68 18">
+    <hole points="59 46; 59 44; 60 44; 60 46" />
+    <hole points="60 38; 59 38; 59 26; 60 26" />
+    <hole points="48 60; 48 58; 54 58; 54 74; 34 74; 34 60" />
+    <hole points="50 26; 53 26; 53 38; 52 38; 48 38; 48 32; 50 32" />
+    <hole points="53 44; 53 46; 48 46; 48 44; 52 44" />
+    <hole points="29 48; 30 48; 30 44; 36 44; 36 52; 34 52; 29 52" />
+    <hole points="30 24; 34 24; 34 32; 36 32; 36 38; 30 38; 29 38; 29 30; 30 30" />
+    <hole points="23 30; 23 38; 22 38; 22 46; 20 46; 20 30" />
+  </profile>
+  <assembly id="castle" label="Physical castle and all combat geometry" coincident-material="retained-face">
+    <slab id="ground" profile="ground-plan" thickness=".35" material="paving" group="ground" />
+    <extrusion id="MASS-00" profile="MASS-00-plan" distance="6.85" position="0 0 -.35" material="stone" group="masses" />
+    <extrusion id="MASS-01" profile="MASS-01-plan" distance="6.85" position="0 0 -.35" material="stone" group="masses" />
+    <box id="MASS-01-crown-1-0" position="58.35 35.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-01-crown-1-1" position="58.35 31.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-01-crown-1-2" position="58.35 27.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-01-crown-3-0" position="59.35 27.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-01-crown-3-1" position="59.35 31.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-01-crown-3-2" position="59.35 35.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <extrusion id="KEEP" profile="KEEP-plan" distance="10.35" position="0 0 -.35" material="stone" group="masses" />
+    <box id="KEEP-crown-1-0" position="50.35 57.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-2-0" position="53.35 59.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-2-1" position="53.35 63.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-2-2" position="53.35 67.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-2-3" position="53.35 71.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-3-0" position="51.35 73.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-3-1" position="47.35 73.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-3-2" position="43.35 73.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-3-3" position="39.35 73.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-3-4" position="35.35 73.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-4-0" position="33.35 71.0167 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-4-1" position="33.35 66.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-4-2" position="33.35 61.6833 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-5-0" position="35.6833 59.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-5-1" position="40.35 59.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-crown-5-2" position="45.0167 59.35 10" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <extrusion id="MASS-03" profile="MASS-03-plan" distance="6.85" position="0 0 -.35" material="stone" group="masses" />
+    <box id="MASS-03-crown-1-0" position="52.35 27.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-03-crown-1-1" position="52.35 31.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-03-crown-1-2" position="52.35 35.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-03-crown-3-0" position="49.35 37.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-03-crown-4-0" position="47.35 34.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-03-crown-6-0" position="49.35 28.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <extrusion id="MASS-04" profile="MASS-04-plan" distance="6.85" position="0 0 -.35" material="stone" group="masses" />
+    <box id="MASS-04-crown-1-0" position="49.85 45.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-04-crown-3-0" position="49.35 43.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <extrusion id="MASS-05" profile="MASS-05-plan" distance="6.85" position="0 0 -.35" material="stone" group="masses" />
+    <box id="MASS-05-crown-1-0" position="29.35 45.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-05-crown-2-0" position="32.35 43.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-05-crown-3-0" position="35.35 45.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-05-crown-3-1" position="35.35 49.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-05-crown-5-0" position="30.85 51.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-05-crown-6-0" position="28.35 49.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <extrusion id="MASS-06" profile="MASS-06-plan" distance="6.85" position="0 0 -.35" material="stone" group="masses" />
+    <box id="MASS-06-crown-0-0" position="31.35 23.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-06-crown-1-0" position="33.35 25.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-06-crown-1-1" position="33.35 29.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-06-crown-3-0" position="35.35 34.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-06-crown-4-0" position="32.35 37.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-06-crown-6-0" position="28.35 35.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-06-crown-6-1" position="28.35 31.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-06-crown-8-0" position="29.35 26.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <extrusion id="MASS-07" profile="MASS-07-plan" distance="6.85" position="0 0 -.35" material="stone" group="masses" />
+    <box id="MASS-07-crown-0-0" position="22.35 31.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-07-crown-0-1" position="22.35 35.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-07-crown-2-0" position="21.35 39.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-07-crown-2-1" position="21.35 43.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-07-crown-4-0" position="19.35 43.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-07-crown-4-1" position="19.35 39.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-07-crown-4-2" position="19.35 35.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <box id="MASS-07-crown-4-3" position="19.35 31.35 6.5" width="1.3" depth="1.3" height="0.8" material="cut-stone" group="scenic-high" />
+    <wall id="CURTAIN-00" path="CURTAIN-00-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-00-crenel-0" position="49.35 15.1667 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-00-crenel-1" position="49.35 10.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-00-crenel-2" position="49.35 5.83333 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-01" path="CURTAIN-01-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-01-crenel-0" position="47.35 3.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-01-crenel-1" position="43.35 3.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-01-crenel-2" position="39.35 3.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-01-crenel-3" position="35.35 3.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-01-crenel-4" position="31.35 3.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-02" path="CURTAIN-02-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-02-crenel-0" position="29.35 5.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-02-crenel-1" position="29.35 9.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-02-crenel-2" position="29.35 13.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-03" path="CURTAIN-03-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-03-crenel-0" position="27.35 15.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-03-crenel-1" position="23.35 15.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-03-crenel-2" position="19.35 15.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-03-crenel-3" position="15.35 15.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-03-crenel-4" position="11.35 15.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-04" path="CURTAIN-04-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-04-crenel-0" position="9.35 17.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-04-crenel-1" position="9.35 21.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-05" path="CURTAIN-05-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <wall id="CURTAIN-06" path="CURTAIN-06-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-06-crenel-0" position="7.35 25.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-06-crenel-1" position="7.35 29.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-06-crenel-2" position="7.35 33.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-06-crenel-3" position="7.35 37.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-06-crenel-4" position="7.35 41.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-06-crenel-5" position="7.35 45.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-06-crenel-6" position="7.35 49.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-06-crenel-7" position="7.35 53.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-07" path="CURTAIN-07-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-07-crenel-0" position="7.35 57.7 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-07-crenel-1" position="7.35 62.1 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-07-crenel-2" position="7.35 66.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-07-crenel-3" position="7.35 70.9 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-07-crenel-4" position="7.35 75.3 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-08" path="CURTAIN-08-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-08-crenel-0" position="9.35 77.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-08-crenel-1" position="13.35 77.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-08-crenel-2" position="17.35 77.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-09" path="CURTAIN-09-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-09-crenel-0" position="19.35 79.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-10" path="CURTAIN-10-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-10-crenel-0" position="21.35 81.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-10-crenel-1" position="25.35 81.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-10-crenel-2" position="29.35 81.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-10-crenel-3" position="33.35 81.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-11" path="CURTAIN-11-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-11-crenel-0" position="35.35 84.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-12" path="CURTAIN-12-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-12-crenel-0" position="37.6833 87.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-12-crenel-1" position="42.35 87.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-12-crenel-2" position="47.0167 87.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-13" path="CURTAIN-13-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-13-crenel-0" position="49.35 84.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-14" path="CURTAIN-14-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-14-crenel-0" position="51.6 81.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-14-crenel-1" position="56.1 81.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-14-crenel-2" position="60.6 81.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-14-crenel-3" position="65.1 81.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-15" path="CURTAIN-15-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-15-crenel-0" position="67.35 78.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-16" path="CURTAIN-16-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-16-crenel-0" position="69.85 75.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-16-crenel-1" position="74.85 75.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-17" path="CURTAIN-17-axis" height="8" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-17-crenel-0" position="77.35 72.5 7.65" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-18" path="CURTAIN-18-axis" height="8" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-18-crenel-0" position="80.35 69.5 7.65" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-19" path="CURTAIN-19-axis" height="8" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-19-crenel-0" position="83.35 67.5 7.65" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-19-crenel-1" position="83.35 63.5 7.65" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-19-crenel-2" position="83.35 59.5 7.65" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-19-crenel-3" position="83.35 55.5 7.65" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-19-crenel-4" position="83.35 51.5 7.65" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-20" path="CURTAIN-20-axis" height="8" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-20-crenel-0" position="80.35 49.5 7.65" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-21" path="CURTAIN-21-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-21-crenel-0" position="75.35 49.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-22" path="CURTAIN-22-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-22-crenel-0" position="73.35 47.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-22-crenel-1" position="73.35 43.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-22-crenel-2" position="73.35 39.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-22-crenel-3" position="73.35 35.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-22-crenel-4" position="73.35 31.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-22-crenel-5" position="73.35 27.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-23" path="CURTAIN-23-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-23-crenel-0" position="70.35 25.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-24" path="CURTAIN-24-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-24-crenel-0" position="67.35 23.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-24-crenel-1" position="67.35 19.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="CURTAIN-25" path="CURTAIN-25-axis" height="5.5" thickness="0.8" material="stone" group="architecture" />
+    <box id="CURTAIN-25-crenel-0" position="65.1 17.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-25-crenel-1" position="60.6 17.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-25-crenel-2" position="56.1 17.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <box id="CURTAIN-25-crenel-3" position="51.6 17.5 5.15" width="1.3" depth="1" height="1" material="stone" group="scenic-high" />
+    <wall id="T-inner-screen" path="T-inner-screen-axis" height="5" thickness="0.7" material="stone" group="architecture" />
+    <wall id="T-gate-west" path="T-gate-west-axis" height="7" thickness="0.7" material="stone" group="architecture" />
+    <wall id="T-gate-east" path="T-gate-east-axis" height="7" thickness="0.7" material="stone" group="architecture" />
+    <wall id="T-mid-screen" path="T-mid-screen-axis" height="6" thickness="0.7" material="stone" group="architecture" />
+    <wall id="W-ward-turn" path="W-ward-turn-axis" height="5" thickness="0.6" material="stone" group="architecture" />
+    <wall id="W-court-west" path="W-court-west-axis" height="5" thickness="0.65" material="stone" group="architecture" />
+    <wall id="W-court-east" path="W-court-east-axis" height="5" thickness="0.65" material="stone" group="architecture" />
+    <wall id="A-cloister-west" path="A-cloister-west-axis" height="5" thickness="0.7" material="stone" group="architecture" />
+    <wall id="A-cloister-east" path="A-cloister-east-axis" height="5" thickness="0.7" material="stone" group="architecture" />
+    <wall id="M-keep-cheek" path="M-keep-cheek-axis" height="8" thickness="0.8" material="stone" group="architecture" />
+    <wall id="E-entry-west" path="E-entry-west-axis" height="6" thickness="0.65" material="stone" group="architecture" />
+    <wall id="E-entry-east" path="E-entry-east-axis" height="6" thickness="0.65" material="stone" group="architecture" />
+    <wall id="B-nave-west" path="B-nave-west-axis" height="8" thickness="0.8" material="stone" group="architecture" />
+    <wall id="B-nave-east" path="B-nave-east-axis" height="8" thickness="0.8" material="stone" group="architecture" />
+    <wall id="B-apse-west" path="B-apse-west-axis" height="7" thickness="0.75" material="stone" group="architecture" />
+    <wall id="B-apse-east" path="B-apse-east-axis" height="7" thickness="0.75" material="stone" group="architecture" />
+    <wall id="B-aisle-screen" path="B-aisle-screen-axis" height="7" thickness="0.7" material="stone" group="architecture" />
+    <wall id="CT-screen" path="CT-screen-axis" height="7" thickness="0.8" material="stone" group="architecture" />
+    <wall id="gate-arch" path="gate-arch-axis" height="6.5" thickness="0.65" material="stone" group="architecture" />
+    <wall id="court-arch" path="court-arch-axis" height="6.5" thickness="0.65" material="stone" group="architecture" />
+    <wall id="nave-arch" path="nave-arch-axis" height="6.5" thickness="0.65" material="stone" group="architecture" />
+    <wall id="apse-arch" path="apse-arch-axis" height="6.5" thickness="0.65" material="stone" group="architecture" />
+    <stairs id="W-rise" path="W-rise-axis" width="6" count="18" thickness=".35" underside="filled" material="upper" group="upper" />
+    <wall id="W-rise-west-guard" path="W-rise-west-axis" height="1.15" thickness=".3" material="stone" group="upper" />
+    <wall id="W-rise-east-guard" path="W-rise-east-axis" height="1.15" thickness=".3" material="stone" group="upper" />
+    <stairs id="W-fall" path="W-fall-axis" width="6" count="18" thickness=".35" underside="filled" material="upper" group="upper" />
+    <wall id="W-fall-west-guard" path="W-fall-west-axis" height="1.15" thickness=".3" material="stone" group="upper" />
+    <wall id="W-fall-east-guard" path="W-fall-east-axis" height="1.15" thickness=".3" material="stone" group="upper" />
+    <stairs id="E-rise" path="E-rise-axis" width="6" count="18" thickness=".35" underside="filled" material="upper" group="upper" />
+    <wall id="E-rise-west-guard" path="E-rise-west-axis" height="1.15" thickness=".3" material="stone" group="upper" />
+    <wall id="E-rise-east-guard" path="E-rise-east-axis" height="1.15" thickness=".3" material="stone" group="upper" />
+    <stairs id="E-fall" path="E-fall-axis" width="6" count="18" thickness=".35" underside="filled" material="upper" group="upper" />
+    <wall id="E-fall-west-guard" path="E-fall-west-axis" height="1.15" thickness=".3" material="stone" group="upper" />
+    <wall id="E-fall-east-guard" path="E-fall-east-axis" height="1.15" thickness=".3" material="stone" group="upper" />
+    <slab id="W-landing" profile="W-landing-plan" elevation="3" thickness="0.35" material="upper" group="upper" />
+    <box id="W-tower-base" position="22 38 0" width="8" depth="10" height="2.65" material="stone" group="architecture" />
+    <slab id="wall-walk" profile="wall-walk-plan" elevation="3" thickness="0.35" material="upper" group="upper" />
+    <slab id="E-landing" profile="E-landing-plan" elevation="3" thickness="0.35" material="upper" group="upper" />
+    <box id="E-tower-base" position="52 38 0" width="8" depth="6" height="2.65" material="stone" group="architecture" />
+    <box id="bridge-pier-west" position="30 38 0" width="5" depth="6" height="2.65" material="stone" group="architecture" />
+    <box id="bridge-pier-east" position="48 38 0" width="4" depth="6" height="2.65" material="stone" group="architecture" />
+    <wall id="U-parapet-north" path="U-parapet-north-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="U-parapet-south" path="U-parapet-south-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="UW-front-west" path="UW-front-west-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="UW-front-east" path="UW-front-east-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="UW-back-west" path="UW-back-west-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="UW-back-east" path="UW-back-east-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="UE-front-west" path="UE-front-west-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="UE-front-east" path="UE-front-east-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="UE-back-west" path="UE-back-west-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <wall id="UE-back-east" path="UE-back-east-axis" height="1.15" thickness="0.3" material="stone" group="upper" />
+    <box id="T-cart" position="20 18 0" width="3" depth="1.7" height="1.15" material="low-cover" group="cover" />
+    <box id="W-bench" position="8.25 33 0" width="2.75" depth="3" height="1.15" material="low-cover" group="cover" />
+    <box id="W-rubble" position="17 48 0" width="2" depth="3" height="1.15" material="low-cover" group="cover" />
+    <box id="M-well" position="43 34 0" width="2.5" depth="2.5" height="1.15" material="low-cover" group="cover" />
+    <box id="M-chest" position="37 48 0" width="2.5" depth="1.5" height="1.15" material="low-cover" group="cover" />
+    <box id="A-fountain" position="17 63 0" width="4" depth="4" height="1.15" material="low-cover" group="cover" />
+    <box id="A-stone" position="29 63 0" width="2" depth="3" height="2.6" material="cut-stone" group="cover" />
+    <box id="A-bench" position="8.25 67 0" width="2.75" depth="4" height="1.15" material="low-cover" group="cover" />
+    <box id="E-trough" position="71 29 0" width="1.8" depth="3" height="1.15" material="low-cover" group="cover" />
+    <box id="E-cask" position="61 44 0" width="2" depth="2" height="1.15" material="low-cover" group="cover" />
+    <box id="B-sarcophagus" position="68 64 0" width="2" depth="4" height="1.15" material="low-cover" group="cover" />
+    <box id="B-lectern" position="55.5 66 0" width="2" depth="2" height="1.15" material="low-cover" group="cover" />
+    <box id="B-pier-west" position="60 63 0" width="1.4" depth="1.4" height="7" material="cut-stone" group="cover" />
+    <box id="B-pier-east" position="73 63 0" width="1.4" depth="1.4" height="7" material="cut-stone" group="cover" />
+    <box id="B-aisle-bench" position="82 57 0" width="2.2" depth="3" height="1.15" material="low-cover" group="cover" />
+    <box id="CT-bench" position="50 77 0" width="3" depth="1.5" height="1.15" material="low-cover" group="cover" />
+    <box id="U-WM" position="30.5 38 3" width="1.5" depth="1.4" height="3.1" material="cut-stone" group="upper" />
+    <box id="U-EM" position="48 42.6 3" width="1.5" depth="1.4" height="3.1" material="cut-stone" group="upper" />
+    <box id="U-WR" position="34 38 3" width="2" depth="1.7" height="1.15" material="low-cover" group="upper" />
+    <box id="U-CR" position="40.5 42.3 3" width="2" depth="1.7" height="1.15" material="low-cover" group="upper" />
+    <box id="U-ER" position="45 38 3" width="2" depth="1.7" height="1.15" material="low-cover" group="upper" />
+    <cylinder id="gate-west" position="27 8 -.35" radius="3.5" height="9.35" segments="20" material="stone" group="scenic" />
+    <box id="gate-west-merlon-0" position="29.5 7.45 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-1" position="28.9175 9.24275 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-2" position="27.3925 10.3507 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-3" position="25.5075 10.3507 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-4" position="23.9825 9.24275 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-5" position="23.4 7.45 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-6" position="23.9825 5.65725 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-7" position="25.5075 4.54928 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-8" position="27.3925 4.54928 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-west-merlon-9" position="28.9175 5.65725 9" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <cylinder id="gate-east" position="53 8 -.35" radius="3.5" height="8.35" segments="20" material="stone" group="scenic" />
+    <box id="gate-east-merlon-0" position="55.5 7.45 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-1" position="54.9175 9.24275 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-2" position="53.3925 10.3507 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-3" position="51.5075 10.3507 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-4" position="49.9825 9.24275 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-5" position="49.4 7.45 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-6" position="49.9825 5.65725 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-7" position="51.5075 4.54928 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-8" position="53.3925 4.54928 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="gate-east-merlon-9" position="54.9175 5.65725 8" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <cylinder id="rose-tower" position="4 74 -.35" radius="4.6" height="10.35" segments="20" material="stone" group="scenic" />
+    <box id="rose-tower-merlon-0" position="7.6 73.45 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-1" position="6.80742 75.8893 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-2" position="4.73242 77.3969 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-3" position="2.16758 77.3969 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-4" position="0.0925795 75.8893 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-5" position="-0.7 73.45 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-6" position="0.0925795 71.0107 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-7" position="2.16758 69.5031 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-8" position="4.73242 69.5031 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="rose-tower-merlon-9" position="6.80742 71.0107 10" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <cylinder id="chapel-tower" position="82 74 -.35" radius="4.6" height="11.35" segments="20" material="stone" group="scenic" />
+    <box id="chapel-tower-merlon-0" position="85.6 73.45 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-1" position="84.8074 75.8893 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-2" position="82.7324 77.3969 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-3" position="80.1676 77.3969 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-4" position="78.0926 75.8893 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-5" position="77.3 73.45 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-6" position="78.0926 71.0107 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-7" position="80.1676 69.5031 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-8" position="82.7324 69.5031 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="chapel-tower-merlon-9" position="84.8074 71.0107 11" width="1.1" depth="1.1" height="1.1" material="cut-stone" group="scenic-high" />
+    <box id="KEEP-buttress-0" position="34 59.2 0" width="0.9" depth="1" height="7" material="cut-stone" group="masses" />
+    <box id="KEEP-buttress-1" position="38.5 59.2 0" width="0.9" depth="1" height="6.35" material="cut-stone" group="masses" />
+    <box id="KEEP-buttress-2" position="43 59.2 0" width="0.9" depth="1" height="5.7" material="cut-stone" group="masses" />
+    <box id="KEEP-buttress-3" position="47.5 59.2 0" width="0.9" depth="1" height="5.05" material="cut-stone" group="masses" />
+    <box id="KEEP-buttress-4" position="52 59.2 0" width="0.9" depth="1" height="4.4" material="cut-stone" group="masses" />
+  </assembly>
+  <profile id="MASS-00-plan" points="59 46; 59 44; 60 44; 60 46" />
+  <profile id="MASS-01-plan" points="60 38; 59 38; 59 26; 60 26" />
+  <profile id="KEEP-plan" points="48 60; 48 58; 54 58; 54 74; 34 74; 34 60" />
+  <profile id="MASS-03-plan" points="50 26; 53 26; 53 38; 52 38; 48 38; 48 32; 50 32" />
+  <profile id="MASS-04-plan" points="53 44; 53 46; 48 46; 48 44; 52 44" />
+  <profile id="MASS-05-plan" points="29 48; 30 48; 30 44; 36 44; 36 52; 34 52; 29 52" />
+  <profile id="MASS-06-plan" points="30 24; 34 24; 34 32; 36 32; 36 38; 30 38; 29 38; 29 30; 30 30" />
+  <profile id="MASS-07-plan" points="23 30; 23 38; 22 38; 22 46; 20 46; 20 30" />
+  <path id="CURTAIN-00-axis" points="50 18 -0.35; 50 4 -0.35" />
+  <path id="CURTAIN-01-axis" points="50 4 -0.35; 30 4 -0.35" />
+  <path id="CURTAIN-02-axis" points="30 4 -0.35; 30 16 -0.35" />
+  <path id="CURTAIN-03-axis" points="30 16 -0.35; 10 16 -0.35" />
+  <path id="CURTAIN-04-axis" points="10 16 -0.35; 10 24 -0.35" />
+  <path id="CURTAIN-05-axis" points="10 24 -0.35; 8 24 -0.35" />
+  <path id="CURTAIN-06-axis" points="8 24 -0.35; 8 56 -0.35" />
+  <path id="CURTAIN-07-axis" points="8 56 -0.35; 8 78 -0.35" />
+  <path id="CURTAIN-08-axis" points="8 78 -0.35; 20 78 -0.35" />
+  <path id="CURTAIN-09-axis" points="20 78 -0.35; 20 82 -0.35" />
+  <path id="CURTAIN-10-axis" points="20 82 -0.35; 36 82 -0.35" />
+  <path id="CURTAIN-11-axis" points="36 82 -0.35; 36 88 -0.35" />
+  <path id="CURTAIN-12-axis" points="36 88 -0.35; 50 88 -0.35" />
+  <path id="CURTAIN-13-axis" points="50 88 -0.35; 50 82 -0.35" />
+  <path id="CURTAIN-14-axis" points="50 82 -0.35; 68 82 -0.35" />
+  <path id="CURTAIN-15-axis" points="68 82 -0.35; 68 76 -0.35" />
+  <path id="CURTAIN-16-axis" points="68 76 -0.35; 78 76 -0.35" />
+  <path id="CURTAIN-17-axis" points="78 76 -0.35; 78 70 -0.35" />
+  <path id="CURTAIN-18-axis" points="78 70 -0.35; 84 70 -0.35" />
+  <path id="CURTAIN-19-axis" points="84 70 -0.35; 84 50 -0.35" />
+  <path id="CURTAIN-20-axis" points="84 50 -0.35; 78 50 -0.35" />
+  <path id="CURTAIN-21-axis" points="78 50 -0.35; 74 50 -0.35" />
+  <path id="CURTAIN-22-axis" points="74 50 -0.35; 74 26 -0.35" />
+  <path id="CURTAIN-23-axis" points="74 26 -0.35; 68 26 -0.35" />
+  <path id="CURTAIN-24-axis" points="68 26 -0.35; 68 18 -0.35" />
+  <path id="CURTAIN-25-axis" points="68 18 -0.35; 50 18 -0.35" />
+  <path id="T-inner-screen-axis" points="33 13.5 0; 47 13.5 0" />
+  <path id="T-gate-west-axis" points="30 16 0; 38 16 0" />
+  <path id="T-gate-east-axis" points="43 16 0; 50 16 0" />
+  <path id="T-mid-screen-axis" points="35.7 28 0; 42 28 0" />
+  <path id="W-ward-turn-axis" points="8 42 0; 14 42 0" />
+  <path id="W-court-west-axis" points="8 56 0; 12 56 0" />
+  <path id="W-court-east-axis" points="17 56 0; 23.3 56 0" />
+  <path id="A-cloister-west-axis" points="8 74 0; 22 74 0" />
+  <path id="A-cloister-east-axis" points="27 74 0; 34 74 0" />
+  <path id="M-keep-cheek-axis" points="39 55 0; 39 60 0" />
+  <path id="E-entry-west-axis" points="60 34 0; 67 34 0" />
+  <path id="E-entry-east-axis" points="71 42 0; 74 42 0" />
+  <path id="B-nave-west-axis" points="54 58 0; 62 58 0" />
+  <path id="B-nave-east-axis" points="67 58 0; 78 58 0" />
+  <path id="B-apse-west-axis" points="54 74 0; 60 74 0" />
+  <path id="B-apse-east-axis" points="65 74 0; 78 74 0" />
+  <path id="B-aisle-screen-axis" points="78 56 0; 78 64 0" />
+  <path id="CT-screen-axis" points="38 79 0; 46 79 0" />
+  <path id="gate-arch-axis" points="38 16 0; 43 16 0" />
+  <opening id="gate-arch-opening" host="gate-arch" shape="arch" center="2.5 2.8" width="5" height="5.8" />
+  <path id="court-arch-axis" points="12 56 0; 17 56 0" />
+  <opening id="court-arch-opening" host="court-arch" shape="arch" center="2.5 2.8" width="5" height="5.8" />
+  <path id="nave-arch-axis" points="62 58 0; 67 58 0" />
+  <opening id="nave-arch-opening" host="nave-arch" shape="arch" center="2.5 2.8" width="5" height="5.8" />
+  <path id="apse-arch-axis" points="60 74 0; 65 74 0" />
+  <opening id="apse-arch-opening" host="apse-arch" shape="arch" center="2.5 2.8" width="5" height="5.8" />
+  <path id="W-rise-axis" points="26 26 0; 26 38 3" />
+  <path id="W-rise-west-axis" points="23 26 0; 23 38 3" />
+  <path id="W-rise-east-axis" points="29 26 0; 29 38 3" />
+  <path id="W-fall-axis" points="26 48 3; 26 58 0" />
+  <path id="W-fall-west-axis" points="23 48 3; 23 58 0" />
+  <path id="W-fall-east-axis" points="29 48 3; 29 58 0" />
+  <path id="E-rise-axis" points="56 26 0; 56 38 3" />
+  <path id="E-rise-west-axis" points="53 26 0; 53 38 3" />
+  <path id="E-rise-east-axis" points="59 26 0; 59 38 3" />
+  <path id="E-fall-axis" points="56 44 3; 56 54 0" />
+  <path id="E-fall-west-axis" points="53 44 3; 53 54 0" />
+  <path id="E-fall-east-axis" points="59 44 3; 59 54 0" />
+  <profile id="W-landing-plan" points="22 38; 30 38; 30 48; 22 48" />
+  <profile id="wall-walk-plan" points="30 38; 52 38; 52 44; 30 44" />
+  <profile id="E-landing-plan" points="52 38; 60 38; 60 44; 52 44" />
+  <path id="U-parapet-north-axis" points="30 44 3; 52 44 3" />
+  <path id="U-parapet-south-axis" points="30 38 3; 52 38 3" />
+  <path id="UW-front-west-axis" points="22 38 3; 23 38 3" />
+  <path id="UW-front-east-axis" points="29 38 3; 30 38 3" />
+  <path id="UW-back-west-axis" points="22 48 3; 23 48 3" />
+  <path id="UW-back-east-axis" points="29 48 3; 30 48 3" />
+  <path id="UE-front-west-axis" points="52 38 3; 53 38 3" />
+  <path id="UE-front-east-axis" points="59 38 3; 60 38 3" />
+  <path id="UE-back-west-axis" points="52 44 3; 53 44 3" />
+  <path id="UE-back-east-axis" points="59 44 3; 60 44 3" />
+  <profile id="plant-a-plan" points="12 68; 21 68; 21 72; 12 72" />
+  <face-material id="plant-a-surface" host="ground" face="top" profile="plant-a-plan" material="tint-a" />
+  <zone id="plant-a" profile="plant-a-plan" elevation="0" height="2" role="objective" movement="land">
+    <property name="mode" value="bomb-defuse" />
+    <property name="site" value="A" />
+  </zone>
+  <profile id="plant-b-plan" points="65 68; 72 68; 72 72; 65 72" />
+  <face-material id="plant-b-surface" host="ground" face="top" profile="plant-b-plan" material="tint-b" />
+  <zone id="plant-b" profile="plant-b-plan" elevation="0" height="2" role="objective" movement="land">
+    <property name="mode" value="bomb-defuse" />
+    <property name="site" value="B" />
+  </zone>
+  <player radius=".30" height="2" step=".25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="t-spawn" position="40 8 0" kind="attacker_spawn" element="ground" group="ground" movement="land" team="T" />
+  <marker id="t-spawn-2" position="36 8 0" kind="attacker_spawn" element="ground" group="ground" movement="land" team="T" />
+  <marker id="t-spawn-3" position="44 8 0" kind="attacker_spawn" element="ground" group="ground" movement="land" team="T" />
+  <marker id="t-spawn-4" position="36 11 0" kind="attacker_spawn" element="ground" group="ground" movement="land" team="T" />
+  <marker id="t-spawn-5" position="44 11 0" kind="attacker_spawn" element="ground" group="ground" movement="land" team="T" />
+  <marker id="ct-spawn" position="42 85 0" kind="defender_spawn" element="ground" group="ground" movement="land" team="CT" />
+  <marker id="ct-spawn-2" position="38 84 0" kind="defender_spawn" element="ground" group="ground" movement="land" team="CT" />
+  <marker id="ct-spawn-3" position="46 84 0" kind="defender_spawn" element="ground" group="ground" movement="land" team="CT" />
+  <marker id="ct-spawn-4" position="38 86 0" kind="defender_spawn" element="ground" group="ground" movement="land" team="CT" />
+  <marker id="ct-spawn-5" position="46 86 0" kind="defender_spawn" element="ground" group="ground" movement="land" team="CT" />
+  <marker id="site-a" position="17 70 0" kind="objective" element="ground" group="ground" movement="land" />
+  <marker id="site-b" position="69 70 0" kind="objective" element="ground" group="ground" movement="land" />
+  <marker id="ward" position="15 46 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="lower-mid" position="41 46 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="vestibule" position="65 53 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="ambulatory" position="81 64 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="a-short" position="32 58 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="rear-cloister" position="42 77 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="west-upper" position="26 45 3" kind="poi" element="W-landing" group="upper" movement="land" />
+  <marker id="bridge-middle" position="39 41 3" kind="poi" element="wall-walk" group="upper" movement="land" />
+  <marker id="east-upper" position="56 41 3" kind="poi" element="E-landing" group="upper" movement="land" />
+  <marker id="W-rise-start" position="26 25.2 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="W-rise-end" position="26 38.8 3" kind="poi" element="W-landing" group="upper" movement="land" />
+  <path id="W-rise-in-portal" points="23 26 0; 29 26 0" />
+  <connection id="W-rise-in" from="ground" to="W-rise" path="W-rise-in-portal" />
+  <path id="W-rise-out-portal" points="23 38 3; 29 38 3" />
+  <connection id="W-rise-out" from="W-rise" to="W-landing" path="W-rise-out-portal" />
+  <marker id="W-fall-start" position="26 47.2 3" kind="poi" element="W-landing" group="upper" movement="land" />
+  <marker id="W-fall-end" position="26 58.8 0" kind="poi" element="ground" group="ground" movement="land" />
+  <path id="W-fall-in-portal" points="23 48 3; 29 48 3" />
+  <connection id="W-fall-in" from="W-landing" to="W-fall" path="W-fall-in-portal" />
+  <path id="W-fall-out-portal" points="23 58 0; 29 58 0" />
+  <connection id="W-fall-out" from="W-fall" to="ground" path="W-fall-out-portal" />
+  <marker id="E-rise-start" position="56 25.2 0" kind="poi" element="ground" group="ground" movement="land" />
+  <marker id="E-rise-end" position="56 38.8 3" kind="poi" element="E-landing" group="upper" movement="land" />
+  <path id="E-rise-in-portal" points="53 26 0; 59 26 0" />
+  <connection id="E-rise-in" from="ground" to="E-rise" path="E-rise-in-portal" />
+  <path id="E-rise-out-portal" points="53 38 3; 59 38 3" />
+  <connection id="E-rise-out" from="E-rise" to="E-landing" path="E-rise-out-portal" />
+  <marker id="E-fall-start" position="56 43.2 3" kind="poi" element="E-landing" group="upper" movement="land" />
+  <marker id="E-fall-end" position="56 54.8 0" kind="poi" element="ground" group="ground" movement="land" />
+  <path id="E-fall-in-portal" points="53 44 3; 59 44 3" />
+  <connection id="E-fall-in" from="E-landing" to="E-fall" path="E-fall-in-portal" />
+  <path id="E-fall-out-portal" points="53 54 0; 59 54 0" />
+  <connection id="E-fall-out" from="E-fall" to="ground" path="E-fall-out-portal" />
+  <route id="t-a" from="t-spawn" to="site-a" min-routes="1" max-distance="130" movement="land" />
+  <route id="t-b" from="t-spawn" to="site-b" min-routes="1" max-distance="140" movement="land" />
+  <route id="ct-a" from="ct-spawn" to="site-a" min-routes="1" max-distance="85" movement="land" />
+  <route id="ct-b" from="ct-spawn" to="site-b" min-routes="1" max-distance="85" movement="land" />
+  <route id="site-rotation" from="site-a" to="site-b" min-routes="1" max-distance="100" movement="land" />
+  <route id="upper-crossing" from="west-upper" to="east-upper" min-routes="1" max-distance="45" movement="land" />
+  <route id="mid-a" from="lower-mid" to="site-a" min-routes="1" max-distance="60" movement="land" />
+  <route id="mid-b" from="lower-mid" to="site-b" min-routes="1" max-distance="70" movement="land" />
+  <route id="aisle-b" from="ambulatory" to="site-b" min-routes="1" max-distance="30" movement="land" />
+  <route id="W-rise-local" from="W-rise-start" to="W-rise-end" min-routes="1" max-distance="22" movement="land" />
+  <route id="W-fall-local" from="W-fall-start" to="W-fall-end" min-routes="1" max-distance="22" movement="land" />
+  <route id="E-rise-local" from="E-rise-start" to="E-rise-end" min-routes="1" max-distance="22" movement="land" />
+  <route id="E-fall-local" from="E-fall-start" to="E-fall-end" min-routes="1" max-distance="22" movement="land" />
+  <no-spawn-los markers="t-spawn ct-spawn" />
+</architecture>

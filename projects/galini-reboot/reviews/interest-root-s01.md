@@ -1,0 +1,15 @@
+# Independent spatial-interest comparison — S01
+
+Root visually inspected the raw A/B PNGs and original plan/source-matched overview, and read the raw brief and reference observations before a selected author rationale or sibling verdicts. Viewed image identities are recorded in `projects/reboot-study/root-initial-view-hashes.json`; any changed drawing requires a return look. These are paper spatial judgments, not physical or balance acceptance.
+
+**A — promising.** The working shore, inhabited middle shelf and upper civic district can read as one cliff settlement. Building masses substantially improve on the original broad open courts divided by low walls. Close projected positions can have different movement journeys and limited cross-level relationships. The middle shelf still needs its actual building edges and thresholds to prevent it becoming one broad undifferentiated combat plane.
+
+**B — promising.** The dry ravine gives the two town shoulders different local journeys, while the shoreline end-run and middle/upper bridges create consequential transfer commitments. Through-building bridge arrivals fit the studied masonry passage relationship. The risk is reducing the town to two equivalent bridge fronts over a dramatic scenic void. Develop the different arrival territories and resulting choices, not merely different bridge heights.
+
+## Proposals for development
+
+- **ROOT-GA-01: localize upper observation.** In A, compare a bounded Bell/Sea Balcony outlook toward one part of the Boat approach against an open balcony commanding the complete lower site. The former can give a teammate information while requiring the observer to leave cover and surrender another frontage; a lower opponent retains a building edge for withdrawal or a different ascent. Draw parapet heights, actual openings and both eye positions. Do not accept a red plan ray as a verified firing relationship.
+- **ROOT-GA-02: make bridge arrivals occupied places.** In B, compare a bridge ending in a roofed, offset gateway with exits into separate district paths against a bridge opening directly onto the major site court. The gateway can stage crossing and leave a meaningful decision after crossing; defenders gain a local hold but must choose which receiving exit to watch. Check that this does not turn both transfers into the same single-width choke. This needs the full neighboring block and section, not an isolated doorway.
+- **ROOT-GA-03: construct the cliff settlement.** Retaining walls, complete buildings and roof families must account for the terraces, while nonplayable town/rock explains the boundaries. Inspect roofs on as well as cutaway. Stairs should arrive at usable porch/court places with clear landings, not end at a line between broad slabs.
+
+Both are worth further development. My architectural preference is A for a continuous inhabited coastal settlement; B offers a stronger explicit cross-town commitment experiment. Selection should weigh the independent strategic consequences before combining features. No detailed or production gate is closed by this note.

@@ -1,0 +1,105 @@
+{
+  "scope": "SVG text extents outside sheet, excluding intentionally clipped map insets. Does not replace visual inspection.",
+  "sheets": [
+    {
+      "sheet": "bridge-sections.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "floor-0.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "floor-2.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "floor-4.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "floor-6.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "floor-8.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "information-sections.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "overview.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "roof-structure.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "route-repair.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec01.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec02.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec03.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec04.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec05.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec06.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec07.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec08.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec09.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "sec10.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "shared-volume-sections.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "support-repair.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "turns-and-neighbors.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "variant-comparison.svg",
+      "outsideSheetText": []
+    },
+    {
+      "sheet": "vertical-sections.svg",
+      "outsideSheetText": []
+    }
+  ]
+}

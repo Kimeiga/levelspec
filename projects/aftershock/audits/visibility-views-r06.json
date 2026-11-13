@@ -1,0 +1,206 @@
+[
+  {
+    "id": "CT-long-Red",
+    "position": [
+      87.5,
+      80,
+      6.87
+    ],
+    "target": [
+      50,
+      12.5,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "Red-long-CT",
+    "position": [
+      50,
+      12.5,
+      1.87
+    ],
+    "target": [
+      87.5,
+      80,
+      6.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "CT-long-B",
+    "position": [
+      87.5,
+      80,
+      6.87
+    ],
+    "target": [
+      65,
+      41,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-hold-crests",
+    "position": [
+      52,
+      93,
+      6.87
+    ],
+    "target": [
+      29,
+      75,
+      6.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "S1-mid-A",
+    "position": [
+      20,
+      62.050000000001035,
+      5.148435331346103
+    ],
+    "target": [
+      52,
+      93,
+      6.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "S1-follower-A",
+    "position": [
+      20,
+      58.650000000000716,
+      4.10843455333814
+    ],
+    "target": [
+      52,
+      93,
+      6.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "S3-mid-A",
+    "position": [
+      29,
+      66,
+      5.703333253860474
+    ],
+    "target": [
+      52,
+      93,
+      6.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "S3-follower-A",
+    "position": [
+      29,
+      63,
+      5.203333253860474
+    ],
+    "target": [
+      52,
+      93,
+      6.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "S4-mid-B",
+    "position": [
+      84,
+      67,
+      4.548571462631226
+    ],
+    "target": [
+      76,
+      54,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "S4-follower-B",
+    "position": [
+      84,
+      70,
+      5.62
+    ],
+    "target": [
+      76,
+      54,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "Cable-floor-B",
+    "position": [
+      40,
+      46,
+      1.87
+    ],
+    "target": [
+      54,
+      50,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  },
+  {
+    "id": "Fan-west-B",
+    "position": [
+      80,
+      54,
+      1.87
+    ],
+    "target": [
+      76,
+      54,
+      1.87
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.3333333333333333,
+    "appearance": "materials"
+  }
+]

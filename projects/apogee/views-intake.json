@@ -1,0 +1,104 @@
+[
+  {
+    "id": "T-offset-to-mid",
+    "position": [
+      46,
+      9,
+      1.86
+    ],
+    "target": [
+      40,
+      33,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "appearance": "materials"
+  },
+  {
+    "id": "mid-to-T-offset",
+    "position": [
+      40,
+      33,
+      1.86
+    ],
+    "target": [
+      46,
+      9,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "appearance": "materials"
+  },
+  {
+    "id": "intake-west-passage",
+    "position": [
+      40,
+      23,
+      1.86
+    ],
+    "target": [
+      41,
+      31,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "appearance": "materials"
+  },
+  {
+    "id": "intake-east-passage",
+    "position": [
+      49,
+      23,
+      1.86
+    ],
+    "target": [
+      42,
+      31,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "appearance": "materials"
+  },
+  {
+    "id": "T-front-to-mid-west",
+    "position": [
+      46,
+      9,
+      1.86
+    ],
+    "target": [
+      39,
+      45,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "appearance": "materials"
+  },
+  {
+    "id": "mid-west-to-T-front",
+    "position": [
+      39,
+      45,
+      1.86
+    ],
+    "target": [
+      46,
+      9,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "appearance": "materials"
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "hero",
+    "position": [
+      185,
+      -155,
+      205
+    ],
+    "target": [
+      68,
+      54,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 150,
+    "fov": 55,
+    "appearance": "full-render"
+  }
+]

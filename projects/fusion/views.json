@@ -1,0 +1,178 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      70,
+      -90,
+      95
+    ],
+    "target": [
+      0,
+      0,
+      2
+    ],
+    "projection": "orthographic",
+    "viewHeight": 105,
+    "appearance": "full-render"
+  },
+  {
+    "id": "reactor-hall",
+    "position": [
+      12,
+      -17,
+      8
+    ],
+    "target": [
+      0,
+      4,
+      2.5
+    ],
+    "projection": "perspective",
+    "fov": 68,
+    "appearance": "full-render"
+  },
+  {
+    "id": "open-work-arc",
+    "position": [
+      0,
+      -2.5,
+      1.674
+    ],
+    "target": [
+      6,
+      5,
+      2.4
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "north-vessel-interior",
+    "position": [
+      0,
+      10.5,
+      1.674
+    ],
+    "target": [
+      -6,
+      8,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "west-port-entry",
+    "position": [
+      -15,
+      4,
+      1.674
+    ],
+    "target": [
+      0,
+      4,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "gallery-port-support",
+    "position": [
+      -19,
+      2,
+      4.874
+    ],
+    "target": [
+      -12,
+      4,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "hot-cell-a",
+    "position": [
+      -33,
+      6,
+      1.674
+    ],
+    "target": [
+      -29,
+      17,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "power-hall-b",
+    "position": [
+      35.5,
+      5,
+      1.674
+    ],
+    "target": [
+      30,
+      18,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "bus-trench",
+    "position": [
+      35.5,
+      -7,
+      0.474
+    ],
+    "target": [
+      35.5,
+      8,
+      1.2
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  },
+  {
+    "id": "exterior-enclosure",
+    "position": [
+      70,
+      -85,
+      65
+    ],
+    "target": [
+      0,
+      0,
+      4
+    ],
+    "projection": "perspective",
+    "fov": 58,
+    "appearance": "full-render"
+  },
+  {
+    "id": "reactor-supports",
+    "position": [
+      9,
+      -3,
+      -6
+    ],
+    "target": [
+      3,
+      8,
+      -7
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "full-render"
+  }
+]

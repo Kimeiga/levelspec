@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="860"><style>text{font-family:Arial;fill:#233b3d}.h{font-size:22px;font-weight:bold}.b{font-size:17px}.s{font-size:14px}</style><rect width="1460" height="860" fill="#f8f7f0"/>
+<text x="30" y="36" class="h">Local comparison NF-V01 · School stair turns through an inhabited service court</text>
+<text x="30" y="65" class="b">Proposal only. R08 remains the compiled baseline; this option has no movement, timing, sightline or architectural acceptance.</text>
+<text x="35" y="104" class="h">R08 · straight S5, full School terrace</text>
+<polygon points="74,445 230,445 282,393 282,250 152,250 152,289 74,289" fill="#e7d9b7" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="139,666 269,666 269,432 139,432" fill="#d0e3d8" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="126,302 269,302 334,250 334,159 126,159" fill="#d9dde7" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="139,393 191,393 204,380 204,341 191,328 139,328 126,341 126,380" fill="#a1aaa0" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="230,237 282,237 282,185 230,185" fill="#a1aaa0" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polyline points="100,419 100,315 256,315" fill="none" stroke="#ae8052" stroke-width="4" stroke-dasharray="6 4"/>
+<polygon points="152,458 204,458 204,302 152,302" fill="#b3c5c6" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="152,302 204,302 204,263 152,263" fill="#cbd9dc" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polyline points="152,458.0 204,458.0" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,450.2 204,450.2" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,442.4 204,442.4" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,434.6 204,434.6" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,426.8 204,426.8" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,419.0 204,419.0" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,411.2 204,411.2" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,403.4 204,403.4" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,395.6 204,395.6" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,387.8 204,387.8" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,380.0 204,380.0" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,372.2 204,372.2" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,364.4 204,364.4" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,356.6 204,356.6" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,348.8 204,348.8" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,341.0 204,341.0" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,333.2 204,333.2" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,325.4 204,325.4" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,317.6 204,317.6" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,309.8 204,309.8" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="152,302.0 204,302.0" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="178,497 178,263 204,263" fill="none" stroke="#236e79" stroke-width="4" stroke-dasharray=""/>
+<text x="235" y="480" class="s">S5: z3.2 → 6.4</text>
+<text x="435" y="170" class="b">School roof z6.4</text>
+<text x="435" y="250" class="s">Roof hut unchanged</text>
+<text x="435" y="390" class="b">Ground Boiler court</text>
+<text x="435" y="415" class="s">Tank and ground route</text>
+<text x="435" y="438" class="s">must remain usable.</text>
+<text x="435" y="550" class="b">School terrace z3.2</text>
+<text x="45" y="690" class="s">Dashed ochre: existing ground movement. Blue: upper route. Footprints shown in meters.</text>
+<text x="750" y="104" class="h">NF-V01 · quarter-turn S5 + west roof gallery</text>
+<polygon points="789,445 945,445 997,393 997,250 867,250 867,289 789,289" fill="#e7d9b7" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="854,666 984,666 984,432 854,432" fill="#d0e3d8" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="841,302 984,302 1049,250 1049,159 841,159" fill="#d9dde7" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="854,393 906,393 919,380 919,341 906,328 854,328 841,341 841,380" fill="#a1aaa0" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="945,237 997,237 997,185 945,185" fill="#a1aaa0" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polyline points="815,419 815,315 971,315" fill="none" stroke="#ae8052" stroke-width="4" stroke-dasharray="6 4"/>
+<polygon points="919,536 971,536 971,458 919,458" fill="#c0cfe0" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="919,458 971,458 971,406 919,406" fill="#c0cfe0" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="841,458 919,458 919,406 841,406" fill="#a8bdd9" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="802,458 841,458 841,406 802,406" fill="#a8bdd9" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="802,406 854,406 854,263 802,263" fill="#b4bfda" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polygon points="802,302 893,302 893,250 802,250" fill="#b4bfda" stroke="#546f65" stroke-width="2" stroke-dasharray=""/>
+<polyline points="919,536.0 971,536.0" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,528.2 971,528.2" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,520.4 971,520.4" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,512.6 971,512.6" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,504.8 971,504.8" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,497.0 971,497.0" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,489.2 971,489.2" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,481.4 971,481.4" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,473.6 971,473.6" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,465.8 971,465.8" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919,458.0 971,458.0" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="841.0,458 841.0,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="848.8,458 848.8,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="856.6,458 856.6,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="864.4,458 864.4,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="872.2,458 872.2,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="880.0,458 880.0,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="887.8,458 887.8,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="895.6,458 895.6,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="903.4,458 903.4,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="911.2,458 911.2,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="919.0,458 919.0,406" fill="none" stroke="#6a8e91" stroke-width="4" stroke-dasharray=""/>
+<polyline points="945,575 945,458 945,432 841,432 828,432 828,276 893,276" fill="none" stroke="#236e79" stroke-width="4" stroke-dasharray=""/>
+<text x="1014" y="488" class="s">4 × 4 m midlanding z4.8</text>
+<text x="765" y="355" class="s">Gallery z6.4</text>
+<text x="1020" y="565" class="s">Lower foot z3.2</text>
+<text x="1150" y="170" class="b">School roof z6.4</text>
+<text x="1150" y="250" class="s">Roof hut unchanged</text>
+<text x="1150" y="390" class="b">Ground Boiler court</text>
+<text x="1150" y="415" class="s">Tank and ground route</text>
+<text x="1150" y="438" class="s">must remain usable.</text>
+<text x="1150" y="550" class="b">School terrace z3.2</text>
+<text x="760" y="690" class="s">Dashed ochre: existing ground movement. Blue: upper route. Footprints shown in meters.</text>
+<text x="30" y="738" class="b">Potential gain: two-stage clearing and a roof gallery above a real ground courtyard; the sight picture changes at the midlanding.</text>
+<text x="30" y="768" class="b">Costs: removes a 4 m strip of School staging, extends the roof commitment, and requires rebuilding adjoining School mass/guards.</text>
+<text x="30" y="798" class="b">Compare follower support, court-to-gallery exposure, ground tank clearances and opening timing before selecting. No new graph edge.</text>
+<text x="30" y="830" class="s">Disposition: retain R08 now. This is a focused development candidate, not a cosmetic stair-shape swap or an instruction to add a spiral.</text>
+</svg>

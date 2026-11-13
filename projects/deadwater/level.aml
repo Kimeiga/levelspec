@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="deadwater" name="Deadwater · Offshore Rig" units="meters" validation="playable" description="R05 / L05 original 5v5 CT versus T two-site defusal blockout. Abandoned offshore drilling and process platform. Gameplay rules and multiplayer balance require destination-engine testing.">
+  <material id="deck" color="#798a87" roughness="0.86" metalness="0.25" />
+  <material id="deck-upper" color="#b1aea0" roughness="0.86" metalness="0.15" />
+  <material id="shell" color="#a1afa9" roughness="0.86" metalness="0.2" />
+  <material id="steel" color="#384f54" roughness="0.86" metalness="0.5" />
+  <material id="rust" color="#a15d3f" roughness="0.86" metalness="0.4" />
+  <material id="faded-teal" color="#477b79" roughness="0.86" metalness="0.3" />
+  <material id="hazard" color="#d4a94d" roughness="0.86" metalness="0.1" />
+  <material id="cream" color="#d7cbb0" roughness="0.86" metalness="0.1" />
+  <material id="dark" color="#243b43" roughness="0.86" metalness="0.4" />
+  <material id="low-cover" color="#739f99" roughness="0.86" metalness="0.25" />
+  <material id="plant-a" color="#d5a154" roughness="0.86" metalness="0.1" />
+  <material id="plant-b" color="#68aaa4" roughness="0.86" metalness="0.1" />
+  <material id="sea" color="#1b4b5c" roughness="0.86" metalness="0" />
+  <sky color="#b3c2c4" intensity="0.8" />
+  <profile id="ocean-plan" points="-20 -20; 108 -20; 108 102; -20 102" />
+  <slab id="ocean" profile="ocean-plan" elevation="-15" thickness="0.15" material="sea" collidable="false" group="sea" />
+  <assembly id="rig" label="Deadwater physical platform" coincident-material="retained-face">
+    <slab id="floor-T" label="T · CARGO DOCK" profile="T-plan" elevation="0" thickness="0.35" material="deck" group="lower" />
+    <slab id="floor-F" label="FREIGHT" profile="F-plan" elevation="0" thickness="0.35" material="deck" group="lower" />
+    <slab id="floor-C" label="COMPRESSORS" profile="C-plan" elevation="0" thickness="0.35" material="deck" group="lower" />
+    <slab id="floor-W" label="SEA WALK" profile="W-plan" elevation="0" thickness="0.35" material="deck" group="lower" />
+    <slab id="floor-V" label="VALVE HALL" profile="V-plan" elevation="0" thickness="0.35" material="deck" group="lower" />
+    <slab id="floor-P" label="PIPE BEND" profile="P-plan" elevation="0" thickness="0.35" material="deck" group="lower" />
+    <slab id="floor-B" label="B · SEPARATORS" profile="B-plan" elevation="0" thickness="0.35" material="deck" group="lower" />
+    <slab id="floor-A" label="A · DRILL FLOOR" profile="A-plan" elevation="2.4" thickness="0.35" material="deck-upper" group="upper" />
+    <slab id="floor-R" label="CT · MUSTER" profile="R-plan" elevation="2.4" thickness="0.35" material="deck-upper" group="upper" />
+    <slab id="floor-Q" label="CONTROL" profile="Q-plan" elevation="2.4" thickness="0.35" material="deck-upper" group="upper" />
+    <landing id="SW-foot" profile="SW-foot-plan" elevation="0" thickness="0.35" material="deck" group="stairs" />
+    <landing id="SW-head" profile="SW-head-plan" elevation="2.4" thickness="0.35" material="deck" group="stairs" />
+    <stairs id="SW" label="SW / 16 risers" path="SW-axis" width="6" count="16" underside="filled" thickness="0.35" material="rust" group="stairs" />
+    <enclosure id="SW-left-guard" host="SW" side="left" construction="parapet" height="1.1" thickness="0.2" material="hazard" group="stairs" />
+    <enclosure id="SW-right-guard" host="SW" side="right" construction="parapet" height="1.1" thickness="0.2" material="hazard" group="stairs" />
+    <box id="SW-infill-4" position="4 40 -0.35" width="3" depth="8" height="2.75" material="steel" group="structure" />
+    <box id="SW-infill-13" position="13 40 -0.35" width="5" depth="8" height="2.75" material="steel" group="structure" />
+    <landing id="SA-foot" profile="SA-foot-plan" elevation="0" thickness="0.35" material="deck" group="stairs" />
+    <landing id="SA-head" profile="SA-head-plan" elevation="2.4" thickness="0.35" material="deck" group="stairs" />
+    <stairs id="SA" label="SA / 16 risers" path="SA-axis" width="6" count="16" underside="filled" thickness="0.35" material="rust" group="stairs" />
+    <enclosure id="SA-left-guard" host="SA" side="left" construction="parapet" height="1.1" thickness="0.2" material="hazard" group="stairs" />
+    <enclosure id="SA-right-guard" host="SA" side="right" construction="parapet" height="1.1" thickness="0.2" material="hazard" group="stairs" />
+    <box id="SA-infill-28" position="28 44 -0.35" width="3" depth="8" height="2.75" material="steel" group="structure" />
+    <box id="SA-infill-37" position="37 44 -0.35" width="3" depth="8" height="2.75" material="steel" group="structure" />
+    <landing id="SB-foot" profile="SB-foot-plan" elevation="0" thickness="0.35" material="deck" group="stairs" />
+    <landing id="SB-head" profile="SB-head-plan" elevation="2.4" thickness="0.35" material="deck" group="stairs" />
+    <stairs id="SB" label="SB / 16 risers" path="SB-axis" width="6" count="16" underside="filled" thickness="0.35" material="rust" group="stairs" />
+    <enclosure id="SB-left-guard" host="SB" side="left" construction="parapet" height="1.1" thickness="0.2" material="hazard" group="stairs" />
+    <enclosure id="SB-right-guard" host="SB" side="right" construction="parapet" height="1.1" thickness="0.2" material="hazard" group="stairs" />
+    <box id="SB-infill-66" position="66 54 -0.35" width="6" depth="6" height="2.75" material="steel" group="structure" />
+    <box id="SB-infill-78" position="78 54 -0.35" width="8" depth="6" height="2.75" material="steel" group="structure" />
+    <wall id="bulkhead-001" path="bulkhead-001-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-002" path="bulkhead-002-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O04-header" path="O04-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-004" path="bulkhead-004-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-005" path="bulkhead-005-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-006" path="bulkhead-006-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O01-header" path="O01-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-008" path="bulkhead-008-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-009" path="bulkhead-009-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O06-header" path="O06-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-011" path="bulkhead-011-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-012" path="bulkhead-012-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O09-header" path="O09-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-014" path="bulkhead-014-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-015" path="bulkhead-015-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-016" path="bulkhead-016-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-017" path="bulkhead-017-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O10-header" path="O10-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-019" path="bulkhead-019-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-020" path="bulkhead-020-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-021" path="bulkhead-021-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-022" path="bulkhead-022-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-023" path="bulkhead-023-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O12-header" path="O12-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-025" path="bulkhead-025-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-026" path="bulkhead-026-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-027" path="bulkhead-027-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-028" path="bulkhead-028-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O11-header" path="O11-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-030" path="bulkhead-030-axis" thickness="0.3" height="3.15" material="faded-teal" group="bulkheads" />
+    <wall id="bulkhead-031" path="bulkhead-031-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-032" path="bulkhead-032-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O16-header" path="O16-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-034" path="bulkhead-034-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-035" path="bulkhead-035-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O13-header" path="O13-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-037" path="bulkhead-037-axis" thickness="0.3" height="3.15" material="faded-teal" group="bulkheads" />
+    <wall id="bulkhead-038" path="bulkhead-038-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-039" path="bulkhead-039-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O17-header" path="O17-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-041" path="bulkhead-041-axis" thickness="0.3" height="3.15" material="faded-teal" group="bulkheads" />
+    <wall id="bulkhead-042" path="bulkhead-042-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-043" path="bulkhead-043-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-044" path="bulkhead-044-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-045" path="bulkhead-045-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-046" path="bulkhead-046-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-047" path="bulkhead-047-axis" thickness="0.3" height="4.0" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-048" path="bulkhead-048-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-049" path="bulkhead-049-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O03-header" path="O03-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-051" path="bulkhead-051-axis" thickness="0.3" height="5.4" material="shell" group="bulkheads" />
+    <wall id="bulkhead-052" path="bulkhead-052-axis" thickness="0.3" height="5.1" material="shell" group="bulkheads" />
+    <wall id="bulkhead-053" path="bulkhead-053-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-054" path="bulkhead-054-axis" thickness="0.3" height="4.0" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-055" path="bulkhead-055-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-056" path="bulkhead-056-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-057" path="bulkhead-057-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O02-header" path="O02-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-059" path="bulkhead-059-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-060" path="bulkhead-060-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-061" path="bulkhead-061-axis" thickness="0.3" height="4.0" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-062" path="bulkhead-062-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-063" path="bulkhead-063-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-064" path="bulkhead-064-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-065" path="bulkhead-065-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-066" path="bulkhead-066-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O07-header" path="O07-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-068" path="bulkhead-068-axis" thickness="0.3" height="4.0" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-069" path="bulkhead-069-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-070" path="bulkhead-070-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-071" path="bulkhead-071-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O14-header" path="O14-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-073" path="bulkhead-073-axis" thickness="0.3" height="3.15" material="faded-teal" group="bulkheads" />
+    <wall id="bulkhead-074" path="bulkhead-074-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-075" path="bulkhead-075-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O05-header" path="O05-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-077" path="bulkhead-077-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-078" path="bulkhead-078-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-079" path="bulkhead-079-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-080" path="bulkhead-080-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O08-header" path="O08-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-082" path="bulkhead-082-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-083" path="bulkhead-083-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="bulkhead-084" path="bulkhead-084-axis" thickness="0.3" height="4.95" material="shell" group="bulkheads" />
+    <wall id="O15-header" path="O15-header-axis" thickness="0.3" height="1.2" material="shell" group="bulkheads" />
+    <wall id="bulkhead-086" path="bulkhead-086-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-087" path="bulkhead-087-axis" thickness="0.3" height="4.0" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-088" path="bulkhead-088-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-089" path="bulkhead-089-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-090" path="bulkhead-090-axis" thickness="0.3" height="1.6" material="hazard" group="bulkheads" />
+    <wall id="bulkhead-091" path="bulkhead-091-axis" thickness="0.3" height="4.0" material="hazard" group="bulkheads" />
+    <box id="T-container" position="18 12 0" width="10" depth="4" height="3.2" material="rust" group="cover" />
+    <box id="W-winch" position="7 26 0" width="3" depth="5" height="2.6" material="faded-teal" group="cover" />
+    <box id="V-filter" position="22 24 0" width="8" depth="4" height="3.0" material="faded-teal" group="cover" />
+    <box id="V-console" position="24 33 0" width="7" depth="3" height="1.2" material="low-cover" group="cover" />
+    <box id="C-compressor" position="51 12 0" width="5" depth="11" height="3.0" material="faded-teal" group="cover" />
+    <box id="P-manifold" position="46 35 0" width="6" depth="3" height="2.8" material="faded-teal" group="cover" />
+    <box id="P-cart" position="52 42 0" width="3" depth="2" height="1.2" material="low-cover" group="cover" />
+    <box id="A-derrick" position="14 59 2.4" width="6" depth="6" height="2.8" material="steel" group="cover" />
+    <box id="A-toolhouse" position="28 67 2.4" width="6" depth="4" height="3.2" material="faded-teal" group="cover" />
+    <box id="A-cable" position="9 68 2.4" width="3" depth="2" height="1.2" material="low-cover" group="cover" />
+    <box id="A-reel" position="22 54 2.4" width="3" depth="2" height="1.2" material="low-cover" group="cover" />
+    <box id="B-tank-1-pedestal" position="69 34 0" width="4" depth="9" height="2" material="faded-teal" group="machinery" />
+    <cylinder id="B-tank-1-shell" position="71.0 43 2" rotation="90 0 0" radius="2.0" height="9" segments="16" material="cream" group="machinery" />
+    <box id="B-tank-1-band-35" position="68.96 35 0.4" width="4.08" depth="0.18" height="3.6" material="rust" group="machinery" />
+    <box id="B-tank-1-band-42" position="68.96 42 0.4" width="4.08" depth="0.18" height="3.6" material="rust" group="machinery" />
+    <box id="B-tank-2-pedestal" position="78 34 0" width="4" depth="9" height="2" material="faded-teal" group="machinery" />
+    <cylinder id="B-tank-2-shell" position="80.0 43 2" rotation="90 0 0" radius="2.0" height="9" segments="16" material="cream" group="machinery" />
+    <box id="B-tank-2-band-35" position="77.96 35 0.4" width="4.08" depth="0.18" height="3.6" material="rust" group="machinery" />
+    <box id="B-tank-2-band-42" position="77.96 42 0.4" width="4.08" depth="0.18" height="3.6" material="rust" group="machinery" />
+    <box id="B-pump" position="61 40 0" width="3" depth="3" height="1.2" material="low-cover" group="cover" />
+    <box id="B-panel" position="80 47 0" width="3" depth="2" height="2.8" material="faded-teal" group="cover" />
+    <box id="CT-screen" position="50 65 2.4" width="2" depth="8.75" height="3.2" material="faded-teal" group="cover" />
+    <box id="Q-lockers" position="70 66 2.4" width="3" depth="5" height="2.8" material="faded-teal" group="cover" />
+    <box id="T-rib-0-11.94" position="18.0 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-0-15.98" position="18.0 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-1-11.94" position="18.9 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-1-15.98" position="18.9 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-2-11.94" position="19.8 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-2-15.98" position="19.8 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-3-11.94" position="20.7 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-3-15.98" position="20.7 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-4-11.94" position="21.6 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-4-15.98" position="21.6 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-5-11.94" position="22.5 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-5-15.98" position="22.5 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-6-11.94" position="23.4 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-6-15.98" position="23.4 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-7-11.94" position="24.3 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-7-15.98" position="24.3 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-8-11.94" position="25.2 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-8-15.98" position="25.2 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-9-11.94" position="26.1 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-9-15.98" position="26.1 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-10-11.94" position="27.0 11.94 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="T-rib-10-15.98" position="27.0 15.98 0.04" width="0.09" depth="0.08" height="3.12" material="hazard" group="detail" />
+    <box id="compressor-fin-0" position="51.05 13 2.75" width="4.9" depth="0.2" height="0.3" material="steel" group="detail" />
+    <box id="compressor-fin-1" position="51.05 15 2.75" width="4.9" depth="0.2" height="0.3" material="steel" group="detail" />
+    <box id="compressor-fin-2" position="51.05 17 2.75" width="4.9" depth="0.2" height="0.3" material="steel" group="detail" />
+    <box id="compressor-fin-3" position="51.05 19 2.75" width="4.9" depth="0.2" height="0.3" material="steel" group="detail" />
+    <box id="compressor-fin-4" position="51.05 21 2.75" width="4.9" depth="0.2" height="0.3" material="steel" group="detail" />
+    <beam id="derrick-leg-0" path="derrick-leg-0-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="derrick-leg-1" path="derrick-leg-1-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="derrick-leg-2" path="derrick-leg-2-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="derrick-leg-3" path="derrick-leg-3-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="derrick-ring-0-0" path="derrick-ring-0-0-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-0-0" path="derrick-cross-0-0-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-0-1" path="derrick-ring-0-1-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-0-1" path="derrick-cross-0-1-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-0-2" path="derrick-ring-0-2-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-0-2" path="derrick-cross-0-2-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-0-3" path="derrick-ring-0-3-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-0-3" path="derrick-cross-0-3-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-1-0" path="derrick-ring-1-0-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-1-0" path="derrick-cross-1-0-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-1-1" path="derrick-ring-1-1-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-1-1" path="derrick-cross-1-1-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-1-2" path="derrick-ring-1-2-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-1-2" path="derrick-cross-1-2-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-1-3" path="derrick-ring-1-3-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-1-3" path="derrick-cross-1-3-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-2-0" path="derrick-ring-2-0-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-2-0" path="derrick-cross-2-0-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-2-1" path="derrick-ring-2-1-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-2-1" path="derrick-cross-2-1-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-2-2" path="derrick-ring-2-2-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-2-2" path="derrick-cross-2-2-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-2-3" path="derrick-ring-2-3-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-2-3" path="derrick-cross-2-3-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-3-0" path="derrick-ring-3-0-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-3-0" path="derrick-cross-3-0-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-3-1" path="derrick-ring-3-1-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-3-1" path="derrick-cross-3-1-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-3-2" path="derrick-ring-3-2-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-3-2" path="derrick-cross-3-2-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="derrick-ring-3-3" path="derrick-ring-3-3-axis" profile="brace-profile" material="cream" group="structure" />
+    <beam id="derrick-cross-3-3" path="derrick-cross-3-3-axis" profile="brace-profile" material="steel" group="structure" />
+    <box id="derrick-crown" position="15.8 60.8 27.2" width="2.4" depth="2.4" height="1.2" material="cream" group="structure" />
+    <cylinder id="drill-string" position="17 62 5.2" radius="0.18" height="22" segments="8" material="dark" group="structure" />
+    <cylinder id="jacket-leg-0" position="7 7 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-0" position="6 6 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-1" position="27 12 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-1" position="26 11 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-2" position="7 33 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-2" position="6 32 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-3" position="34 31 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-3" position="33 30 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-4" position="51 12 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-4" position="50 11 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-5" position="67 17 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-5" position="66 16 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-6" position="47 43 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-6" position="46 42 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-7" position="62 32 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-7" position="61 31 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-8" position="82 46 -16" radius="0.7" height="15.65" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-8" position="81 45 -0.8" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-9" position="7 56 -16" radius="0.7" height="18.05" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-9" position="6 55 1.5999999999999999" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-10" position="7 72 -16" radius="0.7" height="18.05" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-10" position="6 71 1.5999999999999999" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-11" position="39 70 -16" radius="0.7" height="18.05" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-11" position="38 69 1.5999999999999999" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-12" position="60 70 -16" radius="0.7" height="18.05" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-12" position="59 69 1.5999999999999999" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <cylinder id="jacket-leg-13" position="81 75 -16" radius="0.7" height="18.05" segments="10" material="rust" group="structure" />
+    <box id="leg-cap-13" position="80 74 1.5999999999999999" width="2" depth="2" height="0.45" material="steel" group="structure" />
+    <beam id="jacket-cross-0-1" path="jacket-cross-0-1-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-0-1" path="jacket-cross-return-0-1-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-0-2" path="jacket-cross-0-2-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-0-2" path="jacket-cross-return-0-2-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-2-3" path="jacket-cross-2-3-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-2-3" path="jacket-cross-return-2-3-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-4-5" path="jacket-cross-4-5-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-4-5" path="jacket-cross-return-4-5-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-6-7" path="jacket-cross-6-7-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-6-7" path="jacket-cross-return-6-7-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-7-8" path="jacket-cross-7-8-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-7-8" path="jacket-cross-return-7-8-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-9-10" path="jacket-cross-9-10-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-9-10" path="jacket-cross-return-9-10-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-10-11" path="jacket-cross-10-11-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-10-11" path="jacket-cross-return-10-11-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-11-12" path="jacket-cross-11-12-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-11-12" path="jacket-cross-return-11-12-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="jacket-cross-12-13" path="jacket-cross-12-13-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="jacket-cross-return-12-13" path="jacket-cross-return-12-13-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <box id="girder-T-0" position="4 3.7 -1.15" width="26" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-T-1" position="29.7 4 -1.15" width="0.6" depth="16" height="0.8" material="steel" group="structure" />
+    <box id="girder-T-2" position="4 19.7 -1.15" width="26" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-T-3" position="3.7 4 -1.15" width="0.6" depth="16" height="0.8" material="steel" group="structure" />
+    <box id="girder-F-0" position="30 7.7 -1.15" width="18" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-F-1" position="47.7 8 -1.15" width="0.6" depth="14" height="0.8" material="steel" group="structure" />
+    <box id="girder-F-2" position="40 21.7 -1.15" width="8" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-F-3" position="39.7 20 -1.15" width="0.6" depth="2" height="0.8" material="steel" group="structure" />
+    <box id="girder-F-4" position="30 19.7 -1.15" width="10" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-F-5" position="29.7 8 -1.15" width="0.6" depth="12" height="0.8" material="steel" group="structure" />
+    <box id="girder-C-0" position="48 7.7 -1.15" width="22" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-C-1" position="69.7 8 -1.15" width="0.6" depth="18" height="0.8" material="steel" group="structure" />
+    <box id="girder-C-2" position="58 25.7 -1.15" width="12" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-C-3" position="57.7 26 -1.15" width="0.6" depth="4" height="0.8" material="steel" group="structure" />
+    <box id="girder-C-4" position="48 29.7 -1.15" width="10" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-C-5" position="47.7 8 -1.15" width="0.6" depth="22" height="0.8" material="steel" group="structure" />
+    <box id="girder-W-0" position="4 19.7 -1.15" width="14" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-W-1" position="17.7 20 -1.15" width="0.6" depth="18" height="0.8" material="steel" group="structure" />
+    <box id="girder-W-2" position="4 37.7 -1.15" width="14" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-W-3" position="3.7 20 -1.15" width="0.6" depth="18" height="0.8" material="steel" group="structure" />
+    <box id="girder-V-0" position="18 19.7 -1.15" width="22" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-V-1" position="39.7 20 -1.15" width="0.6" depth="22" height="0.8" material="steel" group="structure" />
+    <box id="girder-V-2" position="28 41.7 -1.15" width="12" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-V-3" position="27.7 38 -1.15" width="0.6" depth="4" height="0.8" material="steel" group="structure" />
+    <box id="girder-V-4" position="18 37.7 -1.15" width="10" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-V-5" position="17.7 20 -1.15" width="0.6" depth="18" height="0.8" material="steel" group="structure" />
+    <box id="girder-P-0" position="40 21.7 -1.15" width="8" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-P-1" position="47.7 22 -1.15" width="0.6" depth="8" height="0.8" material="steel" group="structure" />
+    <box id="girder-P-2" position="48 29.7 -1.15" width="10" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-P-3" position="57.7 30 -1.15" width="0.6" depth="18" height="0.8" material="steel" group="structure" />
+    <box id="girder-P-4" position="42 47.7 -1.15" width="16" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-P-5" position="41.7 42 -1.15" width="0.6" depth="6" height="0.8" material="steel" group="structure" />
+    <box id="girder-P-6" position="40 41.7 -1.15" width="2" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-P-7" position="39.7 22 -1.15" width="0.6" depth="20" height="0.8" material="steel" group="structure" />
+    <box id="girder-B-0" position="58 25.7 -1.15" width="28" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-B-1" position="85.7 26 -1.15" width="0.6" depth="26" height="0.8" material="steel" group="structure" />
+    <box id="girder-B-2" position="66 51.7 -1.15" width="20" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-B-3" position="65.7 48 -1.15" width="0.6" depth="4" height="0.8" material="steel" group="structure" />
+    <box id="girder-B-4" position="58 47.7 -1.15" width="8" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-B-5" position="57.7 26 -1.15" width="0.6" depth="22" height="0.8" material="steel" group="structure" />
+    <box id="girder-A-0" position="4 49.7 1.25" width="24" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-A-1" position="27.7 50 1.25" width="0.6" depth="8" height="0.8" material="steel" group="structure" />
+    <box id="girder-A-2" position="28 57.7 1.25" width="16" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-A-3" position="43.7 58 1.25" width="0.6" depth="18" height="0.8" material="steel" group="structure" />
+    <box id="girder-A-4" position="4 75.7 1.25" width="40" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-A-5" position="3.7 50 1.25" width="0.6" depth="26" height="0.8" material="steel" group="structure" />
+    <box id="girder-R-0" position="44 61.7 1.25" width="22" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-R-1" position="65.7 62 1.25" width="0.6" depth="14" height="0.8" material="steel" group="structure" />
+    <box id="girder-R-2" position="44 75.7 1.25" width="22" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-R-3" position="43.7 62 1.25" width="0.6" depth="14" height="0.8" material="steel" group="structure" />
+    <box id="girder-Q-0" position="66 61.7 1.25" width="20" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-Q-1" position="85.7 62 1.25" width="0.6" depth="18" height="0.8" material="steel" group="structure" />
+    <box id="girder-Q-2" position="66 79.7 1.25" width="20" depth="0.6" height="0.8" material="steel" group="structure" />
+    <box id="girder-Q-3" position="65.7 62 1.25" width="0.6" depth="18" height="0.8" material="steel" group="structure" />
+    <box id="crane-base" position="5 5 0" width="3" depth="3" height="2.4" material="steel" group="machinery" />
+    <cylinder id="crane-pedestal" position="6.5 6.5 2.4" radius="0.8" height="9" segments="12" material="rust" group="structure" />
+    <beam id="crane-boom-low" path="crane-boom-low-axis" profile="heavy-brace-profile" material="rust" group="structure" />
+    <beam id="crane-boom-high" path="crane-boom-high-axis" profile="heavy-brace-profile" material="cream" group="structure" />
+    <beam id="crane-lattice-0" path="crane-lattice-0-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="crane-lattice-1" path="crane-lattice-1-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="crane-lattice-2" path="crane-lattice-2-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="crane-lattice-3" path="crane-lattice-3-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="crane-lattice-4" path="crane-lattice-4-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="crane-lattice-5" path="crane-lattice-5-axis" profile="brace-profile" material="steel" group="structure" />
+    <beam id="crane-hoist" path="crane-hoist-axis" profile="brace-profile" material="dark" group="structure" />
+    <cylinder id="edge-pipe-0" position="86.5 28 -0.7" rotation="-90 0 0" radius="0.17" height="22" segments="8" material="cream" group="detail" />
+    <cylinder id="edge-pipe-1" position="86.5 28 -1.15" rotation="-90 0 0" radius="0.17" height="22" segments="8" material="rust" group="detail" />
+    <cylinder id="edge-pipe-2" position="86.5 28 -1.6" rotation="-90 0 0" radius="0.17" height="22" segments="8" material="cream" group="detail" />
+    <canopy id="Q-canopy" profile="Q-canopy-plan" elevation="6.8" thickness="0.25" material="rust" group="roofs" playable="false" />
+    <cylinder id="Q-canopy-post-0" position="66.35 72.35 2.4" radius="0.15" height="4.15" segments="8" material="steel" group="structure" />
+    <cylinder id="Q-canopy-post-1" position="85.65 72.35 2.4" radius="0.15" height="4.15" segments="8" material="steel" group="structure" />
+    <cylinder id="Q-canopy-post-2" position="85.65 79.65 2.4" radius="0.15" height="4.15" segments="8" material="steel" group="structure" />
+    <cylinder id="Q-canopy-post-3" position="66.35 79.65 2.4" radius="0.15" height="4.15" segments="8" material="steel" group="structure" />
+    <canopy id="V-canopy" profile="V-canopy-plan" elevation="4.8" thickness="0.25" material="rust" group="roofs" playable="false" />
+    <cylinder id="V-canopy-post-0" position="20.35 22.35 0" radius="0.15" height="4.55" segments="8" material="steel" group="structure" />
+    <cylinder id="V-canopy-post-1" position="33.65 22.35 0" radius="0.15" height="4.55" segments="8" material="steel" group="structure" />
+    <cylinder id="V-canopy-post-2" position="33.65 30.65 0" radius="0.15" height="4.55" segments="8" material="steel" group="structure" />
+    <cylinder id="V-canopy-post-3" position="20.35 30.65 0" radius="0.15" height="4.55" segments="8" material="steel" group="structure" />
+    <box id="lifeboat-davit" position="68 78 2.4" width="1" depth="1" height="6" material="steel" group="structure" />
+    <beam id="lifeboat-arm" path="lifeboat-arm-axis" profile="heavy-brace-profile" material="steel" group="structure" />
+    <beam id="lifeboat-suspension" path="lifeboat-suspension-axis" profile="brace-profile" material="dark" group="structure" />
+    <cylinder id="lifeboat" position="57 83 5" rotation="0 90 0" radius="1.1" height="9" segments="12" material="rust" group="detail" />
+    <box id="flare-foot" position="84 30 0" width="1.2" depth="1.2" height="3" material="steel" group="machinery" />
+    <cylinder id="idle-flare" position="84.6 30.6 3" radius="0.3" height="16" segments="10" material="rust" group="structure" />
+  </assembly>
+  <profile id="T-plan" points="4 4; 30 4; 30 20; 4 20" />
+  <profile id="F-plan" points="30 8; 48 8; 48 22; 40 22; 40 20; 30 20" />
+  <profile id="C-plan" points="48 8; 70 8; 70 26; 58 26; 58 30; 48 30" />
+  <profile id="W-plan" points="4 20; 18 20; 18 38; 4 38" />
+  <profile id="V-plan" points="18 20; 40 20; 40 42; 28 42; 28 38; 18 38" />
+  <profile id="P-plan" points="40 22; 48 22; 48 30; 58 30; 58 48; 42 48; 42 42; 40 42" />
+  <profile id="B-plan" points="58 26; 86 26; 86 52; 66 52; 66 48; 58 48" />
+  <profile id="A-plan" points="4 50; 28 50; 28 58; 44 58; 44 76; 4 76" />
+  <profile id="R-plan" points="44 62; 66 62; 66 76; 44 76" />
+  <profile id="Q-plan" points="66 62; 86 62; 86 80; 66 80" />
+  <profile id="SW-foot-plan" points="4 38; 18 38; 18 40; 4 40" />
+  <profile id="SW-head-plan" points="4 48; 18 48; 18 50; 4 50" />
+  <path id="SW-axis" points="10 40 0; 10 48 2.4" />
+  <path id="SW-in-joint" points="7 40 0; 13 40 0" />
+  <connection id="SW-in" from="SW-foot" to="SW" path="SW-in-joint" />
+  <path id="SW-out-joint" points="7 48 2.4; 13 48 2.4" />
+  <connection id="SW-out" from="SW" to="SW-head" path="SW-out-joint" />
+  <profile id="SA-foot-plan" points="28 42; 40 42; 40 44; 28 44" />
+  <profile id="SA-head-plan" points="28 52; 40 52; 40 58; 28 58" />
+  <path id="SA-axis" points="34 44 0; 34 52 2.4" />
+  <path id="SA-in-joint" points="31 44 0; 37 44 0" />
+  <connection id="SA-in" from="SA-foot" to="SA" path="SA-in-joint" />
+  <path id="SA-out-joint" points="31 52 2.4; 37 52 2.4" />
+  <connection id="SA-out" from="SA" to="SA-head" path="SA-out-joint" />
+  <profile id="SB-foot-plan" points="66 52; 86 52; 86 54; 66 54" />
+  <profile id="SB-head-plan" points="66 60; 86 60; 86 62; 66 62" />
+  <path id="SB-axis" points="75 54 0; 75 60 2.4" />
+  <path id="SB-in-joint" points="72 54 0; 78 54 0" />
+  <connection id="SB-in" from="SB-foot" to="SB" path="SB-in-joint" />
+  <path id="SB-out-joint" points="72 60 2.4; 78 60 2.4" />
+  <connection id="SB-out" from="SB" to="SB-head" path="SB-out-joint" />
+  <path id="bulkhead-001-axis" points="30 20 -0.35; 32 20 -0.35" />
+  <path id="bulkhead-002-axis" points="37 20 -0.35; 40 20 -0.35" />
+  <path id="O04-header-axis" points="32 20 3.4; 37 20 3.4" />
+  <path id="bulkhead-004-axis" points="18 20 -0.35; 30 20 -0.35" />
+  <path id="bulkhead-005-axis" points="4 20 -0.35; 7 20 -0.35" />
+  <path id="bulkhead-006-axis" points="13 20 -0.35; 18 20 -0.35" />
+  <path id="O01-header-axis" points="7 20 3.4; 13 20 3.4" />
+  <path id="bulkhead-008-axis" points="40 22 -0.35; 43 22 -0.35" />
+  <path id="bulkhead-009-axis" points="47 22 -0.35; 48 22 -0.35" />
+  <path id="O06-header-axis" points="43 22 3.4; 47 22 3.4" />
+  <path id="bulkhead-011-axis" points="58 26 -0.35; 64 26 -0.35" />
+  <path id="bulkhead-012-axis" points="69 26 -0.35; 70 26 -0.35" />
+  <path id="O09-header-axis" points="64 26 3.4; 69 26 3.4" />
+  <path id="bulkhead-014-axis" points="70 26 -0.35; 86 26 -0.35" />
+  <path id="bulkhead-015-axis" points="48 30 -0.35; 58 30 -0.35" />
+  <path id="bulkhead-016-axis" points="4 38 -0.35; 7 38 -0.35" />
+  <path id="bulkhead-017-axis" points="13 38 -0.35; 18 38 -0.35" />
+  <path id="O10-header-axis" points="7 38 3.4; 13 38 3.4" />
+  <path id="bulkhead-019-axis" points="18 38 -0.35; 28 38 -0.35" />
+  <path id="bulkhead-020-axis" points="4 4 -0.35; 30 4 -0.35" />
+  <path id="bulkhead-021-axis" points="40 42 -0.35; 42 42 -0.35" />
+  <path id="bulkhead-022-axis" points="28 42 -0.35; 30 42 -0.35" />
+  <path id="bulkhead-023-axis" points="37 42 -0.35; 40 42 -0.35" />
+  <path id="O12-header-axis" points="30 42 3.4; 37 42 3.4" />
+  <path id="bulkhead-025-axis" points="58 48 -0.35; 66 48 -0.35" />
+  <path id="bulkhead-026-axis" points="42 48 -0.35; 58 48 -0.35" />
+  <path id="bulkhead-027-axis" points="4 50 2.05; 7 50 2.05" />
+  <path id="bulkhead-028-axis" points="13 50 2.05; 18 50 2.05" />
+  <path id="O11-header-axis" points="7 50 5.8; 13 50 5.8" />
+  <path id="bulkhead-030-axis" points="18 50 2.05; 28 50 2.05" />
+  <path id="bulkhead-031-axis" points="66 52 -0.35; 72 52 -0.35" />
+  <path id="bulkhead-032-axis" points="78 52 -0.35; 86 52 -0.35" />
+  <path id="O16-header-axis" points="72 52 3.4; 78 52 3.4" />
+  <path id="bulkhead-034-axis" points="28 58 2.05; 32 58 2.05" />
+  <path id="bulkhead-035-axis" points="38 58 2.05; 40 58 2.05" />
+  <path id="O13-header-axis" points="32 58 5.8; 38 58 5.8" />
+  <path id="bulkhead-037-axis" points="40 58 2.05; 44 58 2.05" />
+  <path id="bulkhead-038-axis" points="66 62 2.05; 72 62 2.05" />
+  <path id="bulkhead-039-axis" points="78 62 2.05; 86 62 2.05" />
+  <path id="O17-header-axis" points="72 62 5.8; 78 62 5.8" />
+  <path id="bulkhead-041-axis" points="44 62 2.05; 66 62 2.05" />
+  <path id="bulkhead-042-axis" points="4 76 2.05; 44 76 2.05" />
+  <path id="bulkhead-043-axis" points="44 76 2.05; 66 76 2.05" />
+  <path id="bulkhead-044-axis" points="48 8 -0.35; 70 8 -0.35" />
+  <path id="bulkhead-045-axis" points="30 8 -0.35; 48 8 -0.35" />
+  <path id="bulkhead-046-axis" points="66 80 2.05; 86 80 2.05" />
+  <path id="bulkhead-047-axis" points="18 38 -0.35; 18 50 -0.35" />
+  <path id="bulkhead-048-axis" points="18 20 -0.35; 18 24 -0.35" />
+  <path id="bulkhead-049-axis" points="18 30 -0.35; 18 38 -0.35" />
+  <path id="O03-header-axis" points="18 24 3.4; 18 30 3.4" />
+  <path id="bulkhead-051-axis" points="28 50 1.6; 28 51 1.6" />
+  <path id="bulkhead-052-axis" points="28 51 1.9; 28 52 1.9" />
+  <path id="bulkhead-053-axis" points="28 52 2.05; 28 58 2.05" />
+  <path id="bulkhead-054-axis" points="28 42 -0.35; 28 50 -0.35" />
+  <path id="bulkhead-055-axis" points="28 38 -0.35; 28 42 -0.35" />
+  <path id="bulkhead-056-axis" points="30 8 -0.35; 30 11 -0.35" />
+  <path id="bulkhead-057-axis" points="30 17 -0.35; 30 20 -0.35" />
+  <path id="O02-header-axis" points="30 11 3.4; 30 17 3.4" />
+  <path id="bulkhead-059-axis" points="30 4 -0.35; 30 8 -0.35" />
+  <path id="bulkhead-060-axis" points="4 50 2.05; 4 76 2.05" />
+  <path id="bulkhead-061-axis" points="4 38 -0.35; 4 50 -0.35" />
+  <path id="bulkhead-062-axis" points="4 4 -0.35; 4 20 -0.35" />
+  <path id="bulkhead-063-axis" points="4 20 -0.35; 4 38 -0.35" />
+  <path id="bulkhead-064-axis" points="40 20 -0.35; 40 22 -0.35" />
+  <path id="bulkhead-065-axis" points="40 22 -0.35; 40 32 -0.35" />
+  <path id="bulkhead-066-axis" points="40 38 -0.35; 40 42 -0.35" />
+  <path id="O07-header-axis" points="40 32 3.4; 40 38 3.4" />
+  <path id="bulkhead-068-axis" points="40 42 -0.35; 40 58 -0.35" />
+  <path id="bulkhead-069-axis" points="42 42 -0.35; 42 48 -0.35" />
+  <path id="bulkhead-070-axis" points="44 62 2.05; 44 65 2.05" />
+  <path id="bulkhead-071-axis" points="44 71 2.05; 44 76 2.05" />
+  <path id="O14-header-axis" points="44 65 5.8; 44 71 5.8" />
+  <path id="bulkhead-073-axis" points="44 58 2.05; 44 62 2.05" />
+  <path id="bulkhead-074-axis" points="48 8 -0.35; 48 13 -0.35" />
+  <path id="bulkhead-075-axis" points="48 19 -0.35; 48 22 -0.35" />
+  <path id="O05-header-axis" points="48 13 3.4; 48 19 3.4" />
+  <path id="bulkhead-077-axis" points="48 22 -0.35; 48 30 -0.35" />
+  <path id="bulkhead-078-axis" points="58 26 -0.35; 58 30 -0.35" />
+  <path id="bulkhead-079-axis" points="58 30 -0.35; 58 32 -0.35" />
+  <path id="bulkhead-080-axis" points="58 38 -0.35; 58 48 -0.35" />
+  <path id="O08-header-axis" points="58 32 3.4; 58 38 3.4" />
+  <path id="bulkhead-082-axis" points="66 48 -0.35; 66 52 -0.35" />
+  <path id="bulkhead-083-axis" points="66 62 2.05; 66 66 2.05" />
+  <path id="bulkhead-084-axis" points="66 72 2.05; 66 76 2.05" />
+  <path id="O15-header-axis" points="66 66 5.8; 66 72 5.8" />
+  <path id="bulkhead-086-axis" points="66 76 2.05; 66 80 2.05" />
+  <path id="bulkhead-087-axis" points="66 52 -0.35; 66 62 -0.35" />
+  <path id="bulkhead-088-axis" points="70 8 -0.35; 70 26 -0.35" />
+  <path id="bulkhead-089-axis" points="86 26 -0.35; 86 52 -0.35" />
+  <path id="bulkhead-090-axis" points="86 62 2.05; 86 80 2.05" />
+  <path id="bulkhead-091-axis" points="86 52 -0.35; 86 62 -0.35" />
+  <path id="O01-threshold" points="7 20 0; 13 20 0" />
+  <connection id="O01" from="floor-T" to="floor-W" path="O01-threshold" />
+  <path id="O02-threshold" points="30 11 0; 30 17 0" />
+  <connection id="O02" from="floor-T" to="floor-F" path="O02-threshold" />
+  <path id="O03-threshold" points="18 24 0; 18 30 0" />
+  <connection id="O03" from="floor-W" to="floor-V" path="O03-threshold" />
+  <path id="O04-threshold" points="32 20 0; 37 20 0" />
+  <connection id="O04" from="floor-F" to="floor-V" path="O04-threshold" />
+  <path id="O05-threshold" points="48 13 0; 48 19 0" />
+  <connection id="O05" from="floor-F" to="floor-C" path="O05-threshold" />
+  <path id="O06-threshold" points="43 22 0; 47 22 0" />
+  <connection id="O06" from="floor-F" to="floor-P" path="O06-threshold" />
+  <path id="O07-threshold" points="40 32 0; 40 38 0" />
+  <connection id="O07" from="floor-V" to="floor-P" path="O07-threshold" />
+  <path id="O08-threshold" points="58 32 0; 58 38 0" />
+  <connection id="O08" from="floor-P" to="floor-B" path="O08-threshold" />
+  <path id="O09-threshold" points="64 26 0; 69 26 0" />
+  <connection id="O09" from="floor-C" to="floor-B" path="O09-threshold" />
+  <path id="O10-threshold" points="7 38 0; 13 38 0" />
+  <connection id="O10" from="floor-W" to="SW-foot" path="O10-threshold" />
+  <path id="O11-threshold" points="7 50 2.4; 13 50 2.4" />
+  <connection id="O11" from="SW-head" to="floor-A" path="O11-threshold" />
+  <path id="O12-threshold" points="30 42 0; 37 42 0" />
+  <connection id="O12" from="floor-V" to="SA-foot" path="O12-threshold" />
+  <path id="O13-threshold" points="32 58 2.4; 38 58 2.4" />
+  <connection id="O13" from="SA-head" to="floor-A" path="O13-threshold" />
+  <path id="O14-threshold" points="44 65 2.4; 44 71 2.4" />
+  <connection id="O14" from="floor-A" to="floor-R" path="O14-threshold" />
+  <path id="O15-threshold" points="66 66 2.4; 66 72 2.4" />
+  <connection id="O15" from="floor-R" to="floor-Q" path="O15-threshold" />
+  <path id="O16-threshold" points="72 52 0; 78 52 0" />
+  <connection id="O16" from="floor-B" to="SB-foot" path="O16-threshold" />
+  <path id="O17-threshold" points="72 62 2.4; 78 62 2.4" />
+  <connection id="O17" from="floor-Q" to="SB-head" path="O17-threshold" />
+  <profile id="brace-profile" points="-0.12 -0.12; 0.12 -0.12; 0.12 0.12; -0.12 0.12" />
+  <profile id="heavy-brace-profile" points="-0.24 -0.24; 0.24 -0.24; 0.24 0.24; -0.24 0.24" />
+  <path id="derrick-leg-0-axis" points="14.0 59.0 5.2; 16.0 61.0 27.2" />
+  <path id="derrick-leg-1-axis" points="20.0 59.0 5.2; 18.0 61.0 27.2" />
+  <path id="derrick-leg-2-axis" points="20.0 65.0 5.2; 18.0 63.0 27.2" />
+  <path id="derrick-leg-3-axis" points="14.0 65.0 5.2; 16.0 63.0 27.2" />
+  <path id="derrick-ring-0-0-axis" points="14.0 59.0 5.2; 20.0 59.0 5.2" />
+  <path id="derrick-cross-0-0-axis" points="14.0 59.0 5.2; 19.5 59.5 10.7" />
+  <path id="derrick-ring-0-1-axis" points="20.0 59.0 5.2; 20.0 65.0 5.2" />
+  <path id="derrick-cross-0-1-axis" points="20.0 59.0 5.2; 19.5 64.5 10.7" />
+  <path id="derrick-ring-0-2-axis" points="20.0 65.0 5.2; 14.0 65.0 5.2" />
+  <path id="derrick-cross-0-2-axis" points="20.0 65.0 5.2; 14.5 64.5 10.7" />
+  <path id="derrick-ring-0-3-axis" points="14.0 65.0 5.2; 14.0 59.0 5.2" />
+  <path id="derrick-cross-0-3-axis" points="14.0 65.0 5.2; 14.5 59.5 10.7" />
+  <path id="derrick-ring-1-0-axis" points="14.5 59.5 10.7; 19.5 59.5 10.7" />
+  <path id="derrick-cross-1-0-axis" points="14.5 59.5 10.7; 19.0 60.0 16.2" />
+  <path id="derrick-ring-1-1-axis" points="19.5 59.5 10.7; 19.5 64.5 10.7" />
+  <path id="derrick-cross-1-1-axis" points="19.5 59.5 10.7; 19.0 64.0 16.2" />
+  <path id="derrick-ring-1-2-axis" points="19.5 64.5 10.7; 14.5 64.5 10.7" />
+  <path id="derrick-cross-1-2-axis" points="19.5 64.5 10.7; 15.0 64.0 16.2" />
+  <path id="derrick-ring-1-3-axis" points="14.5 64.5 10.7; 14.5 59.5 10.7" />
+  <path id="derrick-cross-1-3-axis" points="14.5 64.5 10.7; 15.0 60.0 16.2" />
+  <path id="derrick-ring-2-0-axis" points="15.0 60.0 16.2; 19.0 60.0 16.2" />
+  <path id="derrick-cross-2-0-axis" points="15.0 60.0 16.2; 18.5 60.5 21.7" />
+  <path id="derrick-ring-2-1-axis" points="19.0 60.0 16.2; 19.0 64.0 16.2" />
+  <path id="derrick-cross-2-1-axis" points="19.0 60.0 16.2; 18.5 63.5 21.7" />
+  <path id="derrick-ring-2-2-axis" points="19.0 64.0 16.2; 15.0 64.0 16.2" />
+  <path id="derrick-cross-2-2-axis" points="19.0 64.0 16.2; 15.5 63.5 21.7" />
+  <path id="derrick-ring-2-3-axis" points="15.0 64.0 16.2; 15.0 60.0 16.2" />
+  <path id="derrick-cross-2-3-axis" points="15.0 64.0 16.2; 15.5 60.5 21.7" />
+  <path id="derrick-ring-3-0-axis" points="15.5 60.5 21.7; 18.5 60.5 21.7" />
+  <path id="derrick-cross-3-0-axis" points="15.5 60.5 21.7; 18.0 61.0 27.2" />
+  <path id="derrick-ring-3-1-axis" points="18.5 60.5 21.7; 18.5 63.5 21.7" />
+  <path id="derrick-cross-3-1-axis" points="18.5 60.5 21.7; 18.0 63.0 27.2" />
+  <path id="derrick-ring-3-2-axis" points="18.5 63.5 21.7; 15.5 63.5 21.7" />
+  <path id="derrick-cross-3-2-axis" points="18.5 63.5 21.7; 16.0 63.0 27.2" />
+  <path id="derrick-ring-3-3-axis" points="15.5 63.5 21.7; 15.5 60.5 21.7" />
+  <path id="derrick-cross-3-3-axis" points="15.5 63.5 21.7; 16.0 61.0 27.2" />
+  <path id="jacket-cross-0-1-axis" points="7 7 -13; 27 12 -1.2" />
+  <path id="jacket-cross-return-0-1-axis" points="27 12 -13; 7 7 -1.2" />
+  <path id="jacket-cross-0-2-axis" points="7 7 -13; 7 33 -1.2" />
+  <path id="jacket-cross-return-0-2-axis" points="7 33 -13; 7 7 -1.2" />
+  <path id="jacket-cross-2-3-axis" points="7 33 -13; 34 31 -1.2" />
+  <path id="jacket-cross-return-2-3-axis" points="34 31 -13; 7 33 -1.2" />
+  <path id="jacket-cross-4-5-axis" points="51 12 -13; 67 17 -1.2" />
+  <path id="jacket-cross-return-4-5-axis" points="67 17 -13; 51 12 -1.2" />
+  <path id="jacket-cross-6-7-axis" points="47 43 -13; 62 32 -1.2" />
+  <path id="jacket-cross-return-6-7-axis" points="62 32 -13; 47 43 -1.2" />
+  <path id="jacket-cross-7-8-axis" points="62 32 -13; 82 46 -1.2" />
+  <path id="jacket-cross-return-7-8-axis" points="82 46 -13; 62 32 -1.2" />
+  <path id="jacket-cross-9-10-axis" points="7 56 -13; 7 72 1.2" />
+  <path id="jacket-cross-return-9-10-axis" points="7 72 -13; 7 56 1.2" />
+  <path id="jacket-cross-10-11-axis" points="7 72 -13; 39 70 1.2" />
+  <path id="jacket-cross-return-10-11-axis" points="39 70 -13; 7 72 1.2" />
+  <path id="jacket-cross-11-12-axis" points="39 70 -13; 60 70 1.2" />
+  <path id="jacket-cross-return-11-12-axis" points="60 70 -13; 39 70 1.2" />
+  <path id="jacket-cross-12-13-axis" points="60 70 -13; 81 75 1.2" />
+  <path id="jacket-cross-return-12-13-axis" points="81 75 -13; 60 70 1.2" />
+  <path id="crane-boom-low-axis" points="6.5 6.5 11.4; 24 4 15.4" />
+  <path id="crane-boom-high-axis" points="6.5 6.5 14; 24 4 15.4" />
+  <path id="crane-lattice-0-axis" points="6.5 6.5 11.4; 9.416666666666666 6.083333333333333 14.233333333333333" />
+  <path id="crane-lattice-1-axis" points="9.416666666666666 6.083333333333333 12.066666666666666; 12.333333333333332 5.666666666666667 14.466666666666667" />
+  <path id="crane-lattice-2-axis" points="12.333333333333332 5.666666666666667 12.733333333333334; 15.25 5.25 14.7" />
+  <path id="crane-lattice-3-axis" points="15.25 5.25 13.4; 18.166666666666664 4.833333333333334 14.933333333333334" />
+  <path id="crane-lattice-4-axis" points="18.166666666666664 4.833333333333334 14.066666666666666; 21.083333333333336 4.416666666666666 15.166666666666666" />
+  <path id="crane-lattice-5-axis" points="21.083333333333336 4.416666666666666 14.733333333333334; 24.0 4.0 15.4" />
+  <path id="crane-hoist-axis" points="24 4 15.4; 24 4 7" />
+  <profile id="Q-canopy-plan" points="66 72; 86 72; 86 80; 66 80" />
+  <profile id="V-canopy-plan" points="20 22; 34 22; 34 31; 20 31" />
+  <path id="lifeboat-arm-axis" points="68.5 78.5 8.4; 62 83 8.4" />
+  <path id="lifeboat-suspension-axis" points="62 83 8.4; 62 83 6.1" />
+  <profile id="plant-A-plan" points="21 61; 27 61; 27 67; 21 67" />
+  <face-material id="plant-A" host="floor-A" face="top" profile="plant-A-plan" material="plant-a" />
+  <profile id="plant-B-plan" points="63 41; 69 41; 69 47; 63 47" />
+  <face-material id="plant-B" host="floor-B" face="top" profile="plant-B-plan" material="plant-b" />
+  <player radius="0.3" height="1.8" step="0.25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="point-T" position="12 8 0" kind="attacker_spawn" element="floor-T" label="T / Cargo dock" movement="land" team="T" />
+  <marker id="point-F" position="39 16 0" kind="poi" element="floor-F" label="Freight" movement="land" />
+  <marker id="point-W" position="14 34 0" kind="poi" element="floor-W" label="Sea walk" movement="land" />
+  <marker id="point-V" position="34 32 0" kind="poi" element="floor-V" label="Valve hall" movement="land" />
+  <marker id="point-P" position="54 39 0" kind="poi" element="floor-P" label="Pipe bend" movement="land" />
+  <marker id="point-C" position="62 22 0" kind="poi" element="floor-C" label="Compressors" movement="land" />
+  <marker id="point-A" position="24 64 2.4" kind="site" element="floor-A" label="A / Drill floor" movement="land" />
+  <marker id="point-B" position="66 44 0" kind="site" element="floor-B" label="B / Separators" movement="land" />
+  <marker id="point-R" position="58 72 2.4" kind="defender_spawn" element="floor-R" label="CT / Lifeboat muster" movement="land" team="CT" />
+  <marker id="point-Q" position="79 69 2.4" kind="poi" element="floor-Q" label="Control" movement="land" />
+  <marker id="point-SW-foot" position="10 39 0" kind="poi" element="SW-foot" label="West stair foot" movement="land" />
+  <marker id="point-SW-head" position="10 49 2.4" kind="poi" element="SW-head" label="West stair head" movement="land" />
+  <marker id="point-SA-foot" position="34 43 0" kind="poi" element="SA-foot" label="Short stair foot" movement="land" />
+  <marker id="point-SA-head" position="34 55 2.4" kind="poi" element="SA-head" label="Short stair head" movement="land" />
+  <marker id="point-SB-foot" position="75 53 0" kind="poi" element="SB-foot" label="Process stair foot" movement="land" />
+  <marker id="point-SB-head" position="75 61 2.4" kind="poi" element="SB-head" label="Process stair head" movement="land" />
+  <marker id="T-spawn-2" position="10 6 0" kind="attacker_spawn" element="floor-T" team="T" movement="land" />
+  <marker id="T-spawn-3" position="14 6 0" kind="attacker_spawn" element="floor-T" team="T" movement="land" />
+  <marker id="T-spawn-4" position="10 10 0" kind="attacker_spawn" element="floor-T" team="T" movement="land" />
+  <marker id="T-spawn-5" position="14 10 0" kind="attacker_spawn" element="floor-T" team="T" movement="land" />
+  <marker id="CT-spawn-2" position="55 71 2.4" kind="defender_spawn" element="floor-R" team="CT" movement="land" />
+  <marker id="CT-spawn-3" position="61 71 2.4" kind="defender_spawn" element="floor-R" team="CT" movement="land" />
+  <marker id="CT-spawn-4" position="55 74 2.4" kind="defender_spawn" element="floor-R" team="CT" movement="land" />
+  <marker id="CT-spawn-5" position="61 74 2.4" kind="defender_spawn" element="floor-R" team="CT" movement="land" />
+  <route id="T-W" from="point-T" to="point-W" min-routes="1" max-distance="48" movement="land" />
+  <route id="T-F" from="point-T" to="point-F" min-routes="1" max-distance="45" movement="land" />
+  <route id="W-V" from="point-W" to="point-V" min-routes="1" max-distance="40" movement="land" />
+  <route id="F-V" from="point-F" to="point-V" min-routes="1" max-distance="45" movement="land" />
+  <route id="F-C" from="point-F" to="point-C" min-routes="1" max-distance="50" movement="land" />
+  <route id="F-P" from="point-F" to="point-P" min-routes="1" max-distance="48" movement="land" />
+  <route id="V-P" from="point-V" to="point-P" min-routes="1" max-distance="40" movement="land" />
+  <route id="P-B" from="point-P" to="point-B" min-routes="1" max-distance="40" movement="land" />
+  <route id="C-B" from="point-C" to="point-B" min-routes="1" max-distance="50" movement="land" />
+  <route id="W-SW" from="point-W" to="point-SW-foot" min-routes="1" max-distance="20" movement="land" />
+  <route id="SW-climb" from="point-SW-foot" to="point-SW-head" min-routes="1" max-distance="16" movement="land" />
+  <route id="SW-A" from="point-SW-head" to="point-A" min-routes="1" max-distance="40" movement="land" />
+  <route id="V-SA" from="point-V" to="point-SA-foot" min-routes="1" max-distance="28" movement="land" />
+  <route id="SA-climb" from="point-SA-foot" to="point-SA-head" min-routes="1" max-distance="18" movement="land" />
+  <route id="SA-A" from="point-SA-head" to="point-A" min-routes="1" max-distance="30" movement="land" />
+  <route id="A-R" from="point-A" to="point-R" min-routes="1" max-distance="65" movement="land" />
+  <route id="R-Q" from="point-R" to="point-Q" min-routes="1" max-distance="40" movement="land" />
+  <route id="Q-SB" from="point-Q" to="point-SB-head" min-routes="1" max-distance="25" movement="land" />
+  <route id="SB-climb" from="point-SB-foot" to="point-SB-head" min-routes="1" max-distance="14" movement="land" />
+  <route id="SB-B" from="point-SB-foot" to="point-B" min-routes="1" max-distance="30" movement="land" />
+  <route id="T-A" from="point-T" to="point-A" min-routes="1" max-distance="100" movement="land" />
+  <route id="T-B" from="point-T" to="point-B" min-routes="1" max-distance="110" movement="land" />
+  <route id="CT-A" from="point-R" to="point-A" min-routes="1" max-distance="70" movement="land" />
+  <route id="CT-B" from="point-R" to="point-B" min-routes="1" max-distance="85" movement="land" />
+  <route id="A-B" from="point-A" to="point-B" min-routes="1" max-distance="110" movement="land" />
+  <no-spawn-los markers="point-T point-R" />
+  <no-spawn-los markers="point-T CT-spawn-2" />
+  <no-spawn-los markers="point-T CT-spawn-3" />
+  <no-spawn-los markers="point-T CT-spawn-4" />
+  <no-spawn-los markers="point-T CT-spawn-5" />
+  <no-spawn-los markers="T-spawn-2 point-R" />
+  <no-spawn-los markers="T-spawn-2 CT-spawn-2" />
+  <no-spawn-los markers="T-spawn-2 CT-spawn-3" />
+  <no-spawn-los markers="T-spawn-2 CT-spawn-4" />
+  <no-spawn-los markers="T-spawn-2 CT-spawn-5" />
+  <no-spawn-los markers="T-spawn-3 point-R" />
+  <no-spawn-los markers="T-spawn-3 CT-spawn-2" />
+  <no-spawn-los markers="T-spawn-3 CT-spawn-3" />
+  <no-spawn-los markers="T-spawn-3 CT-spawn-4" />
+  <no-spawn-los markers="T-spawn-3 CT-spawn-5" />
+  <no-spawn-los markers="T-spawn-4 point-R" />
+  <no-spawn-los markers="T-spawn-4 CT-spawn-2" />
+  <no-spawn-los markers="T-spawn-4 CT-spawn-3" />
+  <no-spawn-los markers="T-spawn-4 CT-spawn-4" />
+  <no-spawn-los markers="T-spawn-4 CT-spawn-5" />
+  <no-spawn-los markers="T-spawn-5 point-R" />
+  <no-spawn-los markers="T-spawn-5 CT-spawn-2" />
+  <no-spawn-los markers="T-spawn-5 CT-spawn-3" />
+  <no-spawn-los markers="T-spawn-5 CT-spawn-4" />
+  <no-spawn-los markers="T-spawn-5 CT-spawn-5" />
+</architecture>

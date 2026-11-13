@@ -1108,6 +1108,8 @@
   <connection id="e248:connection" from="S-overhead-gray" to="S-overhead-perimeter" path="e248:path" />
   <connection id="entry-starter-step:connection" from="mosaic-M" to="S-entry-deep-starter" path="e41:path" />
   <connection id="entry-blue-pad-step:connection" from="mosaic-M" to="S-entry-blue-pad" path="e36:path" />
+  <reference id="overhead" image="companions/107a58382b365c20b751aa633756ef19d3d58f97892b48dfca75701c6dcf0fa7.png" width="683" height="1024" scale="assumed" scale-note="P12 frozen source calibration. Estimated Rn1.2m and band-index branch; image score does not establish whole-court architectural accuracy." position="5.340675 -1.057939 16.134328" target="-12.310769 19.134783 -33.96301" up="-0.305219 0.841087 0.446558" fov="66.046516" near="0.05" far="2000" />
+  <reference id="oblique" image="companions/72c914795e8e15257cdf18e56b42f0ab06df93105ed8a7277bd53d84aef39469.png" width="683" height="1024" scale="assumed" scale-note="P12 frozen source calibration. Estimated Rn1.2m and band-index branch; image score does not establish whole-court architectural accuracy." position="0.994303 -1.924833 7.767806" target="36.279682 42.589821 6.202442" up="0.01325 0.024648 0.999608" fov="96.497964" near="0.05" far="2000" />
   <sky color="#dce8f5" intensity="0.5" />
   <profile id="supplement:brace-section" points="-0.0175 -0.0175; 0.0175 -0.0175; 0.0175 0.0175; -0.0175 0.0175" />
   <path id="supplement:north-brace-left:axis" points="3.151000 5.283272 8.321000; 2.318028 5.283272 7.488028" />

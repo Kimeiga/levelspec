@@ -1,0 +1,162 @@
+[
+  {
+    "id": "front-middle",
+    "position": [
+      57,
+      30.099999999999838,
+      3.519999976158142
+    ],
+    "target": [
+      54,
+      45,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "garden-middle",
+    "position": [
+      20.00079056604726,
+      33.81717603443995,
+      3.457855809840856
+    ],
+    "target": [
+      29,
+      60,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "service-middle",
+    "position": [
+      72.95000000000056,
+      49,
+      3.519999976158142
+    ],
+    "target": [
+      86,
+      49,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "front-follower",
+    "position": [
+      56.97531166838751,
+      27.978547467873085,
+      2.7692319745562806
+    ],
+    "target": [
+      54,
+      45,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "garden-follower",
+    "position": [
+      19.99980500649967,
+      31.943835742393816,
+      2.926139351668501
+    ],
+    "target": [
+      29,
+      60,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "service-follower",
+    "position": [
+      70.96809598834218,
+      49.000006717482236,
+      4.12
+    ],
+    "target": [
+      86,
+      49,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-to-library",
+    "position": [
+      44,
+      73,
+      4.86
+    ],
+    "target": [
+      52,
+      73,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "music-to-orangery",
+    "position": [
+      11,
+      66,
+      4.86
+    ],
+    "target": [
+      5,
+      56,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-to-music",
+    "position": [
+      11,
+      90,
+      4.86
+    ],
+    "target": [
+      11,
+      80,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "rear-court-to-a",
+    "position": [
+      40,
+      82,
+      4.86
+    ],
+    "target": [
+      35,
+      70,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  }
+]

@@ -1,0 +1,12 @@
+import {writeFile}from'node:fs/promises';
+import {parseAml}from'../../../../src/architecture/index.ts';
+import {ArchitectureResolution}from'../../../../src/architecture/resolve.ts';
+import {resolveFlight}from'../../../../src/architecture/flights.ts';
+import {enclosureGeometry}from'../../../../src/architecture/enclosures.ts';
+import {pathLength}from'../../../../src/vector/geometry.ts';
+const document=parseAml(`<architecture version="1" id="curve-source" units="meters" curve-tolerance=".002"><path id="CX1-axis" elevation="0 3.6"><arc center="46.5 39.5 0" radii="13 13" start="180" sweep="-80"/></path><stairs id="CX1" path="CX1-axis" width="4" count="24" thickness=".35" underside="sloped"/><enclosure id="CL" host="CX1" side="left" construction="curb" height="1.1" thickness=".24"/><enclosure id="CR" host="CX1" side="right" construction="curb" height="1.1" thickness=".24"/></architecture>`);
+const resolution=new ArchitectureResolution(document,1000,8192);const node=resolution.nodes.get('CX1');const flight=resolveFlight(node,node.element,resolution,100000);
+const guards=['CL','CR'].flatMap(id=>enclosureGeometry(resolution.nodes.get(id),node,resolution,flight,undefined,100000));
+const path=resolution.paths.get('CX1-axis');const length=pathLength(path);
+await writeFile(new URL('./native-curve.json',import.meta.url),JSON.stringify({curveTolerance:document.curveTolerance,path,length,customUnderside:[[0,0],[length*17/24,0],[length*17/24,2.2],[length,3.25]],guardGeometry:guards,rails:flight.rails,segments:flight.segments},null,2)+'\n');
+console.log({length,stations:path.length});

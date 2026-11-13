@@ -1,0 +1,322 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1660" height="1160" viewBox="0 0 1660 1160">
+<rect width="1660" height="1160" fill="#101a27"/>
+<style>text{font-family:Arial,sans-serif;fill:#eaf1fa}.label{font-size:10px;font-weight:bold;text-anchor:middle}.sub{font-size:9px;text-anchor:middle;fill:#b7cedf}</style>
+<text x="40" y="32" font-size="26" font-weight="bold">BLACKGLASS — DEVELOPED LAYOUT L05</text>
+<text x="40" y="56" font-size="13">5v5 defusal / 24 spaces / 32 connections / 3 contour levels / north ↑ / meters, Z-up / origin (0,0) southwest</text>
+<path d="M 588 84 L 724 84 L 724 900 L 588 900 Z" fill="#303a44"/>
+<text x="660" y="204" font-size="12" transform="rotate(90 660 204)">ROCK CUT / NO PLAYABLE SURFACE</text>
+<rect x="140" y="764" width="208" height="96" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<text x="244.0" y="808.0" class="label">T</text><text x="244.0" y="821.0" class="sub">+0</text>
+<rect x="92" y="636" width="160" height="128" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<text x="172.0" y="696.0" class="label">F</text><text x="172.0" y="709.0" class="sub">+0</text>
+<rect x="252" y="668" width="160" height="96" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<text x="332.0" y="712.0" class="label">C</text><text x="332.0" y="725.0" class="sub">+0</text>
+<rect x="412" y="668" width="128" height="96" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<text x="476.0" y="712.0" class="label">E</text><text x="476.0" y="725.0" class="sub">+0</text>
+<rect x="92" y="524" width="112" height="112" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<text x="148.0" y="576.0" class="label">P</text><text x="148.0" y="589.0" class="sub">+0</text>
+<rect x="204" y="524" width="96" height="112" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<rect x="92" y="444" width="112" height="80" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<text x="148.0" y="480.0" class="label">K</text><text x="148.0" y="493.0" class="sub">+0</text>
+<rect x="204" y="444" width="64" height="80" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<text x="236.0" y="480.0" class="label">PC</text><text x="236.0" y="493.0" class="sub">+0</text>
+<rect x="76" y="284" width="192" height="160" fill="#135f63" stroke="#bfd0dc" stroke-width="2"/>
+<text x="172.0" y="360.0" class="label">B</text><text x="172.0" y="373.0" class="sub">+0</text>
+<rect x="300" y="460" width="144" height="112" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<text x="372.0" y="512.0" class="label">M</text><text x="372.0" y="525.0" class="sub">+6</text>
+<rect x="444" y="492" width="128" height="80" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<text x="508.0" y="528.0" class="label">H</text><text x="508.0" y="541.0" class="sub">+6</text>
+<rect x="204" y="508" width="96" height="48" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<rect x="316" y="396" width="160" height="64" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<text x="396.0" y="424.0" class="label">D</text><text x="396.0" y="437.0" class="sub">+6</text>
+<rect x="268" y="364" width="48" height="48" fill="#264455" stroke="#bfd0dc" stroke-width="2"/>
+<text x="292.0" y="384.0" class="label">J</text><text x="292.0" y="397.0" class="sub">+0</text>
+<rect x="316" y="284" width="48" height="112" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<text x="340.0" y="336.0" class="label">W</text><text x="340.0" y="349.0" class="sub">+6</text>
+<rect x="268" y="236" width="144" height="48" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<text x="340.0" y="256.0" class="label">R</text><text x="340.0" y="269.0" class="sub">+6</text>
+<rect x="220" y="140" width="144" height="48" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<text x="292.0" y="160.0" class="label">U</text><text x="292.0" y="173.0" class="sub">+6</text>
+<rect x="172" y="140" width="48" height="48" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<text x="196.0" y="160.0" class="label">V</text><text x="196.0" y="173.0" class="sub">+6</text>
+<rect x="268" y="188" width="48" height="48" fill="#3d5368" stroke="#bfd0dc" stroke-width="2"/>
+<text x="292.0" y="208.0" class="label">N</text><text x="292.0" y="221.0" class="sub">+6</text>
+<rect x="364" y="92" width="80" height="48" fill="#62515d" stroke="#bfd0dc" stroke-width="2"/>
+<text x="404.0" y="112.0" class="label">I</text><text x="404.0" y="125.0" class="sub">+12</text>
+<rect x="444" y="92" width="176" height="96" fill="#62515d" stroke="#bfd0dc" stroke-width="2"/>
+<text x="532.0" y="136.0" class="label">CT</text><text x="532.0" y="149.0" class="sub">+12</text>
+<rect x="444" y="236" width="192" height="160" fill="#805134" stroke="#bfd0dc" stroke-width="2"/>
+<text x="540.0" y="312.0" class="label">A</text><text x="540.0" y="325.0" class="sub">+12</text>
+<rect x="396" y="236" width="48" height="64" fill="#62515d" stroke="#bfd0dc" stroke-width="2"/>
+<text x="420.0" y="264.0" class="label">AW</text><text x="420.0" y="277.0" class="sub">+12</text>
+<rect x="508" y="188" width="64" height="48" fill="#62515d" stroke="#bfd0dc" stroke-width="2"/>
+<text x="540.0" y="208.0" class="label">AC</text><text x="540.0" y="221.0" class="sub">+12</text>
+<rect x="364" y="572" width="48" height="96" fill="#7e7154" stroke="#efd896" stroke-width="2"/>
+<path d="M 364 662.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 656.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 650.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 644.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 638.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 632.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 626.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 620.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 614.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 608.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 602.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 596.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 590.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 584.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 578.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<text x="388.0" y="620.0" class="label">S1</text>
+<rect x="492" y="572" width="48" height="96" fill="#7e7154" stroke="#efd896" stroke-width="2"/>
+<path d="M 492 662.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 656.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 650.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 644.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 638.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 632.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 626.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 620.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 614.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 608.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 602.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 596.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 590.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 584.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 492 578.0 H 540" stroke="#c7b480" stroke-width=".7"/>
+<text x="516.0" y="620.0" class="label">S2</text>
+<rect x="524" y="396" width="48" height="96" fill="#7e7154" stroke="#efd896" stroke-width="2"/>
+<path d="M 524 486.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 480.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 474.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 468.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 462.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 456.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 450.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 444.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 438.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 432.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 426.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 420.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 414.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 408.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 524 402.0 H 572" stroke="#c7b480" stroke-width=".7"/>
+<text x="548.0" y="444.0" class="label">S3</text>
+<rect x="396" y="300" width="48" height="96" fill="#7e7154" stroke="#efd896" stroke-width="2"/>
+<path d="M 396 390.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 384.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 378.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 372.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 366.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 360.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 354.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 348.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 342.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 336.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 330.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 324.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 318.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 312.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 396 306.0 H 444" stroke="#c7b480" stroke-width=".7"/>
+<text x="420.0" y="348.0" class="label">S4</text>
+<rect x="268" y="412" width="32" height="96" fill="#7e7154" stroke="#efd896" stroke-width="2"/>
+<path d="M 268 502.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 496.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 490.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 484.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 478.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 472.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 466.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 460.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 454.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 448.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 442.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 436.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 430.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 424.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 268 418.0 H 300" stroke="#c7b480" stroke-width=".7"/>
+<text x="284.0" y="460.0" class="label">S5</text>
+<rect x="172" y="188" width="48" height="96" fill="#7e7154" stroke="#efd896" stroke-width="2"/>
+<path d="M 172 278.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 272.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 266.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 260.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 254.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 248.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 242.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 236.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 230.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 224.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 218.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 212.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 206.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 200.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 172 194.0 H 220" stroke="#c7b480" stroke-width=".7"/>
+<text x="196.0" y="236.0" class="label">S6</text>
+<rect x="364" y="140" width="48" height="96" fill="#7e7154" stroke="#efd896" stroke-width="2"/>
+<path d="M 364 230.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 224.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 218.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 212.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 206.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 200.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 194.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 188.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 182.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 176.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 170.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 164.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 158.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 152.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<path d="M 364 146.0 H 412" stroke="#c7b480" stroke-width=".7"/>
+<text x="388.0" y="188.0" class="label">S7</text>
+<path d="M 170.0 764 H 206.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 282.0 764 H 318.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 252 732.0 V 700.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 412 724.0 V 692.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 124.0 636 H 156.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 224.0 636 H 248.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 204 617.6 V 590.4" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 116.0 524 H 148.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 204 489.6 V 462.4" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 222.4 524 H 249.6" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 124.0 444 H 156.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 222.4 444 H 249.6" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 444 560.0 V 528.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 300 552.0 V 520.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 324.0 460 H 356.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 268 404.0 V 372.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 324.0 396 H 356.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 324.0 284 H 356.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 276.0 236 H 308.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 276.0 188 H 308.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 220 180.0 V 148.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 444 132.0 V 100.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 524.0 188 H 556.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 524.0 236 H 556.0" stroke="#73f5cd" stroke-width="5"/>
+<path d="M 444 284.0 V 252.0" stroke="#73f5cd" stroke-width="5"/>
+<rect x="116" y="684" width="56" height="32" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="144.0" y="703.0" font-size="7" text-anchor="middle">F-cargo</text>
+<rect x="196" y="660" width="32" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="212.0" y="671.0" font-size="7" text-anchor="middle">F-low</text>
+<rect x="300" y="700" width="32" height="32" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="316.0" y="719.0" font-size="7" text-anchor="middle">C-kiosk</text>
+<rect x="436" y="684" width="32" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="452.0" y="695.0" font-size="7" text-anchor="middle">E-low</text>
+<rect x="116" y="572" width="32" height="32" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="132.0" y="591.0" font-size="7" text-anchor="middle">P-pump1</text>
+<rect x="156" y="540" width="32" height="24" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="172.0" y="555.0" font-size="7" text-anchor="middle">P-pump2</text>
+<rect x="104.0" y="476" width="28.0" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="118.0" y="487.0" font-size="7" text-anchor="middle">K-low</text>
+<rect x="228" y="476" width="24" height="24" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="240.0" y="491.0" font-size="7" text-anchor="middle">PC-rack</text>
+<rect x="148" y="340" width="48" height="48" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="172.0" y="367.0" font-size="7" text-anchor="middle">B-core</text>
+<rect x="100" y="404" width="32" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="116.0" y="415.0" font-size="7" text-anchor="middle">B-low1</text>
+<rect x="228" y="324" width="24" height="24" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="240.0" y="339.0" font-size="7" text-anchor="middle">B-rack</text>
+<rect x="204" y="300" width="32" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="220.0" y="311.0" font-size="7" text-anchor="middle">B-low2</text>
+<rect x="372" y="500" width="40" height="32" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="392.0" y="519.0" font-size="7" text-anchor="middle">M-array</text>
+<rect x="316" y="476" width="24" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="328.0" y="487.0" font-size="7" text-anchor="middle">M-low</text>
+<rect x="460" y="508" width="32" height="28.0" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="476.0" y="525.0" font-size="7" text-anchor="middle">H-exchanger</text>
+<rect x="532" y="540" width="24" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="544.0" y="551.0" font-size="7" text-anchor="middle">H-low</text>
+<rect x="212" y="508" width="32" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="228.0" y="519.0" font-size="7" text-anchor="middle">Q-low</text>
+<rect x="316" y="420" width="40" height="16" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="336.0" y="431.0" font-size="7" text-anchor="middle">D-screen</text>
+<rect x="388" y="412" width="24" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="400.0" y="423.0" font-size="7" text-anchor="middle">D-low</text>
+<rect x="276" y="265.6" width="24" height="12.0" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="288.0" y="274.6" font-size="7" text-anchor="middle">R-low</text>
+<rect x="236" y="164" width="16" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="244.0" y="175.0" font-size="7" text-anchor="middle">U-low</text>
+<rect x="404" y="280.0" width="20.0" height="12.0" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="414.0" y="289.0" font-size="7" text-anchor="middle">AW-low</text>
+<circle cx="540" cy="316" r="27.2" fill="#17232f" stroke="#ffb75a" stroke-width="2"/>
+<text x="540.0" y="319.0" font-size="7" text-anchor="middle">A-reactor</text>
+<rect x="460" y="332" width="32" height="16" fill="#17232f" stroke="#a5d0d8" stroke-width="1"/>
+<text x="476.0" y="343.0" font-size="7" text-anchor="middle">A-screen</text>
+<rect x="500" y="360.0" width="32" height="16.0" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="516.0" y="371.0" font-size="7" text-anchor="middle">A-low1</text>
+<rect x="580" y="260" width="32" height="16" fill="#44baae" stroke="#a5d0d8" stroke-width="1"/>
+<text x="596.0" y="271.0" font-size="7" text-anchor="middle">A-low2</text>
+<circle cx="236" cy="812" r="10" fill="#ec8c55"/><text x="236" y="816" class="label">T</text>
+<circle cx="340" cy="260" r="10" fill="#63d4df"/><text x="340" y="264" class="label">CT</text>
+<circle cx="580" cy="332" r="10" fill="#ec8c55"/><text x="580" y="336" class="label">A</text>
+<circle cx="124" cy="356" r="10" fill="#63d4df"/><text x="124" y="360" class="label">B</text>
+<text x="252" y="550" class="label">Q +6 / over L</text>
+<text x="252" y="604" class="label">L +0</text>
+<path d="M 364 668 V 572" stroke="#ed91be" stroke-width="4"/>
+<text x="356" y="628" font-size="9" text-anchor="end">S1 west5.2h</text>
+<path d="M 76 388 V 332" stroke="#79cfff" stroke-width="5" stroke-dasharray="3 2"/>
+<path d="M 636 356 V 284" stroke="#79cfff" stroke-width="5" stroke-dasharray="3 2"/>
+<path d="M 356 556 L 372 532" stroke="#f3a1bd" stroke-width="1.5" stroke-dasharray="4 3"/>
+<path d="M 452 268 L 460 340" stroke="#f3a1bd" stroke-width="1.5" stroke-dasharray="4 3"/>
+<path d="M 132 428 L 148 388" stroke="#f3a1bd" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="790" y="105" font-size="18" font-weight="bold">HEIGHT STUDIES / predicted, not compiled</text>
+<text x="790" y="135" font-size="13">Q over L / section looking north / Z shown at 16 px/m</text>
+<path d="M 800 338 H 1025 M 800 242 H 1025" stroke="#a6d7df" stroke-width="6"/>
+<path d="M 800 242 V 159 M 1025 242 V 159 M 800 338 V 290" stroke="#c0ccda" stroke-width="5"/>
+<path d="M 850 338 V 309 M 880 242 V 213" stroke="#f2dca2" stroke-width="4"/>
+<circle cx="850" cy="311" r="3" fill="#f6a9c9"/><circle cx="880" cy="215" r="3" fill="#f6a9c9"/>
+<text x="1045" y="337" font-size="12">L floor +0 / eye +1.674</text>
+<text x="1045" y="242" font-size="12">Q floor +6 / eye +7.674</text>
+<text x="1045" y="267" font-size="12">.80m Q slab; underside +5.20</text>
+<text x="1045" y="292" font-size="12">No optical slit or physical transfer.</text>
+<text x="1045" y="317" font-size="12">5.2m opaque walls contain Q views.</text>
+<text x="790" y="385" font-size="13">S3 / S4 rises: +6 → +12 / 12m run / 30 × .20m risers</text>
+<path d="M 805 520 H 850 L 1042 424 H 1100" stroke="#d9c68f" stroke-width="6" fill="none"/>
+<path d="M 850 466 L 1042 370" stroke="#b2c6d6" stroke-width="4"/>
+<path d="M 890 500 V 473 M 1042 424 V 397" stroke="#f2dca2" stroke-width="3"/>
+<text x="1120" y="422" font-size="12">Landing eye +13.674</text>
+<text x="1120" y="448" font-size="12">3.4m side screens follow stair grade.</text>
+<text x="1120" y="474" font-size="12">Clear headroom ≥3.6m at doors.</text>
+<text x="1120" y="500" font-size="12">Top hold can see ascent; stair is committed.</text>
+<text x="790" y="568" font-size="13">Low-cover / upright body: floor +0, top +1.25, eyes +1.674 / +1.023</text>
+<text x="790" y="593" font-size="13">Upper floors use the same offsets. Oblique/elevated views may defeat low refuges.</text>
+<text x="790" y="618" font-size="13">Study FOV: 100° horizontal / 75° vertical. All predicted lines require compiled checks.</text>
+<text x="790" y="675" font-size="12">Cyan thresholds: 3–4.5m wide, 3.6m head clearance; walls 5.2m high.</text>
+<text x="790" y="698" font-size="12">Dark fixtures: full-height screens/equipment. Teal: 1.25m low refuges.</text>
+<text x="790" y="721" font-size="12">Screens: +3.4m over tread; S1 west rises5.2m to close the spawn ray.</text>
+<text x="790" y="744" font-size="12">Spawn rooms T and R receive opaque roofs at +4.2m over their floors.</text>
+<text x="790" y="767" font-size="12">A plant: (65,66,+12), east of core. B plant: (8,63,0), west of data core.</text>
+<text x="790" y="790" font-size="12">All seven stairs reversible; no jump, boost, drop or crouch-only route.</text>
+<text x="790" y="813" font-size="12">Blue dashed: outward observation windows, sill1.1 / head3.2; clear collision pane.</text>
+<text x="790" y="836" font-size="12">A main = H / S3; A short = D / S4 / AW; A rear = CT / AC.</text>
+<text x="790" y="859" font-size="12">B long = K; B auxiliary = PC; B short = Q / S5 / J; B rear = V / S6.</text>
+<text x="790" y="882" font-size="12">Mountain starts east of X66 below upper decks; cliff rock remains outside floors.</text>
+<text x="790" y="905" font-size="12">R / N / U / V form one service wing around the rear of the lower vault.</text>
+<text x="45" y="935" font-size="11">T — Insertion dock (+0)</text>
+<text x="45" y="952" font-size="11">F — Freight hall (+0)</text>
+<text x="45" y="969" font-size="11">C — Arrival concourse (+0)</text>
+<text x="45" y="986" font-size="11">E — Cable port (+0)</text>
+<text x="45" y="1003" font-size="11">P — Cooling pumps (+0)</text>
+<text x="45" y="1020" font-size="11">L — Lower gallery (+0)</text>
+<text x="45" y="1037" font-size="11">K — Cold airlock (+0)</text>
+<text x="45" y="1054" font-size="11">PC — Pump control (+0)</text>
+<text x="45" y="1071" font-size="11">B — B / Data vault (+0)</text>
+<text x="45" y="1088" font-size="11">M — Mid / Atrium (+6)</text>
+<text x="45" y="1105" font-size="11">H — Heat exchangers (+6)</text>
+<text x="45" y="1122" font-size="11">Q — Suspended gallery (+6)</text>
+<text x="395" y="935" font-size="11">D — Cleanroom (+6)</text>
+<text x="395" y="952" font-size="11">J — Short airlock (+0)</text>
+<text x="395" y="969" font-size="11">W — Service spine (+6)</text>
+<text x="395" y="986" font-size="11">R — CT operations / rear bridge (+6)</text>
+<text x="395" y="1003" font-size="11">U — Switchgear (+6)</text>
+<text x="395" y="1020" font-size="11">V — Vault stair head (+6)</text>
+<text x="395" y="1037" font-size="11">N — Coolant manifold (+6)</text>
+<text x="395" y="1054" font-size="11">I — Security vestibule (+12)</text>
+<text x="395" y="1071" font-size="11">CT — Summit command pad (+12)</text>
+<text x="395" y="1088" font-size="11">A — A / Reactor hall (+12)</text>
+<text x="395" y="1105" font-size="11">AW — Scrubber landing (+12)</text>
+<text x="395" y="1122" font-size="11">AC — Command access (+12)</text>
+<path d="M 60 895 H 220 M 60 889 V 901 M 220 889 V 901" stroke="#c8d6e1"/>
+<text x="110" y="915" font-size="11">20 meters</text>
+</svg>

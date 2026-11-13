@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1100" viewBox="0 0 1000 1100"><rect width="1000" height="1100" fill="#f4f0e6"/><style>text{font-family:Arial;fill:#26362f} .label{font-size:18px;font-weight:bold} .small{font-size:15px}</style><text x="70" y="48" font-size="32" font-weight="bold">GREYWATCH · quick spatial sketch r1</text><text x="70" y="80" font-size="19">Abandoned medieval European castle · 5v5 bomb defuse · North ↑</text>
+<polygon points="380,970 580,970 580,830 760,830 760,750 580,750 580,690 420,690 420,770 180,770 180,850 380,850" fill="#c8b59c" stroke="#3d4940" stroke-width="4"/>
+<polygon points="160,770 280,770 280,550 340,550 340,450 160,450" fill="#d5d0bb" stroke="#3d4940" stroke-width="4"/>
+<polygon points="420,770 560,770 560,550 680,550 680,470 560,470 560,410 360,410 360,490 440,490 440,690 420,690" fill="#cfccc2" stroke="#3d4940" stroke-width="4"/>
+<polygon points="160,450 360,450 360,490 420,490 420,290 360,290 360,230 160,230" fill="#e5c6a2" stroke="#3d4940" stroke-width="4"/>
+<polygon points="680,750 820,750 820,510 860,510 860,250 620,250 620,470 680,470" fill="#b7c9c0" stroke="#3d4940" stroke-width="4"/>
+<polygon points="360,290 620,290 620,250 760,250 760,190 580,190 580,130 440,130 440,190 280,190 280,230 360,230" fill="#b8cad2" stroke="#3d4940" stroke-width="4"/>
+<polygon points="300,750 380,750 380,510 300,510" fill="#c59e67" fill-opacity=".8" stroke="#805b29" stroke-width="3" stroke-dasharray="8 4"/>
+<polygon points="300,630 680,630 680,570 300,570" fill="#c59e67" fill-opacity=".8" stroke="#805b29" stroke-width="3" stroke-dasharray="8 4"/>
+<polygon points="600,750 680,750 680,450 600,450" fill="#c59e67" fill-opacity=".8" stroke="#805b29" stroke-width="3" stroke-dasharray="8 4"/>
+<path d="M310 740 L370 740" stroke="#805b29"/>
+<path d="M310 720 L370 720" stroke="#805b29"/>
+<path d="M310 700 L370 700" stroke="#805b29"/>
+<path d="M310 680 L370 680" stroke="#805b29"/>
+<path d="M310 660 L370 660" stroke="#805b29"/>
+<path d="M310 640 L370 640" stroke="#805b29"/>
+<path d="M610 740 L670 740" stroke="#805b29"/>
+<path d="M610 720 L670 720" stroke="#805b29"/>
+<path d="M610 700 L670 700" stroke="#805b29"/>
+<path d="M610 680 L670 680" stroke="#805b29"/>
+<path d="M610 660 L670 660" stroke="#805b29"/>
+<path d="M610 640 L670 640" stroke="#805b29"/>
+<path d="M310 560 L370 560" stroke="#805b29"/>
+<path d="M610 560 L670 560" stroke="#805b29"/>
+<path d="M310 540 L370 540" stroke="#805b29"/>
+<path d="M610 540 L670 540" stroke="#805b29"/>
+<path d="M310 520 L370 520" stroke="#805b29"/>
+<path d="M610 520 L670 520" stroke="#805b29"/>
+<path d="M310 500 L370 500" stroke="#805b29"/>
+<path d="M610 500 L670 500" stroke="#805b29"/>
+<path d="M310 480 L370 480" stroke="#805b29"/>
+<path d="M610 480 L670 480" stroke="#805b29"/>
+<text x="480" y="910" text-anchor="middle" class="label">T · GATEHOUSE</text>
+<text x="240" y="620" text-anchor="middle" class="label">OUTER WARD</text>
+<text x="260" y="350" text-anchor="middle" class="label">A · ROSE COURT</text>
+<text x="740" y="360" text-anchor="middle" class="label">B · CHAPEL</text>
+<text x="500" y="160" text-anchor="middle" class="label">CT</text>
+<text x="480" y="700" text-anchor="middle" class="label">MID</text>
+<text x="480" y="590" text-anchor="middle" class="label">UPPER BRIDGE +3 m</text>
+<text x="470" y="520" text-anchor="middle" class="label">UNDERPASS 0 m</text>
+<text x="500" y="330" text-anchor="middle" class="label">KEEP MASS</text>
+<text x="500" y="250" text-anchor="middle" class="label">REAR CLOISTER</text>
+<text x="75" y="1060" class="small">Ground 0 m · ochre = stair/upper walk +3 m · bridge crosses above lower mid, without a junction.</text></svg>

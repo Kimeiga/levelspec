@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="veilcrest" name="Veilcrest · secret mountain mansion · 5v5 defuse" units="meters" validation="playable" description="Original two-site mountain estate. Upper salon, lower vault, cliff garden and diagonal drainage cut. Roofless playable rooms for review; solid library core and scenic mountain bowl. See projects/veilcrest/README.md." curve-tolerance=".01">
+  <material id="paving" color="#b6aa8a" roughness=".9" />
+  <material id="marble" color="#d2c4a8" roughness=".9" />
+  <material id="stone" color="#9b967f" roughness=".9" />
+  <material id="plaster" color="#d2c8ad" roughness=".9" />
+  <material id="rock" color="#6c786e" roughness=".9" />
+  <material id="slate" color="#3f5a60" roughness=".9" />
+  <material id="wood" color="#886d4f" roughness=".9" />
+  <material id="hedge" color="#48664d" roughness=".9" />
+  <material id="metal" color="#657c7c" roughness=".9" />
+  <material id="gold" color="#c9a35d" roughness=".9" />
+  <material id="tint-a" color="#ce8d61" roughness=".9" />
+  <material id="tint-b" color="#75b5ba" roughness=".9" />
+  <material id="tree" color="#365a49" roughness=".9" />
+  <material id="trunk" color="#74604a" roughness=".9" />
+  <material id="soil" color="#7b8566" roughness=".9" />
+  <profile id="LOWER-ROAD-plan" points="54 8; 76 8; 80 12; 80 20; 72 26; 62 26; 54 26; 40 28; 22 30; 16 28; 14 24; 18 18; 40 16; 54 18" />
+  <profile id="GARDEN-plan" points="12 40; 34 40; 34 60; 24 60; 12 56; 9 48" />
+  <profile id="FOYER-plan" points="48 34; 64 34; 64 40; 60 44; 48 44" />
+  <profile id="HALL-plan" points="38 44; 60 44; 60 60; 38 60" />
+  <profile id="SALON-plan" points="24 60; 46 60; 46 80; 24 80" />
+  <profile id="SERVICE-plan" points="60 44; 68 44; 68 52; 60 52" />
+  <profile id="DRAIN-plan" points="72 26; 80 20; 84 24; 96 32; 96 44; 86 44; 86 36; 78 30" />
+  <profile id="VAULT-plan" points="78 44; 96 44; 96 68; 78 68" />
+  <profile id="REAR-COURT-plan" points="36 80; 86 80; 86 88; 36 88" />
+  <profile id="FOYER-SCREEN-plan" points="51 38; 62 38; 62 40; 51 40" />
+  <profile id="ROCK-SPINE-plan" points="34 40; 38 40; 38 60; 34 60" />
+  <profile id="LIBRARY-CORE-plan" points="46 60; 78 60; 78 80; 46 80" />
+  <profile id="HALL-FIREPLACE-plan" points="47 46; 51 46; 51 51; 47 51" />
+  <profile id="A-SCULPTURE-plan" points="33 66; 37 66; 37 70; 33 70" />
+  <profile id="A-CREDENZA-plan" points="27 72; 31 72; 31 73.3; 27 73.3" />
+  <profile id="A-PIANO-plan" points="40 64; 43 64; 43 65.5; 40 65.5" />
+  <profile id="GARDEN-HEDGE-plan" points="26 52; 29 52; 29 56; 26 56" />
+  <profile id="GARDEN-BENCH-plan" points="14 46; 18 46; 18 47.4; 14 47.4" />
+  <profile id="B-CISTERN-plan" points="85 53; 89 53; 89 58; 85 58" />
+  <profile id="B-CHEST-plan" points="80 59; 83 59; 83 60.4; 80 60.4" />
+  <profile id="B-FILTER-plan" points="91 47; 94 47; 94 48.5; 91 48.5" />
+  <profile id="ROAD-VAN-plan" points="64 18; 68 18; 68 22; 64 22" />
+  <profile id="ROAD-RETAINING-plan" points="36 23; 44 23; 44 25; 36 25" />
+  <profile id="CT-SCREEN-plan" points="58 80; 63 80; 63 83; 58 83" />
+  <path id="GARDEN-STAIR-axis" points="20 28 0; 20 40 3" />
+  <path id="FRONT-STAIR-axis" points="57 26 0; 57 34 3" />
+  <path id="SERVICE-STAIR-axis" points="78 49 0; 68 49 3" />
+  <path id="VAULT-STAIR-axis" points="82 68 0; 82 80 3" />
+  <path id="A-SOUTH-axis" points="24 60 3; 46 60 3" />
+  <path id="A-NORTH-axis" points="24 80 3; 46 80 3" />
+  <path id="HALL-FOYER-axis" points="48 44 3; 60 44 3" />
+  <path id="HALL-PANTRY-axis" points="60 44 3; 60 52 3" />
+  <path id="B-WEST-axis" points="78 44 0; 78 68 0" />
+  <path id="B-SOUTH-axis" points="78 44 0; 96 44 0" />
+  <path id="B-NORTH-axis" points="78 68 0; 96 68 0" />
+  <path id="GARDEN-STAIR-CHEEK-0-axis" points="16 28 -0.45; 16 40 -0.45" />
+  <path id="GARDEN-STAIR-CHEEK-1-axis" points="24 28 -0.45; 24 40 -0.45" />
+  <path id="FRONT-STAIR-CHEEK-0-axis" points="54 26 -0.45; 54 34 -0.45" />
+  <path id="FRONT-STAIR-CHEEK-1-axis" points="60 26 -0.45; 60 34 -0.45" />
+  <path id="SERVICE-STAIR-CHEEK-0-axis" points="68 52 -0.45; 78 52 -0.45" />
+  <path id="SERVICE-STAIR-CHEEK-1-axis" points="68 46 -0.45; 78 46 -0.45" />
+  <path id="VAULT-STAIR-CHEEK-0-axis" points="78 68 -0.45; 78 80 -0.45" />
+  <path id="VAULT-STAIR-CHEEK-1-axis" points="86 68 -0.45; 86 80 -0.45" />
+  <path id="EDGE-00-axis" points="80 12 -0.45; 76 8 -0.45" />
+  <path id="EDGE-01-axis" points="76 8 -0.45; 54 8 -0.45" />
+  <path id="EDGE-02-axis" points="54 8 -0.45; 54 18 -0.45" />
+  <path id="EDGE-03-axis" points="54 18 -0.45; 40 16 -0.45" />
+  <path id="EDGE-04-axis" points="40 16 -0.45; 18 18 -0.45" />
+  <path id="EDGE-05-axis" points="18 18 -0.45; 14 24 -0.45" />
+  <path id="EDGE-06-axis" points="14 24 -0.45; 16 28 -0.45" />
+  <path id="EDGE-07-axis" points="16 28 -0.45; 16 40 -0.45" />
+  <path id="EDGE-08-axis" points="16 40 -0.45; 12 40 -0.45" />
+  <path id="EDGE-09-axis" points="12 40 -0.45; 9 48 -0.45" />
+  <path id="EDGE-10-axis" points="9 48 -0.45; 12 56 -0.45" />
+  <path id="EDGE-11-axis" points="12 56 -0.45; 24 60 -0.45" />
+  <path id="EDGE-12-axis" points="24 60 -0.45; 24 80 -0.45" />
+  <path id="EDGE-13-axis" points="24 80 -0.45; 36 80 -0.45" />
+  <path id="EDGE-14-axis" points="36 80 -0.45; 36 88 -0.45" />
+  <path id="EDGE-15-axis" points="36 88 -0.45; 86 88 -0.45" />
+  <path id="EDGE-16-axis" points="86 88 -0.45; 86 80 -0.45" />
+  <path id="EDGE-17-axis" points="86 80 -0.45; 86 68 -0.45" />
+  <path id="EDGE-18-axis" points="86 68 -0.45; 96 68 -0.45" />
+  <path id="EDGE-19-axis" points="96 68 -0.45; 96 44 -0.45" />
+  <path id="EDGE-20-axis" points="96 44 -0.45; 96 32 -0.45" />
+  <path id="EDGE-21-axis" points="96 32 -0.45; 84 24 -0.45" />
+  <path id="EDGE-22-axis" points="84 24 -0.45; 80 20 -0.45" />
+  <path id="EDGE-23-axis" points="80 20 -0.45; 80 12 -0.45" />
+  <path id="EDGE-24-axis" points="34 40 -0.45; 24 40 -0.45" />
+  <path id="EDGE-25-axis" points="24 40 -0.45; 24 29.7778 -0.45" />
+  <path id="EDGE-26-axis" points="24 29.7778 -0.45; 40 28 -0.45" />
+  <path id="EDGE-27-axis" points="40 28 -0.45; 54 26 -0.45" />
+  <path id="EDGE-28-axis" points="54 26 -0.45; 54 34 -0.45" />
+  <path id="EDGE-29-axis" points="54 34 -0.45; 48 34 -0.45" />
+  <path id="EDGE-30-axis" points="48 34 -0.45; 48 44 -0.45" />
+  <path id="EDGE-31-axis" points="48 44 -0.45; 38 44 -0.45" />
+  <path id="EDGE-32-axis" points="38 44 -0.45; 38 60 -0.45" />
+  <path id="EDGE-33-axis" points="38 60 -0.45; 34 60 -0.45" />
+  <path id="EDGE-34-axis" points="34 60 -0.45; 34 40 -0.45" />
+  <path id="EDGE-35-axis" points="60 60 -0.45; 60 52 -0.45" />
+  <path id="EDGE-36-axis" points="60 52 -0.45; 68 52 -0.45" />
+  <path id="EDGE-37-axis" points="68 52 -0.45; 78 52 -0.45" />
+  <path id="EDGE-38-axis" points="78 52 -0.45; 78 68 -0.45" />
+  <path id="EDGE-39-axis" points="78 68 -0.45; 78 80 -0.45" />
+  <path id="EDGE-40-axis" points="78 80 -0.45; 46 80 -0.45" />
+  <path id="EDGE-41-axis" points="46 80 -0.45; 46 60 -0.45" />
+  <path id="EDGE-42-axis" points="46 60 -0.45; 60 60 -0.45" />
+  <path id="EDGE-43-axis" points="64 40 -0.45; 64 34 -0.45" />
+  <path id="EDGE-44-axis" points="64 34 -0.45; 60 34 -0.45" />
+  <path id="EDGE-45-axis" points="60 34 -0.45; 60 26 -0.45" />
+  <path id="EDGE-46-axis" points="60 26 -0.45; 62 26 -0.45" />
+  <path id="EDGE-47-axis" points="62 26 -0.45; 72 26 -0.45" />
+  <path id="EDGE-48-axis" points="72 26 -0.45; 78 30 -0.45" />
+  <path id="EDGE-49-axis" points="78 30 -0.45; 86 36 -0.45" />
+  <path id="EDGE-50-axis" points="86 36 -0.45; 86 44 -0.45" />
+  <path id="EDGE-51-axis" points="86 44 -0.45; 78 44 -0.45" />
+  <path id="EDGE-52-axis" points="78 44 -0.45; 78 46 -0.45" />
+  <path id="EDGE-53-axis" points="78 46 -0.45; 68 46 -0.45" />
+  <path id="EDGE-54-axis" points="68 46 -0.45; 68 44 -0.45" />
+  <path id="EDGE-55-axis" points="68 44 -0.45; 60 44 -0.45" />
+  <path id="EDGE-56-axis" points="60 44 -0.45; 64 40 -0.45" />
+  <assembly id="ESTATE" label="Reviewed physical floors, walls, stairways and cover" coincident-material="retained-face">
+    <slab id="LOWER-ROAD" profile="LOWER-ROAD-plan" elevation="0" thickness="0.35" material="paving" group="lower" />
+    <slab id="GARDEN" profile="GARDEN-plan" elevation="3" thickness="3.35" material="paving" group="upper" />
+    <slab id="FOYER" profile="FOYER-plan" elevation="3" thickness="3.35" material="marble" group="upper" />
+    <slab id="HALL" profile="HALL-plan" elevation="3" thickness="3.35" material="marble" group="upper" />
+    <slab id="SALON" profile="SALON-plan" elevation="3" thickness="3.35" material="marble" group="upper" />
+    <slab id="SERVICE" profile="SERVICE-plan" elevation="3" thickness="3.35" material="marble" group="upper" />
+    <slab id="DRAIN" profile="DRAIN-plan" elevation="0" thickness="0.35" material="paving" group="lower" />
+    <slab id="VAULT" profile="VAULT-plan" elevation="0" thickness="0.35" material="paving" group="lower" />
+    <slab id="REAR-COURT" profile="REAR-COURT-plan" elevation="3" thickness="3.35" material="paving" group="upper" />
+    <box id="FOYER-SCREEN" position="51 38 3" width="11" depth="2" height="3.4" material="stone" group="cover" label="Blocks the complete front-stair to hall-arch optical channel; west aisle 3 m, east aisle 2 m" />
+    <box id="ROCK-SPINE" position="34 40 -0.4" width="4" depth="20" height="11.4" material="rock" group="architecture" label="Separates cliff garden from hall; no windows or traversal" />
+    <box id="LIBRARY-CORE" position="46 60 -0.4" width="32" depth="20" height="13.4" material="stone" group="architecture" label="Solid mansion core separates court from hall and vault approach" />
+    <box id="HALL-FIREPLACE" position="47 46 3" width="4" depth="5" height="2.7" material="stone" group="cover" label="Tall central double-sided hearth splits hall views; 9 m passing width east" />
+    <box id="A-SCULPTURE" position="33 66 3" width="4" depth="4" height="2.5" material="stone" group="cover" label="Tall sculpture plinth separates salon entry views; flank costs movement" />
+    <box id="A-CREDENZA" position="27 72 3" width="4" depth="1.3" height="1.25" material="wood" group="cover" label="Crouched refuge against same-level hall entry; garden-side flank remains" />
+    <box id="A-PIANO" position="40 64 3" width="3" depth="1.5" height="1.25" material="wood" group="cover" label="Entry preparation and low repositioning east of sculpture" />
+    <box id="GARDEN-HEDGE" position="26 52 3" width="3" depth="4" height="2.4" material="hedge" group="cover" label="Tall planter screens direct garden-to-salon preview" />
+    <box id="GARDEN-BENCH" position="14 46 3" width="4" depth="1.4" height="1.25" material="stone" group="cover" label="Low refuge beyond garden stair crest, side exposure remains" />
+    <box id="B-CISTERN" position="85 53 0" width="4" depth="5" height="2.7" material="stone" group="cover" label="Tall cistern separates south drain and west service entries" />
+    <box id="B-CHEST" position="80 59 0" width="3" depth="1.4" height="1.25" material="wood" group="cover" label="Low same-level refuge; elevated stair sees over it" />
+    <box id="B-FILTER" position="91 47 0" width="3" depth="1.5" height="1.25" material="metal" group="cover" label="Low drain-side entry preparation" />
+    <box id="ROAD-VAN" position="64 18 0" width="4" depth="4" height="2.7" material="metal" group="cover" label="Tall equipment van separates spawn exits" />
+    <box id="ROAD-RETAINING" position="36 23 0" width="8" depth="2" height="1.25" material="stone" group="cover" label="Low intermediate refuge on west road; north side hill" />
+    <box id="CT-SCREEN" position="58 80 3" width="5" depth="3" height="2.7" material="stone" group="cover" label="Court screen hides spawn from stair and salon north line" />
+    <stairs id="GARDEN-STAIR" path="GARDEN-STAIR-axis" width="8" count="20" underside="filled" thickness=".35" material="stone" group="transfers" />
+    <stairs id="FRONT-STAIR" path="FRONT-STAIR-axis" width="6" count="20" underside="filled" thickness=".35" material="stone" group="transfers" />
+    <stairs id="SERVICE-STAIR" path="SERVICE-STAIR-axis" width="6" count="20" underside="filled" thickness=".35" material="stone" group="transfers" />
+    <stairs id="VAULT-STAIR" path="VAULT-STAIR-axis" width="8" count="20" underside="filled" thickness=".35" material="stone" group="transfers" />
+    <wall id="EDGE-00" path="EDGE-00-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-01" path="EDGE-01-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-02" path="EDGE-02-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-03" path="EDGE-03-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-04" path="EDGE-04-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-05" path="EDGE-05-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-06" path="EDGE-06-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-07" path="EDGE-07-axis" height="5.95" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-08" path="EDGE-08-axis" height="4.7" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-09" path="EDGE-09-axis" height="4.7" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-10" path="EDGE-10-axis" height="4.7" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-11" path="EDGE-11-axis" height="4.7" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-12" path="EDGE-12-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-13" path="EDGE-13-axis" height="6.95" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-14" path="EDGE-14-axis" height="6.95" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-15" path="EDGE-15-axis" height="6.95" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-16" path="EDGE-16-axis" height="6.95" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-17" path="EDGE-17-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-18" path="EDGE-18-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-19" path="EDGE-19-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-20" path="EDGE-20-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-21" path="EDGE-21-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-22" path="EDGE-22-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-23" path="EDGE-23-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-24" path="EDGE-24-axis" height="4.7" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-25" path="EDGE-25-axis" height="5.95" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-26" path="EDGE-26-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-27" path="EDGE-27-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-28" path="EDGE-28-axis" height="7.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-29" path="EDGE-29-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-30" path="EDGE-30-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-31" path="EDGE-31-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-32" path="EDGE-32-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-33" path="EDGE-33-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-34" path="EDGE-34-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-35" path="EDGE-35-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-36" path="EDGE-36-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-37" path="EDGE-37-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-38" path="EDGE-38-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-39" path="EDGE-39-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-40" path="EDGE-40-axis" height="6.95" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-41" path="EDGE-41-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-42" path="EDGE-42-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-43" path="EDGE-43-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-44" path="EDGE-44-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-45" path="EDGE-45-axis" height="7.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-46" path="EDGE-46-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-47" path="EDGE-47-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-48" path="EDGE-48-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-49" path="EDGE-49-axis" height="3.6500000000000004" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-50" path="EDGE-50-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-51" path="EDGE-51-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-52" path="EDGE-52-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-53" path="EDGE-53-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-54" path="EDGE-54-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-55" path="EDGE-55-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="EDGE-56" path="EDGE-56-axis" height="8.25" thickness="0.5" material="stone" group="walls" />
+    <wall id="A-SOUTH" path="A-SOUTH-axis" height="4.8" thickness="0.5" material="plaster" group="walls" />
+    <wall id="A-NORTH" path="A-NORTH-axis" height="4.8" thickness="0.5" material="plaster" group="walls" />
+    <wall id="HALL-FOYER" path="HALL-FOYER-axis" height="4.8" thickness="0.45" material="plaster" group="walls" />
+    <wall id="HALL-PANTRY" path="HALL-PANTRY-axis" height="4.8" thickness="0.45" material="plaster" group="walls" />
+    <wall id="B-WEST" path="B-WEST-axis" height="7" thickness="0.5" material="plaster" group="walls" />
+    <wall id="B-SOUTH" path="B-SOUTH-axis" height="5" thickness="0.5" material="plaster" group="walls" />
+    <wall id="B-NORTH" path="B-NORTH-axis" height="7" thickness="0.5" material="plaster" group="walls" />
+    <wall id="GARDEN-STAIR-CHEEK-0" path="GARDEN-STAIR-CHEEK-0-axis" height="7.45" thickness="0.4" material="plaster" group="walls" />
+    <wall id="GARDEN-STAIR-CHEEK-1" path="GARDEN-STAIR-CHEEK-1-axis" height="7.45" thickness="0.4" material="plaster" group="walls" />
+    <wall id="FRONT-STAIR-CHEEK-0" path="FRONT-STAIR-CHEEK-0-axis" height="7.45" thickness="0.4" material="plaster" group="walls" />
+    <wall id="FRONT-STAIR-CHEEK-1" path="FRONT-STAIR-CHEEK-1-axis" height="7.45" thickness="0.4" material="plaster" group="walls" />
+    <wall id="SERVICE-STAIR-CHEEK-0" path="SERVICE-STAIR-CHEEK-0-axis" height="7.45" thickness="0.4" material="plaster" group="walls" />
+    <wall id="SERVICE-STAIR-CHEEK-1" path="SERVICE-STAIR-CHEEK-1-axis" height="7.45" thickness="0.4" material="plaster" group="walls" />
+    <wall id="VAULT-STAIR-CHEEK-0" path="VAULT-STAIR-CHEEK-0-axis" height="7.45" thickness="0.4" material="plaster" group="walls" />
+    <wall id="VAULT-STAIR-CHEEK-1" path="VAULT-STAIR-CHEEK-1-axis" height="7.45" thickness="0.4" material="plaster" group="walls" />
+    <roof id="LIBRARY-ROOF-west" profile="LIBRARY-ROOF-west-plan" thickness=".28" material="slate" playable="false" group="scenic-roofs" />
+    <roof id="LIBRARY-ROOF-east" profile="LIBRARY-ROOF-east-plan" thickness=".28" material="slate" playable="false" group="scenic-roofs" />
+    <box id="LIBRARY-pilaster-48" position="48 59.8 3" width=".6" depth=".4" height="9.8" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-48-6" position="48.9 59.88 6" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-48-6" position="48.75 59.75 5.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-48-10" position="48.9 59.88 10" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-48-10" position="48.75 59.75 9.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-pilaster-54" position="54 59.8 3" width=".6" depth=".4" height="9.8" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-54-6" position="54.9 59.88 6" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-54-6" position="54.75 59.75 5.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-54-10" position="54.9 59.88 10" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-54-10" position="54.75 59.75 9.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-pilaster-60" position="60 59.8 3" width=".6" depth=".4" height="9.8" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-60-6" position="60.9 59.88 6" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-60-6" position="60.75 59.75 5.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-60-10" position="60.9 59.88 10" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-60-10" position="60.75 59.75 9.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-pilaster-66" position="66 59.8 3" width=".6" depth=".4" height="9.8" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-66-6" position="66.9 59.88 6" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-66-6" position="66.75 59.75 5.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-66-10" position="66.9 59.88 10" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-66-10" position="66.75 59.75 9.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-pilaster-72" position="72 59.8 3" width=".6" depth=".4" height="9.8" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-72-6" position="72.9 59.88 6" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-72-6" position="72.75 59.75 5.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-72-10" position="72.9 59.88 10" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-72-10" position="72.75 59.75 9.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-pilaster-76" position="76 59.8 3" width=".6" depth=".4" height="9.8" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-76-6" position="76.9 59.88 6" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-76-6" position="76.75 59.75 5.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-sealed-window-76-10" position="76.9 59.88 10" width="1.5" depth=".13" height="2" material="slate" group="facade" collidable="false" />
+    <box id="LIBRARY-window-sill-76-10" position="76.75 59.75 9.85" width="1.8" depth=".35" height=".15" material="plaster" group="facade" />
+    <box id="LIBRARY-front-cornice" position="46 59.75 12.55" width="32" depth=".5" height=".45" material="plaster" group="facade" />
+    <box id="LIBRARY-chimney" position="65 70 14" width="2" depth="2.4" height="4.5" material="stone" group="scenic-roofs" />
+    <wall id="EDGE-08-cap" path="EDGE-08-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-09-cap" path="EDGE-09-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-10-cap" path="EDGE-10-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-11-cap" path="EDGE-11-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-12-cap" path="EDGE-12-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-13-cap" path="EDGE-13-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-14-cap" path="EDGE-14-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-15-cap" path="EDGE-15-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-16-cap" path="EDGE-16-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-17-cap" path="EDGE-17-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-18-cap" path="EDGE-18-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-19-cap" path="EDGE-19-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-24-cap" path="EDGE-24-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-31-cap" path="EDGE-31-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-32-cap" path="EDGE-32-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-33-cap" path="EDGE-33-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-34-cap" path="EDGE-34-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-35-cap" path="EDGE-35-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-36-cap" path="EDGE-36-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-37-cap" path="EDGE-37-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-38-cap" path="EDGE-38-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-39-cap" path="EDGE-39-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-40-cap" path="EDGE-40-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-41-cap" path="EDGE-41-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-42-cap" path="EDGE-42-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-51-cap" path="EDGE-51-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-52-cap" path="EDGE-52-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-53-cap" path="EDGE-53-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-54-cap" path="EDGE-54-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-55-cap" path="EDGE-55-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+    <wall id="EDGE-56-cap" path="EDGE-56-cap-axis" height=".18" thickness=".5" material="plaster" group="facade" />
+  </assembly>
+  <opening id="A-SOUTH-arch-0" host="A-SOUTH" shape="arch" center="5 2.1" width="6" height="4.2" mode="through" reveal-material="stone" />
+  <opening id="A-SOUTH-arch-1" host="A-SOUTH" shape="arch" center="17.5 2.1" width="5" height="4.2" mode="through" reveal-material="stone" />
+  <opening id="A-NORTH-arch-0" host="A-NORTH" shape="arch" center="16 2.1" width="6" height="4.2" mode="through" reveal-material="stone" />
+  <opening id="HALL-FOYER-arch-0" host="HALL-FOYER" shape="arch" center="6 2.1" width="6" height="4.2" mode="through" reveal-material="stone" />
+  <opening id="HALL-PANTRY-arch-0" host="HALL-PANTRY" shape="arch" center="4 2.1" width="6" height="4.2" mode="through" reveal-material="stone" />
+  <opening id="B-WEST-arch-0" host="B-WEST" shape="arch" center="5 2.1" width="6" height="4.2" mode="through" reveal-material="stone" />
+  <opening id="B-SOUTH-arch-0" host="B-SOUTH" shape="arch" center="12 2.1" width="6" height="4.2" mode="through" reveal-material="stone" />
+  <opening id="B-NORTH-arch-0" host="B-NORTH" shape="arch" center="4 2.1" width="6" height="4.2" mode="through" reveal-material="stone" />
+  <profile id="LIBRARY-ROOF-west-plan" points="46 60 13; 62 60 17; 62 80 17; 46 80 13" dimensions="3" />
+  <profile id="LIBRARY-ROOF-east-plan" points="62 60 17; 78 60 13; 78 80 13; 62 80 17" dimensions="3" />
+  <path id="EDGE-08-cap-axis" points="16 40 4.13; 12 40 4.13" />
+  <path id="EDGE-09-cap-axis" points="12 40 4.13; 9 48 4.13" />
+  <path id="EDGE-10-cap-axis" points="9 48 4.13; 12 56 4.13" />
+  <path id="EDGE-11-cap-axis" points="12 56 4.13; 24 60 4.13" />
+  <path id="EDGE-12-cap-axis" points="24 60 7.68; 24 80 7.68" />
+  <path id="EDGE-13-cap-axis" points="24 80 6.38; 36 80 6.38" />
+  <path id="EDGE-14-cap-axis" points="36 80 6.38; 36 88 6.38" />
+  <path id="EDGE-15-cap-axis" points="36 88 6.38; 86 88 6.38" />
+  <path id="EDGE-16-cap-axis" points="86 88 6.38; 86 80 6.38" />
+  <path id="EDGE-17-cap-axis" points="86 80 7.68; 86 68 7.68" />
+  <path id="EDGE-18-cap-axis" points="86 68 7.68; 96 68 7.68" />
+  <path id="EDGE-19-cap-axis" points="96 68 7.68; 96 44 7.68" />
+  <path id="EDGE-24-cap-axis" points="34 40 4.13; 24 40 4.13" />
+  <path id="EDGE-31-cap-axis" points="48 44 7.68; 38 44 7.68" />
+  <path id="EDGE-32-cap-axis" points="38 44 7.68; 38 60 7.68" />
+  <path id="EDGE-33-cap-axis" points="38 60 7.68; 34 60 7.68" />
+  <path id="EDGE-34-cap-axis" points="34 60 7.68; 34 40 7.68" />
+  <path id="EDGE-35-cap-axis" points="60 60 7.68; 60 52 7.68" />
+  <path id="EDGE-36-cap-axis" points="60 52 7.68; 68 52 7.68" />
+  <path id="EDGE-37-cap-axis" points="68 52 7.68; 78 52 7.68" />
+  <path id="EDGE-38-cap-axis" points="78 52 7.68; 78 68 7.68" />
+  <path id="EDGE-39-cap-axis" points="78 68 7.68; 78 80 7.68" />
+  <path id="EDGE-40-cap-axis" points="78 80 6.38; 46 80 6.38" />
+  <path id="EDGE-41-cap-axis" points="46 80 7.68; 46 60 7.68" />
+  <path id="EDGE-42-cap-axis" points="46 60 7.68; 60 60 7.68" />
+  <path id="EDGE-51-cap-axis" points="86 44 7.68; 78 44 7.68" />
+  <path id="EDGE-52-cap-axis" points="78 44 7.68; 78 46 7.68" />
+  <path id="EDGE-53-cap-axis" points="78 46 7.68; 68 46 7.68" />
+  <path id="EDGE-54-cap-axis" points="68 46 7.68; 68 44 7.68" />
+  <path id="EDGE-55-cap-axis" points="68 44 7.68; 60 44 7.68" />
+  <path id="EDGE-56-cap-axis" points="60 44 7.68; 64 40 7.68" />
+  <profile id="SITE-A-plan" points="28 63; 42 63; 42 75; 28 75" />
+  <face-material id="SITE-A-tint" host="SALON" face="top" profile="SITE-A-plan" material="tint-a" />
+  <volume id="PLANT-A-volume" profile="SITE-A-plan" elevation="3" height="2.5" role="objective">
+    <property name="site" value="A" />
+    <property name="mode" value="defuse" />
+  </volume>
+  <profile id="SITE-B-plan" points="81 49; 93 49; 93 63; 81 63" />
+  <face-material id="SITE-B-tint" host="VAULT" face="top" profile="SITE-B-plan" material="tint-b" />
+  <volume id="PLANT-B-volume" profile="SITE-B-plan" elevation="0" height="2.5" role="objective">
+    <property name="site" value="B" />
+    <property name="mode" value="defuse" />
+  </volume>
+  <player radius=".3" height="2" crouch="1.1" step=".25" slope="42" vault="0" ladder="false" rappel="false" />
+  <marker id="t-spawn" position="58 11 0" kind="attacker_spawn" element="LOWER-ROAD" movement="land" group="lower" team="T" />
+  <marker id="t-spawn-2" position="62 11 0" kind="attacker_spawn" element="LOWER-ROAD" movement="land" group="lower" team="T" />
+  <marker id="t-spawn-3" position="66 11 0" kind="attacker_spawn" element="LOWER-ROAD" movement="land" group="lower" team="T" />
+  <marker id="t-spawn-4" position="60 14 0" kind="attacker_spawn" element="LOWER-ROAD" movement="land" group="lower" team="T" />
+  <marker id="t-spawn-5" position="68 14 0" kind="attacker_spawn" element="LOWER-ROAD" movement="land" group="lower" team="T" />
+  <marker id="ct-spawn" position="55 85 3" kind="defender_spawn" element="REAR-COURT" movement="land" group="upper" team="CT" />
+  <marker id="ct-spawn-2" position="59 85 3" kind="defender_spawn" element="REAR-COURT" movement="land" group="upper" team="CT" />
+  <marker id="ct-spawn-3" position="63 85 3" kind="defender_spawn" element="REAR-COURT" movement="land" group="upper" team="CT" />
+  <marker id="ct-spawn-4" position="67 85 3" kind="defender_spawn" element="REAR-COURT" movement="land" group="upper" team="CT" />
+  <marker id="ct-spawn-5" position="71 85 3" kind="defender_spawn" element="REAR-COURT" movement="land" group="upper" team="CT" />
+  <marker id="site-a" position="39 70 3" kind="objective" element="SALON" movement="land" group="upper" />
+  <marker id="site-b" position="83 55 0" kind="objective" element="VAULT" movement="land" group="lower" />
+  <marker id="garden" position="21 50 3" kind="poi" element="GARDEN" movement="land" group="upper" />
+  <marker id="hall" position="54 55 3" kind="poi" element="HALL" movement="land" group="upper" />
+  <marker id="pantry" position="65 49 3" kind="poi" element="SERVICE" movement="land" group="upper" />
+  <marker id="drain" position="91 39 0" kind="poi" element="DRAIN" movement="land" group="lower" />
+  <marker id="court-west" position="40 84 3" kind="poi" element="REAR-COURT" movement="land" group="upper" />
+  <marker id="court-east" position="82 84 3" kind="poi" element="REAR-COURT" movement="land" group="upper" />
+  <marker id="GARDEN-STAIR-start" position="20 27 0" kind="poi" element="LOWER-ROAD" movement="land" group="lower" />
+  <marker id="GARDEN-STAIR-end" position="20 41 3" kind="poi" element="GARDEN" movement="land" group="upper" />
+  <marker id="FRONT-STAIR-start" position="57 25 0" kind="poi" element="LOWER-ROAD" movement="land" group="lower" />
+  <marker id="FRONT-STAIR-end" position="57 35 3" kind="poi" element="FOYER" movement="land" group="upper" />
+  <marker id="SERVICE-STAIR-start" position="67 49 3" kind="poi" element="SERVICE" movement="land" group="upper" />
+  <marker id="SERVICE-STAIR-end" position="79 49 0" kind="poi" element="VAULT" movement="land" group="lower" />
+  <marker id="VAULT-STAIR-start" position="82 67 0" kind="poi" element="VAULT" movement="land" group="lower" />
+  <marker id="VAULT-STAIR-end" position="82 81 3" kind="poi" element="REAR-COURT" movement="land" group="upper" />
+  <path id="PORTAL-00-axis" points="16.5 28 0; 23.5 28 0" />
+  <connection id="PORTAL-00" from="LOWER-ROAD" to="GARDEN-STAIR" path="PORTAL-00-axis" />
+  <path id="PORTAL-01-axis" points="16.5 40 3; 23.5 40 3" />
+  <connection id="PORTAL-01" from="GARDEN-STAIR" to="GARDEN" path="PORTAL-01-axis" />
+  <path id="PORTAL-02-axis" points="54.5 26 0; 59.5 26 0" />
+  <connection id="PORTAL-02" from="LOWER-ROAD" to="FRONT-STAIR" path="PORTAL-02-axis" />
+  <path id="PORTAL-03-axis" points="54.5 34 3; 59.5 34 3" />
+  <connection id="PORTAL-03" from="FRONT-STAIR" to="FOYER" path="PORTAL-03-axis" />
+  <path id="PORTAL-04-axis" points="51.5 44 3; 56.5 44 3" />
+  <connection id="PORTAL-04" from="FOYER" to="HALL" path="PORTAL-04-axis" />
+  <path id="PORTAL-05-axis" points="39.5 60 3; 43.5 60 3" />
+  <connection id="PORTAL-05" from="HALL" to="SALON" path="PORTAL-05-axis" />
+  <path id="PORTAL-06-axis" points="26.5 60 3; 31.5 60 3" />
+  <connection id="PORTAL-06" from="GARDEN" to="SALON" path="PORTAL-06-axis" />
+  <path id="PORTAL-07-axis" points="60 45.5 3; 60 50.5 3" />
+  <connection id="PORTAL-07" from="HALL" to="SERVICE" path="PORTAL-07-axis" />
+  <path id="PORTAL-08-axis" points="68 46.5 3; 68 51.5 3" />
+  <connection id="PORTAL-08" from="SERVICE" to="SERVICE-STAIR" path="PORTAL-08-axis" />
+  <path id="PORTAL-09-axis" points="78 46.5 0; 78 51.5 0" />
+  <connection id="PORTAL-09" from="SERVICE-STAIR" to="VAULT" path="PORTAL-09-axis" />
+  <path id="PORTAL-10-axis" points="73 25.25 0; 79 20.75 0" />
+  <connection id="PORTAL-10" from="LOWER-ROAD" to="DRAIN" path="PORTAL-10-axis" />
+  <path id="PORTAL-11-axis" points="87.5 44 0; 92.5 44 0" />
+  <connection id="PORTAL-11" from="DRAIN" to="VAULT" path="PORTAL-11-axis" />
+  <path id="PORTAL-12-axis" points="79.5 68 0; 84.5 68 0" />
+  <connection id="PORTAL-12" from="VAULT" to="VAULT-STAIR" path="PORTAL-12-axis" />
+  <path id="PORTAL-13-axis" points="78.5 80 3; 85.5 80 3" />
+  <connection id="PORTAL-13" from="VAULT-STAIR" to="REAR-COURT" path="PORTAL-13-axis" />
+  <path id="PORTAL-14-axis" points="37.5 80 3; 42.5 80 3" />
+  <connection id="PORTAL-14" from="SALON" to="REAR-COURT" path="PORTAL-14-axis" />
+  <route id="t-spawn-to-site-a" from="t-spawn" to="site-a" max-distance="150" />
+  <route id="t-spawn-to-site-b" from="t-spawn" to="site-b" max-distance="150" />
+  <route id="ct-spawn-to-site-a" from="ct-spawn" to="site-a" max-distance="150" />
+  <route id="ct-spawn-to-site-b" from="ct-spawn" to="site-b" max-distance="150" />
+  <route id="GARDEN-STAIR-pass" from="GARDEN-STAIR-start" to="GARDEN-STAIR-end" max-distance="17.36931687685298" />
+  <route id="FRONT-STAIR-pass" from="FRONT-STAIR-start" to="FRONT-STAIR-end" max-distance="13.54400374531753" />
+  <route id="SERVICE-STAIR-pass" from="SERVICE-STAIR-start" to="SERVICE-STAIR-end" max-distance="15.44030650891055" />
+  <route id="VAULT-STAIR-pass" from="VAULT-STAIR-start" to="VAULT-STAIR-end" max-distance="17.36931687685298" />
+  <route id="rear-rotation" from="court-west" to="court-east" max-distance="60" />
+  <no-spawn-los markers="t-spawn ct-spawn" />
+  <no-spawn-los markers="t-spawn ct-spawn-2" />
+  <no-spawn-los markers="t-spawn ct-spawn-3" />
+  <no-spawn-los markers="t-spawn ct-spawn-4" />
+  <no-spawn-los markers="t-spawn ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-5" />
+  <profile id="MOUNTAIN-BOWL-plan" points="168 48 26.429; 166.572 64.426 35.563; 162.323 80.447 35.962; 155.357 95.669 37.952; 145.846 109.717 35.4; 134.024 122.246 37.842; 120.183 132.947 39.558; 104.663 141.556 46.617; 87.846 147.861 47.319; 70.146 151.707 47.352; 52 153 47.554; 33.854 151.707 39.968; 16.154 147.861 43.248; -0.663 141.556 42.52; -16.183 132.947 44.818; -30.024 122.246 45.238; -41.846 109.717 42.134; -51.357 95.669 36.561; -58.323 80.447 30.591; -62.572 64.426 25.915; -64 48 29.019; -62.572 31.574 29.576; -58.323 15.553 32.104; -51.357 0.331 29.126; -41.846 -13.717 25.651; -30.024 -26.246 23.493; -16.183 -36.947 24.042; -0.663 -45.556 28.315; 16.154 -51.861 32.152; 33.854 -55.707 33.135; 52 -57 30.054; 70.146 -55.707 27.007; 87.846 -51.861 26.523; 104.663 -45.556 29.059; 120.183 -36.947 30.644; 134.024 -26.246 31.813; 145.846 -13.717 28.948; 155.357 0.331 27.622; 162.323 15.553 22.83; 166.572 31.574 25.887" dimensions="3" interior="131.179 48 25.502; 128.96 55.322 26.37; 134.167 63.809 32.121; 128.764 70.577 32.575; 131.048 79.857 35.87; 122.496 84.841 32.54; 118.351 91.636 31.435; 109.665 94.998 26.653; 108.102 104.399 28.621; 100.096 107.921 29.533; 90.956 109.076 31.229; 85.458 116.021 36.222; 80.073 126.207 40.942; 69.825 123.91 37.97; 60.647 122.47 35.105; 52 123.756 34.779; 43.201 123.776 35.732; 33.339 127.469 39.7; 25.156 122.784 39.997; 17.377 118.39 39.737; 9.59 114.49 38.706; -0.428 113.319 37.648; -8.778 109.1 36.444; -10.414 98.868 33.599; -15.437 92.35 35.72; -23.92 87.676 40.564; -30.207 81.13 41.763; -31.903 72.677 39.367; -29.895 63.757 33.937; -26.964 55.512 28.167; -32.263 48 28.396; -28.367 40.354 27.899; -26.707 32.857 30.53; -23.541 25.783 32.026; -23.284 17.66 32.646; -17.554 11.651 29.342; -12.672 5.469 26.275; -9.76 -2.336 25.386; -0.2 -4.476 22.72; 1.894 -14.425 28.027; 6.265 -23.704 33.885; 21.304 -14.407 29.898; 27.634 -19.881 31.733; 32.982 -32.986 33.907; 43.398 -26.081 26.646; 52 -29.532 26.641; 61.315 -32.223 28.916; 68.825 -23.651 27.122; 78.876 -26.873 30.828; 86.09 -21.308 29.398; 92.628 -15.697 26.99; 100.65 -12.611 26.051; 104.249 -4.526 22.938; 108.979 1.561 23.629; 116.058 5.872 26.488; 119.474 12.738 27.648; 124.503 18.781 29.581; 136.368 23.187 33.841; 133.232 32.371 29.801; 129.213 40.654 25.551">
+    <hole points="80.8 11.6686; 76.3314 7.2; 53.2 7.2; 53.2 17.0776; 40.0206 15.1948; 17.5466 17.2379; 13.0768 23.9425; 15.2 28.1889; 15.2 39.2; 11.4456 39.2; 8.1456 48; 11.3849 56.6383; 23.2 60.5766; 23.2 80.8; 35.2 80.8; 35.2 88.8; 86.8 88.8; 86.8 68.8; 96.8 68.8; 96.8 31.5719; 84.5097 23.3783; 80.8 19.6686" />
+  </profile>
+  <terrain id="MOUNTAIN-BOWL" profile="MOUNTAIN-BOWL-plan" material="soil" orientation="up" playable="false" collidable="false" group="scenery" />
+  <profile id="ROCK-POCKET-0-plan" points="34 40 -0.6; 24 40 -0.6; 24 29.7778 -0.6; 40 28 -0.6; 54 26 -0.6; 54 34 -0.6; 48 34 -0.6; 48 44 -0.6; 38 44 -0.6; 38 60 -0.6; 34 60 -0.6" dimensions="3" interior="41 42 7" />
+  <terrain id="ROCK-POCKET-0" profile="ROCK-POCKET-0-plan" material="rock" orientation="up" playable="false" collidable="false" group="scenery" />
+  <profile id="ROCK-POCKET-1-plan" points="60 60 -0.6; 60 52 -0.6; 68 52 -0.6; 78 52 -0.6; 78 68 -0.6; 78 80 -0.6; 46 80 -0.6; 46 60 -0.6" dimensions="3" interior="62 64 7" />
+  <terrain id="ROCK-POCKET-1" profile="ROCK-POCKET-1-plan" material="rock" orientation="up" playable="false" collidable="false" group="scenery" />
+  <profile id="ROCK-POCKET-2-plan" points="64 40 -0.6; 64 34 -0.6; 60 34 -0.6; 60 26 -0.6; 62 26 -0.6; 72 26 -0.6; 78 30 -0.6; 86 36 -0.6; 86 44 -0.6; 78 44 -0.6; 78 46 -0.6; 68 46 -0.6; 68 44 -0.6; 60 44 -0.6" dimensions="3" interior="75 38 7" />
+  <terrain id="ROCK-POCKET-2" profile="ROCK-POCKET-2-plan" material="rock" orientation="up" playable="false" collidable="false" group="scenery" />
+  <cylinder id="PINE-0-trunk" position="131.179 48 25.302" radius=".28" height="3.7502" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-0-crown-0" position="131.179 48 26.502" radius="2.2" height="4.0387" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-0-crown-1" position="131.179 48 28.118" radius="1.8" height="4.0387" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-1-trunk" position="134.167 63.809 31.921" radius=".28" height="3.6807" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-1-crown-0" position="134.167 63.809 33.121" radius="2.2" height="3.9639" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-1-crown-1" position="134.167 63.809 34.706" radius="1.8" height="3.9639" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-2-trunk" position="131.048 79.857 35.67" radius=".28" height="3.4388" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-2-crown-0" position="131.048 79.857 36.87" radius="2.2" height="3.7033" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-2-crown-1" position="131.048 79.857 38.351" radius="1.8" height="3.7033" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-3-trunk" position="118.351 91.636 31.235" radius=".28" height="4.368" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-3-crown-0" position="118.351 91.636 32.435" radius="2.2" height="4.704" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-3-crown-1" position="118.351 91.636 34.316" radius="1.8" height="4.704" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-4-trunk" position="108.102 104.399 28.421" radius=".28" height="4.1351" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-4-crown-0" position="108.102 104.399 29.621" radius="2.2" height="4.4531" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-4-crown-1" position="108.102 104.399 31.403" radius="1.8" height="4.4531" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-5-trunk" position="90.956 109.076 31.029" radius=".28" height="4.7497" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-5-crown-0" position="90.956 109.076 32.229" radius="2.2" height="5.115" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-5-crown-1" position="90.956 109.076 34.275" radius="1.8" height="5.115" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-6-trunk" position="80.073 126.207 40.742" radius=".28" height="3.7108" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-6-crown-0" position="80.073 126.207 41.942" radius="2.2" height="3.9962" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-6-crown-1" position="80.073 126.207 43.54" radius="1.8" height="3.9962" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-7-trunk" position="60.647 122.47 34.905" radius=".28" height="3.4389" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-7-crown-0" position="60.647 122.47 36.105" radius="2.2" height="3.7034" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-7-crown-1" position="60.647 122.47 37.586" radius="1.8" height="3.7034" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-8-trunk" position="43.201 123.776 35.532" radius=".28" height="3.8182" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-8-crown-0" position="43.201 123.776 36.732" radius="2.2" height="4.1119" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-8-crown-1" position="43.201 123.776 38.377" radius="1.8" height="4.1119" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-9-trunk" position="25.156 122.784 39.797" radius=".28" height="4.9084" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-9-crown-0" position="25.156 122.784 40.997" radius="2.2" height="5.286" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-9-crown-1" position="25.156 122.784 43.111" radius="1.8" height="5.286" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-10-trunk" position="9.59 114.49 38.506" radius=".28" height="5.1968" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-10-crown-0" position="9.59 114.49 39.706" radius="2.2" height="5.5966" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-10-crown-1" position="9.59 114.49 41.945" radius="1.8" height="5.5966" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-11-trunk" position="-8.778 109.1 36.244" radius=".28" height="3.331" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-11-crown-0" position="-8.778 109.1 37.444" radius="2.2" height="3.5872" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-11-crown-1" position="-8.778 109.1 38.879" radius="1.8" height="3.5872" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-12-trunk" position="-15.437 92.35 35.52" radius=".28" height="5.7348" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-12-crown-0" position="-15.437 92.35 36.72" radius="2.2" height="6.1759" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-12-crown-1" position="-15.437 92.35 39.19" radius="1.8" height="6.1759" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-13-trunk" position="-30.207 81.13 41.563" radius=".28" height="3.3832" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-13-crown-0" position="-30.207 81.13 42.763" radius="2.2" height="3.6434" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-13-crown-1" position="-30.207 81.13 44.221" radius="1.8" height="3.6434" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-14-trunk" position="-29.895 63.757 33.737" radius=".28" height="3.7787" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-14-crown-0" position="-29.895 63.757 34.937" radius="2.2" height="4.0694" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-14-crown-1" position="-29.895 63.757 36.565" radius="1.8" height="4.0694" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-15-trunk" position="-32.263 48 28.196" radius=".28" height="4.7472" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-15-crown-0" position="-32.263 48 29.396" radius="2.2" height="5.1124" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-15-crown-1" position="-32.263 48 31.441" radius="1.8" height="5.1124" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-16-trunk" position="-26.707 32.857 30.33" radius=".28" height="3.952" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-16-crown-0" position="-26.707 32.857 31.53" radius="2.2" height="4.256" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-16-crown-1" position="-26.707 32.857 33.232" radius="1.8" height="4.256" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-17-trunk" position="-23.284 17.66 32.446" radius=".28" height="3.4399" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-17-crown-0" position="-23.284 17.66 33.646" radius="2.2" height="3.7045" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-17-crown-1" position="-23.284 17.66 35.128" radius="1.8" height="3.7045" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-18-trunk" position="-12.672 5.469 26.075" radius=".28" height="3.8155" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-18-crown-0" position="-12.672 5.469 27.275" radius="2.2" height="4.109" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-18-crown-1" position="-12.672 5.469 28.919" radius="1.8" height="4.109" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-19-trunk" position="-0.2 -4.476 22.52" radius=".28" height="3.8254" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-19-crown-0" position="-0.2 -4.476 23.72" radius="2.2" height="4.1196" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-19-crown-1" position="-0.2 -4.476 25.368" radius="1.8" height="4.1196" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-20-trunk" position="6.265 -23.704 33.685" radius=".28" height="3.7133" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-20-crown-0" position="6.265 -23.704 34.885" radius="2.2" height="3.9989" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-20-crown-1" position="6.265 -23.704 36.484" radius="1.8" height="3.9989" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-21-trunk" position="27.634 -19.881 31.533" radius=".28" height="5.6705" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-21-crown-0" position="27.634 -19.881 32.733" radius="2.2" height="6.1067" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-21-crown-1" position="27.634 -19.881 35.175" radius="1.8" height="6.1067" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-22-trunk" position="43.398 -26.081 26.446" radius=".28" height="5.7277" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-22-crown-0" position="43.398 -26.081 27.646" radius="2.2" height="6.1683" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-22-crown-1" position="43.398 -26.081 30.113" radius="1.8" height="6.1683" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-23-trunk" position="61.315 -32.223 28.716" radius=".28" height="5.3705" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-23-crown-0" position="61.315 -32.223 29.916" radius="2.2" height="5.7836" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-23-crown-1" position="61.315 -32.223 32.229" radius="1.8" height="5.7836" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-24-trunk" position="78.876 -26.873 30.628" radius=".28" height="5.6573" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-24-crown-0" position="78.876 -26.873 31.828" radius="2.2" height="6.0924" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-24-crown-1" position="78.876 -26.873 34.265" radius="1.8" height="6.0924" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-25-trunk" position="92.628 -15.697 26.79" radius=".28" height="4.8664" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-25-crown-0" position="92.628 -15.697 27.99" radius="2.2" height="5.2407" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-25-crown-1" position="92.628 -15.697 30.086" radius="1.8" height="5.2407" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-26-trunk" position="104.249 -4.526 22.738" radius=".28" height="3.9506" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-26-crown-0" position="104.249 -4.526 23.938" radius="2.2" height="4.2545" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-26-crown-1" position="104.249 -4.526 25.64" radius="1.8" height="4.2545" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-27-trunk" position="116.058 5.872 26.288" radius=".28" height="4.7173" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-27-crown-0" position="116.058 5.872 27.488" radius="2.2" height="5.0802" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-27-crown-1" position="116.058 5.872 29.52" radius="1.8" height="5.0802" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-28-trunk" position="124.503 18.781 29.381" radius=".28" height="4.5745" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-28-crown-0" position="124.503 18.781 30.581" radius="2.2" height="4.9263" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-28-crown-1" position="124.503 18.781 32.552" radius="1.8" height="4.9263" segments="7" material="tree" collidable="false" group="scenery" />
+  <cylinder id="PINE-29-trunk" position="133.232 32.371 29.601" radius=".28" height="4.1901" segments="7" material="trunk" collidable="false" group="scenery" />
+  <cone id="PINE-29-crown-0" position="133.232 32.371 30.801" radius="2.2" height="4.5124" segments="7" material="tree" collidable="false" group="scenery" />
+  <cone id="PINE-29-crown-1" position="133.232 32.371 32.606" radius="1.8" height="4.5124" segments="7" material="tree" collidable="false" group="scenery" />
+  <sky color="#b9c7c7" intensity=".65" />
+</architecture>
