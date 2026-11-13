@@ -1,0 +1,1154 @@
+{
+  "date": "2026-11-11",
+  "environment": {
+    "node": "v24.12.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4"
+  },
+  "baselineManifestSha256": "f2c7f58154edf96cfa2d90e0c4b4ed1514804499d624b6b0065492ec64b9f1b3",
+  "sourceSha256": "46aeb0990cc09562bc4aacadf2aace3395035a08f22bc9de822b65ec5d968253",
+  "runs": {
+    "initial-103s.json": {
+      "variant": "full",
+      "elapsedMs": 103519.044416,
+      "cpuUsage": {
+        "user": 105484735,
+        "system": 3112854
+      },
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.6731249999999704
+        },
+        {
+          "stage": "Building solids",
+          "ms": 13.817957999999976
+        },
+        {
+          "stage": "Composing",
+          "ms": 40.53666599999997
+        },
+        {
+          "stage": "Composing",
+          "ms": 51.90050000000002
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 54.28691600000002
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 55.59454099999999
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 103252.840541
+        }
+      ],
+      "error": {
+        "name": "AbortError",
+        "message": "This operation was aborted"
+      },
+      "triangles": null
+    },
+    "blockout.json": {
+      "variant": "blockout",
+      "elapsedMs": 289.45708299999995,
+      "cpuUsage": {
+        "user": 644277,
+        "system": 21889
+      },
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.369416000000001
+        },
+        {
+          "stage": "Building solids",
+          "ms": 12.587874999999997
+        },
+        {
+          "stage": "Composing",
+          "ms": 39.80454099999997
+        },
+        {
+          "stage": "Composing",
+          "ms": 49.35583300000002
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 51.81687499999998
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 53.152499999999975
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 85.70412499999998
+        },
+        {
+          "stage": "Navigation",
+          "ms": 122.11654099999998
+        }
+      ],
+      "triangles": 1388,
+      "diagnostics": [],
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "d332507baad9c100626d53b8055c3b40b245af02f372edc9940086c5389e57d2"
+    },
+    "full.json": {
+      "variant": "full",
+      "elapsedMs": 300182.14862500003,
+      "cpuUsage": {
+        "user": 279912193,
+        "system": 7322021
+      },
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 7.412000000000035
+        },
+        {
+          "stage": "Building solids",
+          "ms": 101.34570799999995
+        },
+        {
+          "stage": "Composing",
+          "ms": 357.15929199999994
+        },
+        {
+          "stage": "Composing",
+          "ms": 519.8103749999999
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 630.5892499999999
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 642.298042
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 1068.2132080000001
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 131173.262333
+        },
+        {
+          "stage": "Surface rasters",
+          "ms": 132471.312083
+        },
+        {
+          "stage": "Surface appearance: receiver 1/14727",
+          "ms": 132473.506875
+        },
+        {
+          "stage": "Surface appearance: receiver 1474/14727",
+          "ms": 166569.468292
+        },
+        {
+          "stage": "Surface appearance: receiver 2947/14727",
+          "ms": 202003.549167
+        },
+        {
+          "stage": "Surface appearance: receiver 4420/14727",
+          "ms": 219963.355667
+        },
+        {
+          "stage": "Surface appearance: receiver 5893/14727",
+          "ms": 236348.391125
+        },
+        {
+          "stage": "Surface appearance: receiver 7366/14727",
+          "ms": 258707.645958
+        },
+        {
+          "stage": "Surface appearance: receiver 8839/14727",
+          "ms": 280393.968417
+        },
+        {
+          "stage": "Surface appearance: receiver 10312/14727",
+          "ms": 298005.28175
+        }
+      ],
+      "error": {
+        "name": "AbortError",
+        "message": "Operation cancelled"
+      },
+      "triangles": null
+    },
+    "full-cpu-summary.json": {
+      "durationMs": 300357,
+      "functions": [
+        {
+          "location": "hash src/dressing/wall-finish.ts:60",
+          "ms": 38939.478,
+          "percent": 12.964398365944527
+        },
+        {
+          "location": "local src/dressing/surface/regions.ts:93",
+          "ms": 36649.074,
+          "percent": 12.201837813002527
+        },
+        {
+          "location": "tilePerimeter src/dressing/wall-tiles.ts:209",
+          "ms": 28125.792,
+          "percent": 9.364120696371318
+        },
+        {
+          "location": "seamDistance src/dressing/seams.ts:14",
+          "ms": 17223.634,
+          "percent": 5.734387412312681
+        },
+        {
+          "location": "coordinates src/dressing/surface/regions.ts:59",
+          "ms": 14507.895,
+          "percent": 4.830217041720353
+        },
+        {
+          "location": "(idle) :0",
+          "ms": 13130.293,
+          "percent": 4.371562174345862
+        },
+        {
+          "location": "(garbage collector) :0",
+          "ms": 12297.312,
+          "percent": 4.094231864081743
+        },
+        {
+          "location": "barycentric src/dressing/surface/regions.ts:188",
+          "ms": 12291.528,
+          "percent": 4.0923061556747475
+        },
+        {
+          "location": "insideRegion src/dressing/surface/regions.ts:286",
+          "ms": 10349.864,
+          "percent": 3.4458541002873244
+        },
+        {
+          "location": "coating src/dressing/wall-tiles.ts:74",
+          "ms": 7579.463,
+          "percent": 2.523484719850045
+        },
+        {
+          "location": "wallNoise src/dressing/wall-finish.ts:58",
+          "ms": 7125.533,
+          "percent": 2.3723545647346325
+        },
+        {
+          "location": "interpolatesAttributes src/dressing/surface/regions.ts:321",
+          "ms": 6759.166,
+          "percent": 2.2503773842460806
+        },
+        {
+          "location": "weatherColor src/dressing/weather.ts:16",
+          "ms": 6089.864,
+          "percent": 2.0275418918154062
+        },
+        {
+          "location": "closeAttributes src/dressing/surface/regions.ts:333",
+          "ms": 5533.238,
+          "percent": 1.8422204243616762
+        },
+        {
+          "location": "regions src/dressing/surface/regions.ts:366",
+          "ms": 4277,
+          "percent": 1.4239721398202807
+        },
+        {
+          "location": "triangle src/dressing/wall-geometry.ts:145",
+          "ms": 4200.063,
+          "percent": 1.3983569552232842
+        },
+        {
+          "location": "clipTile src/dressing/wall-tiles.ts:17",
+          "ms": 4138.361,
+          "percent": 1.3778140679258348
+        },
+        {
+          "location": " src/dressing/seams.ts:21",
+          "ms": 4076.376,
+          "percent": 1.3571769594182923
+        },
+        {
+          "location": "at src/dressing/wall-finish.ts:144",
+          "ms": 4020.119,
+          "percent": 1.3384469148380094
+        },
+        {
+          "location": "visit src/dressing/wall-tiles.ts:138",
+          "ms": 3827.533,
+          "percent": 1.274327883152382
+        }
+      ],
+      "files": [
+        {
+          "location": "src/dressing/surface/regions.ts",
+          "ms": 100016.169,
+          "percent": 33.29909707448137
+        },
+        {
+          "location": "src/dressing/wall-tiles.ts",
+          "ms": 56604.138,
+          "percent": 18.845619712542074
+        },
+        {
+          "location": "src/dressing/wall-finish.ts",
+          "ms": 54334.624,
+          "percent": 18.0900142164158
+        },
+        {
+          "location": "src/dressing/seams.ts",
+          "ms": 24903.924,
+          "percent": 8.291441184989862
+        },
+        {
+          "location": "(idle)",
+          "ms": 13130.293,
+          "percent": 4.371562174345862
+        },
+        {
+          "location": "(garbage collector)",
+          "ms": 12297.312,
+          "percent": 4.094231864081743
+        },
+        {
+          "location": "src/dressing/weather.ts",
+          "ms": 6346.075,
+          "percent": 2.1128440489151243
+        },
+        {
+          "location": "src/dressing/wall-geometry.ts",
+          "ms": 5561.362,
+          "percent": 1.851583948434696
+        },
+        {
+          "location": "src/dressing/finish/wall-condition.ts",
+          "ms": 3686.291,
+          "percent": 1.2273031758873607
+        },
+        {
+          "location": "src/dressing/apply.ts",
+          "ms": 3592.672,
+          "percent": 1.1961339339519306
+        },
+        {
+          "location": "(program)",
+          "ms": 3171.257,
+          "percent": 1.0558292298831058
+        },
+        {
+          "location": "src/dressing/finish/noise.ts",
+          "ms": 2909.33,
+          "percent": 0.9686240041017856
+        },
+        {
+          "location": "src/dressing/geometry.ts",
+          "ms": 2331.33,
+          "percent": 0.7761863382574735
+        },
+        {
+          "location": "src/dressing/wall-surface.ts",
+          "ms": 1677.748,
+          "percent": 0.5585846176383437
+        },
+        {
+          "location": "src/dressing/ground.ts",
+          "ms": 1167.411,
+          "percent": 0.3886744773719274
+        },
+        {
+          "location": "src/dressing/kit-mesh.ts",
+          "ms": 1028.909,
+          "percent": 0.34256201786540685
+        },
+        {
+          "location": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/browser.js",
+          "ms": 937.707,
+          "percent": 0.3121974849928585
+        },
+        {
+          "location": "src/dressing/pen.ts",
+          "ms": 816.88,
+          "percent": 0.27196968940294386
+        },
+        {
+          "location": "file:///Users/tomokif/code/levelspec/node_modules/three/build/three.core.js",
+          "ms": 744.371,
+          "percent": 0.24782875045362687
+        },
+        {
+          "location": "node:internal/timers",
+          "ms": 493.915,
+          "percent": 0.16444264658389848
+        }
+      ]
+    },
+    "baseline-small.json": {
+      "variant": "baseline",
+      "scene": "small",
+      "elapsedMs": 2015.529375,
+      "triangles": 7318,
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 4.441000000000031
+        },
+        {
+          "stage": "Building solids",
+          "ms": 29.083083999999985
+        },
+        {
+          "stage": "Composing",
+          "ms": 37.830375000000004
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 38.32320900000002
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 39.317458999999985
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 40.50962500000003
+        }
+      ],
+      "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+      "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+      "diagnostics": [],
+      "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7"
+    },
+    "optimized-small.json": {
+      "variant": "optimized",
+      "scene": "small",
+      "elapsedMs": 1532.2328340000001,
+      "triangles": 7318,
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 6.7379589999999325
+        },
+        {
+          "stage": "Building solids",
+          "ms": 30.858708999999976
+        },
+        {
+          "stage": "Composing",
+          "ms": 41.62479199999996
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 42.30445899999995
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 43.617374999999925
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 45.25766699999997
+        }
+      ],
+      "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+      "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+      "diagnostics": [],
+      "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7"
+    },
+    "late-appearance-summary.json": [
+      {
+        "location": "seamDistance src/dressing/seams.ts:14",
+        "ms": 1342.378,
+        "percent": 22.17645738173092
+      },
+      {
+        "location": "insideRegion src/dressing/surface/regions.ts:286",
+        "ms": 1167.662,
+        "percent": 19.290100537454197
+      },
+      {
+        "location": "local src/dressing/surface/regions.ts:93",
+        "ms": 597.203,
+        "percent": 9.865959422563428
+      },
+      {
+        "location": "weatherColor src/dressing/weather.ts:16",
+        "ms": 462.626,
+        "percent": 7.64271000618354
+      },
+      {
+        "location": " src/dressing/seams.ts:15",
+        "ms": 370.04,
+        "percent": 6.113163572060707
+      },
+      {
+        "location": " src/dressing/seams.ts:21",
+        "ms": 345.505,
+        "percent": 5.7078385578987
+      },
+      {
+        "location": "(garbage collector) :0",
+        "ms": 307.047,
+        "percent": 5.072501716869864
+      },
+      {
+        "location": "tone src/dressing/ground.ts:665",
+        "ms": 205.67,
+        "percent": 3.3977255212023723
+      },
+      {
+        "location": "coordinates src/dressing/surface/regions.ts:59",
+        "ms": 160.791,
+        "percent": 2.65631197685443
+      },
+      {
+        "location": "barycentric src/dressing/surface/regions.ts:188",
+        "ms": 148.21,
+        "percent": 2.4484703627043496
+      },
+      {
+        "location": "sample src/dressing/ground-surface.ts:258",
+        "ms": 118.796,
+        "percent": 1.9625429134864443
+      },
+      {
+        "location": "interpolatesAttributes src/dressing/surface/regions.ts:321",
+        "ms": 107.126,
+        "percent": 1.7697512723504905
+      },
+      {
+        "location": "closeAttributes src/dressing/surface/regions.ts:333",
+        "ms": 75.16,
+        "percent": 1.2416640743597525
+      },
+      {
+        "location": "color src/dressing/ground.ts:687",
+        "ms": 69.33,
+        "percent": 1.145350855180437
+      },
+      {
+        "location": " src/dressing/ground-surface.ts:310",
+        "ms": 50.917,
+        "percent": 0.8411629812955764
+      }
+    ],
+    "surface-baseline.json": {
+      "variant": "baseline",
+      "elapsedMs": 770.951875,
+      "samples": 19939,
+      "triangles": 54,
+      "meshSha256": "82d36e55f551d3227c1a0d72da929ebf9300e7e368eb778bea4ab360899aa976",
+      "surfacesSha256": "43cfc2e657a59ec7fa5dac2e337561f1f5e9fe9e374515fb5e79c658cd177a6d"
+    },
+    "surface-lazy-subdivision.json": {
+      "variant": "lazy-subdivision",
+      "elapsedMs": 494.7891250000001,
+      "samples": 19939,
+      "triangles": 54,
+      "meshSha256": "82d36e55f551d3227c1a0d72da929ebf9300e7e368eb778bea4ab360899aa976",
+      "surfacesSha256": "43cfc2e657a59ec7fa5dac2e337561f1f5e9fe9e374515fb5e79c658cd177a6d"
+    },
+    "seam-equivalence.json": {
+      "samples": 100000,
+      "maxError": 0,
+      "exact": true
+    },
+    "noise-cache-only-full-600s.json": {
+      "variant": "full",
+      "elapsedMs": 600070.657291,
+      "cpuUsage": {
+        "user": 622307512,
+        "system": 16929891
+      },
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 2.5050410000000056
+        },
+        {
+          "stage": "Building solids",
+          "ms": 20.763958000000002
+        },
+        {
+          "stage": "Composing",
+          "ms": 71.22791600000005
+        },
+        {
+          "stage": "Composing",
+          "ms": 90.40187500000002
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 94.83158300000002
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 97.49854100000005
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 155.56650000000002
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 60498.994999999995
+        },
+        {
+          "stage": "Surface rasters",
+          "ms": 62335.116540999996
+        },
+        {
+          "stage": "Surface appearance: receiver 1/14727",
+          "ms": 62338.151915999995
+        },
+        {
+          "stage": "Surface appearance: receiver 1474/14727",
+          "ms": 104226.516416
+        },
+        {
+          "stage": "Surface appearance: receiver 2947/14727",
+          "ms": 140150.100875
+        },
+        {
+          "stage": "Surface appearance: receiver 4420/14727",
+          "ms": 157312.459791
+        },
+        {
+          "stage": "Surface appearance: receiver 5893/14727",
+          "ms": 172899.21224999998
+        },
+        {
+          "stage": "Surface appearance: receiver 7366/14727",
+          "ms": 193448.780958
+        },
+        {
+          "stage": "Surface appearance: receiver 8839/14727",
+          "ms": 215795.615333
+        },
+        {
+          "stage": "Surface appearance: receiver 10312/14727",
+          "ms": 233047.082375
+        }
+      ],
+      "error": {
+        "name": "AbortError",
+        "message": "Operation cancelled"
+      },
+      "triangles": null
+    },
+    "noise-cache-only-full-cpu-summary": {
+      "durationMs": 600117.666,
+      "functions": [
+        {
+          "location": "seamDistance src/dressing/seams.ts:14",
+          "ms": 113504.706,
+          "percent": 18.913741826090487
+        },
+        {
+          "location": "local src/dressing/surface/regions.ts:93",
+          "ms": 81092.434,
+          "percent": 13.512755680150232
+        },
+        {
+          "location": "weatherColor src/dressing/weather.ts:16",
+          "ms": 40623.743,
+          "percent": 6.769296306634639
+        },
+        {
+          "location": "(garbage collector) :0",
+          "ms": 35174.374,
+          "percent": 5.861246217670919
+        },
+        {
+          "location": " src/dressing/seams.ts:15",
+          "ms": 31401.792,
+          "percent": 5.232605833669958
+        },
+        {
+          "location": " src/dressing/seams.ts:21",
+          "ms": 27136.642,
+          "percent": 4.521886879430741
+        },
+        {
+          "location": "coordinates src/dressing/surface/regions.ts:59",
+          "ms": 26535.221,
+          "percent": 4.421669699688527
+        },
+        {
+          "location": "barycentric src/dressing/surface/regions.ts:188",
+          "ms": 25006.185,
+          "percent": 4.166880333097876
+        },
+        {
+          "location": "tilePerimeter src/dressing/wall-tiles.ts:219",
+          "ms": 21343.533,
+          "percent": 3.55655802340603
+        },
+        {
+          "location": "insideRegion src/dressing/surface/regions.ts:286",
+          "ms": 18739.157,
+          "percent": 3.122580464078523
+        },
+        {
+          "location": "(idle) :0",
+          "ms": 15528.16,
+          "percent": 2.5875192282708106
+        },
+        {
+          "location": "tone src/dressing/ground.ts:665",
+          "ms": 15082.943,
+          "percent": 2.5133309440019054
+        },
+        {
+          "location": "interpolatesAttributes src/dressing/surface/regions.ts:321",
+          "ms": 14656.992,
+          "percent": 2.442353030147258
+        },
+        {
+          "location": "closeAttributes src/dressing/surface/regions.ts:333",
+          "ms": 10395.269,
+          "percent": 1.7322051305851742
+        },
+        {
+          "location": "regions src/dressing/surface/regions.ts:366",
+          "ms": 8605.981,
+          "percent": 1.434048935329959
+        },
+        {
+          "location": "sample src/dressing/ground-surface.ts:258",
+          "ms": 8283.464,
+          "percent": 1.3803066413978888
+        },
+        {
+          "location": "(program) :0",
+          "ms": 6006.507,
+          "percent": 1.000888215811997
+        },
+        {
+          "location": "color src/dressing/ground.ts:687",
+          "ms": 5259.065,
+          "percent": 0.8763389744970447
+        },
+        {
+          "location": "wallLattice src/dressing/finish/wall-noise.ts:2",
+          "ms": 4990.9,
+          "percent": 0.8316535710848413
+        },
+        {
+          "location": "at src/dressing/surface/regions.ts:65",
+          "ms": 4745.542,
+          "percent": 0.7907685890386703
+        }
+      ]
+    },
+    "repeated-small.json": {
+      "runs": [
+        {
+          "variant": "baseline",
+          "scene": "small",
+          "elapsedMs": 701.136292,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.1236670000000117
+            },
+            {
+              "stage": "Building solids",
+              "ms": 8.127624999999995
+            },
+            {
+              "stage": "Composing",
+              "ms": 11.58604200000002
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 11.755708000000027
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 12.210125000000005
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 12.662832999999978
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 0,
+          "dressingMs": 688.473459
+        },
+        {
+          "variant": "optimized",
+          "scene": "small",
+          "elapsedMs": 466.30891699999995,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.107042000000007
+            },
+            {
+              "stage": "Building solids",
+              "ms": 6.99754200000001
+            },
+            {
+              "stage": "Composing",
+              "ms": 10.503416999999985
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 10.669250000000005
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 11.10862499999999
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 11.548417
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 0,
+          "dressingMs": 454.7605
+        },
+        {
+          "variant": "optimized",
+          "scene": "small",
+          "elapsedMs": 466.7133749999999,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.289625000000001
+            },
+            {
+              "stage": "Building solids",
+              "ms": 7.579666000000003
+            },
+            {
+              "stage": "Composing",
+              "ms": 11.026999999999987
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 11.219166000000001
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 11.649625000000015
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 12.10775000000001
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 1,
+          "dressingMs": 454.6056249999999
+        },
+        {
+          "variant": "baseline",
+          "scene": "small",
+          "elapsedMs": 790.2934170000001,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.2420420000000263
+            },
+            {
+              "stage": "Building solids",
+              "ms": 7.186875000000015
+            },
+            {
+              "stage": "Composing",
+              "ms": 10.80241700000002
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 10.97591700000001
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 11.442084000000023
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 11.904459000000003
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 1,
+          "dressingMs": 778.3889580000001
+        },
+        {
+          "variant": "baseline",
+          "scene": "small",
+          "elapsedMs": 1011.8747920000001,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.678083000000015
+            },
+            {
+              "stage": "Building solids",
+              "ms": 8.784417000000019
+            },
+            {
+              "stage": "Composing",
+              "ms": 13.250333000000012
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 13.46670800000004
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 14.039958000000013
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 14.871582999999987
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 2,
+          "dressingMs": 997.0032090000001
+        },
+        {
+          "variant": "optimized",
+          "scene": "small",
+          "elapsedMs": 699.587916,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 3.4543330000000196
+            },
+            {
+              "stage": "Building solids",
+              "ms": 11.134957999999983
+            },
+            {
+              "stage": "Composing",
+              "ms": 16.271208
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 16.524749999999983
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 17.182165999999995
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 17.887333000000012
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 2,
+          "dressingMs": 681.7005829999999
+        },
+        {
+          "variant": "optimized",
+          "scene": "small",
+          "elapsedMs": 640.940083,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.8968329999999582
+            },
+            {
+              "stage": "Building solids",
+              "ms": 9.601291000000003
+            },
+            {
+              "stage": "Composing",
+              "ms": 14.418833000000006
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 14.666333000000009
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 15.269207999999992
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 15.890499999999975
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 3,
+          "dressingMs": 625.049583
+        },
+        {
+          "variant": "baseline",
+          "scene": "small",
+          "elapsedMs": 931.10925,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.9053330000000415
+            },
+            {
+              "stage": "Building solids",
+              "ms": 9.303500000000042
+            },
+            {
+              "stage": "Composing",
+              "ms": 13.995249999999999
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 14.219708000000026
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 14.821957999999995
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 15.423917000000017
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 3,
+          "dressingMs": 915.6853329999999
+        },
+        {
+          "variant": "baseline",
+          "scene": "small",
+          "elapsedMs": 907.8957090000001,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.7210000000000036
+            },
+            {
+              "stage": "Building solids",
+              "ms": 8.639709000000039
+            },
+            {
+              "stage": "Composing",
+              "ms": 12.998874999999998
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 13.241874999999993
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 13.795542000000012
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 14.360250000000008
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 4,
+          "dressingMs": 893.5354590000002
+        },
+        {
+          "variant": "optimized",
+          "scene": "small",
+          "elapsedMs": 623.524708,
+          "triangles": 7318,
+          "stages": [
+            {
+              "stage": "Resolving architecture",
+              "ms": 2.8784160000000156
+            },
+            {
+              "stage": "Building solids",
+              "ms": 9.247791000000007
+            },
+            {
+              "stage": "Composing",
+              "ms": 13.99350000000004
+            },
+            {
+              "stage": "Physical surfaces",
+              "ms": 14.251791000000026
+            },
+            {
+              "stage": "Resolving face materials",
+              "ms": 14.851875000000007
+            },
+            {
+              "stage": "Procedural dressing",
+              "ms": 15.462166000000025
+            }
+          ],
+          "meshSha256": "c44478ea4fa2cbadb1d6b39b4847c80bf317b7c7938376185fd1354d7d8595cd",
+          "surfacesSha256": "0e4ce03c7714fb0c4356f72a354f361bb4adc293e751ac6729dcce8494e6c40d",
+          "diagnostics": [],
+          "physicalSha256": "46b0535345cd36d4bf3e6a117c38bffb38a45bed8c6e76cbd0156ec2b8b106b7",
+          "repeat": 4,
+          "dressingMs": 608.062542
+        }
+      ],
+      "summaries": [
+        {
+          "variant": "baseline",
+          "medianMs": 893.5354590000002,
+          "minMs": 688.473459,
+          "maxMs": 997.0032090000001
+        },
+        {
+          "variant": "optimized",
+          "medianMs": 608.062542,
+          "minMs": 454.6056249999999,
+          "maxMs": 681.7005829999999
+        }
+      ]
+    }
+  },
+  "smallWallSource": "<architecture version=\"1\" id=\"tile-benchmark\">\n  <material id=\"finish\" color=\"#c6c2b4\"/>\n  <path id=\"axis\" points=\"0 0 0; 2 0 0\"/>\n  <wall id=\"wall\" path=\"axis\" thickness=\"0.2\" height=\"1.5\"/>\n  <dressing theme=\"kowloon-street@1\" seed=\"profile\" detail=\"low\" wear=\"0.8\" grime=\"0.6\">\n    <wall host=\"wall\" face=\"side\" windows=\"false\" material=\"finish\" tile-share=\"0.55\"/>\n  </dressing>\n</architecture>\n",
+  "surfaceComparison": {
+    "description": "0.2m square receiver, sinusoidal two-material boundary with finite coat depths [0,-0.006]m and height 0.002*u*v",
+    "script": "generated/kowloon-performance-20261111/surface-compare.mjs",
+    "scope": "Final appearance mesh and surface records, no full-scene claim"
+  }
+}

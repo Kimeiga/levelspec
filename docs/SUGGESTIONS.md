@@ -1,10 +1,13 @@
 # Architectural review suggestions
 
-The compiler emits suggestions separately from errors, warnings and information.
-They ask an AI or a person to inspect potentially unintended geometry. Suggestions
-never fail validation, block exports, or modify collision, navigation or materials.
+The compiler exposes active review suggestions as ordinary **warning diagnostics**.
+They ask an AI or a person to inspect potentially unintended geometry. The
+`suggestions` array retains measurements and acknowledgment state. Warnings never
+fail validation, block exports, or modify collision, navigation or materials.
+Definite invalid references and demonstrated violations of declared requirements
+remain errors.
 
-The reviewer’s Suggestions panel provides Inspect, Cutaway, Copy review link and
+The reviewer’s warning list and Suggestions panel provide Inspect, Cutaway, Copy review link and
 Copy suppression XML. Inspect highlights the involved objects and affected span
 in either 2D or 3D. Restore previous view returns to the prior camera and layer
 settings. Cutaway removes geometry above the finding while preserving its context.
@@ -35,6 +38,17 @@ The prototype checks:
   is tested 5 cm above the continuous flight guide, accounting for openings;
   this is a geometry review heuristic, not a guard-height or building-code check.
 
+- `ROOF_STEP_OPEN`: exposed flat roof boundaries adjoin within 2 cm in plan,
+  over at least 1 m, with a vertical gap of at least 0.5 m between lower roof
+  top and upper roof underside. Interior samples lack solid closure. This can
+  be an intentional terrace, so inspect it rather than inferring a closed shell.
+- `WALL_ABOVE_ROOF`: a visible wall crosses a roof plane and extends more than
+  1.5 m above the highest roof covering its midpoint. This catches common wall
+  remnants while leaving ordinary parapets quiet. Setbacks, partial roof coverage,
+  curved/nonflat roofs, and complete building enclosure are not certified.
+- `ARCHITECTURE_REVIEW_INCOMPLETE`: bounded roof/wall analysis could not finish.
+  The warning identifies source objects and a review target; inspect manually.
+
 Findings are grouped by source wall pair or flight side, rather than triangles
 or stair treads. Their bounds cover affected spans; uncovered length is aggregate.
 Threshold comparisons allow 0.01 mm of mesh construction noise. Intentional double
@@ -44,7 +58,7 @@ silently repaired. Detection thresholds are fixed in this prototype.
 ## Acknowledging intentional geometry
 
 Copy the XML annotation from the finding, replace its reason with the review
-rationale, and add it directly under `<level>`:
+rationale, and add it directly under `<architecture>`:
 
 ```xml
 <review-suppression suggestion="finding-id" fingerprint="copied-fingerprint"
@@ -53,7 +67,7 @@ rationale, and add it directly under `<level>`:
 
 The UI remains read-only. Each annotation acknowledges exactly one finding at its
 current local geometry. Relevant edits invalidate the fingerprint and reactivate
-the suggestion. The panel then shows the old reason with “Geometry changed;
+the suggestion and its warning. Exact acknowledgments remove the active warning. The panel then shows the old reason with “Geometry changed;
 review again.” Replace the existing annotation after reviewing again; duplicate
 annotations for one finding are rejected. Comments, formatting, labels, material
 appearance and unrelated geometry leave the review valid. Detector revisions can
@@ -85,3 +99,10 @@ unavailable analysis. Geometry-only or failed bakes do not imply successful
 navigation review. XML suppressions use the same existing mechanism; relevant
 local geometry, connectivity, player settings and navigation resolution invalidate
 prior review decisions.
+
+
+Spatial warning diagnostics include `review` bounds, position, direction and ID.
+CLI JSON adds a relative URL and `preview <source> --diagnostic <id>` argument
+array. Warning links select the same geometry as suggestion links, and the
+warning row can copy acknowledgment XML. Source offsets refresh independently
+of cached geometric evidence.

@@ -1,0 +1,168 @@
+{
+  "reason": "Experimental Kowloon material art direction is deliberately not a test contract. Core compiler geometry, ownership, deterministic generation, material composition, export and failures remain covered.",
+  "removed": [
+    {
+      "file": "tests/surface-raster.test.ts",
+      "name": "repair campaigns are deterministic finite stepped areas without dark edge outlines"
+    },
+    {
+      "file": "tests/surface-raster.test.ts",
+      "name": "render runoff obeys real ledges and grime controls without changing coat loss"
+    },
+    {
+      "file": "tests/surface-raster.test.ts",
+      "name": "fresh repairs cover prior grime while older repairs accumulate new deposits without changing relief"
+    },
+    {
+      "file": "tests/surface-raster.test.ts",
+      "name": "painted-part controls preserve clean paint and localize foot and handle deposits"
+    },
+    {
+      "file": "tests/aml-dressing.test.ts",
+      "name": "broad finish weathering is bounded, repeatable and responsive to grime, wear and seed"
+    },
+    {
+      "file": "tests/surface-weathering-ranges.test.ts",
+      "name": "a real small bare patch survives conservative receiver classification"
+    },
+    {
+      "file": "tests/surface-wall-noise.test.ts",
+      "name": "wall noise preserves captured seeded patterns"
+    },
+    {
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "construction-aligned concrete joints remain connected without overlapping receiving layers"
+    },
+    {
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "puddles retain tiled receiving beds and clear their damaged tile edges"
+    },
+    {
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "ground pour seams align with wall ends and touching floor mouth corners in the host frame"
+    },
+    {
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "declared connection mouth endpoints anchor ground seams independently of adjacent floor corners"
+    },
+    {
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "broad concrete and tile zones meet along authored construction axes"
+    },
+    {
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "broad finish spacing does not create a sliver pour beside an architectural anchor"
+    },
+    {
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "broken concrete responds to finite wall proximity and opposing narrow-corridor contacts"
+    },
+    {
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "visible asphalt borders have frequent small jagged changes along a long pour edge"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "damp rises from a wall's base with an uneven front and is absent from walls clear of the ground"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "run-off stains the wall below a ledge, within its span and reach, in proportion to its flow"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "grime darkens damp and stained wall, and a clean wall keeps only its finish mottling"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "an applied coat comes away with wear, first where the wall is damp, and never without wear"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "plaster fracture edges retain intrinsic condition tint without a mask-shaped dark ring"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "grime leaves run-off below window sills and the roofline of a building and damp at its foot"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "roof quality preserves construction regions while higher detail changes local surface response"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "plain walls weather with the shared wall condition: darker at the base and below the top edge when grimy"
+    },
+    {
+      "file": "tests/aml-surface-finishes.test.ts",
+      "name": "a plain wall's lower paint band is whole without wear and flakes away with it"
+    },
+    {
+      "file": "tests/surface-tile-policy.test.ts",
+      "name": "tile peeling preserves small losses and makes severe losses mostly complete removal"
+    },
+    {
+      "file": "tests/surface-tile-policy.test.ts",
+      "name": "interior ground tile defects add sparse wear without moving the underlying continuous pattern"
+    },
+    {
+      "file": "tests/surface-tile-policy.test.ts",
+      "name": "the finish field owns retained tile and plank thickness while missing units expose an unpatterned bed"
+    },
+    {
+      "file": "tests/aml-wall-finishes.test.ts",
+      "name": "real texture seams have dividers while a curved receiver keeps one base texture"
+    },
+    {
+      "file": "tests/aml-wall-boundaries.test.ts",
+      "name": "wall tile loss forms connected exposed masses across courses, with intact and partially chipped tiles"
+    },
+    {
+      "file": "tests/aml-building-dressing.test.ts",
+      "name": "tenement rows step their rooflines and neighbors receive different facades"
+    },
+    {
+      "file": "tests/aml-building-dressing.test.ts",
+      "name": "one tenement stacks the same openings on every upper story"
+    },
+    {
+      "file": "tests/aml-sign-dressing.test.ts",
+      "name": "a street carries signs of many mounts, forms and proportions"
+    },
+    {
+      "file": "tests/aml-stock-appearances.test.ts",
+      "name": "variant albedo differs visibly while normal and material-property patterns remain aligned"
+    },
+    {
+      "file": "tests/aml-stock-appearances.test.ts",
+      "name": "small bottles, cans, and jars have visibly different real mesh sizes"
+    },
+    {
+      "file": "tests/aml-wall-boundaries.test.ts",
+      "name": "partial tile boundary damage stays continuous across joined straight and gently curved hosts"
+    },
+    {
+      "file": "tests/aml-wall-boundaries.test.ts",
+      "name": "tile generation stays nonoverlapping and within its output budget"
+    }
+  ],
+  "consolidation": "Wall boundary recipe tests retired; valid/disjoint/attached geometry and coplanar split-host UVs remain in aml-wall-details, exact contour coverage in surface-tile-union, and configured budgets/atomic failures in surface-materials/layers and wall-dressing. Curved partial-tile silhouette style policy and fixed recipe triangle ceiling are intentionally retired.",
+  "mixedSuitesTrimmed": [
+    "aml-dressing",
+    "surface-ground-layers",
+    "aml-ground-dressing",
+    "aml-surface-finishes",
+    "aml-wall-finishes",
+    "aml-wall-dressing",
+    "aml-wall-details",
+    "aml-building-dressing",
+    "aml-shop-dressing",
+    "aml-stock-appearances",
+    "surface-raster-door",
+    "aml-bag-clusters",
+    "aml-shop-timber",
+    "aml-grocer-props",
+    "aml-wall-planning"
+  ],
+  "retained": "Core geometry coverage/attachment/winding, collision/source isolation, dynamic determinism and transforms, material declarations/UV/atlas bounds, compositor math, export, configured budgets and atomic failure/recovery. Aesthetics use exploratory renders, not CI goldens."
+}

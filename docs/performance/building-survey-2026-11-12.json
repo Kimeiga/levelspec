@@ -1,0 +1,1294 @@
+{
+  "title": "Remove discarded building-survey appearance work and triangle allocation churn",
+  "date": "2026-11-12",
+  "measurementScope": "Current frozen source; CPU-profiled applyDressing only, after native compilation and before appearance processing. Separate old-scene cached full pipeline check is not a timing pair.",
+  "sourceFilesSha256": {
+    "src/dressing/kit-mesh.ts": "81e7f39eb624e2e7e62343641940202370e750d828b32047f10d0caeb653dc3d",
+    "src/dressing/kowloon/building.ts": "2c6614cea89ca5219930b751cd2f93ed2cc78da67d05208f6b4f10ec204bfe6a",
+    "src/dressing/kowloon/deck.ts": "31cc914b79cee83ade73ac8667433db15605283cb31b9a713a7683ad17d1ccde",
+    "src/dressing/ground.ts": "2ef7a78c792ef0054ce98ef19e5f9480eba6c4e6d59741d8e59871642af68ef1",
+    "src/dressing/kowloon/skin.ts": "aaa18223992cc419ea9736691c849c82acbae48eb20263b8995eadc7356b8ae7",
+    "src/dressing/kowloon/weathered.ts": "78a9c6c5f6b07f4e8fd419b7bef5bb325f748d7e62bec910ff260d63a7be10e1",
+    "tests/surface-building-survey.test.ts": "95244d882fda16a1a6e15aedb1e61e7414584e7dbccbf1243e10586d7dd54e8e"
+  },
+  "driverSha256": "c168668ae80e443faff67a9acab4bd137f61d71bd6563a01592d51647dc43349",
+  "before": {
+    "variant": "baseline",
+    "environment": {
+      "node": "v24.12.0",
+      "cpu": "Apple M4",
+      "arch": "arm64"
+    },
+    "elapsedMs": 10257.190541,
+    "cpuMs": 15966.931,
+    "peakAfterDressingKiB": 2221824,
+    "draws": [
+      {
+        "host": "background-west",
+        "detail": 2,
+        "purpose": "survey",
+        "ms": 950.2979160000004,
+        "triangles": 137175,
+        "attributeNumbers": 4526775,
+        "receivers": 14496,
+        "deposits": 6
+      },
+      {
+        "host": "background-west",
+        "detail": 1,
+        "purpose": "retained",
+        "ms": 802.0642089999997,
+        "triangles": 125765,
+        "attributeNumbers": 4150245,
+        "receivers": 11776,
+        "deposits": 4
+      },
+      {
+        "host": "background-east",
+        "detail": 2,
+        "purpose": "survey",
+        "ms": 664.6947499999997,
+        "triangles": 136191,
+        "attributeNumbers": 4494303,
+        "receivers": 11151,
+        "deposits": 4
+      },
+      {
+        "host": "background-east",
+        "detail": 1,
+        "purpose": "retained",
+        "ms": 661.7118329999994,
+        "triangles": 120863,
+        "attributeNumbers": 3988479,
+        "receivers": 9839,
+        "deposits": 1
+      },
+      {
+        "host": "shop-row",
+        "detail": 2,
+        "purpose": "survey",
+        "ms": 2783.9490830000004,
+        "triangles": 608043,
+        "attributeNumbers": 20065419,
+        "receivers": 52612,
+        "deposits": 20
+      },
+      {
+        "host": "shop-row",
+        "detail": 1,
+        "purpose": "retained",
+        "ms": 1610.4297910000005,
+        "triangles": 581455,
+        "attributeNumbers": 19188015,
+        "receivers": 50388,
+        "deposits": 19
+      }
+    ],
+    "equivalence": {
+      "mesh": "c629055188255fab555ee4ed180740946ae462f1191716c54a4e4053768dc2f7",
+      "materials": "ead225a100788fea08efc5cb7ee7fa2895fe3cbcc5dabb8baea6b8ed0ecd00d6",
+      "surfaces": "2b2360b0bf0edbb4e09ee6f905538c12c3e75ef2af09de98db90a84379fb8e9c",
+      "provenance": "0e526e420a37035caa7897d91469a339132f940ecf03f90771a27140d9cf3520",
+      "groundPlans": "73e661ef095df30e4280c67ac5f3f1783f79452ba8275db02926fc90961b44c8",
+      "signPlans": "0faea283509bd41dc020fee4cddee674c0cf9f38aaa06edeae29f7da52a0d8ac",
+      "diagnostics": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "physicalMesh": "85f661a6c2479e610d6c3d0d14eaf23b566c4bb7cdf46186b396d20bf4d50383",
+      "charts": "9fdd94a02ad19d16ae764eb7f229394756848a6c858ca9a37d3f35827af48a89",
+      "chartCount": 96246,
+      "surveys": [
+        "46a5ced2652d48a42c672641ed7c1d247d944eaa9b442d1b2b86499f87b7d08c",
+        "6ff1488fd6bbf913e1d67947bd3ee8876a3a89b00502149bab5142bd6c74c06d",
+        "27eb3ea1c04c9ca9e61d982548d4d1b35768115aa3768fc4b6cd84b4bfc59368"
+      ]
+    },
+    "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+    "fingerprintBefore": "671bb436a219b60d88a015ef32db4a0d6202abca8c7e360233598cf40eed8337",
+    "fingerprintAfter": "671bb436a219b60d88a015ef32db4a0d6202abca8c7e360233598cf40eed8337"
+  },
+  "after": {
+    "variant": "optimized",
+    "environment": {
+      "node": "v24.12.0",
+      "cpu": "Apple M4",
+      "arch": "arm64"
+    },
+    "elapsedMs": 5867.231375,
+    "cpuMs": 9695.277,
+    "peakAfterDressingKiB": 2280752,
+    "draws": [
+      {
+        "host": "background-west",
+        "detail": 2,
+        "purpose": "survey",
+        "ms": 231.49091700000008,
+        "triangles": 137175,
+        "attributeNumbers": 4526775,
+        "receivers": 0,
+        "deposits": 0
+      },
+      {
+        "host": "background-west",
+        "detail": 1,
+        "purpose": "retained",
+        "ms": 390.33966599999985,
+        "triangles": 125765,
+        "attributeNumbers": 4150245,
+        "receivers": 11776,
+        "deposits": 4
+      },
+      {
+        "host": "background-east",
+        "detail": 2,
+        "purpose": "survey",
+        "ms": 254.60408299999995,
+        "triangles": 136191,
+        "attributeNumbers": 4494303,
+        "receivers": 0,
+        "deposits": 0
+      },
+      {
+        "host": "background-east",
+        "detail": 1,
+        "purpose": "retained",
+        "ms": 313.27600000000007,
+        "triangles": 120863,
+        "attributeNumbers": 3988479,
+        "receivers": 9839,
+        "deposits": 1
+      },
+      {
+        "host": "shop-row",
+        "detail": 2,
+        "purpose": "survey",
+        "ms": 1020.111875,
+        "triangles": 608043,
+        "attributeNumbers": 20065419,
+        "receivers": 0,
+        "deposits": 0
+      },
+      {
+        "host": "shop-row",
+        "detail": 1,
+        "purpose": "retained",
+        "ms": 1548.7020000000002,
+        "triangles": 581455,
+        "attributeNumbers": 19188015,
+        "receivers": 50388,
+        "deposits": 19
+      }
+    ],
+    "equivalence": {
+      "mesh": "c629055188255fab555ee4ed180740946ae462f1191716c54a4e4053768dc2f7",
+      "materials": "ead225a100788fea08efc5cb7ee7fa2895fe3cbcc5dabb8baea6b8ed0ecd00d6",
+      "surfaces": "2b2360b0bf0edbb4e09ee6f905538c12c3e75ef2af09de98db90a84379fb8e9c",
+      "provenance": "0e526e420a37035caa7897d91469a339132f940ecf03f90771a27140d9cf3520",
+      "groundPlans": "73e661ef095df30e4280c67ac5f3f1783f79452ba8275db02926fc90961b44c8",
+      "signPlans": "0faea283509bd41dc020fee4cddee674c0cf9f38aaa06edeae29f7da52a0d8ac",
+      "diagnostics": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "physicalMesh": "85f661a6c2479e610d6c3d0d14eaf23b566c4bb7cdf46186b396d20bf4d50383",
+      "charts": "9fdd94a02ad19d16ae764eb7f229394756848a6c858ca9a37d3f35827af48a89",
+      "chartCount": 96246,
+      "surveys": [
+        "46a5ced2652d48a42c672641ed7c1d247d944eaa9b442d1b2b86499f87b7d08c",
+        "6ff1488fd6bbf913e1d67947bd3ee8876a3a89b00502149bab5142bd6c74c06d",
+        "27eb3ea1c04c9ca9e61d982548d4d1b35768115aa3768fc4b6cd84b4bfc59368"
+      ]
+    },
+    "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+    "fingerprintBefore": "b594c6e10d2738e951d1100449fcc8ca7a7e264cf79be6f63d414a3abe6a42ee",
+    "fingerprintAfter": "b594c6e10d2738e951d1100449fcc8ca7a7e264cf79be6f63d414a3abe6a42ee"
+  },
+  "ratios": {
+    "dressingTimeReduction": 0.4279884582871375,
+    "dressingSpeedup": 1.7482164730549763,
+    "surveyBeforeMs": 4398.9417490000005,
+    "surveyAfterMs": 1506.206875,
+    "retainedBeforeMs": 3074.2058329999995,
+    "retainedAfterMs": 2252.317666
+  },
+  "equivalence": {
+    "mesh": true,
+    "materials": true,
+    "surfaces": true,
+    "provenance": true,
+    "groundPlans": true,
+    "signPlans": true,
+    "diagnostics": true,
+    "physicalMesh": true,
+    "charts": true,
+    "chartCount": true,
+    "surveys": true
+  },
+  "profiles": {
+    "baseline": {
+      "self": [
+        {
+          "location": "(garbage collector) :0",
+          "ms": 1418.503
+        },
+        {
+          "location": "receive dressing/kit-surfaces.ts:107",
+          "ms": 794.538
+        },
+        {
+          "location": "triangle dressing/geometry.ts:8",
+          "ms": 787.008
+        },
+        {
+          "location": "face dressing/kowloon/weathered.ts:140",
+          "ms": 630.33
+        },
+        {
+          "location": "add dressing/kit-mesh.ts:191",
+          "ms": 587.805
+        },
+        {
+          "location": "face dressing/pen.ts:138",
+          "ms": 421.245
+        },
+        {
+          "location": "appendTo dressing/kowloon/building-job.ts:52",
+          "ms": 410.875
+        },
+        {
+          "location": "finished dressing/kit-mesh.ts:153",
+          "ms": 331.498
+        },
+        {
+          "location": " dressing/kit-mesh.ts:212",
+          "ms": 258.876
+        },
+        {
+          "location": "deposit dressing/kit-surfaces.ts:153",
+          "ms": 231.917
+        },
+        {
+          "location": " dressing/kit-mesh.ts:209",
+          "ms": 218.54
+        },
+        {
+          "location": "memberUV dressing/kowloon/weathered.ts:27",
+          "ms": 170.828
+        },
+        {
+          "location": "intersects dressing/kit-surfaces.ts:34",
+          "ms": 145.249
+        },
+        {
+          "location": "eachCell dressing/spans/scene.ts:126",
+          "ms": 104.749
+        },
+        {
+          "location": "AnchorPlane dressing/spans/anchors.ts:89",
+          "ms": 94.834
+        },
+        {
+          "location": "tube dressing/pen.ts:337",
+          "ms": 80.916
+        },
+        {
+          "location": "Obstructions dressing/spans/scene.ts:87",
+          "ms": 77.041
+        },
+        {
+          "location": "planar dressing/pen.ts:117",
+          "ms": 72.792
+        },
+        {
+          "location": "world dressing/pen.ts:92",
+          "ms": 72.667
+        },
+        {
+          "location": "renderPatch dressing/ground.ts:809",
+          "ms": 69.663
+        },
+        {
+          "location": " dressing/kit-mesh.ts:210",
+          "ms": 63.919
+        },
+        {
+          "location": "post node:inspector:115",
+          "ms": 63.125
+        },
+        {
+          "location": "(program) :0",
+          "ms": 58.252
+        },
+        {
+          "location": "clippedArea dressing/spans/anchors.ts:41",
+          "ms": 58.041
+        },
+        {
+          "location": "sweep dressing/kowloon/pipes.ts:202",
+          "ms": 57.833
+        },
+        {
+          "location": "direction dressing/pen.ts:107",
+          "ms": 54.584
+        },
+        {
+          "location": "groundEdgeDistance dressing/ground-field.ts:79",
+          "ms": 52.954
+        },
+        {
+          "location": "groupPlanes dressing/spans/anchors.ts:217",
+          "ms": 50.246
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:154",
+          "ms": 48.79
+        },
+        {
+          "location": "finishSeed dressing/wall-surface.ts:10",
+          "ms": 46.96
+        },
+        {
+          "location": "verticalFacet dressing/spans/anchors.ts:184",
+          "ms": 44.665
+        },
+        {
+          "location": "segmentCrosses dressing/spans/scene.ts:15",
+          "ms": 44.166
+        },
+        {
+          "location": "anchorPlanes dressing/spans/anchors.ts:302",
+          "ms": 43.586
+        },
+        {
+          "location": "dot dressing/pen.ts:15",
+          "ms": 40.996
+        },
+        {
+          "location": "bolt dressing/kowloon/signs/steel.ts:80",
+          "ms": 40.711
+        },
+        {
+          "location": "createMetalSurface dressing/finish/metal-surface.ts:21",
+          "ms": 39.374
+        },
+        {
+          "location": "beveledBar dressing/pen.ts:309",
+          "ms": 38.626
+        },
+        {
+          "location": "triangle dressing/wall-geometry.ts:160",
+          "ms": 38.5
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:40",
+          "ms": 37.916
+        },
+        {
+          "location": "intersectGround dressing/ground-field.ts:20",
+          "ms": 37.209
+        },
+        {
+          "location": "surfacePanel dressing/kowloon/skin.ts:155",
+          "ms": 37.166
+        },
+        {
+          "location": "settleSigns dressing/kowloon/building.ts:325",
+          "ms": 36.751
+        },
+        {
+          "location": "valueNoiseRange dressing/finish/noise.ts:41",
+          "ms": 36.666
+        },
+        {
+          "location": " dressing/ground.ts:931",
+          "ms": 35.583
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:42",
+          "ms": 35.375
+        },
+        {
+          "location": "triangleCorners dressing/kowloon/building.ts:54",
+          "ms": 32.708
+        },
+        {
+          "location": "receive dressing/kit-mesh.ts:114",
+          "ms": 32.208
+        },
+        {
+          "location": " dressing/kowloon/building.ts:57",
+          "ms": 29.458
+        },
+        {
+          "location": "scale dressing/kowloon/pipes.ts:11",
+          "ms": 27.955
+        },
+        {
+          "location": "vertex dressing/kowloon/pipes.ts:206",
+          "ms": 27.419
+        }
+      ],
+      "inclusive": [
+        {
+          "location": "(root) :0",
+          "ms": 10325.958
+        },
+        {
+          "location": " file:///Users/tomokif/code/levelspec/generated/kowloon-building-survey-20261112/bench.mjs:0",
+          "ms": 8825.326
+        },
+        {
+          "location": "applyDressing dressing/apply.ts:85",
+          "ms": 8753.077
+        },
+        {
+          "location": "KowloonBuildings.generate file:///Users/tomokif/code/levelspec/generated/kowloon-building-survey-20261112/bench.mjs:41",
+          "ms": 6495.705
+        },
+        {
+          "location": "generate dressing/kowloon/building.ts:291",
+          "ms": 6493.955
+        },
+        {
+          "location": "drawSite dressing/kowloon/building.ts:347",
+          "ms": 6434.83
+        },
+        {
+          "location": "KowloonBuildings.drawSite file:///Users/tomokif/code/levelspec/generated/kowloon-building-survey-20261112/bench.mjs:32",
+          "ms": 6434.83
+        },
+        {
+          "location": "dressFacade dressing/kowloon/facade.ts:539",
+          "ms": 5695.207
+        },
+        {
+          "location": "face dressing/pen.ts:138",
+          "ms": 2869.175
+        },
+        {
+          "location": "face dressing/kowloon/weathered.ts:140",
+          "ms": 2723.666
+        },
+        {
+          "location": "add dressing/kit-mesh.ts:191",
+          "ms": 2219.351
+        },
+        {
+          "location": "windowCell dressing/kowloon/facade.ts:260",
+          "ms": 1507.46
+        },
+        {
+          "location": "(garbage collector) :0",
+          "ms": 1418.503
+        },
+        {
+          "location": "bolt dressing/kowloon/signs/steel.ts:80",
+          "ms": 1397.381
+        },
+        {
+          "location": "drawSkin dressing/kowloon/skin.ts:82",
+          "ms": 1341.457
+        },
+        {
+          "location": "surfacePanel dressing/kowloon/skin.ts:155",
+          "ms": 1307.953
+        },
+        {
+          "location": "tube dressing/pen.ts:337",
+          "ms": 1247.588
+        },
+        {
+          "location": "beveledBar dressing/pen.ts:309",
+          "ms": 1235.54
+        },
+        {
+          "location": "beveledBar dressing/kowloon/weathered.ts:115",
+          "ms": 1159.954
+        },
+        {
+          "location": "run dressing/kowloon/pipes.ts:139",
+          "ms": 1133.209
+        },
+        {
+          "location": "drawGround dressing/kowloon/facade.ts:763",
+          "ms": 985.418
+        },
+        {
+          "location": "windowUnit dressing/kowloon/windows.ts:90",
+          "ms": 965.257
+        },
+        {
+          "location": "panel dressing/pen.ts:222",
+          "ms": 964.951
+        },
+        {
+          "location": "tube dressing/kowloon/weathered.ts:125",
+          "ms": 955.043
+        },
+        {
+          "location": "receive dressing/kit-surfaces.ts:107",
+          "ms": 863.247
+        },
+        {
+          "location": "mount dressing/kowloon/pipes.ts:118",
+          "ms": 835.253
+        },
+        {
+          "location": "services dressing/kowloon/facade.ts:783",
+          "ms": 801.872
+        },
+        {
+          "location": "drop dressing/kowloon/facade.ts:802",
+          "ms": 797.747
+        },
+        {
+          "location": "triangle dressing/geometry.ts:8",
+          "ms": 787.008
+        },
+        {
+          "location": "shell dressing/kowloon/building.ts:562",
+          "ms": 732.083
+        },
+        {
+          "location": "receive dressing/kit-mesh.ts:114",
+          "ms": 705.83
+        },
+        {
+          "location": "rooftop dressing/kowloon/rooftop.ts:114",
+          "ms": 685.914
+        },
+        {
+          "location": "dressSpans dressing/spans/spans.ts:106",
+          "ms": 654.956
+        },
+        {
+          "location": "frameBox dressing/kowloon/windows.ts:74",
+          "ms": 645.05
+        },
+        {
+          "location": "bandCell dressing/kowloon/facade.ts:311",
+          "ms": 554.582
+        },
+        {
+          "location": "cage dressing/kowloon/fixtures.ts:190",
+          "ms": 535.286
+        },
+        {
+          "location": "settleSigns dressing/kowloon/building.ts:325",
+          "ms": 534.705
+        },
+        {
+          "location": "fixingPlate dressing/kowloon/signs/steel.ts:104",
+          "ms": 520.213
+        },
+        {
+          "location": "drawShop dressing/kowloon/shop/shop.ts:136",
+          "ms": 474.041
+        },
+        {
+          "location": "groundUnit dressing/kowloon/ground.ts:191",
+          "ms": 441.585
+        },
+        {
+          "location": "append dressing/kowloon/building.ts:311",
+          "ms": 439.584
+        },
+        {
+          "location": "sweep dressing/kowloon/pipes.ts:202",
+          "ms": 436.79
+        },
+        {
+          "location": "appendTo dressing/kowloon/building-job.ts:52",
+          "ms": 416.459
+        },
+        {
+          "location": "dressGroundSite dressing/ground.ts:444",
+          "ms": 412.585
+        },
+        {
+          "location": "build dressing/ground.ts:1355",
+          "ms": 409.293
+        },
+        {
+          "location": "settle dressing/kowloon/signs/book.ts:166",
+          "ms": 402.039
+        },
+        {
+          "location": "deposit dressing/kit-mesh.ts:133",
+          "ms": 392.707
+        },
+        {
+          "location": "stain dressing/kowloon/fixtures.ts:34",
+          "ms": 392.707
+        },
+        {
+          "location": "deposit dressing/kit-surfaces.ts:153",
+          "ms": 391.498
+        },
+        {
+          "location": "memberUV dressing/kowloon/weathered.ts:27",
+          "ms": 384.829
+        }
+      ]
+    },
+    "optimized": {
+      "self": [
+        {
+          "location": "add dressing/kit-mesh.ts:197",
+          "ms": 698.908
+        },
+        {
+          "location": "(garbage collector) :0",
+          "ms": 673.328
+        },
+        {
+          "location": "face dressing/pen.ts:138",
+          "ms": 302.041
+        },
+        {
+          "location": "appendTo dressing/kowloon/building-job.ts:52",
+          "ms": 267.627
+        },
+        {
+          "location": "receive dressing/kit-surfaces.ts:107",
+          "ms": 222.585
+        },
+        {
+          "location": "cross dressing/pen.ts:10",
+          "ms": 217.753
+        },
+        {
+          "location": "face dressing/kowloon/weathered.ts:140",
+          "ms": 211.167
+        },
+        {
+          "location": "finished dressing/kit-mesh.ts:159",
+          "ms": 161.215
+        },
+        {
+          "location": "world dressing/pen.ts:92",
+          "ms": 160.83
+        },
+        {
+          "location": "subtract dressing/pen.ts:9",
+          "ms": 154.292
+        },
+        {
+          "location": "dot dressing/pen.ts:15",
+          "ms": 154.044
+        },
+        {
+          "location": "intersects dressing/kit-surfaces.ts:34",
+          "ms": 120.709
+        },
+        {
+          "location": "scaled dressing/pen.ts:16",
+          "ms": 95.46
+        },
+        {
+          "location": "direction dressing/pen.ts:107",
+          "ms": 89.086
+        },
+        {
+          "location": "planar dressing/pen.ts:117",
+          "ms": 86.374
+        },
+        {
+          "location": "AnchorPlane dressing/spans/anchors.ts:89",
+          "ms": 77.374
+        },
+        {
+          "location": "memberUV dressing/kowloon/weathered.ts:27",
+          "ms": 77.123
+        },
+        {
+          "location": "eachCell dressing/spans/scene.ts:126",
+          "ms": 74.209
+        },
+        {
+          "location": "deposit dressing/kit-surfaces.ts:153",
+          "ms": 69.833
+        },
+        {
+          "location": "Obstructions dressing/spans/scene.ts:87",
+          "ms": 56.627
+        },
+        {
+          "location": "groupPlanes dressing/spans/anchors.ts:217",
+          "ms": 55.833
+        },
+        {
+          "location": "clippedArea dressing/spans/anchors.ts:41",
+          "ms": 46.708
+        },
+        {
+          "location": "added dressing/pen.ts:17",
+          "ms": 45.539
+        },
+        {
+          "location": "(program) :0",
+          "ms": 41.876
+        },
+        {
+          "location": "anchorPlanes dressing/spans/anchors.ts:302",
+          "ms": 41.792
+        },
+        {
+          "location": "dot dressing/kowloon/weathered.ts:24",
+          "ms": 40.502
+        },
+        {
+          "location": "segmentCrosses dressing/spans/scene.ts:15",
+          "ms": 40.501
+        },
+        {
+          "location": " dressing/wall-surfaces.ts:31",
+          "ms": 39.084
+        },
+        {
+          "location": "tube dressing/pen.ts:337",
+          "ms": 37.752
+        },
+        {
+          "location": "triangle dressing/wall-geometry.ts:160",
+          "ms": 35.291
+        },
+        {
+          "location": "verticalFacet dressing/spans/anchors.ts:184",
+          "ms": 34.001
+        },
+        {
+          "location": "post node:inspector:115",
+          "ms": 32.292
+        },
+        {
+          "location": "beveledBar dressing/pen.ts:309",
+          "ms": 29.417
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:154",
+          "ms": 26.917
+        },
+        {
+          "location": "triangleCorners dressing/kowloon/building.ts:54",
+          "ms": 25.999
+        },
+        {
+          "location": "settleSigns dressing/kowloon/building.ts:325",
+          "ms": 25.625
+        },
+        {
+          "location": "vertex dressing/kowloon/pipes.ts:206",
+          "ms": 24.833
+        },
+        {
+          "location": "sweep dressing/kowloon/pipes.ts:202",
+          "ms": 23.916
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:23",
+          "ms": 23.374
+        },
+        {
+          "location": " dressing/ground.ts:933",
+          "ms": 23.294
+        },
+        {
+          "location": "scale dressing/kowloon/pipes.ts:11",
+          "ms": 22.041
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:24",
+          "ms": 21.042
+        },
+        {
+          "location": " dressing/spans/scene.ts:59",
+          "ms": 20.458
+        },
+        {
+          "location": "triangleTouchesBox dressing/kowloon/clearance.ts:13",
+          "ms": 18.75
+        },
+        {
+          "location": "renderPatch dressing/ground.ts:811",
+          "ms": 18.708
+        },
+        {
+          "location": "covers dressing/spans/anchors.ts:133",
+          "ms": 18.708
+        },
+        {
+          "location": "face dressing/kowloon/shop/timber.ts:207",
+          "ms": 18.543
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:29",
+          "ms": 17.0
+        },
+        {
+          "location": " dressing/pen.ts:353",
+          "ms": 16.96
+        },
+        {
+          "location": " dressing/kowloon/building.ts:57",
+          "ms": 16.458
+        }
+      ],
+      "inclusive": [
+        {
+          "location": "(root) :0",
+          "ms": 5899.5
+        },
+        {
+          "location": " file:///Users/tomokif/code/levelspec/generated/kowloon-building-survey-20261112/bench.mjs:0",
+          "ms": 5148.38
+        },
+        {
+          "location": "applyDressing dressing/apply.ts:85",
+          "ms": 5114.588
+        },
+        {
+          "location": "generate dressing/kowloon/building.ts:291",
+          "ms": 3457.375
+        },
+        {
+          "location": "KowloonBuildings.generate file:///Users/tomokif/code/levelspec/generated/kowloon-building-survey-20261112/bench.mjs:41",
+          "ms": 3457.375
+        },
+        {
+          "location": "drawSite dressing/kowloon/building.ts:347",
+          "ms": 3413.5
+        },
+        {
+          "location": "KowloonBuildings.drawSite file:///Users/tomokif/code/levelspec/generated/kowloon-building-survey-20261112/bench.mjs:32",
+          "ms": 3413.5
+        },
+        {
+          "location": "dressFacade dressing/kowloon/facade.ts:539",
+          "ms": 3034.54
+        },
+        {
+          "location": "face dressing/pen.ts:138",
+          "ms": 2075.003
+        },
+        {
+          "location": "face dressing/kowloon/weathered.ts:140",
+          "ms": 962.875
+        },
+        {
+          "location": "add dressing/kit-mesh.ts:197",
+          "ms": 860.832
+        },
+        {
+          "location": "windowCell dressing/kowloon/facade.ts:260",
+          "ms": 800.047
+        },
+        {
+          "location": "drawSkin dressing/kowloon/skin.ts:82",
+          "ms": 729.83
+        },
+        {
+          "location": "surfacePanel dressing/kowloon/skin.ts:155",
+          "ms": 726.123
+        },
+        {
+          "location": "tube dressing/pen.ts:337",
+          "ms": 710.786
+        },
+        {
+          "location": "bolt dressing/kowloon/signs/steel.ts:80",
+          "ms": 699.739
+        },
+        {
+          "location": "(garbage collector) :0",
+          "ms": 673.328
+        },
+        {
+          "location": "drawGround dressing/kowloon/facade.ts:763",
+          "ms": 634.129
+        },
+        {
+          "location": "panel dressing/pen.ts:222",
+          "ms": 630.834
+        },
+        {
+          "location": "beveledBar dressing/pen.ts:309",
+          "ms": 601.796
+        },
+        {
+          "location": "dressSpans dressing/spans/spans.ts:106",
+          "ms": 589.543
+        },
+        {
+          "location": "run dressing/kowloon/pipes.ts:139",
+          "ms": 588.123
+        },
+        {
+          "location": "settleSigns dressing/kowloon/building.ts:325",
+          "ms": 461.96
+        },
+        {
+          "location": "windowUnit dressing/kowloon/windows.ts:90",
+          "ms": 440.081
+        },
+        {
+          "location": "mount dressing/kowloon/pipes.ts:118",
+          "ms": 405.833
+        },
+        {
+          "location": "services dressing/kowloon/facade.ts:783",
+          "ms": 393.581
+        },
+        {
+          "location": "drop dressing/kowloon/facade.ts:802",
+          "ms": 390.664
+        },
+        {
+          "location": "beveledBar dressing/kowloon/weathered.ts:115",
+          "ms": 386.214
+        },
+        {
+          "location": "settle dressing/kowloon/signs/book.ts:166",
+          "ms": 378.418
+        },
+        {
+          "location": "shell dressing/kowloon/building.ts:562",
+          "ms": 374.085
+        },
+        {
+          "location": "drawShop dressing/kowloon/shop/shop.ts:136",
+          "ms": 372.706
+        },
+        {
+          "location": "tube dressing/kowloon/weathered.ts:125",
+          "ms": 365.952
+        },
+        {
+          "location": "rooftop dressing/kowloon/rooftop.ts:114",
+          "ms": 353.544
+        },
+        {
+          "location": "draw dressing/kowloon/signs/book.ts:110",
+          "ms": 319.71
+        },
+        {
+          "location": " dressing/kowloon/signs/book.ts:169",
+          "ms": 319.71
+        },
+        {
+          "location": "frameBox dressing/kowloon/windows.ts:74",
+          "ms": 299.58
+        },
+        {
+          "location": "awning dressing/kowloon/fixtures.ts:255",
+          "ms": 294.378
+        },
+        {
+          "location": "panel dressing/kowloon/tarps.ts:285",
+          "ms": 292.836
+        },
+        {
+          "location": "canvasAwning dressing/kowloon/tarps.ts:329",
+          "ms": 292.836
+        },
+        {
+          "location": "planar dressing/pen.ts:117",
+          "ms": 285.206
+        },
+        {
+          "location": "sweep dressing/kowloon/pipes.ts:202",
+          "ms": 281.623
+        },
+        {
+          "location": "append dressing/kowloon/building.ts:311",
+          "ms": 279.21
+        },
+        {
+          "location": "anchorPlanes dressing/spans/anchors.ts:302",
+          "ms": 270.042
+        },
+        {
+          "location": "appendTo dressing/kowloon/building-job.ts:52",
+          "ms": 269.252
+        },
+        {
+          "location": "fixingPlate dressing/kowloon/signs/steel.ts:104",
+          "ms": 266.077
+        },
+        {
+          "location": "receive dressing/kit-mesh.ts:118",
+          "ms": 259.837
+        },
+        {
+          "location": "receive dressing/kit-surfaces.ts:107",
+          "ms": 252.17
+        },
+        {
+          "location": "cage dressing/kowloon/fixtures.ts:190",
+          "ms": 226.0
+        },
+        {
+          "location": "cross dressing/pen.ts:10",
+          "ms": 217.753
+        },
+        {
+          "location": "memberUV dressing/kowloon/weathered.ts:27",
+          "ms": 213.912
+        }
+      ]
+    }
+  },
+  "cachedFullPipeline": {
+    "variant": "optimized",
+    "name": "after",
+    "buildingTimings": [
+      {
+        "host": "background-west",
+        "generationMs": 915.045875,
+        "triangles": 107457,
+        "assemblyMs": 73.03241700000035
+      },
+      {
+        "host": "background-east",
+        "generationMs": 746.4405419999998,
+        "triangles": 96069,
+        "assemblyMs": 94.93849999999975
+      },
+      {
+        "host": "shop-row",
+        "generationMs": 3918.612833,
+        "triangles": 493623,
+        "assemblyMs": 223.9203749999997
+      }
+    ],
+    "signSurveyMs": 859.0663750000003,
+    "equivalence": {
+      "meshSha256": "f9d415abed0ef6f78b73481ccd7a48d4d10abbbe3ec37da0c4dfef0a91370525",
+      "materialDefinitionsSha256": "d9092991811e59aa21b7e8523c00c787cee6f462b6602ca274f7577a31805328",
+      "materialIdsSha256": "6a8d2419115834c0016e0b6310d72ceec91dab0dcc000bf5f4c70c22611274bb",
+      "surfaceBindingsSha256": "31b9a5ca7de76ee5e13dd21ce8a880ca47e2b48fe7540a5a85d7d980346ba66a",
+      "surfaceIdsSha256": "2cc47d01b800b5399eefd185099329d8498e281ab80d1ba55b884ea7f5f29ce7",
+      "provenanceSha256": "0e526e420a37035caa7897d91469a339132f940ecf03f90771a27140d9cf3520",
+      "groundPlansSha256": "73e661ef095df30e4280c67ac5f3f1783f79452ba8275db02926fc90961b44c8",
+      "signPlansSha256": "0faea283509bd41dc020fee4cddee674c0cf9f38aaa06edeae29f7da52a0d8ac",
+      "navigationSha256": "31082b491a79171192e5020bb3bb2e042a6d60aba2b84c1bba04089313c7278f",
+      "surveySha256": [
+        "8cd1ab14bc37ba0a7e3eb76a2e9922428cfcf25f8230d6d30f5de785e096e0f2",
+        "ad8e7796e0e6c7322e5c56bc96a41bf01815acdbe10868fde64918d401445b71",
+        "b80cabc3c3e71d86fdfe45eaa88025c05571322ea5cad3a5a4052fd1a8c39161"
+      ]
+    },
+    "status": "completed",
+    "environment": {
+      "node": "v24.12.0",
+      "cpu": "Apple M4",
+      "platform": "darwin",
+      "arch": "arm64"
+    },
+    "elapsedMs": 22297.079917,
+    "cpuMs": 35409.384,
+    "pngCalls": 14,
+    "pngPixels": 36174132,
+    "pngMs": 1471.966626000005,
+    "cacheStats": {
+      "reads": 9173,
+      "hits": 9173,
+      "writes": 0
+    },
+    "misses": {
+      "jobs": 0,
+      "texels": 0
+    },
+    "intervals": [
+      {
+        "stage": "Compile setup",
+        "startMs": 0,
+        "durationMs": 9.34983299999999
+      },
+      {
+        "stage": "Resolving architecture",
+        "startMs": 9.34983299999999,
+        "durationMs": 20.246875000000045
+      },
+      {
+        "stage": "Building solids",
+        "startMs": 29.596708000000035,
+        "durationMs": 41.73916699999995
+      },
+      {
+        "stage": "Composing",
+        "startMs": 71.33587499999999,
+        "durationMs": 37.433500000000095
+      },
+      {
+        "stage": "Physical surfaces",
+        "startMs": 108.76937500000008,
+        "durationMs": 5.141582999999855
+      },
+      {
+        "stage": "Resolving face materials",
+        "startMs": 113.91095799999994,
+        "durationMs": 87.50012500000003
+      },
+      {
+        "stage": "Procedural dressing",
+        "startMs": 201.41108299999996,
+        "durationMs": 8494.153542
+      },
+      {
+        "stage": "Surface appearance",
+        "startMs": 8695.564624999999,
+        "durationMs": 44.08625000000029
+      },
+      {
+        "stage": "Surface appearance: validating receivers",
+        "startMs": 8739.650875,
+        "durationMs": 2049.313583000001
+      },
+      {
+        "stage": "Surface appearance: decoding material images",
+        "startMs": 10788.964458,
+        "durationMs": 1790.2314999999999
+      },
+      {
+        "stage": "Surface appearance: deriving height normals",
+        "startMs": 12579.195958,
+        "durationMs": 24.477458999999726
+      },
+      {
+        "stage": "Surface appearance: rasterizing materials",
+        "startMs": 12603.673417,
+        "durationMs": 3071.698875
+      },
+      {
+        "stage": "Surface appearance: receiver 1/95274",
+        "startMs": 15675.372292,
+        "durationMs": 7.958374999998341
+      },
+      {
+        "stage": "Surface appearance: receiver 9529/95274",
+        "startMs": 15683.330666999998,
+        "durationMs": 6.715125000002445
+      },
+      {
+        "stage": "Surface appearance: receiver 19057/95274",
+        "startMs": 15690.045792,
+        "durationMs": 7.975957999999082
+      },
+      {
+        "stage": "Surface appearance: receiver 28585/95274",
+        "startMs": 15698.02175,
+        "durationMs": 5.2746670000015
+      },
+      {
+        "stage": "Surface appearance: receiver 38113/95274",
+        "startMs": 15703.296417000001,
+        "durationMs": 10.813749999997526
+      },
+      {
+        "stage": "Surface appearance: receiver 47641/95274",
+        "startMs": 15714.110166999999,
+        "durationMs": 6.265332999999373
+      },
+      {
+        "stage": "Surface appearance: receiver 57169/95274",
+        "startMs": 15720.375499999998,
+        "durationMs": 6.152125000000524
+      },
+      {
+        "stage": "Surface appearance: receiver 66697/95274",
+        "startMs": 15726.527624999999,
+        "durationMs": 36.56733300000269
+      },
+      {
+        "stage": "Surface appearance: receiver 76225/95274",
+        "startMs": 15763.094958000001,
+        "durationMs": 88.69149999999718
+      },
+      {
+        "stage": "Surface appearance: receiver 85753/95274",
+        "startMs": 15851.786457999999,
+        "durationMs": 75.06116699999984
+      },
+      {
+        "stage": "Surface appearance: joining receiver edges",
+        "startMs": 15926.847624999999,
+        "durationMs": 802.5044580000031
+      },
+      {
+        "stage": "Surface appearance: binding preserved geometry",
+        "startMs": 16729.352083,
+        "durationMs": 3830.111041999997
+      },
+      {
+        "stage": "Surface appearance: closing displaced seams",
+        "startMs": 20559.463125,
+        "durationMs": 83.9032920000027
+      },
+      {
+        "stage": "Mesh parts and finalization",
+        "startMs": 20643.366417,
+        "durationMs": 1472.6892909999988
+      },
+      {
+        "stage": "Navigation",
+        "startMs": 22116.055708,
+        "durationMs": 181.02420899999925
+      }
+    ],
+    "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+    "fingerprintBefore": "5a8e50192595b95b49c21ce7781b5f1ccd8cdaffc8a4dfd122d06e237bc45ca8",
+    "fingerprintAfter": "5a8e50192595b95b49c21ce7781b5f1ccd8cdaffc8a4dfd122d06e237bc45ca8",
+    "triangles": 859305,
+    "vertices": 2535555,
+    "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+    "renderHash": "41548561855590cb08a7a20596cc2b5a0a6a8dcf5b44b3b9c431b9ba9045b34f",
+    "surfaceAppearance": {
+      "version": 1,
+      "sourceHashes": {
+        "levelspec-material:concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+        "levelspec-material:concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+        "levelspec-material:wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+        "levelspec-material:wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+        "levelspec-material:metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+        "levelspec-material:ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+        "levelspec-material:ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+        "levelspec-material:building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+        "levelspec-material:sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+        "levelspec-material:roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+        "levelspec-material:timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+        "levelspec-material:rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+        "levelspec-material:lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+        "levelspec-material:signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+      },
+      "generatedHashes": {
+        "count": 18003,
+        "sha256": "0f46696efc478bd973a631d49919215246af6e03b4ab40f9a2b0349066b7e35a"
+      },
+      "charts": 95274,
+      "texels": 80663088,
+      "imageBytes": 87858744
+    },
+    "diagnostics": [],
+    "peakRssKiB": 2197248
+  },
+  "cachedFullPipelineMatchesPrior": {
+    "sourceSha256": true,
+    "physicalHash": true,
+    "renderHash": true,
+    "surfaceAppearance": true,
+    "diagnostics": true,
+    "equivalence": true
+  },
+  "validation": {
+    "baselineCompatibleTestsPassed": 3,
+    "focusedTestsPassed": 15,
+    "typecheck": "passed",
+    "independentTestReview": "approved",
+    "independentImplementationReview": "approved"
+  },
+  "limitations": [
+    "One completed drawing-only before/after pair; not a statistically controlled timing campaign.",
+    "Two benchmark preparation failures preceded the baseline: proxy contact validation, then missing material registration. Neither completed dressing. A mistakenly launched unpatched after process was interrupted and is excluded (setup-aborted).",
+    "Receiver function equality is checked by descriptor and deterministic center/row/tint/coverage samples, not a proof over all coordinates.",
+    "Full-pipeline warm-cache check uses the prior reference scene to reuse its artifacts; it excludes concurrent visual changes. No fresh full-pipeline timing control or cold raster result.",
+    "PeakAfterDressingKiB is process high-water RSS at dressing completion, includes prior setup and native compilation, excludes subsequent equivalence hashing.",
+    "Survey geometry still has full attributes; no claim that all duplicate drawing work has been eliminated."
+  ],
+  "evidenceDirectory": "generated/kowloon-building-survey-20261112"
+}

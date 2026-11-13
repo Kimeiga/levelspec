@@ -68,6 +68,7 @@ jobs:
             sleep 1
           done
           npm run test:site:browser
+          BASE_URL=http://127.0.0.1:48218/ SITE_URL=http://127.0.0.1:48217/levelspec/ npm run test:dressing:browser
         env:
           SITE_BASE: /levelspec/
   producers:

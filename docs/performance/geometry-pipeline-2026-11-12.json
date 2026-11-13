@@ -1,0 +1,2350 @@
+{
+  "experiment": "geometry allocations and pipeline review",
+  "date": "2026-11-12",
+  "environment": {
+    "node": "v24.12.0",
+    "cpu": "Apple M4",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "method": "One fresh process per variant; both CPU-profiled; warm shared artifacts; serial raster executor; frozen scene from prior sign-cache experiment. Includes navigation; excludes process startup, export, GPU upload and lighting bake. Uncontrolled machine load; no causal wall-time speedup established.",
+  "baseline": {
+    "variant": "optimized",
+    "name": "pipeline-baseline",
+    "status": "completed",
+    "environment": {
+      "node": "v24.12.0",
+      "cpu": "Apple M4",
+      "platform": "darwin",
+      "arch": "arm64"
+    },
+    "elapsedMs": 17629.749958,
+    "cpuMs": 27792.256,
+    "pngCalls": 14,
+    "pngPixels": 36174132,
+    "pngMs": 1099.2913750000007,
+    "cacheStats": {
+      "reads": 9173,
+      "hits": 9173,
+      "writes": 0
+    },
+    "misses": {
+      "jobs": 0,
+      "texels": 0
+    },
+    "intervals": [
+      {
+        "stage": "Compile setup",
+        "startMs": 0,
+        "durationMs": 5.064540999999963
+      },
+      {
+        "stage": "Resolving architecture",
+        "startMs": 5.064540999999963,
+        "durationMs": 10.495959000000084
+      },
+      {
+        "stage": "Building solids",
+        "startMs": 15.560500000000047,
+        "durationMs": 24.21849999999995
+      },
+      {
+        "stage": "Composing",
+        "startMs": 39.778999999999996,
+        "durationMs": 10.07695799999999
+      },
+      {
+        "stage": "Physical surfaces",
+        "startMs": 49.85595799999999,
+        "durationMs": 1.2429580000000442
+      },
+      {
+        "stage": "Resolving face materials",
+        "startMs": 51.09891600000003,
+        "durationMs": 24.577042000000006
+      },
+      {
+        "stage": "Procedural dressing",
+        "startMs": 75.67595800000004,
+        "durationMs": 5760.708667000001
+      },
+      {
+        "stage": "Surface appearance",
+        "startMs": 5836.384625000001,
+        "durationMs": 37.985999999999876
+      },
+      {
+        "stage": "Surface appearance: validating receivers",
+        "startMs": 5874.3706250000005,
+        "durationMs": 1241.137041
+      },
+      {
+        "stage": "Surface appearance: decoding material images",
+        "startMs": 7115.507666,
+        "durationMs": 1309.599792
+      },
+      {
+        "stage": "Surface appearance: deriving height normals",
+        "startMs": 8425.107458,
+        "durationMs": 18.975667000000612
+      },
+      {
+        "stage": "Surface appearance: rasterizing materials",
+        "startMs": 8444.083125000001,
+        "durationMs": 2578.698624999999
+      },
+      {
+        "stage": "Surface appearance: receiver 1/95274",
+        "startMs": 11022.78175,
+        "durationMs": 8.38354100000106
+      },
+      {
+        "stage": "Surface appearance: receiver 9529/95274",
+        "startMs": 11031.165291000001,
+        "durationMs": 6.419499999999971
+      },
+      {
+        "stage": "Surface appearance: receiver 19057/95274",
+        "startMs": 11037.584791000001,
+        "durationMs": 7.539124999999331
+      },
+      {
+        "stage": "Surface appearance: receiver 28585/95274",
+        "startMs": 11045.123916,
+        "durationMs": 9.565209000000323
+      },
+      {
+        "stage": "Surface appearance: receiver 38113/95274",
+        "startMs": 11054.689125,
+        "durationMs": 8.076915999999983
+      },
+      {
+        "stage": "Surface appearance: receiver 47641/95274",
+        "startMs": 11062.766041,
+        "durationMs": 6.43762500000048
+      },
+      {
+        "stage": "Surface appearance: receiver 57169/95274",
+        "startMs": 11069.203666000001,
+        "durationMs": 6.3498339999987365
+      },
+      {
+        "stage": "Surface appearance: receiver 66697/95274",
+        "startMs": 11075.5535,
+        "durationMs": 34.64049999999952
+      },
+      {
+        "stage": "Surface appearance: receiver 76225/95274",
+        "startMs": 11110.194,
+        "durationMs": 81.02608300000065
+      },
+      {
+        "stage": "Surface appearance: receiver 85753/95274",
+        "startMs": 11191.220083,
+        "durationMs": 63.82899999999972
+      },
+      {
+        "stage": "Surface appearance: joining receiver edges",
+        "startMs": 11255.049083,
+        "durationMs": 4878.433625
+      },
+      {
+        "stage": "Mesh parts and finalization",
+        "startMs": 16133.482708,
+        "durationMs": 1311.775708000001
+      },
+      {
+        "stage": "Navigation",
+        "startMs": 17445.258416,
+        "durationMs": 184.49154199999975
+      }
+    ],
+    "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+    "fingerprintBefore": "6d0a79edb3546c0c7527174109b6e1176fd4e9c5bd67830b4ab1b1ed41779229",
+    "fingerprintAfter": "6d0a79edb3546c0c7527174109b6e1176fd4e9c5bd67830b4ab1b1ed41779229",
+    "triangles": 859305,
+    "vertices": 2535555,
+    "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+    "renderHash": "a34e4852c72f0b5ca9072a44d1517c6ec6ed2588b1517f16954b421d3a2e80e4",
+    "surfaceAppearance": {
+      "version": 1,
+      "sourceHashes": {
+        "levelspec-material:concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+        "levelspec-material:concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+        "levelspec-material:wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+        "levelspec-material:wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+        "levelspec-material:metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+        "levelspec-material:ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+        "levelspec-material:ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+        "levelspec-material:building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+        "levelspec-material:sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+        "levelspec-material:roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+        "levelspec-material:timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+        "levelspec-material:rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+        "levelspec-material:lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+        "levelspec-material:signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+      },
+      "charts": 95274,
+      "texels": 80663088,
+      "imageBytes": 87858744,
+      "generatedHashesCount": 18003,
+      "fullManifestSha256": "077dd0beb618735c53f6749acd167554d950ff70458b6b589c7ce3529cb024cc",
+      "digestEncoding": "UTF-8 JSON, sorted keys, compact separators; includes complete original generatedHashes list"
+    },
+    "diagnostics": [],
+    "peakRssKiB": 3000400,
+    "completeLocalReport": "generated/kowloon-geometry-pipeline-20261112/baseline-report.json"
+  },
+  "optimized": {
+    "variant": "optimized",
+    "name": "warm",
+    "status": "completed",
+    "environment": {
+      "node": "v24.12.0",
+      "cpu": "Apple M4",
+      "platform": "darwin",
+      "arch": "arm64"
+    },
+    "elapsedMs": 29580.255417,
+    "cpuMs": 43709.533,
+    "pngCalls": 14,
+    "pngPixels": 36174132,
+    "pngMs": 2338.7965010000007,
+    "cacheStats": {
+      "reads": 9173,
+      "hits": 9173,
+      "writes": 0
+    },
+    "misses": {
+      "jobs": 0,
+      "texels": 0
+    },
+    "intervals": [
+      {
+        "stage": "Compile setup",
+        "startMs": 0,
+        "durationMs": 15.90604200000007
+      },
+      {
+        "stage": "Resolving architecture",
+        "startMs": 15.90604200000007,
+        "durationMs": 41.116207999999915
+      },
+      {
+        "stage": "Building solids",
+        "startMs": 57.022249999999985,
+        "durationMs": 124.82270900000003
+      },
+      {
+        "stage": "Composing",
+        "startMs": 181.84495900000002,
+        "durationMs": 39.83787500000017
+      },
+      {
+        "stage": "Physical surfaces",
+        "startMs": 221.68283400000018,
+        "durationMs": 6.606915999999728
+      },
+      {
+        "stage": "Resolving face materials",
+        "startMs": 228.2897499999999,
+        "durationMs": 97.80616700000019
+      },
+      {
+        "stage": "Procedural dressing",
+        "startMs": 326.0959170000001,
+        "durationMs": 8399.633333
+      },
+      {
+        "stage": "Surface appearance",
+        "startMs": 8725.72925,
+        "durationMs": 78.96529199999895
+      },
+      {
+        "stage": "Surface appearance: validating receivers",
+        "startMs": 8804.694542,
+        "durationMs": 2780.279917
+      },
+      {
+        "stage": "Surface appearance: decoding material images",
+        "startMs": 11584.974459,
+        "durationMs": 2819.0089160000007
+      },
+      {
+        "stage": "Surface appearance: deriving height normals",
+        "startMs": 14403.983375,
+        "durationMs": 22.69733400000041
+      },
+      {
+        "stage": "Surface appearance: rasterizing materials",
+        "startMs": 14426.680709,
+        "durationMs": 5119.734165999998
+      },
+      {
+        "stage": "Surface appearance: receiver 1/95274",
+        "startMs": 19546.414875,
+        "durationMs": 18.3426670000008
+      },
+      {
+        "stage": "Surface appearance: receiver 9529/95274",
+        "startMs": 19564.757542,
+        "durationMs": 14.328582999998616
+      },
+      {
+        "stage": "Surface appearance: receiver 19057/95274",
+        "startMs": 19579.086124999998,
+        "durationMs": 27.66645900000003
+      },
+      {
+        "stage": "Surface appearance: receiver 28585/95274",
+        "startMs": 19606.752583999998,
+        "durationMs": 25.72504100000151
+      },
+      {
+        "stage": "Surface appearance: receiver 38113/95274",
+        "startMs": 19632.477625,
+        "durationMs": 20.150541999999405
+      },
+      {
+        "stage": "Surface appearance: receiver 47641/95274",
+        "startMs": 19652.628167,
+        "durationMs": 27.782750000002125
+      },
+      {
+        "stage": "Surface appearance: receiver 57169/95274",
+        "startMs": 19680.410917,
+        "durationMs": 18.02537499999744
+      },
+      {
+        "stage": "Surface appearance: receiver 66697/95274",
+        "startMs": 19698.436292,
+        "durationMs": 50.32516700000269
+      },
+      {
+        "stage": "Surface appearance: receiver 76225/95274",
+        "startMs": 19748.761459,
+        "durationMs": 91.22599999999875
+      },
+      {
+        "stage": "Surface appearance: receiver 85753/95274",
+        "startMs": 19839.987459,
+        "durationMs": 75.64058300000033
+      },
+      {
+        "stage": "Surface appearance: joining receiver edges",
+        "startMs": 19915.628042,
+        "durationMs": 1620.8927079999994
+      },
+      {
+        "stage": "Surface appearance: binding preserved geometry",
+        "startMs": 21536.52075,
+        "durationMs": 6062.462542000001
+      },
+      {
+        "stage": "Surface appearance: closing displaced seams",
+        "startMs": 27598.983292,
+        "durationMs": 90.97212500000023
+      },
+      {
+        "stage": "Mesh parts and finalization",
+        "startMs": 27689.955417,
+        "durationMs": 1690.779208
+      },
+      {
+        "stage": "Navigation",
+        "startMs": 29380.734625,
+        "durationMs": 199.52079199999935
+      }
+    ],
+    "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+    "fingerprintBefore": "2a0a207f10fc20f66ff21163a001aee4e38caa465932e5f0c3f847ff32525aee",
+    "fingerprintAfter": "2a0a207f10fc20f66ff21163a001aee4e38caa465932e5f0c3f847ff32525aee",
+    "triangles": 859305,
+    "vertices": 2535555,
+    "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+    "renderHash": "a34e4852c72f0b5ca9072a44d1517c6ec6ed2588b1517f16954b421d3a2e80e4",
+    "surfaceAppearance": {
+      "version": 1,
+      "sourceHashes": {
+        "levelspec-material:concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+        "levelspec-material:concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+        "levelspec-material:wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+        "levelspec-material:wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+        "levelspec-material:metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+        "levelspec-material:ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+        "levelspec-material:ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+        "levelspec-material:building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+        "levelspec-material:sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+        "levelspec-material:roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+        "levelspec-material:timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+        "levelspec-material:rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+        "levelspec-material:lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+        "levelspec-material:signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+      },
+      "charts": 95274,
+      "texels": 80663088,
+      "imageBytes": 87858744,
+      "generatedHashesCount": 18003,
+      "fullManifestSha256": "077dd0beb618735c53f6749acd167554d950ff70458b6b589c7ce3529cb024cc",
+      "digestEncoding": "UTF-8 JSON, sorted keys, compact separators; includes complete original generatedHashes list"
+    },
+    "diagnostics": [],
+    "peakRssKiB": 1700848,
+    "completeLocalReport": "generated/kowloon-geometry-pipeline-20261112/warm/report.json"
+  },
+  "equivalence": {
+    "physicalHash": true,
+    "renderHash": true,
+    "surfaceAppearance": true,
+    "diagnostics": true,
+    "sourceSha256": true
+  },
+  "profiles": {
+    "baseline": {
+      "self": [
+        {
+          "seconds": 1.754325,
+          "function": "(idle)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 1.444292,
+          "function": "candidates",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 23
+        },
+        {
+          "seconds": 1.132663,
+          "function": "(garbage collector)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 1.132508,
+          "function": "triangle",
+          "file": "src/dressing/geometry.ts",
+          "line": 8
+        },
+        {
+          "seconds": 1.057205,
+          "function": "buildSurfaceRegions",
+          "file": "src/dressing/surface/regions.ts",
+          "line": 476
+        },
+        {
+          "seconds": 0.818291,
+          "function": "hash",
+          "file": "src/vector/geometry.ts",
+          "line": 383
+        },
+        {
+          "seconds": 0.762123,
+          "function": "points",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 39
+        },
+        {
+          "seconds": 0.684516,
+          "function": "(program)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 0.553711,
+          "function": "ReceiverEdges",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 9
+        },
+        {
+          "seconds": 0.361417,
+          "function": "receive",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 102
+        },
+        {
+          "seconds": 0.321418,
+          "function": "createPipeRunoff",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 106
+        },
+        {
+          "seconds": 0.305917,
+          "function": "face",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 140
+        },
+        {
+          "seconds": 0.285835,
+          "function": "face",
+          "file": "src/dressing/pen.ts",
+          "line": 138
+        },
+        {
+          "seconds": 0.24454,
+          "function": "add",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 177
+        },
+        {
+          "seconds": 0.191541,
+          "function": "validateCharts",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 21
+        },
+        {
+          "seconds": 0.185957,
+          "function": "Inflate._processChunk",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/sync-inflate.js",
+          "line": 47
+        },
+        {
+          "seconds": 0.185591,
+          "function": "imageHash",
+          "file": "src/dressing/surface/images.ts",
+          "line": 87
+        },
+        {
+          "seconds": 0.173001,
+          "function": "pointId",
+          "file": "src/dressing/surface/junctions.ts",
+          "line": 136
+        },
+        {
+          "seconds": 0.170666,
+          "function": "prepareSurfaceRasters",
+          "file": "src/dressing/surface/raster-bindings.ts",
+          "line": 21
+        },
+        {
+          "seconds": 0.16779,
+          "function": "deposit",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 148
+        },
+        {
+          "seconds": 0.139378,
+          "function": "",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 198
+        },
+        {
+          "seconds": 0.134542,
+          "function": "update",
+          "file": "node:internal/crypto/hash",
+          "line": 134
+        },
+        {
+          "seconds": 0.127001,
+          "function": "Filter._unFilterType2",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 79
+        },
+        {
+          "seconds": 0.122004,
+          "function": "finished",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 139
+        },
+        {
+          "seconds": 0.121375,
+          "function": "FastBuffer",
+          "file": "node:internal/buffer",
+          "line": 963
+        },
+        {
+          "seconds": 0.112878,
+          "function": "Parser._parseIDAT",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/parser.js",
+          "line": 258
+        },
+        {
+          "seconds": 0.111875,
+          "function": "meshParts",
+          "file": "src/vector/mesh.ts",
+          "line": 11
+        },
+        {
+          "seconds": 0.11146,
+          "function": "mapImage8Bit",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 172
+        },
+        {
+          "seconds": 0.107583,
+          "function": "memberUV",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 27
+        },
+        {
+          "seconds": 0.106163,
+          "function": "downhill",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 66
+        },
+        {
+          "seconds": 0.096375,
+          "function": "Filter._unFilterType4",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 111
+        },
+        {
+          "seconds": 0.095252,
+          "function": "materialArtifactKey",
+          "file": "src/dressing/surface/material-cache.ts",
+          "line": 29
+        },
+        {
+          "seconds": 0.094583,
+          "function": "encode",
+          "file": "node:internal/encoding",
+          "line": 351
+        },
+        {
+          "seconds": 0.094126,
+          "function": "add",
+          "file": "src/dressing/surface/junctions.ts",
+          "line": 157
+        },
+        {
+          "seconds": 0.090666,
+          "function": "Obstructions",
+          "file": "src/dressing/spans/scene.ts",
+          "line": 87
+        },
+        {
+          "seconds": 0.081836,
+          "function": "",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 195
+        },
+        {
+          "seconds": 0.078207,
+          "function": "pixelBppMapper",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 25
+        },
+        {
+          "seconds": 0.077921,
+          "function": "point",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 46
+        },
+        {
+          "seconds": 0.077205,
+          "function": "read",
+          "file": "tools/dressing-demo/material-cache.ts",
+          "line": 42
+        },
+        {
+          "seconds": 0.075457,
+          "function": "compileSurfaceAppearance",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 94
+        },
+        {
+          "seconds": 0.073832,
+          "function": "get group",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 196
+        },
+        {
+          "seconds": 0.068918,
+          "function": "componentPatina",
+          "file": "src/dressing/finish/component-patina.ts",
+          "line": 29
+        },
+        {
+          "seconds": 0.068711,
+          "function": "dot",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 13
+        },
+        {
+          "seconds": 0.068414,
+          "function": "",
+          "file": "node:internal/crypto/hash",
+          "line": 224
+        },
+        {
+          "seconds": 0.067167,
+          "function": "",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 196
+        },
+        {
+          "seconds": 0.059038,
+          "function": "verticalFacet",
+          "file": "src/dressing/spans/anchors.ts",
+          "line": 184
+        },
+        {
+          "seconds": 0.058627,
+          "function": "eachCell",
+          "file": "src/dressing/spans/scene.ts",
+          "line": 126
+        },
+        {
+          "seconds": 0.058127,
+          "function": "",
+          "file": "src/dressing/surface/images.ts",
+          "line": 91
+        },
+        {
+          "seconds": 0.057376,
+          "function": "intersects",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 34
+        },
+        {
+          "seconds": 0.054751,
+          "function": "anchorPlanes",
+          "file": "src/dressing/spans/anchors.ts",
+          "line": 302
+        },
+        {
+          "seconds": 0.053874,
+          "function": "barycentric",
+          "file": "src/dressing/surface/regions.ts",
+          "line": 190
+        },
+        {
+          "seconds": 0.049959,
+          "function": "compileSourceTextModule",
+          "file": "node:internal/modules/esm/utils",
+          "line": 316
+        },
+        {
+          "seconds": 0.048625,
+          "function": "AnchorPlane",
+          "file": "src/dressing/spans/anchors.ts",
+          "line": 89
+        },
+        {
+          "seconds": 0.048333,
+          "function": "pixelBppMapper",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 39
+        },
+        {
+          "seconds": 0.044208,
+          "function": "encodeUtf8String",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 0.042458,
+          "function": "Filter._unFilterType3",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 93
+        },
+        {
+          "seconds": 0.04154,
+          "function": "",
+          "file": "node:internal/crypto/util",
+          "line": 654
+        },
+        {
+          "seconds": 0.040042,
+          "function": "clippedArea",
+          "file": "src/dressing/spans/anchors.ts",
+          "line": 41
+        },
+        {
+          "seconds": 0.039581,
+          "function": "read",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 0.039125,
+          "function": "",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 154
+        },
+        {
+          "seconds": 0.038918,
+          "function": "sweep",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 202
+        },
+        {
+          "seconds": 0.038625,
+          "function": "SurfaceJunctions",
+          "file": "src/dressing/surface/junctions.ts",
+          "line": 127
+        },
+        {
+          "seconds": 0.035747,
+          "function": "Filter._reverseFilterLine",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 130
+        },
+        {
+          "seconds": 0.035417,
+          "function": "",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 134
+        },
+        {
+          "seconds": 0.035375,
+          "function": "world",
+          "file": "src/dressing/pen.ts",
+          "line": 92
+        },
+        {
+          "seconds": 0.034833,
+          "function": "settleSigns",
+          "file": "src/dressing/kowloon/building.ts",
+          "line": 321
+        },
+        {
+          "seconds": 0.03408,
+          "function": "direction",
+          "file": "src/dressing/pen.ts",
+          "line": 107
+        },
+        {
+          "seconds": 0.033957,
+          "function": "createMetalSurface",
+          "file": "src/dressing/finish/metal-surface.ts",
+          "line": 21
+        },
+        {
+          "seconds": 0.032625,
+          "function": "planar",
+          "file": "src/dressing/pen.ts",
+          "line": 117
+        },
+        {
+          "seconds": 0.032335,
+          "function": "triangle",
+          "file": "src/dressing/wall-geometry.ts",
+          "line": 160
+        },
+        {
+          "seconds": 0.031916,
+          "function": "weather",
+          "file": "src/dressing/finish/metal-surface.ts",
+          "line": 41
+        },
+        {
+          "seconds": 0.031749,
+          "function": "scale",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 11
+        },
+        {
+          "seconds": 0.031666,
+          "function": "tube",
+          "file": "src/dressing/pen.ts",
+          "line": 337
+        },
+        {
+          "seconds": 0.031041,
+          "function": "groupPlanes",
+          "file": "src/dressing/spans/anchors.ts",
+          "line": 217
+        },
+        {
+          "seconds": 0.030125,
+          "function": "contact",
+          "file": "src/dressing/finish/component-geometry.ts",
+          "line": 11
+        },
+        {
+          "seconds": 0.029249,
+          "function": "auditSurfaceContacts",
+          "file": "src/vector/surface-contacts.ts",
+          "line": 193
+        },
+        {
+          "seconds": 0.025957,
+          "function": "decodeSurfaceImage",
+          "file": "src/dressing/surface/images.ts",
+          "line": 23
+        },
+        {
+          "seconds": 0.024458,
+          "function": "copy",
+          "file": "src/dressing/surface/material-cache.ts",
+          "line": 43
+        },
+        {
+          "seconds": 0.024126,
+          "function": "exports.dataToBitMap",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 202
+        },
+        {
+          "seconds": 0.024123,
+          "function": "_copyActual",
+          "file": "node:buffer",
+          "line": 245
+        }
+      ],
+      "inclusive": [
+        {
+          "seconds": 18.402625,
+          "function": "(root)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 5.251797,
+          "function": "compile",
+          "file": "src/architecture/compiler.ts",
+          "line": 99
+        },
+        {
+          "seconds": 5.039506,
+          "function": "applyDressing",
+          "file": "src/dressing/apply.ts",
+          "line": 85
+        },
+        {
+          "seconds": 4.389999,
+          "function": "buildSurfaceRegions",
+          "file": "src/dressing/surface/regions.ts",
+          "line": 476
+        },
+        {
+          "seconds": 3.783216,
+          "function": "draw",
+          "file": "src/dressing/kowloon/building.ts",
+          "line": 290
+        },
+        {
+          "seconds": 3.750008,
+          "function": "generate",
+          "file": "src/dressing/kowloon/building.ts",
+          "line": 343
+        },
+        {
+          "seconds": 3.31142,
+          "function": "dressFacade",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 539
+        },
+        {
+          "seconds": 2.226042,
+          "function": "triangles",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 65
+        },
+        {
+          "seconds": 2.212499,
+          "function": "points",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 39
+        },
+        {
+          "seconds": 2.134811,
+          "function": "face",
+          "file": "src/dressing/pen.ts",
+          "line": 138
+        },
+        {
+          "seconds": 1.773101,
+          "function": "add",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 177
+        },
+        {
+          "seconds": 1.754325,
+          "function": "(idle)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 1.693082,
+          "function": "face",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 140
+        },
+        {
+          "seconds": 1.450209,
+          "function": "candidates",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 23
+        },
+        {
+          "seconds": 1.259997,
+          "function": "compileSurfaceAppearance",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 94
+        },
+        {
+          "seconds": 1.141049,
+          "function": "triangle",
+          "file": "src/dressing/geometry.ts",
+          "line": 8
+        },
+        {
+          "seconds": 1.132663,
+          "function": "(garbage collector)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 1.106582,
+          "function": "validateCharts",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 21
+        },
+        {
+          "seconds": 1.099624,
+          "function": "decodeSurfaceImage",
+          "file": "src/dressing/surface/images.ts",
+          "line": 23
+        },
+        {
+          "seconds": 1.078499,
+          "function": "finalizeArchitecture",
+          "file": "src/architecture/finalize.ts",
+          "line": 22
+        },
+        {
+          "seconds": 1.073667,
+          "function": "decodeMaterialPng",
+          "file": "src/materials/node-images.ts",
+          "line": 5
+        },
+        {
+          "seconds": 1.073667,
+          "function": "decodeMaterialPng",
+          "file": "file:///Users/tomokif/code/levelspec/generated/kowloon-sign-cache-20261112/bench.mjs",
+          "line": 36
+        },
+        {
+          "seconds": 1.070584,
+          "function": "exports.read",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/png-sync.js",
+          "line": 6
+        },
+        {
+          "seconds": 1.069043,
+          "function": "module.exports",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/parser-sync.js",
+          "line": 15
+        },
+        {
+          "seconds": 1.008045,
+          "function": "windowCell",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 260
+        },
+        {
+          "seconds": 0.970833,
+          "function": "hash",
+          "file": "src/vector/geometry.ts",
+          "line": 383
+        },
+        {
+          "seconds": 0.960836,
+          "function": "chart.sample",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 137
+        },
+        {
+          "seconds": 0.914292,
+          "function": "tube",
+          "file": "src/dressing/pen.ts",
+          "line": 337
+        },
+        {
+          "seconds": 0.900378,
+          "function": "sample",
+          "file": "src/dressing/finish/metal-surface.ts",
+          "line": 53
+        },
+        {
+          "seconds": 0.886712,
+          "function": "weather",
+          "file": "src/dressing/finish/metal-surface.ts",
+          "line": 41
+        },
+        {
+          "seconds": 0.877493,
+          "function": "bolt",
+          "file": "src/dressing/kowloon/signs/steel.ts",
+          "line": 80
+        },
+        {
+          "seconds": 0.854796,
+          "function": "componentPatina",
+          "file": "src/dressing/finish/component-patina.ts",
+          "line": 29
+        },
+        {
+          "seconds": 0.743423,
+          "function": "beveledBar",
+          "file": "src/dressing/pen.ts",
+          "line": 309
+        },
+        {
+          "seconds": 0.732752,
+          "function": "drawGround",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 763
+        },
+        {
+          "seconds": 0.687921,
+          "function": "beveledBar",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 115
+        },
+        {
+          "seconds": 0.684516,
+          "function": "(program)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 0.653752,
+          "function": "run",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 139
+        },
+        {
+          "seconds": 0.647711,
+          "function": "runoff",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 235
+        },
+        {
+          "seconds": 0.63567,
+          "function": "createPipeRunoff",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 106
+        },
+        {
+          "seconds": 0.62454,
+          "function": "tube",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 125
+        },
+        {
+          "seconds": 0.576668,
+          "function": "SyncReader.process",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/sync-reader.js",
+          "line": 16
+        },
+        {
+          "seconds": 0.553711,
+          "function": "ReceiverEdges",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 9
+        },
+        {
+          "seconds": 0.529584,
+          "function": "windowUnit",
+          "file": "src/dressing/kowloon/windows.ts",
+          "line": 86
+        },
+        {
+          "seconds": 0.510544,
+          "function": "drawSkin",
+          "file": "src/dressing/kowloon/skin.ts",
+          "line": 80
+        },
+        {
+          "seconds": 0.505625,
+          "function": "surfacePanel",
+          "file": "src/dressing/kowloon/skin.ts",
+          "line": 142
+        },
+        {
+          "seconds": 0.494873,
+          "function": "dressSpans",
+          "file": "src/dressing/spans/spans.ts",
+          "line": 106
+        },
+        {
+          "seconds": 0.48979,
+          "function": "settleSigns",
+          "file": "src/dressing/kowloon/building.ts",
+          "line": 321
+        },
+        {
+          "seconds": 0.478749,
+          "function": "prepareSurfaceRasters",
+          "file": "src/dressing/surface/raster-bindings.ts",
+          "line": 21
+        },
+        {
+          "seconds": 0.448626,
+          "function": "mount",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 118
+        },
+        {
+          "seconds": 0.436041,
+          "function": "drawShop",
+          "file": "src/dressing/kowloon/shop/shop.ts",
+          "line": 131
+        },
+        {
+          "seconds": 0.435582,
+          "function": "exports.process",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse-sync.js",
+          "line": 6
+        },
+        {
+          "seconds": 0.43467,
+          "function": "shell",
+          "file": "src/dressing/kowloon/building.ts",
+          "line": 557
+        },
+        {
+          "seconds": 0.428416,
+          "function": "services",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 783
+        },
+        {
+          "seconds": 0.425416,
+          "function": "drop",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 802
+        },
+        {
+          "seconds": 0.423543,
+          "function": "panel",
+          "file": "src/dressing/pen.ts",
+          "line": 222
+        },
+        {
+          "seconds": 0.422125,
+          "function": "Filter._reverseFilterLine",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 130
+        },
+        {
+          "seconds": 0.416336,
+          "function": "rooftop",
+          "file": "src/dressing/kowloon/rooftop.ts",
+          "line": 114
+        },
+        {
+          "seconds": 0.395291,
+          "function": "receive",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 102
+        },
+        {
+          "seconds": 0.385087,
+          "function": "imageHash",
+          "file": "src/dressing/surface/images.ts",
+          "line": 87
+        },
+        {
+          "seconds": 0.373292,
+          "function": "fixingPlate",
+          "file": "src/dressing/kowloon/signs/steel.ts",
+          "line": 104
+        },
+        {
+          "seconds": 0.367629,
+          "function": "frameBox",
+          "file": "src/dressing/kowloon/windows.ts",
+          "line": 70
+        },
+        {
+          "seconds": 0.362417,
+          "function": "receive",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 114
+        },
+        {
+          "seconds": 0.349836,
+          "function": "cage",
+          "file": "src/dressing/kowloon/fixtures.ts",
+          "line": 190
+        },
+        {
+          "seconds": 0.349082,
+          "function": "settle",
+          "file": "src/dressing/kowloon/signs/book.ts",
+          "line": 160
+        },
+        {
+          "seconds": 0.320796,
+          "function": "sweep",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 202
+        },
+        {
+          "seconds": 0.316004,
+          "function": "add",
+          "file": "src/dressing/surface/junctions.ts",
+          "line": 157
+        },
+        {
+          "seconds": 0.299915,
+          "function": "",
+          "file": "src/dressing/kowloon/signs/book.ts",
+          "line": 163
+        },
+        {
+          "seconds": 0.298373,
+          "function": "draw",
+          "file": "src/dressing/kowloon/signs/book.ts",
+          "line": 110
+        },
+        {
+          "seconds": 0.29004,
+          "function": "bandCell",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 311
+        },
+        {
+          "seconds": 0.281041,
+          "function": "awning",
+          "file": "src/dressing/kowloon/fixtures.ts",
+          "line": 255
+        },
+        {
+          "seconds": 0.278041,
+          "function": "canvasAwning",
+          "file": "src/dressing/kowloon/tarps.ts",
+          "line": 196
+        },
+        {
+          "seconds": 0.277458,
+          "function": "panel",
+          "file": "src/dressing/kowloon/tarps.ts",
+          "line": 161
+        },
+        {
+          "seconds": 0.275125,
+          "function": "evaluate",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 0.274127,
+          "function": "exports.dataToBitMap",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 202
+        },
+        {
+          "seconds": 0.273874,
+          "function": "run",
+          "file": "node:internal/modules/esm/module_job",
+          "line": 402
+        },
+        {
+          "seconds": 0.271416,
+          "function": "onImport.tracePromise.__proto__",
+          "file": "node:internal/modules/esm/loader",
+          "line": 645
+        },
+        {
+          "seconds": 0.27125,
+          "function": "getOrCreateModuleJob",
+          "file": "node:internal/modules/esm/loader",
+          "line": 613
+        },
+        {
+          "seconds": 0.27125,
+          "function": "tracePromise",
+          "file": "node:diagnostics_channel",
+          "line": 348
+        },
+        {
+          "seconds": 0.27125,
+          "function": "import",
+          "file": "node:internal/modules/esm/loader",
+          "line": 644
+        },
+        {
+          "seconds": 0.267793,
+          "function": "",
+          "file": "file:///Users/tomokif/code/levelspec/generated/kowloon-sign-cache-20261112/bench.mjs",
+          "line": 1
+        }
+      ]
+    },
+    "optimized": {
+      "self": [
+        {
+          "seconds": 3.147174,
+          "function": "(idle)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 2.409916,
+          "function": "(garbage collector)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 2.06497,
+          "function": "candidates",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 23
+        },
+        {
+          "seconds": 1.67546,
+          "function": "buildSurfaceRegions",
+          "file": "src/dressing/surface/regions.ts",
+          "line": 476
+        },
+        {
+          "seconds": 1.294664,
+          "function": "(program)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 1.123331,
+          "function": "ReceiverEdges",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 9
+        },
+        {
+          "seconds": 1.122909,
+          "function": "points",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 39
+        },
+        {
+          "seconds": 1.106625,
+          "function": "hash",
+          "file": "src/vector/geometry.ts",
+          "line": 383
+        },
+        {
+          "seconds": 0.797378,
+          "function": "triangle",
+          "file": "src/dressing/geometry.ts",
+          "line": 8
+        },
+        {
+          "seconds": 0.647574,
+          "function": "receive",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 102
+        },
+        {
+          "seconds": 0.599261,
+          "function": "createPipeRunoff",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 106
+        },
+        {
+          "seconds": 0.49884,
+          "function": "face",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 140
+        },
+        {
+          "seconds": 0.487744,
+          "function": "validateCharts",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 21
+        },
+        {
+          "seconds": 0.452956,
+          "function": "add",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 177
+        },
+        {
+          "seconds": 0.333042,
+          "function": "face",
+          "file": "src/dressing/pen.ts",
+          "line": 138
+        },
+        {
+          "seconds": 0.328631,
+          "function": "pointId",
+          "file": "src/dressing/surface/junctions.ts",
+          "line": 136
+        },
+        {
+          "seconds": 0.319751,
+          "function": "CrcCalculator.write",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/crc.js",
+          "line": 23
+        },
+        {
+          "seconds": 0.318917,
+          "function": "prepareSurfaceRasters",
+          "file": "src/dressing/surface/raster-bindings.ts",
+          "line": 21
+        },
+        {
+          "seconds": 0.307127,
+          "function": "mapImage8Bit",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 172
+        },
+        {
+          "seconds": 0.292084,
+          "function": "Inflate._processChunk",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/sync-inflate.js",
+          "line": 47
+        },
+        {
+          "seconds": 0.234911,
+          "function": "update",
+          "file": "node:internal/crypto/hash",
+          "line": 134
+        },
+        {
+          "seconds": 0.233255,
+          "function": "FastBuffer",
+          "file": "node:internal/buffer",
+          "line": 963
+        },
+        {
+          "seconds": 0.230506,
+          "function": "deposit",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 148
+        },
+        {
+          "seconds": 0.226333,
+          "function": "finished",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 139
+        },
+        {
+          "seconds": 0.202584,
+          "function": "compileSourceTextModule",
+          "file": "node:internal/modules/esm/utils",
+          "line": 316
+        },
+        {
+          "seconds": 0.201626,
+          "function": "imageHash",
+          "file": "src/dressing/surface/images.ts",
+          "line": 87
+        },
+        {
+          "seconds": 0.201336,
+          "function": "componentPatina",
+          "file": "src/dressing/finish/component-patina.ts",
+          "line": 29
+        },
+        {
+          "seconds": 0.194878,
+          "function": "",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 198
+        },
+        {
+          "seconds": 0.18571,
+          "function": "memberUV",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 27
+        },
+        {
+          "seconds": 0.1825,
+          "function": "downhill",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 66
+        },
+        {
+          "seconds": 0.182124,
+          "function": "",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 195
+        },
+        {
+          "seconds": 0.178207,
+          "function": "exports.dataToBitMap",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 202
+        },
+        {
+          "seconds": 0.171626,
+          "function": "Filter._unFilterType4",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 111
+        },
+        {
+          "seconds": 0.162247,
+          "function": "Filter._reverseFilterLine",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 130
+        },
+        {
+          "seconds": 0.146956,
+          "function": "read",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 0.145833,
+          "function": "pixelBppMapper",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 52
+        },
+        {
+          "seconds": 0.143744,
+          "function": "compileSurfaceAppearance",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 94
+        },
+        {
+          "seconds": 0.136369,
+          "function": "point",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 46
+        },
+        {
+          "seconds": 0.134453,
+          "function": "read",
+          "file": "tools/dressing-demo/material-cache.ts",
+          "line": 42
+        },
+        {
+          "seconds": 0.133667,
+          "function": "add",
+          "file": "src/dressing/surface/junctions.ts",
+          "line": 157
+        },
+        {
+          "seconds": 0.130374,
+          "function": "meshParts",
+          "file": "src/vector/mesh.ts",
+          "line": 11
+        },
+        {
+          "seconds": 0.128997,
+          "function": "get group",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 196
+        },
+        {
+          "seconds": 0.124876,
+          "function": "encode",
+          "file": "node:internal/encoding",
+          "line": 351
+        },
+        {
+          "seconds": 0.117374,
+          "function": "pixelBppMapper",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 25
+        },
+        {
+          "seconds": 0.10529,
+          "function": "AnchorPlane",
+          "file": "src/dressing/spans/anchors.ts",
+          "line": 89
+        },
+        {
+          "seconds": 0.104205,
+          "function": "materialArtifactKey",
+          "file": "src/dressing/surface/material-cache.ts",
+          "line": 29
+        },
+        {
+          "seconds": 0.103331,
+          "function": "Parser._parseIDAT",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/parser.js",
+          "line": 258
+        },
+        {
+          "seconds": 0.102541,
+          "function": "",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 134
+        },
+        {
+          "seconds": 0.102412,
+          "function": "barycentric",
+          "file": "src/dressing/surface/regions.ts",
+          "line": 190
+        },
+        {
+          "seconds": 0.097667,
+          "function": "wasm-function[6127]",
+          "file": "wasm://wasm/009f7e1a",
+          "line": 1
+        },
+        {
+          "seconds": 0.097541,
+          "function": "eachCell",
+          "file": "src/dressing/spans/scene.ts",
+          "line": 126
+        },
+        {
+          "seconds": 0.085667,
+          "function": "dot",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 13
+        },
+        {
+          "seconds": 0.082295,
+          "function": "",
+          "file": "node:internal/crypto/util",
+          "line": 654
+        },
+        {
+          "seconds": 0.081374,
+          "function": "",
+          "file": "node:internal/crypto/hash",
+          "line": 224
+        },
+        {
+          "seconds": 0.080958,
+          "function": "readFileHandle",
+          "file": "node:internal/fs/promises",
+          "line": 515
+        },
+        {
+          "seconds": 0.075667,
+          "function": "pixelBppMapper",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 39
+        },
+        {
+          "seconds": 0.075208,
+          "function": "copy",
+          "file": "src/dressing/surface/material-cache.ts",
+          "line": 43
+        },
+        {
+          "seconds": 0.072585,
+          "function": "intersects",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 34
+        },
+        {
+          "seconds": 0.070123,
+          "function": "groundEdgeDistance",
+          "file": "src/dressing/ground-field.ts",
+          "line": 79
+        },
+        {
+          "seconds": 0.067338,
+          "function": "contact",
+          "file": "src/dressing/finish/component-geometry.ts",
+          "line": 11
+        },
+        {
+          "seconds": 0.066625,
+          "function": "Obstructions",
+          "file": "src/dressing/spans/scene.ts",
+          "line": 87
+        },
+        {
+          "seconds": 0.066042,
+          "function": "materialCompanions",
+          "file": "src/vector/materials.ts",
+          "line": 15
+        },
+        {
+          "seconds": 0.063623,
+          "function": "Filter._unFilterType3",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 93
+        },
+        {
+          "seconds": 0.062419,
+          "function": "",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 13
+        },
+        {
+          "seconds": 0.061833,
+          "function": "clippedArea",
+          "file": "src/dressing/spans/anchors.ts",
+          "line": 41
+        },
+        {
+          "seconds": 0.061625,
+          "function": "renderPatch",
+          "file": "src/dressing/ground.ts",
+          "line": 809
+        },
+        {
+          "seconds": 0.061126,
+          "function": "jsonStrategy",
+          "file": "node:internal/modules/esm/translators",
+          "line": 470
+        },
+        {
+          "seconds": 0.060332,
+          "function": "get contacts",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 181
+        },
+        {
+          "seconds": 0.060002,
+          "function": "triangle",
+          "file": "src/dressing/wall-geometry.ts",
+          "line": 160
+        },
+        {
+          "seconds": 0.059539,
+          "function": "direction",
+          "file": "src/dressing/pen.ts",
+          "line": 107
+        },
+        {
+          "seconds": 0.057914,
+          "function": "Filter._unFilterType2",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 79
+        },
+        {
+          "seconds": 0.055875,
+          "function": "world",
+          "file": "src/dressing/pen.ts",
+          "line": 92
+        },
+        {
+          "seconds": 0.055084,
+          "function": "segmentCrosses",
+          "file": "src/dressing/spans/scene.ts",
+          "line": 15
+        },
+        {
+          "seconds": 0.053834,
+          "function": "",
+          "file": "src/dressing/ground.ts",
+          "line": 931
+        },
+        {
+          "seconds": 0.052834,
+          "function": "",
+          "file": "src/dressing/spans/scene.ts",
+          "line": 59
+        },
+        {
+          "seconds": 0.052796,
+          "function": "materialRecipeKey",
+          "file": "src/dressing/surface/material.ts",
+          "line": 6
+        },
+        {
+          "seconds": 0.052792,
+          "function": "tube",
+          "file": "src/dressing/pen.ts",
+          "line": 337
+        },
+        {
+          "seconds": 0.052626,
+          "function": "SurfaceJunctions",
+          "file": "src/dressing/surface/junctions.ts",
+          "line": 127
+        },
+        {
+          "seconds": 0.051414,
+          "function": "",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 73
+        },
+        {
+          "seconds": 0.050582,
+          "function": "sweep",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 202
+        }
+      ],
+      "inclusive": [
+        {
+          "seconds": 32.067625,
+          "function": "(root)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 7.595794,
+          "function": "compile",
+          "file": "src/architecture/compiler.ts",
+          "line": 99
+        },
+        {
+          "seconds": 7.144544,
+          "function": "applyDressing",
+          "file": "src/dressing/apply.ts",
+          "line": 85
+        },
+        {
+          "seconds": 6.933339,
+          "function": "buildSurfaceRegions",
+          "file": "src/dressing/surface/regions.ts",
+          "line": 476
+        },
+        {
+          "seconds": 4.782877,
+          "function": "draw",
+          "file": "src/dressing/kowloon/building.ts",
+          "line": 290
+        },
+        {
+          "seconds": 4.737545,
+          "function": "generate",
+          "file": "src/dressing/kowloon/building.ts",
+          "line": 343
+        },
+        {
+          "seconds": 4.292003,
+          "function": "dressFacade",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 539
+        },
+        {
+          "seconds": 3.220461,
+          "function": "triangles",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 65
+        },
+        {
+          "seconds": 3.201879,
+          "function": "points",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 39
+        },
+        {
+          "seconds": 3.147174,
+          "function": "(idle)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 2.603367,
+          "function": "compileSurfaceAppearance",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 94
+        },
+        {
+          "seconds": 2.428292,
+          "function": "face",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 140
+        },
+        {
+          "seconds": 2.418209,
+          "function": "validateCharts",
+          "file": "src/dressing/surface/compile.ts",
+          "line": 21
+        },
+        {
+          "seconds": 2.409916,
+          "function": "(garbage collector)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 2.327542,
+          "function": "face",
+          "file": "src/dressing/pen.ts",
+          "line": 138
+        },
+        {
+          "seconds": 2.297621,
+          "function": "decodeSurfaceImage",
+          "file": "src/dressing/surface/images.ts",
+          "line": 23
+        },
+        {
+          "seconds": 2.271663,
+          "function": "decodeMaterialPng",
+          "file": "src/materials/node-images.ts",
+          "line": 5
+        },
+        {
+          "seconds": 2.271663,
+          "function": "decodeMaterialPng",
+          "file": "file:///Users/tomokif/code/levelspec/generated/kowloon-geometry-pipeline-20261112/bench.mjs",
+          "line": 36
+        },
+        {
+          "seconds": 2.253538,
+          "function": "exports.read",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/png-sync.js",
+          "line": 6
+        },
+        {
+          "seconds": 2.25158,
+          "function": "module.exports",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/parser-sync.js",
+          "line": 15
+        },
+        {
+          "seconds": 2.073928,
+          "function": "candidates",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 23
+        },
+        {
+          "seconds": 1.987381,
+          "function": "chart.sample",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 137
+        },
+        {
+          "seconds": 1.863753,
+          "function": "add",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 177
+        },
+        {
+          "seconds": 1.856671,
+          "function": "sample",
+          "file": "src/dressing/finish/metal-surface.ts",
+          "line": 53
+        },
+        {
+          "seconds": 1.815379,
+          "function": "weather",
+          "file": "src/dressing/finish/metal-surface.ts",
+          "line": 41
+        },
+        {
+          "seconds": 1.762545,
+          "function": "componentPatina",
+          "file": "src/dressing/finish/component-patina.ts",
+          "line": 29
+        },
+        {
+          "seconds": 1.585501,
+          "function": "run",
+          "file": "node:internal/modules/esm/module_job",
+          "line": 402
+        },
+        {
+          "seconds": 1.582543,
+          "function": "evaluate",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 1.508457,
+          "function": "",
+          "file": "file:///Users/tomokif/code/levelspec/generated/kowloon-geometry-pipeline-20261112/bench.mjs",
+          "line": 1
+        },
+        {
+          "seconds": 1.503124,
+          "function": "onImport.tracePromise.__proto__",
+          "file": "node:internal/modules/esm/loader",
+          "line": 645
+        },
+        {
+          "seconds": 1.500042,
+          "function": "import",
+          "file": "node:internal/modules/esm/loader",
+          "line": 644
+        },
+        {
+          "seconds": 1.498458,
+          "function": "getOrCreateModuleJob",
+          "file": "node:internal/modules/esm/loader",
+          "line": 613
+        },
+        {
+          "seconds": 1.498458,
+          "function": "tracePromise",
+          "file": "node:diagnostics_channel",
+          "line": 348
+        },
+        {
+          "seconds": 1.489834,
+          "function": "#getOrCreateModuleJobAfterResolve",
+          "file": "node:internal/modules/esm/loader",
+          "line": 549
+        },
+        {
+          "seconds": 1.474834,
+          "function": "afterResolve",
+          "file": "node:internal/modules/esm/loader",
+          "line": 623
+        },
+        {
+          "seconds": 1.47375,
+          "function": "defaultImportModuleDynamicallyForModule",
+          "file": "node:internal/modules/esm/utils",
+          "line": 223
+        },
+        {
+          "seconds": 1.47375,
+          "function": "importModuleDynamicallyCallback",
+          "file": "node:internal/modules/esm/utils",
+          "line": 252
+        },
+        {
+          "seconds": 1.463291,
+          "function": "module",
+          "file": "file:///Users/tomokif/code/levelspec/generated/kowloon-geometry-pipeline-20261112/bench.mjs",
+          "line": 10
+        },
+        {
+          "seconds": 1.415416,
+          "function": "ModuleJob",
+          "file": "node:internal/modules/esm/module_job",
+          "line": 193
+        },
+        {
+          "seconds": 1.413916,
+          "function": "syncLink",
+          "file": "node:internal/modules/esm/module_job",
+          "line": 129
+        },
+        {
+          "seconds": 1.413916,
+          "function": "link",
+          "file": "node:internal/modules/esm/module_job",
+          "line": 224
+        },
+        {
+          "seconds": 1.410291,
+          "function": "finalizeArchitecture",
+          "file": "src/architecture/finalize.ts",
+          "line": 22
+        },
+        {
+          "seconds": 1.353034,
+          "function": "bolt",
+          "file": "src/dressing/kowloon/signs/steel.ts",
+          "line": 80
+        },
+        {
+          "seconds": 1.29775,
+          "function": "hash",
+          "file": "src/vector/geometry.ts",
+          "line": 383
+        },
+        {
+          "seconds": 1.294664,
+          "function": "(program)",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 1.259212,
+          "function": "loadAndTranslate",
+          "file": "node:internal/modules/esm/loader",
+          "line": 525
+        },
+        {
+          "seconds": 1.219993,
+          "function": "windowCell",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 260
+        },
+        {
+          "seconds": 1.198837,
+          "function": "runoff",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 235
+        },
+        {
+          "seconds": 1.180588,
+          "function": "createPipeRunoff",
+          "file": "src/dressing/finish/pipe-runoff.ts",
+          "line": 106
+        },
+        {
+          "seconds": 1.124873,
+          "function": "ReceiverEdges",
+          "file": "src/dressing/surface/conform.ts",
+          "line": 9
+        },
+        {
+          "seconds": 1.092954,
+          "function": "tube",
+          "file": "src/dressing/pen.ts",
+          "line": 337
+        },
+        {
+          "seconds": 1.076328,
+          "function": "SyncReader.process",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/sync-reader.js",
+          "line": 16
+        },
+        {
+          "seconds": 1.032843,
+          "function": "beveledBar",
+          "file": "src/dressing/pen.ts",
+          "line": 309
+        },
+        {
+          "seconds": 1.019469,
+          "function": "afterLoad",
+          "file": "node:internal/modules/esm/loader",
+          "line": 527
+        },
+        {
+          "seconds": 1.016094,
+          "function": "#translate",
+          "file": "node:internal/modules/esm/loader",
+          "line": 464
+        },
+        {
+          "seconds": 0.934133,
+          "function": "beveledBar",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 115
+        },
+        {
+          "seconds": 0.902164,
+          "function": "prepareSurfaceRasters",
+          "file": "src/dressing/surface/raster-bindings.ts",
+          "line": 21
+        },
+        {
+          "seconds": 0.882711,
+          "function": "dressSpans",
+          "file": "src/dressing/spans/spans.ts",
+          "line": 106
+        },
+        {
+          "seconds": 0.876994,
+          "function": "tube",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 125
+        },
+        {
+          "seconds": 0.849955,
+          "function": "run",
+          "file": "src/dressing/kowloon/pipes.ts",
+          "line": 139
+        },
+        {
+          "seconds": 0.828588,
+          "function": "windowUnit",
+          "file": "src/dressing/kowloon/windows.ts",
+          "line": 86
+        },
+        {
+          "seconds": 0.825456,
+          "function": "exports.dataToBitMap",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 202
+        },
+        {
+          "seconds": 0.815138,
+          "function": "",
+          "file": "node:internal/modules/esm/translators",
+          "line": 659
+        },
+        {
+          "seconds": 0.797378,
+          "function": "triangle",
+          "file": "src/dressing/geometry.ts",
+          "line": 8
+        },
+        {
+          "seconds": 0.783955,
+          "function": "drawGround",
+          "file": "src/dressing/kowloon/facade.ts",
+          "line": 763
+        },
+        {
+          "seconds": 0.762339,
+          "function": "js-to-wasm",
+          "file": "",
+          "line": 0
+        },
+        {
+          "seconds": 0.700503,
+          "function": "drawSkin",
+          "file": "src/dressing/kowloon/skin.ts",
+          "line": 80
+        },
+        {
+          "seconds": 0.698705,
+          "function": "receive",
+          "file": "src/dressing/kit-surfaces.ts",
+          "line": 102
+        },
+        {
+          "seconds": 0.687671,
+          "function": "surfacePanel",
+          "file": "src/dressing/kowloon/skin.ts",
+          "line": 142
+        },
+        {
+          "seconds": 0.669168,
+          "function": "sample",
+          "file": "src/dressing/kowloon/weathered.ts",
+          "line": 201
+        },
+        {
+          "seconds": 0.658673,
+          "function": "parseTypeScript",
+          "file": "node:internal/modules/typescript",
+          "line": 57
+        },
+        {
+          "seconds": 0.658673,
+          "function": "processTypeScriptCode",
+          "file": "node:internal/modules/typescript",
+          "line": 145
+        },
+        {
+          "seconds": 0.658673,
+          "function": "stripTypeScriptModuleTypes",
+          "file": "node:internal/modules/typescript",
+          "line": 180
+        },
+        {
+          "seconds": 0.654706,
+          "function": "exports.process",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse-sync.js",
+          "line": 6
+        },
+        {
+          "seconds": 0.638624,
+          "function": "settleSigns",
+          "file": "src/dressing/kowloon/building.ts",
+          "line": 321
+        },
+        {
+          "seconds": 0.632326,
+          "function": "receive",
+          "file": "src/dressing/kit-mesh.ts",
+          "line": 114
+        },
+        {
+          "seconds": 0.631083,
+          "function": "mapImage8Bit",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/bitmapper.js",
+          "line": 172
+        },
+        {
+          "seconds": 0.624455,
+          "function": "Filter._reverseFilterLine",
+          "file": "file:///Users/tomokif/code/levelspec/node_modules/pngjs/lib/filter-parse.js",
+          "line": 130
+        },
+        {
+          "seconds": 0.613798,
+          "function": "transformSync",
+          "file": "node:internal/deps/amaro/dist/index",
+          "line": 576
+        },
+        {
+          "seconds": 0.610464,
+          "function": "wasm-function[3235]",
+          "file": "wasm://wasm/009f7e1a",
+          "line": 1
+        }
+      ]
+    }
+  },
+  "sourceFiles": {
+    "src/dressing/geometry.ts": "61d063a40611dcfeb81008ec0814a6c4d894d117260c574261763e4d0564ab73",
+    "src/dressing/surface/regions.ts": "b1715b275a59dd06b16ae851faadb72b4f73cec9d62a288328f04e6bf835d52e",
+    "tests/surface-receiver-binding.test.ts": "74287b937ef085c1fbfbb0338679cdfaeb8c11f1f8134efaa019d6706b63e8a3"
+  },
+  "validation": {
+    "focusedTests": {
+      "passed": 8,
+      "failed": 0
+    },
+    "typecheck": "Failed only at tests/surface-reusable-material.test.ts:322 and :350: grime not in FacadeMaterialSettings (unrelated files unchanged in this work).",
+    "testReview": "Approved before implementation; added mixed-face coverage approved afterwards.",
+    "implementationReview": "Approved; no findings."
+  }
+}

@@ -1,9 +1,9 @@
-> Historical SVGX authoring reference. New sources use [AML](AML.md).
+> Historical SVGX authoring reference. New sources use [AML](../AML.md).
 > Use the explicit migration command for retained SVGX; normal authoring APIs are retired.
 
 # Legacy SVGX vocabulary
 
-Normal CLI/reviewer authoring now uses [AML](AML.md). This document describes the
+Normal CLI/reviewer authoring now uses [AML](../AML.md). This document describes the
 explicit migration input and retained historical fixtures. Use `levelspec migrate`
 to create a new AML project; do not change frozen reconstruction evidence.
 
@@ -21,15 +21,15 @@ Malformed XML retains visibly stale geometry until repaired. Local file opening 
 also available through `npm run dev`; the browser does not save source or export.
 
 ```sh
-npm run compile -- examples/showcase.level.svgx --out generated/showcase
-npm run compile -- examples/showcase.level.svgx --out generated/showcase --no-uv
-node tools/vector-bake.ts examples/showcase.level.svgx generated/lighting/my-bake 64
+npm run compile -- tests/fixtures/migration/showcase.level.svgx --out generated/showcase
+npm run compile -- tests/fixtures/migration/showcase.level.svgx --out generated/showcase --no-uv
+node tools/vector-bake.ts tests/fixtures/migration/showcase.level.svgx generated/lighting/my-bake 64
 ```
 
 Build writes GLB, runtime/report JSON, OBJ, SVG and optional atlas data beneath the
 explicit `--out` directory. GLB contains material UVs and, after unwrapping,
 lightmap UVs; generic viewers do not automatically apply lighting manifests.
-See [exports](EXPORTS.md) for formats and [review controls](WEBSITE.md) for UI.
+See [exports](../EXPORTS.md) for formats and [review controls](../WEBSITE.md) for UI.
 
 ## Minimal document
 
@@ -292,7 +292,7 @@ The default is a warning so an intentional open edge stays inspectable. Use
 `floorGaps: false` to disable this audit. The CLI equivalent for strict builds is:
 
 ```sh
-npm run compile -- examples/dust2.level.svgx --strict-floor-gaps
+npm run compile -- tests/fixtures/migration/dust2.level.svgx --strict-floor-gaps
 ```
 
 The audit exposed a former Dust II gap at Long A / CT. It was repaired by restoring
@@ -374,11 +374,11 @@ Lighting manifests and their EXR/mip companions belong to the optional bake pipe
 The current read-only reviewer does not expose the former lighting-manifest drop
 workflow. Validate hashes and destination-renderer binding in the intended consumer;
 a successful bake is not visual acceptance. Historical calibration evidence is in
-[the archive](archive/README.md).
+[the archive](README.md).
 
 Export material images are packaged for portable mesh formats. Remaining UV,
 lighting and destination-runtime limits are recorded in
-[the implementation ledger](IMPLEMENTATION.md). Legacy migration parity is no
+[the implementation ledger](../IMPLEMENTATION.md). Legacy migration parity is no
 longer a release gate; retained XML contracts are the acceptance standard.
 
 ## Reference-aware authoring preview
@@ -414,7 +414,7 @@ ordinary XML stairs still default to filled. Collision geometry, retained export
 solids, floor-volume overlap and retaining-seam profiles use the same underside.
 Navigation samples actual top treads; clearance below the flight depends on its
 chosen physical underside. Navigation success is not a continuous traversal proof.
-See [Reference authoring](REFERENCE_AUTHORING.md) for examples, collision behavior,
+See [Reference authoring](../REFERENCE_AUTHORING.md) for examples, collision behavior,
 host asset-resolution requirements and reference controls.
 
 ## Static premaps and automatic repairs
@@ -473,6 +473,6 @@ Local detail samples use three cells (0.375 m by default), keeping each tile bel
 the detail capacity without relaxing the height or movement tolerances.
 Coverage checks use the actual clipped terrain edges at shorelines.
 
-Architectural review findings use the separate [suggestions channel](SUGGESTIONS.md).
+Architectural review findings use the separate [suggestions channel](../SUGGESTIONS.md).
 Root-level `<review-suppression suggestion="…" fingerprint="…" reason="…"/>`
 annotations acknowledge exact findings until their relevant geometry changes.

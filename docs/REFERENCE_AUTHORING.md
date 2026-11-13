@@ -138,7 +138,7 @@ IDs, navigable multi-storey stairs, and rejection of disconnected playable floor
 `tests/vector-glb-cli.test.ts` exercises real relative-file GLB resolution through
 the CLI.
 
-`examples/rooftop-reference.aml` is the checked-in end-to-end reference
+`tests/fixtures/aml/rooftop-reference.aml` is the checked-in end-to-end reference
 fixture. It has three saved 640×400 cameras and exact projected landmarks.
 `tests/vector-reference-acceptance.test.ts` recompiles that source, validates
 runtime navigation, software-renders the actual final visible triangle mesh with

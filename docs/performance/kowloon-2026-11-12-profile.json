@@ -1,0 +1,2155 @@
+{
+  "status": "completed",
+  "elapsedMs": 244777.01579099998,
+  "cpuMs": 253258.319,
+  "options": {
+    "limits": {
+      "triangles": 6000000
+    },
+    "appearance": {
+      "maximumTexels": 100663296,
+      "maximumBytes": 805306368,
+      "maximumCharts": 131072
+    }
+  },
+  "navigation": true,
+  "deadlineSeconds": 600,
+  "environment": {
+    "node": "v24.12.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4"
+  },
+  "fingerprintBefore": "ef3287dc04856623f66c2fc3760e3bd58ffb6e76c6097049675ab4a9689ea81f",
+  "fingerprintAfter": "ef3287dc04856623f66c2fc3760e3bd58ffb6e76c6097049675ab4a9689ea81f",
+  "sourceChangedDuringRun": false,
+  "intervals": [
+    {
+      "stage": "Compile setup",
+      "startMs": 0,
+      "durationMs": 1.2962499999999864
+    },
+    {
+      "stage": "Resolving architecture",
+      "startMs": 1.2962499999999864,
+      "durationMs": 12.614582999999982
+    },
+    {
+      "stage": "Building solids",
+      "startMs": 13.910832999999968,
+      "durationMs": 26.197749999999985
+    },
+    {
+      "stage": "Composing",
+      "startMs": 40.10858299999995,
+      "durationMs": 13.282916999999998
+    },
+    {
+      "stage": "Physical surfaces",
+      "startMs": 53.39149999999995,
+      "durationMs": 1.5351660000000038
+    },
+    {
+      "stage": "Resolving face materials",
+      "startMs": 54.926665999999955,
+      "durationMs": 32.58620900000005
+    },
+    {
+      "stage": "Procedural dressing",
+      "startMs": 87.51287500000001,
+      "durationMs": 4417.121083
+    },
+    {
+      "stage": "Surface appearance",
+      "startMs": 4504.633958,
+      "durationMs": 6.588999999999942
+    },
+    {
+      "stage": "Surface appearance: validating receivers",
+      "startMs": 4511.222958,
+      "durationMs": 41675.271333000004
+    },
+    {
+      "stage": "Surface appearance: decoding material images",
+      "startMs": 46186.494291,
+      "durationMs": 2700.824458999996
+    },
+    {
+      "stage": "Surface appearance: deriving height normals",
+      "startMs": 48887.31875,
+      "durationMs": 15.06841600000189
+    },
+    {
+      "stage": "Surface appearance: rasterizing materials",
+      "startMs": 48902.387166,
+      "durationMs": 184928.18487499998
+    },
+    {
+      "stage": "Surface appearance: receiver 1/74491",
+      "startMs": 233830.57204099998,
+      "durationMs": 8.47841700000572
+    },
+    {
+      "stage": "Surface appearance: receiver 7451/74491",
+      "startMs": 233839.05045799998,
+      "durationMs": 7.436917000013636
+    },
+    {
+      "stage": "Surface appearance: receiver 14901/74491",
+      "startMs": 233846.487375,
+      "durationMs": 5.324249999976018
+    },
+    {
+      "stage": "Surface appearance: receiver 22351/74491",
+      "startMs": 233851.81162499997,
+      "durationMs": 3.637791000015568
+    },
+    {
+      "stage": "Surface appearance: receiver 29801/74491",
+      "startMs": 233855.449416,
+      "durationMs": 6.603375000006054
+    },
+    {
+      "stage": "Surface appearance: receiver 37251/74491",
+      "startMs": 233862.052791,
+      "durationMs": 3.855374999984633
+    },
+    {
+      "stage": "Surface appearance: receiver 44701/74491",
+      "startMs": 233865.90816599998,
+      "durationMs": 5.27262500001234
+    },
+    {
+      "stage": "Surface appearance: receiver 52151/74491",
+      "startMs": 233871.180791,
+      "durationMs": 60.654209000000264
+    },
+    {
+      "stage": "Surface appearance: receiver 59601/74491",
+      "startMs": 233931.835,
+      "durationMs": 82.47229099998367
+    },
+    {
+      "stage": "Surface appearance: receiver 67051/74491",
+      "startMs": 234014.30729099998,
+      "durationMs": 91.33666699999594
+    },
+    {
+      "stage": "Surface appearance: joining receiver edges",
+      "startMs": 234105.64395799997,
+      "durationMs": 8586.962417000002
+    },
+    {
+      "stage": "Mesh parts and finalization",
+      "startMs": 242692.60637499997,
+      "durationMs": 1785.0696660000249
+    },
+    {
+      "stage": "Navigation",
+      "startMs": 244477.676041,
+      "durationMs": 299.33974999998463
+    }
+  ],
+  "triangles": 505382,
+  "vertices": 1474018,
+  "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+  "renderHash": "10a89b569c3c9222ee20f8f0c6e2cdb64788d041da3a226b478ef7ab6650006d",
+  "diagnostics": [],
+  "surfaceAppearance": {
+    "version": 1,
+    "sourceHashes": {
+      "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+      "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+      "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+      "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+      "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+      "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+      "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+      "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+      "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+      "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+      "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+      "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+      "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+      "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+    },
+    "charts": 74491,
+    "texels": 90610824,
+    "imageBytes": 86894322,
+    "generatedImageCount": 12961,
+    "generatedHashesSha256": "d7344f02c7a1cecff734d288e04662e640e8f7326421d1cd04b9b0b5e97b4be1"
+  },
+  "profileRun": {
+    "status": "cancelled",
+    "elapsedMs": 240012.280625,
+    "cpuMs": 238248.018,
+    "options": {
+      "limits": {
+        "triangles": 6000000
+      },
+      "appearance": {
+        "maximumTexels": 100663296,
+        "maximumBytes": 805306368,
+        "maximumCharts": 131072
+      }
+    },
+    "navigation": true,
+    "deadlineSeconds": 240,
+    "environment": {
+      "node": "v24.12.0",
+      "platform": "darwin",
+      "arch": "arm64",
+      "cpu": "Apple M4"
+    },
+    "fingerprintBefore": "ef3287dc04856623f66c2fc3760e3bd58ffb6e76c6097049675ab4a9689ea81f",
+    "fingerprintAfter": "ef3287dc04856623f66c2fc3760e3bd58ffb6e76c6097049675ab4a9689ea81f",
+    "sourceChangedDuringRun": false,
+    "failure": {
+      "name": "AbortError",
+      "message": "Operation cancelled"
+    },
+    "intervals": [
+      {
+        "stage": "Compile setup",
+        "startMs": 0,
+        "durationMs": 5.700874999999996
+      },
+      {
+        "stage": "Resolving architecture",
+        "startMs": 5.700874999999996,
+        "durationMs": 45.42391599999996
+      },
+      {
+        "stage": "Building solids",
+        "startMs": 51.12479099999996,
+        "durationMs": 162.26970899999992
+      },
+      {
+        "stage": "Composing",
+        "startMs": 213.39449999999988,
+        "durationMs": 43.83991600000013
+      },
+      {
+        "stage": "Physical surfaces",
+        "startMs": 257.234416,
+        "durationMs": 5.272958999999901
+      },
+      {
+        "stage": "Resolving face materials",
+        "startMs": 262.5073749999999,
+        "durationMs": 110.86495800000012
+      },
+      {
+        "stage": "Procedural dressing",
+        "startMs": 373.372333,
+        "durationMs": 11502.419125
+      },
+      {
+        "stage": "Surface appearance",
+        "startMs": 11875.791458,
+        "durationMs": 11.041291999999885
+      },
+      {
+        "stage": "Surface appearance: validating receivers",
+        "startMs": 11886.83275,
+        "durationMs": 89770.135125
+      },
+      {
+        "stage": "Surface appearance: decoding material images",
+        "startMs": 101656.967875,
+        "durationMs": 4289.468332999997
+      },
+      {
+        "stage": "Surface appearance: deriving height normals",
+        "startMs": 105946.436208,
+        "durationMs": 15.279749999986961
+      },
+      {
+        "stage": "Surface appearance: rasterizing materials",
+        "startMs": 105961.71595799999,
+        "durationMs": 134050.56466700003
+      }
+    ],
+    "triangles": null,
+    "vertices": null
+  },
+  "profileAnalysis": {
+    "elapsedMs": 240012.280625,
+    "status": "cancelled",
+    "sampledMs": 240114.1670000018,
+    "intervals": [
+      {
+        "stage": "Compile setup",
+        "startMs": 0,
+        "durationMs": 5.700874999999996
+      },
+      {
+        "stage": "Resolving architecture",
+        "startMs": 5.700874999999996,
+        "durationMs": 45.42391599999996
+      },
+      {
+        "stage": "Building solids",
+        "startMs": 51.12479099999996,
+        "durationMs": 162.26970899999992
+      },
+      {
+        "stage": "Composing",
+        "startMs": 213.39449999999988,
+        "durationMs": 43.83991600000013
+      },
+      {
+        "stage": "Physical surfaces",
+        "startMs": 257.234416,
+        "durationMs": 5.272958999999901
+      },
+      {
+        "stage": "Resolving face materials",
+        "startMs": 262.5073749999999,
+        "durationMs": 110.86495800000012
+      },
+      {
+        "stage": "Procedural dressing",
+        "startMs": 373.372333,
+        "durationMs": 11502.419125
+      },
+      {
+        "stage": "Surface appearance",
+        "startMs": 11875.791458,
+        "durationMs": 11.041291999999885
+      },
+      {
+        "stage": "Surface appearance: validating receivers",
+        "startMs": 11886.83275,
+        "durationMs": 89770.135125
+      },
+      {
+        "stage": "Surface appearance: decoding material images",
+        "startMs": 101656.967875,
+        "durationMs": 4289.468332999997
+      },
+      {
+        "stage": "Surface appearance: deriving height normals",
+        "startMs": 105946.436208,
+        "durationMs": 15.279749999986961
+      },
+      {
+        "stage": "Surface appearance: rasterizing materials",
+        "startMs": 105961.71595799999,
+        "durationMs": 134050.56466700003
+      }
+    ],
+    "categories": {
+      "Pipe runoff precomputation": 79576.30500000245,
+      "Other raster work": 49969.073000001474,
+      "Idle": 16647.048999999377,
+      "Other compile": 15456.942999999463,
+      "Source PBR sampling": 14115.640999999643,
+      "Tile fields": 13282.85999999971,
+      "GC": 11697.501999999848,
+      "Component patina excluding runoff precomputation": 10337.298999999977,
+      "PNG encoding": 10172.885999999973,
+      "Other scene construction": 10087.831999999999,
+      "Output pixels": 4192.893,
+      "Image decoding": 3605.2929999999888,
+      "Other receiver validation": 721.7150000000004,
+      "Component geometry/contact detection": 164.46,
+      "Facade repairs": 86.416
+    },
+    "self": [
+      {
+        "location": "createPipeRunoff src/dressing/finish/pipe-runoff.ts:72",
+        "sampledMs": 32237.932000001976
+      },
+      {
+        "location": "point src/dressing/finish/pipe-runoff.ts:40",
+        "sampledMs": 24185.537000000855
+      },
+      {
+        "location": "(idle) :0",
+        "sampledMs": 16647.048999999377
+      },
+      {
+        "location": "rasterizeSurface src/dressing/surface/raster.ts:178",
+        "sampledMs": 12757.650999999709
+      },
+      {
+        "location": "(garbage collector) :0",
+        "sampledMs": 11697.501999999848
+      },
+      {
+        "location": "(anonymous) src/dressing/finish/pipe-runoff.ts:50",
+        "sampledMs": 11506.299999999886
+      },
+      {
+        "location": "sample src/dressing/ground-surface.ts:292",
+        "sampledMs": 9792.87399999998
+      },
+      {
+        "location": "sourcePixel src/dressing/surface/raster.ts:143",
+        "sampledMs": 7724.296000000144
+      },
+      {
+        "location": "(program) :0",
+        "sampledMs": 6113.030000000099
+      },
+      {
+        "location": "runoff src/dressing/kowloon/pipes.ts:238",
+        "sampledMs": 6001.429000000073
+      },
+      {
+        "location": "sampleGrid src/dressing/finish/pipe-runoff.ts:80",
+        "sampledMs": 5198.682000000041
+      },
+      {
+        "location": "blob src/dressing/finish/tile-damage.ts:37",
+        "sampledMs": 4897.286000000019
+      },
+      {
+        "location": "difference src/dressing/finish/pipe-runoff.ts:14",
+        "sampledMs": 4520.672000000004
+      },
+      {
+        "location": "(anonymous) src/dressing/surface/raster.ts:160",
+        "sampledMs": 3742.779999999994
+      },
+      {
+        "location": "writePixel src/dressing/surface/raster.ts:305",
+        "sampledMs": 3682.9009999999944
+      },
+      {
+        "location": "valueNoise src/dressing/finish/noise.ts:17",
+        "sampledMs": 3424.40999999999
+      },
+      {
+        "location": "asphaltDistance src/dressing/ground-surface.ts:160",
+        "sampledMs": 3316.8680000000013
+      },
+      {
+        "location": "retention src/dressing/finish/tile-damage.ts:64",
+        "sampledMs": 3312.275000000001
+      },
+      {
+        "location": "fieldRow src/dressing/surface/raster.ts:204",
+        "sampledMs": 2883.5419999999945
+      },
+      {
+        "location": "componentPatina src/dressing/finish/component-patina.ts:29",
+        "sampledMs": 2881.2039999999915
+      },
+      {
+        "location": "groundEdgeDistance src/dressing/ground-field.ts:79",
+        "sampledMs": 2794.0729999999944
+      },
+      {
+        "location": "triangle src/dressing/geometry.ts:8",
+        "sampledMs": 2234.3779999999983
+      },
+      {
+        "location": "wrap src/dressing/surface/raster.ts:52",
+        "sampledMs": 2052.0659999999943
+      },
+      {
+        "location": "fractalNoise src/dressing/finish/noise.ts:76",
+        "sampledMs": 1898.669999999991
+      },
+      {
+        "location": "filterSumPaeth node_modules/pngjs/browser.js:803",
+        "sampledMs": 1721.594999999994
+      },
+      {
+        "location": "wrap src/dressing/surface/images.ts:39",
+        "sampledMs": 1597.103999999997
+      },
+      {
+        "location": "rasterSample src/dressing/ground-surface.ts:270",
+        "sampledMs": 1510.9319999999962
+      },
+      {
+        "location": "deflate_rle node_modules/pngjs/browser.js:9463",
+        "sampledMs": 1420.5909999999974
+      },
+      {
+        "location": "colorSample src/dressing/surface/raster.ts:55",
+        "sampledMs": 1400.7479999999975
+      },
+      {
+        "location": "(anonymous) src/dressing/ground-surface.ts:361",
+        "sampledMs": 1344.8719999999987
+      },
+      {
+        "location": "evaluate src/dressing/wall-finish.ts:250",
+        "sampledMs": 1162.1400000000006
+      },
+      {
+        "location": "jointWidths src/dressing/tile-field.ts:88",
+        "sampledMs": 1154.3610000000008
+      },
+      {
+        "location": "face src/dressing/kowloon/weathered.ts:139",
+        "sampledMs": 1065.006
+      },
+      {
+        "location": "tileSurface src/dressing/tile-surface.ts:17",
+        "sampledMs": 1060.3790000000013
+      },
+      {
+        "location": "compress_block node_modules/pngjs/browser.js:13352",
+        "sampledMs": 1058.5790000000018
+      },
+      {
+        "location": "inflate_fast node_modules/pngjs/browser.js:10512",
+        "sampledMs": 972.2090000000018
+      },
+      {
+        "location": "imageSample src/dressing/surface/images.ts:42",
+        "sampledMs": 896.5940000000007
+      },
+      {
+        "location": "plasterSample src/dressing/wall-surface.ts:44",
+        "sampledMs": 895.0900000000013
+      },
+      {
+        "location": "sample src/dressing/finish/wall-condition.ts:196",
+        "sampledMs": 884.9650000000015
+      },
+      {
+        "location": "paintedPatina src/dressing/finish/patina.ts:162",
+        "sampledMs": 835.0000000000009
+      }
+    ],
+    "inclusive": [
+      {
+        "location": "(root) :0",
+        "sampledMs": 240114.1669998947
+      },
+      {
+        "location": "compile src/architecture/compiler.ts:98",
+        "sampledMs": 97318.93500000145
+      },
+      {
+        "location": "weather src/dressing/finish/metal-surface.ts:42",
+        "sampledMs": 90779.31200000233
+      },
+      {
+        "location": "compileSurfaceAppearance src/dressing/surface/compile.ts:86",
+        "sampledMs": 90517.80900000228
+      },
+      {
+        "location": "componentPatina src/dressing/finish/component-patina.ts:29",
+        "sampledMs": 90041.4790000023
+      },
+      {
+        "location": "chart.sample src/dressing/kit-surfaces.ts:109",
+        "sampledMs": 89520.52600000233
+      },
+      {
+        "location": "sample src/dressing/finish/metal-surface.ts:54",
+        "sampledMs": 88400.14600000232
+      },
+      {
+        "location": "validateCharts src/dressing/surface/compile.ts:18",
+        "sampledMs": 86707.98300000229
+      },
+      {
+        "location": "runoff src/dressing/kowloon/pipes.ts:238",
+        "sampledMs": 85845.14800000233
+      },
+      {
+        "location": "rasterizeSurface src/dressing/surface/raster.ts:178",
+        "sampledMs": 82955.83500000059
+      },
+      {
+        "location": "createPipeRunoff src/dressing/finish/pipe-runoff.ts:72",
+        "sampledMs": 79576.30500000245
+      },
+      {
+        "location": "fieldRow src/dressing/surface/raster.ts:204",
+        "sampledMs": 52167.608000001615
+      },
+      {
+        "location": "point src/dressing/finish/pipe-runoff.ts:40",
+        "sampledMs": 35510.246000001796
+      },
+      {
+        "location": "rasterSample src/dressing/ground-surface.ts:270",
+        "sampledMs": 25479.40400000109
+      },
+      {
+        "location": "sample src/dressing/ground.ts:864",
+        "sampledMs": 25340.530000001072
+      },
+      {
+        "location": "sample src/dressing/ground-surface.ts:292",
+        "sampledMs": 23896.676000000803
+      },
+      {
+        "location": "(idle) :0",
+        "sampledMs": 16647.048999999377
+      },
+      {
+        "location": "tileSurface src/dressing/tile-surface.ts:17",
+        "sampledMs": 14382.697999999666
+      },
+      {
+        "location": "sourcePixel src/dressing/surface/raster.ts:143",
+        "sampledMs": 14058.266999999647
+      },
+      {
+        "location": "(garbage collector) :0",
+        "sampledMs": 11697.501999999848
+      },
+      {
+        "location": "(anonymous) src/dressing/finish/pipe-runoff.ts:50",
+        "sampledMs": 11506.299999999886
+      },
+      {
+        "location": "prepareSurfaceRasters src/dressing/surface/raster-bindings.ts:18",
+        "sampledMs": 10910.056999999922
+      },
+      {
+        "location": "registerSurfaceChart.sampleRow src/dressing/wall-finish.ts:289",
+        "sampledMs": 10357.624000000118
+      },
+      {
+        "location": "evaluate src/dressing/wall-finish.ts:250",
+        "sampledMs": 10193.836000000134
+      },
+      {
+        "location": "encodeSurfaceImage src/dressing/surface/images.ts:28",
+        "sampledMs": 10172.885999999973
+      },
+      {
+        "location": "applyDressing src/dressing/apply.ts:83",
+        "sampledMs": 10124.499999999993
+      },
+      {
+        "location": "module.exports node_modules/pngjs/browser.js:1372",
+        "sampledMs": 10115.595999999976
+      },
+      {
+        "location": "coverage src/dressing/tile-field.ts:131",
+        "sampledMs": 8893.462000000063
+      },
+      {
+        "location": "retention src/dressing/tile-field.ts:142",
+        "sampledMs": 8500.679000000096
+      },
+      {
+        "location": "retention src/dressing/finish/tile-damage.ts:64",
+        "sampledMs": 8184.516000000128
+      },
+      {
+        "location": "draw src/dressing/kowloon/building.ts:289",
+        "sampledMs": 8050.75300000004
+      },
+      {
+        "location": "generate src/dressing/kowloon/building.ts:342",
+        "sampledMs": 7981.668000000039
+      },
+      {
+        "location": "dressFacade src/dressing/kowloon/facade.ts:524",
+        "sampledMs": 7778.044000000036
+      },
+      {
+        "location": "exports.write node_modules/pngjs/browser.js:2162",
+        "sampledMs": 7210.923000000101
+      },
+      {
+        "location": "(program) :0",
+        "sampledMs": 6113.030000000099
+      },
+      {
+        "location": "chart.sampleRow src/dressing/kit-surfaces.ts:110",
+        "sampledMs": 5547.383000000064
+      },
+      {
+        "location": "surfaceTint src/dressing/surface/sample.ts:7",
+        "sampledMs": 5382.475000000025
+      },
+      {
+        "location": "Zlib._processChunk node_modules/pngjs/browser.js:4804",
+        "sampledMs": 5245.633000000042
+      },
+      {
+        "location": "sampleGrid src/dressing/finish/pipe-runoff.ts:80",
+        "sampledMs": 5200.182000000041
+      },
+      {
+        "location": "blob src/dressing/finish/tile-damage.ts:37",
+        "sampledMs": 4898.78600000002
+      },
+      {
+        "location": "module.exports node_modules/pngjs/browser.js:834",
+        "sampledMs": 4858.619000000028
+      },
+      {
+        "location": "Zlib._write node_modules/pngjs/browser.js:3981",
+        "sampledMs": 4853.833000000031
+      },
+      {
+        "location": "Zlib._process node_modules/pngjs/browser.js:4042",
+        "sampledMs": 4840.54000000003
+      },
+      {
+        "location": "pen.mesh.receive.sampleRow src/dressing/kowloon/skin.ts:174",
+        "sampledMs": 4722.392000000022
+      },
+      {
+        "location": "evaluate src/dressing/kowloon/skin.ts:135",
+        "sampledMs": 4676.021000000017
+      },
+      {
+        "location": "difference src/dressing/finish/pipe-runoff.ts:14",
+        "sampledMs": 4521.172000000004
+      },
+      {
+        "location": "asphaltDistance src/dressing/ground-surface.ts:160",
+        "sampledMs": 4459.1590000000015
+      },
+      {
+        "location": "retainedSample src/dressing/surface/raster.ts:159",
+        "sampledMs": 4310.076000000006
+      },
+      {
+        "location": "face src/dressing/pen.ts:131",
+        "sampledMs": 4272.219000000004
+      },
+      {
+        "location": "tint src/dressing/ground-surface.ts:278",
+        "sampledMs": 4267.178
+      },
+      {
+        "location": "appearanceTint src/dressing/ground.ts:868",
+        "sampledMs": 4266.263
+      },
+      {
+        "location": "writePixel src/dressing/surface/raster.ts:305",
+        "sampledMs": 4192.893
+      },
+      {
+        "location": "face src/dressing/kowloon/weathered.ts:139",
+        "sampledMs": 4124.964
+      },
+      {
+        "location": "Zlib.writeSync node_modules/pngjs/browser.js:3977",
+        "sampledMs": 4011.336999999997
+      },
+      {
+        "location": "(anonymous) src/dressing/surface/raster.ts:160",
+        "sampledMs": 3918.4469999999933
+      },
+      {
+        "location": "deflate node_modules/pngjs/browser.js:9985",
+        "sampledMs": 3658.5789999999984
+      },
+      {
+        "location": "Packer.filterData node_modules/pngjs/browser.js:1497",
+        "sampledMs": 3653.574999999995
+      },
+      {
+        "location": "deflate_rle node_modules/pngjs/browser.js:9463",
+        "sampledMs": 3650.6619999999984
+      },
+      {
+        "location": "decodeSurfaceImage src/dressing/surface/images.ts:10",
+        "sampledMs": 3605.2929999999888
+      },
+      {
+        "location": "add src/dressing/kit-mesh.ts:182",
+        "sampledMs": 3600.8390000000027
+      }
+    ]
+  },
+  "sourceManifest": [
+    {
+      "path": "package-lock.json",
+      "sha256": "a9c8ba5dc6618282db7a8253dd187baab3379acf568cb3b5dd86994f8477aa7f"
+    },
+    {
+      "path": "package.json",
+      "sha256": "5222d26a50e9572cb84725cd588f8861acade660bb2b6170f67d6ba619ae0d14"
+    },
+    {
+      "path": "projects/dressing-demo/README.md",
+      "sha256": "a7883ce38e59483ce52f94e5c30413f58299ff2df89d4d98fe9265a4812c1fa1"
+    },
+    {
+      "path": "projects/dressing-demo/generate-ground-texture.mjs",
+      "sha256": "5d0b816326b0ef5d9b4f77fc1ac8dd7279df71c0f597d2b645944e942deaafa1"
+    },
+    {
+      "path": "projects/dressing-demo/ground-reference.md",
+      "sha256": "51add0f11f93393708cff52ac8ffb8ced1d99ccdba3ada0bcc33b4c0f15c6ae3"
+    },
+    {
+      "path": "projects/dressing-demo/level.aml",
+      "sha256": "ab0bd1688d67f933d1f14b70e9aa4441a250c586f73b983963a164f2f7fcec75"
+    },
+    {
+      "path": "projects/dressing-demo/storefront-views.json",
+      "sha256": "0da651a6679948531ee143e060f4bd340664328f29904057f6a6655fa9e54d27"
+    },
+    {
+      "path": "projects/dressing-demo/storefronts.aml",
+      "sha256": "f1889a6a529f6a5d4e136cb10ea5d0732e9dc1efab3a7de4808987ea18fc08d8"
+    },
+    {
+      "path": "projects/dressing-demo/textures/aircon.png",
+      "sha256": "5c4bb92914ef61c52361dcba9a7a5b42137e47c23fd0c96499ce5afd6bbf97ae"
+    },
+    {
+      "path": "projects/dressing-demo/textures/asphalt-provenance.json",
+      "sha256": "0d8b393d623a476fee02ca2f632c435cf40c65070c1e6680ac1ee0f6113be282"
+    },
+    {
+      "path": "projects/dressing-demo/textures/brushed-metal-normal.png",
+      "sha256": "01c54b177625d95d056a5660d5a9291a020dc6f416c820f596b3e019ffa50df2"
+    },
+    {
+      "path": "projects/dressing-demo/textures/brushed-metal-properties.png",
+      "sha256": "bbf24bcbcd268ffd02b4b380224045e56e7da0cddc0472248d2540c019397e55"
+    },
+    {
+      "path": "projects/dressing-demo/textures/brushed-metal.png",
+      "sha256": "1aabaf6cddf71c98c49cd146f0acd4159cd3170075d01037bacf809e19537972"
+    },
+    {
+      "path": "projects/dressing-demo/textures/building-concrete-fine-sand.png",
+      "sha256": "59e2a45ae03bbf621093e97b8e07e4d005ba9292ce5a0bb0873b928c49d94c4a"
+    },
+    {
+      "path": "projects/dressing-demo/textures/building-concrete-plain.png",
+      "sha256": "25341f2f7d6a6fa91de7a52b04ad0dcae3935c593939129a958c39d3004512ff"
+    },
+    {
+      "path": "projects/dressing-demo/textures/building-plaster-plain.png",
+      "sha256": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4"
+    },
+    {
+      "path": "projects/dressing-demo/textures/cloth.png",
+      "sha256": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+    },
+    {
+      "path": "projects/dressing-demo/textures/concrete-shared-normal.png",
+      "sha256": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0"
+    },
+    {
+      "path": "projects/dressing-demo/textures/concrete-shared.png",
+      "sha256": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8"
+    },
+    {
+      "path": "projects/dressing-demo/textures/concrete.png",
+      "sha256": "2969f9ab59720a4cac76841f593868ac5d5982201f77f3e16136ed539bff2738"
+    },
+    {
+      "path": "projects/dressing-demo/textures/glazing.png",
+      "sha256": "145ff84d91bd15c007d4d9bbb65319cd346f16f1b5fb49ca088627c5cddf48d1"
+    },
+    {
+      "path": "projects/dressing-demo/textures/grocer-props-normal.png",
+      "sha256": "d59701776fddf9c3eddfce402b1ff5bafc85d9adef2637e86a91a8e59fff8712"
+    },
+    {
+      "path": "projects/dressing-demo/textures/grocer-props-properties.png",
+      "sha256": "cd0eb195fe23fd4dcb833ce95f55889f93b73b1e40f2762763e9f6a110cdf9b6"
+    },
+    {
+      "path": "projects/dressing-demo/textures/grocer-props.png",
+      "sha256": "2804d355c4ac104091976bd44fca1fcfce0897ebc9795fe05115229cd29bcc13"
+    },
+    {
+      "path": "projects/dressing-demo/textures/ground-asphalt-normal.png",
+      "sha256": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e"
+    },
+    {
+      "path": "projects/dressing-demo/textures/ground-asphalt-prompts.json",
+      "sha256": "bc97dadbeccaf7b4789817ca35c9998f575b1e3461703ba7e9f600ef64999d48"
+    },
+    {
+      "path": "projects/dressing-demo/textures/ground-asphalt.png",
+      "sha256": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005"
+    },
+    {
+      "path": "projects/dressing-demo/textures/ground-concrete.png",
+      "sha256": "54e69bc990c442defbecf66a3eedac13a9f557547cfacc783d59ef615ea13b78"
+    },
+    {
+      "path": "projects/dressing-demo/textures/ground-normal.png",
+      "sha256": "6e9bdb1edb28238b9ef22aa47c3c1291c0916ba2683150e571b46e58e4f37f83"
+    },
+    {
+      "path": "projects/dressing-demo/textures/lettering.png",
+      "sha256": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d"
+    },
+    {
+      "path": "projects/dressing-demo/textures/market-apple.png",
+      "sha256": "845577bf1f2f69e1c1870b5b53fb57520502dff26f314d184a2667a2ff643586"
+    },
+    {
+      "path": "projects/dressing-demo/textures/metal.png",
+      "sha256": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded"
+    },
+    {
+      "path": "projects/dressing-demo/textures/mosaic.png",
+      "sha256": "b2492a4380433e882ca6f20c379e9148205372e055d3ffbf2010d226ef7ff0a9"
+    },
+    {
+      "path": "projects/dressing-demo/textures/plaster.png",
+      "sha256": "5aa7ae5fd7a38df934abab063786cf836aaba8ecea1b7f338586cca924290707"
+    },
+    {
+      "path": "projects/dressing-demo/textures/provenance.json",
+      "sha256": "4a5b4e15f25b748211f0252527c436f556a1a4c2bb5e1c8f4112f83685ea1d95"
+    },
+    {
+      "path": "projects/dressing-demo/textures/restaurant-food-normal.png",
+      "sha256": "99eda4e97aed912123534b65392b27feda61233cb7745a4939c3426e2a97a55a"
+    },
+    {
+      "path": "projects/dressing-demo/textures/restaurant-food-properties.png",
+      "sha256": "26e45e21e8952f74f031b046443416720644db026d8a9e2f8327554929ceb01c"
+    },
+    {
+      "path": "projects/dressing-demo/textures/restaurant-food.png",
+      "sha256": "6cc7ec5e997bfd51f18b2e0ffce440c3c337fbd878737d49d349decc66b22609"
+    },
+    {
+      "path": "projects/dressing-demo/textures/restaurant-surfaces-properties.png",
+      "sha256": "2b34eb6605864c7c3d7b8a0482d7449d6e3fc824d855486d1e275e317237e560"
+    },
+    {
+      "path": "projects/dressing-demo/textures/restaurant-surfaces.png",
+      "sha256": "9b6d0d6615db4eca1bbb18fed36989ccd3d950d47928a29cc1274294af72400b"
+    },
+    {
+      "path": "projects/dressing-demo/textures/restaurant-tiles-normal.png",
+      "sha256": "6f2f5fa4ab11c6a68a438dc5b99b3b27dc3efa200b3007fb5c2a03f2e5771a99"
+    },
+    {
+      "path": "projects/dressing-demo/textures/restaurant-tiles-properties.png",
+      "sha256": "06e5b60af1eb1940c0a9b30d09dbb82c24c8963a8d1f200618ffc760b2efda14"
+    },
+    {
+      "path": "projects/dressing-demo/textures/restaurant-tiles.png",
+      "sha256": "c76c248648051797d4793e6ace63c061346c66c26eb796164c1c39d1971069ea"
+    },
+    {
+      "path": "projects/dressing-demo/textures/roofing.png",
+      "sha256": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab"
+    },
+    {
+      "path": "projects/dressing-demo/textures/rust.png",
+      "sha256": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879"
+    },
+    {
+      "path": "projects/dressing-demo/textures/sheet.png",
+      "sha256": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f"
+    },
+    {
+      "path": "projects/dressing-demo/textures/shop-timber-normal.png",
+      "sha256": "afda993157e0c6756fd24c8cf530762274f374d7bcd35f07905c33c9b366a2f7"
+    },
+    {
+      "path": "projects/dressing-demo/textures/shop-timber-properties.png",
+      "sha256": "4b06f884bf4c3f8562be84d7040234e1e08ebcabd7cdf365f6ed0a8dfbf98b14"
+    },
+    {
+      "path": "projects/dressing-demo/textures/shop-timber.png",
+      "sha256": "d1ef79b23c68fb97d91d45ff86d6197959f32553a421b810a42a6c0e93386539"
+    },
+    {
+      "path": "projects/dressing-demo/textures/signboard.png",
+      "sha256": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+    },
+    {
+      "path": "projects/dressing-demo/textures/snack-packet.png",
+      "sha256": "ab5f890087d9886dc31965ef60389dd475517ba4c6dbd4d78242b00356ab9533"
+    },
+    {
+      "path": "projects/dressing-demo/textures/timber.png",
+      "sha256": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-ceramic-normal.png",
+      "sha256": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-ceramic-weathered.png",
+      "sha256": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-concrete-repaired.png",
+      "sha256": "d0365156df345093cbab70d453362197c10c559db7f97ef250529613c20172c7"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-concrete-rough.png",
+      "sha256": "2ce173dee32ceb9de60a73fa1a6aeafd1cc505d0e25bf71f87952be9eb2f5b20"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-metal-normal.png",
+      "sha256": "118e39f928aabf2b97b6cc93f45d8448825b8da14589c68e845a8c4c4f3552d7"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-metal-weathered.png",
+      "sha256": "e553567ee7aedbfcefd0dbcb147d3deff12c0f9619b6b90228b51ff916de38af"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-normal-prompts.json",
+      "sha256": "209b14e15bdb99a69a5a4b56ae53b69801343f7feba27e18000c92d8559ac0b5"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-posters-atlas.png",
+      "sha256": "6c26c7a6beeb7139bd27a2675d65132f5f68ea9062e4ca021d1a1be3f90db618"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-realism-prompts.json",
+      "sha256": "711b2dbc706a9ec1d3e2790158b34b171e6963e9d7f937e103125e7e46615ff9"
+    },
+    {
+      "path": "projects/dressing-demo/textures/wall-textures-prompts.json",
+      "sha256": "677b8cf19358601b7ba529e575797f3091ca361af08bb0dce9130ec0c4ef4df6"
+    },
+    {
+      "path": "review/app.ts",
+      "sha256": "1288d2f38c050eda92e42e6df7b6d0534485d0cc8829ed2719c0a3f0d4708844"
+    },
+    {
+      "path": "review/architecture.ts",
+      "sha256": "bac73b6d9775c29d31f4ccb18f587238dd1f138cbe08f7abdf1b9851a390c3e5"
+    },
+    {
+      "path": "review/assets/SuperPixelBitmap-Regular.woff2",
+      "sha256": "e714531e1bbf4d9a8dea013f49c15233f15eaf98593e9870e6d125d4fb93a302"
+    },
+    {
+      "path": "review/camera.ts",
+      "sha256": "2fbc17e2e53deb3377e3475e511af49d00952994b3a9a9b54dd46f5eb33f5856"
+    },
+    {
+      "path": "review/demo.ts",
+      "sha256": "1049e15faaed1fdb20a50b8aaad21c40edb52643770f29ffe968cf08c3b805d4"
+    },
+    {
+      "path": "review/diagnostics.ts",
+      "sha256": "f5d4c9940bc39e6a4235d42c1a4aa6734547e08ae5ea7916cbddbb74a694089b"
+    },
+    {
+      "path": "review/frame.ts",
+      "sha256": "8a93743dc5537e68fcfdce27ea0a7bd55706abef2a4942252ba2b6328c280563"
+    },
+    {
+      "path": "review/lighting.ts",
+      "sha256": "7b1f9ea7835dcaf62ffb88e6c36e536b9c2c9c05f8b533c124c8db6cfb75b615"
+    },
+    {
+      "path": "review/material-assets.ts",
+      "sha256": "6b437943f5200315117e5553047f6b026a7eb5d3878c33671817e56546bfeec8"
+    },
+    {
+      "path": "review/navigation-cell.ts",
+      "sha256": "f92088928e70d5a3e36e78017cb1ef4e3fb20a0bf052170ce0e486307bd4c6ac"
+    },
+    {
+      "path": "review/navigation-edges.ts",
+      "sha256": "e1e8085c1636ead08f061f7f24f57805216893e5abe86df2c5e87d1347142b17"
+    },
+    {
+      "path": "review/navigation-surface.ts",
+      "sha256": "eb7a0cec5b6d741139136fb56ff391982d28649dc3ac1164b3731af62dda5200"
+    },
+    {
+      "path": "review/navigation.ts",
+      "sha256": "4e42cf97b8188132aa6864876e7bd727fdda31d3752ab254a0a70593874c31fe"
+    },
+    {
+      "path": "review/physical-walk.ts",
+      "sha256": "b55343df25c4303fcd6d838cefb711439f4375324a0ed1f53ce7d36b02b0116a"
+    },
+    {
+      "path": "review/scene.ts",
+      "sha256": "74b8ed481ed4a163d7f8596892cac581bd0580cda1e4764e5f318ef5efe4aee6"
+    },
+    {
+      "path": "review/sky.ts",
+      "sha256": "993551bcdc7a06d4babea50a9af2152dfc8003c743d3055f9a78c8926bc1d0cb"
+    },
+    {
+      "path": "review/style.css",
+      "sha256": "74b4babc9c6ac2118e0d5d90d039be3c920e2f5a999ac02c0043cc016952c551"
+    },
+    {
+      "path": "review/suggestions.ts",
+      "sha256": "ad7e39655bcfdadbea8f8183350065e06a6c040662089679276a621c090224ef"
+    },
+    {
+      "path": "review/terrain.ts",
+      "sha256": "8f2b73dcf2f5b7327f7c40f37447cac7c09a9cc01ea1ffb77a5df10460ea9176"
+    },
+    {
+      "path": "review/view.ts",
+      "sha256": "2f1d2c5aaddae9b4f67223b95aa49f8aeb8c6bb6b08fe528551d85a37c1f801d"
+    },
+    {
+      "path": "review/walk-clock.ts",
+      "sha256": "0291816862a3482264d23ce99ee6926d320f671985909a40e55e1282f23a1a3e"
+    },
+    {
+      "path": "review/walk-input.ts",
+      "sha256": "d64e525fbd799724cd8d9dd897b18d309afcc06008b670a33ae2a7616b17681e"
+    },
+    {
+      "path": "review/walk-motion.ts",
+      "sha256": "b8e607b00ef04adeadc4ea7ad3c938a88d2bcb016e1eaa8dc1f17f7494720247"
+    },
+    {
+      "path": "review/walk.ts",
+      "sha256": "5fccdd2354900c7e00d16a043916d9b4b4d9c68156675a1e9f08992d82662841"
+    },
+    {
+      "path": "review/worker.ts",
+      "sha256": "abb0f39e8bc3cf32e1f302c4f8fd7bd6b738f3ef65f4ef55fdbf0a66a600aee8"
+    },
+    {
+      "path": "src/architecture/assets.ts",
+      "sha256": "c4253c62bce5f8d8c484e6d185b9dbd447d60c77c278fbc6bf9e0fc5a612c72e"
+    },
+    {
+      "path": "src/architecture/builder.ts",
+      "sha256": "9a651800bdeb9daa6fc400194710520575b61eb1d21daaacd46e0361f94f23ec"
+    },
+    {
+      "path": "src/architecture/compiler.ts",
+      "sha256": "a218b2485e6f794e66e668025914715b2a97a45bd1e07a452128837f956e4dc5"
+    },
+    {
+      "path": "src/architecture/connection-domains.ts",
+      "sha256": "ba400314e56eaaee54ffe45d925a333861977e0fff9e411d6fe8804123782d45"
+    },
+    {
+      "path": "src/architecture/enclosures.ts",
+      "sha256": "e9a1201db6dadffdc5a8ab33372412b77ddfbf5ee7309b2f969153e12b96e1bb"
+    },
+    {
+      "path": "src/architecture/envelope-suggestions.ts",
+      "sha256": "679eecf35fa449bfc44aecdbf7a5bffc557a5408d5ca99c14da5261270ba4505"
+    },
+    {
+      "path": "src/architecture/face-materials.ts",
+      "sha256": "880f3951a3320e253bde85463aac46e3c81ec1181960ab937958750a608ed6c1"
+    },
+    {
+      "path": "src/architecture/finalize.ts",
+      "sha256": "b3bda74b6844d65f3ce5a0d61817ac4f357574ba6f1327cf6c2965abe1eaaa68"
+    },
+    {
+      "path": "src/architecture/flights.ts",
+      "sha256": "b0c4a7811178c6589103e7c9f38f1c0696126aa436b0035dbb81b55437539475"
+    },
+    {
+      "path": "src/architecture/format.ts",
+      "sha256": "0119b2ae1d35fbd0115a8f768b381d5b871db95c50798cb20793df6466d406c4"
+    },
+    {
+      "path": "src/architecture/geometry.ts",
+      "sha256": "2bd460952a523d315c15525be7ccdabd32c0173418311b5e7b64c48c1501677b"
+    },
+    {
+      "path": "src/architecture/grading.ts",
+      "sha256": "1004f6a0d88aed46f0b77529533b4b81520ed82357245cdee7165fd77f575681"
+    },
+    {
+      "path": "src/architecture/heightmap.ts",
+      "sha256": "bc0564d40978edea30efed54f149ffee0717f1b6b869499338a19bb12d634090"
+    },
+    {
+      "path": "src/architecture/index.ts",
+      "sha256": "bdb572d248469f909d40e9510eb773639a7665b21476d5c423ded93f87c695e7"
+    },
+    {
+      "path": "src/architecture/joins.ts",
+      "sha256": "0104f723466542e09c463f86014a0a9c849ce9a038348a33a57a6c437396403c"
+    },
+    {
+      "path": "src/architecture/migration.ts",
+      "sha256": "9e3930d1978cb8b8d9a3065b7148dbd3683ca2c25ee40fd6d6ad7f7a03982dcf"
+    },
+    {
+      "path": "src/architecture/precision.ts",
+      "sha256": "12391bc374fb888e221689923aec4c37d3210d9414c6556caed98c753e69af0f"
+    },
+    {
+      "path": "src/architecture/producer-errors.ts",
+      "sha256": "d4c6b17ca38c2aa8fa26aca0bf298589ae4e893ccc05afc1141f8eb63ce69dad"
+    },
+    {
+      "path": "src/architecture/producer.ts",
+      "sha256": "931e53b98c416aa88ecc290d2346816db6bdf9694a4e8021e18abc66aba017ab"
+    },
+    {
+      "path": "src/architecture/relationships.ts",
+      "sha256": "e1c3048534dfca82d827f2d11e55203791a16033b31c00bd6b7c84c9ddae3f26"
+    },
+    {
+      "path": "src/architecture/resolve.ts",
+      "sha256": "0fe17ec810c9eaa45a96d572821eb8d9546a177322bca1f4f07b7a2caa16cb97"
+    },
+    {
+      "path": "src/architecture/retaining.ts",
+      "sha256": "960916d7ec0bf8c58e620be62e42f78457996ee12af1b8a4de21daab6e711469"
+    },
+    {
+      "path": "src/architecture/runtime.ts",
+      "sha256": "fc818ac9562f698c5897815386e1c239e2520d3020f55a000844c04019a440b1"
+    },
+    {
+      "path": "src/architecture/shared-edges.ts",
+      "sha256": "a6cb5c0f4189c36d743181aebe220394bd999fa56b6c563eef8606bf452df14f"
+    },
+    {
+      "path": "src/architecture/sweep.ts",
+      "sha256": "4f5bcfa07f539478c04aa3262f10197f2a23e248c679151d02043881e0b87015"
+    },
+    {
+      "path": "src/architecture/terrain-cache.ts",
+      "sha256": "a12ca24462aa28d35e8ca2e36647bb4fc4657859cc5ccba56ac5d5e512c1b29f"
+    },
+    {
+      "path": "src/architecture/terrain-policy.ts",
+      "sha256": "ed0266a4584d2cdcd8d06d9dfc6b91d118f79f357aed48ba5fda6e7ffe38a6cb"
+    },
+    {
+      "path": "src/architecture/terrain-tiles.ts",
+      "sha256": "8a50de63b9899d5bd6b945b52f04a3559cc40fb2a8edfbdd6c8a61c4df7e333e"
+    },
+    {
+      "path": "src/architecture/terrain.ts",
+      "sha256": "869c128e29274f504079b01befefadc737909d51c6107d2a5604dfaa5c50b298"
+    },
+    {
+      "path": "src/architecture/types.ts",
+      "sha256": "db601fccf7d08e8ef4ba7a28508efafa184c153837c3e4c71a3ec5a794e81fab"
+    },
+    {
+      "path": "src/architecture/volumes.ts",
+      "sha256": "800477d19e13da328c26a09bf9503636191f9576e73667f653980ad51c20ba0f"
+    },
+    {
+      "path": "src/architecture/walking-floors.ts",
+      "sha256": "378ed862a8601ea7f5b54e175ab1ee23bc0a1036bb8360df1cca13d2d178eae1"
+    },
+    {
+      "path": "src/architecture/walls.ts",
+      "sha256": "743f6fa920608a4f01e66ea1b292efe7c949e3ac30aabe79616d7cb67f37550a"
+    },
+    {
+      "path": "src/authoring/native-junctions.ts",
+      "sha256": "6f928a375d9324ebed5a95e68afc7ee15c452c98d2c4e69f6cdb1e9470b17597"
+    },
+    {
+      "path": "src/cli/heightmaps.ts",
+      "sha256": "d3c75e63ac1278d849e55c5ebbb23815bb06c4f6837222d3e6a423624977231a"
+    },
+    {
+      "path": "src/cli/local-binary.ts",
+      "sha256": "0a7fba50bc58cbcf7944e2fe6628b4ea6695f1453acc4ac36bbf3fbc2c41ae93"
+    },
+    {
+      "path": "src/cli/main.ts",
+      "sha256": "f540b1bb65bca7db5a764b5ea32c5a201630fa138c24814caf53cc2f6a2abbf7"
+    },
+    {
+      "path": "src/cli/material-images.ts",
+      "sha256": "c5a4bb42b4fd253a64e2c96fc3bd8d933809094f5d7e8db15b29014e00cd12c7"
+    },
+    {
+      "path": "src/cli/migrate.ts",
+      "sha256": "4ba2ff960e3cf26169fe7a083de530d01044fc1092478343237099b8ffddcde3"
+    },
+    {
+      "path": "src/cli/pipeline.ts",
+      "sha256": "10172d2bb6c1aed93e94dfc6c268ac861964cf5da0006d21ca52f673d3d09d7d"
+    },
+    {
+      "path": "src/cli/preview-client.ts",
+      "sha256": "97c2125d0e6dbc7c9d8e199255456df61e6c9ddd385b261948d76d625de156e5"
+    },
+    {
+      "path": "src/cli/preview.ts",
+      "sha256": "a85db6e2d2773d25c7c75f60c52469ad9eaf2ab4c696a16dcea60907d0f882f1"
+    },
+    {
+      "path": "src/cli/templates/starter.aml",
+      "sha256": "e95f77be0179cfd4697e5b386ef5803f7f4cc66e08a0979522cc0d1c8e0c0702"
+    },
+    {
+      "path": "src/dressing/apply.ts",
+      "sha256": "cb33896afd344711c25019f1cddb26ca6c3a8d7e89024effe65077395008617c"
+    },
+    {
+      "path": "src/dressing/finish/brushed-metal.ts",
+      "sha256": "e7307c4d6c60025266f328c5e01f683c1e935a27bbf90256309c2e506251024d"
+    },
+    {
+      "path": "src/dressing/finish/component-geometry.ts",
+      "sha256": "842f8bcda15d38daf86a32ca74af22e09000d1944eaf347d5219b5d7feafc93b"
+    },
+    {
+      "path": "src/dressing/finish/component-patina.ts",
+      "sha256": "71931935020be9238017a100a351e8556dc11613a8c9fbbb75d2675cdbfc816c"
+    },
+    {
+      "path": "src/dressing/finish/metal-surface.ts",
+      "sha256": "be739f89748707face929569002df5ef75113039bb370ab2f5630dc4f2b83b3c"
+    },
+    {
+      "path": "src/dressing/finish/noise.ts",
+      "sha256": "20a190a251b630c27b7ae15d8565a7397bc5b5ba967b0cbc764e533e26696b37"
+    },
+    {
+      "path": "src/dressing/finish/partition.ts",
+      "sha256": "6b0bc510dca42b428824d6bbc9fb8c9395ce5370ce4366cd60000d894ac0af65"
+    },
+    {
+      "path": "src/dressing/finish/patina.ts",
+      "sha256": "5837ebdf279718f34ec390d5c96dd843801f76d58303685c84111b0d9ec7bbcd"
+    },
+    {
+      "path": "src/dressing/finish/pipe-runoff.ts",
+      "sha256": "f51209ffe78d350913176f355704cce6180fe41b4a06a27c0c0550b4c676d966"
+    },
+    {
+      "path": "src/dressing/finish/plaster-study.ts",
+      "sha256": "76216458cbf156e909769cf88598c683d8d749c83abadb8d77f088e28b719be6"
+    },
+    {
+      "path": "src/dressing/finish/tile-damage.ts",
+      "sha256": "ff2e306ff2065c5c3b435dbe581a6034520c939124812bc6c11a02ad5f0985af"
+    },
+    {
+      "path": "src/dressing/finish/tile-grid.ts",
+      "sha256": "ed049d5fbbcb4b72653af01209cf7233a2150e4242e19ebb9be56385802ad684"
+    },
+    {
+      "path": "src/dressing/finish/tile-peeling.ts",
+      "sha256": "d7a8963aa1b383a9d2a226850d2a40db4ae4bcb798dd27da73c5e1a3d6661a97"
+    },
+    {
+      "path": "src/dressing/finish/wall-condition.ts",
+      "sha256": "dcc373b5a845fd8507f8bd2eea81eb03621e523aa704a66e45d43b83109e93af"
+    },
+    {
+      "path": "src/dressing/finish/wall-noise.ts",
+      "sha256": "9f0091b18b4649df854b6e9da201c5a5dc3d9bb490ef5b7fc499684bc806e3b3"
+    },
+    {
+      "path": "src/dressing/geometry.ts",
+      "sha256": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590"
+    },
+    {
+      "path": "src/dressing/ground-context.ts",
+      "sha256": "70504de3e0722de6fdbb0a9335787092556a0bbf897ad4ae536e55b92fef0e3c"
+    },
+    {
+      "path": "src/dressing/ground-field.ts",
+      "sha256": "9af320442bd8158662cdf75ecff9455e5efbb72dcc235589f4858d92e9aec55e"
+    },
+    {
+      "path": "src/dressing/ground-layout.ts",
+      "sha256": "e97d0665a114bf06d864c7d45780b9d14d013f76299cda3b1478f6a132f022ba"
+    },
+    {
+      "path": "src/dressing/ground-surface.ts",
+      "sha256": "93d3e0152e3ea638966b94bc0d9ff26d11cad36b096eff21bef3d678ca15aea1"
+    },
+    {
+      "path": "src/dressing/ground.ts",
+      "sha256": "33077e6f09c49e5d50981b7bb12ee30ca8835b3ffcdd5b827c4bf5a91e8e2c26"
+    },
+    {
+      "path": "src/dressing/kit-mesh.ts",
+      "sha256": "6841e5c044818a30742190588a469d391911db602041b734cf3e0ef2e76a38b4"
+    },
+    {
+      "path": "src/dressing/kit-surfaces.ts",
+      "sha256": "79f3a4035f7bb9f01ef2e9b805c33a25bae4c933589abd9d75c35329e9d8ceec"
+    },
+    {
+      "path": "src/dressing/kit.ts",
+      "sha256": "4f4bec2c8a018d7c5ba82ae80d6f2a309d36fb43aa5d05cea2c80a785b1a8ddc"
+    },
+    {
+      "path": "src/dressing/kowloon/aircon.ts",
+      "sha256": "05563442c0f2eb8801416e338be789da072b347aba5a3916725454496addc4b4"
+    },
+    {
+      "path": "src/dressing/kowloon/atlas.ts",
+      "sha256": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5"
+    },
+    {
+      "path": "src/dressing/kowloon/building.ts",
+      "sha256": "8e9e3306452dcc9919262a275359f82089341e0e19fff1bacb91c0513fcdd466"
+    },
+    {
+      "path": "src/dressing/kowloon/clearance.ts",
+      "sha256": "046a929a96d4b9cc2c030a5a9bff3bd27a5ec2aaa90cfb73bb9645e04f6bcc75"
+    },
+    {
+      "path": "src/dressing/kowloon/deck.ts",
+      "sha256": "686def236dbfacf82877e005c273d45b2f420b50f2544b119a133dab1a250b5e"
+    },
+    {
+      "path": "src/dressing/kowloon/doors.ts",
+      "sha256": "39aebda4d30e86df2818c1d18160bae0a884d4afdf4202b82b5c97f6a3c51502"
+    },
+    {
+      "path": "src/dressing/kowloon/facade-details.ts",
+      "sha256": "8e8c3b4230ab2a07313221c1c8646017f8e89be58e39327d5da950c498a2277c"
+    },
+    {
+      "path": "src/dressing/kowloon/facade.ts",
+      "sha256": "a48962dd8b5dd72181dd565785b54a6f29b4c4477db5e55d596a87af32344bee"
+    },
+    {
+      "path": "src/dressing/kowloon/fixtures.ts",
+      "sha256": "a22781f33e4e1c3b4135c815639c5e07aed031fa25fa947140aa2608fa58dfbc"
+    },
+    {
+      "path": "src/dressing/kowloon/footprint.ts",
+      "sha256": "65065d7d4c85d42bf672682b061d0a8013717449c639d207c9b19bd22b78cf08"
+    },
+    {
+      "path": "src/dressing/kowloon/ground-support.ts",
+      "sha256": "21b6924b66d0234103a042a0da69141d9d135222e10d7be49ccaef67a9a18653"
+    },
+    {
+      "path": "src/dressing/kowloon/ground.ts",
+      "sha256": "3a663a030f67282f92d7960e9243be9c0ee446516a8e72d5ffd9678981faf080"
+    },
+    {
+      "path": "src/dressing/kowloon/kit.ts",
+      "sha256": "9dcb73a82960af9f41f4d4766d778c0dc3fa402ad3a7a973d51e5e7fa5082981"
+    },
+    {
+      "path": "src/dressing/kowloon/laundry.ts",
+      "sha256": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d"
+    },
+    {
+      "path": "src/dressing/kowloon/massing.ts",
+      "sha256": "5caa8e43f84b7ec1dc341957ce3ba055ef7077b9d067dddf30e1f0155bb9c1a5"
+    },
+    {
+      "path": "src/dressing/kowloon/molding.ts",
+      "sha256": "6936b616c3d76f2a5e72b4b881a9acec808f6a3e65ead1c19b9d3807d7dc2f4e"
+    },
+    {
+      "path": "src/dressing/kowloon/painted.ts",
+      "sha256": "57fd40039e17d88920a3a5e27ea1daad603113074f3cccf1483dde11377109cd"
+    },
+    {
+      "path": "src/dressing/kowloon/palette.ts",
+      "sha256": "f20d23a5410a9ba505b8b3b69ae932d65eb4b153b764eb18ddca52dc62828e3d"
+    },
+    {
+      "path": "src/dressing/kowloon/pipes.ts",
+      "sha256": "600e4925ea0fb09c918e2fb72ef6535ebba0815dab84bc34c8cd908f67be0ff0"
+    },
+    {
+      "path": "src/dressing/kowloon/polygon-building.ts",
+      "sha256": "db99e27d69128e3e9a06d2f9e8325ff173e8dfd7100ca37e50632c7e96ad1bd8"
+    },
+    {
+      "path": "src/dressing/kowloon/rooftop.ts",
+      "sha256": "07f8cdf1fc7daca8814cd96821b19419ded2d47666aff2afa58224cf7d130fce"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/assets/apple-pile.json",
+      "sha256": "d6da50c6a731217c9cba39a6ac43e0c72a39b0c138b6a89770aca6cb7c71f271"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/assets/bag-clusters.json",
+      "sha256": "8107c60f10d0094e876d2985cdfb03b9a3c0b294f8668322dd9172a37f9f9753"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/assets/grocer-props.json",
+      "sha256": "d330870bdfdc52d791bb9e3b2fa721ad2431ba03864dcd3121294aae009b0821"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/assets/restaurant-food.json",
+      "sha256": "2df10d2a662334c9f55f2283bcfd47a461e40fd4a55e12e3caaa6cbb8e4075a0"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/assets/shop-timber.json",
+      "sha256": "cd85dfa47c82195afbf86206579283bd259b6f98939de1f9bf3a70cd73be25a0"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/assets/snack-packet.json",
+      "sha256": "de6924f1a61a5e0cde86897173a04ad2e566501703edd13eb364b0df276917a8"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/assets/stock-appearances.json",
+      "sha256": "958f6f14228e28bb29c348733ba27961fa22ff0f7609b18f5c84761316fbdd4c"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/chopping-block.ts",
+      "sha256": "6ac8098bfd55de3ef4b7a805230012644fdaeefec489a634d6f1f3a040c5bb4d"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/display-assemblies.ts",
+      "sha256": "d809632f59e33677c854d0c3a6067404652998a9e68009ee71ff0dd94e2f35a2"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/fittings.ts",
+      "sha256": "577f01ed895753954b1f96559655fbbd2cfe577488821f23d99f0b6e7b1dd7cb"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/forms.ts",
+      "sha256": "ff9a6bd1fa4a89f096681d8b345b07e58dabaafe0a3be5bcd31a82a69bcec2c1"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/frontage.ts",
+      "sha256": "2f684e43908d98611ffd2f7f06a5ec451f76a0697761eab7a589c139569515f8"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/goods.ts",
+      "sha256": "d2d746bd6ae4416e2927bc79aaac4eea9e920a667cfca387ee8d677e4cb64ee4"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/greengrocer.ts",
+      "sha256": "ec5dd0512826e61368b583db49156c4ca00cfd36a98eb353b50e56957a6176dc"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/grocer-layout.ts",
+      "sha256": "4a4a14878cd06b5d26bc5bada77197dca2e974b44525fc950e38a58d91f79462"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/grocer-props.ts",
+      "sha256": "7aedc87eef416ea26abc431a1903df97131a97a9084385ce8679cddb1811a1a4"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/grocer.ts",
+      "sha256": "400c1a55f2d914188469ba69ee6c629a1bd38ff257d5220cd1401286f23eeb69"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/hardware.ts",
+      "sha256": "b8814abab77b313ffc2a5fedf0b126b3d1290e05be4c6806a4b5058d2b973c85"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/herbalist.ts",
+      "sha256": "59dd7fd7e203f8c757ff5d9d04d9c41d8a186422079eb5b32f7ea17f887bfc42"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/restaurant-fittings.ts",
+      "sha256": "a65dace41fe10e6cd7e3a2ccfd4a5eeb9220efaa0b3d3d39636d57d99639e149"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/restaurant-food.ts",
+      "sha256": "fe860bc08366c0c1ff34acb26f0a42d7395d3a7cf985d4f25ccc3644d3c87a9a"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/restaurant-surfaces.ts",
+      "sha256": "3f8e4c69328c46fad392153680b7b226c6658304a881eb97ff5e6298c6b8da29"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/restaurant-work-details.ts",
+      "sha256": "f2de82441b43fe036c35ffce43f9253c8ae7ae2777053da6082af7822760f051"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/roast.ts",
+      "sha256": "41ae77b822ed9979092207c1cc375bb1d69f6721c01aadf398497ad0e87ac59a"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/room.ts",
+      "sha256": "32a18e75dc4a99f5d73d16a23d481e4a1e4c141cf1d11b586522f6420f924fb4"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/shop.ts",
+      "sha256": "ed34fe0d7093f04d3229b056d8dbaf49ce593e297e23f21f9013302d8ffe12e1"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/snack-string.ts",
+      "sha256": "e93400a212ce6ffea41ef16da252593760a19f0213b8ef02df035c7f2c365a13"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/stock-mesh.ts",
+      "sha256": "e4bf6f316ff8098b0603b618f55839f45cbd1a7da111285524bc29a14e812519"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/timber.ts",
+      "sha256": "d6232ca4b577b474dd7f2d7c151b9a0be7439d3810258b712d012fdc451f32f4"
+    },
+    {
+      "path": "src/dressing/kowloon/shop/wares.ts",
+      "sha256": "714c0ed1ae183b2a5841f607fe6b2a8977f855810620de705121f050adad786b"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/atlas.ts",
+      "sha256": "8f24ec121b7c378372107bb18a2f8de9588b61890377a0e67e3d34097b3e8807"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/book.ts",
+      "sha256": "7983d1e3e75bdc985df0ec4594658aa13f088bfcfceefafcd5f55474443d8c8c"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/copy.ts",
+      "sha256": "4cf2ffaf30d2494316696df24b6295fcbc2639add5566d5831678f4de016eb7c"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/designs.ts",
+      "sha256": "996e2eabff09b15427c5bf71b6b4842e4eed05b86fcc6dc3d9d6888024934053"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/lettering.ts",
+      "sha256": "830268d168bbe0cf97b5a30cad854fe0c162208a03a7ecab025d70f7ac617910"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/mounts.ts",
+      "sha256": "bd6f66dee37d2c0c60231710344664d7e7439d3aaf4dc1387c7da1c04cd6127d"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/panel.ts",
+      "sha256": "677d07eda6084fb5025f1de4c560a940095149221419067c271ebe701821a774"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/steel.ts",
+      "sha256": "e1bdb9cd44282e22ab266fa5a566f3e88a6f3b3e0e588f545ad7f462abab69e3"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/street.ts",
+      "sha256": "d6e483f6e274f81a19a7f0818e54e86ab2ee00e18fe726245d3b7edc08596601"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/survey.ts",
+      "sha256": "8576214a99bcb78655e6aaad944e9a5d793de5a1c6b8957e3a830463db091255"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/weathering.ts",
+      "sha256": "eb8231f97953ccb271e3b432e74ac271828edbf8b297012df8feaf0e89a2e23b"
+    },
+    {
+      "path": "src/dressing/kowloon/signs/words.ts",
+      "sha256": "8708fca059a6da225b16c726c006d6ddb60e9c42d54cc481561412cbdfa23c7a"
+    },
+    {
+      "path": "src/dressing/kowloon/signs.ts",
+      "sha256": "5c5f2d4f1f4d7e0b1557041f07ae6a9f039cb63c7dff506ad3c865b7d20cce15"
+    },
+    {
+      "path": "src/dressing/kowloon/skin.ts",
+      "sha256": "a724a25d9e5a5575a701b0d4d47a9381b7cb64edae704329068a1e4dd0775d62"
+    },
+    {
+      "path": "src/dressing/kowloon/weathered.ts",
+      "sha256": "9100ed070455779ad5f7d28a5076ff5e2d895596a8f8139d0311e0acfb00dd3c"
+    },
+    {
+      "path": "src/dressing/kowloon/windows.ts",
+      "sha256": "983065338d06ce3aef40d12df0adb48841af0f94f64331c73c60d0ecf81047f7"
+    },
+    {
+      "path": "src/dressing/pen.ts",
+      "sha256": "8bb256cfe048b2e82b0f7b0ba185205c54385327e679cbbc20eb3c63c814c2c4"
+    },
+    {
+      "path": "src/dressing/posters.ts",
+      "sha256": "1221f4c6297caa47faa3de36a10d3c178a4b916e9a25f2100df7dc701ea1a056"
+    },
+    {
+      "path": "src/dressing/seams.ts",
+      "sha256": "74971eebae3ae7cf4394094d076833ef355221759160f689d310e736de09bc9d"
+    },
+    {
+      "path": "src/dressing/spans/anchors.ts",
+      "sha256": "8453bc5b1db7712ca703045549765bcf29b1edeac54ae7855bd15e2ba0a7fca8"
+    },
+    {
+      "path": "src/dressing/spans/catenary.ts",
+      "sha256": "f59901ea0e21e12c1bc7bff3347ce82b518dd6278fc8e03b8265b766d08daa1c"
+    },
+    {
+      "path": "src/dressing/spans/draw.ts",
+      "sha256": "f77580544db6155fd0137f5d58919c2f7c8fe3b53e1c7103563d908769d67a50"
+    },
+    {
+      "path": "src/dressing/spans/plan.ts",
+      "sha256": "8736573e5ada61283712aeef1c0a4ccb1fd34bfa5bcc7c5d2899fc7fac8df09a"
+    },
+    {
+      "path": "src/dressing/spans/scene.ts",
+      "sha256": "913e47b4f15bbd12a7093f01638362afdbb5f2df08a0eadfcda6249ca08718aa"
+    },
+    {
+      "path": "src/dressing/spans/spans.ts",
+      "sha256": "f06390182af22cf8610313ca59d3987dde599aff6e6b79f25bcd65204cd2c4a4"
+    },
+    {
+      "path": "src/dressing/surface/compile.ts",
+      "sha256": "0fd214fcc2312fd1b44b01a3d984636f3bd300326f05e4430dafa61902573c5b"
+    },
+    {
+      "path": "src/dressing/surface/conform.ts",
+      "sha256": "4dede028db2e01d7bab5ff2c7144f4bd7b60d0091cfc3198e7a72b914ab2c9be"
+    },
+    {
+      "path": "src/dressing/surface/diagnostics.ts",
+      "sha256": "498e72e71334d8470501686ce18c124f586498252f4fdcc4f917f91e7a809121"
+    },
+    {
+      "path": "src/dressing/surface/height-normal.ts",
+      "sha256": "221be76ceae9c55102b0aec24959e25cf5868ea94db8f9bed3c48cbb3fffd5af"
+    },
+    {
+      "path": "src/dressing/surface/images.ts",
+      "sha256": "e6cd36be238806b255e4e8f16e39753338ae16a5f1e43711921c213435f301c2"
+    },
+    {
+      "path": "src/dressing/surface/junctions.ts",
+      "sha256": "9b279044e7f71f210602f5c102010c82fef60f7a80e801112426f6d7ecff29a0"
+    },
+    {
+      "path": "src/dressing/surface/plans.ts",
+      "sha256": "fa67587269659ecac3d395e64b6feca27f0412f7d84b0a6ff7d5ab215854c28b"
+    },
+    {
+      "path": "src/dressing/surface/raster-bindings.ts",
+      "sha256": "cd147b9d50497926c24db621bad6deee93a97df51f2408e7089690c5d5e3723e"
+    },
+    {
+      "path": "src/dressing/surface/raster.ts",
+      "sha256": "cfa9a05dfce7ec204c0be2537aafdfca67517bc9374c3b3d4b86264525c118f4"
+    },
+    {
+      "path": "src/dressing/surface/regions.ts",
+      "sha256": "d49278ebb1a65bbd9248c0ea74237f4abed6893a924b35e4702be8337c12a363"
+    },
+    {
+      "path": "src/dressing/surface/sample.ts",
+      "sha256": "8676427e02b520a718ff192b82379bcfb7bd0221a14cb8a57fbddc69e2a44742"
+    },
+    {
+      "path": "src/dressing/surface/types.ts",
+      "sha256": "78881dab5e93237e5a1e9cbe321d46fc86caca48f5ff4dca1638ad3963a6f0af"
+    },
+    {
+      "path": "src/dressing/surface/work-slice.ts",
+      "sha256": "0b7b04ed0211608147506a1ce7b6bc28ebfdfa7241e49b66ca78da50b83dc35a"
+    },
+    {
+      "path": "src/dressing/tile-field.ts",
+      "sha256": "99510d445a0a022f907fe5fc8f83567eea062b4775384720dcab9dd5d8fdb2b1"
+    },
+    {
+      "path": "src/dressing/tile-surface.ts",
+      "sha256": "0c332e85c510e926142ad3344d700280dadce85139859a86ab345830bebe832c"
+    },
+    {
+      "path": "src/dressing/types.ts",
+      "sha256": "d86a37913855558669b9a2dd2f95904e41edfebe577b68cc82885c66f2993dc1"
+    },
+    {
+      "path": "src/dressing/wall-finish.ts",
+      "sha256": "d106c4bfb435ec88809fb52c784be38e691916d69e98342bddbacb769d418104"
+    },
+    {
+      "path": "src/dressing/wall-geometry.ts",
+      "sha256": "ea12f54dcda0ca656540e47f853fbfe0c704739cdea324bcfb5cd6f113db363a"
+    },
+    {
+      "path": "src/dressing/wall-materials.ts",
+      "sha256": "e7cc387ea712e07c52561e582e20cc73c6dc94bfe747f01e58573024d6fed88f"
+    },
+    {
+      "path": "src/dressing/wall-planning.ts",
+      "sha256": "68c1dc166cc620ebaa5dd54d7f2c0c7b49d567a8aa5b1598df549f821284a700"
+    },
+    {
+      "path": "src/dressing/wall-surface.ts",
+      "sha256": "61afdcb87342897985c235cf98a9d5ce6d0e335d9b8eebf4e28370667829e734"
+    },
+    {
+      "path": "src/dressing/wall-surfaces.ts",
+      "sha256": "b7f8b5c933b52901f17189d867464449c3388dd1998019cd659c3d136e4cc98a"
+    },
+    {
+      "path": "src/dressing/wall-tubes.ts",
+      "sha256": "e3f2f2706c25a556240be2d52fa7b7ac224671b5df7c87624fae13cdf24177d2"
+    },
+    {
+      "path": "src/dressing/walls.ts",
+      "sha256": "dca7b4c5fc94dfc8493dc29fdf1ba03d384aa6b98fd5ba55f78891cc247d9b72"
+    },
+    {
+      "path": "src/dressing/weather.ts",
+      "sha256": "8de4d6dd905ba76e2229e1374769b285dcd197c823f147ba89f859a56e1243a6"
+    },
+    {
+      "path": "src/export/vector/box-mesh.ts",
+      "sha256": "10c6a1224be4289e9532008e365abd6328b3c080750f06b1039c8ed94341897b"
+    },
+    {
+      "path": "src/export/vector/brushes.ts",
+      "sha256": "ec7c4bf12ae3586a0cff4b60fe9f9f99d8fa288f8e626c0917cf71229517cbcf"
+    },
+    {
+      "path": "src/export/vector/bsp.ts",
+      "sha256": "7e063753bd107ef0190696585b0b604bd93395d97311dfafc9a82229c0f2b3d6"
+    },
+    {
+      "path": "src/export/vector/index.ts",
+      "sha256": "ddd99a406e71541fd40c9afd577574fbefbba2279b4403ef7a85dd88ca28b9e9"
+    },
+    {
+      "path": "src/export/vector/process.ts",
+      "sha256": "41569d28fdd83a7f0443207e21a50b2f58b2dd56635cf7b56455cc549d4faa33"
+    },
+    {
+      "path": "src/export/vector/textures.ts",
+      "sha256": "f4c3d7eb9a0efc1c5089a0b6bd2d8468e247b53a070af692a991f1c943cbf65d"
+    },
+    {
+      "path": "src/generate/exploration/config.ts",
+      "sha256": "195713ca687162db283af60f130e1efcc301ef2a96bb116476323e8073fa3169"
+    },
+    {
+      "path": "src/generate/exploration/index.ts",
+      "sha256": "5650e7513a56500080a3a78673237d2122e25b3654f9715a51769439981dd60e"
+    },
+    {
+      "path": "src/generate/exploration/levels.ts",
+      "sha256": "a5d4b7decadb104cb8c0d139551a1551afa685fe104fd944ee56ee9c85014049"
+    },
+    {
+      "path": "src/generate/exploration/metrics.ts",
+      "sha256": "1bdc0cf4aa671dbda692f2fe350639e94319487ea86335db48cc479dfaa683de"
+    },
+    {
+      "path": "src/generate/exploration/presentation.ts",
+      "sha256": "0221eb9ef8141497921aa06ea4396165d40052cab664221a1adfc2d67b6f473f"
+    },
+    {
+      "path": "src/generate/exploration/search.ts",
+      "sha256": "5ae6b73abfa8dc5a7f9a309ab5b83a77d4bce9d0a9d69f2fef6ce4eb0471cc9f"
+    },
+    {
+      "path": "src/generate/exploration/spatial.ts",
+      "sha256": "a41650106a3b3801c7a995f39c7a9a1b2de6fa4cef421593a2499676f1b2d1e7"
+    },
+    {
+      "path": "src/generate/exploration/structure.ts",
+      "sha256": "060cb63cb1730a263095aaa3bd99a7fff9a4d54311f9fbb0620ad6f94df00f7a"
+    },
+    {
+      "path": "src/generate/exploration/types.ts",
+      "sha256": "93ef9e6d0155235e6236f7a6b4275a2bb57a9bfa089f62fd9c09a5daab26f3c8"
+    },
+    {
+      "path": "src/generate/native-archetypes.ts",
+      "sha256": "f76f7e001359531a41740edc486302896bf2701219b25c46df03ace5f3ce40ef"
+    },
+    {
+      "path": "src/generate/native-builder.ts",
+      "sha256": "d17aa8107bd1a3c15f47906b665195739f9ae10b60d022bf4ce6835dc906df59"
+    },
+    {
+      "path": "src/generate/placement.ts",
+      "sha256": "18b88d1fbaa90f0d88dc44adbe2e16666c49518d30c0609adbf646e7cdd8bcfa"
+    },
+    {
+      "path": "src/generate/rng.ts",
+      "sha256": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a"
+    },
+    {
+      "path": "src/generate/themes.ts",
+      "sha256": "b0dbf9ac6713aeb4eaef00dc8278a7b2cfbf85ce823df70596a6d790e0e37fc4"
+    },
+    {
+      "path": "src/generate/vector.ts",
+      "sha256": "e382e61f8c72daaf5b8ed2026ff3a4c6a24961e3f29faee443740790b8e43ae5"
+    },
+    {
+      "path": "src/lighting/bake.ts",
+      "sha256": "3248f0f10c254fc1160da81427e7eec886359f8103e58dc7bcfc0d3e78c0498d"
+    },
+    {
+      "path": "src/lighting/manifest.ts",
+      "sha256": "75a1510c544de2541ebdebe17581e2e299c14392dad2928c2194dc7d58c5fdb4"
+    },
+    {
+      "path": "src/materials/concrete/grime.ts",
+      "sha256": "34f1d2441c96efcd5966b4963baf71186ad8ff0a73ac92b62075d392b6ec8d5c"
+    },
+    {
+      "path": "src/materials/concrete/maps.ts",
+      "sha256": "dd9e82b8b5146b302ac9dc6068090e8b50526d2578ccceaee2df6598d5bea878"
+    },
+    {
+      "path": "src/materials/concrete/material.ts",
+      "sha256": "7dfa70e238d2178478d073cd7b44efd5ce210ef8b7ca3d29449dffd8040e605f"
+    },
+    {
+      "path": "src/materials/concrete/plaster.ts",
+      "sha256": "74eef0f5859f61b9aec8c323a253604c105fa189a60f71fb5858dd72a7cdb22a"
+    },
+    {
+      "path": "src/materials/concrete/textures/base-color.png",
+      "sha256": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8"
+    },
+    {
+      "path": "src/materials/concrete/textures/concrete-fine-sand.png",
+      "sha256": "59e2a45ae03bbf621093e97b8e07e4d005ba9292ce5a0bb0873b928c49d94c4a"
+    },
+    {
+      "path": "src/materials/concrete/textures/concrete-plain.png",
+      "sha256": "25341f2f7d6a6fa91de7a52b04ad0dcae3935c593939129a958c39d3004512ff"
+    },
+    {
+      "path": "src/materials/concrete/textures/maps.json",
+      "sha256": "2182d6bf00d6009555c9550b9dc696ddbf2cab77769307e5bf5a049346f8ac39"
+    },
+    {
+      "path": "src/materials/concrete/textures/normal.png",
+      "sha256": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0"
+    },
+    {
+      "path": "src/materials/concrete/textures/plaster-plain.png",
+      "sha256": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4"
+    },
+    {
+      "path": "src/materials/concrete/textures/provenance.json",
+      "sha256": "fb489a59e3b82728c3d3b79f3b42b135801b990f7f4da9fa5daebd6420a15485"
+    },
+    {
+      "path": "src/migration/svgx-precision.ts",
+      "sha256": "eb61c128cd40041ec936d6b26fb6aff8db47214c248ab685d191700238055123"
+    },
+    {
+      "path": "src/migration/svgx-props.ts",
+      "sha256": "839c854707776f78e0d80d200fa8566552f87ac3a8f9dd3a38cfe6e5cb7ae65a"
+    },
+    {
+      "path": "src/migration/svgx-reader.ts",
+      "sha256": "2c1f4008be438974411040e433973480bfccf48683e46ff96f6455d20890bb93"
+    },
+    {
+      "path": "src/migration/svgx-types.ts",
+      "sha256": "7009678af916a6f4d574c0b37bf7750b5d88ed6d8ea3d319b03e443e58b17413"
+    },
+    {
+      "path": "src/reconstruction/evaluate.ts",
+      "sha256": "259ab766bd67f6b252d82a6efee663ae156efa6736228b5abe23d2f64f5a5c9c"
+    },
+    {
+      "path": "src/reconstruction/index.ts",
+      "sha256": "13322a616989ef3ada5fcbb9cd7bcfe3c7377fbe90d940015ee268b2285fa479"
+    },
+    {
+      "path": "src/reconstruction/loop.ts",
+      "sha256": "11f75c136008624c68b2b8115799f44d3d8b41e438fa476e585e04f6f3d8f661"
+    },
+    {
+      "path": "src/tracing/native.ts",
+      "sha256": "06887ff1a2ef05c24b35d91fc9a5db5c5abcfda7605a8c0160fab30e4fa18fe4"
+    },
+    {
+      "path": "src/vector/clipping.ts",
+      "sha256": "54ab0a06284de0587357583497806f39829331156ea809082427f380aa345a01"
+    },
+    {
+      "path": "src/vector/collision.ts",
+      "sha256": "58bdc6a11a0e4200553e1b43fac9b5ad29a056ea6ecb8de6e6097551f7020166"
+    },
+    {
+      "path": "src/vector/connection-clearance.ts",
+      "sha256": "a236e5f8a8fb636c04bfd2aef9aef34f62bed40e4d7b0b3539c3a0d8502478e8"
+    },
+    {
+      "path": "src/vector/diagnostics.ts",
+      "sha256": "abc368eea5eaf4d4303c88977ead91af7ccd5c1182b2b376b97e95f81ff13a5a"
+    },
+    {
+      "path": "src/vector/export-assets.ts",
+      "sha256": "4e263733104cbdc577a146bf3664f39d05630efe5df90d5ca3bacdb2f4c7d379"
+    },
+    {
+      "path": "src/vector/export.ts",
+      "sha256": "d083f4e72c655e42449cd1cbbdd34f9ddb3ba9d6cbd1cd95e5d903676667b0c4"
+    },
+    {
+      "path": "src/vector/floor-gaps.ts",
+      "sha256": "7130d21e38c5833678b6bb1af346295336bcc610e91f51fccb308ddc2d817a22"
+    },
+    {
+      "path": "src/vector/geometry.ts",
+      "sha256": "75151106696ab75567e986aa6dc6b3ad83bd0fb78201d175af5a93b52d162219"
+    },
+    {
+      "path": "src/vector/glb.ts",
+      "sha256": "8e7d51aa8f4b9bf8bdb53d710e4a27abefdba257150bf75f88119880554575bc"
+    },
+    {
+      "path": "src/vector/materials.ts",
+      "sha256": "159f2c1e2187b24141e72c2d613d79b4049b3c0d13f7645ecce3d3b8d312ff05"
+    },
+    {
+      "path": "src/vector/mesh.ts",
+      "sha256": "2839e017ddf5230280625df1f909cd2d138b47e02a764a7e0a369a0b0d86fa3c"
+    },
+    {
+      "path": "src/vector/movement.ts",
+      "sha256": "18a53ecbdea7f655de9938e2f1bb04282961d771810c783408e1f0b1b6b951ae"
+    },
+    {
+      "path": "src/vector/navigation-areas.ts",
+      "sha256": "3cfa0fb00e44c7d506bfa4a63a700cf1927c01bbcb5d1b0ba7f9c157796c186e"
+    },
+    {
+      "path": "src/vector/navigation-build.ts",
+      "sha256": "93412ad24f80305b68d11ace36feb81800ea0b70aed1a73cc730c6df3024b14e"
+    },
+    {
+      "path": "src/vector/navigation-components.ts",
+      "sha256": "48586a9c3775d739ec3ebbaa5ec163f7e216fb5161a6b225fce994f4533e6d14"
+    },
+    {
+      "path": "src/vector/navigation-coverage.ts",
+      "sha256": "f5fa6fd6955b6c526b01a05153abfd40908d224a4f2c851db551e02f8d0296a9"
+    },
+    {
+      "path": "src/vector/navigation-suggestions.ts",
+      "sha256": "d4b3ddf069d0f930a6668d0a9a7355e46b6e81f80f818945f9a1b0a91b8c998b"
+    },
+    {
+      "path": "src/vector/physical-components.ts",
+      "sha256": "7386f8af344820a9f293c9d973fc55e94d45f01cc7bc15a9a744e5442da1b93b"
+    },
+    {
+      "path": "src/vector/physical-routes.ts",
+      "sha256": "4c5707e81a2d4c87929a02b2d89400d43dd6bf0aa8fe437ad1ea3156dedca325"
+    },
+    {
+      "path": "src/vector/physical-work.ts",
+      "sha256": "1201a1463ec41602572b9130724bb9e334b50a3a28271e00428ec1624852a804"
+    },
+    {
+      "path": "src/vector/precision.ts",
+      "sha256": "c75e83b84c231ba74735bab13fc36a1ea05f5a6b4e56389f964269d182072e53"
+    },
+    {
+      "path": "src/vector/props.ts",
+      "sha256": "022329a32941e52428ae7e41a7c2c41591b938d9e80dcef66db5006157721ab7"
+    },
+    {
+      "path": "src/vector/reference-fit.ts",
+      "sha256": "dc2de49ffa82593b95fc86245465f543af4065d8c3f9d7ace0b9439c3f0a4711"
+    },
+    {
+      "path": "src/vector/reference-raster.ts",
+      "sha256": "748a5fc874d14b68ae3fc887c1b3a153b7dc871550200ca8d55420d27e59c8f9"
+    },
+    {
+      "path": "src/vector/reference.ts",
+      "sha256": "7547eb2ec1af93b484d0e9086a53bd7505e92a47be31d8fc505afe6f04898cb8"
+    },
+    {
+      "path": "src/vector/route-domains.ts",
+      "sha256": "02a3389d09eb97305c995670c2371735e018b125089781a2bb6774dd5ca12781"
+    },
+    {
+      "path": "src/vector/spatial-geometry.ts",
+      "sha256": "1bab07b43453b4df74e8331db3c232513c7633ea76f92f76e5d1b831d0331ba9"
+    },
+    {
+      "path": "src/vector/suggestions.ts",
+      "sha256": "c9821b94fdaf1fe726a4df5d921a6eea2e2adb6c208d7aaf076a82402c60a0cf"
+    },
+    {
+      "path": "src/vector/surface-contacts.ts",
+      "sha256": "07b64034f74b36b607485484cde14cf1cc2782d0bffdeb6709935fe45a9333ec"
+    },
+    {
+      "path": "src/vector/tangents.ts",
+      "sha256": "524170ed5d898edfa9bf2417e2c911df7d89c00d4435f1f6744f985e36722894"
+    },
+    {
+      "path": "src/vector/types.ts",
+      "sha256": "67746cf814469311f50aedddbee1055687be7aedcdf4d2774cdabc6aed828600"
+    },
+    {
+      "path": "src/vector/uv-seams.ts",
+      "sha256": "2a5125b746901eb675bbf168ed5c2ef5f59bc2841beab372e75891cfaf7bf650"
+    },
+    {
+      "path": "src/vector/uv-unassigned.ts",
+      "sha256": "24a792aefe4cea76dcb02f0fbac4ee2c2f365185539e0dd90b8cd15312bc155c"
+    },
+    {
+      "path": "src/vector/uv.ts",
+      "sha256": "3bcaabd7ad13b7f93f1be33bc15227747afedc822ef401b4f597fb534145d98a"
+    },
+    {
+      "path": "src/vector/validate.ts",
+      "sha256": "49a570a1cdd8e70e1a11040a47bd2b05daa21eef25da27dc337c3d916810899b"
+    },
+    {
+      "path": "src/vector/wall-profile.ts",
+      "sha256": "06e9caa30abed93c2479d4bbb078e510d03972e59d5d8c54765386f731b9a54c"
+    },
+    {
+      "path": "src/vector/xml.ts",
+      "sha256": "f5c304c98ad1a51b0de9f3b80521cc803bcb17710045d4b37f950b015c299437"
+    },
+    {
+      "path": "src/vendor.d.ts",
+      "sha256": "9986c87cf465c15762caf202c18bff60e77863f6fe99d5632c5fc505a627c991"
+    },
+    {
+      "path": "tools/build-dressing-demo.ts",
+      "sha256": "ce7e136039760e686c0194f234208454411f45025cc2c7f97dd4ae5cc51488ad"
+    },
+    {
+      "path": "tools/dressing-demo/cache.ts",
+      "sha256": "6aebc7ed2ce8dd7aa0d37cac732992a7fbbe1dbce123dd857826971ac04ade11"
+    },
+    {
+      "path": "tools/dressing-demo/package.ts",
+      "sha256": "e3a3d799f4124e469a8562f388ccd4ddce83a1dcb62bdaeace791faf536e85db"
+    },
+    {
+      "path": "tools/dressing-demo/presets.ts",
+      "sha256": "1cceeb3f9d9557cfc0cd44f873a1db8129ebacd6ec5f51e7d214547160006a89"
+    },
+    {
+      "path": "tools/dressing-demo/profile.ts",
+      "sha256": "33b26c733e3ba04a884127201a9b5bb27ebf736f3283afd020eb1fde55e06d66"
+    },
+    {
+      "path": "tools/profile-dressing.ts",
+      "sha256": "38c71797d1611e0526fc5d140ec4d8ff3ab479dab194c35bcf599e7eb4ed58a3"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "7086ebbef27e0bce56e3cb060ee16fc062fc212a8e98fa2b5ca424ac0f7bdcac"
+    }
+  ],
+  "workspacePathsChangedAfterSnapshot": [
+    "projects/dressing-demo/level.aml",
+    "src/architecture/format.ts",
+    "src/architecture/index.ts",
+    "src/dressing/apply.ts",
+    "src/dressing/kowloon/shop/fittings.ts",
+    "src/dressing/kowloon/shop/roast.ts",
+    "src/dressing/posters.ts",
+    "src/dressing/types.ts",
+    "src/dressing/walls.ts"
+  ],
+  "scope": {
+    "imports": false,
+    "AMLParsing": false,
+    "compile": true,
+    "navigation": true,
+    "export": false,
+    "browserUpload": false,
+    "GPUShadows": false
+  },
+  "rawArtifacts": "generated/kowloon-profile-20261112/"
+}

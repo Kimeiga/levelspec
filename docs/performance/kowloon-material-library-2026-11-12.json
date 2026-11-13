@@ -1,0 +1,1596 @@
+{
+  "version": 1,
+  "description": "Finished material cache stage; single-isolate frozen scene; raw evidence in generated/kowloon-material-library-20261112",
+  "runs": {
+    "baseline-run": {
+      "status": "completed",
+      "createdAt": "2026-11-12T18:30:24.116Z",
+      "sourceSha256": "065cd87e281f8318036b4e1cea811e44dc38d5483f04c57bf9f5211a1fba42f2",
+      "environment": {
+        "node": "v24.12.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4"
+      },
+      "compileOptions": {
+        "maximumTriangles": 6000000,
+        "appearance": {
+          "maximumTexels": 100663296,
+          "maximumBytes": 805306368,
+          "maximumCharts": 131072
+        },
+        "navigation": true,
+        "workers": 1,
+        "deadlineSeconds": 300
+      },
+      "elapsedMs": 84515.539042,
+      "cpuMs": 108608.181,
+      "intervals": [
+        {
+          "stage": "Compile setup",
+          "startMs": 0,
+          "durationMs": 2.4023750000000064
+        },
+        {
+          "stage": "Resolving architecture",
+          "startMs": 2.4023750000000064,
+          "durationMs": 10.436333999999988
+        },
+        {
+          "stage": "Building solids",
+          "startMs": 12.838708999999994,
+          "durationMs": 26.44720799999999
+        },
+        {
+          "stage": "Composing",
+          "startMs": 39.28591699999998,
+          "durationMs": 11.584875000000011
+        },
+        {
+          "stage": "Physical surfaces",
+          "startMs": 50.870791999999994,
+          "durationMs": 1.5251670000000104
+        },
+        {
+          "stage": "Resolving face materials",
+          "startMs": 52.395959000000005,
+          "durationMs": 36.68766599999992
+        },
+        {
+          "stage": "Procedural dressing",
+          "startMs": 89.08362499999993,
+          "durationMs": 3762.7985
+        },
+        {
+          "stage": "Surface appearance",
+          "startMs": 3851.8821249999996,
+          "durationMs": 4.335791999999856
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "startMs": 3856.2179169999995,
+          "durationMs": 1076.9055830000011
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "startMs": 4933.123500000001,
+          "durationMs": 2413.8457089999993
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "startMs": 7346.969209,
+          "durationMs": 17.62183300000015
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "startMs": 7364.591042,
+          "durationMs": 70909.875125
+        },
+        {
+          "stage": "Surface appearance: receiver 1/92553",
+          "startMs": 78274.466167,
+          "durationMs": 6.757582999998704
+        },
+        {
+          "stage": "Surface appearance: receiver 9257/92553",
+          "startMs": 78281.22375,
+          "durationMs": 5.548292000006768
+        },
+        {
+          "stage": "Surface appearance: receiver 18513/92553",
+          "startMs": 78286.77204200001,
+          "durationMs": 5.403666999991401
+        },
+        {
+          "stage": "Surface appearance: receiver 27769/92553",
+          "startMs": 78292.175709,
+          "durationMs": 5.462041000006138
+        },
+        {
+          "stage": "Surface appearance: receiver 37025/92553",
+          "startMs": 78297.63775000001,
+          "durationMs": 4.635209000000032
+        },
+        {
+          "stage": "Surface appearance: receiver 46281/92553",
+          "startMs": 78302.27295900001,
+          "durationMs": 7.758040999993682
+        },
+        {
+          "stage": "Surface appearance: receiver 55537/92553",
+          "startMs": 78310.031,
+          "durationMs": 5.192959000007249
+        },
+        {
+          "stage": "Surface appearance: receiver 64793/92553",
+          "startMs": 78315.22395900001,
+          "durationMs": 29.05420800000138
+        },
+        {
+          "stage": "Surface appearance: receiver 74049/92553",
+          "startMs": 78344.27816700001,
+          "durationMs": 83.22437499999069
+        },
+        {
+          "stage": "Surface appearance: receiver 83305/92553",
+          "startMs": 78427.502542,
+          "durationMs": 83.63620800001081
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "startMs": 78511.13875000001,
+          "durationMs": 4217.386083999998
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "startMs": 82728.52483400001,
+          "durationMs": 1604.8319579999952
+        },
+        {
+          "stage": "Navigation",
+          "startMs": 84333.356792,
+          "durationMs": 182.18224999999802
+        }
+      ],
+      "rasterPool": {
+        "workers": 1,
+        "jobs": 8029,
+        "texels": 90403554,
+        "estimatedWorkingBytes": 1271344228
+      },
+      "peakProcessRssKiB": 2633952,
+      "triangles": 649873,
+      "vertices": 1907395,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "35f2f42de0f3ff580f2736f073dd3b4d678704fab16a766cccddb2044e5069fa",
+      "fingerprintBefore": "0675154b09f7a59931661724882e4627bc9996ae89af4886ffc6a3d8d431dd5d",
+      "fingerprintAfter": "0675154b09f7a59931661724882e4627bc9996ae89af4886ffc6a3d8d431dd5d",
+      "sourceChangedDuringRun": false,
+      "diagnostics": [],
+      "surfaceAppearance": {
+        "version": 1,
+        "sourceHashes": {
+          "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+          "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+          "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+          "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+          "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+          "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+          "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+          "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+          "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+          "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+          "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+          "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+          "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+          "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+        },
+        "charts": 92553,
+        "texels": 90403554,
+        "imageBytes": 96538451,
+        "generatedHashCount": 15834,
+        "generatedHashesDigest": "1f484b854d4538a5c20fae8c576f69dd08342c3e9d06374edcef267423dad7e2"
+      },
+      "rawReportSha256": "a770074e79acff9f08e3710badab3b7ae5e66f9d70a14a35bb0fd8b22e8716fd"
+    },
+    "shared-corrected-run": {
+      "status": "completed",
+      "createdAt": "2026-11-12T18:35:20.365Z",
+      "sourceSha256": "065cd87e281f8318036b4e1cea811e44dc38d5483f04c57bf9f5211a1fba42f2",
+      "environment": {
+        "node": "v24.12.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4"
+      },
+      "compileOptions": {
+        "maximumTriangles": 6000000,
+        "appearance": {
+          "maximumTexels": 100663296,
+          "maximumBytes": 805306368,
+          "maximumCharts": 131072
+        },
+        "navigation": true,
+        "workers": 1,
+        "deadlineSeconds": 300
+      },
+      "elapsedMs": 79722.199667,
+      "cpuMs": 103484.905,
+      "intervals": [
+        {
+          "stage": "Compile setup",
+          "startMs": 0,
+          "durationMs": 2.481666999999959
+        },
+        {
+          "stage": "Resolving architecture",
+          "startMs": 2.481666999999959,
+          "durationMs": 11.782040999999992
+        },
+        {
+          "stage": "Building solids",
+          "startMs": 14.263707999999951,
+          "durationMs": 25.771834000000013
+        },
+        {
+          "stage": "Composing",
+          "startMs": 40.035541999999964,
+          "durationMs": 10.257625000000019
+        },
+        {
+          "stage": "Physical surfaces",
+          "startMs": 50.29316699999998,
+          "durationMs": 2.173249999999996
+        },
+        {
+          "stage": "Resolving face materials",
+          "startMs": 52.46641699999998,
+          "durationMs": 25.63983300000001
+        },
+        {
+          "stage": "Procedural dressing",
+          "startMs": 78.10624999999999,
+          "durationMs": 4000.804
+        },
+        {
+          "stage": "Surface appearance",
+          "startMs": 4078.91025,
+          "durationMs": 18.01929199999995
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "startMs": 4096.929542,
+          "durationMs": 1034.5502910000005
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "startMs": 5131.479833,
+          "durationMs": 2191.7460419999998
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "startMs": 7323.225875,
+          "durationMs": 14.093541999999616
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "startMs": 7337.319417,
+          "durationMs": 66024.16266599999
+        },
+        {
+          "stage": "Surface appearance: receiver 1/92553",
+          "startMs": 73361.482083,
+          "durationMs": 9.045292000009795
+        },
+        {
+          "stage": "Surface appearance: receiver 9257/92553",
+          "startMs": 73370.527375,
+          "durationMs": 5.4071249999979045
+        },
+        {
+          "stage": "Surface appearance: receiver 18513/92553",
+          "startMs": 73375.9345,
+          "durationMs": 6.389541999989888
+        },
+        {
+          "stage": "Surface appearance: receiver 27769/92553",
+          "startMs": 73382.324042,
+          "durationMs": 6.918916000009631
+        },
+        {
+          "stage": "Surface appearance: receiver 37025/92553",
+          "startMs": 73389.242958,
+          "durationMs": 5.718416999996407
+        },
+        {
+          "stage": "Surface appearance: receiver 46281/92553",
+          "startMs": 73394.961375,
+          "durationMs": 5.159041999999317
+        },
+        {
+          "stage": "Surface appearance: receiver 55537/92553",
+          "startMs": 73400.120417,
+          "durationMs": 4.738291000001482
+        },
+        {
+          "stage": "Surface appearance: receiver 64793/92553",
+          "startMs": 73404.858708,
+          "durationMs": 30.976249999992433
+        },
+        {
+          "stage": "Surface appearance: receiver 74049/92553",
+          "startMs": 73435.83495799999,
+          "durationMs": 84.46525000000838
+        },
+        {
+          "stage": "Surface appearance: receiver 83305/92553",
+          "startMs": 73520.300208,
+          "durationMs": 85.21683399999165
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "startMs": 73605.51704199999,
+          "durationMs": 4283.891958000007
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "startMs": 77889.409,
+          "durationMs": 1654.4593330000062
+        },
+        {
+          "stage": "Navigation",
+          "startMs": 79543.868333,
+          "durationMs": 178.3313339999877
+        }
+      ],
+      "rasterPool": {
+        "workers": 1,
+        "jobs": 7986,
+        "texels": 78817527,
+        "estimatedWorkingBytes": 1271344228
+      },
+      "peakProcessRssKiB": 2209696,
+      "triangles": 649873,
+      "vertices": 1907395,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "ee3386e911074cc72e1c90c09e214aa2e1819744235f286b089b2ec1781dbcb5",
+      "fingerprintBefore": "d79b5b9e7c29621de9ba8d0ea34b7958af96fec025e48b477bc0e1a550b69bd5",
+      "fingerprintAfter": "d79b5b9e7c29621de9ba8d0ea34b7958af96fec025e48b477bc0e1a550b69bd5",
+      "sourceChangedDuringRun": false,
+      "diagnostics": [],
+      "surfaceAppearance": {
+        "version": 1,
+        "sourceHashes": {
+          "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+          "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+          "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+          "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+          "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+          "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+          "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+          "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+          "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+          "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+          "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+          "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+          "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+          "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+        },
+        "charts": 92553,
+        "texels": 78817527,
+        "imageBytes": 85486276,
+        "generatedHashCount": 15699,
+        "generatedHashesDigest": "d9ff30cd6443173a5e2fdbdd9f03e67372a2cc0b300eb555898e375219dd8dd7"
+      },
+      "rawReportSha256": "faf6bed89c2d1eb48698dcf68c9ed0ae79832a64476ff8291875176ce46b3599"
+    },
+    "cached-cold-run": {
+      "status": "completed",
+      "createdAt": "2026-11-12T18:45:30.881Z",
+      "sourceSha256": "065cd87e281f8318036b4e1cea811e44dc38d5483f04c57bf9f5211a1fba42f2",
+      "environment": {
+        "node": "v24.12.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4"
+      },
+      "compileOptions": {
+        "maximumTriangles": 6000000,
+        "appearance": {
+          "maximumTexels": 100663296,
+          "maximumBytes": 805306368,
+          "maximumCharts": 131072
+        },
+        "navigation": true,
+        "workers": 1,
+        "deadlineSeconds": 300
+      },
+      "elapsedMs": 78452.599125,
+      "cpuMs": 99229.981,
+      "intervals": [
+        {
+          "stage": "Compile setup",
+          "startMs": 0,
+          "durationMs": 2.1862090000000194
+        },
+        {
+          "stage": "Resolving architecture",
+          "startMs": 2.1862090000000194,
+          "durationMs": 10.145415999999955
+        },
+        {
+          "stage": "Building solids",
+          "startMs": 12.331624999999974,
+          "durationMs": 25.591125000000034
+        },
+        {
+          "stage": "Composing",
+          "startMs": 37.92275000000001,
+          "durationMs": 11.415458999999998
+        },
+        {
+          "stage": "Physical surfaces",
+          "startMs": 49.338209000000006,
+          "durationMs": 1.470708000000002
+        },
+        {
+          "stage": "Resolving face materials",
+          "startMs": 50.80891700000001,
+          "durationMs": 34.827833
+        },
+        {
+          "stage": "Procedural dressing",
+          "startMs": 85.63675,
+          "durationMs": 3917.3887089999994
+        },
+        {
+          "stage": "Surface appearance",
+          "startMs": 4003.0254589999995,
+          "durationMs": 24.037458000000697
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "startMs": 4027.062917,
+          "durationMs": 1060.2040829999996
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "startMs": 5087.267,
+          "durationMs": 2253.0363340000004
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "startMs": 7340.303334,
+          "durationMs": 15.617333000000144
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "startMs": 7355.920667,
+          "durationMs": 64524.682541999995
+        },
+        {
+          "stage": "Surface appearance: receiver 1/92575",
+          "startMs": 71880.603209,
+          "durationMs": 20.283540999997058
+        },
+        {
+          "stage": "Surface appearance: receiver 9259/92575",
+          "startMs": 71900.88674999999,
+          "durationMs": 17.690167000007932
+        },
+        {
+          "stage": "Surface appearance: receiver 18517/92575",
+          "startMs": 71918.576917,
+          "durationMs": 7.942832999993698
+        },
+        {
+          "stage": "Surface appearance: receiver 27775/92575",
+          "startMs": 71926.51974999999,
+          "durationMs": 10.98191700001189
+        },
+        {
+          "stage": "Surface appearance: receiver 37033/92575",
+          "startMs": 71937.501667,
+          "durationMs": 8.19658299999719
+        },
+        {
+          "stage": "Surface appearance: receiver 46291/92575",
+          "startMs": 71945.69825,
+          "durationMs": 5.744208999996772
+        },
+        {
+          "stage": "Surface appearance: receiver 55549/92575",
+          "startMs": 71951.442459,
+          "durationMs": 5.070374999995693
+        },
+        {
+          "stage": "Surface appearance: receiver 64807/92575",
+          "startMs": 71956.512834,
+          "durationMs": 32.205000000001746
+        },
+        {
+          "stage": "Surface appearance: receiver 74065/92575",
+          "startMs": 71988.717834,
+          "durationMs": 82.86016599999857
+        },
+        {
+          "stage": "Surface appearance: receiver 83323/92575",
+          "startMs": 72071.578,
+          "durationMs": 77.86783400000422
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "startMs": 72149.445834,
+          "durationMs": 4498.512749999994
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "startMs": 76647.95858399999,
+          "durationMs": 1622.470291000005
+        },
+        {
+          "stage": "Navigation",
+          "startMs": 78270.428875,
+          "durationMs": 182.17024999999558
+        }
+      ],
+      "rasterPool": {
+        "workers": 1,
+        "jobs": 7986,
+        "texels": 78817527,
+        "estimatedWorkingBytes": 1271344228
+      },
+      "peakProcessRssKiB": 2226752,
+      "triangles": 649873,
+      "vertices": 1907395,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2eaaf695143ef416b3c63975dc999fc4ccdf0cb7c8261f7c0c530bc3edd69f51",
+      "fingerprintBefore": "d3667f910afa9b476afa04a4c9113c8f5c22c006f9742320f18f4caa6fae5da4",
+      "fingerprintAfter": "d3667f910afa9b476afa04a4c9113c8f5c22c006f9742320f18f4caa6fae5da4",
+      "sourceChangedDuringRun": false,
+      "diagnostics": [],
+      "surfaceAppearance": {
+        "version": 1,
+        "sourceHashes": {
+          "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+          "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+          "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+          "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+          "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+          "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+          "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+          "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+          "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+          "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+          "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+          "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+          "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+          "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+        },
+        "charts": 92575,
+        "texels": 78817527,
+        "imageBytes": 85486276,
+        "generatedHashCount": 15699,
+        "generatedHashesDigest": "d9ff30cd6443173a5e2fdbdd9f03e67372a2cc0b300eb555898e375219dd8dd7"
+      },
+      "rawReportSha256": "ded5aaf22ee156eba60ca89ef4e8fc240ff2c99c8ef0c57a738e870da0c69e81"
+    },
+    "cached-warm-run": {
+      "status": "completed",
+      "createdAt": "2026-11-12T18:49:02.083Z",
+      "sourceSha256": "065cd87e281f8318036b4e1cea811e44dc38d5483f04c57bf9f5211a1fba42f2",
+      "environment": {
+        "node": "v24.12.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4"
+      },
+      "compileOptions": {
+        "maximumTriangles": 6000000,
+        "appearance": {
+          "maximumTexels": 100663296,
+          "maximumBytes": 805306368,
+          "maximumCharts": 131072
+        },
+        "navigation": true,
+        "workers": 1,
+        "deadlineSeconds": 300
+      },
+      "elapsedMs": 67808.033542,
+      "cpuMs": 89011.763,
+      "intervals": [
+        {
+          "stage": "Compile setup",
+          "startMs": 0,
+          "durationMs": 2.1323339999999575
+        },
+        {
+          "stage": "Resolving architecture",
+          "startMs": 2.1323339999999575,
+          "durationMs": 9.906083000000024
+        },
+        {
+          "stage": "Building solids",
+          "startMs": 12.038416999999981,
+          "durationMs": 24.922208000000012
+        },
+        {
+          "stage": "Composing",
+          "startMs": 36.96062499999999,
+          "durationMs": 11.743875000000003
+        },
+        {
+          "stage": "Physical surfaces",
+          "startMs": 48.704499999999996,
+          "durationMs": 1.4567920000000072
+        },
+        {
+          "stage": "Resolving face materials",
+          "startMs": 50.161292,
+          "durationMs": 29.91866699999997
+        },
+        {
+          "stage": "Procedural dressing",
+          "startMs": 80.07995899999997,
+          "durationMs": 3868.4840830000003
+        },
+        {
+          "stage": "Surface appearance",
+          "startMs": 3948.5640420000004,
+          "durationMs": 23.39154199999939
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "startMs": 3971.955584,
+          "durationMs": 1031.2720409999997
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "startMs": 5003.2276249999995,
+          "durationMs": 2217.3521250000003
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "startMs": 7220.57975,
+          "durationMs": 14.403916999999637
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "startMs": 7234.9836669999995,
+          "durationMs": 53904.113042000004
+        },
+        {
+          "stage": "Surface appearance: receiver 1/92575",
+          "startMs": 61139.096709000005,
+          "durationMs": 8.930249999997613
+        },
+        {
+          "stage": "Surface appearance: receiver 9259/92575",
+          "startMs": 61148.026959,
+          "durationMs": 20.606416000002355
+        },
+        {
+          "stage": "Surface appearance: receiver 18517/92575",
+          "startMs": 61168.633375000005,
+          "durationMs": 15.718416999996407
+        },
+        {
+          "stage": "Surface appearance: receiver 27775/92575",
+          "startMs": 61184.351792,
+          "durationMs": 11.606832999998005
+        },
+        {
+          "stage": "Surface appearance: receiver 37033/92575",
+          "startMs": 61195.958625,
+          "durationMs": 18.222125000000233
+        },
+        {
+          "stage": "Surface appearance: receiver 46291/92575",
+          "startMs": 61214.18075,
+          "durationMs": 14.058583999998518
+        },
+        {
+          "stage": "Surface appearance: receiver 55549/92575",
+          "startMs": 61228.239334,
+          "durationMs": 13.140916000003926
+        },
+        {
+          "stage": "Surface appearance: receiver 64807/92575",
+          "startMs": 61241.38025,
+          "durationMs": 33.966874999998254
+        },
+        {
+          "stage": "Surface appearance: receiver 74065/92575",
+          "startMs": 61275.347125,
+          "durationMs": 90.55191700000432
+        },
+        {
+          "stage": "Surface appearance: receiver 83323/92575",
+          "startMs": 61365.899042000005,
+          "durationMs": 86.62349999999424
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "startMs": 61452.522542,
+          "durationMs": 4485.050374999999
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "startMs": 65937.572917,
+          "durationMs": 1691.630541999999
+        },
+        {
+          "stage": "Navigation",
+          "startMs": 67629.203459,
+          "durationMs": 178.83008300000802
+        }
+      ],
+      "rasterPool": {
+        "workers": 1,
+        "jobs": 517,
+        "texels": 62859669,
+        "estimatedWorkingBytes": 1271344228
+      },
+      "peakProcessRssKiB": 2180544,
+      "triangles": 649873,
+      "vertices": 1907395,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2eaaf695143ef416b3c63975dc999fc4ccdf0cb7c8261f7c0c530bc3edd69f51",
+      "fingerprintBefore": "d3667f910afa9b476afa04a4c9113c8f5c22c006f9742320f18f4caa6fae5da4",
+      "fingerprintAfter": "d3667f910afa9b476afa04a4c9113c8f5c22c006f9742320f18f4caa6fae5da4",
+      "sourceChangedDuringRun": false,
+      "diagnostics": [],
+      "surfaceAppearance": {
+        "version": 1,
+        "sourceHashes": {
+          "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+          "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+          "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+          "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+          "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+          "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+          "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+          "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+          "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+          "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+          "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+          "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+          "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+          "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+        },
+        "charts": 92575,
+        "texels": 78817527,
+        "imageBytes": 85486276,
+        "generatedHashCount": 15699,
+        "generatedHashesDigest": "d9ff30cd6443173a5e2fdbdd9f03e67372a2cc0b300eb555898e375219dd8dd7"
+      },
+      "rawReportSha256": "13ce99bd3bd9612bcb29f20677fd9dc0630fb68872a1b59dd3937fdce85eba9e"
+    },
+    "cached-warm-profile": {
+      "status": "completed",
+      "createdAt": "2026-11-12T18:51:06.501Z",
+      "sourceSha256": "065cd87e281f8318036b4e1cea811e44dc38d5483f04c57bf9f5211a1fba42f2",
+      "environment": {
+        "node": "v24.12.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4"
+      },
+      "compileOptions": {
+        "maximumTriangles": 6000000,
+        "appearance": {
+          "maximumTexels": 100663296,
+          "maximumBytes": 805306368,
+          "maximumCharts": 131072
+        },
+        "navigation": true,
+        "workers": 1,
+        "deadlineSeconds": 300
+      },
+      "elapsedMs": 114055.91745800001,
+      "cpuMs": 134603.87,
+      "intervals": [
+        {
+          "stage": "Compile setup",
+          "startMs": 0,
+          "durationMs": 2.7624159999999733
+        },
+        {
+          "stage": "Resolving architecture",
+          "startMs": 2.7624159999999733,
+          "durationMs": 13.370959000000028
+        },
+        {
+          "stage": "Building solids",
+          "startMs": 16.133375,
+          "durationMs": 28.343707999999992
+        },
+        {
+          "stage": "Composing",
+          "startMs": 44.47708299999999,
+          "durationMs": 12.786791999999991
+        },
+        {
+          "stage": "Physical surfaces",
+          "startMs": 57.263874999999985,
+          "durationMs": 1.7685410000000275
+        },
+        {
+          "stage": "Resolving face materials",
+          "startMs": 59.03241600000001,
+          "durationMs": 31.27720899999997
+        },
+        {
+          "stage": "Procedural dressing",
+          "startMs": 90.30962499999998,
+          "durationMs": 4295.292458
+        },
+        {
+          "stage": "Surface appearance",
+          "startMs": 4385.602083,
+          "durationMs": 33.96849999999995
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "startMs": 4419.570583,
+          "durationMs": 1416.4242920000006
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "startMs": 5835.994875,
+          "durationMs": 2970.405291000001
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "startMs": 8806.400166000001,
+          "durationMs": 17.351542000000336
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "startMs": 8823.751708000002,
+          "durationMs": 91863.349333
+        },
+        {
+          "stage": "Surface appearance: receiver 1/92575",
+          "startMs": 100687.101041,
+          "durationMs": 15.297542000000249
+        },
+        {
+          "stage": "Surface appearance: receiver 9259/92575",
+          "startMs": 100702.398583,
+          "durationMs": 16.799542000007932
+        },
+        {
+          "stage": "Surface appearance: receiver 18517/92575",
+          "startMs": 100719.19812500001,
+          "durationMs": 21.755082999996375
+        },
+        {
+          "stage": "Surface appearance: receiver 27775/92575",
+          "startMs": 100740.953208,
+          "durationMs": 29.255332999993698
+        },
+        {
+          "stage": "Surface appearance: receiver 37033/92575",
+          "startMs": 100770.208541,
+          "durationMs": 20.1019590000069
+        },
+        {
+          "stage": "Surface appearance: receiver 46291/92575",
+          "startMs": 100790.3105,
+          "durationMs": 15.038000000000466
+        },
+        {
+          "stage": "Surface appearance: receiver 55549/92575",
+          "startMs": 100805.34850000001,
+          "durationMs": 21.154457999989972
+        },
+        {
+          "stage": "Surface appearance: receiver 64807/92575",
+          "startMs": 100826.502958,
+          "durationMs": 41.840125000002445
+        },
+        {
+          "stage": "Surface appearance: receiver 74065/92575",
+          "startMs": 100868.343083,
+          "durationMs": 103.62541700000293
+        },
+        {
+          "stage": "Surface appearance: receiver 83323/92575",
+          "startMs": 100971.9685,
+          "durationMs": 105.37300000000687
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "startMs": 101077.34150000001,
+          "durationMs": 9708.672458000001
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "startMs": 110786.01395800001,
+          "durationMs": 2794.5479579999956
+        },
+        {
+          "stage": "Navigation",
+          "startMs": 113580.561916,
+          "durationMs": 475.3555420000048
+        }
+      ],
+      "rasterPool": {
+        "workers": 1,
+        "jobs": 517,
+        "texels": 62859669,
+        "estimatedWorkingBytes": 1271344228
+      },
+      "peakProcessRssKiB": 2021392,
+      "triangles": 649873,
+      "vertices": 1907395,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2eaaf695143ef416b3c63975dc999fc4ccdf0cb7c8261f7c0c530bc3edd69f51",
+      "fingerprintBefore": "d3667f910afa9b476afa04a4c9113c8f5c22c006f9742320f18f4caa6fae5da4",
+      "fingerprintAfter": "d3667f910afa9b476afa04a4c9113c8f5c22c006f9742320f18f4caa6fae5da4",
+      "sourceChangedDuringRun": false,
+      "diagnostics": [],
+      "surfaceAppearance": {
+        "version": 1,
+        "sourceHashes": {
+          "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+          "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+          "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+          "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+          "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+          "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+          "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+          "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+          "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+          "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+          "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+          "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+          "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+          "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+        },
+        "charts": 92575,
+        "texels": 78817527,
+        "imageBytes": 85486276,
+        "generatedHashCount": 15699,
+        "generatedHashesDigest": "d9ff30cd6443173a5e2fdbdd9f03e67372a2cc0b300eb555898e375219dd8dd7"
+      },
+      "rawReportSha256": "3b3ff0c27fafbddc84d9ea2150b6c64358ffb24f76af7fd93d4809a08c22af65"
+    },
+    "cached-alternate-run": {
+      "status": "completed",
+      "createdAt": "2026-11-12T18:53:01.851Z",
+      "sourceSha256": "cac7d1a46177f816a57163275a4f746a8b642a015a2af9fecd7550b4d05207de",
+      "environment": {
+        "node": "v24.12.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4"
+      },
+      "compileOptions": {
+        "maximumTriangles": 6000000,
+        "appearance": {
+          "maximumTexels": 100663296,
+          "maximumBytes": 805306368,
+          "maximumCharts": 131072
+        },
+        "navigation": true,
+        "workers": 1,
+        "deadlineSeconds": 300
+      },
+      "elapsedMs": 102141.623,
+      "cpuMs": 132113.268,
+      "intervals": [
+        {
+          "stage": "Compile setup",
+          "startMs": 0,
+          "durationMs": 2.4933750000000146
+        },
+        {
+          "stage": "Resolving architecture",
+          "startMs": 2.4933750000000146,
+          "durationMs": 10.789750000000026
+        },
+        {
+          "stage": "Building solids",
+          "startMs": 13.283125000000041,
+          "durationMs": 26.481124999999963
+        },
+        {
+          "stage": "Composing",
+          "startMs": 39.764250000000004,
+          "durationMs": 11.557583000000022
+        },
+        {
+          "stage": "Physical surfaces",
+          "startMs": 51.32183300000003,
+          "durationMs": 1.6917499999999563
+        },
+        {
+          "stage": "Resolving face materials",
+          "startMs": 53.01358299999998,
+          "durationMs": 28.92416700000001
+        },
+        {
+          "stage": "Procedural dressing",
+          "startMs": 81.93775,
+          "durationMs": 5005.456583
+        },
+        {
+          "stage": "Surface appearance",
+          "startMs": 5087.394333,
+          "durationMs": 28.73491699999977
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "startMs": 5116.12925,
+          "durationMs": 1384.305042
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "startMs": 6500.434292,
+          "durationMs": 3064.879000000001
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "startMs": 9565.313292,
+          "durationMs": 17.7114160000001
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "startMs": 9583.024708,
+          "durationMs": 85142.02204200001
+        },
+        {
+          "stage": "Surface appearance: receiver 1/95335",
+          "startMs": 94725.04675000001,
+          "durationMs": 7.653582999992068
+        },
+        {
+          "stage": "Surface appearance: receiver 9535/95335",
+          "startMs": 94732.700333,
+          "durationMs": 5.9169590000092285
+        },
+        {
+          "stage": "Surface appearance: receiver 19069/95335",
+          "startMs": 94738.61729200001,
+          "durationMs": 6.994374999994761
+        },
+        {
+          "stage": "Surface appearance: receiver 28603/95335",
+          "startMs": 94745.611667,
+          "durationMs": 7.091916000004858
+        },
+        {
+          "stage": "Surface appearance: receiver 38137/95335",
+          "startMs": 94752.70358300001,
+          "durationMs": 6.093083999992814
+        },
+        {
+          "stage": "Surface appearance: receiver 47671/95335",
+          "startMs": 94758.796667,
+          "durationMs": 6.210290999995777
+        },
+        {
+          "stage": "Surface appearance: receiver 57205/95335",
+          "startMs": 94765.006958,
+          "durationMs": 6.164167000009911
+        },
+        {
+          "stage": "Surface appearance: receiver 66739/95335",
+          "startMs": 94771.17112500001,
+          "durationMs": 32.58470799999486
+        },
+        {
+          "stage": "Surface appearance: receiver 76273/95335",
+          "startMs": 94803.755833,
+          "durationMs": 80.60541699999885
+        },
+        {
+          "stage": "Surface appearance: receiver 85807/95335",
+          "startMs": 94884.36125,
+          "durationMs": 79.33458300000348
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "startMs": 94963.695833,
+          "durationMs": 5199.097874999992
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "startMs": 100162.793708,
+          "durationMs": 1765.804375000007
+        },
+        {
+          "stage": "Navigation",
+          "startMs": 101928.598083,
+          "durationMs": 213.02491700000246
+        }
+      ],
+      "rasterPool": {
+        "workers": 1,
+        "jobs": 1071,
+        "texels": 65789242,
+        "estimatedWorkingBytes": 1273077124
+      },
+      "peakProcessRssKiB": 3190912,
+      "triangles": 674727,
+      "vertices": 1981921,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "3feacd1dc6e0d59bccb9eed97390bb5df8b5d4cb8c917d46f18e3f36c360f6f5",
+      "fingerprintBefore": "d5449ec20ee2d69f7b49e4258657e021f9a8ec2373ff11663dbefce04af14cab",
+      "fingerprintAfter": "d5449ec20ee2d69f7b49e4258657e021f9a8ec2373ff11663dbefce04af14cab",
+      "sourceChangedDuringRun": false,
+      "diagnostics": [],
+      "surfaceAppearance": {
+        "version": 1,
+        "sourceHashes": {
+          "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+          "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+          "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+          "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+          "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+          "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+          "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+          "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+          "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+          "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+          "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+          "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+          "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+          "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+        },
+        "charts": 95335,
+        "texels": 80016037,
+        "imageBytes": 86724534,
+        "generatedHashCount": 15987,
+        "generatedHashesDigest": "c5e79472834315c4d055e75a1cc6366115660f115bd350a0b35052ffd6025d22"
+      },
+      "rawReportSha256": "adc1e78a4147f77cb210333ae466ad71b0ea7ac1944a869cb1ebee0bb057ccbc"
+    },
+    "baseline-repeat-run": {
+      "status": "completed",
+      "createdAt": "2026-11-12T18:58:43.521Z",
+      "sourceSha256": "065cd87e281f8318036b4e1cea811e44dc38d5483f04c57bf9f5211a1fba42f2",
+      "environment": {
+        "node": "v24.12.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4"
+      },
+      "compileOptions": {
+        "maximumTriangles": 6000000,
+        "appearance": {
+          "maximumTexels": 100663296,
+          "maximumBytes": 805306368,
+          "maximumCharts": 131072
+        },
+        "navigation": true,
+        "workers": 1,
+        "deadlineSeconds": 300
+      },
+      "elapsedMs": 167592.11454200002,
+      "cpuMs": 198752.355,
+      "intervals": [
+        {
+          "stage": "Compile setup",
+          "startMs": 0,
+          "durationMs": 6.584042000000181
+        },
+        {
+          "stage": "Resolving architecture",
+          "startMs": 6.584042000000181,
+          "durationMs": 25.359207999999853
+        },
+        {
+          "stage": "Building solids",
+          "startMs": 31.943250000000035,
+          "durationMs": 94.84558399999992
+        },
+        {
+          "stage": "Composing",
+          "startMs": 126.78883399999995,
+          "durationMs": 52.95154099999991
+        },
+        {
+          "stage": "Physical surfaces",
+          "startMs": 179.74037499999986,
+          "durationMs": 6.360625000000255
+        },
+        {
+          "stage": "Resolving face materials",
+          "startMs": 186.1010000000001,
+          "durationMs": 123.18216699999994
+        },
+        {
+          "stage": "Procedural dressing",
+          "startMs": 309.28316700000005,
+          "durationMs": 13634.991042000001
+        },
+        {
+          "stage": "Surface appearance",
+          "startMs": 13944.274209000001,
+          "durationMs": 9.786624999998821
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "startMs": 13954.060834,
+          "durationMs": 2441.2848330000015
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "startMs": 16395.345667,
+          "durationMs": 4821.797707999998
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "startMs": 21217.143375,
+          "durationMs": 23.563625000002503
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "startMs": 21240.707000000002,
+          "durationMs": 134760.38150000002
+        },
+        {
+          "stage": "Surface appearance: receiver 1/92553",
+          "startMs": 156001.0885,
+          "durationMs": 16.206500000000233
+        },
+        {
+          "stage": "Surface appearance: receiver 9257/92553",
+          "startMs": 156017.295,
+          "durationMs": 17.233459000010043
+        },
+        {
+          "stage": "Surface appearance: receiver 18513/92553",
+          "startMs": 156034.52845900002,
+          "durationMs": 16.49549999998999
+        },
+        {
+          "stage": "Surface appearance: receiver 27769/92553",
+          "startMs": 156051.023959,
+          "durationMs": 20.703333000012208
+        },
+        {
+          "stage": "Surface appearance: receiver 37025/92553",
+          "startMs": 156071.72729200003,
+          "durationMs": 15.116916999977548
+        },
+        {
+          "stage": "Surface appearance: receiver 46281/92553",
+          "startMs": 156086.844209,
+          "durationMs": 14.681250000023283
+        },
+        {
+          "stage": "Surface appearance: receiver 55537/92553",
+          "startMs": 156101.52545900003,
+          "durationMs": 18.59629099999438
+        },
+        {
+          "stage": "Surface appearance: receiver 64793/92553",
+          "startMs": 156120.12175000002,
+          "durationMs": 51.18104199998197
+        },
+        {
+          "stage": "Surface appearance: receiver 74049/92553",
+          "startMs": 156171.302792,
+          "durationMs": 120.82533300001523
+        },
+        {
+          "stage": "Surface appearance: receiver 83305/92553",
+          "startMs": 156292.12812500002,
+          "durationMs": 91.87075000000186
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "startMs": 156383.99887500002,
+          "durationMs": 8363.159916999983
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "startMs": 164747.158792,
+          "durationMs": 2518.4656670000113
+        },
+        {
+          "stage": "Navigation",
+          "startMs": 167265.624459,
+          "durationMs": 326.4900830000115
+        }
+      ],
+      "rasterPool": {
+        "workers": 1,
+        "jobs": 8029,
+        "texels": 90403554,
+        "estimatedWorkingBytes": 1271344228
+      },
+      "peakProcessRssKiB": 1874688,
+      "triangles": 649873,
+      "vertices": 1907395,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "35f2f42de0f3ff580f2736f073dd3b4d678704fab16a766cccddb2044e5069fa",
+      "fingerprintBefore": "0675154b09f7a59931661724882e4627bc9996ae89af4886ffc6a3d8d431dd5d",
+      "fingerprintAfter": "0675154b09f7a59931661724882e4627bc9996ae89af4886ffc6a3d8d431dd5d",
+      "sourceChangedDuringRun": false,
+      "diagnostics": [],
+      "surfaceAppearance": {
+        "version": 1,
+        "sourceHashes": {
+          "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+          "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+          "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+          "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+          "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+          "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+          "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+          "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+          "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+          "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+          "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+          "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+          "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+          "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+        },
+        "charts": 92553,
+        "texels": 90403554,
+        "imageBytes": 96538451,
+        "generatedHashCount": 15834,
+        "generatedHashesDigest": "1f484b854d4538a5c20fae8c576f69dd08342c3e9d06374edcef267423dad7e2"
+      },
+      "rawReportSha256": "088409c4009ca7fc8610fb08ed6b09c7df0c6da91e7a7201e772fe2e4f0b7f4b"
+    },
+    "cached-warm-repeat-run": {
+      "status": "completed",
+      "createdAt": "2026-11-12T19:00:48.347Z",
+      "sourceSha256": "065cd87e281f8318036b4e1cea811e44dc38d5483f04c57bf9f5211a1fba42f2",
+      "environment": {
+        "node": "v24.12.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4"
+      },
+      "compileOptions": {
+        "maximumTriangles": 6000000,
+        "appearance": {
+          "maximumTexels": 100663296,
+          "maximumBytes": 805306368,
+          "maximumCharts": 131072
+        },
+        "navigation": true,
+        "workers": 1,
+        "deadlineSeconds": 300
+      },
+      "elapsedMs": 97362.025125,
+      "cpuMs": 128288.057,
+      "intervals": [
+        {
+          "stage": "Compile setup",
+          "startMs": 0,
+          "durationMs": 2.7050409999999943
+        },
+        {
+          "stage": "Resolving architecture",
+          "startMs": 2.7050409999999943,
+          "durationMs": 10.57974999999999
+        },
+        {
+          "stage": "Building solids",
+          "startMs": 13.284790999999984,
+          "durationMs": 31.190124999999966
+        },
+        {
+          "stage": "Composing",
+          "startMs": 44.47491599999995,
+          "durationMs": 13.808334000000059
+        },
+        {
+          "stage": "Physical surfaces",
+          "startMs": 58.28325000000001,
+          "durationMs": 5.330332999999996
+        },
+        {
+          "stage": "Resolving face materials",
+          "startMs": 63.613583000000006,
+          "durationMs": 28.42116699999997
+        },
+        {
+          "stage": "Procedural dressing",
+          "startMs": 92.03474999999997,
+          "durationMs": 5286.576
+        },
+        {
+          "stage": "Surface appearance",
+          "startMs": 5378.61075,
+          "durationMs": 28.80016599999999
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "startMs": 5407.410916,
+          "durationMs": 1645.260875
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "startMs": 7052.671791,
+          "durationMs": 3825.0373339999996
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "startMs": 10877.709125,
+          "durationMs": 19.58062500000051
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "startMs": 10897.28975,
+          "durationMs": 79422.4455
+        },
+        {
+          "stage": "Surface appearance: receiver 1/92575",
+          "startMs": 90319.73525,
+          "durationMs": 13.558958000008715
+        },
+        {
+          "stage": "Surface appearance: receiver 9259/92575",
+          "startMs": 90333.294208,
+          "durationMs": 8.15441699999792
+        },
+        {
+          "stage": "Surface appearance: receiver 18517/92575",
+          "startMs": 90341.448625,
+          "durationMs": 10.618207999999868
+        },
+        {
+          "stage": "Surface appearance: receiver 27775/92575",
+          "startMs": 90352.066833,
+          "durationMs": 13.237874999991618
+        },
+        {
+          "stage": "Surface appearance: receiver 37033/92575",
+          "startMs": 90365.304708,
+          "durationMs": 11.982625000004191
+        },
+        {
+          "stage": "Surface appearance: receiver 46291/92575",
+          "startMs": 90377.287333,
+          "durationMs": 12.665458000003127
+        },
+        {
+          "stage": "Surface appearance: receiver 55549/92575",
+          "startMs": 90389.952791,
+          "durationMs": 10.896833999999217
+        },
+        {
+          "stage": "Surface appearance: receiver 64807/92575",
+          "startMs": 90400.849625,
+          "durationMs": 224.41437500000757
+        },
+        {
+          "stage": "Surface appearance: receiver 74065/92575",
+          "startMs": 90625.26400000001,
+          "durationMs": 76.18662499998754
+        },
+        {
+          "stage": "Surface appearance: receiver 83323/92575",
+          "startMs": 90701.450625,
+          "durationMs": 80.51983299999847
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "startMs": 90781.970458,
+          "durationMs": 4761.171583000003
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "startMs": 95543.142041,
+          "durationMs": 1628.5197500000068
+        },
+        {
+          "stage": "Navigation",
+          "startMs": 97171.661791,
+          "durationMs": 190.3633339999942
+        }
+      ],
+      "rasterPool": {
+        "workers": 1,
+        "jobs": 517,
+        "texels": 62859669,
+        "estimatedWorkingBytes": 1271344228
+      },
+      "peakProcessRssKiB": 2387136,
+      "triangles": 649873,
+      "vertices": 1907395,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2eaaf695143ef416b3c63975dc999fc4ccdf0cb7c8261f7c0c530bc3edd69f51",
+      "fingerprintBefore": "d5449ec20ee2d69f7b49e4258657e021f9a8ec2373ff11663dbefce04af14cab",
+      "fingerprintAfter": "d5449ec20ee2d69f7b49e4258657e021f9a8ec2373ff11663dbefce04af14cab",
+      "sourceChangedDuringRun": false,
+      "diagnostics": [],
+      "surfaceAppearance": {
+        "version": 1,
+        "sourceHashes": {
+          "textures/concrete-shared.png": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8",
+          "textures/concrete-shared-normal.png": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0",
+          "textures/wall-ceramic-weathered.png": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e",
+          "textures/wall-ceramic-normal.png": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6",
+          "textures/ground-asphalt.png": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+          "textures/ground-asphalt-normal.png": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+          "textures/building-plaster-plain.png": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4",
+          "textures/metal.png": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded",
+          "textures/timber.png": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca",
+          "textures/sheet.png": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f",
+          "textures/roofing.png": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab",
+          "textures/rust.png": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879",
+          "textures/lettering.png": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d",
+          "textures/signboard.png": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+        },
+        "charts": 92575,
+        "texels": 78817527,
+        "imageBytes": 85486276,
+        "generatedHashCount": 15699,
+        "generatedHashesDigest": "d9ff30cd6443173a5e2fdbdd9f03e67372a2cc0b300eb555898e375219dd8dd7"
+      },
+      "rawReportSha256": "f463e9d2d96a713d4975e9231a031a87f290bcb0829c109bb32acd609e535b17"
+    }
+  },
+  "cachedChangedSourceManifest": {
+    "src/dressing/surface/material.ts": "d6ad032a751dd6d94b8a72a9152275ec6d7ae9d0aa9c940c3364822d51a33501",
+    "src/dressing/surface/types.ts": "74500ebbabcf96c4d17b349299836686cbfdffef80491904311fafa5b1b725b6",
+    "src/dressing/surface/raster.ts": "8ca6adfd12a6c3d386e7160fd749e92d8a46ebf308604f921ade597f026388ab",
+    "src/dressing/surface/compile.ts": "587b78ab68fbc8f10b9f1d5462790bf3bf93f3dc7de386e1d54c54214f3e8f46",
+    "src/dressing/surface/raster-bindings.ts": "7a63572af062e47ebaa1e2791da2438e48acc308812f003a24da55f0a647d71a",
+    "src/dressing/surface/regions.ts": "133a84ba2b234596542af600528758b3baa3d3a0cd014299786d89a775045a56",
+    "src/dressing/kit-surfaces.ts": "2690691252d70a647304d0bdca83275720e57e6ed725c081b335f5536fa8dca4",
+    "src/dressing/kowloon/facade-material.ts": "debda843c72a48fc74321083cbc54c995aa222a8d2188b1e10949bd50d6d7c95",
+    "src/dressing/kowloon/skin.ts": "090aca4fc378b82f8b282a34c899749ba2f93ee13f32f512f97f1176f1e95b99",
+    "src/architecture/types.ts": "1eba3b02fd75ff98738e6c98ffa4b750da394829c9f64206c8422a19b5323b9b",
+    "src/dressing/surface/material-cache.ts": "362ea1777f32b7863d91a09a1e19854937a264324d24834c9a888c9ba3f30464",
+    "src/dressing/surface/raster-execution.ts": "5378207fbd672504149b03c5e89db243d3cfda22355a0a8994260ebe8f8da5c5",
+    "src/dressing/kowloon/weathered.ts": "9dbac553fa41efc01986c3492f0cb0714d104012dca79696b8f0088ee0a88c78",
+    "src/dressing/kowloon/pipes.ts": "780fc7d6fa3578484669b96300aeebce48315a88fc63256199fa75a456f67ab0",
+    "tools/dressing-demo/compile.ts": "cc07010d2f43f86708da5a39e4c112b3a67526510630454c2f5c021b198663e8",
+    "tools/dressing-demo/material-cache.ts": "5a644c5c2d1710499738eeb036bcd94931de8ec62868a8dcfad556e9645d8d5a",
+    "tools/dressing-demo/parallel-raster.ts": "91517baafa0ef0ced96421da8454ad584d25c86dee817abd855d3454872c4282"
+  },
+  "validation": {
+    "focusedTests": 40,
+    "passed": 40,
+    "failed": 0,
+    "skipped": 0,
+    "types": "passed",
+    "reviews": [
+      "independent test review: no blocker",
+      "independent implementation review: no blocker"
+    ],
+    "visualAcceptance": "not performed",
+    "viewerBundle": "passed; existing published demo assets, not fresh benchmark export"
+  },
+  "cacheAfterCold": {
+    "artifacts": 7469,
+    "bytes": 30099065,
+    "quotaBytes": 268435456
+  },
+  "inclusiveSampledSeconds": {
+    "rasterizeSurface": 64.184,
+    "groundSampler": 17.442,
+    "facadeSkinSampler": 7.689,
+    "PNGEncoding": 6.351,
+    "cacheArtifactValidation": 2.449,
+    "edgeReconciliation": 4.733
+  },
+  "measurementBoundary": {
+    "included": [
+      "compileDemo parsing",
+      "navigation",
+      "appearance",
+      "finalization"
+    ],
+    "excluded": [
+      "source-file read",
+      "preliminary validation parse",
+      "module startup",
+      "export",
+      "GPU upload",
+      "light baking"
+    ]
+  },
+  "timingCaveat": "Uncontrolled machine load; large repeated-run variability; no precise causal speedup estimate. Cache job/pixel counts and output identities are stable."
+}

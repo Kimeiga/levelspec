@@ -16,3 +16,11 @@ Use [current documentation](../README.md).
 - [Website Verification](WEBSITE-VERIFICATION.md)
 - [Dust2 B Tunnel Stairs Report](dust2-b-tunnel-stairs-report.md)
 - [Dust2 Visual Critique](dust2-visual-critique.md)
+
+Retired authoring and handoff records:
+
+- [CONCEPTS](CONCEPTS.md)
+- [GAMEPLAY](GAMEPLAY.md)
+- [SEMANTIC](SEMANTIC.md)
+- [SVGX](SVGX.md)
+- [HANDOFF](HANDOFF.md)

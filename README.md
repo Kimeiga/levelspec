@@ -25,7 +25,7 @@ retains visibly stale geometry on errors, and recovers after repair. Stop it wit
 Ctrl+C. Use `preview --camera "11 -17 8" --target "2 3 1" --projection perspective`
 for a repeatable Z-up view. The reviewer provides camera controls, a view URL and
 viewport dimensions; see [review controls](docs/WEBSITE.md). The browser cannot edit or save XML or publish exports. For an existing
-worked source, use `examples/cli-starter.aml`. See [AML syntax, migration, and
+worked source, use `src/cli/templates/starter.aml`. See [AML syntax, migration, and
 delivery status](docs/AML.md). Older project sources require explicit migration.
 
 Start with [agent instructions](AGENTS.md), then use the
@@ -37,9 +37,8 @@ is not supported. The silent npm wrapper keeps JSON stdout free of npm banners.
 ## Source and output
 
 Keep XML, references, editable plans/sections and review notes under `projects/`.
-Keep reproducible output under ignored `generated/`. Existing examples and the
-worked project demonstrate multilevel circulation, references, props and water
-coverage; focused tests protect their contracts. The [terrain course](examples/terrain-course.aml)
+Keep reproducible output under ignored `generated/`. The [two maintained examples](examples/README.md) and worked project demonstrate
+multilevel circulation, references, props and water coverage; focused tests protect their contracts. The [terrain course](tests/fixtures/aml/terrain-course.aml)
 shows native ground, grading, tunnels, water, and spatial assertions; see the
 [terrain guide](docs/TERRAIN.md).
 
@@ -78,7 +77,6 @@ assets/dependencies retain their own rights and notices. Retained reference imag
 are not a grant of reuse rights.
 
 [Seeded generation and image tracing](docs/PRODUCERS.md) publish native AML through
-`levelspec/generate`, `levelspec/producers`, and `levelspec/trace`. Concept,
-semantic-plan, and gameplay-plan JSON/Python frontends are retired; their retained
-inputs remain historical. `npm run game:export -- examples/showcase.aml --out generated/game`
+`levelspec/generate`, `levelspec/producers`, and `levelspec/trace`. Concept, semantic-plan, and gameplay-plan JSON/Python frontends are retired; their
+obsolete inputs are available in Git history. `npm run game:export -- examples/dust2.aml --out generated/game`
 exports visual/collision GLBs and gameplay metadata.

@@ -1,12 +1,12 @@
 > Historical frontend documentation. These JSON/Python design-plan APIs and commands
-> were retired in AML phase 5. Use [native AML](AML.md) and [maintained producers](PRODUCERS.md).
+> were retired in AML phase 5. Use [native AML](../AML.md) and [maintained producers](../PRODUCERS.md).
 
 # Native gameplay authoring
 
 `levelspec/gameplay` turns named spaces and physical connections into editable
 LevelSpec 2 geometry. It selects no generator archetype and imports no legacy
 compiler, generator, adapter or compatibility producer. The pinned source format
-is `levelspec-gameplay/2`; its [JSON schema](../src/gameplay/gameplay.schema.json)
+is `levelspec-gameplay/2`; its [JSON schema](../../src/gameplay/gameplay.schema.json)
 describes the data shape. Parsing also checks geometry, global ID uniqueness,
 references, port fit and elevation transitions.
 
@@ -126,7 +126,7 @@ existing atomic `writeArtifact`, preserving the previous file on a failed write.
 Collision checks resolve existing path ancestors, including directory aliases,
 and compare paths without case distinctions on Windows.
 
-[Floodgate](../examples/gameplay/floodgate.gameplay.json) demonstrates arbitrary
+[Floodgate](../../examples/gameplay/floodgate.gameplay.json) demonstrates arbitrary
 space and connection names: a fast exposed bridge, a longer covered northern
 flank, and a raised pump overlook with physically separate ramp and stair
 approaches. Its spawn pair has protected visibility, cover remains authored,

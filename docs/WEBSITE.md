@@ -1,8 +1,13 @@
 # Layout reviewer
 
 Both browser entry points use the shared `review/` implementation. The local
-viewer opens `.aml` (or identical `.xml`) and companion assets; the static deployment opens the
-curated Lantern Court snapshot. Both are read-only, full-window review tools.
+viewer starts with Dust II; the static deployment starts with the curated Lantern
+Court snapshot. Both offer **Open AML** for any `.aml` (or identical `.xml`) on your
+computer and **Companion assets** for referenced GLBs and PNG/JPEG/WebP images.
+Selected files are read and compiled in your browser, without a server upload.
+Opening another AML clears the previous file's supplied companions. Reopen the
+file after editing it; page reload restores the bundled default.
+Both are read-only, full-window review tools.
 XML authoring, repairs and exports belong in external editors and CLI workflows.
 
 ## Run and verify
@@ -35,8 +40,8 @@ or Playwright Chromium elsewhere. See `.github/workflows/website.yml` and
 - Walk uses an authored land spawn or explicit inspection coordinates and compiler-derived land navigation. WASD,
   arrows or touch buttons move; drag looks; Escape returns to the unchanged
   overview. It is constrained inspection, not full gameplay physics.
-- Illustrated grayscale is a presentation layer. Authored-material inspection
-  uses authored colors, roughness, metalness and UV textures. Missing image
+- Appearance is a presentation layer. Materials shows authored colors and UV
+  textures under basic lighting; Full render also uses roughness and metalness. Missing image
   companions are reported; the local viewer never fetches arbitrary source paths.
   Reference images require explicitly supplied companion assets and show their
   declared scale note; camera matching is outside this reviewer version.
@@ -53,15 +58,15 @@ connectivity. Font and imagery are local, with no runtime CDN requirement.
 
 ## Visual provenance
 
-The layout uses SuperRec's pale gray surfaces and structural rails, Snap Engine's
-modular grid and compact typography, and a new shared Three.js renderer adapting
-orthographic lighting, screen-space charcoal outlines and fine, deterministic randomized dithering
-(2 CSS-pixel cells with seven tonal steps). Visible depth, surface normals and background silhouettes generate roughly
-1.5 CSS-pixel outlines in image space, including visible contacts and intersections.
-Flush coplanar mesh partitions do not create false structural seams. Paint-only
-details remain material/texture features; the illustrated palette may omit them.
-Illumination, shadows and dithering do not generate contour lines. No Svelte dependency,
-category models or sibling runtime imports were introduced.
+The compact layout uses SuperRec's pale surfaces and Snap Engine's typography.
+The Full render look adapts the [Ninefold walkthrough](../projects/ninefold-reboot/play/main.ts):
+late-afternoon warm sun, three cool shadowed sky fills, hemisphere light, procedural
+sky/reflections, distance haze, GTAO contact occlusion, subtle bloom, and ACES filmic
+output at exposure 1.15. The renderer converts its lighting directions to domain
+Z-up. Everything is computed on the GPU; no lightmap or lighting bake is required.
+Meshes retain their authored textures, colors, roughness, metalness, and vertex
+weathering. The walkthrough's extra material normal maps and custom lamp/weather
+shaders remain specific to that project's assets.
 
 The bundled `review/assets/SuperPixelBitmap-Regular.woff2` comes from
 `font-maker/fonts/super-pixel-bitmap/build/fonts/` at font-maker revision
@@ -69,7 +74,7 @@ The bundled `review/assets/SuperPixelBitmap-Regular.woff2` comes from
 SuperRec's Fluid variant. Design references were inspected at SuperRec revision
 `417257a539a0ed264aeb6e619e926dc094c3832e` and Snap Engine revision
 `e6a41678b151cb0773cc243c62474393f199d85e`. Existing authored textures retain
-repository provenance; the illustrated layer does not alter source or mesh exports.
+repository provenance; preview lighting does not alter source or mesh exports.
 
 ## Repeatable architectural views
 
@@ -93,7 +98,7 @@ Start a live review at a known view directly:
 ```sh
 npm run --silent levelspec -- preview projects/my-level/level.aml \
   --camera "11 -17 8" --target "2 3 1" --projection perspective --fov 47 --roll 21.49 \
-  --appearance inspection --frame-aspect 0.75
+  --appearance materials --frame-aspect 0.75
 ```
 
 Camera and target must be supplied together and differ. Values are finite Z-up
@@ -101,15 +106,29 @@ meters; FOV is greater than zero and below 150 degrees. `--view-height 14` sets
 orthographic vertical framing in meters, independent of camera distance. Omitted
 pose uses automatic fit; omitted projection uses orthographic.
 
-Appearance is `flat` (the default), `illustrated`, `materials`, or `inspection`, selected
-with the Appearance control, `appearance` URL parameter or `--appearance` CLI flag.
-Neutral inspection displays authored colors and textures without lighting or
-shadows, retaining structural outlines, section clipping and selection cues.
-It is a presentation aid, not calibrated photographic color. Switching appearance
-preserves camera/framing; the current-view link and a page reload retain the
-selected appearance. Invalid initial URL options show a diagnostic and fall back
-to the default review as a group. Exported geometry and materials are unaffected.
+Appearance has three choices, available through the selector, `appearance` URL
+parameter, and `--appearance` CLI flag:
 
+- **Wireframe** (`wireframe`): mesh edges with unfilled triangle interiors.
+- **Materials** (`materials`): authored materials under a simple neutral hemisphere
+  light, with no shadows, ambient occlusion, haze, bloom, or outlines.
+- **Full render** (`full-render`, default): the real-time Ninefold lighting and
+  effects described above, with no illustrated ink or dithering.
+
+Appearance is independent of theme. Switching either preserves camera/framing;
+view links and reloads retain the selected mode. Invalid initial URL options show
+a diagnostic and fall back to the default as a group. Exported geometry and
+materials remain unchanged.
+
+Full render fits each shadow frustum to the visible model. Shadow bias follows
+world-space texel size, and section cuts refresh shadows and AO. AO runs at half
+resolution and excludes transparent objects. Its perspective/orthographic
+projection follows the active overview or walking camera. Rendering stays idle
+when the view is unchanged and walking is inactive.
+
+Run `node tests/appearance-browser.mjs` for pixel-level mode checks and
+`node tests/shadows-browser.mjs` for lit-surface and shadow-contact checks at
+different level sizes.
 
 The **Image frame** controls center the largest image of the chosen width/height
 ratio inside both workspace axes. Omission or **Viewport** follows the available
@@ -199,11 +218,6 @@ annotations. It remains separate from validation and never edits the XML.
 Spatial Validation errors provide Inspect and Copy review link, with exact overlap
 patches highlighted in 2D/3D. Invalid but renderable geometry remains inspectable;
 see [surface overlap errors](AML.md).
-
-The default appearance is **Flat**: unlit authored colors and textures at CSS-pixel
-resolution, with structural contour lines and no shadows. Use the Appearance control or
-`--appearance flat` to select it explicitly. Illustrated, Authored materials, and
-Neutral inspection remain available for detailed review.
 
 Dragging the 3D view orbits horizontally around the model at the screen center,
 while preserving its current tilt. If the center has no visible surface, orbit

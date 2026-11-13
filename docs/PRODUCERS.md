@@ -1,15 +1,22 @@
 # Native AML generation and tracing
 
+For disposable graph and spatial alternatives before AI map planning, use the
+[experimental exploration lab](EXPLORATION.md). Its premap hypotheses are separate
+from the validated publication contract below.
+
 Maintained producers return `ArchitectureDocument` and publish canonical `.aml`.
 Publication serializes and parses AML, compiles physical geometry, and requires
 playable runtime validation before writing. Invalid candidates cannot replace an
 existing artifact. Player dimensions, route counts, and local distance limits
-remain acceptance requirements.
+remain acceptance requirements. Producers use the same physical route diagnostics
+as direct compilation and CLI validation: demonstrated shortages fail, while
+inconclusive sampled resource counts warn. Review those warnings before treating
+a generated map as gameplay-verified; successful publication alone is not that proof.
 
 ```sh
 npm run gen -- 10 --keep
 npm run trace -- radar.png --cells 46 --bands 4 --out generated/radar.aml
-npm run game:export -- examples/showcase.aml --out generated/game
+npm run game:export -- tests/fixtures/aml/showcase.aml --out generated/game
 ```
 
 Generation uses seven archetypes, deterministic seeds, and bounded attempts.

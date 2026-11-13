@@ -17,7 +17,7 @@ npm run --silent levelspec -- preview projects/my-level/level.aml
 npm run --silent levelspec -- build projects/my-level/level.aml --out generated/my-level --json
 ```
 
-The [starter](../examples/cli-starter.aml) contains a slab, perimeter wall, native
+The [starter](../src/cli/templates/starter.aml) contains a slab, perimeter wall, native
 circular opening, and spawn. Dimensions are meters and coordinates are
 right-handed Z-up. Exporters own axis conversion. Authored linear dimensions are
 normalized to millimeters before resolution; transforms and intersections are
@@ -84,7 +84,7 @@ semantic view; that view is not the authoring source or a geometry compiler.
 
 ## Architecture and CAD
 
-The [architecture/CAD study](../examples/architecture-cad.aml) demonstrates native
+The [architecture/CAD study](../tests/fixtures/aml/architecture-cad.aml) demonstrates native
 profiled walls, a corner notch, circular aperture, constant-width frame, recessed
 panel, hollow bent sweep, profile material partition, and solid subtraction.
 
@@ -155,7 +155,7 @@ collision mesh so render partitions cannot become physical topology.
 ## Explicit migration
 
 ```sh
-npm run --silent levelspec -- migrate examples/dust2.level.svgx \
+npm run --silent levelspec -- migrate tests/fixtures/migration/dust2.level.svgx \
   --out generated/dust2-migration --json
 ```
 
@@ -177,7 +177,7 @@ an asset URL; I/O belongs to the host.
 
 ## Native circulation
 
-[Circulation constructions](../examples/circulation.aml) demonstrate native stairs,
+[Circulation constructions](../tests/fixtures/aml/circulation.aml) demonstrate native stairs,
 ramps, independent undersides, tapered flights, attachments, and reusable modules.
 Flights select a center `path` plus `width` or `width-profile`, or explicit `left`
 and `right` rails. Width profiles use local plan distance and width. Paired rails
@@ -215,7 +215,33 @@ Explicit conflicting assembly ownership fails. Openings cut the complete attachm
 including returns. Their coordinate contract is host-local X/Z, like named
 collections; it is not distance unrolled around an enclosure.
 
-Required connections check final physical support. Navigation route reports expose
+Connections require valid endpoint references and final physical support. A supplied
+`path` must resolve to a nonzero world-space mouth span. An omitted optional path
+produces `CONNECTION_UNVERIFIED` during navigation analysis. Paths describe entrance
+spans, not movement centerlines. A completely obstructed mouth produces
+`CONNECTION_BLOCKED` even when an endpoint route can detour elsewhere; an unverified
+sampled crossing remains a warning.
+
+Land route counts share one physical-resource analysis across compilation, CLI
+validation and producer publication. Duplicate, reversed, overlapping and contiguous
+mouth declarations share capacity; separated mouths and enabled directional ability
+links can supply independent resources. A reachable endpoint path establishes at
+least one route. Additional verified resources form a conservative lower bound.
+`maximumDisjointRoutes`, when present, is an optimistic bound over grouped declared
+resources. Flat-domain cuts use native solid sections only when support stays within
+the represented elevation and footprint; raised, lowered or undeclared bypasses
+keep connectivity optimistic. Missing ownership or contradictory evidence removes
+the upper bound. A proven shortage is `PHYSICAL_ROUTE_REQUIREMENT`; an inconclusive
+shortfall is `PHYSICAL_ROUTE_UNVERIFIED`, a nonblocking warning. Neither result proves
+continuous gameplay reachability. Water route counting retains its existing contract.
+
+With sealed analysis requested, explicit connection and route failures also apply
+with dynamic barriers closed. Generic closed-state floor coverage remains a separate
+report unless a route/connection requires it. `NAV_HEADROOM` and `NAV_WIDTH` report
+measured clearance, blocking source objects, and local inspection bounds. Representative
+failures survive the detailed sample cap for every region/reason.
+
+Navigation route reports expose
 copied Z-up `path` coordinates for inspection. The reviewer moves through existing
 navigation with physical capsule support, step limits, and standing clearance on
 bounded movement substeps. It does not add support, widen openings, or change the
@@ -260,3 +286,5 @@ native export metadata version 3 remain independent of AML version 1.
 
 The [phase 5 cutover record](reviews/aml-phase5.md) records the native API retirement,
 export/lighting checks, independent reviews, and remaining acceptance limits.
+
+Paper wall decals can be authored as `<poster>` children of `<dressing>`, independently of wall finish recipes. See [poster placement and the shared atlas](DRESSING.md#paper-posters-on-walls).

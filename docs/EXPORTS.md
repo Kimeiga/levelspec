@@ -8,19 +8,19 @@ export pipeline; runtime JSON remains a supported generated artifact.
 ## CLI
 
 ```sh
-# Existing default: GLB, runtime JSON, OBJ, SVG, validation and UV reports.
-npm run compile -- examples/showcase.aml --out generated/showcase
+# Default: GLB, runtime JSON, SVG and reports; OBJ when materials are representable.
+npm run compile -- tests/fixtures/aml/showcase.aml --out generated/showcase
 
 # Portable models with referenced material images.
-npm run compile -- examples/showcase.aml \
+npm run compile -- tests/fixtures/aml/showcase.aml \
   --formats glb,gltf --out generated/my-export
 
 # Binary FBX (Blender is optional until this format is requested).
-npm run compile -- examples/showcase.aml \
+npm run compile -- tests/fixtures/aml/showcase.aml \
   --formats fbx --blender /path/to/blender --out generated/my-export
 
 # Quake BSP2 (requires the compiler tools and a palette).
-npm run compile -- examples/showcase.aml \
+npm run compile -- tests/fixtures/aml/showcase.aml \
   --formats bsp --out generated/quake \
   --qbsp /path/to/ericw-tools/qbsp \
   --vis /path/to/ericw-tools/vis \
@@ -67,14 +67,47 @@ GLB/glTF/FBX preserve the compiled triangle geometry and separate meshes grouped
 by structural part, source object, material and atlas page. Dynamic parts remain
 separate. Marker nodes preserve IDs and positions. Material UVs use channel 0;
 lightmap UVs use channel 1 when generated. Compiled/Blender UVs are bottom-left;
-glTF reflects V and tangent handedness once to preserve image orientation in
-its top-left texture convention. GLB/glTF retain the original float32 normal
-and tangent components with that conversion. The Blender backend supplies canonical FBX corner normals and material
+glTF reflects V once to preserve image orientation in its top-left texture
+convention. GLB/glTF preserve the authored +Y tangent frame, including tangent
+handedness, so normal maps shade consistently with and without precomputed
+tangents. Normal-mapped exports always include explicit UV0 tangents; generating
+them does not require a lightmap atlas. The original float32 normal and tangent
+components are retained.
+The Blender backend supplies canonical FBX corner normals and material
 tangent/binormal frames explicitly to its binary writer; destination importers
 may regenerate them. Blender reimport also quantizes custom normal directions.
 
 Material textures are sRGB base color, multiplied by the authored color, with
-repeat encoded in the UVs. GLB/glTF retain the PBR factors. FBX packages
+repeat encoded in the UVs. Optional `normal-texture` images contain linear
+tangent-space normals (+X right, +Y up, +Z outward); `normal-scale` is a finite,
+nonnegative strength, defaulting to 1. They affect real-time lighting without
+displacing collision geometry. GLB/glTF preserve these images and their strength;
+`metallic-roughness-texture` is linear: green multiplies authored roughness and
+blue multiplies authored metalness. GLB/glTF preserve these channels and their
+UVs. `opacity` defaults to 1; values below 1 request alpha blending and cannot
+be combined with `alpha-cutoff`. The reviewer and exported model use the same
+explicit opacity.
+
+GLB/glTF include only materials used by the selected visual or collision geometry
+and their runtime images. Identical image content shares one exported image even
+when materials use different reference names; export reports identify the actual
+shared glTF filename. Declared texture references still require validation even
+when their material is unused. Full runtime metadata and generated-image sidecars
+remain available for reconstruction and other export formats.
+
+`height-texture` is a compile input, sampled from the linear red channel in
+weathered surface recipes. `height-scale` is meters from black to white
+(default 0.01); `height-offset` adds meters (default 0). It is not exported as
+a runtime displacement extension and does not change collision or navigation.
+
+OBJ, FBX, and BSP reject unsupported normal, packed PBR, or blended-opacity
+effects instead of dropping them. A normal CLI GLB build omits the incidental
+OBJ when its material channels cannot be represented.
+`alpha-cutoff`, strictly between 0 and 1 on a material with a `texture`, draws
+only the texels whose alpha reaches it, as for lettering cut from a glyph
+atlas. GLB/glTF write it as `alphaMode` `MASK` with that `alphaCutoff`; the
+other formats reject such materials likewise.
+GLB/glTF retain the PBR factors. FBX packages
 color-multiplied PNGs because its direct-image binding cannot reliably represent
 a multiply shader across importers. Full roughness and metalness values remain
 in metadata. Native image conversion accepts up to 16 megapixels.
@@ -144,6 +177,13 @@ await exportLevel(level, {
   // sourceFile alternatively resolves textures relative to the AML file.
 });
 ```
+
+Completed weathered levels retain content-addressed `generatedImages` bytes.
+GLB embeds them; glTF, runtime JSON, and preview packages include the referenced
+image files. Runtime JSON contains image metadata and file paths, never binary
+arrays. Authored color, normal and packed metallic/roughness images retain their
+original pixels. Authored height inputs can produce shared derived normal maps;
+none of these files contain baked illumination or ambient occlusion.
 
 `toGLB(level)` remains valid for untextured callers. Referenced images require
 resolved assets, rather than silently producing untextured models. `exportLevel`

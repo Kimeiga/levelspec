@@ -20,6 +20,7 @@
   "include": [
     "src/architecture/**/*.ts",
     "tests/aml*.ts",
+    "tests/surface*.ts",
     "src/generate/**/*.ts",
     "tools/producers/**/*.ts",
     "tools/generate.ts",
@@ -40,12 +41,19 @@
     "src/reconstruction/**/*.ts",
     "tools/reconstruct*.ts",
     "tools/game-export.ts",
+    "tools/build-dressing-demo.ts",
+    "tools/profile-dressing.ts",
+    "tools/dressing-demo/**/*.ts",
     "game/**/*.ts",
     "vite.game.config.ts",
     "tests/game-*.ts",
     "review/**/*.ts",
     "src/cli/**/*.ts",
     "tests/review-*.ts",
-    "src/authoring/**/*.ts"
+    "src/authoring/**/*.ts",
+    "tools/fixtures/**/*.ts",
+    "tools/fps/explore.ts",
+    "tools/fps/explore/**/*.ts",
+    "vite.explore.config.ts"
   ]
 }

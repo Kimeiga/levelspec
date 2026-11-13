@@ -1,5 +1,5 @@
 > Historical frontend documentation. These JSON/Python design-plan APIs and commands
-> were retired in AML phase 5. Use [native AML](AML.md) and [maintained producers](PRODUCERS.md).
+> were retired in AML phase 5. Use [native AML](../AML.md) and [maintained producers](../PRODUCERS.md).
 
 # Native semantic authoring
 

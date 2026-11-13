@@ -1,0 +1,102 @@
+{
+  "scope": "Independent R16 bounded test contract and actual author-test execution; no saved-model geometric or source acceptance",
+  "createdAt": "2026-11-03T23:41:50.808254+00:00",
+  "files": [
+    {
+      "path": "docs/reviews/model-r16-test-contract-review.md",
+      "sha256": "0b20d5c99674468257cded12d45a9dd00af891ca43fedc882cf224d50b3cfbb4",
+      "bytes": 10651
+    },
+    {
+      "path": "generated/dai2-daiban/multiview-model-r16/preparation/CODE-CHECKPOINT-01.json",
+      "sha256": "82d784abcfbdb46e0da27d475507335f42651871b8bb10362f4fa13cd8d5d3a3",
+      "bytes": 2336
+    },
+    {
+      "path": "generated/model-r16-test-review-author-contract.json",
+      "sha256": "9a0a11f34cda62f1d50af8fc597443b96baa03961e1f8e36c89b4b97418fc5a8",
+      "bytes": 728
+    },
+    {
+      "path": "generated/dai2-daiban/multiview-model-r16/preparation/author-contract.json",
+      "sha256": "9a0a11f34cda62f1d50af8fc597443b96baa03961e1f8e36c89b4b97418fc5a8",
+      "bytes": 728
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/reviews/model-r16-drawing-release.json",
+      "sha256": "caff11cc93f44d4c7059398f5a39f0791d9f6629ceed2e87fbf676e11afec04a",
+      "bytes": 4276
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/reviews/roof-context-r03-author-response.md",
+      "sha256": "68499bbc9824ae8f117064e03265c96d464df9b49b280f6f3734b28d04e5e895",
+      "bytes": 5286
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/reviews/model-r16-ownership-clarification.json",
+      "sha256": "850cac47e1856dc29431a71b5fcce099b073dc8918f93fec972af3a538b0d325",
+      "bytes": 2244
+    },
+    {
+      "path": "generated/dai2-daiban/multiview-model-r16/independent-preparation/HOME-SHARING.json",
+      "sha256": "f31a04ebad751f00ea69c259fdf1955c1038eaa1570f5497f57db7818ced6734",
+      "bytes": 2760
+    }
+  ],
+  "codeInputs": [
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/middle-corner.ts",
+      "sha256": "25ce0d2e95666a09196efa85a01ab8840838fc38a3495ef6fbc44646a0bbed12"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/high-roof.ts",
+      "sha256": "33fd45d4f53814c2aedd6a33e861757bdc51d39e2f08940fef5fe2b80d4328b3"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/compile-source.ts",
+      "sha256": "a62e9eb1db0323f4c289ab88ebfd4a2a3a53945cc1a30df71773cd60a13bdd9b"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/native-floors.ts",
+      "sha256": "795a5a3742b2704bfad86167a04dd5e4b25608019e362c5cff2b2e97cde11afc"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/east-enclosure.ts",
+      "sha256": "efb61643524bba36e59991ad85ddb11f5408691607a4ba5d43bb108b91b5f767"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/roof-context.ts",
+      "sha256": "66ad0546cf46c724c1e26fe3a68e1b8bfadd8c1421909987e2b76429f1a434e4"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/front-rear.ts",
+      "sha256": "3fdeb88a42fa82a0bb7503ece9e7eca15d8b6389e44adfbbe80e676fca750d55"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/author.ts",
+      "sha256": "269b68224c2e4d43f23e1a5d48d7d87ab8f153872ffa0cd8df264e5f414a96bd"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/upper-south.ts",
+      "sha256": "a8eb8db0dae809776a36946a4b4546679adea4df90f4c8bc4f29bd3b120753d3"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/upper-family.ts",
+      "sha256": "c95c26a46852e58a49da25c3556adb77330c2d2f21e39051199f4e4570d5e766"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/selected-assembly.ts",
+      "sha256": "0ee15059c4bfdfc08b65945e01c02a4bded5d5c0d3c331a78161cc2d953cef1b"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/model-r16/wasm-resources.ts",
+      "sha256": "276924df7f12017c8296bd50a4834c51bd9e533d9993dcb93711609d6511736b"
+    },
+    {
+      "path": "projects/dai2-daiban/studies/multiview-restart/reviews/model-r16-author-contract-checks.ts",
+      "sha256": "3b90b92eb1ceb6a6d1f75c9283280661b51da2757ebba4eb7558c62dc0307974"
+    }
+  ],
+  "codeHashesUnchangedBeforeAndAfterIndependentRun": true,
+  "result": "PASS bounded preflight and lifecycle; actual saved finite geometry/semantics and source/circulation gates remain separate"
+}

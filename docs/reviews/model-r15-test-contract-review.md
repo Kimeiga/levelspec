@@ -1,0 +1,51 @@
+# R15 RC2 independent test-contract review
+
+Date: 2026-11-03. Applied `maintain-tests` and `reference-level-authoring`. This is a bounded verification design review, not acceptance of an R15 model, photographs, navigation, protection, or hidden roof support.
+
+## Decision and authority
+
+The preparation in `projects/dai2-daiban/studies/multiview-restart/reviews/roof-context-r02-implementation-preparation.md` is sufficient to begin the adapter under `model-r15-drawing-release.json`. I independently verified the seven directly bound drawing, ledger, delta, R14 package and review-freeze hashes. This does not reverify every transitive asset. The release permits one diagnostic of the exact 35 complete-owner delta; it does not resolve its listed holds.
+
+Reviewed existing machinery: `reviews/model-r14-author-contract-checks.ts`, `reviews/efr-h2-checks/revision02/{finite,axis_patches,patch_controls,actual_native}.py`, and the RC2 construction review. Reuse those boundaries. Do not add a repository-wide geometry arrangement/checker or delay the first fixed actual captures for global conformance.
+
+## Two distinct checkpoints
+
+**Saved diagnostic checkpoint:** bind the release and consumed source bytes; apply the finite delta after H2 selection; run scoped type/lifetime/input checks; save XML/companions; independently reload via the public compiler/resolver; identify the complete changed contributions and perform bounded obvious-omission/native/end-contact checks. Record strict diagnostics and unresolved domains. Freeze that package and immediately capture fixed main/M05/M15/A20 views. A valid export or a zero-error author script alone is insufficient, but unfinished full conformance does not prohibit clearly labeled diagnostic captures.
+
+**Architectural translation checkpoint:** finish the complete changed-domain oriented-patch/material comparisons, retained fingerprints and bounded residual comparisons below. Only those actual results may establish drawing translation. Section screenshots, successful routes and names cannot substitute for unexamined surfaces. PR13 with recorded `nav-cell=0.0625`, ordinary-body traversal and source/whole-volume review remain independent gates; keep failures and holds visible.
+
+## Minimum behavior-oriented contract
+
+| Boundary | Required bounded evidence | Control that must fail |
+| --- | --- | --- |
+| Frozen input and finite delta | Exact set equality for the 35 changed owner IDs, classification of changed versus retained effective records, all consumed release/delta/baseline identities bound before allocation/output. A count of 35 alone is insufficient. | Replace one ID with an unrelated owner while keeping count 35; mutate one copied bound byte. No model/output may be allocated before rejection. |
+| Native FE2 and unchanged stairs | Independently derive nine cells from frozen RC2 `encoded_FE2_cells`: Y6.40→3.88, width 2.45, going .28, low 11/high 12.418, equalized rise 1.418/9, thickness .20. Check all actual visual and collision exterior patches, orientations and multiplicity. Retain complete FE0/FE1/N-MID/N12 native geometry; N12 remains 12 cells. | Wrong interior cell while endpoints/count/bounds stay correct; raw 12.4175 endpoint or independently snapped intermediate cells; one absent/reversed/duplicate exterior patch. |
+| Complete upper slab | Compare full union of the four reviewed footprints, including the LN-E2 southwest notch, top 11/soffit 10.58 and wall subtractions. Check side faces and occupied volume as well as tops; partition shared host material once. | Replace wrapped polygon with its rectangle; keep the right bounds using thin top/bottom sheets with missing interior/side geometry; retain the obsolete old FE2 beside the shifted flight. |
+| Ends and receiving volume | Full finite N12→common slab, slab→FE2 and FE2→LE2 interfaces, complete extended LE2 footprint/soffit and all changed guard extents. Derive guards and receiver from encoded schedule. | Remove part of an endface while leaving a center hit; introduce a positive gap or duplicate opposing sheet; move the flight but leave receiver/guard at old stations. |
+| Lower luminous assembly and caps | Complete translated frame/panel solids and all three rebuilt host caps, including W-GU-N at 10.38. Preserve panel material/visibility/collision semantics and full retained cuts. Compare actual oriented contacts, not only intersection bounding boxes. | Translate the panel alone; leave a frame end at old height; refill D-PKT-UP through one coincident host; exchange translucent/opaque material. |
+| High opaque continuation | Complete finite X5.2..7/Y6.67..8.4/Z15.2..15.38 contribution and finite Y8.4 contact with the existing frame. Verify no positive-volume overlap and no invented occupied/native floor role. | Bounds-correct hollow/partial roof, missing frame contact, duplicate material, or newly declared walking route above it. |
+| Retained/shared material | Fingerprint complete unchanged final physical contributions against bound R14. For retessellated/shared aliases, compare the finite actual material union, exterior orientation and collision/native semantics, not alias identity. Preserve front bore, both rear openings through all depths, exact W-PKT-S and all 8052 bound lower child aliases. | Delete old G-LNE2-E strip X7.8..7.98/Y6..6.4/Z10.76..12.1; refill a bore crescent while preserving a center ray; delete one retained lower child; change collision while retaining visual faces. |
+
+The counts, logical IDs and bounds in this table identify domains; they are not geometric pass criteria. The 8052 figure identifies retained aliases, not a required new triangle count. Shared old-flight volume may also belong to a retained wall: require removal only from independently established old-flight-exclusive material, and separately prove retained host union preservation. Broad alias retirement and broad fingerprint exemptions would both violate the release.
+
+## Keep checks finite and independent
+
+Use `axis_patches` for complete, independently selected orthogonal native contributors, separately for visual and collision purposes. It already rejects missing/extra oriented patches, wrong semantics, duplicates and nonorthogonal triangles, and has positive retessellation controls. Its input alias list must resolve the entire contributor; a perfect selected subset is not proof that an extra old flight under another alias is absent. Inventory newly added/missing final objects and adjudicate them against the exact finite operation set.
+
+`finite.compare_slabs` can establish full volume/material equality only for genuinely X-extruded pieces partitioned at every geometry-changing depth station. It is not a triangle-mesh extractor. Do not turn actual arbitrary meshes into expected boxes using measured bounds, or extrapolate a few cut samples into a complete-domain pass. Preserve closure/orientation/multiplicity checks separately. Full geometric expectations must come from the released ledger plus independently stated encoding rules, not `encodedUpperCells()` or the candidate adapter itself. That helper is useful for preflight consistency only.
+
+Retain the established ideal → millimeter-encoded → float32 distinction. The native FE2 endpoint is 12.418, not raw 12.4175; intermediate native rise/guard planes are not independently snapped a second time. Do not round plane keys or broaden tolerances until differences disappear. Existing numerical-degeneracy classification keeps every positive residual and returns unresolved rather than pass. Save raw missing/extra polygons and incomplete domains.
+
+Reuse the existing cube/retessellation/missing-side/reversed-face/duplicate/wrong-material/tiny-residual checker controls. Add only a small copied-input or isolated-geometry control for the new wrapped-notch/finite-transfer/roof paths if existing controls do not exercise them. No retained source, frozen plan or published model is mutated for negative testing. Resource tests must actually traverse the new roof allocation on success and injected export failure, proving owned handles are disposed once and borrowed handles survive.
+
+## Remaining independent review
+
+Actual material sections at the released plan/section stations and occupied-surface views are useful review evidence; label them as sections rather than full-domain proof. Keep first/second FE2 rear protection of approximately .942/.785 m, lower-route headroom, source-camera residuals, roof bearing/top use, opposite context and strict diagnostics as explicit holds. A geometry-contract pass does not approve those relationships.
+
+At the initial review checkpoint the adapter was not yet implemented and no R15 saved package was inspected. The seven direct release hashes were verified. System Python lacked NumPy and `/tmp/lower-n-draw-venv/bin/python` lacked Shapely. The existing `generated/dust2-venv/bin/python` environment successfully ran all 13 existing patch controls; retained evidence is `generated/model-r15-test-contract-kgqa6456/patch-controls.json`, with checker input hashes. No dependencies were installed. This validates those bounded checker controls, not any R15 candidate.
+
+## Author-test checkpoint review
+
+Reviewed new `reviews/model-r15-author-contract-checks.ts` at the author's a99f62ce239013bb186239ef6610f30d532564f710dcc3b5b1c0c3253b0236c5 checkpoint. It compares encoded FE2 cells to the frozen delta and exercises `selected.build()` before both normal export and injected export failure, including the new roof asset in the success branch. Those are useful preflight checks.
+
+Requested one material coverage correction: comparing changed records only from the after-list cannot detect deletion of an unrelated retained owner. Require the after-ID set to equal the before-ID set plus the single new roof, assert uniqueness, then compare changed records to the exact delta set. Snapshot the frozen delta before applying/selecting and assert it remains unchanged so the expectation cannot be mutated with the subject. Also distinguish absence of author output from proof of no geometry allocation: testing that a model directory does not exist establishes only the former unless allocations are independently observed. No saved R15 geometric conformance verdict follows from this author-test review.

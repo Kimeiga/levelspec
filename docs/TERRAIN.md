@@ -2,7 +2,7 @@
 
 AML version 1 supports numeric height grids, grayscale PNG heightmaps, constrained
 profile patches, and explicitly authored triangle surfaces. All coordinates are
-meters in right-handed Z-up. The [terrain course](../examples/terrain-course.aml)
+meters in right-handed Z-up. The [terrain course](../tests/fixtures/aml/terrain-course.aml)
 combines grading, a cut tunnel, a lake and seabed, an overhead bridge, holed ground,
 a PNG hill, native collision proxies, and spatial declarations.
 

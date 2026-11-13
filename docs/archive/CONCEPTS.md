@@ -1,12 +1,12 @@
 > Historical frontend documentation. These JSON/Python design-plan APIs and commands
-> were retired in AML phase 5. Use [native AML](AML.md) and [maintained producers](PRODUCERS.md).
+> were retired in AML phase 5. Use [native AML](../AML.md) and [maintained producers](../PRODUCERS.md).
 
 # Native spatial concepts
 
 Concepts describe proportional zones on elevation bands, required physical flights,
 door/arch seals, and a spawn-to-objective route count. The public API accepts arbitrary
 `SpatialConcept` declarations; the 50-entry catalog is a collection of examples, not
-an API limit. The checked-in [workshop](../examples/concepts/workshop.concept.json)
+an API limit. The checked-in [workshop](../../examples/concepts/workshop.concept.json)
 is a separate custom declaration with two physical circulation branches.
 
 ```sh
