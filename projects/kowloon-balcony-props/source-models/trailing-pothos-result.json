@@ -1,0 +1,7 @@
+{
+  "type": "image_to_model",
+  "task_id": "320ba622-1e4b-42c7-bd52-bd55e315a722",
+  "model_file": "projects/kowloon-balcony-props/source-models/trailing-pothos/model.glb",
+  "sha256": "6c11e994f52c90971bfc931beb7f9f152497730af66a1552e585ed80c1918406",
+  "credits_consumed": 50
+}

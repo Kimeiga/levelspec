@@ -1,0 +1,182 @@
+{
+  "size": [
+    2048,
+    3072
+  ],
+  "cellSize": [
+    512,
+    768
+  ],
+  "artSize": [
+    480,
+    720
+  ],
+  "gutter": [
+    16,
+    24
+  ],
+  "bytes": 3377068,
+  "sha256": "b2710134751286610fdb5908b9fdec5850ddf126273f4a40a269d97f5c2d1988",
+  "posters": [
+    {
+      "id": "calendar",
+      "category": "calendar",
+      "source": "source/calendar.png",
+      "sourceSha256": "653e0c6c7414b0a2cb994f351382b92cbab0c3a6e8ed7bbbb3de02eca486a4f0",
+      "cell": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "roast-menu",
+      "category": "menu",
+      "source": "source/roast-menu.png",
+      "sourceSha256": "a410813ef7c03e0ddce7680c7bccaaca0820ae776d012b1d4934ce05c4589af2",
+      "cell": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "tea-ad",
+      "category": "advertisement",
+      "source": "source/tea-ad.png",
+      "sourceSha256": "5080fba9bcf7ff205817084db5e238d94c19be8bb24b187a3e3558712147b1cc",
+      "cell": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "soda-ad",
+      "category": "advertisement",
+      "source": "source/soda-ad.png",
+      "sourceSha256": "9a25f7bfaf2d6c421be3a42cf243a7e11f78f7d6238301b48124cda96ee2b332",
+      "cell": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "no-smoking",
+      "category": "notice",
+      "source": "source/no-smoking.png",
+      "sourceSha256": "733e2f6a8fc1ce24dc1e58ed0a321e6ffd88721d82ff34000c17514cd09638e2",
+      "cell": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "repairs",
+      "category": "notice",
+      "source": "source/repairs.png",
+      "sourceSha256": "ded76b77286cf75f39ab9933918775a4a8df26a1254a7803d67ba56f2fedd411",
+      "cell": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "room-rental",
+      "category": "notice",
+      "source": "source/room-rental.png",
+      "sourceSha256": "afedfe6325dd3cdbfb5740cef6d5748410c2ab8ff2ea543c5bcf7868ae278cc3",
+      "cell": [
+        2,
+        1
+      ]
+    },
+    {
+      "id": "hiring",
+      "category": "notice",
+      "source": "source/hiring.png",
+      "sourceSha256": "4dc0992ebd78d887d830af4360f6a38c7e1c1d0d5d599625b91f8b611a7edbcc",
+      "cell": [
+        3,
+        1
+      ]
+    },
+    {
+      "id": "herbal-ad",
+      "category": "advertisement",
+      "source": "source/herbal-ad.png",
+      "sourceSha256": "bb4e980b6393f897d1b314e547de9548acf7f341f69138a7bb22364423ea224b",
+      "cell": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "opera",
+      "category": "event",
+      "source": "source/opera.png",
+      "sourceSha256": "635f57dd0202b798f67bb0e9c6b9bf82c28e8ba364cd988a789feeea09e6234a",
+      "cell": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "film",
+      "category": "event",
+      "source": "source/film.png",
+      "sourceSha256": "6840f0b21f369ac1942cc112445e266ea895ac4b6eb88b03540bb444095e6152",
+      "cell": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "laundry",
+      "category": "advertisement",
+      "source": "source/laundry.png",
+      "sourceSha256": "7ad2903deee99bb96d178a20509602419711c54d70d0ea5f4487d64a0c05c91c",
+      "cell": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "rice-ad",
+      "category": "advertisement",
+      "source": "source/rice-ad.png",
+      "sourceSha256": "19344822918dd069e21a675d96e5ae4b8d9e77bdac97215f3fdb0e2a720189c6",
+      "cell": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": "clinic",
+      "category": "notice",
+      "source": "source/clinic.png",
+      "sourceSha256": "123e6c08e527b5f35722341480668a04a8ae2b089f1e6fc01bbf6559c8c312c8",
+      "cell": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "closure",
+      "category": "notice",
+      "source": "source/closure.png",
+      "sourceSha256": "9835f0424e2a26b753ab0b2eb2b82747bee6e73105698ea53b28498e189ccd4c",
+      "cell": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "electrical-ad",
+      "category": "advertisement",
+      "source": "source/electrical-ad.png",
+      "sourceSha256": "d0bbb9a4f4d01da8469698acd3674eeafd1768234f2247e5ab94d1ba10da9e4f",
+      "cell": [
+        3,
+        3
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+[
+  {
+    "id": "NORTH-SCHOOL-PLINTH",
+    "floor": "F04-01",
+    "p": [
+      [
+        92.78,
+        88.58
+      ],
+      [
+        92.78,
+        88.82832815729996
+      ],
+      [
+        92.92282841138503,
+        89.11398498007
+      ],
+      [
+        113.12,
+        90.79708261245459
+      ],
+      [
+        113.12,
+        88.88
+      ],
+      [
+        99.12,
+        88.88
+      ],
+      [
+        99.12,
+        88.58
+      ]
+    ],
+    "base": 3.7,
+    "top": 7.7,
+    "reason": "Closed retaining shoulder behind lower School facade; actual lower arcade remains at y84.",
+    "area": 23.637760380356678,
+    "routeCapsulePlanIntersections": []
+  },
+  {
+    "id": "RIDGE-GATEHOUSE-PLINTH",
+    "floor": "F08-01",
+    "p": [
+      [
+        126.98494630749119,
+        102.58
+      ],
+      [
+        126.9577960378631,
+        103.22481890366714
+      ],
+      [
+        127.86226969148744,
+        103.1343715383047
+      ],
+      [
+        126.89266771617486,
+        110.8911873408054
+      ],
+      [
+        126.63379045566542,
+        110.919951480862
+      ],
+      [
+        126.58101760578587,
+        112.17330666550123
+      ],
+      [
+        127.09807509616013,
+        112.10867447920445
+      ],
+      [
+        129.29699997597655,
+        102.58
+      ]
+    ],
+    "base": 7.7,
+    "top": 9.1,
+    "reason": "Merge thin unwalkable slot behind gatehouse with perimeter retaining coping.",
+    "area": 9.027039187522831,
+    "routeCapsulePlanIntersections": []
+  },
+  {
+    "id": "CHAPEL-SOUTH-COPE",
+    "floor": "F06-01",
+    "p": [
+      [
+        8.67,
+        72.77000000000001
+      ],
+      [
+        8.67,
+        71.67999999999999
+      ],
+      [
+        8.402444615648111,
+        71.67999999999999
+      ],
+      [
+        8.269111282314777,
+        71.88
+      ],
+      [
+        7.88,
+        71.88
+      ],
+      [
+        7.88,
+        72.46366692347216
+      ],
+      [
+        7.67577794898143,
+        72.77000000000001
+      ]
+    ],
+    "base": 5.7,
+    "top": 7.1,
+    "reason": "Close tiny exterior bevel beside solid parapet, outside occupied porch route.",
+    "area": 0.8012243947953968,
+    "routeCapsulePlanIntersections": []
+  },
+  {
+    "id": "PRESS-FACADE-FOOT",
+    "floor": "F08-01",
+    "p": [
+      [
+        31.48,
+        84.67999999999999
+      ],
+      [
+        31.48,
+        85.67
+      ],
+      [
+        32.12,
+        85.67
+      ],
+      [
+        32.12,
+        84.67999999999999
+      ]
+    ],
+    "base": 7.7,
+    "top": 9.2,
+    "reason": "Close sub-body triangular corner beneath slanted Press facade.",
+    "area": 0.6336000000000028,
+    "routeCapsulePlanIntersections": []
+  },
+  {
+    "id": "SCHOOL-WEST-COPE",
+    "floor": "F08-01",
+    "p": [
+      [
+        93.92999999999999,
+        89.37
+      ],
+      [
+        95.12,
+        89.37
+      ],
+      [
+        95.12,
+        88.22999999999999
+      ],
+      [
+        93.92999999999999,
+        88.22999999999999
+      ]
+    ],
+    "base": 7.7,
+    "top": 9.1,
+    "reason": "Cap short blind-end slot by School north-west facade and suspended lip.",
+    "area": 1.3566000000000311,
+    "routeCapsulePlanIntersections": []
+  },
+  {
+    "id": "BELL-SOUTH-COPE",
+    "floor": "F08-01",
+    "p": [
+      [
+        116.12,
+        76.5650114160607
+      ],
+      [
+        113.88,
+        76.19167808272738
+      ],
+      [
+        113.88,
+        77.12
+      ],
+      [
+        116.12,
+        77.12
+      ]
+    ],
+    "base": 7.7,
+    "top": 9.1,
+    "reason": "Close sub-body triangular well-rim spur south of Bell ascent.",
+    "area": 1.6613077613573703,
+    "routeCapsulePlanIntersections": []
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "chicken",
+    "source": "generated/restaurant-props/tripo-out/restaurant-chicken-62f6c355/model.glb",
+    "sourceSha256": "de76604141959625df20f28506bbc6d65f56ae3dcc3ec896ca5d25d30144496d",
+    "triangles": 892,
+    "budget": 900,
+    "size": [
+      0.1861514151096344,
+      0.21000000834465027,
+      0.33851736783981323
+    ],
+    "uniformScale": 0.33917981072555203,
+    "task": {
+      "task_id": "62f6c355-d1d6-4065-958f-042f94a6b3ef",
+      "type": "image_to_model",
+      "status": "success",
+      "credits_consumed": 50,
+      "output_dir": "generated/restaurant-props/tripo-out/restaurant-chicken-62f6c355",
+      "files": [
+        "model.glb",
+        "rendered_image.webp",
+        "preview.png"
+      ],
+      "model_file": "generated/restaurant-props/tripo-out/restaurant-chicken-62f6c355/model.glb",
+      "preview": "generated/restaurant-props/tripo-out/restaurant-chicken-62f6c355/preview.png"
+    }
+  },
+  {
+    "name": "slices",
+    "source": "generated/restaurant-props/tripo-out/restaurant-sliced-meat-816d972e/model.glb",
+    "sourceSha256": "2ea2c04d0d5f99b1d62b2c371478cede3c18e7131b14d6d32bd625d3c6395c79",
+    "triangles": 498,
+    "budget": 500,
+    "size": [
+      0.2410377413034439,
+      0.199528306722641,
+      0.07500000298023224
+    ],
+    "uniformScale": 0.24150943396226415,
+    "task": {
+      "task_id": "816d972e-216b-44e4-a9b0-6e72338a3da5",
+      "type": "image_to_model",
+      "status": "success",
+      "credits_consumed": 50,
+      "output_dir": "generated/restaurant-props/tripo-out/restaurant-sliced-meat-816d972e",
+      "files": [
+        "model.glb",
+        "rendered_image.webp",
+        "preview.png"
+      ],
+      "model_file": "generated/restaurant-props/tripo-out/restaurant-sliced-meat-816d972e/model.glb",
+      "preview": "generated/restaurant-props/tripo-out/restaurant-sliced-meat-816d972e/preview.png"
+    }
+  }
+]

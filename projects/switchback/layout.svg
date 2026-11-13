@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1000" viewBox="0 0 1320 1000">
+<rect width="1320" height="1000" fill="#f2efe6"/>
+<style>text{font-family:Arial,sans-serif;fill:#203139} .small{font-size:11px}.label{font-size:13px;font-weight:bold}.title{font-size:30px;font-weight:bold}</style>
+<text x="35" y="40" class="title">SWITCHBACK / L01</text>
+<text x="35" y="65">5v5 defusal · metres · +Y uphill / north · right-handed Z-up</text>
+<line x1="384" y1="720" x2="300" y2="720" stroke="#535f62" stroke-width="39"/>
+<line x1="384" y1="720" x2="300" y2="720" stroke="#a7c0bd" stroke-width="35"/>
+<line x1="496" y1="720" x2="580" y2="720" stroke="#535f62" stroke-width="39"/>
+<line x1="496" y1="720" x2="580" y2="720" stroke="#a7c0bd" stroke-width="35"/>
+<line x1="244" y1="685" x2="244" y2="601" stroke="#535f62" stroke-width="35.5"/>
+<line x1="244" y1="685" x2="244" y2="601" stroke="#e6ba87" stroke-width="31.5"/>
+<line x1="228.25" x2="259.75" y1="678.0" y2="678.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="671.0" y2="671.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="664.0" y2="664.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="657.0" y2="657.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="650.0" y2="650.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="643.0" y2="643.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="636.0" y2="636.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="629.0" y2="629.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="622.0" y2="622.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="615.0" y2="615.0" stroke="#9a7955"/>
+<line x1="228.25" x2="259.75" y1="608.0" y2="608.0" stroke="#9a7955"/>
+<line x1="454" y1="678" x2="454" y2="601" stroke="#535f62" stroke-width="35.5"/>
+<line x1="454" y1="678" x2="454" y2="601" stroke="#e6ba87" stroke-width="31.5"/>
+<line x1="438.25" x2="469.75" y1="671.5833333333334" y2="671.5833333333334" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="665.1666666666666" y2="665.1666666666666" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="658.75" y2="658.75" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="652.3333333333334" y2="652.3333333333334" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="645.9166666666666" y2="645.9166666666666" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="639.5" y2="639.5" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="633.0833333333334" y2="633.0833333333334" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="626.6666666666666" y2="626.6666666666666" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="620.25" y2="620.25" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="613.8333333333334" y2="613.8333333333334" stroke="#9a7955"/>
+<line x1="438.25" x2="469.75" y1="607.4166666666666" y2="607.4166666666666" stroke="#9a7955"/>
+<line x1="636" y1="685" x2="636" y2="601" stroke="#535f62" stroke-width="35.5"/>
+<line x1="636" y1="685" x2="636" y2="601" stroke="#e6ba87" stroke-width="31.5"/>
+<line x1="620.25" x2="651.75" y1="678.0" y2="678.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="671.0" y2="671.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="664.0" y2="664.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="657.0" y2="657.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="650.0" y2="650.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="643.0" y2="643.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="636.0" y2="636.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="629.0" y2="629.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="622.0" y2="622.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="615.0" y2="615.0" stroke="#9a7955"/>
+<line x1="620.25" x2="651.75" y1="608.0" y2="608.0" stroke="#9a7955"/>
+<line x1="272" y1="545" x2="272" y2="461" stroke="#535f62" stroke-width="35.5"/>
+<line x1="272" y1="545" x2="272" y2="461" stroke="#e6ba87" stroke-width="31.5"/>
+<line x1="256.25" x2="287.75" y1="538.0" y2="538.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="531.0" y2="531.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="524.0" y2="524.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="517.0" y2="517.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="510.0" y2="510.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="503.0" y2="503.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="496.0" y2="496.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="489.0" y2="489.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="482.0" y2="482.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="475.0" y2="475.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="468.0" y2="468.0" stroke="#9a7955"/>
+<line x1="426" y1="545" x2="426" y2="461" stroke="#535f62" stroke-width="35.5"/>
+<line x1="426" y1="545" x2="426" y2="461" stroke="#e6ba87" stroke-width="31.5"/>
+<line x1="410.25" x2="441.75" y1="538.0" y2="538.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="531.0" y2="531.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="524.0" y2="524.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="517.0" y2="517.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="510.0" y2="510.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="503.0" y2="503.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="496.0" y2="496.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="489.0" y2="489.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="482.0" y2="482.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="475.0" y2="475.0" stroke="#9a7955"/>
+<line x1="410.25" x2="441.75" y1="468.0" y2="468.0" stroke="#9a7955"/>
+<line x1="608" y1="545" x2="608" y2="433" stroke="#535f62" stroke-width="35.5"/>
+<line x1="608" y1="545" x2="608" y2="433" stroke="#e6ba87" stroke-width="31.5"/>
+<line x1="592.25" x2="623.75" y1="535.6666666666667" y2="535.6666666666667" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="526.3333333333333" y2="526.3333333333333" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="517.0" y2="517.0" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="507.6666666666667" y2="507.6666666666667" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="498.3333333333333" y2="498.3333333333333" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="489.0" y2="489.0" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="479.66666666666663" y2="479.66666666666663" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="470.33333333333337" y2="470.33333333333337" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="461.0" y2="461.0" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="451.66666666666663" y2="451.66666666666663" stroke="#9a7955"/>
+<line x1="592.25" x2="623.75" y1="442.33333333333337" y2="442.33333333333337" stroke="#9a7955"/>
+<line x1="244" y1="419" x2="244" y2="391" stroke="#535f62" stroke-width="39"/>
+<line x1="244" y1="419" x2="244" y2="391" stroke="#a7c0bd" stroke-width="35"/>
+<line x1="454" y1="405" x2="454" y2="363" stroke="#535f62" stroke-width="32"/>
+<line x1="454" y1="405" x2="454" y2="363" stroke="#a7c0bd" stroke-width="28"/>
+<line x1="608" y1="391" x2="608" y2="363" stroke="#535f62" stroke-width="39"/>
+<line x1="608" y1="391" x2="608" y2="363" stroke="#a7c0bd" stroke-width="35"/>
+<line x1="398" y1="335" x2="328" y2="335" stroke="#535f62" stroke-width="32"/>
+<line x1="398" y1="335" x2="328" y2="335" stroke="#a7c0bd" stroke-width="28"/>
+<line x1="482" y1="335" x2="552" y2="335" stroke="#535f62" stroke-width="32"/>
+<line x1="482" y1="335" x2="552" y2="335" stroke="#a7c0bd" stroke-width="28"/>
+<line x1="272" y1="279" x2="272" y2="195" stroke="#535f62" stroke-width="35.5"/>
+<line x1="272" y1="279" x2="272" y2="195" stroke="#e6ba87" stroke-width="31.5"/>
+<line x1="256.25" x2="287.75" y1="272.0" y2="272.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="265.0" y2="265.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="258.0" y2="258.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="251.0" y2="251.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="244.0" y2="244.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="237.0" y2="237.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="230.0" y2="230.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="223.0" y2="223.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="216.0" y2="216.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="209.0" y2="209.0" stroke="#9a7955"/>
+<line x1="256.25" x2="287.75" y1="202.0" y2="202.0" stroke="#9a7955"/>
+<line x1="636" y1="251" x2="636" y2="195" stroke="#535f62" stroke-width="35.5"/>
+<line x1="636" y1="251" x2="636" y2="195" stroke="#a7c0bd" stroke-width="31.5"/>
+<line x1="384" y1="167" x2="300" y2="167" stroke="#535f62" stroke-width="35.5"/>
+<line x1="384" y1="167" x2="300" y2="167" stroke="#a7c0bd" stroke-width="31.5"/>
+<line x1="496" y1="167" x2="580" y2="167" stroke="#535f62" stroke-width="35.5"/>
+<line x1="496" y1="167" x2="580" y2="167" stroke="#a7c0bd" stroke-width="31.5"/>
+<rect x="384" y="678" width="112" height="84" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="440.0" y="711.0" text-anchor="middle" class="label">T / +0m</text>
+<text x="440.0" y="725.0" text-anchor="middle" class="small">Freight yard</text>
+<rect x="216" y="685" width="84" height="70" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="258.0" y="711.0" text-anchor="middle" class="label">W0 / +0m</text>
+<text x="258.0" y="725.0" text-anchor="middle" class="small">West gate</text>
+<rect x="580" y="685" width="84" height="70" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="622.0" y="711.0" text-anchor="middle" class="label">E0 / +0m</text>
+<text x="622.0" y="725.0" text-anchor="middle" class="small">East gate</text>
+<rect x="216" y="545" width="84" height="56" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="258.0" y="564.0" text-anchor="middle" class="label">W1 / +8m</text>
+<text x="258.0" y="578.0" text-anchor="middle" class="small">Orchard landing</text>
+<rect x="398" y="545" width="84" height="56" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="440.0" y="564.0" text-anchor="middle" class="label">M1 / +8m</text>
+<text x="440.0" y="578.0" text-anchor="middle" class="small">Market</text>
+<rect x="580" y="545" width="84" height="56" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="622.0" y="564.0" text-anchor="middle" class="label">E1 / +8m</text>
+<text x="622.0" y="578.0" text-anchor="middle" class="small">Cistern</text>
+<rect x="216" y="419" width="84" height="42" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="258.0" y="431.0" text-anchor="middle" class="label">AP / +16m</text>
+<text x="258.0" y="445.0" text-anchor="middle" class="small">A staging</text>
+<rect x="398" y="405" width="84" height="56" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="440.0" y="424.0" text-anchor="middle" class="label">MID / +16m</text>
+<text x="440.0" y="438.0" text-anchor="middle" class="small">Mid crest</text>
+<rect x="580" y="391" width="84" height="42" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="622.0" y="403.0" text-anchor="middle" class="label">BP / +20m</text>
+<text x="622.0" y="417.0" text-anchor="middle" class="small">B staging</text>
+<rect x="188" y="279" width="140" height="112" fill="#d79069" stroke="#354348" stroke-width="3"/>
+<text x="258.0" y="326.0" text-anchor="middle" class="label">A / +16m</text>
+<text x="258.0" y="340.0" text-anchor="middle" class="small">Reservoir A</text>
+<rect x="398" y="307" width="84" height="56" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="440.0" y="326.0" text-anchor="middle" class="label">V / +16m</text>
+<text x="440.0" y="340.0" text-anchor="middle" class="small">Valve room</text>
+<rect x="552" y="251" width="140" height="112" fill="#6fa2ad" stroke="#354348" stroke-width="3"/>
+<text x="622.0" y="298.0" text-anchor="middle" class="label">B / +20m</text>
+<text x="622.0" y="312.0" text-anchor="middle" class="small">Turbine B</text>
+<rect x="216" y="139" width="84" height="56" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="258.0" y="158.0" text-anchor="middle" class="label">AW / +24m</text>
+<text x="258.0" y="172.0" text-anchor="middle" class="small">West service</text>
+<rect x="384" y="139" width="112" height="56" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="440.0" y="158.0" text-anchor="middle" class="label">CT / +24m</text>
+<text x="440.0" y="172.0" text-anchor="middle" class="small">Service road</text>
+<rect x="580" y="139" width="84" height="56" fill="#ddd5bd" stroke="#354348" stroke-width="3"/>
+<text x="622.0" y="158.0" text-anchor="middle" class="label">BE / +24m</text>
+<text x="622.0" y="172.0" text-anchor="middle" class="small">East service</text>
+<line x1="384" x2="384" y1="737.5" y2="702.5" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="300" x2="300" y1="737.5" y2="702.5" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="496" x2="496" y1="737.5" y2="702.5" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="580" x2="580" y1="737.5" y2="702.5" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="228.25" x2="259.75" y1="685" y2="685" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="228.25" x2="259.75" y1="601" y2="601" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="438.25" x2="469.75" y1="678" y2="678" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="438.25" x2="469.75" y1="601" y2="601" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="620.25" x2="651.75" y1="685" y2="685" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="620.25" x2="651.75" y1="601" y2="601" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="256.25" x2="287.75" y1="545" y2="545" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="256.25" x2="287.75" y1="461" y2="461" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="410.25" x2="441.75" y1="545" y2="545" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="410.25" x2="441.75" y1="461" y2="461" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="592.25" x2="623.75" y1="545" y2="545" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="592.25" x2="623.75" y1="433" y2="433" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="226.5" x2="261.5" y1="419" y2="419" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="226.5" x2="261.5" y1="391" y2="391" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="440.0" x2="468.0" y1="405" y2="405" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="440.0" x2="468.0" y1="363" y2="363" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="590.5" x2="625.5" y1="391" y2="391" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="590.5" x2="625.5" y1="363" y2="363" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="398" x2="398" y1="349.0" y2="321.0" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="328" x2="328" y1="349.0" y2="321.0" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="482" x2="482" y1="349.0" y2="321.0" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="552" x2="552" y1="349.0" y2="321.0" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="256.25" x2="287.75" y1="279" y2="279" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="256.25" x2="287.75" y1="195" y2="195" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="620.25" x2="651.75" y1="251" y2="251" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="620.25" x2="651.75" y1="195" y2="195" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="384" x2="384" y1="182.75" y2="151.25" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="300" x2="300" y1="182.75" y2="151.25" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="496" x2="496" y1="182.75" y2="151.25" stroke="#a7c0bd" stroke-width="5"/>
+<line x1="580" x2="580" y1="182.75" y2="151.25" stroke="#a7c0bd" stroke-width="5"/>
+<rect x="223" y="699" width="14" height="21" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="223" y="731" class="small">W0-bench</text>
+<rect x="587" y="699" width="14" height="21" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="587" y="731" class="small">E0-bench</text>
+<rect x="223" y="566" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="223" y="591" class="small">W1-bed</text>
+<rect x="405" y="566" width="21" height="14" fill="#7a5f48" stroke="#4b4a38"/>
+<text x="405" y="591" class="small">M1-stall</text>
+<rect x="587" y="566" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="587" y="591" class="small">E1-pump</text>
+<rect x="223" y="433" width="14" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="223" y="458" class="small">AP-bench</text>
+<rect x="405" y="419" width="14" height="21" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="405" y="451" class="small">MID-bench</text>
+<rect x="643" y="405" width="14" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="643" y="430" class="small">BP-bench</text>
+<rect x="237" y="321" width="35" height="28" fill="#7a5f48" stroke="#4b4a38"/>
+<text x="237" y="360" class="small">A-tank</text>
+<rect x="202" y="307" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="202" y="332" class="small">A-low-west</text>
+<rect x="300" y="293" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="300" y="318" class="small">A-low-east</text>
+<rect x="209" y="363" width="14" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="209" y="388" class="small">A-entry-low</text>
+<rect x="433" y="321" width="14" height="21" fill="#7a5f48" stroke="#4b4a38"/>
+<text x="433" y="353" class="small">V-divider</text>
+<rect x="405" y="314" width="14" height="7" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="405" y="332" class="small">V-bench</text>
+<rect x="608" y="286" width="28" height="28" fill="#7a5f48" stroke="#4b4a38"/>
+<text x="608" y="325" class="small">B-turbine</text>
+<rect x="566" y="342" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="566" y="367" class="small">B-entry-low</text>
+<rect x="657" y="286" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="657" y="311" class="small">B-low-east</text>
+<rect x="566" y="265" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="566" y="290" class="small">B-low-north</text>
+<rect x="223" y="160" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="223" y="185" class="small">AW-bench</text>
+<rect x="587" y="160" width="21" height="14" fill="#b1a85e" stroke="#4b4a38"/>
+<text x="587" y="185" class="small">BE-bench</text>
+<circle cx="216" cy="335" r="7" fill="#fff" stroke="#26373e"/><text x="225" y="339" class="small">A PLANT</text>
+<circle cx="657" cy="321" r="7" fill="#fff" stroke="#26373e"/><text x="666" y="325" class="small">B PLANT</text>
+<circle cx="440" cy="720" r="7" fill="#fff" stroke="#26373e"/><text x="449" y="724" class="small">T 5</text>
+<circle cx="440" cy="167" r="7" fill="#fff" stroke="#26373e"/><text x="449" y="171" class="small">CT 5</text>
+<rect x="335" y="202" width="210" height="91" fill="#6b7771" opacity=".8"/>
+<text x="440" y="244" text-anchor="middle" class="label">HEADHOUSE / top +32</text>
+<text x="760" y="105" font-size="13">GRAPH / all edges reversible</text>
+<text x="760" y="123" font-size="13">T → West gate → Orchard → A staging → A</text>
+<text x="760" y="141" font-size="13">T → Market → Mid crest → Valve → A / B</text>
+<text x="760" y="159" font-size="13">T → East gate → Cistern → B staging → B</text>
+<text x="760" y="177" font-size="13">CT → West service → A / East service → B</text>
+<text x="760" y="195" font-size="13"></text>
+<text x="760" y="213" font-size="13">CRITICAL CONNECTIONS</text>
+<text x="760" y="231" font-size="13">A-short: level contour +16, 4m wide</text>
+<text x="760" y="249" font-size="13">B-short: 4m climb / 10m run, 4m wide</text>
+<text x="760" y="267" font-size="13">CT back route: +24, screened from sites</text>
+<text x="760" y="285" font-size="13">Main stairs: 4.5m; 0.20m risers</text>
+<text x="760" y="303" font-size="13">Stair grades 34–37°; no required jumps</text>
+<text x="760" y="321" font-size="13"></text>
+<text x="760" y="339" font-size="13">SECTION / visibility hypotheses</text>
+<text x="760" y="357" font-size="13">Standing body 1.8m / eye 1.674m</text>
+<text x="760" y="375" font-size="13">Crouched body 1.1m / eye 1.023m</text>
+<text x="760" y="393" font-size="13">100° horizontal / 75° vertical study FOV</text>
+<text x="760" y="411" font-size="13">Low cover: base = room Z; top = Z+1.25</text>
+<text x="760" y="429" font-size="13">Room walls: top = Z+5; entry heads +3.2</text>
+<text x="760" y="447" font-size="13">Stair side screens: top = guide Z+3.2</text>
+<text x="760" y="465" font-size="13">Spawn / staging roofs: underside Z+3.6</text>
+<text x="760" y="483" font-size="13">Sites: open air; B turbine top +23.6</text>
+<text x="760" y="501" font-size="13">A tank top +19.2; CT road top +24</text>
+<text x="760" y="519" font-size="13">Head house blocks CT → Mid / T views</text>
+<text x="760" y="537" font-size="13"></text>
+<text x="760" y="555" font-size="13">LEGEND</text>
+<text x="760" y="573" font-size="13">Orange hatch = native horizontal treads</text>
+<text x="760" y="591" font-size="13">Blue-gray strip = floor / ramp</text>
+<text x="760" y="609" font-size="13">Olive = crouch refuge, brown = tall cover</text>
+<text x="760" y="627" font-size="13">Dark green = inaccessible building mass</text>
+<text x="760" y="645" font-size="13">Wall gaps = traversable portal</text>
+<text x="760" y="663" font-size="13">All named cover IDs map to AML objects</text>
+<text x="760" y="681" font-size="13">No observation-only windows / drops</text>
+<text x="760" y="699" font-size="13"></text>
+<text x="760" y="717" font-size="13">Predicted contact: site thresholds + mid</text>
+<text x="760" y="735" font-size="13">No direct spawn or cross-map sightline</text>
+<text x="760" y="753" font-size="13">All height-dependent claims await 3D.</text>
+<text x="35" y="835" class="label">SECTION S–N / central stair street, same metre scale on both axes (5px/m)</text>
+<polyline points="40,970 100,970 155,930 195,930 255,890 365,890" fill="none" stroke="#b16d37" stroke-width="5"/>
+<rect x="370" y="810" width="70" height="160" fill="#6b7771"/>
+<line x1="445" y1="850" x2="485" y2="850" stroke="#446a7c" stroke-width="5"/>
+<line x1="70" x2="70" y1="970" y2="961.0" stroke="#203139" stroke-width="3"/><text x="70" y="951" class="small">T 0</text>
+<line x1="175" x2="175" y1="930" y2="921.0" stroke="#203139" stroke-width="3"/><text x="175" y="911" class="small">Market +8</text>
+<line x1="275" x2="275" y1="890" y2="881.0" stroke="#203139" stroke-width="3"/><text x="275" y="871" class="small">Mid +16</text>
+<line x1="465" x2="465" y1="850" y2="841.0" stroke="#203139" stroke-width="3"/><text x="465" y="831" class="small">CT +24</text>
+<text x="540" y="900">Lower-to-mid: +16m in 37m = 43% hillside rise.</text><text x="540" y="924">Steep flights end in level staging; fighting does not require</text><text x="540" y="947">holding a jump or clearing a site from the bottom tread.</text>
+</svg>

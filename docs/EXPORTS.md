@@ -1,25 +1,26 @@
-# LevelSpec 2 exports
+# LevelSpec exports
 
-The vector CLI and workbench export GLB, glTF, binary FBX, and Quake BSP2.
+AML exports support GLB, glTF, binary FBX, and Quake BSP2 through the native export backends.
 Exports contain geometry and source metadata, not Unity/Godot gameplay scenes.
-The v1 API and legacy Quake `.map` exporter remain available separately.
+The former ASCII/JSON APIs and legacy exporters are retired. BSP2 uses the XML
+export pipeline; runtime JSON remains a supported generated artifact.
 
 ## CLI
 
 ```sh
-# Existing default: GLB, runtime JSON, OBJ, SVG, validation and UV reports.
-npm run compile:vector -- examples/showcase.level.svgx
+# Default: GLB, runtime JSON, SVG and reports; OBJ when materials are representable.
+npm run compile -- tests/fixtures/aml/showcase.aml --out generated/showcase
 
 # Portable models with referenced material images.
-npm run compile:vector -- examples/showcase.level.svgx \
+npm run compile -- tests/fixtures/aml/showcase.aml \
   --formats glb,gltf --out generated/my-export
 
 # Binary FBX (Blender is optional until this format is requested).
-npm run compile:vector -- examples/showcase.level.svgx \
+npm run compile -- tests/fixtures/aml/showcase.aml \
   --formats fbx --blender /path/to/blender --out generated/my-export
 
-# Modern Quake source ports, not GoldSrc, Source, CS:GO or CS2.
-npm run compile:vector -- examples/showcase.level.svgx \
+# Quake BSP2 (requires the compiler tools and a palette).
+npm run compile -- tests/fixtures/aml/showcase.aml \
   --formats bsp --out generated/quake \
   --qbsp /path/to/ericw-tools/qbsp \
   --vis /path/to/ericw-tools/vis \
@@ -28,8 +29,9 @@ npm run compile:vector -- examples/showcase.level.svgx \
 ```
 
 Select several formats with `--formats glb,gltf,fbx,bsp`. `--no-uv` skips
-lightmap unwrapping; material UVs are always present. `--strict-floor-gaps` and
-`--strict-surface-contacts` still work. Invalid geometry or failed runtime
+lightmap unwrapping; material UVs are always present. `--strict-floor-gaps` promotes floor gaps to errors.
+`--surface-contacts error|warning|off` controls visible surface overlap auditing
+(default: error). Invalid geometry or failed runtime
 validation prevents publication. Ctrl+C cancels native work and removes staging
 files. A failed/cancelled run preserves previous outputs; unrelated files in the
 output directory are retained.
@@ -46,26 +48,11 @@ palette are optional external dependencies, not installed or redistributed by
 LevelSpec. The palette must be the 768-byte RGB `palette.lmp` appropriate for
 your Quake installation.
 
-## Viewer
+## Read-only reviewer
 
-Run `npm run dev` and choose **Export…** after compilation and validation finish.
-The dialog exports all layers, regardless of cutaway, roof visibility or layer
-filters. Editing the source, cancelling compilation, or invalid results disable
-export until the current source is ready.
-
-GLB and glTF run entirely in the browser. FBX/BSP use a loopback-only,
-same-origin service supplied by the Vite development server. Configure its tool
-environment before starting Vite. The dialog displays missing dependencies;
-a hosted/static viewer offers CLI instructions for native formats.
-
-Use **Material images** to select companion PNG/JPEG files or an asset folder.
-Folder-relative paths must match the SVGX `texture` attributes; selecting two
-files with the same basename from different folders requires selecting their
-parent directory. Images are not read from arbitrary server filesystem paths.
-Downloads are ZIP archives containing model files and metadata. Closing the
-dialog or pressing **Cancel export** cancels an active job. Native jobs are
-serialized, completed downloads expire after ten minutes, and requests are
-limited to 64 MB.
+The reviewer inspects compiled geometry but has no export dialog or source editor.
+Use the CLI to export the authored source. Floor/cutaway/appearance controls affect
+inspection only; they do not alter authored export geometry or materials.
 
 ## Contents and preservation
 
@@ -80,14 +67,47 @@ GLB/glTF/FBX preserve the compiled triangle geometry and separate meshes grouped
 by structural part, source object, material and atlas page. Dynamic parts remain
 separate. Marker nodes preserve IDs and positions. Material UVs use channel 0;
 lightmap UVs use channel 1 when generated. Compiled/Blender UVs are bottom-left;
-glTF reflects V and tangent handedness once to preserve image orientation in
-its top-left texture convention. GLB/glTF retain the original float32 normal
-and tangent components with that conversion. The Blender backend supplies canonical FBX corner normals and material
+glTF reflects V once to preserve image orientation in its top-left texture
+convention. GLB/glTF preserve the authored +Y tangent frame, including tangent
+handedness, so normal maps shade consistently with and without precomputed
+tangents. Normal-mapped exports always include explicit UV0 tangents; generating
+them does not require a lightmap atlas. The original float32 normal and tangent
+components are retained.
+The Blender backend supplies canonical FBX corner normals and material
 tangent/binormal frames explicitly to its binary writer; destination importers
 may regenerate them. Blender reimport also quantizes custom normal directions.
 
 Material textures are sRGB base color, multiplied by the authored color, with
-repeat encoded in the UVs. GLB/glTF retain the PBR factors. FBX packages
+repeat encoded in the UVs. Optional `normal-texture` images contain linear
+tangent-space normals (+X right, +Y up, +Z outward); `normal-scale` is a finite,
+nonnegative strength, defaulting to 1. They affect real-time lighting without
+displacing collision geometry. GLB/glTF preserve these images and their strength;
+`metallic-roughness-texture` is linear: green multiplies authored roughness and
+blue multiplies authored metalness. GLB/glTF preserve these channels and their
+UVs. `opacity` defaults to 1; values below 1 request alpha blending and cannot
+be combined with `alpha-cutoff`. The reviewer and exported model use the same
+explicit opacity.
+
+GLB/glTF include only materials used by the selected visual or collision geometry
+and their runtime images. Identical image content shares one exported image even
+when materials use different reference names; export reports identify the actual
+shared glTF filename. Declared texture references still require validation even
+when their material is unused. Full runtime metadata and generated-image sidecars
+remain available for reconstruction and other export formats.
+
+`height-texture` is a compile input, sampled from the linear red channel in
+weathered surface recipes. `height-scale` is meters from black to white
+(default 0.01); `height-offset` adds meters (default 0). It is not exported as
+a runtime displacement extension and does not change collision or navigation.
+
+OBJ, FBX, and BSP reject unsupported normal, packed PBR, or blended-opacity
+effects instead of dropping them. A normal CLI GLB build omits the incidental
+OBJ when its material channels cannot be represented.
+`alpha-cutoff`, strictly between 0 and 1 on a material with a `texture`, draws
+only the texels whose alpha reaches it, as for lettering cut from a glyph
+atlas. GLB/glTF write it as `alphaMode` `MASK` with that `alphaCutoff`; the
+other formats reject such materials likewise.
+GLB/glTF retain the PBR factors. FBX packages
 color-multiplied PNGs because its direct-image binding cannot reliably represent
 a multiply shader across importers. Full roughness and metalness values remain
 in metadata. Native image conversion accepts up to 16 megapixels.
@@ -104,14 +124,16 @@ must configure collisions, gameplay and lighting themselves.
 
 ## Quake-specific behavior
 
-BSP export retains closed pre-union solids without changing ordinary compiled
-geometry. Floors and flights retain their exact triangular prism sections;
-wall strips retain their segment cells. Nonconvex cells undergo checked plane
+BSP export retains final closed physical composition without changing runtime
+geometry. Render-only native operands are retained separately and cannot double
+count physical occupancy. Exposed face materials follow checked native partitions. Nonconvex cells undergo checked plane
 cuts or exact tetrahedral fans for star-shaped warped cells. Convexity and
 volume equivalence are checked before emitting brushes; unsupported decomposition
 fails with the source object ID. Numerical construction uses a one-micrometre
 kernel tolerance and a 0.1 mm convex-plane tolerance. Per-solid decomposition
-is bounded at 4,096 pieces, with 100,000 brushes per export.
+is bounded at 4,096 pieces and 8,000,000 charged work units, with 100,000 brushes
+per export. Zero-volume cut residue may be removed within those tolerances only
+with strict mesh progress and a final missing/extra-volume audit.
 
 An export-only enclosure is placed eight metres beyond geometry bounds, with
 sky overhead. Its IDs and bounds appear in the export report. Compilation runs
@@ -126,9 +148,9 @@ becomes `info_player_start`; subsequent markers become deathmatch starts. A
 single spawn also receives a coincident deathmatch start. Dynamic collidable surfaces become identified `func_wall` entities, without
 doors, destruction or custom game code. Closed visual-only solids become
 `func_detail_illusionary`, while invisible collision-only solids use the
-special `skip` texture so they remain solid without drawing. BSP export rejects
-visual-only imported meshes that cannot be converted to closed brushes instead of
-silently dropping them.
+special `skip` texture so they remain solid without drawing. BSP export rejects imported visualization meshes as unsupported brush inputs.
+They are never passed to a checked solid operation; author a native replacement
+or use another visual export.
 
 Textures are converted into WAD2 miptex images, quantized against the supplied
 palette without fullbright colors, resized to multiples of 16 up to 512 pixels,
@@ -140,10 +162,10 @@ transferred. Compiler warnings are retained in logs and the export report.
 ## API and verification
 
 ```ts
-import { compile, parseLevelSvgx, resolveExportAssets, toGLB, toGLTF } from 'levelspec/vector';
+import { compile, parseAml, resolveExportAssets, toGLB, toGLTF } from 'levelspec';
 import { exportLevel } from 'levelspec/export'; // Node-only
 
-const level = await compile(parseLevelSvgx(source), {
+const level = await compile(parseAml(source), {
   uvs: true,
   retainExportSolids: true, // needed only for BSP
 });
@@ -152,9 +174,16 @@ const glb = toGLB(level, { assets }); // synchronous Uint8Array
 const files = toGLTF(level, { assets }); // filename -> string or Uint8Array
 await exportLevel(level, {
   formats: ['glb', 'gltf'], output: 'generated/export', assets,
-  // sourceFile alternatively resolves textures relative to the SVGX file.
+  // sourceFile alternatively resolves textures relative to the AML file.
 });
 ```
+
+Completed weathered levels retain content-addressed `generatedImages` bytes.
+GLB embeds them; glTF, runtime JSON, and preview packages include the referenced
+image files. Runtime JSON contains image metadata and file paths, never binary
+arrays. Authored color, normal and packed metallic/roughness images retain their
+original pixels. Authored height inputs can produce shared derived normal maps;
+none of these files contain baked illumination or ambient occlusion.
 
 `toGLB(level)` remains valid for untextured callers. Referenced images require
 resolved assets, rather than silently producing untextured models. `exportLevel`
@@ -170,7 +199,7 @@ visibility/light lumps.
 corners, UVs, materials and marker positions to exported runtime JSON.
 `tools/export/verify-godot.gd` exercises Godot's GLTFDocument importer.
 Local acceptance artifacts live under `generated/export-qa` (not source assets).
-The full suite passed 366 tests with one optional BSP test skipped; the focused
+Historical acceptance (not a current run): the full suite passed 366 tests with one optional BSP test skipped; the focused
 native-enabled export suite passed all 10 export tests, and the final vector
 suite passed all 125 tests with no skips. Godot 4.7.2 imported
 the textured showcase with both UV channels; Blender round-trip checks cover
@@ -182,3 +211,7 @@ remain unverified here because those destination installations are unavailable.
 BSP acceptance runs used a synthetic grayscale test palette to exercise WAD
 packing without bundling game assets. Supply your own Quake palette for actual
 color output. The temporary acceptance viewer has been stopped.
+
+AML runtime JSON 4 and native export metadata 3 include spatial volume declarations
+and terrain tiles. Tile triangle ranges address the accompanying canonical
+`physicalMesh`, before render partitions or collision filtering. See [terrain](TERRAIN.md).

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "ninefold",
+    "source": "projects/ninefold/level.aml",
+    "sourceSha256": "3d8dae77f52fba4084ae72bb2213d5fb6c5eb11f9e25ad579ee43f3288c4f624",
+    "layout": "projects/ninefold/layout.svg",
+    "layoutSha256": "467cef2dc137bafcf17626c8ca0f027c0715742d7caac65167c2eaa4f55b6270"
+  },
+  {
+    "name": "galini",
+    "source": "projects/galini/level.aml",
+    "sourceSha256": "a393a80702338e800205c9ecaa9076b59250f5d9b21d2e6c13fa51d2329ca929",
+    "layout": "projects/galini/layout.svg",
+    "layoutSha256": "1fe4e338f58b5655a96079a67508346e264bc3b66c87ce75ffb7011224b93810"
+  },
+  {
+    "name": "last-light",
+    "source": "projects/last-light/level.aml",
+    "sourceSha256": "efbd743e587066ec818152217563be275b6b70d248dcbb1f5ec58ce07322b692",
+    "layout": "projects/last-light/layout.svg",
+    "layoutSha256": "e1bbc6a6cef82571ebf16433fecd169dd3d9979071a008d9c545e221a418615d"
+  }
+]

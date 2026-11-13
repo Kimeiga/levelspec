@@ -1,0 +1,23 @@
+{
+  "provider": "OpenAI image_gen",
+  "usage": "New material albedo fields; project-local offline UV and PBR approximation bake",
+  "sources": {
+    "worn-shop-wood.png": {
+      "description": "Seamless worn brown shop hardwood, fine vertical grain and handling scratches, neutral diffuse light, no object silhouettes",
+      "generation": "exec-2ba3d9f6-bfd5-4dbc-9b1e-6faa1490c52c",
+      "prompt": "Create a production-quality square seamless physically based base-color texture of well-used medium brown hardwood from an old Hong Kong grocery shop stool and produce crate. Entire image filled edge to edge with one continuous flat wood material, viewed exactly orthographically straight down. Fine long grain runs vertically, subtle dark pores, gray-brown grime caught in grain, scattered short handling scratches, small areas rubbed through the old amber-brown finish to pale raw wood. Rich tactile detail at millimeter scale but restrained contrast. Authentic utilitarian worn wood, not polished luxury, not cartoon, not ornamental. No planks, no seams, no board edges, no nails, no object silhouette, no labels, no text, no shadows, no highlights, no directional illumination, no ambient occlusion. Diffuse albedo only with neutral even light; tileable on all edges. Warm muted walnut/teak brown with lighter honey scuffs; avoid orange saturation. 1024x1024."
+    },
+    "worn-crate-plastic.png": {
+      "description": "Seamless scuffed red molded polyethylene, gray dust and pale stress scratches, neutral diffuse light, no lattice silhouettes",
+      "generation": "exec-f5d5249e-3466-47c2-a584-9401338cfc20",
+      "prompt": "A square seamless PBR diffuse albedo material texture, the flat red molded polyethylene of a heavily reused Hong Kong drinks crate. Completely flat orthographic field edge to edge, medium dark warm brick red plastic, subtle molded grain, accumulated gray-brown dust, tiny pale stress scratches, sparse scuffed patches exposing lighter pink-red plastic. Authentic utilitarian grocery crate, detailed but restrained wear. No crate shape, no lattice, no holes, no edges, no shadows, no highlights, no illumination baked in, no writing or labels or embossed shapes. Not wood, not rust, not paint peeling. Uniform neutral diffuse light for base-color game texture, seamless all edges, 1024 square."
+    },
+    "packaging-labels.png": {
+      "generation": "exec-bd0670ab-a4cf-4ac6-93cf-4ac23bbcdb01",
+      "prompt": "Create a FLAT GRAPHIC TEXTURE ATLAS for an old Hong Kong grocery game environment, exactly four equal columns and two equal rows: 8 rectangular vintage product labels filling their tiles edge to edge. No perspective, no bottles or jars or cans, no scene, no physical objects, no lighting, no shadows, no gaps between tiles, no outside border, no explanatory headings. Each equal tile is a standalone richly detailed printed paper label with small worn ink marks and subtle paper grain, clear central ingredient illustration and fine decorative rules, invented modest Chinese-style brand lettering (no real brands). First row left to right: jade-green-and-ivory tea leaves label; navy-blue-and-ivory canned fish illustration; mustard-yellow-and-cream citrus tonic label; forest-green-and-cream preserved vegetables label. Second row left to right: cobalt-blue-and-white rice grains/flour label; warm-cream and dark brown soybeans sauce label; muted green-and-silver beans label; faded burgundy-and-ivory chili pepper label. Distinct layouts and palettes, densely printed utilitarian 1970s/1980s Kowloon provisions packaging, no luxury branding or modern minimalism. Red is only the one chili tile. Use the entire tile for each design, maintain exact 4x2 grid boundaries. High resolution, sharp printed graphics, all diffuse neutral color. Intended to map onto small jars, tins, bottles, bags and shipping cartons.",
+      "sha256": "a74fe2a6aee2835f1b385f32d30a3ef8d897d9e30837a58c5b081c9463e5d3b2",
+      "usage": "Eight generated label designs projected onto source package UVs. Eight jar/bottle appearances use red, burgundy, rust, amber, yellow, green, blue and teal; matching colored ink/borders and material-region recoloring make them visible beyond caps. Four appearances remain for other stock. All PBR rectangles retain aligned UV transforms/gutters in the existing allocation."
+    }
+  },
+  "limits": "Normal and roughness maps are restrained albedo-derived approximations, not measured PBR. The stool and red crate retain their existing geometry; new produce crate uses regular boards. No additional Tripo generation."
+}

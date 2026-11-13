@@ -1,0 +1,50 @@
+[
+  {
+    "id": "symi-harbor",
+    "url": "https://www.lato.at/symi/symi3.jpg",
+    "page": "https://www.lato.at/symi/index.php",
+    "credit": "Lato.at Symi photo essay; original photographer credit not established",
+    "file": "images/symi-harbor.jpg",
+    "sha256": "ef841e9587c3320f0d404a209c06f5236c4bc35b6d58cad9aef355d58ed879fb",
+    "inspected": true,
+    "retrieved": "2026-11-09",
+    "use": "Research evidence only; not game textures; reuse permission not established.",
+    "inspection": "Opened and visually inspected, 2026-11-09; observations in study.md."
+  },
+  {
+    "id": "symi-stair",
+    "url": "https://www.aegeanislands.gr/app/uploads/2020/06/symi_new_14.jpg",
+    "page": "https://www.aegeanislands.gr/pois/symi-kali-strata-en/",
+    "credit": "Visible watermark: SymiGreece.com / June 2010; hosted by Aegean Islands tourism portal",
+    "file": "images/symi-stair.jpg",
+    "sha256": "86fb2f9b773dffe5fbd513dac052a1bea1d804ef7dfa52bdb5979118025e7284",
+    "inspected": true,
+    "retrieved": "2026-11-09",
+    "use": "Research evidence only; not game textures; reuse permission not established.",
+    "inspection": "Opened and visually inspected, 2026-11-09; observations in study.md."
+  },
+  {
+    "id": "monemvasia-town",
+    "url": "https://cdn.visitgreece.gr/wp-uploads/2026/03/monemvasia-01.jpg",
+    "page": "https://www.visitgreece.gr/en/mainland/peloponnese/monemvasia",
+    "credit": "Greek National Tourism Organisation / Visit Greece",
+    "file": "images/monemvasia-town.jpg",
+    "sha256": "41529fdb932f6e69e7a913477f93ae8ad45987af9055a6378eed88e4f0881dd1",
+    "inspected": true,
+    "retrieved": "2026-11-09",
+    "use": "Research evidence only; not game textures; reuse permission not established.",
+    "inspection": "Opened and visually inspected, 2026-11-09; observations in study.md."
+  },
+  {
+    "id": "monemvasia-passage",
+    "url": "https://middleware.visitpeloponnese.com/api/middleware/getimage/MONEMVASIA-619-1020_GG_1887938096.jpg",
+    "page": "https://visitpeloponnese.com/en/prdct/monemvasia",
+    "credit": "Visit Peloponnese tourism portal; original photo credit not exposed",
+    "file": "images/monemvasia-passage.jpg",
+    "sha256": "21631a7c3dfb3a0597418c23eff62ad7f18a5ad149dcd1bcdd6e19ea2fb06650",
+    "inspected": true,
+    "retrieved": "2026-11-09",
+    "use": "Research evidence only; not game textures; reuse permission not established.",
+    "inspection": "Opened and visually inspected, 2026-11-09; observations in study.md."
+  }
+]

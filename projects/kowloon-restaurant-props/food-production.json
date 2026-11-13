@@ -1,0 +1,20 @@
+{
+  "outputs": {
+    "src/dressing/kowloon/shop/assets/restaurant-food.json": "2df10d2a662334c9f55f2283bcfd47a461e40fd4a55e12e3caaa6cbb8e4075a0",
+    "projects/dressing-demo/textures/restaurant-food.png": "6cc7ec5e997bfd51f18b2e0ffce440c3c337fbd878737d49d349decc66b22609",
+    "projects/dressing-demo/textures/restaurant-food-normal.png": "99eda4e97aed912123534b65392b27feda61233cb7745a4939c3426e2a97a55a",
+    "projects/dressing-demo/textures/restaurant-food-properties.png": "26e45e21e8952f74f031b046443416720644db026d8a9e2f8327554929ceb01c"
+  },
+  "textureSize": [
+    1024,
+    1024
+  ],
+  "padding": 4,
+  "variants": [
+    "amber",
+    "golden",
+    "mahogany"
+  ],
+  "metalness": 0,
+  "minimumRoughness": 0.49019607843137253
+}

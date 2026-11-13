@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "authoringFormat": "aml",
+  "authoringVersion": "1",
+  "source": "/Users/tomokif/code/levelspec/projects/daiban-courtyard-third/level.level.svgx",
+  "sourceSha256": "1b88137785cf1d537f33dc261acd27d2e5d319b62c03af75fcec5395dc7ae09e",
+  "translation": "mechanical-source",
+  "architecturalIntentInferred": false,
+  "companions": [
+    {
+      "source": "/Users/tomokif/code/levelspec/projects/daiban-courtyard-third/references/overhead.png",
+      "destination": "companions/107a58382b365c20b751aa633756ef19d3d58f97892b48dfca75701c6dcf0fa7.png",
+      "sha256": "107a58382b365c20b751aa633756ef19d3d58f97892b48dfca75701c6dcf0fa7",
+      "size": 1282340
+    },
+    {
+      "source": "/Users/tomokif/code/levelspec/projects/daiban-courtyard-third/references/oblique.png",
+      "destination": "companions/72c914795e8e15257cdf18e56b42f0ab06df93105ed8a7277bd53d84aef39469.png",
+      "sha256": "72c914795e8e15257cdf18e56b42f0ab06df93105ed8a7277bd53d84aef39469",
+      "size": 1173602
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="architectural-project" name="Architectural project" units="meters">
+  <profile id="room-footprint" points="0 0; 8 0; 8 6; 0 6"/>
+  <path id="room-perimeter" points="0 0 0; 8 0 0; 8 6 0; 0 6 0; 0 0 0"/>
+  <assembly id="room-shell">
+    <slab id="room" group="ground" profile="room-footprint" thickness="0.2"/>
+    <wall id="walls" group="ground" path="room-perimeter" thickness="0.22" height="3"/>
+  </assembly>
+  <opening id="window" host="walls" shape="circle" center="4 1.6" radius="0.6"/>
+  <marker id="spawn" group="ground" element="room" position="2 2 0" kind="attacker_spawn"/>
+</architecture>

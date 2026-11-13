@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-11",
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "id": "laundry-shirt",
+      "faces": 2500,
+      "prompt": "Use case: stylized-concept. Asset type: isolated reference for a real-time 3D background prop in a Kowloon-inspired Hong Kong tenement courtyard. Generate ONE worn pale blue short-sleeve cotton button-up shirt, hanging empty from two invisible support points at the shoulder seams. Gravity pulls the sleeves down and makes asymmetric natural vertical cloth folds; collapsed empty cloth, no body filling it. Small collar, plain buttons and a subtle chest pocket; faded cotton weave and seam wear, clean washed fabric, no exaggerated damage. Single three-quarter front view only, nearly front-on with a small view of the right side, full silhouette including hems and sleeve openings inside frame with generous margin. Realistic game prop concept, physically plausible soft thin fabric with volume and readable folds, moderate detail. Even diffuse neutral illumination with minimal cast shadow and no baked dramatic shading, light warm-gray seamless background. No person, mannequin, hanger, clips, rope, building, floor plane, pedestal, text, watermark, or other objects. Not a collage, not multiple views, not pixel art. Show only the shirt."
+    },
+    {
+      "id": "market-apple",
+      "faces": 600,
+      "prompt": "Use case: stylized-concept. Asset type: isolated image-to-3D reference for a small market produce prop in a Kowloon-inspired Hong Kong street grocery. ONE ordinary slightly irregular red-and-yellow apple with a short brown woody stem, subtly lobed bottom and shallow recessed stem cavity. Natural waxy skin with fine tiny lenticel speckles, muted yellow-green patches under red streaks, minor everyday surface blemishes, appetizing and fresh rather than rotten. Realistic game prop concept, not a perfect sphere and not exaggerated stylized fruit. Single three-quarter view slightly from above, whole object with generous margin. Even neutral diffuse lighting, low contrast, no hard highlights or cast shadow, light warm-gray seamless background. No leaf, stickers, labels, container, table, environment, pedestal, cutaway, slices, text, watermark, or additional fruit. One view, one apple."
+    },
+    {
+      "id": "snack-packet",
+      "faces": 900,
+      "prompt": "Use case: product-mockup. Asset type: isolated image-to-3D reference for a grocery shelf prop in a Kowloon-inspired Hong Kong street scene. ONE small sealed upright puffed plastic bag of shrimp crackers, modest generic old-fashioned cream-and-faded-red packaging. Uneven crinkled pillow shape, bulging middle, compressed bottom corner, thin crimped heat-sealed top and bottom edges. Printed simple red oval with a small shrimp drawing and the two traditional Chinese characters '蝦片'; no other words or brands. Softly worn printing and fine wrinkles in slightly glossy plastic, believable economical packaging, not metallic chrome. Single three-quarter front view, whole packet including seams inside frame with margin. Realistic game prop concept, even diffuse neutral light, minimal cast shadow, plain light warm-gray seamless background. No food outside the packet, no shelf, hands, other products, pedestal, dimensions, watermark, collage, or multiple views."
+    },
+    {
+      "id": "seasoning-jar",
+      "faces": 1200,
+      "prompt": "Use case: product-mockup. Asset type: isolated image-to-3D reference for a seasoning jar prop in a Kowloon-inspired Hong Kong grocery. ONE squat reused wide-mouth amber glass jar, filled almost to its shoulders with coarse dried red chili flakes and pale seeds, closed by a slightly dented dull red metal screw lid. Plain unbranded jar, a small aged cream paper label with a simple red border and no lettering, irregular paper edges. Realistically subtle glass thickness and muted reflections, visible mottled granular contents through amber glass, believable old everyday shop object. Single three-quarter front view slightly from above showing lid and body; full object with generous margin. Realistic game prop concept, diffuse neutral illumination, minimal cast shadow, light warm-gray seamless background. No spoon, loose food, extra jars, table, shelf, pedestal, text, logos, watermark, collage or multiple views. Keep jar cylindrical with a flat stable base; material detail supplies the complexity."
+    }
+  ]
+}

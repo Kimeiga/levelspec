@@ -5,11 +5,11 @@ import { spawn } from "node:child_process";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  SceneBuilder,
+  ArchitectureBuilder,
   compile,
-  serializeLevelSvgx,
+  serializeAml,
   toGLB,
-} from "../src/vector/index.ts";
+} from "levelspec";
 
 function run(args: string[]) {
   return new Promise<{ code: number | null; stdout: string; stderr: string }>(
@@ -28,58 +28,44 @@ function run(args: string[]) {
   );
 }
 
-test("vector CLI resolves local GLB assets relative to the SVGX file", async () => {
+test("CLI resolves local visualization meshes relative to the AML file", async () => {
   const temp = await mkdtemp(join(tmpdir(), "levelspec-glb-cli-"));
   try {
-    const assetScene = new SceneBuilder("asset"),
-      assetGroup = assetScene.group("mesh");
-    assetGroup.box("crate", {
-      position: [0, 0, 0],
-      size: [1, 1, 1],
-      material: "default",
-      collision: "solid",
-    });
+    const assetScene = new ArchitectureBuilder("asset");
+    assetScene.box("crate",{width:1,depth:1,height:1});
     const assetLevel = await compile(assetScene.document, { navigation: false });
     assert.deepEqual(assetLevel.diagnostics, []);
     await writeFile(join(temp, "crate.glb"), toGLB(assetLevel));
 
-    const scene = new SceneBuilder("cli-glb"),
-      group = scene.group("level"),
-      floor = group.platform("floor", {
-        width: 8,
-        depth: 8,
-        material: "default",
-      });
-    scene.document.assets = [{ id: "crate-mesh", src: "crate.glb" }];
-    group.asset("crate", "crate-mesh", {
-      position: [4, 4, 0],
-      size: [1, 1, 1],
-      material: "default",
-      collision: "none",
-    });
+    const scene = new ArchitectureBuilder("cli-glb");
+    scene.profile("plan",[[0,0,0],[8,0,0],[8,8,0],[0,8,0]]);const floor=scene.slab("level/floor","plan",{group:"level"});
+    scene.add({kind:"visual-mesh",id:"crate",src:"crate.glb",position:[4,4,0]});
     scene.document.markers.push({
       id: "spawn",
       kind: "attacker_spawn",
-      layer: group.layer.id,
+      layer: "level",
       region: floor.id,
       position: [1, 1, 0],
     });
-    const source = join(temp, "map.level.svgx"),
+    const source = join(temp, "map.aml"),
       output = join(temp, "out");
-    await writeFile(source, serializeLevelSvgx(scene.document));
+    await writeFile(source, serializeAml(scene.document));
     const result = await run([
-      "tools/vector-build.ts",
+      "bin/levelspec.mjs",
+      "build",
       source,
       "--formats",
       "glb",
+      "--json",
       "--out",
       output,
       "--no-uv",
       "--strict-floor-gaps",
-      "--strict-surface-contacts",
+      "--surface-contacts",
+      "error",
     ]);
     assert.equal(result.code, 0, result.stderr || result.stdout);
-    assert.match(result.stdout, /"passed": true/);
+    assert.equal(JSON.parse(result.stdout).success, true);
     const exported = await readFile(join(output, "cli-glb.glb"));
     assert.equal(exported.toString("ascii", 0, 4), "glTF");
   } finally {

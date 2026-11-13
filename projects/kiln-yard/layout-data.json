@@ -1,0 +1,1381 @@
+{
+  "revision": "L04",
+  "units": "meters",
+  "coordinates": "right-handed XY plane, +Y north, +Z up",
+  "status": "layout proposal; independent reviews pending",
+  "floors": [
+    {
+      "id": "T",
+      "name": "Loading spawn",
+      "polygon": [
+        [
+          28,
+          3
+        ],
+        [
+          54,
+          3
+        ],
+        [
+          59,
+          12
+        ],
+        [
+          52,
+          21
+        ],
+        [
+          36,
+          21
+        ],
+        [
+          27,
+          15
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "W1",
+      "name": "Arcade approach",
+      "polygon": [
+        [
+          27,
+          15
+        ],
+        [
+          36,
+          21
+        ],
+        [
+          27,
+          31
+        ],
+        [
+          24,
+          43
+        ],
+        [
+          18,
+          51
+        ],
+        [
+          10,
+          48
+        ],
+        [
+          13,
+          30
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "W2",
+      "name": "Arcade court",
+      "polygon": [
+        [
+          10,
+          48
+        ],
+        [
+          18,
+          51
+        ],
+        [
+          24,
+          43
+        ],
+        [
+          34,
+          45
+        ],
+        [
+          35,
+          59
+        ],
+        [
+          28,
+          66
+        ],
+        [
+          15,
+          63
+        ],
+        [
+          8,
+          56
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "A",
+      "name": "Press site",
+      "polygon": [
+        [
+          15,
+          63
+        ],
+        [
+          28,
+          66
+        ],
+        [
+          35,
+          59
+        ],
+        [
+          44,
+          61
+        ],
+        [
+          45,
+          75
+        ],
+        [
+          36,
+          83
+        ],
+        [
+          19,
+          81
+        ],
+        [
+          12,
+          73
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "M1",
+      "name": "Forecourt",
+      "polygon": [
+        [
+          36,
+          21
+        ],
+        [
+          52,
+          21
+        ],
+        [
+          57,
+          31
+        ],
+        [
+          52,
+          45
+        ],
+        [
+          39,
+          45
+        ],
+        [
+          33,
+          37
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "M2",
+      "name": "Saddle",
+      "polygon": [
+        [
+          39,
+          45
+        ],
+        [
+          52,
+          45
+        ],
+        [
+          56,
+          53
+        ],
+        [
+          50,
+          61
+        ],
+        [
+          44,
+          61
+        ],
+        [
+          35,
+          59
+        ],
+        [
+          34,
+          45
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "E1",
+      "name": "Wash",
+      "polygon": [
+        [
+          52,
+          21
+        ],
+        [
+          59,
+          12
+        ],
+        [
+          71,
+          17
+        ],
+        [
+          85,
+          26
+        ],
+        [
+          88,
+          40
+        ],
+        [
+          80,
+          46
+        ],
+        [
+          72,
+          40
+        ],
+        [
+          72,
+          31
+        ],
+        [
+          61,
+          28
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "B",
+      "name": "Basin site",
+      "polygon": [
+        [
+          72,
+          40
+        ],
+        [
+          80,
+          46
+        ],
+        [
+          88,
+          40
+        ],
+        [
+          92,
+          52
+        ],
+        [
+          85,
+          64
+        ],
+        [
+          72,
+          65
+        ],
+        [
+          65,
+          57
+        ],
+        [
+          65,
+          48
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "R4",
+      "name": "Inspection passage",
+      "polygon": [
+        [
+          50,
+          61
+        ],
+        [
+          56,
+          53
+        ],
+        [
+          65,
+          48
+        ],
+        [
+          65,
+          57
+        ],
+        [
+          72,
+          65
+        ],
+        [
+          66,
+          72
+        ],
+        [
+          54,
+          70
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    },
+    {
+      "id": "D",
+      "name": "Service yard and defender spawn",
+      "polygon": [
+        [
+          36,
+          83
+        ],
+        [
+          45,
+          75
+        ],
+        [
+          54,
+          70
+        ],
+        [
+          66,
+          72
+        ],
+        [
+          72,
+          65
+        ],
+        [
+          85,
+          64
+        ],
+        [
+          85,
+          73
+        ],
+        [
+          75,
+          81
+        ],
+        [
+          70,
+          90
+        ],
+        [
+          51,
+          94
+        ],
+        [
+          43,
+          88
+        ]
+      ],
+      "floor_z": 0,
+      "slab_thickness": 0.25
+    }
+  ],
+  "solid_masses": [
+    {
+      "id": "K0",
+      "polygon": [
+        [
+          27,
+          23
+        ],
+        [
+          32,
+          22
+        ],
+        [
+          33,
+          37
+        ],
+        [
+          34,
+          45
+        ],
+        [
+          24,
+          43
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 6
+    },
+    {
+      "id": "K1",
+      "polygon": [
+        [
+          52,
+          30
+        ],
+        [
+          64,
+          31
+        ],
+        [
+          67,
+          41
+        ],
+        [
+          62,
+          47
+        ],
+        [
+          56,
+          50
+        ],
+        [
+          52,
+          45
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 6
+    },
+    {
+      "id": "K2",
+      "polygon": [
+        [
+          44,
+          63
+        ],
+        [
+          50,
+          63
+        ],
+        [
+          54,
+          70
+        ],
+        [
+          45,
+          75
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 6
+    },
+    {
+      "id": "K3-office",
+      "polygon": [
+        [
+          34.5,
+          29
+        ],
+        [
+          44,
+          29
+        ],
+        [
+          47,
+          32
+        ],
+        [
+          47,
+          35
+        ],
+        [
+          33.375,
+          35
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 6
+    }
+  ],
+  "portals": [
+    {
+      "id": "P01",
+      "connects": [
+        "T",
+        "W1"
+      ],
+      "span": [
+        [
+          28.8,
+          16.2
+        ],
+        [
+          34.2,
+          19.8
+        ]
+      ],
+      "clear_width": 6.49,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P02",
+      "connects": [
+        "T",
+        "M1"
+      ],
+      "span": [
+        [
+          45,
+          21
+        ],
+        [
+          51,
+          21
+        ]
+      ],
+      "clear_width": 6,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P03",
+      "connects": [
+        "T",
+        "E1"
+      ],
+      "span": [
+        [
+          53.4,
+          19.2
+        ],
+        [
+          57.6,
+          13.8
+        ]
+      ],
+      "clear_width": 6.841,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P04",
+      "connects": [
+        "W1",
+        "W2"
+      ],
+      "span": [
+        [
+          12,
+          48.75
+        ],
+        [
+          16,
+          50.25
+        ]
+      ],
+      "clear_width": 4.272,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P05",
+      "connects": [
+        "W2",
+        "A"
+      ],
+      "span": [
+        [
+          20.2,
+          64.2
+        ],
+        [
+          25.4,
+          65.4
+        ]
+      ],
+      "clear_width": 5.337,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P06",
+      "connects": [
+        "M1",
+        "M2"
+      ],
+      "span": [
+        [
+          39,
+          45
+        ],
+        [
+          43,
+          45
+        ]
+      ],
+      "clear_width": 4,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P07",
+      "connects": [
+        "M2",
+        "A"
+      ],
+      "span": [
+        [
+          36.8,
+          59.4
+        ],
+        [
+          42.2,
+          60.6
+        ]
+      ],
+      "clear_width": 5.532,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P08",
+      "connects": [
+        "M2",
+        "R4"
+      ],
+      "span": [
+        [
+          51.2,
+          59.4
+        ],
+        [
+          54.8,
+          54.6
+        ]
+      ],
+      "clear_width": 6.0,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P09",
+      "connects": [
+        "R4",
+        "B"
+      ],
+      "span": [
+        [
+          65,
+          50
+        ],
+        [
+          65,
+          55
+        ]
+      ],
+      "clear_width": 5.0,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P10",
+      "connects": [
+        "E1",
+        "B"
+      ],
+      "span": [
+        [
+          74.4,
+          41.8
+        ],
+        [
+          78.4,
+          44.8
+        ]
+      ],
+      "clear_width": 5.0,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P11",
+      "connects": [
+        "B",
+        "D"
+      ],
+      "span": [
+        [
+          75.9,
+          64.7
+        ],
+        [
+          82.4,
+          64.2
+        ]
+      ],
+      "clear_width": 6.519,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P12",
+      "connects": [
+        "A",
+        "D"
+      ],
+      "span": [
+        [
+          38.7,
+          80.6
+        ],
+        [
+          43.2,
+          76.6
+        ]
+      ],
+      "clear_width": 6.021,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P13",
+      "connects": [
+        "R4",
+        "D"
+      ],
+      "span": [
+        [
+          57.6,
+          70.6
+        ],
+        [
+          63.6,
+          71.6
+        ]
+      ],
+      "clear_width": 6.083,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    },
+    {
+      "id": "P14",
+      "connects": [
+        "W2",
+        "M2"
+      ],
+      "span": [
+        [
+          34.357142857,
+          50
+        ],
+        [
+          34.642857143,
+          54
+        ]
+      ],
+      "clear_width": 4.01,
+      "base_z": 0,
+      "head_z": 3,
+      "direction": "bidirectional"
+    }
+  ],
+  "boundary_contract": "Every floor boundary is a full-height opaque wall except listed portal spans. Shared seams emit one wall with the same portal from both sides. Solid masses fill selected remaining gaps. Do not connect nearby polygons automatically. Open-air courts have no roof; walls top +6. Gameplay material behavior unknown.",
+  "covers": [
+    {
+      "id": "L1",
+      "polygon": [
+        [
+          17,
+          36
+        ],
+        [
+          20,
+          36
+        ],
+        [
+          20,
+          37.4
+        ],
+        [
+          17,
+          37.4
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "L2",
+      "polygon": [
+        [
+          25,
+          54
+        ],
+        [
+          29,
+          54
+        ],
+        [
+          29,
+          55.5
+        ],
+        [
+          25,
+          55.5
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "L3",
+      "polygon": [
+        [
+          20,
+          72
+        ],
+        [
+          24,
+          72
+        ],
+        [
+          24,
+          73.5
+        ],
+        [
+          20,
+          73.5
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "L4",
+      "polygon": [
+        [
+          50,
+          35
+        ],
+        [
+          53,
+          35
+        ],
+        [
+          53,
+          36.5
+        ],
+        [
+          50,
+          36.5
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "L5",
+      "polygon": [
+        [
+          46,
+          53
+        ],
+        [
+          49,
+          53
+        ],
+        [
+          49,
+          54.5
+        ],
+        [
+          46,
+          54.5
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "L6",
+      "polygon": [
+        [
+          66,
+          23
+        ],
+        [
+          70,
+          23
+        ],
+        [
+          70,
+          24.5
+        ],
+        [
+          66,
+          24.5
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "L7",
+      "polygon": [
+        [
+          75,
+          37
+        ],
+        [
+          79,
+          37
+        ],
+        [
+          79,
+          38.5
+        ],
+        [
+          75,
+          38.5
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "L8",
+      "polygon": [
+        [
+          78,
+          54
+        ],
+        [
+          82,
+          54
+        ],
+        [
+          82,
+          55.5
+        ],
+        [
+          78,
+          55.5
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "L9",
+      "polygon": [
+        [
+          72,
+          74
+        ],
+        [
+          76,
+          74
+        ],
+        [
+          76,
+          75.5
+        ],
+        [
+          72,
+          75.5
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.15,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "A-press",
+      "polygon": [
+        [
+          28,
+          69
+        ],
+        [
+          33,
+          69
+        ],
+        [
+          33,
+          73
+        ],
+        [
+          28,
+          73
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 3.2,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "B-filter",
+      "polygon": [
+        [
+          74,
+          57
+        ],
+        [
+          77,
+          57
+        ],
+        [
+          77,
+          62
+        ],
+        [
+          74,
+          62
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 3.2,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "R4-return",
+      "polygon": [
+        [
+          54,
+          62
+        ],
+        [
+          58,
+          62
+        ],
+        [
+          58,
+          63
+        ],
+        [
+          54.4,
+          63
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 3.2,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "D-store",
+      "polygon": [
+        [
+          56,
+          80
+        ],
+        [
+          62,
+          80
+        ],
+        [
+          62,
+          83
+        ],
+        [
+          56,
+          83
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 4,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "A-short-bench",
+      "polygon": [
+        [
+          38,
+          64
+        ],
+        [
+          41,
+          64
+        ],
+        [
+          41,
+          65.2
+        ],
+        [
+          38,
+          65.2
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.25,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    },
+    {
+      "id": "R4-bench",
+      "polygon": [
+        [
+          60,
+          64
+        ],
+        [
+          63,
+          64
+        ],
+        [
+          63,
+          65.2
+        ],
+        [
+          60,
+          65.2
+        ]
+      ],
+      "base_z": 0,
+      "top_z": 1.25,
+      "collision": "solid",
+      "opacity": "opaque",
+      "penetration": "unknown",
+      "destructibility": "unknown",
+      "climbability": "unknown"
+    }
+  ],
+  "spawns": [
+    {
+      "team": "attack",
+      "region": "T",
+      "anchor": [
+        41,
+        11,
+        0
+      ]
+    },
+    {
+      "team": "defend",
+      "region": "D",
+      "anchor": [
+        59,
+        85,
+        0
+      ]
+    }
+  ],
+  "plant_zones": [
+    {
+      "site": "A",
+      "center": [
+        26.15,
+        73,
+        0
+      ],
+      "polygon": [
+        [
+          24.8,
+          70
+        ],
+        [
+          27.5,
+          70
+        ],
+        [
+          27.5,
+          76
+        ],
+        [
+          24.8,
+          76
+        ]
+      ]
+    },
+    {
+      "site": "B",
+      "center": [
+        80.5,
+        59.25,
+        0
+      ],
+      "polygon": [
+        [
+          78,
+          56.5
+        ],
+        [
+          83,
+          56.5
+        ],
+        [
+          83,
+          62
+        ],
+        [
+          78,
+          62
+        ]
+      ]
+    }
+  ],
+  "views": [
+    {
+      "id": "V1",
+      "observer": [
+        78,
+        50,
+        1.65
+      ],
+      "target": [
+        76,
+        36.4,
+        1.05
+      ],
+      "via": "P10",
+      "kind": "predicted standing observer to low eye behind L7; inspect partial body exposure",
+      "fov_h": 90,
+      "fov_v": 60
+    }
+  ],
+  "assumptions": {
+    "standing_eye": 1.674,
+    "low_eye": 1.023,
+    "body_radius": 0.3,
+    "body_height": 1.8,
+    "run_speed": 3.4,
+    "respawns": false,
+    "weapons": "provisional rifles; exact damage/penetration/range unknown",
+    "utility": "smoke/flash assumed for planning; exact trajectories/durations unknown"
+  },
+  "routes": [
+    {
+      "id": "attack_A_outer",
+      "regions": [
+        "T",
+        "W1",
+        "W2",
+        "A"
+      ]
+    },
+    {
+      "id": "attack_A_split",
+      "regions": [
+        "T",
+        "M1",
+        "M2",
+        "A"
+      ]
+    },
+    {
+      "id": "attack_B_outer",
+      "regions": [
+        "T",
+        "E1",
+        "B"
+      ]
+    },
+    {
+      "id": "attack_B_split",
+      "regions": [
+        "T",
+        "M1",
+        "M2",
+        "R4",
+        "B"
+      ]
+    },
+    {
+      "id": "defender_rotation",
+      "regions": [
+        "A",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "arcade_transfer",
+      "regions": [
+        "W2",
+        "M2"
+      ]
+    }
+  ]
+}

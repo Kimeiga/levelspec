@@ -1,0 +1,290 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1410" viewBox="0 0 1680 1410">
+<defs><pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="9" height="9" fill="#c8cecb"/><path d="M0 0V9" stroke="#9ca9aa" stroke-width="2"/></pattern><pattern id="water" width="28" height="16" patternUnits="userSpaceOnUse"><rect width="28" height="16" fill="#c3dce6"/><path d="M0 9Q7 5 14 9T28 9" fill="none" stroke="#a0c1cf" stroke-width="1"/></pattern><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#a44c32"/></marker><marker id="blueArrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#326a85"/></marker></defs>
+<rect width="1680" height="1410" fill="#fbf8ef"/>
+<text x="60" y="59" font-family="Arial, sans-serif" font-size="32" fill="#20313c" font-weight="bold">SANTA BRUMA  /  ESTAÇÃO MARÍTIMA</text>
+<text x="60" y="96" font-family="Arial, sans-serif" font-size="26" fill="#20313c">LOWER QUAY + CITY LEVEL   /   z ±0.00 m</text>
+<text x="60" y="126" font-family="Arial, sans-serif" font-size="17" fill="#627681">Orthographic plan • roofs removed for inspection • filled podium and inaccessible context are hatched</text>
+<text x="1615" y="58" font-family="Arial, sans-serif" font-size="32" fill="#627681" text-anchor="end">01</text>
+<line x1="60" y1="148" x2="1620" y2="148" stroke="#20313c" stroke-width="2" />
+<polygon points="60,190 1084,190 1084,1054 60,1054" fill="#dce8da" stroke="#20313c" stroke-width="0.8" />
+<rect x="60" y="190" width="112" height="864" fill="url(#water)" stroke="#20313c" stroke-width="0.8" />
+<polygon points="172,190 212,190 212,366 188,454 188,814 212,918 172,1054" fill="#b8b7a7" stroke="#20313c" stroke-width="1.6" />
+<polygon points="212,190 1084,190 1084,350 1020,350 964,286 628,286 548,358 404,374 276,446 212,446" fill="url(#hatch)" stroke="#20313c" stroke-width="1.6" />
+<polygon points="316,982 428,982 428,1054 300,1054" fill="#b4b2a9" stroke="#20313c" stroke-width="1.6" />
+<polygon points="436,990 580,990 580,1054 436,1054" fill="#b4b2a9" stroke="#20313c" stroke-width="1.6" />
+<polygon points="580,982 700,982 732,1054 580,1054" fill="#b4b2a9" stroke="#20313c" stroke-width="1.6" />
+<rect x="1044" y="350" width="40" height="704" fill="#c2c4bb" stroke="#20313c" stroke-width="1.6" />
+<text x="104.0" y="742" font-family="Arial, sans-serif" font-size="13.2" fill="#326a85" font-weight="bold" text-anchor="middle">ESTUARY</text>
+<text x="484" y="254" font-family="Arial, sans-serif" font-size="12.8" fill="#627681" text-anchor="middle">Granite cutting / city above</text>
+<text x="468" y="1030" font-family="Arial, sans-serif" font-size="12.0" fill="#627681" text-anchor="middle">Town blocks • context only</text>
+<polygon points="484,646 852,646 1012,190 644,190" fill="url(#hatch)" stroke="#20313c" stroke-width="2.4" />
+<polygon points="196,854 260,830 316,846 380,918 372,982 220,1022 196,990" fill="#dce8da" stroke="#20313c" stroke-width="2.56" />
+<path transform="translate(60,190) scale(8)" d="M18 101 Q18 88 25 82 Q29 79 34 80" fill="none" stroke="#20313c" stroke-width="7.1"/>
+<path transform="translate(60,190) scale(8)" d="M18 101 Q18 88 25 82 Q29 79 34 80" fill="none" stroke="#d7e8e8" stroke-width="6.5"/>
+<polygon points="284,790 348,766 404,806 404,886 332,902 284,862" fill="#d7e8e8" stroke="#20313c" stroke-width="2.56" />
+<polygon points="212,598 292,534 308,566 292,750 348,758 348,814 284,814 236,774 204,686" fill="#dce8da" stroke="#20313c" stroke-width="2.56" />
+<polygon points="292,534 404,486 452,510 452,614 404,678 292,670" fill="#dce8da" stroke="#20313c" stroke-width="2.56" />
+<polygon points="292,670 398.4,670 348,742 348,774 292,750" fill="#dce8da" stroke="#20313c" stroke-width="2.56" />
+<polygon points="404,662 692,662 692,878 412,878 348,806 348,742" fill="#efe2c7" stroke="#20313c" stroke-width="3.84" />
+<rect x="404" y="822" width="144" height="56" fill="#efe2c7" stroke="#20313c" stroke-width="2.16" />
+<line x1="404" y1="822" x2="516" y2="822" stroke="#20313c" stroke-width="2.4" />
+<line x1="436" y1="822" x2="468" y2="822" stroke="#efe2c7" stroke-width="5.2" />
+<polygon points="332,902 420,878 580,878 580,974 332,974" fill="#d7e8e8" stroke="#20313c" stroke-width="2.56" />
+<polygon points="580,862 700,862 700,942 580,942" fill="#dce8da" stroke="#20313c" stroke-width="2.56" />
+<polygon points="700,918 988,918 1036,974 988,1014 716,1014 700,974" fill="#dce8da" stroke="#20313c" stroke-width="2.56" />
+<polygon points="716,774 932,774 932,918 700,918 700,846 716,846" fill="#efe2c7" stroke="#20313c" stroke-width="3.84" />
+<rect x="724" y="710" width="112" height="64" fill="#efe2c7" stroke="#20313c" stroke-width="2.56" />
+<rect x="812" y="582" width="80" height="192" fill="#d7e8e8" stroke="#20313c" stroke-width="2.56" />
+<polygon points="892,566 924,502 1036,502 1036,630 988,654 924,630 924,606 892,606" fill="#dce8da" stroke="#20313c" stroke-width="2.56" />
+<rect x="988" y="646" width="56" height="272" fill="#dce8da" stroke="#20313c" stroke-width="2.56" />
+<polygon points="444,502 580,502 580,478 748,478 748,502 924,502 924,566 788,566 788,590 636,590 636,566 444,566" fill="#d7e8e8" stroke="#20313c" stroke-width="3.2" />
+<line x1="332" y1="822" x2="364" y2="822" stroke="#d7e8e8" stroke-width="5.2" />
+<line x1="348" y1="782" x2="348" y2="814" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="376.0" y1="702" x2="359.2" y2="726" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="620" y1="862" x2="668" y2="862" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="700" y1="870" x2="700" y2="902" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="740" y1="918" x2="788" y2="918" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="860" y1="918" x2="908" y2="918" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="796" y1="774" x2="844" y2="774" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="852" y1="582" x2="884" y2="582" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="900" y1="502" x2="924" y2="502" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="444" y1="518" x2="444" y2="558" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="892" y1="582" x2="892" y2="606" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="580" y1="894" x2="580" y2="926" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="340" y1="899.6" x2="372" y2="890.8" stroke="#d7e8e8" stroke-width="5.2" />
+<line x1="292" y1="574" x2="292" y2="614" stroke="#d7e8e8" stroke-width="5.2" />
+<line x1="316" y1="671.6" x2="364" y2="675.2" stroke="#d7e8e8" stroke-width="5.2" />
+<line x1="836" y1="734" x2="836" y2="766" stroke="#efe2c7" stroke-width="5.2" />
+<polygon points="548,670 692,670 692,822 548,822 548,782 492,782 492,758 548,758" fill="none" stroke="#20313c" stroke-width="1.6" stroke-dasharray="6 5" opacity=".65"/>
+<line x1="436" y1="662" x2="500" y2="662" stroke="#efe2c7" stroke-width="4.8" />
+<rect x="452" y="750" width="64" height="48" fill="#ccb995" stroke="#20313c" stroke-width="2.0" />
+<text x="484" y="780.4" font-family="Arial, sans-serif" font-size="9.6" fill="#20313c" text-anchor="middle">TICKETS</text>
+<polygon points="704.0,862 764,862 764,798 844,798 844,846 924,846 924,886 836,886 836,914.8 756,914.8 756,894 704.0,894" fill="#fff3dc" stroke="#20313c" stroke-width="0.8" />
+<rect x="720.0" y="790" width="40" height="48" fill="#c9b18c" stroke="#20313c" stroke-width="2.08" />
+<text x="740" y="810.0" font-family="Arial, sans-serif" font-size="7.6" fill="#20313c" text-anchor="middle">WEIGH</text>
+<text x="740" y="822" font-family="Arial, sans-serif" font-size="7.6" fill="#20313c" text-anchor="middle">OFFICE</text>
+<rect x="788" y="806" width="40" height="32" fill="#c9b18c" stroke="#20313c" stroke-width="2.0" />
+<text x="808.0" y="824.4" font-family="Arial, sans-serif" font-size="7.6" fill="#20313c" text-anchor="middle">SORT</text>
+<rect x="860" y="798" width="48" height="40" fill="#c9b18c" stroke="#20313c" stroke-width="2.0" />
+<text x="884" y="816.4" font-family="Arial, sans-serif" font-size="7.6" fill="#20313c" text-anchor="middle">CAGE</text>
+<rect x="860" y="878" width="48" height="24" fill="#c9b18c" stroke="#20313c" stroke-width="2.0" />
+<text x="884" y="894" font-family="Arial, sans-serif" font-size="7.6" fill="#20313c" text-anchor="middle">MAIL</text>
+<line x1="764" y1="782" x2="764" y2="838" stroke="#627681" stroke-width="0.96" stroke-dasharray="3 3"/>
+<line x1="772" y1="902" x2="828" y2="902" stroke="#627681" stroke-width="0.96" stroke-dasharray="3 3"/>
+<line x1="740" y1="918" x2="740" y2="926" stroke="#20313c" stroke-width="1.6" />
+<line x1="788" y1="918" x2="788" y2="926" stroke="#20313c" stroke-width="1.6" />
+<rect x="740" y="926" width="48" height="48" fill="none" stroke="#20313c" stroke-width="1.12" stroke-dasharray="4 4"/>
+<line x1="860" y1="918" x2="860" y2="926" stroke="#20313c" stroke-width="1.6" />
+<line x1="908" y1="918" x2="908" y2="926" stroke="#20313c" stroke-width="1.6" />
+<rect x="860" y="926" width="48" height="48" fill="none" stroke="#20313c" stroke-width="1.12" stroke-dasharray="4 4"/>
+<rect x="745.6" y="958" width="36.8" height="38.4" fill="#b5c0ba" stroke="#20313c" stroke-width="1.6" />
+<text x="764" y="982.8" font-family="Arial, sans-serif" font-size="7.2" fill="#20313c" text-anchor="middle">VAN</text>
+<text x="852" y="942" font-family="Arial, sans-serif" font-size="8.8" fill="#627681" text-anchor="middle">FLUSH CART DOORS</text>
+<rect x="732" y="718" width="40" height="48" fill="#9ba6a6" stroke="#20313c" stroke-width="2.0" />
+<text x="752.0" y="746.0" font-family="Arial, sans-serif" font-size="8" fill="#20313c" text-anchor="middle">HOIST</text>
+<rect x="580" y="510" width="24" height="32" fill="#8b9799" stroke="#20313c" stroke-width="2.0" />
+<rect x="772" y="526" width="24" height="32" fill="#8b9799" stroke="#20313c" stroke-width="2.0" />
+<rect x="812" y="638" width="40" height="56" fill="#b6bebc" stroke="#20313c" stroke-width="1.6" />
+<text x="832.0" y="670" font-family="Arial, sans-serif" font-size="7.6" fill="#20313c" text-anchor="middle">PLANT</text>
+<rect x="407.2" y="513.2" width="9.6" height="9.6" fill="#20313c" stroke="#20313c" stroke-width="0.8" />
+<rect x="407.2" y="585.2" width="9.6" height="9.6" fill="#20313c" stroke="#20313c" stroke-width="0.8" />
+<rect x="535.2" y="513.2" width="9.6" height="9.6" fill="#20313c" stroke="#20313c" stroke-width="0.8" />
+<rect x="655.2" y="537.2" width="9.6" height="9.6" fill="#20313c" stroke="#20313c" stroke-width="0.8" />
+<rect x="759.2" y="513.2" width="9.6" height="9.6" fill="#20313c" stroke="#20313c" stroke-width="0.8" />
+<rect x="863.2" y="537.2" width="9.6" height="9.6" fill="#20313c" stroke="#20313c" stroke-width="0.8" />
+<polygon points="420,390 548,390 596,430 572,526 532,558 420,558" fill="none" stroke="#20313c" stroke-width="1.6" stroke-dasharray="6 5" opacity=".6"/>
+<rect x="420" y="678" width="72" height="88" fill="#f7eacb" stroke="#20313c" stroke-width="2.4" />
+<line x1="456.0" y1="682.8" x2="456.0" y2="761.2" stroke="#20313c" stroke-width="1.44" />
+<line x1="422.4" y1="700.1818181818182" x2="453.6" y2="700.1818181818182" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="700.1818181818182" x2="489.6" y2="700.1818181818182" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="706.3636363636364" x2="453.6" y2="706.3636363636364" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="706.3636363636364" x2="489.6" y2="706.3636363636364" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="712.5454545454545" x2="453.6" y2="712.5454545454545" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="712.5454545454545" x2="489.6" y2="712.5454545454545" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="718.7272727272727" x2="453.6" y2="718.7272727272727" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="718.7272727272727" x2="489.6" y2="718.7272727272727" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="724.9090909090909" x2="453.6" y2="724.9090909090909" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="724.9090909090909" x2="489.6" y2="724.9090909090909" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="731.0909090909091" x2="453.6" y2="731.0909090909091" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="731.0909090909091" x2="489.6" y2="731.0909090909091" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="737.2727272727273" x2="453.6" y2="737.2727272727273" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="737.2727272727273" x2="489.6" y2="737.2727272727273" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="743.4545454545455" x2="453.6" y2="743.4545454545455" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="743.4545454545455" x2="489.6" y2="743.4545454545455" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="749.6363636363636" x2="453.6" y2="749.6363636363636" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="749.6363636363636" x2="489.6" y2="749.6363636363636" stroke="#627681" stroke-width="0.8" />
+<line x1="422.4" y1="755.8181818181819" x2="453.6" y2="755.8181818181819" stroke="#627681" stroke-width="0.8" />
+<line x1="458.4" y1="755.8181818181819" x2="489.6" y2="755.8181818181819" stroke="#627681" stroke-width="0.8" />
+<line x1="421.6" y1="692.4" x2="490.4" y2="692.4" stroke="#627681" stroke-width="1.2" />
+<text x="456.0" y="689.2" font-family="Arial, sans-serif" font-size="12.0" fill="#20313c" font-weight="bold" text-anchor="middle">S1</text>
+<line x1="438.0" y1="758" x2="438.0" y2="696.4" stroke="#a44c32" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="474.0" y1="696.4" x2="474.0" y2="758" stroke="#a44c32" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="380" y="430" width="64" height="80" fill="#f7eacb" stroke="#20313c" stroke-width="2.4" />
+<line x1="412.0" y1="434.8" x2="412.0" y2="505.2" stroke="#20313c" stroke-width="1.44" />
+<line x1="382.4" y1="451.45454545454544" x2="409.6" y2="451.45454545454544" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="451.45454545454544" x2="441.6" y2="451.45454545454544" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="456.90909090909093" x2="409.6" y2="456.90909090909093" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="456.90909090909093" x2="441.6" y2="456.90909090909093" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="462.3636363636364" x2="409.6" y2="462.3636363636364" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="462.3636363636364" x2="441.6" y2="462.3636363636364" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="467.8181818181818" x2="409.6" y2="467.8181818181818" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="467.8181818181818" x2="441.6" y2="467.8181818181818" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="473.27272727272725" x2="409.6" y2="473.27272727272725" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="473.27272727272725" x2="441.6" y2="473.27272727272725" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="478.72727272727275" x2="409.6" y2="478.72727272727275" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="478.72727272727275" x2="441.6" y2="478.72727272727275" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="484.1818181818182" x2="409.6" y2="484.1818181818182" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="484.1818181818182" x2="441.6" y2="484.1818181818182" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="489.6363636363636" x2="409.6" y2="489.6363636363636" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="489.6363636363636" x2="441.6" y2="489.6363636363636" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="495.0909090909091" x2="409.6" y2="495.0909090909091" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="495.0909090909091" x2="441.6" y2="495.0909090909091" stroke="#627681" stroke-width="0.8" />
+<line x1="382.4" y1="500.54545454545456" x2="409.6" y2="500.54545454545456" stroke="#627681" stroke-width="0.8" />
+<line x1="414.4" y1="500.54545454545456" x2="441.6" y2="500.54545454545456" stroke="#627681" stroke-width="0.8" />
+<line x1="381.6" y1="444.4" x2="442.4" y2="444.4" stroke="#627681" stroke-width="1.2" />
+<text x="412.0" y="441.2" font-family="Arial, sans-serif" font-size="12.0" fill="#20313c" font-weight="bold" text-anchor="middle">S2</text>
+<line x1="396.0" y1="502" x2="396.0" y2="448.4" stroke="#a44c32" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="428.0" y1="448.4" x2="428.0" y2="502" stroke="#a44c32" stroke-width="2" marker-end="url(#arrow)"/>
+<g transform="matrix(1 0 -.35 1 142.1 0)">
+<rect x="672.0" y="406" width="48" height="88" fill="#f7eacb" stroke="#20313c" stroke-width="2.4" />
+<line x1="696.0" y1="410.8" x2="696.0" y2="489.2" stroke="#20313c" stroke-width="1.44" />
+<line x1="674.4" y1="428.1818181818182" x2="693.6" y2="428.1818181818182" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="428.1818181818182" x2="717.6" y2="428.1818181818182" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="434.3636363636364" x2="693.6" y2="434.3636363636364" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="434.3636363636364" x2="717.6" y2="434.3636363636364" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="440.54545454545456" x2="693.6" y2="440.54545454545456" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="440.54545454545456" x2="717.6" y2="440.54545454545456" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="446.72727272727275" x2="693.6" y2="446.72727272727275" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="446.72727272727275" x2="717.6" y2="446.72727272727275" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="452.90909090909093" x2="693.6" y2="452.90909090909093" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="452.90909090909093" x2="717.6" y2="452.90909090909093" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="459.0909090909091" x2="693.6" y2="459.0909090909091" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="459.0909090909091" x2="717.6" y2="459.0909090909091" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="465.27272727272725" x2="693.6" y2="465.27272727272725" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="465.27272727272725" x2="717.6" y2="465.27272727272725" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="471.45454545454544" x2="693.6" y2="471.45454545454544" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="471.45454545454544" x2="717.6" y2="471.45454545454544" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="477.6363636363636" x2="693.6" y2="477.6363636363636" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="477.6363636363636" x2="717.6" y2="477.6363636363636" stroke="#627681" stroke-width="0.8" />
+<line x1="674.4" y1="483.8181818181818" x2="693.6" y2="483.8181818181818" stroke="#627681" stroke-width="0.8" />
+<line x1="698.4" y1="483.8181818181818" x2="717.6" y2="483.8181818181818" stroke="#627681" stroke-width="0.8" />
+<line x1="673.6" y1="420.4" x2="718.4" y2="420.4" stroke="#627681" stroke-width="1.2" />
+<text x="696.0" y="417.2" font-family="Arial, sans-serif" font-size="12.0" fill="#20313c" font-weight="bold" text-anchor="middle">S4</text>
+<line x1="684.0" y1="486" x2="684.0" y2="424.4" stroke="#a44c32" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="708.0" y1="424.4" x2="708.0" y2="486" stroke="#a44c32" stroke-width="2" marker-end="url(#arrow)"/>
+</g>
+<rect x="924" y="638" width="64" height="88" fill="#f7eacb" stroke="#20313c" stroke-width="2.4" />
+<line x1="956.0" y1="642.8" x2="956.0" y2="721.2" stroke="#20313c" stroke-width="1.44" />
+<line x1="926.4" y1="647.3818181818182" x2="953.6" y2="647.3818181818182" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="647.3818181818182" x2="985.6" y2="647.3818181818182" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="653.5636363636363" x2="953.6" y2="653.5636363636363" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="653.5636363636363" x2="985.6" y2="653.5636363636363" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="659.7454545454545" x2="953.6" y2="659.7454545454545" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="659.7454545454545" x2="985.6" y2="659.7454545454545" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="665.9272727272728" x2="953.6" y2="665.9272727272728" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="665.9272727272728" x2="985.6" y2="665.9272727272728" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="672.1090909090909" x2="953.6" y2="672.1090909090909" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="672.1090909090909" x2="985.6" y2="672.1090909090909" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="678.290909090909" x2="953.6" y2="678.290909090909" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="678.290909090909" x2="985.6" y2="678.290909090909" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="684.4727272727273" x2="953.6" y2="684.4727272727273" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="684.4727272727273" x2="985.6" y2="684.4727272727273" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="690.6545454545454" x2="953.6" y2="690.6545454545454" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="690.6545454545454" x2="985.6" y2="690.6545454545454" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="696.8363636363636" x2="953.6" y2="696.8363636363636" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="696.8363636363636" x2="985.6" y2="696.8363636363636" stroke="#627681" stroke-width="0.8" />
+<line x1="926.4" y1="703.0181818181818" x2="953.6" y2="703.0181818181818" stroke="#627681" stroke-width="0.8" />
+<line x1="958.4" y1="703.0181818181818" x2="985.6" y2="703.0181818181818" stroke="#627681" stroke-width="0.8" />
+<line x1="925.6" y1="711.6" x2="986.4" y2="711.6" stroke="#627681" stroke-width="1.2" />
+<text x="956.0" y="649.2" font-family="Arial, sans-serif" font-size="12.0" fill="#20313c" font-weight="bold" text-anchor="middle">S3</text>
+<line x1="940.0" y1="654.8" x2="940.0" y2="709.2" stroke="#a44c32" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="972.0" y1="709.2" x2="972.0" y2="654.8" stroke="#a44c32" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="420" y1="766" x2="452" y2="766" stroke="#efe2c7" stroke-width="5.2" />
+<line x1="380" y1="510" x2="412" y2="510" stroke="#d7e8e8" stroke-width="5.2" />
+<line x1="641.2" y1="494" x2="665.2" y2="494" stroke="#d7e8e8" stroke-width="5.2" />
+<line x1="924" y1="638" x2="956" y2="638" stroke="#dce8da" stroke-width="5.2" />
+<text x="252" y="958" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">01  Pier gallery</text>
+<text x="252" y="976.0" font-family="Arial, sans-serif" font-size="11.2" fill="#627681" text-anchor="middle">covered / ±0.00</text>
+<text x="340" y="854" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">02  Arrivals</text>
+<text x="348" y="702" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">03  Clock court</text>
+<text x="580" y="726" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">04  Booking hall</text>
+<text x="580" y="744.0" font-family="Arial, sans-serif" font-size="11.2" fill="#627681" text-anchor="middle">double-height / ±0.00</text>
+<text x="484" y="854" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">05  Café</text>
+<text x="452" y="934" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">06  Market arcade</text>
+<text x="636" y="918" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">07  Customs</text>
+<text x="852" y="990" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">08  Loading court</text>
+<text x="820" y="910" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">09  Parcel exchange</text>
+<text x="788" y="766" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">10  Dispatch</text>
+<text x="852" y="718" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">11</text>
+<text x="980" y="550" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">12  Plant court</text>
+<text x="700" y="558" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">13  Luggage subway</text>
+<text x="364" y="630" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" font-weight="bold" text-anchor="middle">14  Rivet court</text>
+<text x="364" y="648.0" font-family="Arial, sans-serif" font-size="11.2" fill="#627681" text-anchor="middle">mail bay projects above</text>
+<text x="260" y="534" font-family="Arial, sans-serif" font-size="12.0" fill="#20313c" text-anchor="middle">Quay walk</text>
+<text x="1028" y="814" font-family="Arial, sans-serif" font-size="10.4" fill="#20313c" text-anchor="middle">Service</text>
+<text x="1028" y="830" font-family="Arial, sans-serif" font-size="10.4" fill="#20313c" text-anchor="middle">road</text>
+<text x="900" y="438" font-family="Arial, sans-serif" font-size="12.0" fill="#627681" text-anchor="middle">RETAINED / NONPLAYABLE</text>
+<text x="596" y="430" font-family="Arial, sans-serif" font-size="12.0" fill="#627681" text-anchor="middle">rail deck above</text>
+<circle cx="244" cy="998" r="21" fill="#a44c32" stroke="#fbf8ef" stroke-width="2"/>
+<text x="244" y="1005" font-family="Arial, sans-serif" font-size="22" fill="#fbf8ef" font-weight="bold" text-anchor="middle">T</text>
+<circle cx="812" cy="866.8" r="21" fill="#ad4c63" stroke="#fbf8ef" stroke-width="2"/>
+<text x="812" y="873.8" font-family="Arial, sans-serif" font-size="22" fill="#fbf8ef" font-weight="bold" text-anchor="middle">A</text>
+<path transform="translate(60,190) scale(8)" d="M24 99 Q23 88 32 82 L40 77 L44 74 L47 73" fill="none" stroke="#a44c32" stroke-width=".46" stroke-dasharray="1.2 1.0" marker-end="url(#arrow)"/>
+<path transform="translate(60,190) scale(8)" d="M29 84 L25 72 L25 57 L34 48 L42 42 L42 40" fill="none" stroke="#a44c32" stroke-width=".46" stroke-dasharray="1.2 1.0" marker-end="url(#arrow)"/>
+<path transform="translate(60,190) scale(8)" d="M36 90 L49 91 L68 89 L77 88 L87 87 L91 85" fill="none" stroke="#a44c32" stroke-width=".46" stroke-dasharray="1.2 1.0" marker-end="url(#arrow)"/>
+<path transform="translate(60,190) scale(8)" d="M105 44 L100 51 L101 67 L96 71 L96 74 L89 76 L89 82" fill="none" stroke="#326a85" stroke-width=".46" stroke-dasharray="1.2 1.0" marker-end="url(#blueArrow)"/>
+<line x1="204" y1="814" x2="1012" y2="814" stroke="#ad4c63" stroke-width="1.76" stroke-dasharray="8 6"/>
+<text x="204" y="798" font-family="Arial, sans-serif" font-size="15.2" fill="#ad4c63" font-weight="bold" text-anchor="middle">A</text>
+<text x="1012" y="798" font-family="Arial, sans-serif" font-size="15.2" fill="#ad4c63" font-weight="bold" text-anchor="middle">A</text>
+<line x1="204" y1="518" x2="1028" y2="518" stroke="#326a85" stroke-width="1.76" stroke-dasharray="8 6"/>
+<text x="204" y="502" font-family="Arial, sans-serif" font-size="15.2" fill="#326a85" font-weight="bold" text-anchor="middle">B</text>
+<text x="1028" y="486" font-family="Arial, sans-serif" font-size="15.2" fill="#326a85" font-weight="bold" text-anchor="middle">B</text>
+<line x1="1060" y1="254" x2="1060" y2="206" stroke="#20313c" stroke-width="2.4" />
+<polygon points="1060,198 1053.6,214 1066.4,214" fill="#20313c" stroke="#20313c" stroke-width="0.8" />
+<text x="1060" y="238" font-family="Arial, sans-serif" font-size="13.6" fill="#20313c" font-weight="bold" text-anchor="middle">N</text>
+<line x1="68" y1="1102" x2="228" y2="1102" stroke="#20313c" stroke-width="2.88" />
+<line x1="68" y1="1096.4" x2="68" y2="1107.6" stroke="#20313c" stroke-width="2.08" />
+<line x1="148" y1="1096.4" x2="148" y2="1107.6" stroke="#20313c" stroke-width="2.08" />
+<line x1="228" y1="1096.4" x2="228" y2="1107.6" stroke="#20313c" stroke-width="2.08" />
+<text x="68" y="1134" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" text-anchor="middle">0</text>
+<text x="148" y="1134" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" text-anchor="middle">10</text>
+<text x="228" y="1134" font-family="Arial, sans-serif" font-size="12.8" fill="#20313c" text-anchor="middle">20 m</text>
+<text x="716" y="1126" font-family="Arial, sans-serif" font-size="12.0" fill="#627681" text-anchor="middle">Same 128 × 108 m site frame on sheets 01 and 02</text>
+<text x="1130" y="204" font-family="Arial, sans-serif" font-size="21" fill="#20313c" font-weight="bold">THE LOWER STATION</text>
+<text x="1130" y="234" font-family="Arial, sans-serif" font-size="17" fill="#627681">The quay remains a sequence of places:</text>
+<text x="1130" y="259" font-family="Arial, sans-serif" font-size="17" fill="#627681">pier gallery → arrivals → booking hall,</text>
+<text x="1130" y="284" font-family="Arial, sans-serif" font-size="17" fill="#627681">or quay walk → rivet court → subway.</text>
+<text x="1130" y="309" font-family="Arial, sans-serif" font-size="17" fill="#627681"></text>
+<text x="1130" y="334" font-family="Arial, sans-serif" font-size="17" fill="#627681">The market arcade leads around the</text>
+<text x="1130" y="359" font-family="Arial, sans-serif" font-size="17" fill="#627681">south flank to the customs threshold</text>
+<text x="1130" y="384" font-family="Arial, sans-serif" font-size="17" fill="#627681">and the road side of the parcel hall.</text>
+<text x="1130" y="409" font-family="Arial, sans-serif" font-size="17" fill="#627681">Sorting benches and a cage shape A;</text>
+<text x="1130" y="434" font-family="Arial, sans-serif" font-size="17" fill="#627681">Two cart doors meet marked loading bays.</text>
+<text x="1130" y="503" font-family="Arial, sans-serif" font-size="21" fill="#20313c" font-weight="bold">LEVEL TRANSFERS</text>
+<text x="1130" y="533" font-family="Arial, sans-serif" font-size="17" fill="#627681">S1  Public stair inside booking hall.</text>
+<text x="1130" y="558" font-family="Arial, sans-serif" font-size="17" fill="#627681">     Upper landing joins a gallery bridge.</text>
+<text x="1130" y="583" font-family="Arial, sans-serif" font-size="17" fill="#627681">S2  Porters stair beside rivet court.</text>
+<text x="1130" y="608" font-family="Arial, sans-serif" font-size="17" fill="#627681">     Rises into the mail bay at B.</text>
+<text x="1130" y="633" font-family="Arial, sans-serif" font-size="17" fill="#627681">S3  Staff stair: plant court ↔ upper</text>
+<text x="1130" y="658" font-family="Arial, sans-serif" font-size="17" fill="#627681">     staff terrace / defender anchor.</text>
+<text x="1130" y="683" font-family="Arial, sans-serif" font-size="17" fill="#627681">S4  Subway stair to island platform.</text>
+<text x="1130" y="708" font-family="Arial, sans-serif" font-size="17" fill="#627681">     Rail crossings stay below the tracks.</text>
+<text x="1130" y="733" font-family="Arial, sans-serif" font-size="17" fill="#627681"></text>
+<text x="1130" y="758" font-family="Arial, sans-serif" font-size="17" fill="#627681">All stairs are proposed two-flight</text>
+<text x="1130" y="783" font-family="Arial, sans-serif" font-size="17" fill="#627681">assemblies. Riser geometry is unresolved.</text>
+<text x="1130" y="858" font-family="Arial, sans-serif" font-size="21" fill="#20313c" font-weight="bold">READING THE DRAWING</text>
+<text x="1130" y="888" font-family="Arial, sans-serif" font-size="17" fill="#627681">Solid outlines: proposed room / edge.</text>
+<text x="1130" y="913" font-family="Arial, sans-serif" font-size="17" fill="#627681">Gaps: proposed movement openings.</text>
+<text x="1130" y="938" font-family="Arial, sans-serif" font-size="17" fill="#627681">Dotted footprint: occupied level above.</text>
+<text x="1130" y="963" font-family="Arial, sans-serif" font-size="17" fill="#627681">Hatch: earth, podium or context mass.</text>
+<text x="1130" y="988" font-family="Arial, sans-serif" font-size="17" fill="#627681">Dashed arrow: example journey only.</text>
+<text x="1130" y="1013" font-family="Arial, sans-serif" font-size="17" fill="#627681"></text>
+<text x="1130" y="1038" font-family="Arial, sans-serif" font-size="17" fill="#627681">Indoor floor       tan</text>
+<text x="1130" y="1063" font-family="Arial, sans-serif" font-size="17" fill="#627681">Covered circulation       blue-gray</text>
+<text x="1130" y="1088" font-family="Arial, sans-serif" font-size="17" fill="#627681">Open court / street       green</text>
+<text x="1130" y="1113" font-family="Arial, sans-serif" font-size="17" fill="#627681">Glazing is blue; it admits view only.</text>
+<line x1="60" y1="1330" x2="1620" y2="1330" stroke="#20313c" stroke-width="1" />
+<text x="60" y="1362" font-family="Arial, sans-serif" font-size="17" fill="#20313c">PHASE 1 • Revised initial spatial proposal / r03 • All dimensions and anchors provisional</text>
+<text x="60" y="1388" font-family="Arial, sans-serif" font-size="15" fill="#627681">Interest review: r02 promising; r03 boundary recheck pending. No AML, collision walkthrough, measurement or playtest.</text>
+<text x="1620" y="1362" font-family="Arial, sans-serif" font-size="17" fill="#20313c" text-anchor="end">SB-P03 / 01</text>
+</svg>

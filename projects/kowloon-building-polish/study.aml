@@ -1,0 +1,8 @@
+<architecture version="1" id="building-polish" name="Kowloon · Building mesh study" validation="premap">
+  <box id="tenement" width="7.8" depth="7" height="10.2" collidable="false"/>
+  <profile id="street-plan" points="-3 -3; 11 -3; 11 10; -3 10"/>
+  <slab id="street" profile="street-plan" thickness="0.2" elevation="0" material="builtin:concrete"/>
+  <dressing theme="kowloon-street@1" seed="building-polish" wall-materials="builtin:concrete" grime="0.8" wear="0.22" rust="0.45" detail="high">
+    <building host="tenement" stories="3" shops="0" texture-density="48"/>
+  </dressing>
+</architecture>

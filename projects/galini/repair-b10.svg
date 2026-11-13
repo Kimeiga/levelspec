@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="650" viewBox="0 0 1080 650">
+<rect width="1080" height="650" fill="#f5f0e6"/><style>text{font-family:Arial,sans-serif;fill:#203e44}</style>
+<text x="35" y="38" font-size="24" font-weight="bold">GALINI B10 / FOCUSED REPAIR PLAN</text>
+<text x="35" y="64" font-size="15">Unchanged macro layout. Units meters / Z-up. Physical source edits pending independent layout checks.</text>
+<text x="35" y="100" font-size="18" font-weight="bold">Town Gate screen / north up</text>
+<g transform="translate(-2510 3850) scale(40 -40)">
+<polygon points="71.535,88.275 72.544,92.043 66.265,93.725 65.465,93.725 64.456,89.957" fill="#8aa99d" stroke="#365b60" stroke-width=".06"/>
+<path d="M71.535 88.275 L72.544 92.043 L66.265 93.725 L65.256 89.957 Z" fill="none" stroke="#a2734e" stroke-width=".04" stroke-dasharray=".16 .1"/>
+<path d="M64.5 88.5 L65.2 94.5" stroke="#b15b46" stroke-width=".04" fill="none"/>
+</g>
+<text x="35" y="365" font-size="15">Dashed: B09 screen. Solid: retain old mass + extend west edge .8m.</text>
+<text x="35" y="391" font-size="15">Screen floor +4 / top +7.2. Both lateral bypasses remain open.</text>
+<text x="35" y="417" font-size="15">Offset ray at y90: x64.680, z4.28–4.48. New west edge x64.468.</text>
+<text x="35" y="443" font-size="15">Repeat all supported spawn offsets / standing and crouched eyes.</text>
+<text x="600" y="100" font-size="18" font-weight="bold">Stair head / longitudinal section</text>
+<path d="M605 255 L825 255 L825 330 L605 330 Z" fill="#b0c4b6" stroke="#365b60"/>
+<path d="M818 255 L1020 255 L1020 300 L818 300 Z" fill="#dfd0aa" stroke="#365b60"/>
+<path d="M825 225 V345" stroke="#a2734e" stroke-dasharray="5 4"/>
+<path d="M818 246 L818 220 L825 220 L825 246" fill="none" stroke="#b15b46" stroke-width="2"/>
+<text x="607" y="205" font-size="14">Final tread</text><text x="870" y="205" font-size="14">Same-height landing</text>
+<text x="605" y="370" font-size="15">Slab begins ~.008m before the cap plane.</text>
+<text x="605" y="397" font-size="15">Overlap exaggerated. Tread and landing tops stay at +4m.</text>
+<text x="605" y="424" font-size="15">Analogous overlap at feet and +2m landing ends.</text>
+<text x="605" y="451" font-size="15">No player, support tolerance, step or route changes.</text>
+<text x="35" y="532" font-size="16">Checks: strict validation; central and offset stair lanes both ways; Gate, upper rotation and spawn optical offsets.</text>
+<text x="35" y="565" font-size="15">Unchanged B09 source-matched evidence remains valid for unaffected site interiors, districts, roofs and shoreline routes.</text>
+</svg>

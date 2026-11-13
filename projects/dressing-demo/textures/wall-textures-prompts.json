@@ -1,0 +1,19 @@
+{
+  "generator": "built-in image_gen",
+  "created": "2026-11-09",
+  "images": [
+    {
+      "file": "wall-concrete-rough.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: seamless game environment base-color wall texture, square 1024 by 1024. Create an orthographic close-up material scan of an old Kowloon alley's bare coarse grey concrete, covering about 2 meters square. Actual porous cement, fine exposed aggregate, trowel scuffs, cloudy mineral discoloration, subtle vertical moisture tracks, occasional small cracks. Neutral grey with restrained warm-grey deposits. Natural irregular surface texture at multiple scales, not uniform noise. Entire image is the wall material edge to edge, evenly diffuse illumination with no directional shadows or ambient occlusion, no perspective, no objects, no brick/tile pattern, no writing, no frame, no green tint. Tileable seamless texture on all four edges."
+    },
+    {
+      "file": "wall-concrete-repaired.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: seamless game environment base-color wall texture, square 1024 by 1024. Orthographic head-on material scan covering 2 meters square of aged neutral light grey cement render, organically eroded old chalky limewash revealing darker fine cement underneath, old overlapping troweled repairs blending irregularly into the wall, subtle thin hairline cracks and water streaking. Mostly concrete and cement, different from coarse aggregate: smoother worn plaster with granular flaking edges. Restrained realistic variation, no cartoon outlined patches, no color blocks, no large black damage holes. Wall material edge to edge, perfectly even diffuse albedo lighting, no shadows or ambient occlusion, no perspective, no objects/text/tiles, no green tint. All four edges seamlessly tile."
+    },
+    {
+      "file": "reference/kowloon-walls/tile-stripped-study.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: seamless game environment base-color wall texture, square 1024 by 1024. Straight-on orthographic material scan of aged off-white small square ceramic wall tiles in a Kowloon alley, about 2 meters square, roughly 12 tiles across. Grey-brown dirty grout with slight irregular tile alignment. About 45 percent of tiles are missing in irregular connected patches of varied size, exposing believable bare grey cement and scraped tile adhesive underneath. Partially broken edges and isolated remaining tile fragments naturally transition between intact tiled areas and exposed cement. Some fine grime streaking, fine crazing. Neutral warm ivory and concrete grey palette, NO green, blue, colored mosaic or graphic outlines. Entire image edge-to-edge repeating material, no frame, no perspective, no signage or objects. Flat diffuse albedo illumination, NO cast shadows or baked lighting. Seamless on all four edges.",
+      "usage": "Visual study only; runtime tile damage is procedural geometry."
+    }
+  ]
+}

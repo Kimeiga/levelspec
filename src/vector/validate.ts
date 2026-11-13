@@ -1,3 +1,7 @@
+import { physicalRouteEvidence, connectionDiagnostics } from "./physical-routes.ts";
+import { sourceDiagnostic, spatialDiagnostic, refreshSuggestionDiagnostics } from "./diagnostics.ts";
+import { refreshNavigationSuggestions } from "./navigation-suggestions.ts";
+import { navigationComponents } from "./navigation-components.ts";
 import { collisionMesh } from "./collision.ts";
 import {
   init,
@@ -20,7 +24,7 @@ import { auditNavigationCoverage } from "./navigation-coverage.ts";
 import { ClipContext, ClippingError, clippingLimits } from "./clipping.ts";
 import { movementLevel } from "./movement.ts";
 let initialized: Promise<void> | undefined;
-const NAVIGATION_REVISION = 11;
+const NAVIGATION_REVISION = 15;
 const up = (p: V3) => ({ x: p[0], y: p[2], z: -p[1] });
 const down = (p: { x: number; y: number; z: number }): V3 => [p.x, -p.z, p.y];
 function disjoint(
@@ -65,7 +69,7 @@ export function rayBlocked(
   sealed = false,
 ): boolean {
   const dir = sub(b, a),
-    m = level.mesh;
+    m = level.physicalMesh ?? level.mesh;
   for (let t = 0; t < m.surfaces.length; t++) {
     const surface = level.surfaces[m.surfaces[t]];
     if (
@@ -93,39 +97,6 @@ export function rayBlocked(
   }
   return false;
 }
-function sourceDiagnostic(
-  level: CompiledLevel,
-  code: string,
-  message: string,
-  objects: string[] = [],
-  severity: "error" | "warning" = "error",
-): Diagnostic {
-  const sources = [
-      ...level.document.layers.flatMap((l) => [
-        ...l.regions,
-        ...l.edges,
-        ...l.vertices,
-      ]),
-      ...level.document.markers,
-      ...level.document.routes,
-      ...level.document.links,
-    ],
-    areaRegions = new Set(
-      level.floors
-        .filter((f) => objects.includes(f.area ?? f.region))
-        .map((f) => f.region),
-    );
-  return {
-    severity,
-    code,
-    message,
-    objects,
-    source:
-      sources.find((o) => objects.includes(o.id))?.source ??
-      sources.find((o) => areaRegions.has(o.id))?.source,
-  };
-}
-
 /** One formatter serves automatic compilation, cached reports and runtime validation. */
 function navigationDiagnostics(
   level: CompiledLevel,
@@ -159,11 +130,13 @@ function navigationDiagnostics(
         disconnected: "NAV_DISCONNECTED",
         uncovered: "NAV_UNCOVERED",
       };
-      add(
-        code[reason],
-        `${count} floor samples fail ${reason} clearance or navigation for the ${navigation.settings.player.height} m tall, ${2 * navigation.settings.player.radius} m diameter agent.`,
-        [row.region],
-      );
+      const samples = [...navigation.coverage.uncovered, ...(navigation.coverage.representatives ?? [])].filter(sample => sample.region === row.region && sample.reason === reason);
+      const blockers = [...new Set(samples.flatMap(sample => sample.blockers ?? []))];
+      const clearances = samples.flatMap(sample => sample.clearance === undefined ? [] : [sample.clearance]);
+      const measured = clearances.length ? ` Minimum measured clearance: ${Math.min(...clearances).toFixed(3)} m.` : "";
+      diagnostics.push(spatialDiagnostic(level, code[reason],
+        `${count} floor samples fail ${reason} clearance or navigation for the ${navigation.settings.player.height} m tall, ${2 * navigation.settings.player.radius} m diameter agent.${measured}`,
+        [row.region, ...blockers.filter(id => id !== row.region)], samples.map(sample => sample.position), "error"));
     }
   if (level.document.validation !== "premap" && navigation.settings.movement !== "water" && !level.document.markers.some((m) => m.kind.includes("spawn")))
     add(
@@ -176,7 +149,7 @@ function navigationDiagnostics(
     const actual = navigation.routes.find((x) => x.id === r.id);
     if (
       !actual?.reachable ||
-      actual.disjointRoutes < r.minRoutes ||
+      (navigation.settings.movement === "water" && actual.disjointRoutes < r.minRoutes) ||
       (r.minDistance !== undefined && actual.distance < r.minDistance) ||
       (r.maxDistance !== undefined && actual.distance > r.maxDistance)
     )
@@ -185,6 +158,19 @@ function navigationDiagnostics(
         `Route ${r.id} does not meet its reachability, distance, or disjoint-route requirements.`,
         [r.id],
       );
+  }
+  if (navigation.physical) {
+    diagnostics.push(...connectionDiagnostics(level, navigation.physical));
+    for (const route of level.document.routes) {
+      const actual = navigation.routes.find(row => row.id === route.id);
+      if (!actual?.reachable || actual.disjointRoutes >= route.minRoutes) continue;
+      const impossible = actual.maximumDisjointRoutes !== undefined && actual.maximumDisjointRoutes < route.minRoutes;
+      const points = level.document.markers.filter(marker => [route.from, route.to].includes(marker.id)).map(marker => marker.position);
+      diagnostics.push(spatialDiagnostic(level, impossible ? "PHYSICAL_ROUTE_REQUIREMENT" : "PHYSICAL_ROUTE_UNVERIFIED",
+        impossible ? `${route.id} requires ${route.minRoutes} independent entrance resources, but the grouped physical mouths permit at most ${actual.maximumDisjointRoutes}.` :
+          `${route.id} requires ${route.minRoutes} independent entrance resources; ${actual.disjointRoutes} were verified. The sampled check is inconclusive, so inspect the mouths and intra-area connections.`,
+        [route.id, route.from, route.to], points, impossible ? "error" : "warning"));
+    }
   }
   return diagnostics;
 }
@@ -199,17 +185,49 @@ async function bakeNavigationForMovement(
     options.onProgress?.(`${options.movement ?? "land"}: clipping movement geometry`);
     prepared = movementLevel(level, options);
     report = await bakeNavmesh(prepared, options);
+    if (movement === "land") {
+      options.onProgress?.("Physical route evidence");
+      aborted(options.signal);
+      const physical = { ...prepared, physicalMesh: level.physicalMesh ?? level.mesh, surfaces: level.surfaces };
+      report.physical = physicalRouteEvidence(physical, report, options.signal, options.physicalWork);
+      for (const route of report.routes) {
+        const evidence = report.physical.routes.find(row => row.id === route.id);
+        route.disjointRoutes = evidence?.physicalDisjointRoutes ?? 0;
+        route.maximumDisjointRoutes = evidence?.maximumDisjointRoutes;
+      }
+      report.diagnostics = navigationDiagnostics(prepared, report);
+      report.passed = !report.diagnostics.some(diagnostic => diagnostic.severity === "error");
+    }
   } catch (error) {
-    if (movement === "water") level.waterNavigation = undefined; else level.navigation = undefined;
+    if (!options.sealed) {
+      if (movement === "water") level.waterNavigation = undefined;
+      else {
+        level.navigation = undefined;
+        level.navigationSuggestionsStatus = "unavailable";
+        level.suggestions = level.suggestions.filter(s=>s.code!=="NAV_ISLAND"&&s.code!=="FLIGHT_NAV_MISSING");
+        refreshSuggestionDiagnostics(level);
+      }
+    }
     throw error;
   }
+
   report.repairs = prepared.repairs?.filter(r => r.movement === movement);
   level.repairs = [...(level.repairs ?? []).filter(r=>r.movement!==movement), ...(report.repairs ?? [])];
   report.diagnostics = [...report.diagnostics.filter(d => d.code !== "WATER_DEPTH_UNKNOWN"), ...(prepared.movementDiagnostics ?? [])];
+  const excluded = new Set((prepared.movementDiagnostics ?? []).filter(d => d.code === 'NAV_PLAYABLE_ENDPOINT').flatMap(d => d.objects));
+  for (const route of report.routes) {
+    const authored = level.document.routes.find(r => r.id === route.id);
+    if (authored && (excluded.has(authored.from) || excluded.has(authored.to))) {
+      route.reachable = false; route.path = undefined; route.disjointRoutes = 0;
+    }
+  }
   report.passed = report.passed && !report.diagnostics.some(d=>d.severity==="error");
   if (!options.sealed) {
     if (movement === "water") level.waterNavigation = report;
-    else level.navigation = report;
+    else {
+      level.navigation = report;
+      await refreshNavigationSuggestions(level, report, options.signal);
+    }
   }
   return report;
 }
@@ -239,6 +257,8 @@ async function bakeNavmesh(
     movement: options.movement ?? "land",
     boat: options.movement === "water" ? level.document.boat ?? DEFAULT_BOAT : undefined,
     geometryHash: level.geometryHash,
+    playableDomains: level.spatialVolumes?.filter(v => v.kind === "zone" && v.role === "playable"),
+    water: level.water?.map(({ region, points, triangles }) => ({ region, points, triangles })),
     player: p,
     cell,
     ch,
@@ -274,10 +294,12 @@ async function bakeNavmesh(
       }),
     ),
     semantic: level.semantic,
-    floors: level.floors.map(({ area, region, layer }) => ({
+    connections: level.connections?.map(({ id, from, to, path }) => ({ id, from, to, path })),
+    floors: level.floors.map(({ area, region, layer, navigationRequired }) => ({
       area,
       region,
       layer,
+      navigationRequired,
     })),
   });
   aborted(options.signal);
@@ -332,6 +354,8 @@ async function bakeNavmesh(
     },
     passed: false,
     components: 0,
+    componentDetails: [],
+    triangleComponents: [],
     reachableRegions: [],
     unreachableRegions: [
       ...new Set(level.floors.map((f) => f.area ?? f.region)),
@@ -550,8 +574,9 @@ async function bakeNavmesh(
       return {
         id: r.id,
         reachable: !!walk,
+        ...(walk ? { path: walk.map(down) } : {}),
         distance,
-        disjointRoutes: walk
+        disjointRoutes: walk && options.movement === "water"
           ? disjoint(
               level.semantic.nodes,
               level.semantic.edges,
@@ -603,7 +628,9 @@ async function bakeNavmesh(
         : reachableRegions
       ).push(area);
     level.repairs = [...(level.repairs ?? []).filter(r=>!allocation.repairs.some(a=>a.code===r.code&&a.movement===r.movement&&a.objects[0]===r.objects[0])),...allocation.repairs];
+    const componentData = navigationComponents(result.navMesh, level, canonical, ni, Math.max(0.22,ch*3), options.signal);
     const report: NavigationReport = {
+      ...componentData,
       diagnostics: [],
       settings: failed.settings,
       coverage,
@@ -615,7 +642,7 @@ async function bakeNavmesh(
           const r = level.document.routes[i];
           return (
             actual.reachable &&
-            actual.disjointRoutes >= r.minRoutes &&
+            (options.movement !== "water" || actual.disjointRoutes >= r.minRoutes) &&
             (r.minDistance === undefined || actual.distance >= r.minDistance) &&
             (r.maxDistance === undefined || actual.distance <= r.maxDistance)
           );
@@ -643,6 +670,7 @@ function auditRuntimeGeometry(level: CompiledLevel, diagnostics: Diagnostic[]) {
   if (!level.mesh.indices.length)
     diagnostics.push(sourceDiagnostic(level,"EMPTY_GEOMETRY","No geometry was produced."));
   for(let t=0;t<level.mesh.indices.length;t+=3) {
+    if (level.surfaces[level.mesh.surfaces[t / 3]].domain === "visualization") continue;
     const p=level.mesh.indices.slice(t,t+3).map(i=>level.mesh.positions.slice(i*3,i*3+3) as V3);
     if(p.flat().some(v=>!Number.isFinite(v)) || Math.hypot(...cross(sub(p[1],p[0]),sub(p[2],p[0])))<1e-10) {
       diagnostics.push(sourceDiagnostic(level,"INVALID_TRIANGLE","Nonfinite or degenerate triangle."));
@@ -651,7 +679,7 @@ function auditRuntimeGeometry(level: CompiledLevel, diagnostics: Diagnostic[]) {
   }
 }
 function auditFloorSlopes(level: CompiledLevel, floors: CompiledLevel["floors"], diagnostics: Diagnostic[]) {
-  for(const f of floors)for(const t of f.triangles) {
+  for(const f of floors)for(const t of f.navigationRequired === false ? [] : f.triangles) {
     const [a,b,c]=t.map(i=>f.points[i]),n=cross(sub(b,a),sub(c,a));
     const slope=Math.atan2(Math.hypot(n[0],n[1]),Math.abs(n[2]))*180/Math.PI;
     if(slope<level.document.player.slope)continue;
@@ -692,6 +720,8 @@ async function optionalSealedNavigation(level: CompiledLevel, options: Navigatio
   try {
     const sealed=await bakeNavigationForMovement(level,{...options,movement:"land",sealed:true});
     const sealedWater=level.water?.length ? await bakeNavigationForMovement(level,{...options,movement:"water",sealed:true}) : undefined;
+    const required = new Set(["ROUTE_REQUIREMENT", "CONNECTION_BLOCKED", "CONNECTION_UNVERIFIED", "PHYSICAL_ROUTE_REQUIREMENT", "PHYSICAL_ROUTE_UNVERIFIED"]);
+    diagnostics.push(...sealed.diagnostics.filter(d => required.has(d.code)).map(d => ({ ...d, message: `Sealed: ${d.message}` })));
     return {sealed,sealedWater};
   } catch(error) {
     if((error as Error).name==="AbortError")throw error;
@@ -703,7 +733,7 @@ export async function validateForRuntime(
   level: CompiledLevel,
   options: NavigationOptions = {},
 ): Promise<ValidationReport> {
-  const diagnostics = [...level.diagnostics];
+  const diagnostics = level.diagnostics.filter(diagnostic => !diagnostic.suggestion);
   auditRuntimeGeometry(level,diagnostics);
   if (diagnostics.some((d) => d.severity === "error"))
     return { passed: false, diagnostics };
@@ -727,6 +757,8 @@ export async function validateForRuntime(
   const waterNavigation=await optionalWaterNavigation(level,options,diagnostics);
   auditProtectedSpawns(level,diagnostics);
   const {sealed,sealedWater}=await optionalSealedNavigation(level,options,diagnostics);
+  refreshSuggestionDiagnostics(level);
+  diagnostics.push(...level.diagnostics.filter(diagnostic => diagnostic.suggestion));
   return {
     validation: level.document.validation ?? "playable",
     gameplayReachabilityVerified: level.document.validation !== "premap" && !diagnostics.some(d=>d.severity==="error"),

@@ -1,0 +1,242 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      165,
+      -145,
+      150
+    ],
+    "target": [
+      50,
+      52,
+      -1
+    ],
+    "projection": "orthographic",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "viewHeight": 155
+  },
+  {
+    "id": "plan",
+    "position": [
+      52,
+      52,
+      170
+    ],
+    "target": [
+      52,
+      52,
+      0
+    ],
+    "projection": "orthographic",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "viewHeight": 124
+  },
+  {
+    "id": "A-front",
+    "position": [
+      22,
+      61.2,
+      5.86
+    ],
+    "target": [
+      26,
+      77,
+      5.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "A-rear",
+    "position": [
+      26,
+      90,
+      5.86
+    ],
+    "target": [
+      26,
+      72,
+      5.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "A-low",
+    "position": [
+      18,
+      76,
+      5.023
+    ],
+    "target": [
+      32,
+      77,
+      5.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "B-airlock",
+    "position": [
+      85,
+      49.5,
+      1.86
+    ],
+    "target": [
+      95,
+      57,
+      1.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "B-reverse",
+    "position": [
+      99,
+      61,
+      1.86
+    ],
+    "target": [
+      85,
+      49,
+      1.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "B-data",
+    "position": [
+      79,
+      57,
+      1.86
+    ],
+    "target": [
+      98,
+      57,
+      1.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "underpass",
+    "position": [
+      52,
+      73,
+      1.86
+    ],
+    "target": [
+      63,
+      80,
+      1.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "skybridge",
+    "position": [
+      43,
+      81,
+      5.86
+    ],
+    "target": [
+      65,
+      81,
+      5.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "rim-crest",
+    "position": [
+      13,
+      44,
+      4.86
+    ],
+    "target": [
+      13,
+      55,
+      5.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "optics-crest",
+    "position": [
+      35,
+      47,
+      5.52
+    ],
+    "target": [
+      34,
+      54,
+      5.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "CT-ascent",
+    "position": [
+      71,
+      73,
+      1.86
+    ],
+    "target": [
+      71,
+      89,
+      5.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "mid",
+    "position": [
+      45,
+      34,
+      1.86
+    ],
+    "target": [
+      53,
+      49,
+      1.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  }
+]

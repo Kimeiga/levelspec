@@ -1,0 +1,212 @@
+[
+  {
+    "name": "rice-sack",
+    "source": "generated/liquor-props/tripo-out/liquor-rice-sack-832519fe/model.glb",
+    "sourceSha256": "243b079b616b00bf3f410b79b1455760254f97a20471f778ef3318dbe6018cfc",
+    "sourceTriangles": 626,
+    "triangles": 598,
+    "budget": 600,
+    "size": [
+      0.4399999976158142,
+      0.3970276117324829,
+      0.4774065911769867
+    ],
+    "uniformScale": 0.47830148619957535
+  },
+  {
+    "name": "egg-basket",
+    "source": "generated/liquor-props/tripo-out/liquor-egg-basket-0a8afa35/model.glb",
+    "sourceSha256": "c6d04b5cf7b0d7c1db0f41c83e038be73d89bc17c787670a5ca693a5ece836ef",
+    "sourceTriangles": 400,
+    "triangles": 400,
+    "budget": 500,
+    "size": [
+      0.18000000715255737,
+      0.18000000715255737,
+      0.06164383888244629
+    ],
+    "uniformScale": 0.18035225048923678
+  },
+  {
+    "name": "garlic-braid",
+    "source": "generated/liquor-props/tripo-out/liquor-garlic-braid-4c4de109/model.glb",
+    "sourceSha256": "d8b26e879f18cf9cf5fcbff36dfb4cc3a2c04cd63046e85a7ce1b1a24b18f331",
+    "sourceTriangles": 456,
+    "triangles": 456,
+    "budget": 500,
+    "size": [
+      0.11999999731779099,
+      0.09456221014261246,
+      0.2825806438922882
+    ],
+    "uniformScale": 0.2831336405529954
+  },
+  {
+    "name": "counter-scale",
+    "source": "generated/liquor-props/tripo-out/liquor-counter-scale-be500c34/model.glb",
+    "sourceSha256": "d9ab60f4fb579f9d8f04c5fd85db410395e2915cf2fc4faf0627edefa3364a00",
+    "sourceTriangles": 854,
+    "triangles": 854,
+    "budget": 900,
+    "size": [
+      0.25999999046325684,
+      0.25999999046325684,
+      0.34154242277145386
+    ],
+    "uniformScale": 0.3422107969151671
+  },
+  {
+    "name": "bottle-crate",
+    "source": "generated/liquor-props/tripo-out/liquor-bottle-crate-cbdbccf1/model.glb",
+    "sourceSha256": "c6ca579feb34fcc407bb530c80dc204201ffaa3200bd81dbdb6ce84d7aa379d6",
+    "sourceTriangles": 761,
+    "triangles": 648,
+    "budget": 700,
+    "size": [
+      0.3473283052444458,
+      0.29999998211860657,
+      0.23539979755878448
+    ],
+    "uniformScale": 0.3472586986387187
+  },
+  {
+    "name": "drink-bottle",
+    "source": "generated/liquor-props/tripo-out/liquor-drink-bottle-9596a42d/model.glb",
+    "sourceSha256": "dbe999a82aca45089ddad21f67b66efb052b2f7aac41b2d795cfcb94d7660c45",
+    "sourceTriangles": 170,
+    "triangles": 110,
+    "budget": 112,
+    "size": [
+      0.07000000029802322,
+      0.06855574250221252,
+      0.2687470018863678
+    ],
+    "uniformScale": 0.2693399457102572
+  },
+  {
+    "name": "food-tin",
+    "source": "generated/liquor-props/tripo-out/liquor-food-tin-77df3aeb/model.glb",
+    "sourceSha256": "2dab7fe76303f68c457c014f90140b1b2a5460dfeb1255aaebff931e6ca98d66",
+    "sourceTriangles": 82,
+    "triangles": 62,
+    "budget": 64,
+    "size": [
+      0.07563286274671555,
+      0.07538991421461105,
+      0.11499999463558197
+    ],
+    "uniformScale": 0.11522279187252192
+  },
+  {
+    "name": "tea-carton",
+    "source": "generated/liquor-props/tripo-out/liquor-tea-carton-f18e0cd2/model.glb",
+    "sourceSha256": "efd362fd4bd3bf1b1e56d2183c92c008b198fca78e35753452da5db1114b7529",
+    "sourceTriangles": 80,
+    "triangles": 30,
+    "budget": 32,
+    "size": [
+      0.07573412358760834,
+      0.07499999552965164,
+      0.14185087382793427
+    ],
+    "uniformScale": 0.1425816190010741
+  },
+  {
+    "name": "tissue-roll",
+    "source": "generated/liquor-props/tripo-out/liquor-tissue-roll-98ab5d8f/model.glb",
+    "sourceSha256": "be8b84349d432cf65c900f28cfe4e0817afb97f68f3064ec48d1605cfc474bf7",
+    "sourceTriangles": 106,
+    "triangles": 62,
+    "budget": 64,
+    "size": [
+      0.10971696674823761,
+      0.10999999940395355,
+      0.09215431660413742
+    ],
+    "uniformScale": 0.11049885537049005
+  },
+  {
+    "name": "shop-stool",
+    "source": "generated/liquor-props/tripo-out/liquor-shop-stool-a56c5da3/model.glb",
+    "sourceSha256": "262d0de50966d57dee14995e54ea53b2ca124544d2c3cf88e106cc302d54ef35",
+    "sourceTriangles": 428,
+    "triangles": 398,
+    "budget": 400,
+    "size": [
+      0.30378443002700806,
+      0.3100000023841858,
+      0.39704737067222595
+    ],
+    "uniformScale": 0.397794455790167
+  },
+  {
+    "name": "shop-counter",
+    "source": "generated/liquor-props/tripo-out/liquor-shop-counter-62a19957/model.glb",
+    "sourceSha256": "5ef3ce32a360c5f50a05aba8cca03ca2048bc415eb6d74bfea74d595720bb1cd",
+    "sourceTriangles": 380,
+    "triangles": 380,
+    "budget": 400,
+    "size": [
+      1.125550627708435,
+      0.5,
+      0.742290735244751
+    ],
+    "uniformScale": 1.1277532281579357
+  },
+  {
+    "name": "drinks-cooler",
+    "source": "generated/liquor-props/tripo-out/liquor-drinks-cooler-49d640de/model.glb",
+    "sourceSha256": "2476a1d1a793c8c3b06f480ff0e53033609f641db05fa593cb56dec1b54a569a",
+    "sourceTriangles": 1102,
+    "triangles": 426,
+    "budget": 1200,
+    "size": [
+      0.6939334869384766,
+      0.5882583856582642,
+      1.7999999523162842
+    ],
+    "uniformScale": 1.803522504892368
+  },
+  {
+    "name": "seasoning-jar",
+    "source": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+    "sourceSha256": "2b1625aac386660881da98bd9e351480f30780cb05f288e00c67e54b78cd1168",
+    "sourceTriangles": 1154,
+    "triangles": 94,
+    "budget": 96,
+    "size": [
+      0.14000000059604645,
+      0.13937807083129883,
+      0.15345962345600128
+    ],
+    "uniformScale": 0.15501223897070424
+  },
+  {
+    "name": "dry-goods-bag",
+    "source": "generated/liquor-props/tripo-out/liquor-rice-sack-832519fe/model.glb",
+    "sourceSha256": "243b079b616b00bf3f410b79b1455760254f97a20471f778ef3318dbe6018cfc",
+    "sourceTriangles": 626,
+    "triangles": 94,
+    "budget": 96,
+    "size": [
+      0.12000000476837158,
+      0.10637222975492477,
+      0.13459078967571259
+    ],
+    "uniformScale": 0.135366884556376
+  },
+  {
+    "name": "drink-bottle",
+    "source": "generated/liquor-props/tripo-out/liquor-drink-bottle-9596a42d/model.glb",
+    "sourceSha256": "dbe999a82aca45089ddad21f67b66efb052b2f7aac41b2d795cfcb94d7660c45",
+    "sourceTriangles": 170,
+    "triangles": 78,
+    "budget": 80,
+    "size": [
+      0.06984257698059082,
+      0.06879441440105438,
+      0.27000001072883606
+    ],
+    "uniformScale": 0.27027763633636365
+  }
+]

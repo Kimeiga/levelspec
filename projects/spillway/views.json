@@ -1,0 +1,563 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      137,
+      -115,
+      128
+    ],
+    "target": [
+      47,
+      50,
+      2
+    ],
+    "projection": "orthographic",
+    "viewHeight": 116,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "overview-north",
+    "position": [
+      -55,
+      155,
+      110
+    ],
+    "target": [
+      48,
+      53,
+      2
+    ],
+    "projection": "orthographic",
+    "viewHeight": 118,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "top",
+    "position": [
+      48,
+      50,
+      150
+    ],
+    "target": [
+      48,
+      50,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 108,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "t-spawn-view",
+    "position": [
+      55,
+      8,
+      1.6
+    ],
+    "target": [
+      44,
+      92,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "ct-spawn-view",
+    "position": [
+      44,
+      92,
+      1.6
+    ],
+    "target": [
+      55,
+      8,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "vestibule",
+    "position": [
+      42,
+      25.5,
+      1.6
+    ],
+    "target": [
+      50,
+      31,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "west-passage",
+    "position": [
+      12,
+      38.5,
+      1.6
+    ],
+    "target": [
+      11,
+      52,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "underpass",
+    "position": [
+      43,
+      55,
+      1.6
+    ],
+    "target": [
+      43,
+      68,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-west",
+    "position": [
+      43,
+      64.5,
+      5.6
+    ],
+    "target": [
+      43,
+      73,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-cross",
+    "position": [
+      47,
+      72,
+      5.6
+    ],
+    "target": [
+      62,
+      72,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-east",
+    "position": [
+      64,
+      68.5,
+      5.6
+    ],
+    "target": [
+      65,
+      61,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "drop-edge",
+    "position": [
+      48.5,
+      69.5,
+      5.6
+    ],
+    "target": [
+      48.5,
+      67.5,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "drop-reverse",
+    "position": [
+      48.5,
+      67.5,
+      1.6
+    ],
+    "target": [
+      48.5,
+      69.5,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-C01-standing",
+    "position": [
+      41,
+      65.6,
+      5.6
+    ],
+    "target": [
+      42,
+      71,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-C01-low-camera",
+    "position": [
+      41,
+      65.6,
+      5.05
+    ],
+    "target": [
+      42,
+      71,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-C02-standing",
+    "position": [
+      52.6,
+      73.8,
+      5.6
+    ],
+    "target": [
+      59,
+      72,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-C02-low-camera",
+    "position": [
+      52.6,
+      73.8,
+      5.05
+    ],
+    "target": [
+      59,
+      72,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-C03-standing",
+    "position": [
+      65.8,
+      68.4,
+      5.6
+    ],
+    "target": [
+      64.5,
+      61.5,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "gallery-C03-low-camera",
+    "position": [
+      65.8,
+      68.4,
+      5.05
+    ],
+    "target": [
+      64.5,
+      61.5,
+      5.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-stair-approach",
+    "position": [
+      21,
+      67,
+      1.6
+    ],
+    "target": [
+      21,
+      74,
+      2.2
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-dais-reverse",
+    "position": [
+      21,
+      74,
+      2.2
+    ],
+    "target": [
+      17,
+      65,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-north-stair",
+    "position": [
+      22.5,
+      76,
+      2.2
+    ],
+    "target": [
+      22.5,
+      80,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-rear-retake",
+    "position": [
+      25,
+      84,
+      1.6
+    ],
+    "target": [
+      21,
+      74,
+      2.2
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-gate-follower",
+    "position": [
+      17,
+      59,
+      1.6
+    ],
+    "target": [
+      21,
+      74,
+      2.2
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "A-ground-connector",
+    "position": [
+      34,
+      75,
+      1.6
+    ],
+    "target": [
+      27,
+      76,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "east-grade-up",
+    "position": [
+      85,
+      39.5,
+      1.6
+    ],
+    "target": [
+      85,
+      45,
+      2.8
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "east-grade-down",
+    "position": [
+      86,
+      45,
+      2.8
+    ],
+    "target": [
+      84,
+      54,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "east-low-cover-standing",
+    "position": [
+      83.4,
+      43.6,
+      2.68
+    ],
+    "target": [
+      83.4,
+      50.5,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "east-low-cover-camera",
+    "position": [
+      83.4,
+      43.6,
+      2.13
+    ],
+    "target": [
+      83.4,
+      50.5,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "B-short-entry",
+    "position": [
+      67,
+      71,
+      1.6
+    ],
+    "target": [
+      82,
+      77,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "B-rear-west",
+    "position": [
+      70.7,
+      83,
+      1.6
+    ],
+    "target": [
+      69,
+      83,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "B-rear-to-plant",
+    "position": [
+      77,
+      83,
+      1.6
+    ],
+    "target": [
+      78,
+      75,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "B-east-entry",
+    "position": [
+      85,
+      70,
+      1.6
+    ],
+    "target": [
+      78,
+      75,
+      1.6
+    ],
+    "projection": "perspective",
+    "viewHeight": 30,
+    "fov": 75,
+    "appearance": "materials"
+  }
+]

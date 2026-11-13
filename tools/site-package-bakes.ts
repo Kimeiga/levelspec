@@ -1,16 +1,17 @@
+import { COURTYARD_BAKE_PRESETS } from "./fixtures/courtyard/bake-presets.ts";
 import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { gzipSync } from "node:zlib";
-const [input = "website-qa/bakes-v1"] = process.argv.slice(2),
-  root = "website/assets/bakes";
+const [input = "generated/site-bakes"] = process.argv.slice(2),
+  root = "tests/fixtures/lighting/courtyard";
 await mkdir(root, { recursive: true });
 const catalog = [];
-for (const style of ["clay", "chalk", "night"]) {
+for (const style of Object.keys(COURTYARD_BAKE_PRESETS)) {
   const from = `${input}/${style}`,
     to = `${root}/${style}`;
   await mkdir(to, { recursive: true });
   const level = JSON.parse(await readFile(`${from}/compiled.json`, "utf8"));
-  const source = await readFile(`${from}/source.level.svgx`, "utf8");
+  const source = await readFile(`${from}/source.aml`, "utf8");
   const manifest = JSON.parse(
     await readFile(`${from}/${level.document.id}.lighting.json`, "utf8"),
   );

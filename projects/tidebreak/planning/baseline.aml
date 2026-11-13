@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="tidebreak-baseline" name="Tidebreak" description="Reference-informed repair yard. R02 baseline portal experiment. Ordinary movement; gameplay hypotheses require playtesting." units="meters" validation="playable" curve-tolerance="0.01">
+  <path id="path-dock-retaining" closed="false" points="-22 -32 -4; -2 -32 -4; -2 6 -4; 10 6 -4; 10 10 -4; -2 10 -4; -2 18 -4; -2.340741737109317 20.588190451025206 -4; -3.3397459621556127 23 -4; -4.9289321881345245 25.071067811865476 -4; -6.999999999999999 26.660254037844386 -4; -9.411809548974793 27.65925826289068 -4; -12 28 -4; -14.588190451025206 27.65925826289068 -4; -17 26.66025403784439 -4; -19.071067811865476 25.071067811865476 -4; -20.66025403784439 23 -4; -21.65925826289068 20.58819045102521 -4; -22 18 -4; -22 -18 -4; -32 -18 -4; -32 -22 -4; -22 -22 -4; -22 -32 -4"/>
+  <path id="path-dock-guard-0" closed="false" points="-22 -32 0; -2 -32 0"/>
+  <path id="path-dock-guard-1" closed="false" points="-2 -32 0; -2 6 0"/>
+  <path id="path-dock-guard-2" closed="false" points="-2 6 0; 10 6 0"/>
+  <path id="path-dock-guard-4" closed="false" points="10 10 0; -2 10 0"/>
+  <path id="path-dock-guard-5" closed="false" points="-2 10 0; -2 18 0"/>
+  <path id="path-dock-guard-6" closed="false" points="-2 18 0; -2.340741737109317 20.588190451025206 0"/>
+  <path id="path-dock-guard-7" closed="false" points="-2.340741737109317 20.588190451025206 0; -3.3397459621556127 23 0"/>
+  <path id="path-dock-guard-8" closed="false" points="-3.3397459621556127 23 0; -4.9289321881345245 25.071067811865476 0"/>
+  <path id="path-dock-guard-9" closed="false" points="-4.9289321881345245 25.071067811865476 0; -6.999999999999999 26.660254037844386 0"/>
+  <path id="path-dock-guard-10" closed="false" points="-6.999999999999999 26.660254037844386 0; -9.411809548974793 27.65925826289068 0"/>
+  <path id="path-dock-guard-11" closed="false" points="-9.411809548974793 27.65925826289068 0; -12 28 0"/>
+  <path id="path-dock-guard-12" closed="false" points="-12 28 0; -14.588190451025206 27.65925826289068 0"/>
+  <path id="path-dock-guard-13" closed="false" points="-14.588190451025206 27.65925826289068 0; -17 26.66025403784439 0"/>
+  <path id="path-dock-guard-14" closed="false" points="-17 26.66025403784439 0; -19.071067811865476 25.071067811865476 0"/>
+  <path id="path-dock-guard-15" closed="false" points="-19.071067811865476 25.071067811865476 0; -20.66025403784439 23 0"/>
+  <path id="path-dock-guard-16" closed="false" points="-20.66025403784439 23 0; -21.65925826289068 20.58819045102521 0"/>
+  <path id="path-dock-guard-17" closed="false" points="-21.65925826289068 20.58819045102521 0; -22 18 0"/>
+  <path id="path-dock-guard-18" closed="false" points="-22 18 0; -22 -18 0"/>
+  <path id="path-dock-guard-19" closed="false" points="-22 -18 0; -32 -18 0"/>
+  <path id="path-dock-guard-21" closed="false" points="-32 -22 0; -22 -22 0"/>
+  <path id="path-dock-guard-22" closed="false" points="-22 -22 0; -22 -32 0"/>
+  <path id="path-D1" closed="false" points="-22 -20 -4; -32 -20 0"/>
+  <path id="path-D2" closed="false" points="-2 8 -4; 10 8 0"/>
+  <path id="path-bridge-guard-39" closed="false" points="-24 -39 0; 0 -39 0"/>
+  <path id="path-bridge-guard-35" closed="false" points="-24 -35 0; 0 -35 0"/>
+  <path id="path-hall-west" closed="false" points="12 -26 0; 12 24 0"/>
+  <path id="path-hall-east" closed="false" points="44 -26 0; 44 24 0"/>
+  <path id="path-hall-apse" closed="false" points="44 24 0; 43.69256448645169 27.12144515225805 0; 42.78207252018059 30.122934917841437 0; 41.303513796840726 32.889123728313635 0; 39.31370849898476 35.31370849898476 0; 36.889123728313635 37.303513796840726 0; 34.122934917841434 38.78207252018059 0; 31.121445152258055 39.69256448645169 0; 28 40 0; 24.87855484774195 39.69256448645169 0; 21.877065082158566 38.78207252018059 0; 19.11087627168637 37.303513796840726 0; 16.68629150101524 35.31370849898476 0; 14.696486203159274 32.889123728313635 0; 13.217927479819412 30.122934917841437 0; 12.307435513548313 27.121445152258058 0; 12 24.000000000000004 0"/>
+  <path id="truss-path-0" closed="false" points="12.15 -24 6.8; 28 -24 9.7; 43.85 -24 6.8"/>
+  <path id="truss-path-8" closed="false" points="12.15 -16 6.8; 28 -16 9.7; 43.85 -16 6.8"/>
+  <path id="truss-path-16" closed="false" points="12.15 -8 6.8; 28 -8 9.7; 43.85 -8 6.8"/>
+  <path id="truss-path-24" closed="false" points="12.15 0 6.8; 28 0 9.7; 43.85 0 6.8"/>
+  <path id="truss-path-32" closed="false" points="12.15 8 6.8; 28 8 9.7; 43.85 8 6.8"/>
+  <path id="truss-path-40" closed="false" points="12.15 16 6.8; 28 16 9.7; 43.85 16 6.8"/>
+  <path id="truss-path-48" closed="false" points="12.15 24 6.8; 28 24 9.7; 43.85 24 6.8"/>
+  <path id="path-G1" closed="false" points="17 5 0; 17 18 4"/>
+  <path id="path-G2" closed="false" points="40 8 0; 40 21 4"/>
+  <path id="path-gallery-west-guard" closed="false" points="14 18 4; 14 30 4"/>
+  <path id="path-gallery-north-guard" closed="false" points="14 30 4; 42 30 4"/>
+  <path id="path-gallery-east-guard" closed="false" points="42 30 4; 42 21 4"/>
+  <path id="path-gallery-front-guard" closed="false" points="20 21 4; 38 21 4"/>
+  <path id="path-gallery-west-return" closed="false" points="20 18 4; 20 21 4"/>
+  <path id="path-G1-west-guard" closed="false" points="15 5 0; 15 18 4"/>
+  <path id="path-G1-east-guard" closed="false" points="19 5 0; 19 18 4"/>
+  <path id="path-G2-west-guard" closed="false" points="38 8 0; 38 21 4"/>
+  <path id="path-G2-east-guard" closed="false" points="42 8 0; 42 21 4"/>
+  <path id="path-yard-perimeter-west" closed="false" points="-46 -40 0; -46 44 0"/>
+  <path id="path-yard-perimeter-north" closed="false" points="-46 44 0; 48 44 0"/>
+  <path id="path-yard-perimeter-east" closed="false" points="48 44 0; 48 -40 0"/>
+  <path id="path-yard-perimeter-south-west" closed="false" points="-46 -40 0; -22 -40 0"/>
+  <path id="path-yard-perimeter-south-east" closed="false" points="-2 -40 0; 48 -40 0"/>
+  <path id="mouth-path-0" closed="false" points="-32 -21.6 0; -32 -18.4 0"/>
+  <path id="mouth-path-1" closed="false" points="-22 -21.6 -4; -22 -18.4 -4"/>
+  <path id="mouth-path-2" closed="false" points="10 6.4 0; 10 9.6 0"/>
+  <path id="mouth-path-3" closed="false" points="-2 6.4 -4; -2 9.6 -4"/>
+  <path id="mouth-path-4" closed="false" points="15.2 5 0; 18.8 5 0"/>
+  <path id="mouth-path-5" closed="false" points="15.2 18 4; 18.8 18 4"/>
+  <path id="mouth-path-6" closed="false" points="38.2 8 0; 41.8 8 0"/>
+  <path id="mouth-path-7" closed="false" points="38.2 21 4; 41.8 21 4"/>
+  <path id="mouth-path-8" closed="false" points="-22 -38.7 0; -22 -35.3 0"/>
+  <path id="mouth-path-9" closed="false" points="-2 -38.7 0; -2 -35.3 0"/>
+  <profile id="profile-yard" dimensions="3" points="-46 -40 0; -22 -40 0; -22 -32 0; -22 -22 0; -32 -22 0; -32 -18 0; -22 -18 0; -22 18 0; -21.65925826289068 20.58819045102521 0; -20.66025403784439 23 0; -19.071067811865476 25.071067811865476 0; -17 26.66025403784439 0; -14.588190451025206 27.65925826289068 0; -12 28 0; -9.411809548974793 27.65925826289068 0; -6.999999999999999 26.660254037844386 0; -4.9289321881345245 25.071067811865476 0; -3.3397459621556127 23 0; -2.340741737109317 20.588190451025206 0; -2 18 0; -2 10 0; 10 10 0; 10 6 0; -2 6 0; -2 -32 0; -2 -40 0; 48 -40 0; 48 44 0; -46 44 0"/>
+  <profile id="profile-ground-mass" dimensions="3" points="-46 -40 -4.5; -22 -40 -4.5; -22 -32 -4.5; -22 -22 -4.5; -32 -22 -4.5; -32 -18 -4.5; -22 -18 -4.5; -22 18 -4.5; -21.65925826289068 20.58819045102521 -4.5; -20.66025403784439 23 -4.5; -19.071067811865476 25.071067811865476 -4.5; -17 26.66025403784439 -4.5; -14.588190451025206 27.65925826289068 -4.5; -12 28 -4.5; -9.411809548974793 27.65925826289068 -4.5; -6.999999999999999 26.660254037844386 -4.5; -4.9289321881345245 25.071067811865476 -4.5; -3.3397459621556127 23 -4.5; -2.340741737109317 20.588190451025206 -4.5; -2 18 -4.5; -2 10 -4.5; 10 10 -4.5; 10 6 -4.5; -2 6 -4.5; -2 -32 -4.5; -2 -40 -4.5; 48 -40 -4.5; 48 44 -4.5; -46 44 -4.5"/>
+  <profile id="profile-dock-floor" dimensions="3" points="-22 -32 -4; -2 -32 -4; -2 18 -4; -2.340741737109317 20.588190451025206 -4; -3.3397459621556127 23 -4; -4.9289321881345245 25.071067811865476 -4; -6.999999999999999 26.660254037844386 -4; -9.411809548974793 27.65925826289068 -4; -12 28 -4; -14.588190451025206 27.65925826289068 -4; -17 26.66025403784439 -4; -19.071067811865476 25.071067811865476 -4; -20.66025403784439 23 -4; -21.65925826289068 20.58819045102521 -4; -22 18 -4"/>
+  <profile id="profile-service-bridge" dimensions="3" points="-24 -39 0; 0 -39 0; 0 -35 0; -24 -35 0"/>
+  <profile id="profile-H1" dimensions="3" points="-7.5 -4 -4; -7.612824395181794 -0.21714412274265538 -4; -7.9456400944391135 3.376023564998488 -4; -8.481758328893866 6.599326631598469 -4; -9.194295891635699 9.291135201956507 -4; -10.047523173970989 11.316470754341125 -4; -10.998655797196585 12.573774507091002 -4; -12 13 -4; -13.001344202803415 12.573774507091002 -4; -13.952476826029011 11.316470754341125 -4; -14.805704108364301 9.291135201956509 -4; -15.518241671106132 6.599326631598476 -4; -16.054359905560887 3.3760235649984898 -4; -16.387175604818207 -0.2171441227426607 -4; -16.5 -3.999999999999998 -4; -16.387175604818207 -7.782855877257335 -4; -16.054359905560887 -11.376023564998487 -4; -15.518241671106132 -14.599326631598474 -4; -14.805704108364301 -17.291135201956507 -4; -13.952476826029013 -19.316470754341125 -4; -13.001344202803416 -20.573774507091002 -4; -12 -21 -4; -10.99865579719659 -20.573774507091006 -4; -10.047523173970989 -19.316470754341125 -4; -9.1942958916357 -17.291135201956507 -4; -8.481758328893866 -14.599326631598473 -4; -7.945640094439113 -11.376023564998476 -4; -7.612824395181795 -7.782855877257349 -4"/>
+  <profile id="profile-H1-deck" dimensions="3" points="-8.085 -4 2; -8.183157223808161 -0.5197725929232426 2; -8.47270688216203 2.7859416797986096 2; -8.939129746137663 5.751380501070592 2; -9.559037425723059 8.227844385799987 2; -10.30134516135476 10.091153093993835 2; -11.12883054356103 11.247872546523723 2; -12 11.64 2; -12.87116945643897 11.247872546523723 2; -13.69865483864524 10.091153093993835 2; -14.440962574276941 8.227844385799989 2; -15.060870253862335 5.751380501070599 2; -15.52729311783797 2.7859416797986105 2; -15.81684277619184 -0.5197725929232475 2; -15.915 -3.999999999999998 2; -15.81684277619184 -7.4802274070767485 2; -15.52729311783797 -10.785941679798608 2; -15.060870253862335 -13.751380501070598 2; -14.440962574276941 -16.227844385799987 2; -13.698654838645242 -18.091153093993835 2; -12.871169456438972 -19.247872546523723 2; -12 -19.64 2; -11.128830543561033 -19.247872546523727 2; -10.30134516135476 -18.091153093993835 2; -9.559037425723059 -16.227844385799987 2; -8.939129746137663 -13.751380501070596 2; -8.472706882162027 -10.785941679798599 2; -8.183157223808161 -7.480227407076761 2"/>
+  <profile id="profile-H2" dimensions="3" points="33.5 -5 0; 33.36210351700003 -1.2171441227426554 0; 32.95532877346331 2.376023564998488 0; 32.30007315357416 5.599326631598469 0; 31.429193910223034 8.291135201956507 0; 30.38636056514657 10.316470754341125 0; 29.22386513675973 11.573774507091002 0; 28 12 0; 26.776134863240273 11.573774507091002 0; 25.613639434853432 10.316470754341125 0; 24.570806089776966 8.291135201956509 0; 23.69992684642584 5.599326631598476 0; 23.044671226536696 2.3760235649984898 0; 22.63789648299997 -1.2171441227426607 0; 22.5 -4.999999999999998 0; 22.63789648299997 -8.782855877257335 0; 23.044671226536693 -12.376023564998487 0; 23.69992684642584 -15.599326631598474 0; 24.570806089776966 -18.291135201956507 0; 25.61363943485343 -20.316470754341125 0; 26.77613486324027 -21.573774507091002 0; 28 -22 0; 29.223865136759724 -21.573774507091006 0; 30.386360565146568 -20.316470754341125 0; 31.429193910223034 -18.291135201956507 0; 32.30007315357416 -15.599326631598473 0; 32.95532877346331 -12.376023564998476 0; 33.36210351700003 -8.782855877257349 0"/>
+  <profile id="profile-H2-deck" dimensions="3" points="32.785 -5 5.5; 32.66503005979003 -1.5197725929232426 5.5; 32.311136032913076 1.7859416797986096 5.5; 31.74106364360952 4.751380501070592 5.5; 30.98339870189404 7.227844385799987 5.5; 30.076133691677516 9.091153093993835 5.5; 29.064762668980965 10.247872546523723 5.5; 28 10.64 5.5; 26.93523733101904 10.247872546523723 5.5; 25.923866308322488 9.091153093993835 5.5; 25.01660129810596 7.227844385799989 5.5; 24.25893635639048 4.751380501070599 5.5; 23.688863967086924 1.7859416797986105 5.5; 23.334969940209973 -1.5197725929232475 5.5; 23.215 -4.999999999999998 5.5; 23.334969940209973 -8.480227407076748 5.5; 23.688863967086924 -11.785941679798608 5.5; 24.25893635639048 -14.751380501070598 5.5; 25.01660129810596 -17.227844385799987 5.5; 25.923866308322484 -19.091153093993835 5.5; 26.935237331019035 -20.247872546523723 5.5; 28 -20.64 5.5; 29.06476266898096 -20.247872546523727 5.5; 30.076133691677512 -19.091153093993835 5.5; 30.98339870189404 -17.227844385799987 5.5; 31.74106364360952 -14.751380501070596 5.5; 32.311136032913076 -11.785941679798599 5.5; 32.66503005979003 -8.480227407076761 5.5"/>
+  <profile id="profile-hall-roof-west" dimensions="3" points="11.5 -26.5 7.1; 28 -26.5 10; 28 24 10; 11.5 24 7.1"/>
+  <profile id="profile-hall-roof-east" dimensions="3" points="28 -26.5 10; 44.5 -26.5 7.1; 44.5 24 7.1; 28 24 10"/>
+  <profile id="profile-apse-roof-1" dimensions="3" points="28 24 10; 44 24 7.1; 43.69256448645169 27.12144515225805 7.1"/>
+  <profile id="profile-apse-roof-2" dimensions="3" points="28 24 10; 43.69256448645169 27.12144515225805 7.1; 42.78207252018059 30.122934917841437 7.1"/>
+  <profile id="profile-apse-roof-3" dimensions="3" points="28 24 10; 42.78207252018059 30.122934917841437 7.1; 41.303513796840726 32.889123728313635 7.1"/>
+  <profile id="profile-apse-roof-4" dimensions="3" points="28 24 10; 41.303513796840726 32.889123728313635 7.1; 39.31370849898476 35.31370849898476 7.1"/>
+  <profile id="profile-apse-roof-5" dimensions="3" points="28 24 10; 39.31370849898476 35.31370849898476 7.1; 36.889123728313635 37.303513796840726 7.1"/>
+  <profile id="profile-apse-roof-6" dimensions="3" points="28 24 10; 36.889123728313635 37.303513796840726 7.1; 34.122934917841434 38.78207252018059 7.1"/>
+  <profile id="profile-apse-roof-7" dimensions="3" points="28 24 10; 34.122934917841434 38.78207252018059 7.1; 31.121445152258055 39.69256448645169 7.1"/>
+  <profile id="profile-apse-roof-8" dimensions="3" points="28 24 10; 31.121445152258055 39.69256448645169 7.1; 28 40 7.1"/>
+  <profile id="profile-apse-roof-9" dimensions="3" points="28 24 10; 28 40 7.1; 24.87855484774195 39.69256448645169 7.1"/>
+  <profile id="profile-apse-roof-10" dimensions="3" points="28 24 10; 24.87855484774195 39.69256448645169 7.1; 21.877065082158566 38.78207252018059 7.1"/>
+  <profile id="profile-apse-roof-11" dimensions="3" points="28 24 10; 21.877065082158566 38.78207252018059 7.1; 19.11087627168637 37.303513796840726 7.1"/>
+  <profile id="profile-apse-roof-12" dimensions="3" points="28 24 10; 19.11087627168637 37.303513796840726 7.1; 16.68629150101524 35.31370849898476 7.1"/>
+  <profile id="profile-apse-roof-13" dimensions="3" points="28 24 10; 16.68629150101524 35.31370849898476 7.1; 14.696486203159274 32.889123728313635 7.1"/>
+  <profile id="profile-apse-roof-14" dimensions="3" points="28 24 10; 14.696486203159274 32.889123728313635 7.1; 13.217927479819412 30.122934917841437 7.1"/>
+  <profile id="profile-apse-roof-15" dimensions="3" points="28 24 10; 13.217927479819412 30.122934917841437 7.1; 12.307435513548313 27.121445152258058 7.1"/>
+  <profile id="profile-apse-roof-16" dimensions="3" points="28 24 10; 12.307435513548313 27.121445152258058 7.1; 12 24.000000000000004 7.1"/>
+  <profile id="truss-section" dimensions="3" points="-0.16 -0.16 0; 0.16 -0.16 0; 0.16 0.16 0; -0.16 0.16 0"/>
+  <profile id="profile-gallery" dimensions="3" points="14 18 4; 20 18 4; 20 21 4; 42 21 4; 42 30 4; 14 30 4"/>
+  <profile id="profile-pump-roof-west" dimensions="3" points="-41.3 15.7 5.1; -34 15.7 6.6; -34 34.3 6.6; -41.3 34.3 5.1"/>
+  <profile id="profile-pump-roof-east" dimensions="3" points="-34 15.7 6.6; -26.7 15.7 5.1; -26.7 34.3 5.1; -34 34.3 6.6"/>
+  <profile id="pump-gable-profile" dimensions="3" points="-7 0 0; 7 0 0; 0 1.6 0"/>
+  <profile id="profile-winch-roof" dimensions="3" points="-0.3 19.7 5.2; 8.3 19.7 5.2; 8.3 34.3 5.2; -0.3 34.3 5.2"/>
+  <profile id="profile-town-roof-0" dimensions="3" points="-42 48 6.2; -27 48 6.2; -27 60 6.2; -42 60 6.2"/>
+  <profile id="profile-town-roof-1" dimensions="3" points="-20 48 7.2; -5 48 7.2; -5 60 7.2; -20 60 7.2"/>
+  <profile id="profile-town-roof-2" dimensions="3" points="5 48 8.2; 20 48 8.2; 20 60 8.2; 5 60 8.2"/>
+  <profile id="profile-town-roof-3" dimensions="3" points="28 48 9.2; 43 48 9.2; 43 60 9.2; 28 60 9.2"/>
+  <material id="ground" color="#b4b0a0" roughness="0.95" metalness="0" repeat="1"/>
+  <material id="stone" color="#8c9793" roughness="0.9" metalness="0" repeat="1"/>
+  <material id="concrete" color="#c1beb0" roughness="0.9" metalness="0" repeat="1"/>
+  <material id="timber" color="#8c745b" roughness="0.9" metalness="0" repeat="1"/>
+  <material id="roof" color="#626f6d" roughness="0.8" metalness="0.25" repeat="1"/>
+  <material id="iron" color="#4d6266" roughness="0.65" metalness="0.5" repeat="1"/>
+  <material id="hull" color="#52686b" roughness="0.65" metalness="0.35" repeat="1"/>
+  <material id="hull-deck" color="#8a7a65" roughness="0.85" metalness="0" repeat="1"/>
+  <material id="water" color="#789eaa" roughness="0.3" metalness="0.25" repeat="1"/>
+  <assembly id="yard-fabric" coincident-material="retained-face">
+    <slab id="yard" profile="profile-yard" thickness="0.4" area="yard" material="ground" playable="true" elevation="0"/>
+    <extrusion id="ground-mass" profile="profile-ground-mass" distance="4.1" material="stone"/>
+    <slab id="dock-floor" profile="profile-dock-floor" thickness="0.5" area="dock" material="stone" playable="true" elevation="0"/>
+    <wall id="dock-retaining" path="path-dock-retaining" height="4" thickness="0.7" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-0" path="path-dock-guard-0" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-1" path="path-dock-guard-1" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-2" path="path-dock-guard-2" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-4" path="path-dock-guard-4" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-5" path="path-dock-guard-5" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-6" path="path-dock-guard-6" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-7" path="path-dock-guard-7" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-8" path="path-dock-guard-8" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-9" path="path-dock-guard-9" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-10" path="path-dock-guard-10" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-11" path="path-dock-guard-11" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-12" path="path-dock-guard-12" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-13" path="path-dock-guard-13" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-14" path="path-dock-guard-14" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-15" path="path-dock-guard-15" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-16" path="path-dock-guard-16" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-17" path="path-dock-guard-17" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-18" path="path-dock-guard-18" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-19" path="path-dock-guard-19" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-21" path="path-dock-guard-21" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <wall id="dock-guard-22" path="path-dock-guard-22" height="1.2" thickness="0.25" alignment="center" join="miter" material="stone"/>
+    <stairs id="D1" thickness="0.3" underside="filled" path="path-D1" width="4" maximum-riser="0.18" area="D1" material="stone"/>
+    <stairs id="D2" thickness="0.3" underside="filled" path="path-D2" width="4" maximum-riser="0.18" area="D2" material="stone"/>
+    <box id="caisson" width="20" depth="1.3" height="6" radius="0.5" top-radius="0" position="-22 -33.3 -4.3" material="iron"/>
+    <slab id="service-bridge" profile="profile-service-bridge" thickness="0.55" area="service-bridge" material="iron" playable="true" elevation="0"/>
+    <wall id="bridge-guard-39" path="path-bridge-guard-39" height="1.2" thickness="0.15" alignment="center" join="miter" material="iron"/>
+    <box id="bridge-girder-39" width="24" depth="0.3" height="0.65" radius="0.5" top-radius="0" position="-24 -39.15 -1.2" material="iron"/>
+    <wall id="bridge-guard-35" path="path-bridge-guard-35" height="1.2" thickness="0.15" alignment="center" join="miter" material="iron"/>
+    <box id="bridge-girder-35" width="24" depth="0.3" height="0.65" radius="0.5" top-radius="0" position="-24 -35.15 -1.2" material="iron"/>
+    <cylinder id="bridge-pivot-23" width="1" depth="1" height="4" radius="0.7" top-radius="0" position="-23 -37 -4.5" material="stone" anchor="bottom-center" segments="12"/>
+    <cylinder id="bridge-pivot-1" width="1" depth="1" height="4" radius="0.7" top-radius="0" position="-1 -37 -4.5" material="stone" anchor="bottom-center" segments="12"/>
+    <box id="water-context" width="112" depth="20" height="0.2" radius="0.5" top-radius="0" position="-56 -52 -3.1" material="water" collidable="false"/>
+    <extrusion id="H1" profile="profile-H1" distance="6" material="hull"/>
+    <extrusion id="H1-deck" profile="profile-H1-deck" distance="0.18" material="hull-deck"/>
+    <extrusion id="H2" profile="profile-H2" distance="5.5" material="hull"/>
+    <extrusion id="H2-deck" profile="profile-H2-deck" distance="0.18" material="hull-deck"/>
+    <box id="H2-cradle-5" width="13" depth="0.5" height="0.7" radius="0.5" top-radius="0" position="21.5 -15 0" material="timber"/>
+    <box id="H2-cradle-15" width="13" depth="0.5" height="0.7" radius="0.5" top-radius="0" position="21.5 -5 0" material="timber"/>
+    <box id="H2-cradle-25" width="13" depth="0.5" height="0.7" radius="0.5" top-radius="0" position="21.5 5 0" material="timber"/>
+    <wall id="hall-west" path="path-hall-west" height="7" thickness="0.35" alignment="center" join="miter" material="stone"/>
+    <opening id="west-south-door" host="hall-west" shape="rectangle" mode="through" center="12 1.6" width="8" height="3.2" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="D2-hall-portal" host="hall-west" shape="rectangle" mode="through" center="36 1.6" width="8" height="3.2" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="hall-east" path="path-hall-east" height="7" thickness="0.35" alignment="center" join="miter" material="stone"/>
+    <opening id="E1" host="hall-east" shape="rectangle" mode="through" center="27.5 1.6" width="7" height="3.2" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <wall id="hall-apse" path="path-hall-apse" height="7" thickness="0.35" alignment="center" join="miter" material="stone"/>
+    <opening id="clerestory-west-4" host="hall-west" shape="rectangle" mode="through" center="6 5.6" width="5" height="1.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="clerestory-west-16" host="hall-west" shape="rectangle" mode="through" center="18 5.6" width="5" height="1.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="clerestory-west-28" host="hall-west" shape="rectangle" mode="through" center="30 5.6" width="5" height="1.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="clerestory-west-40" host="hall-west" shape="rectangle" mode="through" center="42 5.6" width="5" height="1.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="clerestory-east-4" host="hall-east" shape="rectangle" mode="through" center="6 5.6" width="5" height="1.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="clerestory-east-16" host="hall-east" shape="rectangle" mode="through" center="18 5.6" width="5" height="1.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="clerestory-east-28" host="hall-east" shape="rectangle" mode="through" center="30 5.6" width="5" height="1.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <opening id="clerestory-east-40" host="hall-east" shape="rectangle" mode="through" center="42 5.6" width="5" height="1.5" radius="0.5" radii="0.5 0.5" offset="0"/>
+    <roof id="hall-roof-west" profile="profile-hall-roof-west" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="hall-roof-east" profile="profile-hall-roof-east" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-1" profile="profile-apse-roof-1" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-2" profile="profile-apse-roof-2" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-3" profile="profile-apse-roof-3" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-4" profile="profile-apse-roof-4" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-5" profile="profile-apse-roof-5" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-6" profile="profile-apse-roof-6" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-7" profile="profile-apse-roof-7" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-8" profile="profile-apse-roof-8" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-9" profile="profile-apse-roof-9" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-10" profile="profile-apse-roof-10" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-11" profile="profile-apse-roof-11" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-12" profile="profile-apse-roof-12" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-13" profile="profile-apse-roof-13" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-14" profile="profile-apse-roof-14" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-15" profile="profile-apse-roof-15" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <roof id="apse-roof-16" profile="profile-apse-roof-16" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <box id="column-12.15-0" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="11.950000000000001 -24.2 0" material="timber"/>
+    <box id="column-43.85-0" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="43.65 -24.2 0" material="timber"/>
+    <sweep id="truss-0" profile="truss-section" path="truss-path-0" material="timber"/>
+    <box id="tie-0" width="31.7" depth="0.24" height="0.24" radius="0.5" top-radius="0" position="12.15 -24.12 6.5" material="timber"/>
+    <box id="column-12.15-8" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="11.950000000000001 -16.2 0" material="timber"/>
+    <box id="column-43.85-8" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="43.65 -16.2 0" material="timber"/>
+    <sweep id="truss-8" profile="truss-section" path="truss-path-8" material="timber"/>
+    <box id="tie-8" width="31.7" depth="0.24" height="0.24" radius="0.5" top-radius="0" position="12.15 -16.12 6.5" material="timber"/>
+    <box id="column-12.15-16" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="11.950000000000001 -8.2 0" material="timber"/>
+    <box id="column-43.85-16" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="43.65 -8.2 0" material="timber"/>
+    <sweep id="truss-16" profile="truss-section" path="truss-path-16" material="timber"/>
+    <box id="tie-16" width="31.7" depth="0.24" height="0.24" radius="0.5" top-radius="0" position="12.15 -8.12 6.5" material="timber"/>
+    <box id="column-12.15-24" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="11.950000000000001 -0.2 0" material="timber"/>
+    <box id="column-43.85-24" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="43.65 -0.2 0" material="timber"/>
+    <sweep id="truss-24" profile="truss-section" path="truss-path-24" material="timber"/>
+    <box id="tie-24" width="31.7" depth="0.24" height="0.24" radius="0.5" top-radius="0" position="12.15 -0.12 6.5" material="timber"/>
+    <box id="column-12.15-32" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="11.950000000000001 7.8 0" material="timber"/>
+    <box id="column-43.85-32" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="43.65 7.8 0" material="timber"/>
+    <sweep id="truss-32" profile="truss-section" path="truss-path-32" material="timber"/>
+    <box id="tie-32" width="31.7" depth="0.24" height="0.24" radius="0.5" top-radius="0" position="12.15 7.88 6.5" material="timber"/>
+    <box id="column-12.15-40" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="11.950000000000001 15.8 0" material="timber"/>
+    <box id="column-43.85-40" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="43.65 15.8 0" material="timber"/>
+    <sweep id="truss-40" profile="truss-section" path="truss-path-40" material="timber"/>
+    <box id="tie-40" width="31.7" depth="0.24" height="0.24" radius="0.5" top-radius="0" position="12.15 15.88 6.5" material="timber"/>
+    <box id="column-12.15-48" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="11.950000000000001 23.8 0" material="timber"/>
+    <box id="column-43.85-48" width="0.4" depth="0.4" height="7" radius="0.5" top-radius="0" position="43.65 23.8 0" material="timber"/>
+    <sweep id="truss-48" profile="truss-section" path="truss-path-48" material="timber"/>
+    <box id="tie-48" width="31.7" depth="0.24" height="0.24" radius="0.5" top-radius="0" position="12.15 23.88 6.5" material="timber"/>
+    <slab id="gallery" profile="profile-gallery" thickness="0.35" area="gallery" material="timber" playable="true" elevation="0"/>
+    <stairs id="G1" thickness="0.3" underside="filled" path="path-G1" width="4" maximum-riser="0.18" area="G1" material="stone"/>
+    <stairs id="G2" thickness="0.3" underside="filled" path="path-G2" width="4" maximum-riser="0.18" area="G2" material="stone"/>
+    <wall id="gallery-west-guard" path="path-gallery-west-guard" height="1.1" thickness="0.15" alignment="center" join="miter" material="iron"/>
+    <wall id="gallery-north-guard" path="path-gallery-north-guard" height="1.1" thickness="0.15" alignment="center" join="miter" material="iron"/>
+    <wall id="gallery-east-guard" path="path-gallery-east-guard" height="1.1" thickness="0.15" alignment="center" join="miter" material="iron"/>
+    <wall id="gallery-front-guard" path="path-gallery-front-guard" height="1.1" thickness="0.15" alignment="center" join="miter" material="iron"/>
+    <wall id="gallery-west-return" path="path-gallery-west-return" height="1.1" thickness="0.15" alignment="center" join="miter" material="iron"/>
+    <wall id="G1-west-guard" path="path-G1-west-guard" height="1.1" thickness="0.12" alignment="center" join="miter" material="iron"/>
+    <wall id="G1-east-guard" path="path-G1-east-guard" height="1.1" thickness="0.12" alignment="center" join="miter" material="iron"/>
+    <wall id="G2-west-guard" path="path-G2-west-guard" height="1.1" thickness="0.12" alignment="center" join="miter" material="iron"/>
+    <wall id="G2-east-guard" path="path-G2-east-guard" height="1.1" thickness="0.12" alignment="center" join="miter" material="iron"/>
+    <box id="gallery-pier-14.4-21.5" width="0.4" depth="0.4" height="3.65" radius="0.5" top-radius="0" position="14.200000000000001 21.3 0" material="timber"/>
+    <box id="gallery-pier-14.4-29.5" width="0.4" depth="0.4" height="3.65" radius="0.5" top-radius="0" position="14.200000000000001 29.3 0" material="timber"/>
+    <box id="gallery-pier-27.5-21.5" width="0.4" depth="0.4" height="3.65" radius="0.5" top-radius="0" position="27.3 21.3 0" material="timber"/>
+    <box id="gallery-pier-27.5-29.5" width="0.4" depth="0.4" height="3.65" radius="0.5" top-radius="0" position="27.3 29.3 0" material="timber"/>
+    <box id="gallery-pier-41.6-21.5" width="0.4" depth="0.4" height="3.65" radius="0.5" top-radius="0" position="41.4 21.3 0" material="timber"/>
+    <box id="gallery-pier-41.6-29.5" width="0.4" depth="0.4" height="3.65" radius="0.5" top-radius="0" position="41.4 29.3 0" material="timber"/>
+    <box id="gallery-front-beam" width="28" depth="0.35" height="0.3" radius="0.5" top-radius="0" position="14 21 3.35" material="timber"/>
+    <box id="gallery-rear-beam" width="28" depth="0.35" height="0.3" radius="0.5" top-radius="0" position="14 29.5 3.35" material="timber"/>
+    <box id="pump-house" width="14" depth="18" height="5" radius="0.5" top-radius="0" position="-41 16 0" material="stone"/>
+    <roof id="pump-roof-west" profile="profile-pump-roof-west" thickness="0.22" material="roof" playable="false" elevation="0"/>
+    <roof id="pump-roof-east" profile="profile-pump-roof-east" thickness="0.22" material="roof" playable="false" elevation="0"/>
+    <extrusion id="pump-gable-16.1" profile="pump-gable-profile" distance="0.3" position="-34 16.1 5" rotation="90 0 0" material="stone"/>
+    <extrusion id="pump-gable-34" profile="pump-gable-profile" distance="0.3" position="-34 34 5" rotation="90 0 0" material="stone"/>
+    <box id="pump-service-door" width="4" depth="0.15" height="3" radius="0.5" top-radius="0" position="-34 15.9 0" material="iron"/>
+    <box id="winch-house" width="8" depth="14" height="5" radius="0.5" top-radius="0" position="0 20 0" material="stone"/>
+    <roof id="winch-roof" profile="profile-winch-roof" thickness="0.25" material="roof" playable="false" elevation="0"/>
+    <box id="gantry-foot" width="6" depth="13" height="2.7" radius="0.5" top-radius="0" position="-40 -7 0" material="concrete"/>
+    <box id="west-workbench" width="3" depth="5" height="1.2" radius="0.5" top-radius="0" position="15 -5 0" material="timber"/>
+    <box id="east-machinery" width="2.5" depth="3" height="2.1" radius="0.5" top-radius="0" position="34.5 14 0" material="iron"/>
+    <wall id="yard-perimeter-west" path="path-yard-perimeter-west" height="2.2" thickness="0.3" alignment="center" join="miter" material="stone"/>
+    <wall id="yard-perimeter-north" path="path-yard-perimeter-north" height="2.2" thickness="0.3" alignment="center" join="miter" material="stone"/>
+    <wall id="yard-perimeter-east" path="path-yard-perimeter-east" height="2.2" thickness="0.3" alignment="center" join="miter" material="stone"/>
+    <wall id="yard-perimeter-south-west" path="path-yard-perimeter-south-west" height="2.2" thickness="0.3" alignment="center" join="miter" material="stone"/>
+    <wall id="yard-perimeter-south-east" path="path-yard-perimeter-south-east" height="2.2" thickness="0.3" alignment="center" join="miter" material="stone"/>
+    <box id="town-mass-0" width="15" depth="12" height="6" radius="0.5" top-radius="0" position="-42 48 0" material="stone"/>
+    <roof id="town-roof-0" profile="profile-town-roof-0" thickness="0.3" material="roof" playable="false" elevation="0"/>
+    <box id="town-mass-1" width="15" depth="12" height="7" radius="0.5" top-radius="0" position="-20 48 0" material="stone"/>
+    <roof id="town-roof-1" profile="profile-town-roof-1" thickness="0.3" material="roof" playable="false" elevation="0"/>
+    <box id="town-mass-2" width="15" depth="12" height="8" radius="0.5" top-radius="0" position="5 48 0" material="stone"/>
+    <roof id="town-roof-2" profile="profile-town-roof-2" thickness="0.3" material="roof" playable="false" elevation="0"/>
+    <box id="town-mass-3" width="15" depth="12" height="9" radius="0.5" top-radius="0" position="28 48 0" material="stone"/>
+    <roof id="town-roof-3" profile="profile-town-roof-3" thickness="0.3" material="roof" playable="false" elevation="0"/>
+  </assembly>
+  <player radius="0.35" height="1.8" step="0.25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <marker id="S1" position="-39 -32 0" movement="land" team="one" kind="spawn" group="architecture"/>
+  <marker id="S2" position="44 36 0" movement="land" team="two" kind="spawn" group="architecture"/>
+  <marker id="A" position="-12 18 -4" movement="land" kind="objective" group="architecture"/>
+  <marker id="B" position="28 17 0" movement="land" kind="objective" group="architecture"/>
+  <marker id="D1-top" position="-34 -20 0" movement="land" kind="checkpoint" group="architecture"/>
+  <marker id="D1-bottom" position="-20 -20 -4" movement="land" kind="checkpoint" group="architecture"/>
+  <marker id="D2-top" position="10.8 8 0" movement="land" kind="checkpoint" group="architecture"/>
+  <marker id="D2-bottom" position="-4 8 -4" movement="land" kind="checkpoint" group="architecture"/>
+  <marker id="G1-foot" position="17 3 0" movement="land" kind="checkpoint" group="architecture"/>
+  <marker id="G2-foot" position="40 6 0" movement="land" kind="checkpoint" group="architecture"/>
+  <marker id="gallery-west" position="17 20 4" movement="land" kind="checkpoint" group="architecture"/>
+  <marker id="gallery-east" position="40 25 4" movement="land" kind="checkpoint" group="architecture"/>
+  <route id="route-S1-A" from="S1" to="A" min-routes="1"/>
+  <route id="route-S2-A" from="S2" to="A" min-routes="1"/>
+  <route id="route-S1-B" from="S1" to="B" min-routes="1"/>
+  <route id="route-S2-B" from="S2" to="B" min-routes="1"/>
+  <route id="route-D1-top-D1-bottom" from="D1-top" to="D1-bottom" min-routes="1"/>
+  <route id="route-D2-top-D2-bottom" from="D2-top" to="D2-bottom" min-routes="1"/>
+  <route id="route-G1-foot-gallery-west" from="G1-foot" to="gallery-west" min-routes="1"/>
+  <route id="route-G2-foot-gallery-east" from="G2-foot" to="gallery-east" min-routes="1"/>
+  <connection id="mouth-0" from="yard" to="D1" path="mouth-path-0"/>
+  <connection id="mouth-1" from="dock-floor" to="D1" path="mouth-path-1"/>
+  <connection id="mouth-2" from="yard" to="D2" path="mouth-path-2"/>
+  <connection id="mouth-3" from="dock-floor" to="D2" path="mouth-path-3"/>
+  <connection id="mouth-4" from="yard" to="G1" path="mouth-path-4"/>
+  <connection id="mouth-5" from="gallery" to="G1" path="mouth-path-5"/>
+  <connection id="mouth-6" from="yard" to="G2" path="mouth-path-6"/>
+  <connection id="mouth-7" from="gallery" to="G2" path="mouth-path-7"/>
+  <connection id="mouth-8" from="yard" to="service-bridge" path="mouth-path-8"/>
+  <connection id="mouth-9" from="yard" to="service-bridge" path="mouth-path-9"/>
+  <no-spawn-los markers="S1 S2"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+</architecture>

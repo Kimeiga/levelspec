@@ -1,0 +1,48 @@
+{
+  "basis": "Existing pre-change native-decoder frozen-scene profiles; no new full-scene run. Shares pool stage durations over total compile durations across those three runs. Projections assume the same warm hit set.",
+  "pipelineSharesBeforeChange": [
+    {
+      "stage": "Material assembly, cache and raster work",
+      "share": 0.45357761374845973
+    },
+    {
+      "stage": "Procedural dressing",
+      "share": 0.19789127294887085
+    },
+    {
+      "stage": "Receiver-edge joining",
+      "share": 0.20052964444601093
+    },
+    {
+      "stage": "Source image loading and decoding",
+      "share": 0.048115742177740436
+    },
+    {
+      "stage": "Receiver validation",
+      "share": 0.044000309755819735
+    },
+    {
+      "stage": "Mesh parts and finalization",
+      "share": 0.03826733976836509
+    },
+    {
+      "stage": "Other stages",
+      "share": 0.01761807715473329
+    }
+  ],
+  "projectedWorkRemoved": {
+    "pngDecodes": 26967,
+    "pngDecodeFraction": 0.9994811163411289,
+    "decodedPixels": 77121663,
+    "decodedPixelFraction": 0.680710727172178,
+    "rgbaReconstructionBytes": 308486652,
+    "ownedRgbaCopyBytes": 308486652
+  },
+  "remainingSourcePngs": 14,
+  "remainingSourcePixels": 36174132,
+  "remainingRasterJobs": {
+    "jobs": 116,
+    "texels": 3523398
+  },
+  "validation": "9 focused compiler cache tests and 3 disk cache tests; no timing repeats."
+}

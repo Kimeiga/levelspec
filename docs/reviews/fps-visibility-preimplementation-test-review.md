@@ -1,0 +1,74 @@
+# FPS visibility audit — independent preimplementation test review
+
+2026-11-08. Scope: proposed opt-in visibility audit for compiled FPS maps, before production implementation. Reviewer read the repository instructions, write-readable-typescript and maintain-tests skills, compiled mesh/navigation contracts, current physical ray and spawn checks, spatial geometry indexing, and representative native geometry/visibility tests. No production implementation was supplied or changed.
+
+**Preimplementation gate: accepted with the contracts and behavioral checks below.** New tests are warranted: this introduces numerical geometry, height-aware sampling and a heuristic whose incorrect output could falsely certify a map. Existing compiler/collision tests do not cover the new optical visibility or attention-report contracts.
+
+## Required contract decisions
+
+1. **Optical occlusion is distinct from collision/navigation.** Use actual rendered geometry and `visible` state for optical blocking; use physical/navigation information only to admit plausible standing observation/target locations. A visible noncollidable screen can block sight; an invisible collider cannot. Do not automatically exclude visualization meshes from optical blocking merely because architectural physical checks exclude them. If visualization assets are unsupported, state that exclusion prominently and do not certify the result as complete optical LOS.
+2. **Opacity is qualified.** State the policy for static opaque, transparent/alpha-textured and dynamic surfaces. A render mesh is not inherently opaque. Unknown opacity/dynamic state must remain an explicit assumption or unavailable result, not silently disappear or become guaranteed cover. Spillway's static native opaque blockout is a reasonable first supported scope.
+3. **Sampling preserves three dimensions.** Grid observations are actual navigation surfaces, including every relevant Z at shared XY. Do not flatten a bridge onto its underpass, sample sky, admit unsupported floor holes, or claim every square meter was checked when regions/components were filtered. Report the spacing, origin, body admission, eye/target heights, component selection and rejected/accepted counts.
+4. **Long LOS ends at valid targets.** A fan ray that reaches the map bounds without hitting a wall may only see empty sky or an inaccessible building strip. Long-sight flags must name actual supported target locations, or be explicitly labeled unverified geometric rays. Report measured 3D distance separately from horizontal distance. A meter grid can miss narrow/tangent/slit lines; selected portal and key-point tests supplement it.
+5. **Entry bearing is not the set of visible rays.** Only explicitly configured hostile-entry portals/approach samples can support the proposed100° hold heuristic. List the configured portal universe, which portions were visible/occluded/unsupported, and the observer. A hidden portal remains an unresolved approach, not proof that every enemy route is covered. No configured portals, one visible portal, or invalid/unreachable portal samples must be explicit outcomes; none establishes that a position is safe or bad gameplay.
+6. **Angular result is a horizontal review flag.** Use the shortest covering circular arc, including wrap at0°/360°, and document threshold inclusion. Multiple elevations at a common bearing may still require pitch/vertical attention. Report that limitation or the elevation spread. The result is not a campability, tradeability or balance proof. Objective ownership, utility, time and teammate allocation remain independent review questions.
+7. **Failures remain failures.** Validate finite coordinates and positive finite spacings/budgets before heavy work. Bound admitted samples, pair/ray work and retained output. Exceeded budgets/cancellation must not produce an unqualified successful scan. Preserve input documents/geometry and identify source/options in the report.
+
+## Existing boundaries that cannot be reused blindly
+
+- `src/vector/validate.ts::rayBlocked` and `auditProtectedSpawns` use collision geometry. Their gameplay collision contract is intentional; silently changing it would broaden this task. The new optical audit needs its own clear boundary.
+- `PhysicalGeometryIndex` has a render purpose, but `faces()` excludes `domain="visualization"` and does not filter transparency. Its alpha/texture classification only affects closed-volume containment. Reusing it without accounting for these details can hide visible artwork or turn transparent surfaces into opaque blockers.
+- `NavigationReport` provides positions, triangles and component identities. Navigation inclusion is not proof that a continuous standing body can occupy a point. Use existing standing admission where available, or disclose a navigation-only sampling contract.
+- Node24 native TypeScript execution and node:test are already supported. Keep pure audit logic free of filesystem/CLI side effects; a thin CLI loads AML/config and writes reports. No compiler/public-package API expansion is required merely to ship an optional project audit.
+
+## Minimum meaningful test matrix
+
+Tests should use small real compiled AML through public parsing/compilation for geometry cases. Independently known coordinates/distances/arcs supply expectations; do not calculate expected answers with the audit under test. A pure angular test is justified because its mathematical contract is public audit behavior.
+
+| Case | Independent expectation and failure detected |
+|---|---|
+| Open rectangle and opaque screen with real opening | Fixed eye/target pair is visible across an empty room; a full intervening screen blocks; a pair through the actual aperture remains visible. Tests finite segments rather than an infinite ray whose hit lies beyond the target. Reverse pair agrees for opaque double-sided geometry. |
+| Low cover and two eye heights | A1.2 m opaque screen blocks two1.0 m eye points but permits two1.6 m points. A sloped/elevated target is tested in XYZ, not by a2D plan intersection. This can detect accidentally using one body height for all rays. |
+| Invisible physical screen / visible noncollidable screen | First admits an optical line despite physical blocking; second occludes despite physical transparency. These must not share the collision ray implementation. Unknown/transparent material behavior is asserted according to the documented scope, with a warning/unavailable outcome if unsupported. |
+| Shared-XY upper/lower crossing | A floor atZ0 and bridge top atZ4 retain separate samples at one XY. Same-level underpass view passes beneath the slab; a cross-level segment intersecting the slab is blocked. Unsupported void points are absent or rejected with a reason. |
+| Long supported target versus empty boundary ray | A supported target beyond a known threshold is flagged and names both endpoints. A similarly long open ray ending beyond walkable support does not become a player-to-player sightline. Threshold equality/epsilon policy is explicit. |
+| Wrapped approach bearings and independent directions | Portal samples around350°/10° yield a20° covering arc and a100° candidate;0°/120°/240° need240°, so are not one100° cone. An exact100° case has documented behavior. Inputs remain unchanged. |
+| Partly occluded/wide portal and missing entry evidence | A central post blocks the portal midpoint while at least one edge remains visible; the portal is not falsely dropped. A hidden second portal is listed as occluded/unresolved. Zero configured or zero/one visible entry yields an explicit insufficient/limited-evidence state, not a universal all-approaches pass. Same-bearing portals at different elevations retain that caveat. |
+| Invalid configuration, work cap and deterministic replay | Nonfinite coordinates/heights, zero/negative spacing, duplicate IDs and excessive requested work are rejected or terminate with an explicit incomplete outcome. Repeating a small fixed scan returns the same results/config/source identity without mutating source/mesh. A CLI smoke test verifies a usable JSON result and nonzero failure status, rather than code-spelling assertions. |
+
+A representative compiled Spillway scan belongs in generated review evidence, not a brittle golden test asserting an exact number of risk flags. Geometry edits should be free to change the count while durable algorithm tests remain stable.
+
+## Review of likely false acceptance
+
+A suite that only tests a center spawn ray, manually chosen clear rays, a single eye height and ordinary bearings can pass while missing the user's central concern. In particular, an aerial overview is not a player LOS test, a blocked center spawn pair does not protect a whole spawn region, and many grid samples do not prove complete portal coverage. Add region/key-point probes and report the sampled domain. Do not reduce eye height, shrink spawn regions, omit a difficult entry, raise the risk threshold, or add hand-picked exclusions merely to obtain a green map report.
+
+No runtime tests were run during this preimplementation review because the proposed implementation/tests did not yet exist. The later independent implementation review and focused test execution remain required. Submit material contract/test changes for re-review; supported-scope reductions must remain visible in the tool's output and map handoff.
+
+## Independent final test review — first implementation pass
+
+Reviewed `tests/aml-fps-visibility.test.ts`, `tools/fps/visibility.ts`, `visibility-geometry.ts`, and `tools/vector-visibility.ts`. Independently executed `node --test tests/aml-fps-visibility.test.ts`: **16/16 passed**. Tests use small real compiled AML with independent ray/height/angle expectations and exercise actual optical/collision separation, upper/lower surfaces, aperture/end-distance behavior, mixed key-point heights, offset spawn areas, portal edge samples, vertical angular attention and opacity/dynamic incompleteness. No compiler contract or unrelated fixture was weakened.
+
+**First final gate: changes required for identity ambiguity and missing CLI incomplete coverage.**
+
+1. **VT-01 — generated/configured sample IDs can collide (material).** `settingsFor` rejects duplicate IDs among configured items but does not reserve generated IDs. On a real compiled20 ×12 m room with2 m spacing, a configured point `{id:"grid-0",feet:[10,6,0]}` is accepted. The returned report has `complete:true` and two distinct `grid-0` samples at `[18,2,.01]` and `[10,6,.01]`; the second can report `farthest:"grid-0"`. Because the named/best maps are keyed by ID, this makes references and long-line attribution ambiguous. Reject reserved IDs or use disjoint generated/key-point identities, and add a behavioral regression. Merely adding a warning to ambiguous output is insufficient.
+2. **VT-02 — incomplete CLI execution has no integration assertion.** The CLI test verifies a successful report and invalid-input failure, but not the promised emitted incomplete report with nonzero exit. Add a deliberately small pair budget or unsupported-opacity input; assert one stdout JSON object, exit1, `complete:false`, a readable persisted report with the concrete omission, and no false `complete:true` summary. This protects the distinction between successful artifact production and completed audit.
+
+Additional nonblocking qualifications:
+
+- Global `maxVisibleDistance` only contains a farthest supported target at or beyond `longDistance`;0 does not mean no visible neighbor. A documented/renamed threshold-qualified field is required before using it as a heatmap value or summary. The parent has identified and committed to making this qualification explicit.
+- Global grid pairs use matching eye offsets, while key pairs/areas include every configured combination. The report currently states this limitation. Do not describe the global grid as exhaustive cross-posture scanning.
+- The ray budget bounds visibility queries; it does not count pair-distance rejections or configured portal-support searches. The hard50,000-sample ceiling bounds the outer loop mathematically but can still imply1.25 billion skipped pair comparisons. Keep this a workload warning, avoid universal performance claims, and consider a future candidate-pair budget/spatial distance indexing if demonstrated workloads require it. Do not add architecture solely for hypothetical scaling.
+- Opt-in scope remains static opaque rendered segments; unknown textured/alpha/dynamic geometry correctly makes the report incomplete. No single100° flag is a gameplay verdict, and `approachesComplete` remains an authored assumption.
+
+The separate implementation review remains responsible for code simplicity/ownership, and the map reviewers remain responsible for contextual LOS/camping judgment. This test review does not establish human gameplay or competitive acceptance.
+
+## Final follow-up — test gate accepted
+
+Independently reread the corrected implementation and expanded suite, then reran `node --test tests/aml-fps-visibility.test.ts`: **21 tests passed,0 failed/skipped**. The prior test gate is now **accepted for the documented static sampled-audit scope**.
+
+- **VT-01 closed.** Configured key-point IDs beginning `grid-` are rejected before sampling. The new regression uses the previously accepted `grid-0` input and requires failure, preserving unambiguous generated/key-point identities. Collection bounds are also exercised.
+- **VT-02 closed.** The new real CLI incomplete-scan test requires exit code1, exactly one JSON stdout object, `success:true` for persisted artifacts with `complete:false`, readable saved JSON with `pairBudgetReached:true`, and an SVG artifact. It cannot pass merely because invalid configuration threw before report production.
+- Added tests also reject an empty sampled domain while allowing an explicitly supported key point; preserve uncertainty for renderer-style glass; retain per-portal visible/occluded/unsupported sample counts; and exhaust candidate-pair work even when a high distance threshold avoids every optical cast. The earlier workload qualification is addressed by a candidate-pair bound in addition to the cast bound.
+- The report's scope now explicitly says sample `maxVisibleDistance` is threshold-qualified, not an exact all-range maximum. Matching-height global sampling versus all-combination protected pair/area sampling remains disclosed. Partial portal visibility and unverified/hidden entry evidence are retained instead of disappearing from the report.
+
+No further material test finding remains in this reviewed change. This acceptance covers algorithm/report behavior and failure signaling. It does not turn finite grid/portal samples into exhaustive visibility proof, establish that configured hostile entries are complete, or accept the map's gameplay without the separate spatial/tactical review and playtests.

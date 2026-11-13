@@ -1,0 +1,31 @@
+{
+  "source": "Built-in ImageGen",
+  "purpose": "Plain gray concrete base with fine pores, no stains or cracks",
+  "original": "/Users/tomokif/.codex/generated_images/01a1c3d0-0023-7813-9764-d9a5ebfafdd8/exec-a23236a0-7903-4c01-92d3-ae07735e7fb2.png",
+  "linearMean": [
+    0.37286770477657405,
+    0.3662141145046476,
+    0.3582086447939772
+  ],
+  "secondTexture": {
+    "file": "concrete-fine-sand.png",
+    "source": "Built-in ImageGen",
+    "original": "exec-d7495727-90f9-4e70-ba34-53eeef6a1891.png",
+    "linearMean": [
+      0.20798059217157364,
+      0.20320214220777086,
+      0.18970546072187944
+    ]
+  },
+  "plasterTexture": {
+    "file": "plaster-plain.png",
+    "source": "Built-in ImageGen",
+    "original": "/Users/tomokif/.codex/generated_images/01a1c3d0-0023-7813-9764-d9a5ebfafdd8/exec-7ec17ea0-0ae0-46be-9d82-c63de5fd44a6.png",
+    "linearMean": [
+      0.7364711472602083,
+      0.6666688006220737,
+      0.5692678345895021
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: square seamless base-color texture for a real-time plaster wall material. Flat orthographic close-up of plain aged warm off-white lime plaster, representing two meters square. Very subtle fine powdery mineral grain, understated trowel mottling and tiny pores, restrained cream/gray hue variations. Uniform neutral diffuse illumination, no directional shading, no shadows, no ambient occlusion, no vignette. Edge-to-edge plaster only, no cracks, no chips, no stains, no seams, no objects, no border or text. Photorealistic material scan appearance, quiet low-contrast texture. Damage and grime will be added procedurally later."
+  }
+}

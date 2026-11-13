@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concrete and plaster · Material study</title>
+  <link rel="icon" href="data:,">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #d8dad7; color: #252d2c; font: 14px system-ui, sans-serif; }
+    canvas { display: block; }
+    header { position: absolute; top: 16px; left: 16px; z-index: 1; padding: 14px; border-radius: 8px; background: #edf0ebeb; max-width: calc(100vw - 32px); }
+    h1 { margin: 0 0 6px; font-size: 22px; font-weight: 600; letter-spacing: -.4px; }
+    p { margin: 0 0 18px; color: #55615e; }
+    nav { display: flex; gap: 8px; flex-wrap: wrap; }
+    button, a, select { border: 1px solid #9aa8a2; border-radius: 6px; padding: 8px 12px; color: inherit; background: #edf0ebdd; font: inherit; text-decoration: none; cursor: pointer; }
+    button[aria-pressed="true"] { color: #fff; background: #344b44; border-color: #344b44; }
+    .adjustments { max-width: 600px; display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; }
+    label { display: grid; gap: 5px; font-size: 12px; }
+    input { width: 175px; accent-color: #344b44; }
+    footer { position: absolute; bottom: 16px; left: 16px; padding: 8px 12px; border-radius: 6px; background: #edf0ebeb; color: #55615e; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Concrete / base material</h1>
+    <p>One plain wall · Real-time lighting</p>
+    <nav aria-label="Material study">
+      <select id="wall-type" aria-label="Wall type"><option value="concrete">Concrete</option><option value="plaster">Plaster</option></select>
+      <button id="chips" aria-pressed="true" disabled>Chipped plaster: on</button>
+      <button id="varied" aria-pressed="true">Varied tiling</button>
+      <button id="regular" aria-pressed="false">Regular tiling</button>
+      <button id="front">Front view</button>
+      <button id="detail">Close up</button>
+      <button id="light">Move light</button>
+      <button id="cutouts" aria-pressed="true">Concrete cutouts: on</button>
+      <button id="holes" aria-pressed="true">Form-tie holes: on</button>
+      <button id="grime" aria-pressed="true">Top grime: on</button>
+      <a id="base-texture" href="../../src/materials/concrete/textures/concrete-plain.png" target="_blank">Base texture ↗</a>
+    </nav>
+    <div class="adjustments">
+      <label>Concrete A darkness <output id="darkness-value">10%</output><input id="darkness" type="range" min="0" max="80" value="10" step="1"></label>
+      <label>Hue variation <output id="hue-amount-value">5%</output><input id="hue-amount" type="range" min="0" max="30" value="5" step="1"></label>
+      <label>Hue direction <output id="hue-angle-value">60°</output><input id="hue-angle" type="range" min="0" max="360" value="60" step="1"></label>
+      <label>Concrete B darkness <output id="darkness-b-value">13%</output><input id="darkness-b" type="range" min="0" max="80" value="13" step="1"></label>
+      <label>Blend frequency <output id="blend-scale-value">9.0×</output><input id="blend-scale" type="range" min="0.2" max="16" value="9" step="0.1"></label>
+      <label>Blend contrast <output id="blend-contrast-value">1.0×</output><input id="blend-contrast" type="range" min="1" max="8" value="1" step="0.1"></label>
+      <label>Edge jaggedness <output id="jaggedness-value">0.8×</output><input id="jaggedness" type="range" min="0" max="2" value="0.8" step="0.1"></label>
+    </div>
+  </header>
+  <footer id="status">Loading wall materials…</footer>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

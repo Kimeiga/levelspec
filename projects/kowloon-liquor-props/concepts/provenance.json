@@ -1,0 +1,82 @@
+[
+  {
+    "file": "concepts/bottle-crate.png",
+    "sha256": "070fd8b39440a817e6e0cc1565345d8bee6d26f9bcb33b5a8f2ba766ae169ec9",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/ceiling-fan.png",
+    "sha256": "7925b77c91752c52023e1e3541d376cee566af4f281c378b425064901a62957c",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/counter-scale.png",
+    "sha256": "16aa759524220c69c300ddc7ff24b0c047d39d2ceb34f9db3f21297cde1ad022",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/drink-bottle.png",
+    "sha256": "6b775d9666ff7122caa771917e781b4017ddb9de429d6029e02636fb90e252da",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/drinks-cooler.png",
+    "sha256": "25d1cd634e0fcc792c359b6636f30dbd3b9e7ded929ce7d2fb100b5c0df521fe",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/egg-basket.png",
+    "sha256": "5a2458f36c13c17779d0e3226911bdfca594235dedc5a709e90e2e6ce8641105",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/fluorescent-batten.png",
+    "sha256": "58076b4a8985453559220b6d54d61112c96a78504bbc439900ce9448b0f5a4a8",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/food-tin.png",
+    "sha256": "1b253df6cd0c5ed0775814ed11a88d94b8cf723b0fc444f66a42541729baa466",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/garlic-braid.png",
+    "sha256": "2317902adf74bbce41bab0d024d69f599d569dbc1e1cdd837cf0a3c239af759b",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/pendant-lamp.png",
+    "sha256": "aff4faf666a0536c23f664fb55b4d9a0b73b73145178aa19e15fe799d45aa575",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/rice-sack.png",
+    "sha256": "85a99e6d2337afdf17802e91124736a8f483712029300612f127a55c05ef26c6",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/shop-counter.png",
+    "sha256": "7a6e9ebe7fbedf25de3b8327101db8e8378799958fa1a6940b8c68245c5fe1f1",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/shop-stool.png",
+    "sha256": "edeabc386d49effafc8e4b27577fe8a3690e78a2a55a383081cde086852491de",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/single-egg.png",
+    "sha256": "5002e05067676acbdc40756c2710c35e74a6bcf9112a3e005bffb1480df8a44a",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/tea-carton.png",
+    "sha256": "ec8ea07370a75f1c2767aff1f5fd292172d96b9c9742d987fc2357e8b74f3af7",
+    "provider": "built-in image_gen"
+  },
+  {
+    "file": "concepts/tissue-roll.png",
+    "sha256": "477774bf92f735e4ffb6878900bdef126a8da03aff6d7b7d92781b09b70b4e46",
+    "provider": "built-in image_gen"
+  }
+]

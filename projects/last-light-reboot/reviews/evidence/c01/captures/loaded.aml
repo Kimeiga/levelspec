@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="last-light-reboot" name="Last Light Galleria · Twin Atrium Exchange" units="meters" validation="playable" description="C01 native realization of independently accepted L02. 5v5 hero-shooter Control hypothesis; no combat or scoring simulation.">
+  <material id="tile" color="#cfc3ad" roughness=".85" />
+  <material id="upper-tile" color="#c8b1a3" roughness=".85" />
+  <material id="plaster" color="#ded5bf" roughness=".85" />
+  <material id="teal" color="#5c8380" roughness=".85" />
+  <material id="rose" color="#ac7b80" roughness=".85" />
+  <material id="shutter" color="#79837f" roughness=".85" />
+  <material id="guard" color="#b59d72" roughness=".85" />
+  <material id="roof" color="#9aa5a2" roughness=".85" />
+  <material id="glass" color="#a8cbd0" roughness=".85" />
+  <material id="concrete" color="#a6a69b" roughness=".85" />
+  <material id="ink" color="#405255" roughness=".85" />
+  <player radius=".4" height="2" crouch="1.15" step=".3" slope="42" />
+  <profile id="FIX-GNW-plan" points="44 80; 44 84; 34 84; 34 80" />
+  <profile id="FIX-GNE-plan" points="78 76; 78 80; 70 80; 70 76" />
+  <profile id="FIX-UW-plan" points="34 72; 34 56; 30 56; 30 58; 30 72" />
+  <profile id="FIX-USW-plan" points="48 48; 48 42; 46 44; 42 44; 42 48" />
+  <profile id="FIX-UNE-plan" points="82 56; 78 56; 78 64; 82 60" />
+  <profile id="FIX-UE-plan" points="94 34; 92 34; 92 46; 94 46" />
+  <profile id="FIX-GSLOT-plan" points="29 44; 29 46; 28 46; 28 44" />
+  <profile id="FIX-USW-SLOT-plan" points="50.3 22.5; 50.3 21.4; 50 21.4; 50 22.5" />
+  <profile id="FIX-USLOT-plan" points="77.75 75.7; 77.75 76.5; 78 76.5; 78 75.7" />
+  <profile id="F-G-plan" points="40 12; 40 10; 24 10; 24 8; 4 8; 4 28; 8 28; 8 54; 12 54; 12 78; 22 78; 22 80; 24 80; 24 88; 82 88; 82 96; 98 96; 98 98; 116 98; 116 76; 112 76; 112 16; 90 16; 90 10; 58 10; 58 12">
+    <hole points="44 74; 34 74; 34 72; 50 72; 58 64; 58 54; 64 54; 64 72; 82 72; 82 76; 70 76; 70 80; 44 80" />
+    <hole points="58 44; 58 40; 52 32; 40 32; 40 22; 58 22; 58 26; 64 26; 64 44" />
+    <hole points="28 34; 28 52; 24 52; 24 34" />
+  </profile>
+  <profile id="F-U-plan" points="60 30; 60 42; 48 42; 46 44; 42 44; 42 48; 40 48; 40 56; 30 56; 30 76; 22 76; 22 84; 44 84; 44 80; 78 80; 78 64; 82 60; 82 56; 84 56; 84 46; 94 46; 94 34; 88 34; 88 30; 94 30; 94 28; 100 28; 100 30; 104 30; 104 20; 50 20; 50 30" />
+  <profile id="R-H-plan" points="58 42; 58 40; 52 32; 40 32; 40 30; 26 30; 26 34; 28 34; 28 52; 26 52; 26 86; 98 86; 98 30; 90 30; 90 68; 72 68; 72 30; 60 30; 60 42">
+    <hole points="82 72; 82 76; 78 76; 78 72" />
+    <hole points="30 36; 48 36; 48 64; 30 64" />
+  </profile>
+  <profile id="R-M-0-plan" points="22 84; 24 84; 24 84.01; 26 84.01; 26 52; 22 52; 22 75.99; 21.995 75.991; 21.99 75.997; 21.99 78; 22 78" />
+  <profile id="R-M-1-plan" points="50 22; 50 30; 98 30; 98 50; 104 50; 104 30.01; 104.005 30.009; 104.01 30.003; 104.01 19.997; 104.005 19.991; 49.997 19.99; 49.99 19.997; 49.99 22" />
+  <profile id="R-L-plan" points="24 88; 82 88; 82 96; 98 96; 98 98; 116 98; 116 76; 112 76; 112 16; 90 16; 90 10; 58 10; 58 12; 40 12; 40 10; 24 10; 24 8; 4 8; 4 28; 8 28; 8 54; 12 54; 12 78; 21.99 78; 21.99 75.997; 21.995 75.991; 22 75.99; 22 52; 24 52; 24 34; 26 34; 26 30; 40 30; 40 22; 49.99 22; 49.99 19.997; 49.997 19.99; 104.003 19.99; 104.01 19.997; 104.01 30.003; 104.005 30.009; 104 30.01; 104 50; 98 50; 98 86; 26 86; 26 84.01; 24 84.01" />
+  <profile id="R-SK1-plan" points="48 36; 30 36; 30 64; 48 64" />
+  <profile id="R-SK2-plan" points="72 30; 72 68; 90 68; 90 30" />
+  <profile id="EXT-0-0-0-p0-plan" points="21.8 84; 22.2 84; 22.2 80; 21.8 80" />
+  <profile id="EXT-0-0-1-p0-plan" points="24 84.2; 24 83.8; 22 83.8; 22 84.2" />
+  <profile id="EXT-0-0-2-p0-plan" points="23.8 88; 24.2 88; 24.2 84; 23.8 84" />
+  <profile id="EXT-0-0-3-p0-plan" points="44 88.2; 44 87.8; 24 87.8; 24 88.2" />
+  <profile id="EXT-0-0-4-p0-plan" points="70 88.2; 70 87.8; 44 87.8; 44 88.2" />
+  <profile id="EXT-0-0-5-p0-plan" points="82 88.2; 82 87.8; 70 87.8; 70 88.2" />
+  <profile id="EXT-0-0-6-p0-plan" points="81.8 96; 82.2 96; 82.2 88; 81.8 88" />
+  <profile id="EXT-0-0-7-p0-plan" points="98 96.2; 98 95.8; 82 95.8; 82 96.2" />
+  <profile id="EXT-0-0-8-p0-plan" points="97.8 98; 98.2 98; 98.2 96; 97.8 96" />
+  <profile id="EXT-0-0-9-p0-plan" points="116 98.2; 116 97.8; 98 97.8; 98 98.2" />
+  <profile id="EXT-0-0-10-p0-plan" points="116.2 76; 115.8 76; 115.8 98; 116.2 98" />
+  <profile id="EXT-0-0-11-p0-plan" points="112 75.8; 112 76.2; 116 76.2; 116 75.8" />
+  <profile id="EXT-0-0-12-p0-plan" points="112.2 44; 111.8 44; 111.8 76; 112.2 76" />
+  <profile id="EXT-0-0-13-p0-plan" points="112.2 16; 111.8 16; 111.8 44; 112.2 44" />
+  <profile id="EXT-0-0-14-p0-plan" points="90 15.8; 90 16.2; 112 16.2; 112 15.8" />
+  <profile id="EXT-0-0-15-p0-plan" points="90.2 10; 89.8 10; 89.8 16; 90.2 16" />
+  <profile id="EXT-0-0-16-p0-plan" points="58 9.8; 58 10.2; 90 10.2; 90 9.8" />
+  <profile id="EXT-0-0-17-p0-plan" points="57.8 12; 58.2 12; 58.2 10; 57.8 10" />
+  <profile id="EXT-0-0-18-p0-plan" points="40 11.8; 40 12.2; 58 12.2; 58 11.8" />
+  <profile id="EXT-0-0-19-p0-plan" points="40.2 10; 39.8 10; 39.8 12; 40.2 12" />
+  <profile id="EXT-0-0-20-p0-plan" points="24 9.8; 24 10.2; 40 10.2; 40 9.8" />
+  <profile id="EXT-0-0-21-p0-plan" points="24.2 8; 23.8 8; 23.8 10; 24.2 10" />
+  <profile id="EXT-0-0-22-p0-plan" points="4 7.8; 4 8.2; 24 8.2; 24 7.8" />
+  <profile id="EXT-0-0-23-p0-plan" points="3.8 28; 4.2 28; 4.2 8; 3.8 8" />
+  <profile id="EXT-0-0-24-p0-plan" points="8 28.2; 8 27.8; 4 27.8; 4 28.2" />
+  <profile id="EXT-0-0-25-p0-plan" points="7.8 54; 8.2 54; 8.2 28; 7.8 28" />
+  <profile id="EXT-0-0-26-p0-plan" points="12 54.2; 12 53.8; 8 53.8; 8 54.2" />
+  <profile id="EXT-0-0-27-p0-plan" points="11.8 78; 12.2 78; 12.2 54; 11.8 54" />
+  <profile id="EXT-0-0-28-p0-plan" points="22 78.2; 22 77.8; 12 77.8; 12 78.2" />
+  <profile id="EXT-0-0-29-p0-plan" points="21.8 80; 22.2 80; 22.2 78; 21.8 78" />
+  <profile id="EXT-0-1-0-p0-plan" points="58 41.8; 58 42.2; 60 42.2; 60 41.8" />
+  <profile id="EXT-0-1-1-p0-plan" points="58.2 40; 57.8 40; 57.8 42; 58.2 42" />
+  <profile id="EXT-0-1-2-p0-plan" points="52.16 31.88; 51.84 32.12; 57.84 40.12; 58.16 39.88" />
+  <profile id="EXT-0-1-3-p0-plan" points="40 31.8; 40 32.2; 52 32.2; 52 31.8" />
+  <profile id="EXT-0-1-4-p0-plan" points="40.2 22; 39.8 22; 39.8 32; 40.2 32" />
+  <profile id="EXT-0-1-5-p0-plan" points="50 22.2; 50 21.8; 40 21.8; 40 22.2" />
+  <profile id="EXT-0-1-6-p0-plan" points="49.8 30; 50.2 30; 50.2 22; 49.8 22" />
+  <profile id="EXT-0-1-7-p0-plan" points="60 30.2; 60 29.8; 50 29.8; 50 30.2" />
+  <profile id="EXT-0-1-8-p0-plan" points="59.8 42; 60.2 42; 60.2 30; 59.8 30" />
+  <profile id="EXT-0-2-0-p0-plan" points="82 72.2; 82 71.8; 78 71.8; 78 72.2" />
+  <profile id="EXT-0-2-1-p0-plan" points="81.8 76; 82.2 76; 82.2 72; 81.8 72" />
+  <profile id="EXT-0-2-2-p0-plan" points="78 75.8; 78 76.2; 82 76.2; 82 75.8" />
+  <profile id="EXT-0-2-3-p0-plan" points="78.2 72; 77.8 72; 77.8 76; 78.2 76" />
+  <profile id="EXT-0-3-0-p0-plan" points="24 51.8; 24 52.2; 28 52.2; 28 51.8" />
+  <profile id="EXT-0-3-1-p0-plan" points="24.2 34; 23.8 34; 23.8 52; 24.2 52" />
+  <profile id="EXT-0-3-2-p0-plan" points="28 34.2; 28 33.8; 24 33.8; 24 34.2" />
+  <profile id="EXT-0-3-3-p0-plan" points="27.8 52; 28.2 52; 28.2 34; 27.8 34" />
+  <profile id="RC-HL-00-p0-plan" points="26 29.85; 26 30.15; 40 30.15; 40 29.85" />
+  <profile id="RC-HL-01-p0-plan" points="25.85 34; 26.15 34; 26.15 30; 25.85 30" />
+  <profile id="RC-HL-02-p0-plan" points="25.85 86; 26.15 86; 26.15 84.01; 25.85 84.01" />
+  <profile id="RC-HL-03-p0-plan" points="98 86.15; 98 85.85; 26 85.85; 26 86.15" />
+  <profile id="RC-HL-04-p0-plan" points="98.15 50; 97.85 50; 97.85 86; 98.15 86" />
+  <profile id="RC-HM-00-p0-plan" points="25.85 84.01; 26.15 84.01; 26.15 52; 25.85 52" />
+  <profile id="RC-HM-01-p0-plan" points="98.15 30; 97.85 30; 97.85 50; 98.15 50" />
+  <profile id="RC-HM-02-p0-plan" points="60 29.85; 60 30.15; 98 30.15; 98 29.85" />
+  <profile id="RC-ML-00-p0-plan" points="104 50.15; 104 49.85; 98 49.85; 98 50.15" />
+  <profile id="RC-ML-01-p0-plan" points="104.15 30.01; 103.85 30.01; 103.85 50; 104.15 50" />
+  <profile id="RC-ML-02-p0-plan" points="104.16 20; 103.86 20; 103.86 30; 104.16 30" />
+  <profile id="RC-ML-03-p0-plan" points="50 19.84; 50 20.14; 104 20.14; 104 19.84" />
+  <profile id="RC-ML-04-p0-plan" points="49.84 22; 50.14 22; 50.14 20; 49.84 20" />
+  <profile id="RC-ML-05-p0-plan" points="26 84.16; 26 83.86; 24 83.86; 24 84.16" />
+  <profile id="RC-ML-06-p0-plan" points="22 51.85; 22 52.15; 24 52.15; 24 51.85" />
+  <profile id="RC-ML-07-p0-plan" points="21.85 75.99; 22.15 75.99; 22.15 52; 21.85 52" />
+  <profile id="RC-ML-08-p0-plan" points="21.84 78; 22.14 78; 22.14 76; 21.84 76" />
+  <profile id="SW-P-p0-plan" points="23.8 12; 24.2 12; 24.2 8; 23.8 8" />
+  <profile id="SW-P-h0-plan" points="23.8 20; 24.2 20; 24.2 12; 23.8 12" />
+  <profile id="SW-P-p1-plan" points="23.8 28; 24.2 28; 24.2 20; 23.8 20" />
+  <profile id="SW-S-p0-plan" points="8 28.2; 8 27.8; 4 27.8; 4 28.2" />
+  <profile id="SW-S-h0-plan" points="16 28.2; 16 27.8; 8 27.8; 8 28.2" />
+  <profile id="SW-S-p1-plan" points="24 28.2; 24 27.8; 16 27.8; 16 28.2" />
+  <profile id="SW-R1-plan" points="18.4 10; 18.4 22; 18 22; 18 10" />
+  <profile id="SW-R2-plan" points="14 22; 14 22.4; 8 22.4; 8 22" />
+  <profile id="SW-B1-plan" points="34 20; 34 28; 28 28; 28 20" />
+  <profile id="SW-B2-plan" points="24 32; 24 38; 16 38; 16 32" />
+  <profile id="SW-VR-p0-plan" points="28 21.2; 28 20.8; 24 20.8; 24 21.2" />
+  <profile id="SW-ATR-p0-plan" points="32 32.2; 32 31.8; 28 31.8; 28 32.2" />
+  <profile id="SW-ATR-h0-plan" points="38 32.2; 38 31.8; 32 31.8; 32 32.2" />
+  <profile id="SW-ATR-p1-plan" points="40 32.2; 40 31.8; 38 31.8; 38 32.2" />
+  <profile id="SE-P-p0-plan" points="97.8 84; 98.2 84; 98.2 76; 97.8 76" />
+  <profile id="SE-P-h0-plan" points="97.8 92; 98.2 92; 98.2 84; 97.8 84" />
+  <profile id="SE-P-p1-plan" points="97.8 98; 98.2 98; 98.2 92; 97.8 92" />
+  <profile id="SE-S-p0-plan" points="104 76.2; 104 75.8; 98 75.8; 98 76.2" />
+  <profile id="SE-S-h0-plan" points="112 76.2; 112 75.8; 104 75.8; 104 76.2" />
+  <profile id="SE-S-p1-plan" points="116 76.2; 116 75.8; 112 75.8; 112 76.2" />
+  <profile id="SE-R1-plan" points="104.4 82; 104.4 96; 104 96; 104 82" />
+  <profile id="SE-R2-plan" points="116 82; 116 82.4; 108 82.4; 108 82" />
+  <profile id="SE-B1-plan" points="92 78; 92 86; 86 86; 86 78" />
+  <profile id="SE-B2-plan" points="104 66; 104 72; 96 72; 96 66" />
+  <profile id="SE-VR-p0-plan" points="103.8 76; 104.2 76; 104.2 72; 103.8 72" />
+  <profile id="SE-ATR-p0-plan" points="88 72.2; 88 71.8; 82 71.8; 82 72.2" />
+  <profile id="SE-ATR-h0-plan" points="94 72.2; 94 71.8; 88 71.8; 88 72.2" />
+  <profile id="SE-ATR-p1-plan" points="98 72.2; 98 71.8; 94 71.8; 94 72.2" />
+  <profile id="SX2-W-h0-plan" points="21.8 58; 22.2 58; 22.2 52; 21.8 52" />
+  <profile id="SX2-W-p1-plan" points="21.8 84; 22.2 84; 22.2 58; 21.8 58" />
+  <profile id="SX2-E-p0-plan" points="33.8 76; 34.2 76; 34.2 52; 33.8 52" />
+  <profile id="SX2-E-s0-plan" points="33.8 84; 34.2 84; 34.2 76; 33.8 76" />
+  <profile id="SX2-E-h0-plan" points="33.8 84; 34.2 84; 34.2 76; 33.8 76" />
+  <profile id="SX4-E-p0-plan" points="103.8 50; 104.2 50; 104.2 20; 103.8 20" />
+  <profile id="SX2-S-p0-plan" points="34 52.2; 34 51.8; 22 51.8; 22 52.2" />
+  <profile id="SX2-N-p0-plan" points="34 84.2; 34 83.8; 22 83.8; 22 84.2" />
+  <profile id="SX4-N-p0-plan" points="94 50.2; 94 49.8; 92 49.8; 92 50.2" />
+  <profile id="SX4-N-h0-plan" points="100 50.2; 100 49.8; 94 49.8; 94 50.2" />
+  <profile id="SX4-N-p1-plan" points="104 50.2; 104 49.8; 100 49.8; 100 50.2" />
+  <profile id="SX4-S-p0-plan" points="104 20.2; 104 19.8; 92 19.8; 92 20.2" />
+  <profile id="SX4-W-s0-plan" points="91.8 28; 92.2 28; 92.2 20; 91.8 20" />
+  <profile id="SX4-W-h0-plan" points="91.8 28; 92.2 28; 92.2 20; 91.8 20" />
+  <profile id="SX4-W-p1-plan" points="91.8 50; 92.2 50; 92.2 28; 91.8 28" />
+  <profile id="G-N-p0-plan" points="80 54.2; 80 53.8; 42 53.8; 42 54.2" />
+  <profile id="G-S-p0-plan" points="80 44.2; 80 43.8; 42 43.8; 42 44.2" />
+  <profile id="G-BW-plan" points="46.4 44; 46.4 50; 45.6 50; 45.6 44" />
+  <profile id="G-BE-plan" points="74.4 48; 74.4 54; 73.6 54; 73.6 48" />
+  <profile id="C-W-plan" points="56 56; 56 68; 48 68; 48 56" />
+  <profile id="C-NW-plan" points="60 64; 60 72; 48 72; 48 64" />
+  <profile id="C-NE-plan" points="78 58; 78 72; 70 72; 70 58" />
+  <profile id="C-IS-plan" points="64 52; 64 64; 58 64; 58 52" />
+  <profile id="C-E-plan" points="78 38; 78 50; 70 50; 70 38" />
+  <profile id="C-S-plan" points="60 32; 60 42; 50 42; 50 32" />
+  <profile id="UP-W-p0-plan" points="47.8 48; 48.2 48; 48.2 42; 47.8 42" />
+  <profile id="UP-W-h0-plan" points="47.8 54; 48.2 54; 48.2 48; 47.8 48" />
+  <profile id="UP-W-p1-plan" points="47.8 72; 48.2 72; 48.2 54; 47.8 54" />
+  <profile id="UP-E-p0-plan" points="77.8 50; 78.2 50; 78.2 34; 77.8 34" />
+  <profile id="UP-E-h0-plan" points="77.8 56; 78.2 56; 78.2 50; 77.8 50" />
+  <profile id="UP-E-p1-plan" points="77.8 66; 78.2 66; 78.2 56; 77.8 56" />
+  <profile id="UP-N-p0-plan" points="64 60.2; 64 59.8; 60 59.8; 60 60.2" />
+  <profile id="UP-N-h0-plan" points="70 60.2; 70 59.8; 64 59.8; 64 60.2" />
+  <profile id="UP-S-p0-plan" points="60 42.2; 60 41.8; 50 41.8; 50 42.2" />
+  <profile id="UP-S-h0-plan" points="68 42.2; 68 41.8; 60 41.8; 60 42.2" />
+  <profile id="UP-S-p1-plan" points="78 42.2; 78 41.8; 68 41.8; 68 42.2" />
+  <profile id="UP-WN-p0-plan" points="40 72.2; 40 71.8; 30 71.8; 30 72.2" />
+  <profile id="UP-WN-h0-plan" points="46 72.2; 46 71.8; 40 71.8; 40 72.2" />
+  <profile id="UP-WN-p1-plan" points="48 72.2; 48 71.8; 46 71.8; 46 72.2" />
+  <profile id="LC-W-plan" points="55 48; 55 49.2; 50 49.2; 50 48" />
+  <profile id="LC-E-plan" points="74 54; 74 55.2; 69 55.2; 69 54" />
+  <profile id="LC-N-plan" points="56 76; 56 77.2; 50 77.2; 50 76" />
+  <profile id="LC-S-plan" points="68 30; 68 31.2; 62 31.2; 62 30" />
+  <profile id="LC-GW-plan" points="32 44; 32 46; 29 46; 29 44" />
+  <profile id="LC-GE-plan" points="94 54; 94 56; 91 56; 91 54" />
+  <profile id="COL-W1-plan" points="30.65 36; 30.601 35.751; 30.46 35.54; 30.249 35.399; 30 35.35; 29.751 35.399; 29.54 35.54; 29.399 35.751; 29.35 36; 29.399 36.249; 29.54 36.46; 29.751 36.601; 30 36.65; 30.249 36.601; 30.46 36.46; 30.601 36.249" />
+  <profile id="COL-W2-plan" points="50.65 38; 50.601 37.751; 50.46 37.54; 50.249 37.399; 50 37.35; 49.751 37.399; 49.54 37.54; 49.399 37.751; 49.35 38; 49.399 38.249; 49.54 38.46; 49.751 38.601; 50 38.65; 50.249 38.601; 50.46 38.46; 50.601 38.249" />
+  <profile id="COL-W3-plan" points="52.65 68; 52.601 67.751; 52.46 67.54; 52.249 67.399; 52 67.35; 51.751 67.399; 51.54 67.54; 51.399 67.751; 51.35 68; 51.399 68.249; 51.54 68.46; 51.751 68.601; 52 68.65; 52.249 68.601; 52.46 68.46; 52.601 68.249" />
+  <profile id="COL-E1-plan" points="68.65 30; 68.601 29.751; 68.46 29.54; 68.249 29.399; 68 29.35; 67.751 29.399; 67.54 29.54; 67.399 29.751; 67.35 30; 67.399 30.249; 67.54 30.46; 67.751 30.601; 68 30.65; 68.249 30.601; 68.46 30.46; 68.601 30.249" />
+  <profile id="COL-E2-plan" points="94.65 60; 94.601 59.751; 94.46 59.54; 94.249 59.399; 94 59.35; 93.751 59.399; 93.54 59.54; 93.399 59.751; 93.35 60; 93.399 60.249; 93.54 60.46; 93.751 60.601; 94 60.65; 94.249 60.601; 94.46 60.46; 94.601 60.249" />
+  <profile id="COL-E3-plan" points="72.65 70; 72.601 69.751; 72.46 69.54; 72.249 69.399; 72 69.35; 71.751 69.399; 71.54 69.54; 71.399 69.751; 71.35 70; 71.399 70.249; 71.54 70.46; 71.751 70.601; 72 70.65; 72.249 70.601; 72.46 70.46; 72.601 70.249" />
+  <profile id="COL-T1-plan" points="54.5 43.3; 54.5 44.3; 53.5 44.3; 53.5 43.3" />
+  <profile id="COL-T2-plan" points="66.5 53.7; 66.5 54.7; 65.5 54.7; 65.5 53.7" />
+  <profile id="M-CIN-plan" points="78 80; 78 88; 44 88; 44 80" />
+  <profile id="M-CIN-P-plan" points="44 72; 44 80; 34 80; 34 72" />
+  <profile id="M-CIN-W-plan" points="44 84; 44 88; 24 88; 24 84" />
+  <profile id="M-TICKET-plan" points="86 76; 86 88; 78 88; 78 76" />
+  <profile id="M-STOCK-plan" points="86 10; 86 26; 40 26; 40 10" />
+  <profile id="GU-0-0-0-plan" points="48 41.88; 47.977 41.882; 47.954 41.889; 47.933 41.9; 47.915 41.915; 45.95 43.88; 42 43.88; 41.977 43.882; 41.954 43.889; 41.933 43.9; 41.915 43.915; 41.9 43.933; 41.889 43.954; 41.882 43.977; 41.88 44; 41.88 47.97; 42.12 47.97; 42.12 44.12; 46 44.12; 46.035 44.115; 46.057 44.106; 46.085 44.085; 48.05 42.12; 57.7 42.12; 57.7 41.88" />
+  <profile id="GU-0-0-1-plan" points="39.88 55.97; 40.12 55.97; 40.12 48.03; 39.88 48.03" />
+  <profile id="GU-0-0-2-plan" points="30 55.88; 29.977 55.882; 29.954 55.889; 29.933 55.9; 29.915 55.915; 29.9 55.933; 29.889 55.954; 29.882 55.977; 29.88 56; 29.88 75.97; 30.12 75.97; 30.12 56.12; 33.97 56.12; 33.97 55.88" />
+  <profile id="GU-0-0-3-plan" points="22 75.88; 21.977 75.882; 21.954 75.889; 21.933 75.9; 21.915 75.915; 21.9 75.933; 21.889 75.954; 21.882 75.977; 21.88 76; 21.88 77.7; 22.12 77.7; 22.12 76.12; 23.97 76.12; 23.97 75.88" />
+  <profile id="GU-0-0-4-plan" points="44 84.12; 44.023 84.118; 44.046 84.111; 44.067 84.1; 44.085 84.085; 44.1 84.067; 44.111 84.046; 44.118 84.023; 44.12 84; 44.12 80.12; 78.023 80.118; 78.057 80.106; 78.076 80.093; 78.093 80.076; 78.106 80.057; 78.115 80.035; 78.12 80; 78.12 76.3; 77.88 76.3; 77.88 79.88; 44 79.88; 43.977 79.882; 43.954 79.889; 43.933 79.9; 43.915 79.915; 43.9 79.933; 43.889 79.954; 43.882 79.977; 43.88 80; 43.88 83.88; 24.3 83.88; 24.3 84.12" />
+  <profile id="GU-0-0-5-plan" points="78.12 64.05; 82.085 60.085; 82.106 60.057; 82.118 60.023; 82.12 60; 82.12 56.03; 81.88 56.03; 81.88 59.95; 77.915 63.915; 77.894 63.943; 77.885 63.965; 77.88 64; 77.88 71.7; 78.12 71.7" />
+  <profile id="GU-0-0-6-plan" points="84.12 46.03; 83.88 46.03; 83.88 55.97; 84.12 55.97" />
+  <profile id="GU-0-0-7-plan" points="94 46.12; 94.023 46.118; 94.046 46.111; 94.067 46.1; 94.085 46.085; 94.1 46.067; 94.111 46.046; 94.118 46.023; 94.12 46; 94.12 34; 94.118 33.977; 94.111 33.954; 94.093 33.924; 94.067 33.9; 94.035 33.885; 94 33.88; 88.12 33.88; 88.12 30.12; 94 30.12; 94.035 30.115; 94.067 30.1; 94.085 30.085; 94.1 30.067; 94.115 30.035; 94.12 30; 94.12 28.03; 93.88 28.03; 93.88 29.88; 88 29.88; 87.977 29.882; 87.954 29.889; 87.933 29.9; 87.915 29.915; 87.9 29.933; 87.889 29.954; 87.882 29.977; 87.88 30; 87.88 34; 87.882 34.023; 87.894 34.057; 87.915 34.085; 87.933 34.1; 87.965 34.115; 88 34.12; 93.88 34.12; 93.88 45.88; 90.03 45.88; 90.03 46.12" />
+  <profile id="GU-0-0-8-plan" points="99.88 30; 99.882 30.023; 99.889 30.046; 99.9 30.067; 99.915 30.085; 99.933 30.1; 99.954 30.111; 99.977 30.118; 100 30.12; 104 30.12; 104.035 30.115; 104.067 30.1; 104.093 30.076; 104.111 30.046; 104.118 30.023; 104.12 30; 104.12 20; 104.115 19.965; 104.1 19.933; 104.076 19.907; 104.046 19.889; 104.023 19.882; 104 19.88; 50 19.88; 49.965 19.885; 49.943 19.894; 49.924 19.907; 49.9 19.933; 49.889 19.954; 49.882 19.977; 49.88 21.7; 50.12 21.7; 50.12 20.12; 103.88 20.12; 103.88 29.88; 100.12 29.88; 100.12 28.03; 99.88 28.03" />
+  <profile id="OW-s0-plan" points="44 48.2; 44 47.8; 40 47.8; 40 48.2" />
+  <profile id="OW-h0-plan" points="44 48.2; 44 47.8; 40 47.8; 40 48.2" />
+  <profile id="OW-p1-plan" points="48 48.2; 48 47.8; 44 47.8; 44 48.2" />
+  <profile id="OE-p0-plan" points="80 56.2; 80 55.8; 78 55.8; 78 56.2" />
+  <profile id="OE-s0-plan" points="84 56.2; 84 55.8; 80 55.8; 80 56.2" />
+  <profile id="OE-h0-plan" points="84 56.2; 84 55.8; 80 55.8; 80 56.2" />
+  <profile id="R-CORE-plan" points="78 56; 78 72; 48 72; 48 56" />
+  <profile id="R-SX2-plan" points="34 52; 34 84; 22 84; 22 52" />
+  <profile id="R-SX4-plan" points="104 20; 104 50; 92 50; 92 20" />
+  <path id="X1-axis" points="37 38 0; 37 56 3.6" />
+  <path id="X2-axis" points="27 58 0; 27 76 3.6" />
+  <path id="X3-axis" points="87 64 0; 87 46 3.6" />
+  <path id="X4-axis" points="97 46 0; 97 28 3.6" />
+  <assembly id="MALL" coincident-material="retained-face" label="Accepted twin-atrium mall construction">
+    <extrusion id="FIX-GNW" profile="FIX-GNW-plan" position="0 0 0" distance="3.25" material="shutter" group="infill" label="Closed cinema plinth continuation" />
+    <extrusion id="FIX-GNE" profile="FIX-GNE-plan" position="0 0 0" distance="3.25" material="shutter" group="infill" label="Closed cinema plinth continuation" />
+    <extrusion id="FIX-UW" profile="FIX-UW-plan" position="0 0 3.6" distance="1.1" material="teal" group="infill" label="Inaccessible planter ledge west of public/service wall" />
+    <extrusion id="FIX-USW" profile="FIX-USW-plan" position="0 0 3.6" distance="1.1" material="teal" group="infill" label="Inaccessible planted observation apron" />
+    <extrusion id="FIX-UNE" profile="FIX-UNE-plan" position="0 0 3.6" distance="1.1" material="teal" group="infill" label="Inaccessible planted observation apron" />
+    <extrusion id="FIX-UE" profile="FIX-UE-plan" position="0 0 3.6" distance="1.1" material="teal" group="infill" label="Inaccessible service-wall planter ledge" />
+    <extrusion id="FIX-GSLOT" profile="FIX-GSLOT-plan" position="0 0 0" distance="1.15" material="teal" group="infill" label="Join existing planter to west atrium wall" />
+    <extrusion id="FIX-USW-SLOT" profile="FIX-USW-SLOT-plan" position="0 0 3.6" distance="1.1" material="teal" group="infill" label="Guard junction cap at south gallery outer corner" />
+    <extrusion id="FIX-USLOT" profile="FIX-USLOT-plan" position="0 0 3.6" distance="1.1" material="teal" group="infill" label="Guard junction cap at north gallery outer corner" />
+    <slab id="F-G" profile="F-G-plan" material="tile" label="Ground floor, 0.35 m structural slab" group="floor" elevation="0" thickness="0.35" />
+    <slab id="F-U" profile="F-U-plan" material="upper-tile" label="Upper floor / lower-transfer ceiling; 3.25 m clear below" group="floor" elevation="3.6" thickness="0.35" />
+    <roof id="R-H" profile="R-H-plan" material="roof" label="Roof underside 10.8 m" group="roof" elevation="11.15" thickness="0.35" />
+    <roof id="R-M-0" profile="R-M-0-plan" material="roof" label="Roof underside 7.8 m" group="roof" elevation="8.15" thickness="0.35" />
+    <roof id="R-M-1" profile="R-M-1-plan" material="roof" label="Roof underside 7.8 m" group="roof" elevation="8.15" thickness="0.35" />
+    <roof id="R-L" profile="R-L-plan" material="roof" label="Roof underside 4.4 m" group="roof" elevation="4.75" thickness="0.35" />
+    <roof id="R-SK1" profile="R-SK1-plan" material="glass" label="Translucent roof; visually transmissive, collision only" group="glazing" elevation="10.94" thickness="0.14" />
+    <roof id="R-SK2" profile="R-SK2-plan" material="glass" label="Translucent roof; visually transmissive, collision only" group="glazing" elevation="10.94" thickness="0.14" />
+    <extrusion id="EXT-0-0-0-p0" profile="EXT-0-0-0-p0-plan" material="plaster" label="EXT-0-0-0-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="EXT-0-0-1-p0" profile="EXT-0-0-1-p0-plan" material="plaster" label="EXT-0-0-1-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="EXT-0-0-2-p0" profile="EXT-0-0-2-p0-plan" material="plaster" label="EXT-0-0-2-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-3-p0" profile="EXT-0-0-3-p0-plan" material="plaster" label="EXT-0-0-3-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-4-p0" profile="EXT-0-0-4-p0-plan" material="plaster" label="EXT-0-0-4-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-5-p0" profile="EXT-0-0-5-p0-plan" material="plaster" label="EXT-0-0-5-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-6-p0" profile="EXT-0-0-6-p0-plan" material="plaster" label="EXT-0-0-6-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-7-p0" profile="EXT-0-0-7-p0-plan" material="plaster" label="EXT-0-0-7-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-8-p0" profile="EXT-0-0-8-p0-plan" material="plaster" label="EXT-0-0-8-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-9-p0" profile="EXT-0-0-9-p0-plan" material="plaster" label="EXT-0-0-9-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-10-p0" profile="EXT-0-0-10-p0-plan" material="plaster" label="EXT-0-0-10-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-11-p0" profile="EXT-0-0-11-p0-plan" material="plaster" label="EXT-0-0-11-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-12-p0" profile="EXT-0-0-12-p0-plan" material="plaster" label="EXT-0-0-12-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-13-p0" profile="EXT-0-0-13-p0-plan" material="plaster" label="EXT-0-0-13-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-14-p0" profile="EXT-0-0-14-p0-plan" material="plaster" label="EXT-0-0-14-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-15-p0" profile="EXT-0-0-15-p0-plan" material="plaster" label="EXT-0-0-15-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-16-p0" profile="EXT-0-0-16-p0-plan" material="plaster" label="EXT-0-0-16-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-17-p0" profile="EXT-0-0-17-p0-plan" material="plaster" label="EXT-0-0-17-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-18-p0" profile="EXT-0-0-18-p0-plan" material="plaster" label="EXT-0-0-18-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-19-p0" profile="EXT-0-0-19-p0-plan" material="plaster" label="EXT-0-0-19-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-20-p0" profile="EXT-0-0-20-p0-plan" material="plaster" label="EXT-0-0-20-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-21-p0" profile="EXT-0-0-21-p0-plan" material="plaster" label="EXT-0-0-21-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-22-p0" profile="EXT-0-0-22-p0-plan" material="plaster" label="EXT-0-0-22-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-23-p0" profile="EXT-0-0-23-p0-plan" material="plaster" label="EXT-0-0-23-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-24-p0" profile="EXT-0-0-24-p0-plan" material="plaster" label="EXT-0-0-24-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-25-p0" profile="EXT-0-0-25-p0-plan" material="plaster" label="EXT-0-0-25-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-26-p0" profile="EXT-0-0-26-p0-plan" material="plaster" label="EXT-0-0-26-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-27-p0" profile="EXT-0-0-27-p0-plan" material="plaster" label="EXT-0-0-27-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-28-p0" profile="EXT-0-0-28-p0-plan" material="plaster" label="EXT-0-0-28-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-0-29-p0" profile="EXT-0-0-29-p0-plan" material="plaster" label="EXT-0-0-29-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="EXT-0-1-0-p0" profile="EXT-0-1-0-p0-plan" material="plaster" label="EXT-0-1-0-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-1-1-p0" profile="EXT-0-1-1-p0-plan" material="plaster" label="EXT-0-1-1-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-1-2-p0" profile="EXT-0-1-2-p0-plan" material="plaster" label="EXT-0-1-2-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-1-3-p0" profile="EXT-0-1-3-p0-plan" material="plaster" label="EXT-0-1-3-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-1-4-p0" profile="EXT-0-1-4-p0-plan" material="plaster" label="EXT-0-1-4-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-1-5-p0" profile="EXT-0-1-5-p0-plan" material="plaster" label="EXT-0-1-5-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-1-6-p0" profile="EXT-0-1-6-p0-plan" material="plaster" label="EXT-0-1-6-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="EXT-0-1-7-p0" profile="EXT-0-1-7-p0-plan" material="plaster" label="EXT-0-1-7-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-1-8-p0" profile="EXT-0-1-8-p0-plan" material="plaster" label="EXT-0-1-8-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-2-0-p0" profile="EXT-0-2-0-p0-plan" material="plaster" label="EXT-0-2-0-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-2-1-p0" profile="EXT-0-2-1-p0-plan" material="plaster" label="EXT-0-2-1-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-2-2-p0" profile="EXT-0-2-2-p0-plan" material="plaster" label="EXT-0-2-2-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-2-3-p0" profile="EXT-0-2-3-p0-plan" material="plaster" label="EXT-0-2-3-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-3-0-p0" profile="EXT-0-3-0-p0-plan" material="plaster" label="EXT-0-3-0-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-3-1-p0" profile="EXT-0-3-1-p0-plan" material="plaster" label="EXT-0-3-1-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="EXT-0-3-2-p0" profile="EXT-0-3-2-p0-plan" material="plaster" label="EXT-0-3-2-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="EXT-0-3-3-p0" profile="EXT-0-3-3-p0-plan" material="plaster" label="EXT-0-3-3-p0" group="wall" position="0 0 0" distance="10.8" />
+    <extrusion id="RC-HL-00-p0" profile="RC-HL-00-p0-plan" material="roof" label="RC-HL-00-p0" group="wall" position="0 0 4.75" distance="6.05" />
+    <extrusion id="RC-HL-01-p0" profile="RC-HL-01-p0-plan" material="roof" label="RC-HL-01-p0" group="wall" position="0 0 4.75" distance="6.05" />
+    <extrusion id="RC-HL-02-p0" profile="RC-HL-02-p0-plan" material="roof" label="RC-HL-02-p0" group="wall" position="0 0 4.75" distance="6.05" />
+    <extrusion id="RC-HL-03-p0" profile="RC-HL-03-p0-plan" material="roof" label="RC-HL-03-p0" group="wall" position="0 0 4.75" distance="6.05" />
+    <extrusion id="RC-HL-04-p0" profile="RC-HL-04-p0-plan" material="roof" label="RC-HL-04-p0" group="wall" position="0 0 4.75" distance="6.05" />
+    <extrusion id="RC-HM-00-p0" profile="RC-HM-00-p0-plan" material="roof" label="RC-HM-00-p0" group="wall" position="0 0 8.15" distance="2.65" />
+    <extrusion id="RC-HM-01-p0" profile="RC-HM-01-p0-plan" material="roof" label="RC-HM-01-p0" group="wall" position="0 0 8.15" distance="2.65" />
+    <extrusion id="RC-HM-02-p0" profile="RC-HM-02-p0-plan" material="roof" label="RC-HM-02-p0" group="wall" position="0 0 8.15" distance="2.65" />
+    <extrusion id="RC-ML-00-p0" profile="RC-ML-00-p0-plan" material="roof" label="RC-ML-00-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="RC-ML-01-p0" profile="RC-ML-01-p0-plan" material="roof" label="RC-ML-01-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="RC-ML-02-p0" profile="RC-ML-02-p0-plan" material="roof" label="RC-ML-02-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="RC-ML-03-p0" profile="RC-ML-03-p0-plan" material="roof" label="RC-ML-03-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="RC-ML-04-p0" profile="RC-ML-04-p0-plan" material="roof" label="RC-ML-04-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="RC-ML-05-p0" profile="RC-ML-05-p0-plan" material="roof" label="RC-ML-05-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="RC-ML-06-p0" profile="RC-ML-06-p0-plan" material="roof" label="RC-ML-06-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="RC-ML-07-p0" profile="RC-ML-07-p0-plan" material="roof" label="RC-ML-07-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="RC-ML-08-p0" profile="RC-ML-08-p0-plan" material="roof" label="RC-ML-08-p0" group="wall" position="0 0 4.75" distance="3.05" />
+    <extrusion id="SW-P-p0" profile="SW-P-p0-plan" material="plaster" label="SW-P-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-P-h0" profile="SW-P-h0-plan" material="plaster" label="SW-P-h0" group="wall" position="0 0 3.2" distance="1.2" />
+    <extrusion id="SW-P-p1" profile="SW-P-p1-plan" material="plaster" label="SW-P-p1" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-S-p0" profile="SW-S-p0-plan" material="plaster" label="SW-S-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-S-h0" profile="SW-S-h0-plan" material="plaster" label="SW-S-h0" group="wall" position="0 0 3.2" distance="1.2" />
+    <extrusion id="SW-S-p1" profile="SW-S-p1-plan" material="plaster" label="SW-S-p1" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-R1" profile="SW-R1-plan" material="plaster" label="Public return screens spawn from department vestibule" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-R2" profile="SW-R2-plan" material="plaster" label="Service return; 4 m clear beside public return" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-B1" profile="SW-B1-plan" material="shutter" label="Deep closed shop in public vestibule" group="core" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-B2" profile="SW-B2-plan" material="shutter" label="Stock enclosure turns service departure" group="core" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-VR-p0" profile="SW-VR-p0-plan" material="plaster" label="SW-VR-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-ATR-p0" profile="SW-ATR-p0-plan" material="plaster" label="SW-ATR-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SW-ATR-h0" profile="SW-ATR-h0-plan" material="plaster" label="SW-ATR-h0" group="wall" position="0 0 3.4" distance="1" />
+    <extrusion id="SW-ATR-p1" profile="SW-ATR-p1-plan" material="plaster" label="SW-ATR-p1" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-P-p0" profile="SE-P-p0-plan" material="plaster" label="SE-P-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-P-h0" profile="SE-P-h0-plan" material="plaster" label="SE-P-h0" group="wall" position="0 0 3.2" distance="1.2" />
+    <extrusion id="SE-P-p1" profile="SE-P-p1-plan" material="plaster" label="SE-P-p1" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-S-p0" profile="SE-S-p0-plan" material="plaster" label="SE-S-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-S-h0" profile="SE-S-h0-plan" material="plaster" label="SE-S-h0" group="wall" position="0 0 3.2" distance="1.2" />
+    <extrusion id="SE-S-p1" profile="SE-S-p1-plan" material="plaster" label="SE-S-p1" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-R1" profile="SE-R1-plan" material="plaster" label="Public return" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-R2" profile="SE-R2-plan" material="plaster" label="Service return" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-B1" profile="SE-B1-plan" material="shutter" label="Deep department frontage" group="core" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-B2" profile="SE-B2-plan" material="shutter" label="Delivery stock enclosure" group="core" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-VR-p0" profile="SE-VR-p0-plan" material="plaster" label="SE-VR-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-ATR-p0" profile="SE-ATR-p0-plan" material="plaster" label="SE-ATR-p0" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SE-ATR-h0" profile="SE-ATR-h0-plan" material="plaster" label="SE-ATR-h0" group="wall" position="0 0 3.4" distance="1" />
+    <extrusion id="SE-ATR-p1" profile="SE-ATR-p1-plan" material="plaster" label="SE-ATR-p1" group="wall" position="0 0 0" distance="4.4" />
+    <extrusion id="SX2-W-h0" profile="SX2-W-h0-plan" material="plaster" label="SX2-W-h0" group="wall" position="0 0 3.2" distance="4.6" />
+    <extrusion id="SX2-W-p1" profile="SX2-W-p1-plan" material="plaster" label="SX2-W-p1" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="SX2-E-p0" profile="SX2-E-p0-plan" material="plaster" label="SX2-E-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="SX2-E-s0" profile="SX2-E-s0-plan" material="plaster" label="SX2-E-s0" group="wall" position="0 0 0" distance="3.6" />
+    <extrusion id="SX2-E-h0" profile="SX2-E-h0-plan" material="plaster" label="SX2-E-h0" group="wall" position="0 0 6.8" distance="1" />
+    <extrusion id="SX4-E-p0" profile="SX4-E-p0-plan" material="plaster" label="SX4-E-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="SX2-S-p0" profile="SX2-S-p0-plan" material="plaster" label="SX2-S-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="SX2-N-p0" profile="SX2-N-p0-plan" material="plaster" label="SX2-N-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="SX4-N-p0" profile="SX4-N-p0-plan" material="plaster" label="SX4-N-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="SX4-N-h0" profile="SX4-N-h0-plan" material="plaster" label="SX4-N-h0" group="wall" position="0 0 3.2" distance="4.6" />
+    <extrusion id="SX4-N-p1" profile="SX4-N-p1-plan" material="plaster" label="SX4-N-p1" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="SX4-S-p0" profile="SX4-S-p0-plan" material="plaster" label="SX4-S-p0" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="SX4-W-s0" profile="SX4-W-s0-plan" material="plaster" label="SX4-W-s0" group="wall" position="0 0 0" distance="3.6" />
+    <extrusion id="SX4-W-h0" profile="SX4-W-h0-plan" material="plaster" label="SX4-W-h0" group="wall" position="0 0 6.8" distance="1" />
+    <extrusion id="SX4-W-p1" profile="SX4-W-p1-plan" material="plaster" label="SX4-W-p1" group="wall" position="0 0 0" distance="7.8" />
+    <extrusion id="G-N-p0" profile="G-N-p0-plan" material="plaster" label="G-N-p0" group="wall" position="0 0 0" distance="3.25" />
+    <extrusion id="G-S-p0" profile="G-S-p0-plan" material="plaster" label="G-S-p0" group="wall" position="0 0 0" distance="3.25" />
+    <extrusion id="G-BW" profile="G-BW-plan" material="shutter" label="West short return: use north 4 m opening" group="core" position="0 0 0" distance="3.25" />
+    <extrusion id="G-BE" profile="G-BE-plan" material="shutter" label="East short return: use south 4 m opening" group="core" position="0 0 0" distance="3.25" />
+    <extrusion id="C-W" profile="C-W-plan" material="teal" label="Closed 8 m-deep concession block; public staging on west" group="core" position="0 0 3.6" distance="4.2" />
+    <extrusion id="C-NW" profile="C-NW-plan" material="teal" label="Cold stores / prep enclosure" group="core" position="0 0 3.6" distance="4.2" />
+    <extrusion id="C-NE" profile="C-NE-plan" material="rose" label="Deep eastern stalls" group="core" position="0 0 3.6" distance="4.2" />
+    <extrusion id="C-IS" profile="C-IS-plan" material="teal" label="Integrated kitchen pavilion attaches to rear service band" group="core" position="0 0 3.6" distance="4.2" />
+    <extrusion id="C-E" profile="C-E-plan" material="rose" label="East public staging screened by restaurant volume" group="core" position="0 0 3.6" distance="4.2" />
+    <extrusion id="C-S" profile="C-S-plan" material="rose" label="Closed south restaurant; south approach has actual depth" group="core" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-W-p0" profile="UP-W-p0-plan" material="plaster" label="UP-W-p0" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-W-h0" profile="UP-W-h0-plan" material="plaster" label="UP-W-h0" group="wall" position="0 0 6.8" distance="1" />
+    <extrusion id="UP-W-p1" profile="UP-W-p1-plan" material="plaster" label="UP-W-p1" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-E-p0" profile="UP-E-p0-plan" material="plaster" label="UP-E-p0" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-E-h0" profile="UP-E-h0-plan" material="plaster" label="UP-E-h0" group="wall" position="0 0 6.8" distance="1" />
+    <extrusion id="UP-E-p1" profile="UP-E-p1-plan" material="plaster" label="UP-E-p1" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-N-p0" profile="UP-N-p0-plan" material="plaster" label="UP-N-p0" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-N-h0" profile="UP-N-h0-plan" material="plaster" label="UP-N-h0" group="wall" position="0 0 6.8" distance="1" />
+    <extrusion id="UP-S-p0" profile="UP-S-p0-plan" material="plaster" label="UP-S-p0" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-S-h0" profile="UP-S-h0-plan" material="plaster" label="UP-S-h0" group="wall" position="0 0 6.8" distance="1" />
+    <extrusion id="UP-S-p1" profile="UP-S-p1-plan" material="plaster" label="UP-S-p1" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-WN-p0" profile="UP-WN-p0-plan" material="plaster" label="UP-WN-p0" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="UP-WN-h0" profile="UP-WN-h0-plan" material="plaster" label="UP-WN-h0" group="wall" position="0 0 6.8" distance="1" />
+    <extrusion id="UP-WN-p1" profile="UP-WN-p1-plan" material="plaster" label="UP-WN-p1" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="LC-W" profile="LC-W-plan" material="teal" label="1.15 m planter/counter; standing eye exposed, crouch eye may hide on same floor" group="low-cover" position="0 0 3.6" distance="1.15" />
+    <extrusion id="LC-E" profile="LC-E-plan" material="teal" label="1.15 m planter/counter; standing eye exposed, crouch eye may hide on same floor" group="low-cover" position="0 0 3.6" distance="1.15" />
+    <extrusion id="LC-N" profile="LC-N-plan" material="teal" label="1.15 m planter/counter; standing eye exposed, crouch eye may hide on same floor" group="low-cover" position="0 0 3.6" distance="1.15" />
+    <extrusion id="LC-S" profile="LC-S-plan" material="teal" label="1.15 m planter/counter; standing eye exposed, crouch eye may hide on same floor" group="low-cover" position="0 0 3.6" distance="1.15" />
+    <extrusion id="LC-GW" profile="LC-GW-plan" material="teal" label="1.15 m planter/counter; standing eye exposed, crouch eye may hide on same floor" group="low-cover" position="0 0 0" distance="1.15" />
+    <extrusion id="LC-GE" profile="LC-GE-plan" material="teal" label="1.15 m planter/counter; standing eye exposed, crouch eye may hide on same floor" group="low-cover" position="0 0 0" distance="1.15" />
+    <extrusion id="COL-W1" profile="COL-W1-plan" material="plaster" label="COL-W1" group="column" position="0 0 0" distance="10.8" />
+    <extrusion id="COL-W2" profile="COL-W2-plan" material="plaster" label="COL-W2" group="column" position="0 0 0" distance="10.8" />
+    <extrusion id="COL-W3" profile="COL-W3-plan" material="plaster" label="COL-W3" group="column" position="0 0 0" distance="10.8" />
+    <extrusion id="COL-E1" profile="COL-E1-plan" material="plaster" label="COL-E1" group="column" position="0 0 0" distance="10.8" />
+    <extrusion id="COL-E2" profile="COL-E2-plan" material="plaster" label="COL-E2" group="column" position="0 0 0" distance="10.8" />
+    <extrusion id="COL-E3" profile="COL-E3-plan" material="plaster" label="COL-E3" group="column" position="0 0 0" distance="10.8" />
+    <extrusion id="COL-T1" profile="COL-T1-plan" material="plaster" label="Transfer slab support against wall edge" group="column" position="0 0 0" distance="3.25" />
+    <extrusion id="COL-T2" profile="COL-T2-plan" material="plaster" label="Transfer slab support against wall edge" group="column" position="0 0 0" distance="3.25" />
+    <extrusion id="M-CIN" profile="M-CIN-plan" material="shutter" label="Sealed cinema back volume; north upper gallery fronts it at y80" group="core" position="0 0 0" distance="10.8" />
+    <extrusion id="M-CIN-P" profile="M-CIN-P-plan" material="shutter" label="Closed cinema service plinth below occupied north gallery" group="core" position="0 0 0" distance="3.25" />
+    <extrusion id="M-CIN-W" profile="M-CIN-W-plan" material="shutter" label="Cinema end mass behind north service landing" group="core" position="0 0 0" distance="10.8" />
+    <extrusion id="M-TICKET" profile="M-TICKET-plan" material="shutter" label="Deep ticket / shutter frontage at east department vestibule" group="core" position="0 0 0" distance="4.4" />
+    <extrusion id="M-STOCK" profile="M-STOCK-plan" material="shutter" label="Closed ground anchor stock; south service gallery is occupied above" group="core" position="0 0 0" distance="3.25" />
+    <extrusion id="GU-0-0-0" profile="GU-0-0-0-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="GU-0-0-1" profile="GU-0-0-1-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="GU-0-0-2" profile="GU-0-0-2-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="GU-0-0-3" profile="GU-0-0-3-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="GU-0-0-4" profile="GU-0-0-4-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="GU-0-0-5" profile="GU-0-0-5-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="GU-0-0-6" profile="GU-0-0-6-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="GU-0-0-7" profile="GU-0-0-7-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="GU-0-0-8" profile="GU-0-0-8-plan" material="guard" label="1.1 m upper void guard" group="guard" position="0 0 3.6" distance="1.1" />
+    <extrusion id="OW-s0" profile="OW-s0-plan" material="plaster" label="OW-s0" group="wall" position="0 0 3.6" distance="1.1" />
+    <extrusion id="OW-h0" profile="OW-h0-plan" material="plaster" label="OW-h0" group="wall" position="0 0 6.4" distance="1.4" />
+    <extrusion id="OW-p1" profile="OW-p1-plan" material="plaster" label="OW-p1" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="OE-p0" profile="OE-p0-plan" material="plaster" label="OE-p0" group="wall" position="0 0 3.6" distance="4.2" />
+    <extrusion id="OE-s0" profile="OE-s0-plan" material="plaster" label="OE-s0" group="wall" position="0 0 3.6" distance="1.1" />
+    <extrusion id="OE-h0" profile="OE-h0-plan" material="plaster" label="OE-h0" group="wall" position="0 0 6.4" distance="1.4" />
+    <roof id="R-CORE" profile="R-CORE-plan" material="roof" label="Food-stall/service roof, 4.2 m above upper floor" group="roof" elevation="8.15" thickness="0.35" />
+    <roof id="R-SX2" profile="R-SX2-plan" material="roof" label="Enclosed service stair roof" group="roof" elevation="8.15" thickness="0.35" />
+    <roof id="R-SX4" profile="R-SX4-plan" material="roof" label="Enclosed service stair roof" group="roof" elevation="8.15" thickness="0.35" />
+    <stairs id="X1" path="X1-axis" width="6" count="24" thickness=".35" underside="filled" material="tile" group="stairs" label="public stair / 24 x .15 m" />
+    <enclosure id="X1-left-guard" host="X1" side="left" construction="curb" height="1.1" thickness=".24" material="guard" group="guard" />
+    <enclosure id="X1-right-guard" host="X1" side="right" construction="curb" height="1.1" thickness=".24" material="guard" group="guard" />
+    <stairs id="X2" path="X2-axis" width="6" count="24" thickness=".35" underside="filled" material="tile" group="stairs" label="service stair / 24 x .15 m" />
+    <enclosure id="X2-left-guard" host="X2" side="left" construction="curb" height="1.1" thickness=".24" material="guard" group="guard" />
+    <enclosure id="X2-right-guard" host="X2" side="right" construction="curb" height="1.1" thickness=".24" material="guard" group="guard" />
+    <stairs id="X3" path="X3-axis" width="6" count="24" thickness=".35" underside="filled" material="tile" group="stairs" label="public stair / 24 x .15 m" />
+    <enclosure id="X3-left-guard" host="X3" side="left" construction="curb" height="1.1" thickness=".24" material="guard" group="guard" />
+    <enclosure id="X3-right-guard" host="X3" side="right" construction="curb" height="1.1" thickness=".24" material="guard" group="guard" />
+    <stairs id="X4" path="X4-axis" width="6" count="24" thickness=".35" underside="filled" material="tile" group="stairs" label="service stair / 24 x .15 m" />
+    <enclosure id="X4-left-guard" host="X4" side="left" construction="curb" height="1.1" thickness=".24" material="guard" group="guard" />
+    <enclosure id="X4-right-guard" host="X4" side="right" construction="curb" height="1.1" thickness=".24" material="guard" group="guard" />
+    <box id="RC-CAP-W" position="49.8 19.8 4.75" width=".4" depth=".4" height="3.05" material="roof" group="wall" label="Overlapping medium/low fascia corner cap" />
+    <box id="RC-CAP-E" position="103.8 19.8 4.75" width=".4" depth=".4" height="3.05" material="roof" group="wall" label="Overlapping medium/low fascia corner cap" />
+    <box id="R-SK1-m0" position="30.0 35.92 10.94" width="18" depth=".16" height=".24" material="ink" group="roof" />
+    <box id="R-SK1-m1" position="30.0 49.92 10.94" width="18" depth=".16" height=".24" material="ink" group="roof" />
+    <box id="R-SK1-m2" position="30.0 63.92 10.94" width="18" depth=".16" height=".24" material="ink" group="roof" />
+    <box id="R-SK2-m0" position="72.0 29.92 10.94" width="18" depth=".16" height=".24" material="ink" group="roof" />
+    <box id="R-SK2-m1" position="72.0 48.92 10.94" width="18" depth=".16" height=".24" material="ink" group="roof" />
+    <box id="R-SK2-m2" position="72.0 67.92 10.94" width="18" depth=".16" height=".24" material="ink" group="roof" />
+  </assembly>
+  <marker id="SW" kind="spawn" position="12 17 0" label="SW" />
+  <marker id="SW-P" kind="poi" position="21 16 0" label="SW-P" />
+  <marker id="SW-S" kind="poi" position="12 26 0" label="SW-S" />
+  <marker id="W-REG" kind="poi" position="26 30 0" label="W-REG" />
+  <marker id="W-LEAD" kind="poi" position="37 36 0" label="W-LEAD" />
+  <marker id="W-FOLLOW" kind="poi" position="35 33 0" label="W-FOLLOW" />
+  <marker id="W-TOP" kind="poi" position="37 58 3.6" label="W-TOP" />
+  <marker id="W-SUPPORT" kind="poi" position="36 62 3.6" label="W-SUPPORT" />
+  <marker id="W-STAGE" kind="poi" position="41 50 3.6" label="W-STAGE" />
+  <marker id="W-LOOK" kind="poi" position="41 39 0" label="W-LOOK" />
+  <marker id="W-RETREAT" kind="poi" position="38 66 3.6" label="W-RETREAT" />
+  <marker id="N-LOW" kind="poi" position="27 56 0" label="N-LOW" />
+  <marker id="N-TOP" kind="poi" position="27 80 3.6" label="N-TOP" />
+  <marker id="N-STAGE" kind="poi" position="42 78 3.6" label="N-STAGE" />
+  <marker id="N-SUPPORT" kind="poi" position="57 78 3.6" label="N-SUPPORT" />
+  <marker id="N-ENTRY" kind="poi" position="67 62 3.6" label="N-ENTRY" />
+  <marker id="SE" kind="spawn" position="110 90 0" label="SE" />
+  <marker id="SE-P" kind="poi" position="101 88 0" label="SE-P" />
+  <marker id="SE-S" kind="poi" position="108 78 0" label="SE-S" />
+  <marker id="E-REG" kind="poi" position="94 74 0" label="E-REG" />
+  <marker id="E-LEAD" kind="poi" position="87 66 0" label="E-LEAD" />
+  <marker id="E-FOLLOW" kind="poi" position="91 70 0" label="E-FOLLOW" />
+  <marker id="E-TOP" kind="poi" position="87 42 3.6" label="E-TOP" />
+  <marker id="E-SUPPORT" kind="poi" position="90 39 3.6" label="E-SUPPORT" />
+  <marker id="E-STAGE" kind="poi" position="83 54 3.6" label="E-STAGE" />
+  <marker id="E-LOOK" kind="poi" position="83 67 0" label="E-LOOK" />
+  <marker id="E-RETREAT" kind="poi" position="84 33 3.6" label="E-RETREAT" />
+  <marker id="S-LOW" kind="poi" position="97 48 0" label="S-LOW" />
+  <marker id="S-TOP" kind="poi" position="97 24 3.6" label="S-TOP" />
+  <marker id="S-STAGE" kind="poi" position="74 32 3.6" label="S-STAGE" />
+  <marker id="S-SUPPORT" kind="poi" position="70 35 3.6" label="S-SUPPORT" />
+  <marker id="S-ENTRY" kind="poi" position="64 40 3.6" label="S-ENTRY" />
+  <marker id="G-W" kind="poi" position="42 52 0" label="G-W" />
+  <marker id="G-WC" kind="poi" position="42 49 0" label="G-WC" />
+  <marker id="G-EC" kind="poi" position="80 49 0" label="G-EC" />
+  <marker id="G-E" kind="poi" position="80 46 0" label="G-E" />
+  <marker id="POINT-W" kind="poi" position="56.5 51 3.6" label="POINT-W" />
+  <marker id="POINT-E" kind="poi" position="69 51 3.6" label="POINT-E" />
+  <marker id="POINT-S" kind="objective" position="63 46 3.6" label="POINT-S" />
+  <marker id="POINT-N" kind="poi" position="67 56 3.6" label="POINT-N" />
+  <marker id="W-ENEMY" kind="poi" position="43 55 3.6" label="W-ENEMY" />
+  <marker id="E-ENEMY" kind="poi" position="80 49 3.6" label="E-ENEMY" />
+  <marker id="W-PRESS" kind="poi" position="36 16 0" label="W-PRESS" />
+  <marker id="E-PRESS" kind="poi" position="108 64 0" label="E-PRESS" />
+  <marker id="west-public-start" kind="poi" position="12 17 0" />
+  <marker id="west-public-end" kind="poi" position="56.5 51 3.6" />
+  <route id="west-public" from="west-public-start" to="west-public-end" min-routes="1" max-distance="127.5" />
+  <marker id="west-service-start" kind="poi" position="12 17 0" />
+  <marker id="west-service-end" kind="poi" position="67 56 3.6" />
+  <route id="west-service" from="west-service-start" to="west-service-end" min-routes="1" max-distance="161.53" />
+  <marker id="east-public-start" kind="poi" position="110 90 0" />
+  <marker id="east-public-end" kind="poi" position="69 51 3.6" />
+  <route id="east-public" from="east-public-start" to="east-public-end" min-routes="1" max-distance="130.43" />
+  <marker id="east-service-start" kind="poi" position="110 90 0" />
+  <marker id="east-service-end" kind="poi" position="63 46 3.6" />
+  <route id="east-service" from="east-service-start" to="east-service-end" min-routes="1" max-distance="149.0" />
+  <marker id="lower-change-start" kind="poi" position="41 39 0" />
+  <marker id="lower-change-end" kind="poi" position="83 67 0" />
+  <route id="lower-change" from="lower-change-start" to="lower-change-end" min-routes="1" max-distance="84.11" />
+  <marker id="upper-west-switch-start" kind="poi" position="37 58 3.6" />
+  <marker id="upper-west-switch-end" kind="poi" position="67 62 3.6" />
+  <route id="upper-west-switch" from="upper-west-switch-start" to="upper-west-switch-end" min-routes="1" max-distance="72.41" />
+  <marker id="upper-east-switch-start" kind="poi" position="87 42 3.6" />
+  <marker id="upper-east-switch-end" kind="poi" position="64 40 3.6" />
+  <route id="upper-east-switch" from="upper-east-switch-start" to="upper-east-switch-end" min-routes="1" max-distance="40.2" />
+  <marker id="west-public-escape-start" kind="poi" position="26 30 0" />
+  <marker id="west-public-escape-end" kind="poi" position="12 17 0" />
+  <route id="west-public-escape" from="west-public-escape-start" to="west-public-escape-end" min-routes="1" max-distance="71.44" />
+  <marker id="west-service-escape-start" kind="poi" position="26 30 0" />
+  <marker id="west-service-escape-end" kind="poi" position="12 17 0" />
+  <route id="west-service-escape" from="west-service-escape-start" to="west-service-escape-end" min-routes="1" max-distance="38.23" />
+  <marker id="east-public-escape-start" kind="poi" position="94 74 0" />
+  <marker id="east-public-escape-end" kind="poi" position="110 90 0" />
+  <route id="east-public-escape" from="east-public-escape-start" to="east-public-escape-end" min-routes="1" max-distance="54.53" />
+  <marker id="east-service-escape-start" kind="poi" position="94 74 0" />
+  <marker id="east-service-escape-end" kind="poi" position="110 90 0" />
+  <route id="east-service-escape" from="east-service-escape-start" to="east-service-escape-end" min-routes="1" max-distance="63.29" />
+</architecture>

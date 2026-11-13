@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="santa-bruma-remake" name="Santa Bruma Station" units="meters" validation="playable" description="Two-level passenger station and parcels wing for 5v5 bomb defuse." curve-tolerance="0.018">
+  <!-- Materials and inspection groups -->
+  <material id="paving" color="#b5ad97" roughness="0.8" metalness="0" />
+  <material id="platform" color="#c9c4b0" roughness="0.8" metalness="0" />
+  <material id="terrazzo" color="#ddd2b9" roughness="0.8" metalness="0" />
+  <material id="limestone" color="#e6d7b6" roughness="0.8" metalness="0" />
+  <material id="brick" color="#ab6b52" roughness="0.8" metalness="0" />
+  <material id="retaining" color="#9b8b73" roughness="0.8" metalness="0" />
+  <material id="soffit" color="#ded2b5" roughness="0.8" metalness="0" />
+  <material id="tile-blue" color="#41747c" roughness="0.56" metalness="0.05" />
+  <material id="iron" color="#354d51" roughness="0.56" metalness="0.45" />
+  <material id="roof-green" color="#526d67" roughness="0.56" metalness="0.27" />
+  <material id="skylight" color="#9bbdc0" roughness="0.56" metalness="0.14" />
+  <material id="window" color="#739498" roughness="0.56" metalness="0.15" />
+  <material id="ballast" color="#746d60" roughness="0.8" metalness="0" />
+  <material id="ties" color="#473f36" roughness="0.8" metalness="0" />
+  <material id="rail" color="#7c8c8b" roughness="0.56" metalness="0.65" />
+  <material id="train-ivory" color="#e0d8bf" roughness="0.56" metalness="0.12" />
+  <material id="train-red" color="#b65039" roughness="0.56" metalness="0.15" />
+  <material id="train-blue" color="#437576" roughness="0.56" metalness="0.15" />
+  <material id="tactile" color="#d4a64e" roughness="0.8" metalness="0" />
+  <material id="parcel-wood" color="#9b7851" roughness="0.8" metalness="0" />
+  <material id="site-a" color="#c79b69" roughness="0.8" metalness="0" />
+  <material id="site-b" color="#8faead" roughness="0.8" metalness="0" />
+  <material id="spawn-stone" color="#a49d8c" roughness="0.8" metalness="0" />
+  <material id="dark" color="#273539" roughness="0.8" metalness="0" />
+  <group id="street" label="Upper street and approaches" />
+  <group id="headhouse" label="Booking hall and staff suite" />
+  <group id="headhouse-roof" label="Booking hall roofs" />
+  <group id="railway" label="Track beds and railway" />
+  <group id="rail-roof" label="Train shed canopy" />
+  <group id="parcels" label="Platform 1 and parcel operations" />
+  <group id="parcel-roof" label="Parcel wing roofs" />
+  <group id="crossings" label="Public and staff crossings" />
+  <group id="context" label="Retaining walls and city edges" />
+  <group id="fittings" label="Rail and station fittings" />
+  <!-- Street-level floor plate at +4.80 m. Bridge slabs are independently inspectable. -->
+  <profile id="street-deck-plan" points="8 29; 18 29; 18 60; 36 60; 36 67; 47 67; 47 62; 59 62; 59 67; 76 67; 76 65; 99 65; 99 60; 111 60; 111 82; 96 82; 96 89; 76 89; 76 92; 36 92; 36 89; 25 89; 25 83; 5 83; 5 60; 8 60" />
+  <profile id="public-bridge-plan" points="48 31; 57 31; 57 62; 48 62" />
+  <slab id="public-bridge" profile="public-bridge-plan" elevation="4.8" thickness="0.46" material="platform" group="crossings" />
+  <profile id="staff-bridge-plan" points="92 36; 99 36; 99 65; 92 65" />
+  <slab id="staff-bridge" profile="staff-bridge-plan" elevation="4.8" thickness="0.46" material="platform" group="crossings" />
+  <profile id="ticket-hall-pavement-plan" points="36 67; 76 67; 76 92; 36 92">
+    <hole points="62.5 76; 67.6 76; 67.6 80.7; 62.5 80.7" />
+  </profile>
+  <face-material id="ticket-hall-pavement" host="street-deck" profile="ticket-hall-pavement-plan" face="top" material="terrazzo" />
+  <profile id="staff-suite-pavement-plan" points="76 65; 96 65; 96 89; 76 89" />
+  <face-material id="staff-suite-pavement" host="street-deck" profile="staff-suite-pavement-plan" face="top" material="platform" />
+  <profile id="arcade-pavement-plan" points="25 83; 36 83; 36 89; 25 89" />
+  <face-material id="arcade-pavement" host="street-deck" profile="arcade-pavement-plan" face="top" material="platform" />
+  <profile id="tram-road-surface-plan" points="8 29; 18 29; 18 60; 8 60">
+    <hole points="9.5 52; 16.5 52; 16.5 58.9; 9.5 58.9" />
+  </profile>
+  <face-material id="tram-road-surface" host="street-deck" profile="tram-road-surface-plan" face="top" material="platform" />
+  <!-- Platform, trolley court and parcel bank at +0.00 m -->
+  <profile id="platform-floor-plan" points="20 36; 36 36; 36 22; 48 22; 48 15; 56 15; 56 12; 92 12; 92 16; 108 16; 108 40; 20 40" />
+  <slab id="platform-floor" profile="platform-floor-plan" elevation="0" thickness="0.7" material="platform" group="parcels" />
+  <profile id="parcel-hall-pavement-plan" points="56 12; 92 12; 92 30; 56 30">
+    <hole points="70.25 22; 77.5 22; 77.5 26.6; 70.25 26.6" />
+  </profile>
+  <face-material id="parcel-hall-pavement" host="platform-floor" profile="parcel-hall-pavement-plan" face="top" material="terrazzo" />
+  <profile id="service-apron-pavement-plan" points="92 16; 108 16; 108 30; 92 30" />
+  <face-material id="service-apron-pavement" host="platform-floor" profile="service-apron-pavement-plan" face="top" material="paving" />
+  <profile id="trolley-court-pavement-plan" points="36 22; 56 22; 56 30; 36 30" />
+  <face-material id="trolley-court-pavement" host="platform-floor" profile="trolley-court-pavement-plan" face="top" material="paving" />
+  <path id="west-ramp-axis" points="18 32.5 4.8; 36 32.5 0" />
+  <ramp id="west-ramp" path="west-ramp-axis" width="7" thickness="0.35" underside="filled" material="platform" group="crossings" />
+  <path id="public-stair-axis" points="57 34 4.8; 71 34 0" />
+  <path id="staff-stair-axis" points="95.5 36 4.8; 95.5 19 0" />
+  <!-- Booking hall shell. Door heights are independent of the tall room volume. -->
+  <path id="booking-front-axis" points="36 67 4.8; 36 92 4.8" />
+  <opening id="west-south-arch" host="booking-front" shape="arch" center="8 1.915" width="3.2" height="3.85" reveal-material="limestone" />
+  <frame id="west-south-arch-trim" opening="west-south-arch" border="0.12" depth="0.09" offset="-0.295" material="limestone" collidable="false" />
+  <opening id="west-north-arch" host="booking-front" shape="arch" center="12 1.915" width="3.2" height="3.85" reveal-material="limestone" />
+  <frame id="west-north-arch-trim" opening="west-north-arch" border="0.12" depth="0.09" offset="-0.295" material="limestone" collidable="false" />
+  <opening id="side-arcade-door" host="booking-front" shape="arch" center="19 1.915" width="3.8" height="3.85" reveal-material="limestone" />
+  <frame id="side-arcade-door-trim" opening="side-arcade-door" border="0.12" depth="0.09" offset="-0.295" material="limestone" collidable="false" />
+  <path id="booking-south-axis" points="36 67 4.8; 76 67 4.8" />
+  <profile id="bridge-arch-profile" points="-5.45 -0.02; 5.45 -0.02; 5.45 3.17; 5.2643 3.6747; 4.7198 4.145; 3.8537 4.5489; 2.725 4.8587; 1.4106 5.0536; 0 5.12; -1.4106 5.0536; -2.725 4.8587; -3.8537 4.5489; -4.7198 4.145; -5.2643 3.6747; -5.45 3.17" />
+  <opening id="bridge-arch" host="booking-south" shape="profile" profile="bridge-arch-profile" center="17 0" reveal-material="limestone" />
+  <path id="booking-north-axis" points="36 92 4.8; 76 92 4.8" />
+  <path id="booking-staff-partition-axis" points="76 67 4.8; 76 92 4.8" />
+  <opening id="booking-duty-door" host="booking-staff-partition" shape="rectangle" center="6 1.7" width="6" height="3.4" reveal-material="tile-blue" />
+  <opening id="booking-gallery-door" host="booking-staff-partition" shape="rectangle" center="18 1.7" width="4" height="3.4" reveal-material="tile-blue" />
+  <opening id="north-clerestory-1" host="booking-north" shape="arch" center="4.5 4.425" width="2.65" height="1.65" reveal-material="limestone" />
+  <panel id="north-clerestory-1-glass" opening="north-clerestory-1" depth="0.08" offset="-0.13" material="window" />
+  <opening id="north-clerestory-2" host="booking-north" shape="arch" center="11.5 4.425" width="2.65" height="1.65" reveal-material="limestone" />
+  <panel id="north-clerestory-2-glass" opening="north-clerestory-2" depth="0.08" offset="-0.13" material="window" />
+  <opening id="north-clerestory-3" host="booking-north" shape="arch" center="18.5 4.425" width="2.65" height="1.65" reveal-material="limestone" />
+  <panel id="north-clerestory-3-glass" opening="north-clerestory-3" depth="0.08" offset="-0.13" material="window" />
+  <opening id="north-clerestory-4" host="booking-north" shape="arch" center="25.5 4.425" width="2.65" height="1.65" reveal-material="limestone" />
+  <panel id="north-clerestory-4-glass" opening="north-clerestory-4" depth="0.08" offset="-0.13" material="window" />
+  <opening id="north-clerestory-5" host="booking-north" shape="arch" center="32.5 4.425" width="2.65" height="1.65" reveal-material="limestone" />
+  <panel id="north-clerestory-5-glass" opening="north-clerestory-5" depth="0.08" offset="-0.13" material="window" />
+  <opening id="north-clerestory-6" host="booking-north" shape="arch" center="37.5 4.425" width="2.65" height="1.65" reveal-material="limestone" />
+  <panel id="north-clerestory-6-glass" opening="north-clerestory-6" depth="0.08" offset="-0.13" material="window" />
+  <opening id="front-clerestory-1" host="booking-front" shape="arch" center="4.2 5.325" width="1.85" height="1.55" reveal-material="limestone" />
+  <panel id="front-clerestory-1-glass" opening="front-clerestory-1" depth="0.08" offset="-0.14" material="window" />
+  <opening id="front-clerestory-2" host="booking-front" shape="arch" center="10.8 5.325" width="1.85" height="1.55" reveal-material="limestone" />
+  <panel id="front-clerestory-2-glass" opening="front-clerestory-2" depth="0.08" offset="-0.14" material="window" />
+  <opening id="front-clerestory-3" host="booking-front" shape="arch" center="17.3 5.325" width="1.85" height="1.55" reveal-material="limestone" />
+  <panel id="front-clerestory-3-glass" opening="front-clerestory-3" depth="0.08" offset="-0.14" material="window" />
+  <opening id="front-clerestory-4" host="booking-front" shape="arch" center="23.2 5.325" width="1.85" height="1.55" reveal-material="limestone" />
+  <panel id="front-clerestory-4-glass" opening="front-clerestory-4" depth="0.08" offset="-0.14" material="window" />
+  <profile id="booking-ceiling-plan" points="35.64 66.66; 76.35 66.66; 76.35 92.34; 35.64 92.34" />
+  <profile id="booking-roof-west-plan" points="35.4 66.35 11.92; 56 66.35 14.52; 56 92.65 14.52; 35.4 92.65 11.92" dimensions="3" />
+  <roof id="booking-roof-west" profile="booking-roof-west-plan" elevation="0" thickness="0.3" material="roof-green" group="headhouse-roof" />
+  <profile id="booking-roof-east-plan" points="56 66.35 14.52; 76.7 66.35 11.92; 76.7 92.65 11.92; 56 92.65 14.52" dimensions="3" />
+  <roof id="booking-roof-east" profile="booking-roof-east-plan" elevation="0" thickness="0.3" material="roof-green" group="headhouse-roof" />
+  <profile id="booking-gable-south-plan" points="35.67 11.65; 76.38 11.65; 76.38 11.94; 56 14.29; 35.67 11.94" />
+  <extrusion id="booking-gable-south" profile="booking-gable-south-plan" distance="0.32" rotation="90 0 0" position="0 66.99 0" material="brick" group="headhouse-roof" />
+  <profile id="booking-gable-north-plan" points="35.67 11.65; 76.38 11.65; 76.38 11.94; 56 14.29; 35.67 11.94" />
+  <box id="front-cornice" position="35.18 66.66 11.29" width="0.55" depth="25.68" height="0.27" material="limestone" group="headhouse-roof" />
+  <cylinder id="station-clock-case" position="35.27 79 10.7" rotation="0 -90 0" radius="0.76" height="0.22" segments="28" material="iron" group="fittings" collidable="false" />
+  <cylinder id="station-clock-face" position="35.04 79 10.7" rotation="0 -90 0" radius="0.65" height="0.034" segments="28" material="limestone" group="fittings" collidable="false" />
+  <profile id="station-clock-hour-section" points="-0.022 -0.022; 0.022 -0.022; 0.022 0.022; -0.022 0.022" />
+  <path id="station-clock-hour-axis" points="34.99 79 10.7; 34.99 78.71 10.98" />
+  <sweep id="station-clock-hour" path="station-clock-hour-axis" profile="station-clock-hour-section" material="iron" group="fittings" collidable="false" />
+  <profile id="station-clock-minute-section" points="-0.0185 -0.0185; 0.0185 -0.0185; 0.0185 0.0185; -0.0185 0.0185" />
+  <path id="station-clock-minute-axis" points="34.99 79 10.7; 34.99 79.43 10.91" />
+  <sweep id="station-clock-minute" path="station-clock-minute-axis" profile="station-clock-minute-section" material="iron" group="fittings" collidable="false" />
+  <!-- Staff wing and optical turns -->
+  <path id="staff-south-axis" points="76 65 4.8; 92 65 4.8" />
+  <path id="staff-north-axis" points="76 89 4.8; 96 89 4.8" />
+  <path id="staff-east-axis" points="96 65 4.8; 96 89 4.8" />
+  <opening id="staff-duty-court" host="staff-east" shape="rectangle" center="8.5 1.625" width="7" height="3.25" reveal-material="tile-blue" />
+  <opening id="staff-gallery-court" host="staff-east" shape="rectangle" center="20 1.625" width="4" height="3.25" reveal-material="tile-blue" />
+  <box id="staff-locker-core" position="77 77.6 4.8" width="16" depth="3.4" height="3.95" material="tile-blue" group="headhouse" />
+  <profile id="staff-roof-plan" points="75.78 64.75; 96.28 64.75; 96.28 89.28; 75.78 89.28" />
+  <roof id="staff-roof" profile="staff-roof-plan" elevation="9.02" thickness="0.28" material="roof-green" group="headhouse-roof" />
+  <box id="ticket-island" position="53 74 4.8" width="8" depth="7" height="3.05" material="tile-blue" group="headhouse" />
+  <box id="ticket-island-canopy" position="52.65 73.65 7.85" width="8.7" depth="7.7" height="0.25" material="iron" group="headhouse" />
+  <box id="ticket-window-main" position="53.85 73.91 5.93" width="6.3" depth="0.1" height="1.04" material="window" group="fittings" collidable="false" />
+  <box id="ticket-window-arcade" position="52.91 75.2 5.93" width="0.1" depth="4.7" height="1.04" material="window" group="fittings" collidable="false" />
+  <box id="ticket-counter-front" position="53.76 73.58 5.77" width="6.48" depth="0.33" height="0.16" material="parcel-wood" group="fittings" collidable="false" />
+  <box id="relay-cabinet" position="68 74.5 4.8" width="3" depth="3.2" height="2.32" material="iron" group="headhouse" />
+  <box id="relay-workbench" position="67 81.5 4.8" width="4.8" depth="1.7" height="1.23" material="parcel-wood" group="headhouse" />
+  <!-- Parcel wing masonry, full roof and working fixtures -->
+  <path id="parcel-west-axis" points="56 12 0; 56 30 0" />
+  <profile id="parcel-delivery-door-profile" points="-3.5 -0.02; 3.5 -0.02; 3.5 2.63; 3.3807 2.8759; 3.0311 3.105; 2.4749 3.3018; 1.75 3.4527; 0.9059 3.5476; 0 3.58; -0.9059 3.5476; -1.75 3.4527; -2.4749 3.3018; -3.0311 3.105; -3.3807 2.8759; -3.5 2.63" />
+  <opening id="parcel-delivery-door" host="parcel-west" shape="profile" profile="parcel-delivery-door-profile" center="8.5 0" reveal-material="limestone" />
+  <path id="parcel-north-axis" points="56 30 0; 92 30 0" />
+  <profile id="parcel-platform-door-profile" points="-3.5 -0.02; 3.5 -0.02; 3.5 2.63; 3.3807 2.8759; 3.0311 3.105; 2.4749 3.3018; 1.75 3.4527; 0.9059 3.5476; 0 3.58; -0.9059 3.5476; -1.75 3.4527; -2.4749 3.3018; -3.0311 3.105; -3.3807 2.8759; -3.5 2.63" />
+  <opening id="parcel-platform-door" host="parcel-north" shape="profile" profile="parcel-platform-door-profile" center="16.5 0" reveal-material="limestone" />
+  <path id="parcel-east-axis" points="92 12 0; 92 30 0" />
+  <opening id="parcel-staff-door" host="parcel-east" shape="rectangle" center="6.6 1.625" width="4.8" height="3.25" reveal-material="limestone" />
+  <path id="parcel-south-axis" points="56 12 0; 92 12 0" />
+  <opening id="parcel-clerestory-1" host="parcel-south" shape="arch" center="5 3.275" width="2.3" height="1.35" reveal-material="limestone" />
+  <panel id="parcel-clerestory-1-glass" opening="parcel-clerestory-1" depth="0.09" offset="-0.12" material="window" />
+  <opening id="parcel-clerestory-2" host="parcel-south" shape="arch" center="12 3.275" width="2.3" height="1.35" reveal-material="limestone" />
+  <panel id="parcel-clerestory-2-glass" opening="parcel-clerestory-2" depth="0.09" offset="-0.12" material="window" />
+  <opening id="parcel-clerestory-3" host="parcel-south" shape="arch" center="19 3.275" width="2.3" height="1.35" reveal-material="limestone" />
+  <panel id="parcel-clerestory-3-glass" opening="parcel-clerestory-3" depth="0.09" offset="-0.12" material="window" />
+  <opening id="parcel-clerestory-4" host="parcel-south" shape="arch" center="26 3.275" width="2.3" height="1.35" reveal-material="limestone" />
+  <panel id="parcel-clerestory-4-glass" opening="parcel-clerestory-4" depth="0.09" offset="-0.12" material="window" />
+  <opening id="parcel-clerestory-5" host="parcel-south" shape="arch" center="33 3.275" width="2.3" height="1.35" reveal-material="limestone" />
+  <panel id="parcel-clerestory-5-glass" opening="parcel-clerestory-5" depth="0.09" offset="-0.12" material="window" />
+  <profile id="parcel-hall-roof-plan" points="55.55 11.52; 92.45 11.52; 92.45 30.37; 55.55 30.37" />
+  <roof id="parcel-hall-roof" profile="parcel-hall-roof-plan" elevation="4.73" thickness="0.32" material="roof-green" group="parcel-roof" />
+  <profile id="delivery-canopy-plan" points="51.4 15.4; 56 15.4; 56 26.4; 51.4 26.4" />
+  <canopy id="delivery-canopy" profile="delivery-canopy-plan" elevation="4.16" thickness="0.25" material="roof-green" group="parcel-roof" />
+  <box id="delivery-canopy-column-2" position="51.74 25.91 0" width="0.28" depth="0.28" height="3.93" material="iron" group="parcels" />
+  <box id="mail-cage" position="61 16 0" width="6" depth="5.5" height="2.7" material="tile-blue" group="parcels" />
+  <box id="mail-sorter" position="66.5 23 0" width="3" depth="4.5" height="2.44" material="tile-blue" group="parcels" />
+  <box id="sorting-counter" position="73 27 0" width="6" depth="2.3" height="1.24" material="parcel-wood" group="parcels" />
+  <box id="dispatch-rack" position="79 19 0" width="4" depth="5" height="2.58" material="tile-blue" group="parcels" />
+  <box id="signal-cabinet" position="87 32 0" width="4" depth="4" height="2.66" material="iron" group="parcels" />
+  <box id="trolley-kiosk" position="41 26 0" width="5" depth="4" height="2.64" material="tile-blue" group="parcels" />
+  <box id="mail-cage-rib-1" position="61.7 21.5 0.15" width="0.055" depth="0.05" height="2.41" material="iron" group="fittings" collidable="false" />
+  <box id="mail-cage-rib-2" position="62.55 21.5 0.15" width="0.055" depth="0.05" height="2.41" material="iron" group="fittings" collidable="false" />
+  <box id="mail-cage-rib-3" position="63.4 21.5 0.15" width="0.055" depth="0.05" height="2.41" material="iron" group="fittings" collidable="false" />
+  <box id="mail-cage-rib-4" position="64.25 21.5 0.15" width="0.055" depth="0.05" height="2.41" material="iron" group="fittings" collidable="false" />
+  <box id="mail-cage-rib-5" position="65.1 21.5 0.15" width="0.055" depth="0.05" height="2.41" material="iron" group="fittings" collidable="false" />
+  <box id="mail-cage-rib-6" position="65.95 21.5 0.15" width="0.055" depth="0.05" height="2.41" material="iron" group="fittings" collidable="false" />
+  <box id="sorting-counter-top" position="72.95 26.96 1.24" width="6.1" depth="2.4" height="0.075" material="limestone" group="fittings" collidable="false" />
+  <!-- Public and staff crossings. Walls above the rail cut are separate from the lower bypass. -->
+  <path id="public-west-axis" points="48 31 4.8; 48 64 4.8" />
+  <opening id="public-overlook" host="public-west" shape="rectangle" center="16 1.78" width="4" height="1" reveal-material="tile-blue" />
+  <path id="public-east-axis" points="57 37 4.8; 57 64 4.8" />
+  <path id="public-south-guard-axis" points="48 31 4.8; 57 31 4.8" />
+  <path id="public-lobby-west-axis" points="47 62 4.8; 47 67 4.8" />
+  <path id="public-lobby-east-axis" points="59 62 4.8; 59 67 4.8" />
+  <path id="public-lobby-south-west-axis" points="47 62 4.8; 48 62 4.8" />
+  <path id="public-lobby-south-east-axis" points="57 62 4.8; 59 62 4.8" />
+  <profile id="public-lobby-roof-plan" points="46.76 61.85; 59.24 61.85; 59.24 67; 46.76 67" />
+  <profile id="public-landing-roof-plan" points="47.77 30.78; 57.15 30.78; 57.15 38.4; 47.77 38.4" />
+  <roof id="public-landing-roof" profile="public-landing-roof-plan" elevation="8.06" thickness="0.25" material="roof-green" group="rail-roof" />
+  <path id="public-cheek-south-axis" points="57 31 0; 69 31 0" />
+  <path id="public-cheek-north-axis" points="57 37 0; 68 37 0" />
+  <path id="public-stair-upper-guard-axis" points="57 31 4.8; 58.4 31 4.8" />
+  <path id="staff-bridge-west-axis" points="92 36 4.8; 92 65 4.8" />
+  <path id="staff-bridge-east-axis" points="99 36 4.8; 99 60 4.8" />
+  <profile id="staff-bridge-roof-plan" points="91.8 35.83; 99.2 35.83; 99.2 65; 91.8 65" />
+  <path id="staff-cheek-west-axis" points="92 19 0; 92 35.5 0" />
+  <path id="staff-cheek-east-axis" points="99 19 0; 99 35.5 0" />
+  <!-- Street boundaries, shelters and guard rails -->
+  <path id="street-west-parapet-axis" points="8 29 4.8; 8 60 4.8; 5 60 4.8; 5 83 4.8; 25 83 4.8; 25 89 4.8; 36 89 4.8" />
+  <path id="tram-bridge-east-guard-axis" points="18 36 4.8; 18 60 4.8; 36 60 4.8; 36 67 4.8" />
+  <path id="tram-bridge-south-axis" points="8 29 4.8; 18 29 4.8" />
+  <path id="court-boundary-axis" points="99 60 4.8; 111 60 4.8; 111 82 4.8; 96 82 4.8" />
+  <path id="staff-wing-west-return-axis" points="76 65 4.8; 76 67 4.8" />
+  <path id="staff-bridge-west-return-axis" points="92 65 4.8; 92 66 4.8" />
+  <box id="tram-booth" position="23 75 4.8" width="7" depth="6" height="2.85" material="tile-blue" group="street" />
+  <profile id="tram-booth-roof-plan" points="22.7 74.72; 30.28 74.72; 30.28 81.3; 22.7 81.3" />
+  <canopy id="tram-booth-roof" profile="tram-booth-roof-plan" elevation="7.97" thickness="0.34" material="roof-green" group="headhouse-roof" />
+  <box id="tram-booth-window" position="23.9 74.92 5.77" width="4.95" depth="0.09" height="1.14" material="window" group="fittings" collidable="false" />
+  <profile id="side-arcade-roof-plan" points="25.1 83.6; 35.92 83.6; 35.92 88.55; 25.1 88.55" />
+  <enclosure id="west-ramp-guard-left" host="west-ramp" side="left" construction="parapet" height="1.26" thickness="0.22" material="limestone" group="crossings" />
+  <enclosure id="public-stair-rail-left" host="public-stair" side="left" construction="parapet" height="1.14" thickness="0.16" material="limestone" group="crossings" />
+  <enclosure id="staff-stair-rail-left" host="staff-stair" side="left" construction="parapet" height="1.12" thickness="0.16" material="limestone" group="crossings" />
+  <enclosure id="west-ramp-guard-right" host="west-ramp" side="right" construction="parapet" height="1.26" thickness="0.22" material="limestone" group="crossings" />
+  <enclosure id="public-stair-rail-right" host="public-stair" side="right" construction="parapet" height="1.14" thickness="0.16" material="limestone" group="crossings" />
+  <enclosure id="staff-stair-rail-right" host="staff-stair" side="right" construction="parapet" height="1.12" thickness="0.16" material="limestone" group="crossings" />
+  <path id="trolley-court-west-axis" points="36 22 0; 36 29 0" />
+  <path id="trolley-court-south-axis" points="36 22 0; 48 22 0; 48 15 0; 56 15 0" />
+  <path id="platform-ramp-retaining-axis" points="20 36 0; 34.8 36 0" />
+  <path id="platform-west-end-axis" points="20 36 0; 20 40 0" />
+  <path id="platform-south-end-axis" points="92 16 0; 108 16 0; 108 40 0" />
+  <path id="platform-rail-curb-axis" points="20 39.85 0; 108 39.85 0" />
+  <profile id="platform-tactile-edge-plan" points="20 39.34; 108 39.34; 108 39.66; 20 39.66" />
+  <face-material id="platform-tactile-edge" host="platform-floor" profile="platform-tactile-edge-plan" face="top" material="tactile" />
+  <!-- Railway cutting, scenic passenger access, two track beds and continuous train shed -->
+  <box id="track-cut-floor" position="0 39.9 -1.63" width="116" depth="14.2" height="0.78" material="ballast" group="railway" />
+  <box id="platform-island" position="20 45 -0.88" width="93" depth="4" height="0.88" material="platform" group="railway" />
+  <profile id="city-foundation-plan" points="5 60.2; 35.78 60.2; 35.78 67.23; 47.3 67.23; 47.3 66.3; 76.82 66.3; 76.82 65.23; 95.7 65.23; 95.7 64.88; 99.2 64.88; 99.2 60.15; 110.96 60.15; 110.96 81.94; 95.88 81.94; 95.88 88.91; 75.92 88.91; 75.92 91.96; 36.08 91.96; 36.08 88.94; 25.05 88.94; 25.05 82.94; 5 82.94" />
+  <extrusion id="city-foundation" profile="city-foundation-plan" distance="5.87" position="0 0 -1.53" material="retaining" group="context" />
+  <path id="retaining-north-axis" points="18 62 -1.52; 47 62 -1.52; 47 66 -1.52" />
+  <path id="retaining-under-hall-axis" points="47 66 -1.52; 77 66 -1.52; 77 64 -1.52; 91.5 64 -1.52" />
+  <path id="retaining-north-east-axis" points="99 61 -1.52; 113 61 -1.52" />
+  <path id="west-road-abutment-axis" points="8.5 36 -1.52; 17.6 36 -1.52" />
+  <wall id="west-road-abutment" path="west-road-abutment-axis" height="5.86" thickness="0.9" material="retaining" group="context" />
+  <path id="west-road-north-abutment-axis" points="8.5 56 -1.52; 17.6 56 -1.52" />
+  <wall id="west-road-north-abutment" path="west-road-north-abutment-axis" height="5.86" thickness="0.9" material="retaining" group="context" />
+  <path id="west-cut-south-wall-axis" points="-5 39.9 -1.53; 8 39.9 -1.53" />
+  <path id="west-cut-north-wall-axis" points="-5 54.1 -1.53; 8 54.1 -1.53" />
+  <path id="west-cut-portal-axis" points="-1.2 39.9 -0.85; -1.2 54.1 -0.85" />
+  <profile id="west-line-1-profile" points="-2.33 -0.02; 2.33 -0.02; 2.33 2.39; 2.2506 2.8171; 2.0178 3.215; 1.6476 3.5567; 1.165 3.8189; 0.603 3.9838; 0 4.04; -0.603 3.9838; -1.165 3.8189; -1.6476 3.5567; -2.0178 3.215; -2.2506 2.8171; -2.33 2.39" />
+  <opening id="west-line-1" host="west-cut-portal" shape="profile" profile="west-line-1-profile" center="2.65 0" reveal-material="limestone" />
+  <box id="west-cut-dark-1" position="-4.8 40.05 -0.84" width="0.22" depth="5" height="4.17" material="dark" group="context" />
+  <profile id="west-line-2-profile" points="-2.33 -0.02; 2.33 -0.02; 2.33 2.39; 2.2506 2.8171; 2.0178 3.215; 1.6476 3.5567; 1.165 3.8189; 0.603 3.9838; 0 4.04; -0.603 3.9838; -1.165 3.8189; -1.6476 3.5567; -2.0178 3.215; -2.2506 2.8171; -2.33 2.39" />
+  <opening id="west-line-2" host="west-cut-portal" shape="profile" profile="west-line-2-profile" center="11.65 0" reveal-material="limestone" />
+  <box id="west-cut-dark-2" position="-4.8 49.05 -0.84" width="0.22" depth="5" height="4.17" material="dark" group="context" />
+  <box id="west-rail-1" position="-4.57 41.765 -0.76" width="4.57" depth="0.07" height="0.135" material="rail" group="railway" collidable="false" />
+  <box id="west-rail-2" position="-4.57 43.265 -0.76" width="4.57" depth="0.07" height="0.135" material="rail" group="railway" collidable="false" />
+  <box id="west-rail-3" position="-4.57 50.765 -0.76" width="4.57" depth="0.07" height="0.135" material="rail" group="railway" collidable="false" />
+  <box id="west-rail-4" position="-4.57 52.265 -0.76" width="4.57" depth="0.07" height="0.135" material="rail" group="railway" collidable="false" />
+  <path id="east-cut-portal-axis" points="113 39.9 -0.85; 113 62 -0.85" />
+  <opening id="tunnel-1-arch" host="east-cut-portal" shape="arch" center="2.6 2.55" width="4.85" height="5.1" reveal-material="limestone" />
+  <box id="tunnel-1-dark-end" position="115.8 39.96 -0.86" width="0.4" depth="5.08" height="5.25" material="dark" group="context" />
+  <opening id="tunnel-2-arch" host="east-cut-portal" shape="arch" center="11.65 2.55" width="4.85" height="5.1" reveal-material="limestone" />
+  <box id="tunnel-2-dark-end" position="115.8 49.01 -0.86" width="0.4" depth="5.08" height="5.25" material="dark" group="context" />
+  <box id="running-rail-1" position="0 41.765 -0.76" width="116" depth="0.07" height="0.135" material="rail" group="railway" collidable="false" />
+  <box id="running-rail-2" position="0 43.265 -0.76" width="116" depth="0.07" height="0.135" material="rail" group="railway" collidable="false" />
+  <box id="running-rail-3" position="0 50.765 -0.76" width="116" depth="0.07" height="0.135" material="rail" group="railway" collidable="false" />
+  <box id="running-rail-4" position="0 52.265 -0.76" width="116" depth="0.07" height="0.135" material="rail" group="railway" collidable="false" />
+  <box id="sleepers-1-1" position="0.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-1" position="0.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-2" position="2.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-2" position="2.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-3" position="4.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-3" position="4.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-4" position="6.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-4" position="6.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-5" position="8.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-5" position="8.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-6" position="10.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-6" position="10.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-7" position="12.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-7" position="12.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-8" position="14.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-8" position="14.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-9" position="16.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-9" position="16.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-10" position="18.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-10" position="18.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-11" position="20.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-11" position="20.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-12" position="22.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-12" position="22.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-13" position="24.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-13" position="24.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-14" position="26.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-14" position="26.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-15" position="28.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-15" position="28.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-16" position="30.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-16" position="30.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-17" position="32.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-17" position="32.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-18" position="34.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-18" position="34.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-19" position="36.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-19" position="36.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-20" position="38.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-20" position="38.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-21" position="40.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-21" position="40.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-22" position="42.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-22" position="42.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-23" position="44.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-23" position="44.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-24" position="46.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-24" position="46.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-25" position="48.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-25" position="48.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-26" position="50.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-26" position="50.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-27" position="52.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-27" position="52.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-28" position="54.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-28" position="54.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-29" position="56.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-29" position="56.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-30" position="58.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-30" position="58.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-31" position="60.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-31" position="60.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-32" position="62.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-32" position="62.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-33" position="64.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-33" position="64.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-34" position="66.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-34" position="66.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-35" position="68.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-35" position="68.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-36" position="70.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-36" position="70.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-37" position="72.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-37" position="72.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-38" position="74.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-38" position="74.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-39" position="76.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-39" position="76.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-40" position="78.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-40" position="78.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-41" position="80.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-41" position="80.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-42" position="82.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-42" position="82.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-43" position="84.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-43" position="84.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-44" position="86.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-44" position="86.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-45" position="88.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-45" position="88.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-46" position="90.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-46" position="90.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-47" position="92.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-47" position="92.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-48" position="94.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-48" position="94.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-49" position="96.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-49" position="96.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-50" position="98.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-50" position="98.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-51" position="100.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-51" position="100.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-52" position="102.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-52" position="102.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-53" position="104.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-53" position="104.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-54" position="106.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-54" position="106.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-55" position="108.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-55" position="108.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-56" position="110.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-56" position="110.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-57" position="112.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-57" position="112.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-1-58" position="114.894 41.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="sleepers-2-58" position="114.894 50.35 -0.85" width="0.212" depth="2.43" height="0.093" material="ties" group="fittings" collidable="false" />
+  <box id="island-lift-upper-door" position="53.295 46.1 4.83" width="0.055" depth="1.79" height="2.24" material="iron" group="fittings" collidable="false" />
+  <profile id="shed-south-slope-plan" points="24 37.5 8.43; 113.55 37.5 8.43; 113.55 47.3 11.17; 24 47.3 11.17" dimensions="3" />
+  <canopy id="shed-south-slope" profile="shed-south-slope-plan" elevation="0" thickness="0.24" material="roof-green" group="rail-roof" />
+  <profile id="shed-ridge-south-plan" points="24 47.3 11.17; 113.55 47.3 11.17; 113.55 49 11.64; 24 49 11.64" dimensions="3" />
+  <canopy id="shed-ridge-south" profile="shed-ridge-south-plan" elevation="0" thickness="0.24" material="skylight" group="rail-roof" />
+  <profile id="shed-ridge-north-plan" points="24 49 11.64; 113.55 49 11.64; 113.55 50.7 11.17; 24 50.7 11.17" dimensions="3" />
+  <canopy id="shed-ridge-north" profile="shed-ridge-north-plan" elevation="0" thickness="0.24" material="skylight" group="rail-roof" />
+  <profile id="shed-north-slope-plan" points="24 50.7 11.17; 113.55 50.7 11.17; 113.55 61.5 8.43; 24 61.5 8.43" dimensions="3" />
+  <box id="shed-south-capital-1" position="24.78 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-1" position="24.78 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-1-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-1-tie-axis" points="25 39.67 8.57; 25 59.7 8.57" />
+  <profile id="shed-frame-1-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-1-south-top-axis" points="25 39.67 8.57; 25 49 11.36" />
+  <profile id="shed-frame-1-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-1-north-top-axis" points="25 49 11.36; 25 59.7 8.68" />
+  <profile id="shed-frame-1-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-1-king-post-axis" points="25 49 8.57; 25 49 11.36" />
+  <profile id="shed-frame-1-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-1-south-diag-axis" points="25 44.5 8.57; 25 49 11.36" />
+  <profile id="shed-frame-1-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-1-north-diag-axis" points="25 54.8 8.57; 25 49 11.36" />
+  <box id="shed-south-capital-2" position="34.18 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-2" position="34.18 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-2-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-2-tie-axis" points="34.4 39.67 8.57; 34.4 59.7 8.57" />
+  <profile id="shed-frame-2-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-2-south-top-axis" points="34.4 39.67 8.57; 34.4 49 11.36" />
+  <profile id="shed-frame-2-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-2-north-top-axis" points="34.4 49 11.36; 34.4 59.7 8.68" />
+  <profile id="shed-frame-2-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-2-king-post-axis" points="34.4 49 8.57; 34.4 49 11.36" />
+  <profile id="shed-frame-2-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-2-south-diag-axis" points="34.4 44.5 8.57; 34.4 49 11.36" />
+  <profile id="shed-frame-2-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-2-north-diag-axis" points="34.4 54.8 8.57; 34.4 49 11.36" />
+  <box id="shed-south-capital-3" position="42.78 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-3" position="42.78 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-3-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-3-tie-axis" points="43 39.67 8.57; 43 59.7 8.57" />
+  <profile id="shed-frame-3-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-3-south-top-axis" points="43 39.67 8.57; 43 49 11.36" />
+  <profile id="shed-frame-3-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-3-north-top-axis" points="43 49 11.36; 43 59.7 8.68" />
+  <profile id="shed-frame-3-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-3-king-post-axis" points="43 49 8.57; 43 49 11.36" />
+  <profile id="shed-frame-3-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-3-south-diag-axis" points="43 44.5 8.57; 43 49 11.36" />
+  <profile id="shed-frame-3-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-3-north-diag-axis" points="43 54.8 8.57; 43 49 11.36" />
+  <box id="shed-south-capital-4" position="57.48 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-4" position="57.48 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-4-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-4-tie-axis" points="57.7 39.67 8.57; 57.7 59.7 8.57" />
+  <profile id="shed-frame-4-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-4-south-top-axis" points="57.7 39.67 8.57; 57.7 49 11.36" />
+  <profile id="shed-frame-4-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-4-north-top-axis" points="57.7 49 11.36; 57.7 59.7 8.68" />
+  <profile id="shed-frame-4-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-4-king-post-axis" points="57.7 49 8.57; 57.7 49 11.36" />
+  <profile id="shed-frame-4-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-4-south-diag-axis" points="57.7 44.5 8.57; 57.7 49 11.36" />
+  <profile id="shed-frame-4-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-4-north-diag-axis" points="57.7 54.8 8.57; 57.7 49 11.36" />
+  <box id="shed-south-capital-5" position="65.78 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-5" position="65.78 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-5-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-5-tie-axis" points="66 39.67 8.57; 66 59.7 8.57" />
+  <profile id="shed-frame-5-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-5-south-top-axis" points="66 39.67 8.57; 66 49 11.36" />
+  <profile id="shed-frame-5-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-5-north-top-axis" points="66 49 11.36; 66 59.7 8.68" />
+  <profile id="shed-frame-5-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-5-king-post-axis" points="66 49 8.57; 66 49 11.36" />
+  <profile id="shed-frame-5-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-5-south-diag-axis" points="66 44.5 8.57; 66 49 11.36" />
+  <profile id="shed-frame-5-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-5-north-diag-axis" points="66 54.8 8.57; 66 49 11.36" />
+  <box id="shed-south-capital-6" position="75.28 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-6" position="75.28 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-6-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-6-tie-axis" points="75.5 39.67 8.57; 75.5 59.7 8.57" />
+  <profile id="shed-frame-6-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-6-south-top-axis" points="75.5 39.67 8.57; 75.5 49 11.36" />
+  <profile id="shed-frame-6-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-6-north-top-axis" points="75.5 49 11.36; 75.5 59.7 8.68" />
+  <profile id="shed-frame-6-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-6-king-post-axis" points="75.5 49 8.57; 75.5 49 11.36" />
+  <profile id="shed-frame-6-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-6-south-diag-axis" points="75.5 44.5 8.57; 75.5 49 11.36" />
+  <profile id="shed-frame-6-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-6-north-diag-axis" points="75.5 54.8 8.57; 75.5 49 11.36" />
+  <box id="shed-south-capital-7" position="84.18 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-7" position="84.18 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-7-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-7-tie-axis" points="84.4 39.67 8.57; 84.4 59.7 8.57" />
+  <profile id="shed-frame-7-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-7-south-top-axis" points="84.4 39.67 8.57; 84.4 49 11.36" />
+  <profile id="shed-frame-7-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-7-north-top-axis" points="84.4 49 11.36; 84.4 59.7 8.68" />
+  <profile id="shed-frame-7-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-7-king-post-axis" points="84.4 49 8.57; 84.4 49 11.36" />
+  <profile id="shed-frame-7-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-7-south-diag-axis" points="84.4 44.5 8.57; 84.4 49 11.36" />
+  <profile id="shed-frame-7-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-7-north-diag-axis" points="84.4 54.8 8.57; 84.4 49 11.36" />
+  <box id="shed-south-capital-8" position="100.58 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-8" position="100.58 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-8-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-8-tie-axis" points="100.8 39.67 8.57; 100.8 59.7 8.57" />
+  <profile id="shed-frame-8-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-8-south-top-axis" points="100.8 39.67 8.57; 100.8 49 11.36" />
+  <profile id="shed-frame-8-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-8-north-top-axis" points="100.8 49 11.36; 100.8 59.7 8.68" />
+  <profile id="shed-frame-8-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-8-king-post-axis" points="100.8 49 8.57; 100.8 49 11.36" />
+  <profile id="shed-frame-8-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-8-south-diag-axis" points="100.8 44.5 8.57; 100.8 49 11.36" />
+  <profile id="shed-frame-8-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-8-north-diag-axis" points="100.8 54.8 8.57; 100.8 49 11.36" />
+  <box id="shed-south-capital-9" position="111.68 39.45 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <box id="shed-north-capital-9" position="111.68 59.48 7.97" width="0.44" depth="0.44" height="0.23" material="iron" group="railway" />
+  <profile id="shed-frame-9-tie-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-9-tie-axis" points="111.9 39.67 8.57; 111.9 59.7 8.57" />
+  <profile id="shed-frame-9-south-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-9-south-top-axis" points="111.9 39.67 8.57; 111.9 49 11.36" />
+  <profile id="shed-frame-9-north-top-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-9-north-top-axis" points="111.9 49 11.36; 111.9 59.7 8.68" />
+  <profile id="shed-frame-9-king-post-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-9-king-post-axis" points="111.9 49 8.57; 111.9 49 11.36" />
+  <profile id="shed-frame-9-south-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-9-south-diag-axis" points="111.9 44.5 8.57; 111.9 49 11.36" />
+  <profile id="shed-frame-9-north-diag-section" points="-0.0625 -0.0625; 0.0625 -0.0625; 0.0625 0.0625; -0.0625 0.0625" />
+  <path id="shed-frame-9-north-diag-axis" points="111.9 54.8 8.57; 111.9 49 11.36" />
+  <profile id="shed-longitudinal-south-section" points="-0.095 -0.095; 0.095 -0.095; 0.095 0.095; -0.095 0.095" />
+  <path id="shed-longitudinal-south-axis" points="24 39.67 8.57; 113.5 39.67 8.57" />
+  <sweep id="shed-longitudinal-south" path="shed-longitudinal-south-axis" profile="shed-longitudinal-south-section" material="iron" group="rail-roof" collidable="true" />
+  <profile id="shed-longitudinal-north-section" points="-0.095 -0.095; 0.095 -0.095; 0.095 0.095; -0.095 0.095" />
+  <path id="shed-longitudinal-north-axis" points="24 59.7 8.57; 113.5 59.7 8.57" />
+  <box id="west-unit-chassis" position="32.35 41.25 -0.57" width="23.3" depth="2.6" height="0.43" material="dark" group="railway" />
+  <box id="west-unit-body" position="32 41.13 -0.12" width="24" depth="2.84" height="2.77" material="train-red" group="railway" />
+  <box id="west-unit-cap" position="32.11 41.2 2.65" width="23.78" depth="2.7" height="0.21" material="train-ivory" group="railway" />
+  <box id="west-unit-north-stripe" position="32.12 43.97 0.9" width="23.76" depth="0.022" height="0.18" material="train-ivory" group="fittings" collidable="false" />
+  <box id="west-unit-north-window-2" position="34 43.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-north-window-5" position="37 43.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-north-window-8" position="40 43.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-north-window-11" position="43 43.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-north-window-14" position="46 43.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-north-window-17" position="49 43.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-north-window-20" position="52 43.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-north-door-5" position="36.6 43.946 0.02" width="0.95" depth="0.069" height="2.34" material="dark" group="fittings" collidable="false" />
+  <box id="west-unit-north-door-glass-5" position="36.68 43.94 1.25" width="0.79" depth="0.082" height="0.72" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-north-door-19" position="50.6 43.946 0.02" width="0.95" depth="0.069" height="2.34" material="dark" group="fittings" collidable="false" />
+  <box id="west-unit-north-door-glass-19" position="50.68 43.94 1.25" width="0.79" depth="0.082" height="0.72" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-stripe" position="32.12 41.108 0.9" width="23.76" depth="0.022" height="0.18" material="train-ivory" group="fittings" collidable="false" />
+  <box id="west-unit-south-window-2" position="34 41.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-window-5" position="37 41.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-window-8" position="40 41.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-window-11" position="43 41.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-window-14" position="46 41.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-window-17" position="49 41.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-window-20" position="52 41.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-door-5" position="36.6 41.084 0.02" width="0.95" depth="0.069" height="2.34" material="dark" group="fittings" collidable="false" />
+  <box id="west-unit-south-door-glass-5" position="36.68 41.078 1.25" width="0.79" depth="0.082" height="0.72" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-south-door-19" position="50.6 41.084 0.02" width="0.95" depth="0.069" height="2.34" material="dark" group="fittings" collidable="false" />
+  <box id="west-unit-south-door-glass-19" position="50.68 41.078 1.25" width="0.79" depth="0.082" height="0.72" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-west-cab-glass" position="31.95 41.58 1.31" width="0.05" depth="1.94" height="0.86" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-west-lamp-1" position="31.934 41.58 0.51" width="0.082" depth="0.12" height="0.14" material="tactile" group="fittings" collidable="false" />
+  <box id="west-unit-west-lamp-2" position="31.934 43.4 0.51" width="0.082" depth="0.12" height="0.14" material="tactile" group="fittings" collidable="false" />
+  <box id="west-unit-east-cab-glass" position="56 41.58 1.31" width="0.05" depth="1.94" height="0.86" material="window" group="fittings" collidable="false" />
+  <box id="west-unit-east-lamp-1" position="55.984 41.58 0.51" width="0.082" depth="0.12" height="0.14" material="tactile" group="fittings" collidable="false" />
+  <box id="west-unit-east-lamp-2" position="55.984 43.4 0.51" width="0.082" depth="0.12" height="0.14" material="tactile" group="fittings" collidable="false" />
+  <box id="east-unit-chassis" position="74.35 50.25 -0.57" width="26.3" depth="2.6" height="0.43" material="dark" group="railway" />
+  <box id="east-unit-body" position="74 50.13 -0.12" width="27" depth="2.84" height="2.77" material="train-blue" group="railway" />
+  <box id="east-unit-cap" position="74.11 50.2 2.65" width="26.78" depth="2.7" height="0.21" material="train-ivory" group="railway" />
+  <box id="east-unit-north-stripe" position="74.12 52.97 0.9" width="26.76" depth="0.022" height="0.18" material="train-ivory" group="fittings" collidable="false" />
+  <box id="east-unit-north-window-2" position="76 52.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-window-5" position="79 52.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-window-8" position="82 52.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-window-11" position="85 52.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-window-14" position="88 52.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-window-17" position="91 52.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-window-20" position="94 52.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-window-23" position="97 52.968 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-door-5" position="78.6 52.946 0.02" width="0.95" depth="0.069" height="2.34" material="dark" group="fittings" collidable="false" />
+  <box id="east-unit-north-door-glass-5" position="78.68 52.94 1.25" width="0.79" depth="0.082" height="0.72" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-north-door-22" position="95.6 52.946 0.02" width="0.95" depth="0.069" height="2.34" material="dark" group="fittings" collidable="false" />
+  <box id="east-unit-north-door-glass-22" position="95.68 52.94 1.25" width="0.79" depth="0.082" height="0.72" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-stripe" position="74.12 50.108 0.9" width="26.76" depth="0.022" height="0.18" material="train-ivory" group="fittings" collidable="false" />
+  <box id="east-unit-south-window-2" position="76 50.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-window-5" position="79 50.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-window-8" position="82 50.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-window-11" position="85 50.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-window-14" position="88 50.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-window-17" position="91 50.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-window-20" position="94 50.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-window-23" position="97 50.106 1.24" width="1.81" depth="0.027" height="0.8" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-door-5" position="78.6 50.084 0.02" width="0.95" depth="0.069" height="2.34" material="dark" group="fittings" collidable="false" />
+  <box id="east-unit-south-door-glass-5" position="78.68 50.078 1.25" width="0.79" depth="0.082" height="0.72" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-south-door-22" position="95.6 50.084 0.02" width="0.95" depth="0.069" height="2.34" material="dark" group="fittings" collidable="false" />
+  <box id="east-unit-south-door-glass-22" position="95.68 50.078 1.25" width="0.79" depth="0.082" height="0.72" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-west-cab-glass" position="73.95 50.58 1.31" width="0.05" depth="1.94" height="0.86" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-west-lamp-1" position="73.934 50.58 0.51" width="0.082" depth="0.12" height="0.14" material="tactile" group="fittings" collidable="false" />
+  <box id="east-unit-west-lamp-2" position="73.934 52.4 0.51" width="0.082" depth="0.12" height="0.14" material="tactile" group="fittings" collidable="false" />
+  <box id="east-unit-east-cab-glass" position="101 50.58 1.31" width="0.05" depth="1.94" height="0.86" material="window" group="fittings" collidable="false" />
+  <box id="east-unit-east-lamp-1" position="100.984 50.58 0.51" width="0.082" depth="0.12" height="0.14" material="tactile" group="fittings" collidable="false" />
+  <box id="east-unit-east-lamp-2" position="100.984 52.4 0.51" width="0.082" depth="0.12" height="0.14" material="tactile" group="fittings" collidable="false" />
+  <!-- Wayfinding and suspended interior fixtures -->
+  <box id="station-name" position="35.54 75.4725 8.88" width="0.075" depth="7.055" height="1.001" material="iron" group="fittings" collidable="false" />
+  <box id="station-name-1-1-2" position="35.517 81.952 9.638" width="0.023" depth="0.2925" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-1-2-1" position="35.517 82.261 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-1-2-5" position="35.517 81.849 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-1-3-1" position="35.517 82.261 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-1-4-2" position="35.517 81.952 9.329" width="0.023" depth="0.2925" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-1-5-5" position="35.517 81.849 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-1-6-1" position="35.517 82.261 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-1-6-5" position="35.517 81.849 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-1-7-2" position="35.517 81.952 9.02" width="0.023" depth="0.2925" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-1-2" position="35.517 81.334 9.638" width="0.023" depth="0.2925" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-2-1" position="35.517 81.643 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-2-5" position="35.517 81.231 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-3-1" position="35.517 81.643 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-3-5" position="35.517 81.231 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-4-1" position="35.517 81.231 9.329" width="0.023" depth="0.4985" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-5-1" position="35.517 81.643 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-5-5" position="35.517 81.231 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-6-1" position="35.517 81.643 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-6-5" position="35.517 81.231 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-7-1" position="35.517 81.643 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-2-7-5" position="35.517 81.231 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-1-1" position="35.517 81.025 9.638" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-1-5" position="35.517 80.613 9.638" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-2-1" position="35.517 80.922 9.535" width="0.023" depth="0.1895" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-2-5" position="35.517 80.613 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-3-1" position="35.517 81.025 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-3-3" position="35.517 80.819 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-3-5" position="35.517 80.613 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-4-1" position="35.517 81.025 9.329" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-4-4" position="35.517 80.613 9.329" width="0.023" depth="0.1895" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-5-1" position="35.517 81.025 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-5-5" position="35.517 80.613 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-6-1" position="35.517 81.025 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-6-5" position="35.517 80.613 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-7-1" position="35.517 81.025 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-3-7-5" position="35.517 80.613 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-4-1-1" position="35.517 79.995 9.638" width="0.023" depth="0.4985" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-4-2-3" position="35.517 80.201 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-4-3-3" position="35.517 80.201 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-4-4-3" position="35.517 80.201 9.329" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-4-5-3" position="35.517 80.201 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-4-6-3" position="35.517 80.201 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-4-7-3" position="35.517 80.201 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-1-2" position="35.517 79.48 9.638" width="0.023" depth="0.2925" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-2-1" position="35.517 79.789 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-2-5" position="35.517 79.377 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-3-1" position="35.517 79.789 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-3-5" position="35.517 79.377 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-4-1" position="35.517 79.377 9.329" width="0.023" depth="0.4985" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-5-1" position="35.517 79.789 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-5-5" position="35.517 79.377 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-6-1" position="35.517 79.789 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-6-5" position="35.517 79.377 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-7-1" position="35.517 79.789 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-5-7-5" position="35.517 79.377 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-1-1" position="35.517 78.244 9.638" width="0.023" depth="0.3955" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-2-1" position="35.517 78.553 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-2-5" position="35.517 78.141 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-3-1" position="35.517 78.553 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-3-5" position="35.517 78.141 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-4-1" position="35.517 78.244 9.329" width="0.023" depth="0.3955" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-5-1" position="35.517 78.553 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-5-5" position="35.517 78.141 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-6-1" position="35.517 78.553 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-6-5" position="35.517 78.141 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-7-7-1" position="35.517 78.244 9.02" width="0.023" depth="0.3955" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-1-1" position="35.517 77.626 9.638" width="0.023" depth="0.3955" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-2-1" position="35.517 77.935 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-2-5" position="35.517 77.523 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-3-1" position="35.517 77.935 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-3-5" position="35.517 77.523 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-4-1" position="35.517 77.626 9.329" width="0.023" depth="0.3955" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-5-1" position="35.517 77.935 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-5-3" position="35.517 77.729 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-6-1" position="35.517 77.935 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-6-4" position="35.517 77.626 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-7-1" position="35.517 77.935 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-8-7-5" position="35.517 77.523 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-1-1" position="35.517 77.317 9.638" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-1-5" position="35.517 76.905 9.638" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-2-1" position="35.517 77.317 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-2-5" position="35.517 76.905 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-3-1" position="35.517 77.317 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-3-5" position="35.517 76.905 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-4-1" position="35.517 77.317 9.329" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-4-5" position="35.517 76.905 9.329" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-5-1" position="35.517 77.317 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-5-5" position="35.517 76.905 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-6-1" position="35.517 77.317 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-6-5" position="35.517 76.905 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-9-7-2" position="35.517 77.008 9.02" width="0.023" depth="0.2925" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-1-1" position="35.517 76.699 9.638" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-1-5" position="35.517 76.287 9.638" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-2-1" position="35.517 76.596 9.535" width="0.023" depth="0.1895" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-2-4" position="35.517 76.287 9.535" width="0.023" depth="0.1895" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-3-1" position="35.517 76.699 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-3-3" position="35.517 76.493 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-3-5" position="35.517 76.287 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-4-1" position="35.517 76.699 9.329" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-4-3" position="35.517 76.493 9.329" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-4-5" position="35.517 76.287 9.329" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-5-1" position="35.517 76.699 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-5-5" position="35.517 76.287 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-6-1" position="35.517 76.699 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-6-5" position="35.517 76.287 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-7-1" position="35.517 76.699 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-10-7-5" position="35.517 76.287 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-1-2" position="35.517 75.772 9.638" width="0.023" depth="0.2925" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-2-1" position="35.517 76.081 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-2-5" position="35.517 75.669 9.535" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-3-1" position="35.517 76.081 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-3-5" position="35.517 75.669 9.432" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-4-1" position="35.517 75.669 9.329" width="0.023" depth="0.4985" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-5-1" position="35.517 76.081 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-5-5" position="35.517 75.669 9.226" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-6-1" position="35.517 76.081 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-6-5" position="35.517 75.669 9.123" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-7-1" position="35.517 76.081 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="station-name-11-7-5" position="35.517 75.669 9.02" width="0.023" depth="0.0865" height="0.0845" material="limestone" group="fittings" collidable="false" />
+  <box id="platform-sign" position="51 33.9825 2.98" width="0.075" depth="0.835" height="0.945" material="iron" group="fittings" collidable="false" />
+  <box id="platform-sign-1-1-3" position="50.977 34.3677 3.69" width="0.023" depth="0.0798" height="0.0779" material="limestone" group="fittings" collidable="false" />
+  <box id="platform-sign-1-2-2" position="50.977 34.3677 3.595" width="0.023" depth="0.1748" height="0.0779" material="limestone" group="fittings" collidable="false" />
+  <box id="platform-sign-1-3-3" position="50.977 34.3677 3.5" width="0.023" depth="0.0798" height="0.0779" material="limestone" group="fittings" collidable="false" />
+  <box id="platform-sign-1-4-3" position="50.977 34.3677 3.405" width="0.023" depth="0.0798" height="0.0779" material="limestone" group="fittings" collidable="false" />
+  <box id="platform-sign-1-5-3" position="50.977 34.3677 3.31" width="0.023" depth="0.0798" height="0.0779" material="limestone" group="fittings" collidable="false" />
+  <box id="platform-sign-1-6-3" position="50.977 34.3677 3.215" width="0.023" depth="0.0798" height="0.0779" material="limestone" group="fittings" collidable="false" />
+  <box id="platform-sign-1-7-2" position="50.977 34.2727 3.12" width="0.023" depth="0.2698" height="0.0779" material="limestone" group="fittings" collidable="false" />
+  <box id="platform-sign-hanger-1" position="51.03 34.145 3.9" width="0.05" depth="0.05" height="0.441" material="iron" group="fittings" collidable="false" />
+  <box id="platform-sign-hanger-2" position="51.03 34.605 3.9" width="0.05" depth="0.05" height="0.441" material="iron" group="fittings" collidable="false" />
+  <box id="relay-sign" position="67.94 75.715 6.28" width="0.075" depth="0.77" height="0.854" material="iron" group="fittings" collidable="false" />
+  <box id="relay-sign-1-1-1" position="67.917 75.9901 6.912" width="0.023" depth="0.3149" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-2-1" position="67.917 76.2361 6.83" width="0.023" depth="0.0689" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-2-5" position="67.917 75.9081 6.83" width="0.023" depth="0.0689" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-3-1" position="67.917 76.2361 6.748" width="0.023" depth="0.0689" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-3-5" position="67.917 75.9081 6.748" width="0.023" depth="0.0689" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-4-1" position="67.917 75.9901 6.666" width="0.023" depth="0.3149" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-5-1" position="67.917 76.2361 6.584" width="0.023" depth="0.0689" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-5-5" position="67.917 75.9081 6.584" width="0.023" depth="0.0689" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-6-1" position="67.917 76.2361 6.502" width="0.023" depth="0.0689" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-6-5" position="67.917 75.9081 6.502" width="0.023" depth="0.0689" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="relay-sign-1-7-1" position="67.917 75.9901 6.42" width="0.023" depth="0.3149" height="0.0672" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign" position="66.44 24.82 1.24" width="0.075" depth="0.76" height="0.84" material="iron" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-1-2" position="66.417 25.0928 1.86" width="0.023" depth="0.2272" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-2-1" position="66.417 25.3328 1.78" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-2-5" position="66.417 25.0128 1.78" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-3-1" position="66.417 25.3328 1.7" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-3-5" position="66.417 25.0128 1.7" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-4-1" position="66.417 25.0128 1.62" width="0.023" depth="0.3872" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-5-1" position="66.417 25.3328 1.54" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-5-5" position="66.417 25.0128 1.54" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-6-1" position="66.417 25.3328 1.46" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-6-5" position="66.417 25.0128 1.46" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-7-1" position="66.417 25.3328 1.38" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="mail-bank-sign-1-7-5" position="66.417 25.0128 1.38" width="0.023" depth="0.0672" height="0.0656" material="limestone" group="fittings" collidable="false" />
+  <box id="hall-pendant-stem-1" position="43.968 73.968 10.16" width="0.064" depth="0.064" height="1.4" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-frame-1" position="43.29 73.84 10" width="1.42" depth="0.32" height="0.17" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-diffuser-1" position="43.36 73.88 9.94" width="1.28" depth="0.24" height="0.059" material="limestone" group="fittings" collidable="false" />
+  <box id="hall-pendant-stem-2" position="43.968 83.968 10.16" width="0.064" depth="0.064" height="1.4" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-frame-2" position="43.29 83.84 10" width="1.42" depth="0.32" height="0.17" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-diffuser-2" position="43.36 83.88 9.94" width="1.28" depth="0.24" height="0.059" material="limestone" group="fittings" collidable="false" />
+  <box id="hall-pendant-stem-3" position="56.968 69.968 10.16" width="0.064" depth="0.064" height="1.4" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-frame-3" position="56.29 69.84 10" width="1.42" depth="0.32" height="0.17" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-diffuser-3" position="56.36 69.88 9.94" width="1.28" depth="0.24" height="0.059" material="limestone" group="fittings" collidable="false" />
+  <box id="hall-pendant-stem-4" position="56.968 86.968 10.16" width="0.064" depth="0.064" height="1.4" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-frame-4" position="56.29 86.84 10" width="1.42" depth="0.32" height="0.17" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-diffuser-4" position="56.36 86.88 9.94" width="1.28" depth="0.24" height="0.059" material="limestone" group="fittings" collidable="false" />
+  <box id="hall-pendant-stem-5" position="69.968 69.968 10.16" width="0.064" depth="0.064" height="1.4" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-frame-5" position="69.29 69.84 10" width="1.42" depth="0.32" height="0.17" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-diffuser-5" position="69.36 69.88 9.94" width="1.28" depth="0.24" height="0.059" material="limestone" group="fittings" collidable="false" />
+  <box id="hall-pendant-stem-6" position="69.968 86.968 10.16" width="0.064" depth="0.064" height="1.4" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-frame-6" position="69.29 86.84 10" width="1.42" depth="0.32" height="0.17" material="iron" group="fittings" collidable="false" />
+  <box id="hall-pendant-diffuser-6" position="69.36 86.88 9.94" width="1.28" depth="0.24" height="0.059" material="limestone" group="fittings" collidable="false" />
+  <!-- Actual physical mouths at transitions between walking surfaces -->
+  <path id="west-ramp-head-mouth" points="18 29.6 4.8; 18 35.4 4.8" />
+  <connection id="west-ramp-head" from="street-deck" to="west-ramp" path="west-ramp-head-mouth" />
+  <path id="west-ramp-toe-mouth" points="36 29.6 0; 36 35.4 0" />
+  <connection id="west-ramp-toe" from="west-ramp" to="platform-floor" path="west-ramp-toe-mouth" />
+  <path id="public-bridge-lobby-mouth" points="48.65 62 4.8; 56.35 62 4.8" />
+  <connection id="public-bridge-lobby" from="street-deck" to="public-bridge" path="public-bridge-lobby-mouth" />
+  <path id="public-stair-head-mouth" points="57 31.6 4.8; 57 36.4 4.8" />
+  <connection id="public-stair-head" from="public-bridge" to="public-stair" path="public-stair-head-mouth" />
+  <path id="public-stair-toe-mouth" points="71 31.6 0; 71 36.4 0" />
+  <connection id="public-stair-toe" from="public-stair" to="platform-floor" path="public-stair-toe-mouth" />
+  <path id="staff-bridge-court-mouth" points="99 60.7 4.8; 99 64.5 4.8" />
+  <connection id="staff-bridge-court" from="street-deck" to="staff-bridge" path="staff-bridge-court-mouth" />
+  <path id="staff-stair-head-mouth" points="92.6 36 4.8; 98.4 36 4.8" />
+  <connection id="staff-stair-head" from="staff-bridge" to="staff-stair" path="staff-stair-head-mouth" />
+  <path id="staff-stair-toe-mouth" points="92.6 19 0; 98.4 19 0" />
+  <connection id="staff-stair-toe" from="staff-stair" to="platform-floor" path="staff-stair-toe-mouth" />
+  <!-- Two plant footprints and five separated spawn slots per side -->
+  <profile id="plant-a-plan" points="70.25 22; 77.5 22; 77.5 26.6; 70.25 26.6" />
+  <zone id="plant-a" profile="plant-a-plan" elevation="0" role="objective" height="2.05">
+    <property name="site" value="A" />
+    <property name="mode" value="bomb-defuse" />
+  </zone>
+  <clearance id="plant-a-clear" profile="plant-a-plan" elevation="0" height="2" require-support="true" />
+  <profile id="plant-b-plan" points="62.5 76; 67.6 76; 67.6 80.7; 62.5 80.7" />
+  <zone id="plant-b" profile="plant-b-plan" elevation="4.8" role="objective" height="2.05">
+    <property name="site" value="B" />
+    <property name="mode" value="bomb-defuse" />
+  </zone>
+  <clearance id="plant-b-clear" profile="plant-b-plan" elevation="4.8" height="2" require-support="true" />
+  <profile id="t-assembly-plan" points="9.5 52; 16.5 52; 16.5 58.9; 9.5 58.9" />
+  <zone id="t-assembly" profile="t-assembly-plan" elevation="4.8" role="spawn" height="2.05">
+    <property name="team" value="t" />
+    <property name="capacity" value="5" />
+  </zone>
+  <clearance id="t-assembly-clear" profile="t-assembly-plan" elevation="4.8" height="2" require-support="true" />
+  <profile id="ct-assembly-plan" points="101 64; 109 64; 109 71; 101 71" />
+  <zone id="ct-assembly" profile="ct-assembly-plan" elevation="4.8" role="spawn" height="2.05">
+    <property name="team" value="ct" />
+    <property name="capacity" value="5" />
+  </zone>
+  <clearance id="ct-assembly-clear" profile="ct-assembly-plan" elevation="4.8" height="2" require-support="true" />
+  <profile id="plant-a-pavement-plan" points="70.25 22; 77.5 22; 77.5 26.6; 70.25 26.6" />
+  <face-material id="plant-a-pavement" host="platform-floor" profile="plant-a-pavement-plan" face="top" material="site-a" />
+  <profile id="plant-b-pavement-plan" points="62.5 76; 67.6 76; 67.6 80.7; 62.5 80.7" />
+  <face-material id="plant-b-pavement" host="street-deck" profile="plant-b-pavement-plan" face="top" material="site-b" />
+  <profile id="t-assembly-pavement-plan" points="9.5 52; 16.5 52; 16.5 58.9; 9.5 58.9" />
+  <face-material id="t-assembly-pavement" host="street-deck" profile="t-assembly-pavement-plan" face="top" material="spawn-stone" />
+  <profile id="ct-assembly-pavement-plan" points="101 64; 109 64; 109 71; 101 71" />
+  <face-material id="ct-assembly-pavement" host="street-deck" profile="ct-assembly-pavement-plan" face="top" material="spawn-stone" />
+  <player radius="0.25" height="2" crouch="1.1" step="0.4" slope="42" vault="0" rappel="false" ladder="false" />
+  <marker id="site-A" kind="site" position="73.5 24 0" label="A · Mail Bank" />
+  <marker id="site-B" kind="site" position="64.7 78.35 4.8" label="B · Relay" />
+  <marker id="t-spawn-1" kind="attacker_spawn" position="11 54 4.8" label="T slot 1" team="t" />
+  <marker id="t-spawn-2" kind="attacker_spawn" position="13 54 4.8" label="T slot 2" team="t" />
+  <marker id="t-spawn-3" kind="attacker_spawn" position="15 54 4.8" label="T slot 3" team="t" />
+  <marker id="t-spawn-4" kind="attacker_spawn" position="12 57 4.8" label="T slot 4" team="t" />
+  <marker id="t-spawn-5" kind="attacker_spawn" position="14 57 4.8" label="T slot 5" team="t" />
+  <marker id="ct-spawn-1" kind="defender_spawn" position="103 65.6 4.8" label="CT slot 1" team="ct" />
+  <marker id="ct-spawn-2" kind="defender_spawn" position="105 65.6 4.8" label="CT slot 2" team="ct" />
+  <marker id="ct-spawn-3" kind="defender_spawn" position="107 65.6 4.8" label="CT slot 3" team="ct" />
+  <marker id="ct-spawn-4" kind="defender_spawn" position="104 68.7 4.8" label="CT slot 4" team="ct" />
+  <marker id="ct-spawn-5" kind="defender_spawn" position="106 68.7 4.8" label="CT slot 5" team="ct" />
+  <no-spawn-los markers="t-spawn-1 ct-spawn-1" />
+  <no-spawn-los markers="t-spawn-1 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-1 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-1 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-1 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-1" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-2 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-1" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-3 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-1" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-4 ct-spawn-5" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-1" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-2" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-3" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-4" />
+  <no-spawn-los markers="t-spawn-5 ct-spawn-5" />
+  <marker id="west-ramp-top" kind="poi" position="15.5 32.5 4.8" label="West Ramp upper landing" />
+  <marker id="west-ramp-foot" kind="poi" position="38.2 32.5 0" label="West Ramp lower landing" />
+  <marker id="public-stair-top" kind="poi" position="54.5 34 4.8" label="Public Stair upper landing" />
+  <marker id="public-stair-foot" kind="poi" position="73.2 34 0" label="Public Stair lower landing" />
+  <marker id="staff-stair-top" kind="poi" position="95.5 38 4.8" label="Staff Stair upper landing" />
+  <marker id="staff-stair-foot" kind="poi" position="95.5 17.5 0" label="Staff Stair lower landing" />
+  <marker id="staff-bypass-east" kind="poi" position="102 38 0" label="East end of staff underpass" />
+  <marker id="staff-bypass-west" kind="poi" position="89.5 38 0" label="West end of staff underpass" />
+  <marker id="public-bypass-east" kind="poi" position="72.5 38.3 0" label="East end of public bypass" />
+  <marker id="public-bypass-west" kind="poi" position="54 38.3 0" label="West end of public bypass" />
+  <marker id="parcel-west-out" kind="poi" position="54.2 20.5 0" label="Delivery portal outside" />
+  <marker id="parcel-west-in" kind="poi" position="58 20.5 0" label="Delivery portal inside" />
+  <marker id="parcel-north-out" kind="poi" position="72 32 0" label="Platform portal outside" />
+  <marker id="parcel-north-in" kind="poi" position="72 28.5 0" label="Platform portal inside" />
+  <marker id="parcel-east-out" kind="poi" position="93.9 17.8 0" label="Staff parcel door outside" />
+  <marker id="parcel-east-in" kind="poi" position="90 17.8 0" label="Staff parcel door inside" />
+  <marker id="hall-west-out" kind="poi" position="34 79 4.8" label="Main arch outside" />
+  <marker id="hall-west-in" kind="poi" position="38 79 4.8" label="Main arch inside" />
+  <marker id="hall-arcade-out" kind="poi" position="34 86 4.8" label="Side arcade outside" />
+  <marker id="hall-arcade-in" kind="poi" position="38 86 4.8" label="Side arcade inside" />
+  <marker id="hall-duty-out" kind="poi" position="78 73 4.8" label="Duty corridor before threshold" />
+  <marker id="hall-duty-in" kind="poi" position="74 73 4.8" label="Duty corridor inside hall" />
+  <marker id="hall-gallery-out" kind="poi" position="78 85 4.8" label="Gallery before threshold" />
+  <marker id="hall-gallery-in" kind="poi" position="74 85 4.8" label="Gallery inside hall" />
+  <marker id="bridge-hall-out" kind="poi" position="53 65 4.8" label="Public bridge lobby" />
+  <marker id="bridge-hall-in" kind="poi" position="53 69 4.8" label="Public bridge hall side" />
+  <marker id="a-east-contest" kind="poi" position="85 21 0" label="CT Mail Bank fallback" />
+  <marker id="a-west-contest" kind="poi" position="59.5 21 0" label="T delivery contest" />
+  <marker id="b-kiosk-contest" kind="poi" position="48 78 4.8" label="T kiosk contest" />
+  <marker id="b-duty-contest" kind="poi" position="71.5 72.5 4.8" label="CT duty contest" />
+  <route id="west-ramp-direct" from="west-ramp-top" to="west-ramp-foot" min-routes="1" max-distance="27" />
+  <route id="public-stair-direct" from="public-stair-top" to="public-stair-foot" min-routes="1" max-distance="24" />
+  <route id="staff-stair-direct" from="staff-stair-top" to="staff-stair-foot" min-routes="1" max-distance="27" />
+  <route id="staff-bypass-direct" from="staff-bypass-east" to="staff-bypass-west" min-routes="1" max-distance="16" />
+  <route id="public-bypass-direct" from="public-bypass-east" to="public-bypass-west" min-routes="1" max-distance="22" />
+  <route id="public-pivot" from="site-A" to="site-B" min-routes="1" max-distance="88" />
+  <route id="reverse-pivot" from="site-B" to="site-A" min-routes="1" max-distance="88" />
+  <route id="parcel-west-threshold" from="parcel-west-out" to="parcel-west-in" min-routes="1" max-distance="8" />
+  <route id="parcel-north-threshold" from="parcel-north-out" to="parcel-north-in" min-routes="1" max-distance="8" />
+  <route id="parcel-east-threshold" from="parcel-east-out" to="parcel-east-in" min-routes="1" max-distance="8" />
+  <route id="hall-west-threshold" from="hall-west-out" to="hall-west-in" min-routes="1" max-distance="8" />
+  <route id="hall-arcade-threshold" from="hall-arcade-out" to="hall-arcade-in" min-routes="1" max-distance="8" />
+  <route id="hall-duty-threshold" from="hall-duty-out" to="hall-duty-in" min-routes="1" max-distance="8" />
+  <route id="hall-gallery-threshold" from="hall-gallery-out" to="hall-gallery-in" min-routes="1" max-distance="8" />
+  <route id="bridge-hall-threshold" from="bridge-hall-out" to="bridge-hall-in" min-routes="1" max-distance="8" />
+  <route id="t-1-to-A" from="t-spawn-1" to="site-A" min-routes="1" max-distance="110" />
+  <route id="t-1-to-B" from="t-spawn-1" to="site-B" min-routes="1" max-distance="91" />
+  <route id="ct-1-to-A" from="ct-spawn-1" to="site-A" min-routes="1" max-distance="98" />
+  <route id="ct-1-to-B" from="ct-spawn-1" to="site-B" min-routes="1" max-distance="72" />
+  <route id="t-2-to-A" from="t-spawn-2" to="site-A" min-routes="1" max-distance="110" />
+  <route id="t-2-to-B" from="t-spawn-2" to="site-B" min-routes="1" max-distance="91" />
+  <route id="ct-2-to-A" from="ct-spawn-2" to="site-A" min-routes="1" max-distance="98" />
+  <route id="ct-2-to-B" from="ct-spawn-2" to="site-B" min-routes="1" max-distance="72" />
+  <route id="t-3-to-A" from="t-spawn-3" to="site-A" min-routes="1" max-distance="110" />
+  <route id="t-3-to-B" from="t-spawn-3" to="site-B" min-routes="1" max-distance="91" />
+  <route id="ct-3-to-A" from="ct-spawn-3" to="site-A" min-routes="1" max-distance="98" />
+  <route id="ct-3-to-B" from="ct-spawn-3" to="site-B" min-routes="1" max-distance="72" />
+  <route id="t-4-to-A" from="t-spawn-4" to="site-A" min-routes="1" max-distance="110" />
+  <route id="t-4-to-B" from="t-spawn-4" to="site-B" min-routes="1" max-distance="91" />
+  <route id="ct-4-to-A" from="ct-spawn-4" to="site-A" min-routes="1" max-distance="98" />
+  <route id="ct-4-to-B" from="ct-spawn-4" to="site-B" min-routes="1" max-distance="72" />
+  <route id="t-5-to-A" from="t-spawn-5" to="site-A" min-routes="1" max-distance="110" />
+  <route id="t-5-to-B" from="t-spawn-5" to="site-B" min-routes="1" max-distance="91" />
+  <route id="ct-5-to-A" from="ct-spawn-5" to="site-A" min-routes="1" max-distance="98" />
+  <route id="ct-5-to-B" from="ct-spawn-5" to="site-B" min-routes="1" max-distance="72" />
+  <assembly id="joint-booking-ceiling" coincident-material="retained-face">
+    <roof id="booking-ceiling" profile="booking-ceiling-plan" elevation="11.84" thickness="0.28" material="soffit" group="headhouse-roof" />
+    <extrusion id="booking-gable-north" profile="booking-gable-north-plan" distance="0.32" rotation="90 0 0" position="0 92.34 0" material="brick" group="headhouse-roof" />
+  </assembly>
+  <assembly id="joint-lift-island-core" coincident-material="retained-face">
+    <box id="lift-island-core" position="53.35 45.22 0" width="3.23" depth="3.53" height="4.34" material="brick" group="context" />
+    <box id="lift-island-gate" position="53.26 46.03 0.025" width="0.11" depth="1.44" height="2.3" material="iron" group="fittings" collidable="false" />
+  </assembly>
+  <assembly id="joint-lift-north-core" coincident-material="retained-face">
+    <box id="lift-north-core" position="48.3 54.5 0" width="4.35" depth="5.1" height="4.34" material="brick" group="context" />
+    <box id="lift-north-gate" position="48.21 56.18 0.025" width="0.11" depth="1.44" height="2.3" material="iron" group="fittings" collidable="false" />
+  </assembly>
+  <assembly id="joint-street-deck" coincident-material="retained-face">
+    <slab id="street-deck" profile="street-deck-plan" elevation="4.8" thickness="0.46" material="paving" group="street" />
+    <box id="platform-north" position="20 54 -0.88" width="92.97" depth="7.76" height="0.88" material="platform" group="railway" />
+    <wall id="retaining-north" path="retaining-north-axis" height="6.3" thickness="0.75" material="retaining" group="context" />
+    <wall id="retaining-under-hall" path="retaining-under-hall-axis" height="6.3" thickness="0.75" material="retaining" group="context" />
+    <wall id="retaining-north-east" path="retaining-north-east-axis" height="6.3" thickness="0.75" material="retaining" group="context" />
+    <wall id="east-cut-portal" path="east-cut-portal-axis" height="7.85" thickness="0.85" material="retaining" group="context" />
+  </assembly>
+  <assembly id="joint-shed-frame-1-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-1-tie" path="shed-frame-1-tie-axis" profile="shed-frame-1-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-1-south-top" path="shed-frame-1-south-top-axis" profile="shed-frame-1-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-1-north-top" path="shed-frame-1-north-top-axis" profile="shed-frame-1-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-1-king-post" path="shed-frame-1-king-post-axis" profile="shed-frame-1-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-1-south-diag" path="shed-frame-1-south-diag-axis" profile="shed-frame-1-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-1-north-diag" path="shed-frame-1-north-diag-axis" profile="shed-frame-1-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-frame-2-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-2-tie" path="shed-frame-2-tie-axis" profile="shed-frame-2-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-2-south-top" path="shed-frame-2-south-top-axis" profile="shed-frame-2-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-2-north-top" path="shed-frame-2-north-top-axis" profile="shed-frame-2-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-2-king-post" path="shed-frame-2-king-post-axis" profile="shed-frame-2-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-2-south-diag" path="shed-frame-2-south-diag-axis" profile="shed-frame-2-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-2-north-diag" path="shed-frame-2-north-diag-axis" profile="shed-frame-2-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-frame-3-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-3-tie" path="shed-frame-3-tie-axis" profile="shed-frame-3-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-3-south-top" path="shed-frame-3-south-top-axis" profile="shed-frame-3-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-3-north-top" path="shed-frame-3-north-top-axis" profile="shed-frame-3-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-3-king-post" path="shed-frame-3-king-post-axis" profile="shed-frame-3-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-3-south-diag" path="shed-frame-3-south-diag-axis" profile="shed-frame-3-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-3-north-diag" path="shed-frame-3-north-diag-axis" profile="shed-frame-3-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-frame-4-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-4-tie" path="shed-frame-4-tie-axis" profile="shed-frame-4-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-4-south-top" path="shed-frame-4-south-top-axis" profile="shed-frame-4-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-4-north-top" path="shed-frame-4-north-top-axis" profile="shed-frame-4-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-4-king-post" path="shed-frame-4-king-post-axis" profile="shed-frame-4-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-4-south-diag" path="shed-frame-4-south-diag-axis" profile="shed-frame-4-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-4-north-diag" path="shed-frame-4-north-diag-axis" profile="shed-frame-4-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-frame-5-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-5-tie" path="shed-frame-5-tie-axis" profile="shed-frame-5-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-5-south-top" path="shed-frame-5-south-top-axis" profile="shed-frame-5-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-5-north-top" path="shed-frame-5-north-top-axis" profile="shed-frame-5-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-5-king-post" path="shed-frame-5-king-post-axis" profile="shed-frame-5-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-5-south-diag" path="shed-frame-5-south-diag-axis" profile="shed-frame-5-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-5-north-diag" path="shed-frame-5-north-diag-axis" profile="shed-frame-5-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-frame-6-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-6-tie" path="shed-frame-6-tie-axis" profile="shed-frame-6-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-6-south-top" path="shed-frame-6-south-top-axis" profile="shed-frame-6-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-6-north-top" path="shed-frame-6-north-top-axis" profile="shed-frame-6-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-6-king-post" path="shed-frame-6-king-post-axis" profile="shed-frame-6-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-6-south-diag" path="shed-frame-6-south-diag-axis" profile="shed-frame-6-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-6-north-diag" path="shed-frame-6-north-diag-axis" profile="shed-frame-6-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-frame-7-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-7-tie" path="shed-frame-7-tie-axis" profile="shed-frame-7-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-7-south-top" path="shed-frame-7-south-top-axis" profile="shed-frame-7-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-7-north-top" path="shed-frame-7-north-top-axis" profile="shed-frame-7-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-7-king-post" path="shed-frame-7-king-post-axis" profile="shed-frame-7-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-7-south-diag" path="shed-frame-7-south-diag-axis" profile="shed-frame-7-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-7-north-diag" path="shed-frame-7-north-diag-axis" profile="shed-frame-7-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-frame-8-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-8-tie" path="shed-frame-8-tie-axis" profile="shed-frame-8-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-8-south-top" path="shed-frame-8-south-top-axis" profile="shed-frame-8-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-8-north-top" path="shed-frame-8-north-top-axis" profile="shed-frame-8-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-8-king-post" path="shed-frame-8-king-post-axis" profile="shed-frame-8-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-8-south-diag" path="shed-frame-8-south-diag-axis" profile="shed-frame-8-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-8-north-diag" path="shed-frame-8-north-diag-axis" profile="shed-frame-8-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-frame-9-tie" coincident-material="retained-face">
+    <sweep id="shed-frame-9-tie" path="shed-frame-9-tie-axis" profile="shed-frame-9-tie-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-9-south-top" path="shed-frame-9-south-top-axis" profile="shed-frame-9-south-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-9-north-top" path="shed-frame-9-north-top-axis" profile="shed-frame-9-north-top-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-9-king-post" path="shed-frame-9-king-post-axis" profile="shed-frame-9-king-post-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-9-south-diag" path="shed-frame-9-south-diag-axis" profile="shed-frame-9-south-diag-section" material="iron" group="rail-roof" collidable="true" />
+    <sweep id="shed-frame-9-north-diag" path="shed-frame-9-north-diag-axis" profile="shed-frame-9-north-diag-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-north-slope" coincident-material="retained-face">
+    <canopy id="shed-north-slope" profile="shed-north-slope-plan" elevation="0" thickness="0.24" material="roof-green" group="rail-roof" />
+    <sweep id="shed-longitudinal-north" path="shed-longitudinal-north-axis" profile="shed-longitudinal-north-section" material="iron" group="rail-roof" collidable="true" />
+  </assembly>
+  <assembly id="joint-shed-north-column-1" coincident-material="retained-face">
+    <box id="shed-north-column-1" position="24.885 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-1" position="24.83 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-north-column-2" coincident-material="retained-face">
+    <box id="shed-north-column-2" position="34.285 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-2" position="34.23 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-north-column-3" coincident-material="retained-face">
+    <box id="shed-north-column-3" position="42.885 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-3" position="42.83 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-north-column-4" coincident-material="retained-face">
+    <box id="shed-north-column-4" position="57.585 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-4" position="57.53 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-north-column-5" coincident-material="retained-face">
+    <box id="shed-north-column-5" position="65.885 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-5" position="65.83 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-north-column-6" coincident-material="retained-face">
+    <box id="shed-north-column-6" position="75.385 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-6" position="75.33 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-north-column-7" coincident-material="retained-face">
+    <box id="shed-north-column-7" position="84.285 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-7" position="84.23 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-north-column-8" coincident-material="retained-face">
+    <box id="shed-north-column-8" position="100.685 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-8" position="100.63 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-north-column-9" coincident-material="retained-face">
+    <box id="shed-north-column-9" position="111.785 59.585 0" width="0.23" depth="0.23" height="8.71" material="iron" group="railway" />
+    <box id="shed-north-plinth-9" position="111.73 59.54 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-shed-south-column-9" coincident-material="retained-face">
+    <box id="shed-south-column-9" position="111.785 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-9" position="111.73 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-staff-stair" coincident-material="retained-face">
+    <stairs id="staff-stair" path="staff-stair-axis" width="7" thickness="0.35" count="29" underside="filled" material="platform" group="crossings" />
+    <wall id="parcel-west" path="parcel-west-axis" height="4.42" thickness="0.5" material="brick" group="parcels" />
+    <wall id="parcel-north" path="parcel-north-axis" height="4.42" thickness="0.5" material="brick" group="parcels" />
+    <wall id="parcel-east" path="parcel-east-axis" height="4.42" thickness="0.5" material="brick" group="parcels" />
+    <wall id="parcel-south" path="parcel-south-axis" height="4.42" thickness="0.5" material="brick" group="parcels" />
+    <box id="delivery-canopy-column-1" position="51.74 15.13 0" width="0.28" depth="0.71" height="3.93" material="iron" group="parcels" />
+    <box id="platform-supply-room" position="39 36.9 0" width="6" depth="3.05" height="2.82" material="brick" group="parcels" />
+    <wall id="staff-cheek-west" path="staff-cheek-west-axis" height="2.78" thickness="0.25" material="limestone" group="crossings" />
+    <wall id="staff-cheek-east" path="staff-cheek-east-axis" height="2.78" thickness="0.25" material="limestone" group="crossings" />
+    <wall id="trolley-court-west" path="trolley-court-west-axis" height="2.7" thickness="0.34" material="retaining" group="context" />
+    <wall id="trolley-court-south" path="trolley-court-south-axis" height="2.65" thickness="0.34" material="brick" group="context" />
+    <wall id="platform-ramp-retaining" path="platform-ramp-retaining-axis" height="2.15" thickness="0.3" material="brick" group="context" />
+    <wall id="platform-west-end" path="platform-west-end-axis" height="2.3" thickness="0.34" material="brick" group="context" />
+    <wall id="platform-south-end" path="platform-south-end-axis" height="2.8" thickness="0.34" material="brick" group="context" />
+    <wall id="platform-rail-curb" path="platform-rail-curb-axis" height="1.23" thickness="0.13" material="iron" group="railway" />
+    <box id="shed-south-column-1" position="24.885 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-1" position="24.83 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+    <box id="shed-south-column-2" position="34.285 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-2" position="34.23 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+    <box id="shed-south-column-3" position="42.885 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-3" position="42.83 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+    <box id="shed-south-column-4" position="57.585 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-4" position="57.53 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+    <box id="shed-south-column-5" position="65.885 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-5" position="65.83 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+    <box id="shed-south-column-6" position="75.385 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-6" position="75.33 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+    <box id="shed-south-column-7" position="84.285 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-7" position="84.23 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+    <box id="shed-south-column-8" position="100.685 39.555 0" width="0.23" depth="0.23" height="8.58" material="iron" group="railway" />
+    <box id="shed-south-plinth-8" position="100.63 39.51 0" width="0.34" depth="0.32" height="0.31" material="limestone" group="railway" />
+  </assembly>
+  <assembly id="joint-public-stair" coincident-material="retained-face">
+    <stairs id="public-stair" path="public-stair-axis" width="6" thickness="0.35" count="29" underside="filled" material="platform" group="crossings" />
+    <wall id="booking-front" path="booking-front-axis" height="6.8" thickness="0.55" material="brick" group="headhouse" />
+    <wall id="booking-south" path="booking-south-axis" height="6.8" thickness="0.48" material="brick" group="headhouse" />
+    <wall id="booking-north" path="booking-north-axis" height="6.8" thickness="0.52" material="brick" group="headhouse" />
+    <wall id="booking-staff-partition" path="booking-staff-partition-axis" height="6.8" thickness="0.45" material="limestone" group="headhouse" />
+    <box id="front-facade-pier-68" position="35.23 67.66 4.8" width="0.51" depth="0.68" height="6.75" material="limestone" group="headhouse" />
+    <box id="front-facade-pier-90.9" position="35.23 90.56 4.8" width="0.51" depth="0.68" height="6.75" material="limestone" group="headhouse" />
+    <box id="front-plinth" position="35.36 67.4 4.8" width="0.36" depth="5.3" height="0.78" material="limestone" group="headhouse" />
+    <wall id="staff-south" path="staff-south-axis" height="3.95" thickness="0.34" material="brick" group="headhouse" />
+    <wall id="staff-north" path="staff-north-axis" height="3.95" thickness="0.34" material="brick" group="headhouse" />
+    <wall id="staff-east" path="staff-east-axis" height="3.95" thickness="0.4" material="brick" group="headhouse" />
+    <box id="duty-baffle" position="86 65 4.8" width="3" depth="10.1" height="3.95" material="limestone" group="headhouse" />
+    <box id="gallery-baffle" position="89 83 4.8" width="3" depth="6" height="3.95" material="limestone" group="headhouse" />
+    <wall id="public-west" path="public-west-axis" height="2.95" thickness="0.35" material="limestone" group="crossings" />
+    <wall id="public-east" path="public-east-axis" height="2.95" thickness="0.35" material="limestone" group="crossings" />
+    <wall id="public-south-guard" path="public-south-guard-axis" height="1.28" thickness="0.35" material="limestone" group="crossings" />
+    <wall id="public-lobby-west" path="public-lobby-west-axis" height="3.02" thickness="0.34" material="brick" group="crossings" />
+    <wall id="public-lobby-east" path="public-lobby-east-axis" height="3.02" thickness="0.34" material="brick" group="crossings" />
+    <wall id="public-lobby-south-west" path="public-lobby-south-west-axis" height="3.02" thickness="0.34" material="brick" group="crossings" />
+    <wall id="public-lobby-south-east" path="public-lobby-south-east-axis" height="3.02" thickness="0.34" material="brick" group="crossings" />
+    <roof id="public-lobby-roof" profile="public-lobby-roof-plan" elevation="8.06" thickness="0.25" material="roof-green" group="rail-roof" />
+    <wall id="public-cheek-south" path="public-cheek-south-axis" height="2.68" thickness="0.25" material="limestone" group="crossings" />
+    <wall id="public-cheek-north" path="public-cheek-north-axis" height="2.68" thickness="0.25" material="limestone" group="crossings" />
+    <wall id="public-stair-upper-guard" path="public-stair-upper-guard-axis" height="1.24" thickness="0.23" material="limestone" group="crossings" />
+    <wall id="staff-bridge-west" path="staff-bridge-west-axis" height="2.98" thickness="0.32" material="brick" group="crossings" />
+    <wall id="staff-bridge-east" path="staff-bridge-east-axis" height="2.98" thickness="0.32" material="brick" group="crossings" />
+    <roof id="staff-bridge-roof" profile="staff-bridge-roof-plan" elevation="8.04" thickness="0.26" material="roof-green" group="rail-roof" />
+    <wall id="street-west-parapet" path="street-west-parapet-axis" height="1.3" thickness="0.34" material="limestone" group="street" />
+    <wall id="tram-bridge-east-guard" path="tram-bridge-east-guard-axis" height="1.35" thickness="0.34" material="brick" group="street" />
+    <box id="tram-bridge-spawn-screen" position="17.55 51 4.8" width="0.36" depth="10" height="2.55" material="brick" group="street" />
+    <wall id="tram-bridge-south" path="tram-bridge-south-axis" height="1.35" thickness="0.34" material="limestone" group="street" />
+    <wall id="court-boundary" path="court-boundary-axis" height="2.75" thickness="0.34" material="brick" group="street" />
+    <wall id="staff-wing-west-return" path="staff-wing-west-return-axis" height="3.95" thickness="0.34" material="brick" group="headhouse" />
+    <wall id="staff-bridge-west-return" path="staff-bridge-west-return-axis" height="3.05" thickness="0.34" material="brick" group="crossings" />
+    <canopy id="side-arcade-roof" profile="side-arcade-roof-plan" elevation="8.7" thickness="0.25" material="roof-green" group="headhouse-roof" />
+    <box id="side-arcade-column-1" position="25.24 88.22 4.8" width="0.32" depth="0.81" height="3.67" material="limestone" group="street" />
+    <box id="side-arcade-column-2" position="30.14 88.22 4.8" width="0.32" depth="0.81" height="3.67" material="limestone" group="street" />
+    <box id="side-arcade-column-3" position="34.24 88.22 4.8" width="0.32" depth="0.81" height="3.67" material="limestone" group="street" />
+    <box id="island-lift-upper" position="53.35 45.22 4.8" width="3.69" depth="3.53" height="2.95" material="brick" group="crossings" />
+  </assembly>
+  <assembly id="joint-west-cut-floor" coincident-material="retained-face">
+    <box id="west-cut-floor" position="-5 39.9 -1.63" width="5" depth="14.2" height="0.78" material="ballast" group="context" />
+    <wall id="west-cut-south-wall" path="west-cut-south-wall-axis" height="3.95" thickness="0.74" material="retaining" group="context" />
+    <wall id="west-cut-north-wall" path="west-cut-north-wall-axis" height="3.95" thickness="0.74" material="retaining" group="context" />
+    <wall id="west-cut-portal" path="west-cut-portal-axis" height="5.06" thickness="0.81" material="retaining" group="context" />
+  </assembly>
+</architecture>

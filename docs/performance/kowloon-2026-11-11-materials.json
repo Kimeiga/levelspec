@@ -1,0 +1,1141 @@
+{
+  "date": "2026-11-11",
+  "environment": {
+    "node": "v24.12.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4"
+  },
+  "scope": "Cold compile of demo native context and courtyard dressing; finish only the first 1 m\u00b2 courtyard receiver, leaving other receivers unprocessed. Navigation disabled, no CPU profiler, 6M triangle budget. Excluded visual building proxies removed; physical boundaries retained. Not a complete courtyard or demo benchmark. Source read/parse, process/import startup and GLB export excluded. Five fresh processes per variant, alternating order; no other assistant-owned benchmarks/tests concurrently. External workloads were not controlled.",
+  "sourceSha256": "46aeb0990cc09562bc4aacadf2aace3395035a08f22bc9de822b65ec5d968253",
+  "variants": {
+    "baseline": {
+      "medianMs": 6916.418000000001,
+      "minimumMs": 6834.518542000001,
+      "maximumMs": 7251.878875,
+      "triangles": 32401,
+      "physicalHashes": [
+        "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3"
+      ],
+      "renderHashes": [
+        "2764978c19431ad72432963a1829151032a283bf2418deaea9465d8caf48e9bd"
+      ],
+      "partitionWork": {
+        "samples": 428777,
+        "nodes": 114536,
+        "maximumSamples": 128000000
+      }
+    },
+    "appearance": {
+      "medianMs": 4649.433834,
+      "minimumMs": 4633.996709,
+      "maximumMs": 4718.90925,
+      "triangles": 32089,
+      "physicalHashes": [
+        "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3"
+      ],
+      "renderHashes": [
+        "043adb6c2542e9179f8fcd53facbcfb333352b13fd26d22e2626679e0a5d9cb3"
+      ],
+      "partitionWork": {
+        "samples": 424481,
+        "nodes": 112126,
+        "maximumSamples": 128000000
+      }
+    }
+  },
+  "runs": [
+    {
+      "round": 0,
+      "variant": "baseline",
+      "receiver": 0,
+      "elapsedMs": 7251.878875,
+      "triangles": 32401,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2764978c19431ad72432963a1829151032a283bf2418deaea9465d8caf48e9bd",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.4459580000000187
+        },
+        {
+          "stage": "Building solids",
+          "ms": 10.374583000000001
+        },
+        {
+          "stage": "Composing",
+          "ms": 33.47829100000001
+        },
+        {
+          "stage": "Composing",
+          "ms": 42.022999999999996
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 44.15375000000003
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 45.30133300000003
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 69.38762499999999
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 477.993875
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 478.18000000000006
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 478.5741250000001
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 864.2441660000001
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 864.269083
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 866.8888330000001
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 5939.858541
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 7154.433625
+        }
+      ],
+      "work": {
+        "samples": 428777,
+        "nodes": 114536,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 0,
+      "variant": "appearance",
+      "receiver": 0,
+      "elapsedMs": 4718.90925,
+      "triangles": 32089,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "043adb6c2542e9179f8fcd53facbcfb333352b13fd26d22e2626679e0a5d9cb3",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.1162089999999694
+        },
+        {
+          "stage": "Building solids",
+          "ms": 9.338499999999954
+        },
+        {
+          "stage": "Composing",
+          "ms": 33.270208999999966
+        },
+        {
+          "stage": "Composing",
+          "ms": 42.33812499999999
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 44.43495899999999
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 45.59045899999995
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 72.66562499999998
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 398.781375
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 398.96520899999996
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 399.203209
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 564.310209
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 564.321542
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 565.859209
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 3487.9895420000003
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 4624.91725
+        }
+      ],
+      "work": {
+        "samples": 424481,
+        "nodes": 112126,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 1,
+      "variant": "appearance",
+      "receiver": 0,
+      "elapsedMs": 4667.479791,
+      "triangles": 32089,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "043adb6c2542e9179f8fcd53facbcfb333352b13fd26d22e2626679e0a5d9cb3",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.0978749999999877
+        },
+        {
+          "stage": "Building solids",
+          "ms": 9.065625000000011
+        },
+        {
+          "stage": "Composing",
+          "ms": 32.245457999999985
+        },
+        {
+          "stage": "Composing",
+          "ms": 40.79400000000001
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 42.91316599999999
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 44.04320799999999
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 67.31183299999998
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 380.89349999999996
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 381.075
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 381.30758299999997
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 540.9951249999999
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 541.0083749999999
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 542.4948750000001
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 3451.538291
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 4573.617541
+        }
+      ],
+      "work": {
+        "samples": 424481,
+        "nodes": 112126,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 1,
+      "variant": "baseline",
+      "receiver": 0,
+      "elapsedMs": 7015.025875,
+      "triangles": 32401,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2764978c19431ad72432963a1829151032a283bf2418deaea9465d8caf48e9bd",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.1094170000000076
+        },
+        {
+          "stage": "Building solids",
+          "ms": 9.39137500000001
+        },
+        {
+          "stage": "Composing",
+          "ms": 33.971125
+        },
+        {
+          "stage": "Composing",
+          "ms": 41.348917
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 43.47104200000001
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 44.585583000000014
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 67.890333
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 468.254625
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 468.43966700000004
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 468.675625
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 831.3202920000001
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 831.332625
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 832.8973330000001
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 5727.9749170000005
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 6922.7639580000005
+        }
+      ],
+      "work": {
+        "samples": 428777,
+        "nodes": 114536,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 2,
+      "variant": "baseline",
+      "receiver": 0,
+      "elapsedMs": 6834.518542000001,
+      "triangles": 32401,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2764978c19431ad72432963a1829151032a283bf2418deaea9465d8caf48e9bd",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.0873339999999985
+        },
+        {
+          "stage": "Building solids",
+          "ms": 8.933249999999987
+        },
+        {
+          "stage": "Composing",
+          "ms": 32.09004199999998
+        },
+        {
+          "stage": "Composing",
+          "ms": 40.822709
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 42.936375
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 44.077584
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 67.40620900000002
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 464.551334
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 464.732125
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 464.96745899999996
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 804.2758749999999
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 804.289084
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 806.25375
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 5586.898875000001
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 6742.1942500000005
+        }
+      ],
+      "work": {
+        "samples": 428777,
+        "nodes": 114536,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 2,
+      "variant": "appearance",
+      "receiver": 0,
+      "elapsedMs": 4649.433834,
+      "triangles": 32089,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "043adb6c2542e9179f8fcd53facbcfb333352b13fd26d22e2626679e0a5d9cb3",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.1061669999999992
+        },
+        {
+          "stage": "Building solids",
+          "ms": 8.916916999999984
+        },
+        {
+          "stage": "Composing",
+          "ms": 32.30041699999998
+        },
+        {
+          "stage": "Composing",
+          "ms": 40.84020899999999
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 42.900959
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 44.031959
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 66.37875
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 379.96737499999995
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 380.14754199999993
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 380.3762919999999
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 539.685334
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 539.697542
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 541.1982919999999
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 3440.119667
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 4558.223542
+        }
+      ],
+      "work": {
+        "samples": 424481,
+        "nodes": 112126,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 3,
+      "variant": "appearance",
+      "receiver": 0,
+      "elapsedMs": 4633.996709,
+      "triangles": 32089,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "043adb6c2542e9179f8fcd53facbcfb333352b13fd26d22e2626679e0a5d9cb3",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.0895419999999945
+        },
+        {
+          "stage": "Building solids",
+          "ms": 8.894417000000004
+        },
+        {
+          "stage": "Composing",
+          "ms": 32.12966699999998
+        },
+        {
+          "stage": "Composing",
+          "ms": 40.59758399999998
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 42.64570899999998
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 43.78716699999998
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 66.74608399999997
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 380.802417
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 380.983167
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 381.207625
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 540.664625
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 540.677167
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 542.1275
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 3438.9635
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 4541.194208999999
+        }
+      ],
+      "work": {
+        "samples": 424481,
+        "nodes": 112126,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 3,
+      "variant": "baseline",
+      "receiver": 0,
+      "elapsedMs": 6853.920167,
+      "triangles": 32401,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2764978c19431ad72432963a1829151032a283bf2418deaea9465d8caf48e9bd",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.0783329999999864
+        },
+        {
+          "stage": "Building solids",
+          "ms": 8.763791999999995
+        },
+        {
+          "stage": "Composing",
+          "ms": 32.05812499999999
+        },
+        {
+          "stage": "Composing",
+          "ms": 40.49408299999999
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 42.55166699999998
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 43.68349999999998
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 66.19762499999999
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 462.810208
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 462.991583
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 463.22116700000004
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 823.990583
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 824.0060000000001
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 825.914833
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 5596.784458
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 6761.289417
+        }
+      ],
+      "work": {
+        "samples": 428777,
+        "nodes": 114536,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 4,
+      "variant": "baseline",
+      "receiver": 0,
+      "elapsedMs": 6916.418000000001,
+      "triangles": 32401,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "2764978c19431ad72432963a1829151032a283bf2418deaea9465d8caf48e9bd",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.0978339999999776
+        },
+        {
+          "stage": "Building solids",
+          "ms": 8.816000000000003
+        },
+        {
+          "stage": "Composing",
+          "ms": 32.258917
+        },
+        {
+          "stage": "Composing",
+          "ms": 40.80254199999999
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 42.868833999999964
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 44.015041999999966
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 66.51529200000002
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 468.62979199999995
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 468.80945899999995
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 469.04387499999996
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 829.3456249999999
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 829.360584
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 831.090042
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 5614.457542
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 6822.538042
+        }
+      ],
+      "work": {
+        "samples": 428777,
+        "nodes": 114536,
+        "maximumSamples": 128000000
+      }
+    },
+    {
+      "round": 4,
+      "variant": "appearance",
+      "receiver": 0,
+      "elapsedMs": 4644.177667,
+      "triangles": 32089,
+      "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+      "renderHash": "043adb6c2542e9179f8fcd53facbcfb333352b13fd26d22e2626679e0a5d9cb3",
+      "diagnostics": [],
+      "stages": [
+        {
+          "stage": "Resolving architecture",
+          "ms": 1.088124999999991
+        },
+        {
+          "stage": "Building solids",
+          "ms": 8.805125000000004
+        },
+        {
+          "stage": "Composing",
+          "ms": 31.714624999999984
+        },
+        {
+          "stage": "Composing",
+          "ms": 40.13674999999998
+        },
+        {
+          "stage": "Physical surfaces",
+          "ms": 42.205208
+        },
+        {
+          "stage": "Resolving face materials",
+          "ms": 43.32654199999999
+        },
+        {
+          "stage": "Procedural dressing",
+          "ms": 65.93800000000002
+        },
+        {
+          "stage": "Surface appearance",
+          "ms": 378.575875
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "ms": 378.762375
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "ms": 378.98775
+        },
+        {
+          "stage": "Surface appearance: deriving height normals",
+          "ms": 537.973708
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "ms": 537.98575
+        },
+        {
+          "stage": "Surface appearance: receiver 1/1",
+          "ms": 539.505083
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "ms": 3405.586583
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "ms": 4552.1311670000005
+        }
+      ],
+      "work": {
+        "samples": 424481,
+        "nodes": 112126,
+        "maximumSamples": 128000000
+      }
+    }
+  ],
+  "firstSlimExperiment": {
+    "scope": "Earlier repeated diagnostic run before separating appearance tint, on a more contended machine; do not combine these timings with the final series.",
+    "variants": {
+      "baseline": {
+        "medianMs": 9043.696583,
+        "minimumMs": 7887.756125,
+        "maximumMs": 13976.929667,
+        "triangles": 32401,
+        "physicalHashes": [
+          "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3"
+        ],
+        "renderHashes": [
+          "2764978c19431ad72432963a1829151032a283bf2418deaea9465d8caf48e9bd"
+        ],
+        "partitionWork": null
+      },
+      "slim": {
+        "medianMs": 8074.711042,
+        "minimumMs": 5893.698292,
+        "maximumMs": 8421.422792000001,
+        "triangles": 32245,
+        "physicalHashes": [
+          "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3"
+        ],
+        "renderHashes": [
+          "bc8680fdf790a9ba9c68c03827ac3e1f17e9dbd1db64ecdcea199cb6e9d028cb"
+        ],
+        "partitionWork": null
+      }
+    }
+  },
+  "fullScene": {
+    "version": 1,
+    "createdAt": "2026-11-12T04:40:26.109Z",
+    "status": "cancelled",
+    "sourceFile": "/Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/projects/dressing-demo/level.aml",
+    "sourceSha256": "46aeb0990cc09562bc4aacadf2aace3395035a08f22bc9de822b65ec5d968253",
+    "preset": "kowloon",
+    "environment": {
+      "node": "v24.12.0",
+      "platform": "darwin",
+      "arch": "arm64",
+      "cpu": "Apple M4"
+    },
+    "compileOptions": {
+      "maximumTriangles": 6000000,
+      "navigation": true,
+      "deadlineSeconds": 120
+    },
+    "elapsedMs": 120008.757292,
+    "cpuMs": 123439.781,
+    "intervals": [
+      {
+        "stage": "Compile setup",
+        "startMs": 0,
+        "durationMs": 1.4179169999999885
+      },
+      {
+        "stage": "Resolving architecture",
+        "startMs": 1.4179169999999885,
+        "durationMs": 9.140750000000025
+      },
+      {
+        "stage": "Building solids",
+        "startMs": 10.558667000000014,
+        "durationMs": 24.381208000000015
+      },
+      {
+        "stage": "Composing",
+        "startMs": 34.93987500000003,
+        "durationMs": 10.115791999999999
+      },
+      {
+        "stage": "Physical surfaces",
+        "startMs": 45.05566700000003,
+        "durationMs": 1.2615829999999733
+      },
+      {
+        "stage": "Resolving face materials",
+        "startMs": 46.31725,
+        "durationMs": 25.821334000000036
+      },
+      {
+        "stage": "Procedural dressing",
+        "startMs": 72.13858400000004,
+        "durationMs": 26851.778791
+      },
+      {
+        "stage": "Surface appearance",
+        "startMs": 26923.917375,
+        "durationMs": 12.139209000000847
+      },
+      {
+        "stage": "Surface appearance: validating receivers",
+        "startMs": 26936.056584,
+        "durationMs": 90.17370799999844
+      },
+      {
+        "stage": "Surface appearance: decoding material images",
+        "startMs": 27026.230292,
+        "durationMs": 558.8706249999996
+      },
+      {
+        "stage": "Surface appearance: deriving height normals",
+        "startMs": 27585.100917,
+        "durationMs": 2.439125000000786
+      },
+      {
+        "stage": "Surface appearance: rasterizing materials",
+        "startMs": 27587.540042,
+        "durationMs": 3.6278329999986454
+      },
+      {
+        "stage": "Surface appearance: receiver 1/14727",
+        "startMs": 27591.167875,
+        "durationMs": 10166.673167
+      },
+      {
+        "stage": "Surface appearance: receiver 1474/14727",
+        "startMs": 37757.841042,
+        "durationMs": 11577.199166999999
+      },
+      {
+        "stage": "Surface appearance: receiver 2947/14727",
+        "startMs": 49335.040209,
+        "durationMs": 8442.662041000003
+      },
+      {
+        "stage": "Surface appearance: receiver 4420/14727",
+        "startMs": 57777.70225,
+        "durationMs": 6987.342083999996
+      },
+      {
+        "stage": "Surface appearance: receiver 5893/14727",
+        "startMs": 64765.044334,
+        "durationMs": 8777.125624999993
+      },
+      {
+        "stage": "Surface appearance: receiver 7366/14727",
+        "startMs": 73542.16995899999,
+        "durationMs": 10909.618415999998
+      },
+      {
+        "stage": "Surface appearance: receiver 8839/14727",
+        "startMs": 84451.78837499999,
+        "durationMs": 8305.64112500001
+      },
+      {
+        "stage": "Surface appearance: receiver 10312/14727",
+        "startMs": 92757.4295,
+        "durationMs": 27251.327791999996
+      }
+    ],
+    "failure": {
+      "name": "AbortError",
+      "message": "Operation cancelled"
+    },
+    "cpuSamples": [
+      {
+        "location": "local file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:93",
+        "sampledMs": 22802.382,
+        "percent": 18.996048734770383
+      },
+      {
+        "location": "(idle) :0",
+        "sampledMs": 15467.942,
+        "percent": 12.885924815161928
+      },
+      {
+        "location": "tilePerimeter file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-tiles.ts:219",
+        "sampledMs": 9745.009,
+        "percent": 8.118303863376028
+      },
+      {
+        "location": "coordinates file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:59",
+        "sampledMs": 7601.852,
+        "percent": 6.332897636155368
+      },
+      {
+        "location": "barycentric file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:188",
+        "sampledMs": 7568.251,
+        "percent": 6.304905550348849
+      },
+      {
+        "location": "(garbage collector) :0",
+        "sampledMs": 5646.438,
+        "percent": 4.703895032802249
+      },
+      {
+        "location": "closeAttributes file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:333",
+        "sampledMs": 3472.626,
+        "percent": 2.8929509528272415
+      },
+      {
+        "location": "interpolatesAttributes file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:321",
+        "sampledMs": 3280.181,
+        "percent": 2.7326302197230032
+      },
+      {
+        "location": "regions file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:366",
+        "sampledMs": 2751.125,
+        "percent": 2.2918879516817663
+      },
+      {
+        "location": "(program) :0",
+        "sampledMs": 2521.129,
+        "percent": 2.1002844944288244
+      },
+      {
+        "location": "insideRegion file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:286",
+        "sampledMs": 2312.797,
+        "percent": 1.9267287306050194
+      },
+      {
+        "location": "wallLattice file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/finish/wall-noise.ts:2",
+        "sampledMs": 2182.08,
+        "percent": 1.8178319275226493
+      },
+      {
+        "location": "coating file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-tiles.ts:84",
+        "sampledMs": 2073.787,
+        "percent": 1.727615953347912
+      },
+      {
+        "location": "at file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-finish.ts:130",
+        "sampledMs": 1934.617,
+        "percent": 1.6116771842132667
+      },
+      {
+        "location": "sample file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/ground-surface.ts:275",
+        "sampledMs": 1671.456,
+        "percent": 1.3924448609809434
+      },
+      {
+        "location": "at file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:65",
+        "sampledMs": 1583.838,
+        "percent": 1.3194526710402998
+      },
+      {
+        "location": "triangle file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-geometry.ts:145",
+        "sampledMs": 1413.67,
+        "percent": 1.1776903051129857
+      },
+      {
+        "location": "clipTile file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-tiles.ts:17",
+        "sampledMs": 1392.744,
+        "percent": 1.1602574195563886
+      },
+      {
+        "location": "broad file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-tiles.ts:77",
+        "sampledMs": 1381.078,
+        "percent": 1.1505387899614705
+      },
+      {
+        "location": "(anonymous) file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-tiles.ts:240",
+        "sampledMs": 1061.381,
+        "percent": 0.8842078517130064
+      },
+      {
+        "location": "sample file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/finish/wall-condition.ts:189",
+        "sampledMs": 1001.254,
+        "percent": 0.8341176715609706
+      },
+      {
+        "location": "sample file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-finish.ts:225",
+        "sampledMs": 813.828,
+        "percent": 0.677978131833802
+      },
+      {
+        "location": "identity file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-tiles.ts:340",
+        "sampledMs": 799.71,
+        "percent": 0.6662168072477351
+      },
+      {
+        "location": "plasterSample file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-surface.ts:44",
+        "sampledMs": 784.754,
+        "percent": 0.6537573674893262
+      },
+      {
+        "location": "middle file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:30",
+        "sampledMs": 781.16,
+        "percent": 0.6507633031344371
+      },
+      {
+        "location": "listOnTimeout node:internal/timers:546",
+        "sampledMs": 719.678,
+        "percent": 0.5995443090700823
+      },
+      {
+        "location": "valueNoise file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/finish/noise.ts:17",
+        "sampledMs": 708.121,
+        "percent": 0.5899164844319483
+      },
+      {
+        "location": "visit file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-tiles.ts:148",
+        "sampledMs": 652.83,
+        "percent": 0.5438550452983443
+      },
+      {
+        "location": "clip file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/wall-tiles.ts:118",
+        "sampledMs": 637.047,
+        "percent": 0.5307066541705717
+      },
+      {
+        "location": "(anonymous) file:///Users/tomokif/code/levelspec/generated/kowloon-algorithms-20261111/appearance/src/dressing/surface/regions.ts:334",
+        "sampledMs": 628.498,
+        "percent": 0.5235847131104863
+      }
+    ],
+    "fingerprintBefore": "99fbf519c1c019fde46688e3cf97638213ad96d8012e0547e0155e73085182b8",
+    "fingerprintAfter": "99fbf519c1c019fde46688e3cf97638213ad96d8012e0547e0155e73085182b8",
+    "sourceSha256After": "46aeb0990cc09562bc4aacadf2aace3395035a08f22bc9de822b65ec5d968253",
+    "sourceChangedDuringRun": false
+  },
+  "manifestSha256": {
+    "baseline": "19704a04b9659ac9c9ff7275b6561dae05b43b218b7620b37c411ae7603c65cf",
+    "appearance": "091e8babb90bea4a8f7bffb0d82fbaf08b4df4e93a14d46155c208c4773c8474"
+  },
+  "artifacts": "generated/kowloon-algorithms-20261111",
+  "retiredIndexExperiment": {
+    "disposition": "Not shipping. Exact BVH nearest-segment experiment replaced by eliminating generic per-sample contact-grime queries. Earlier host-only runs left excluded building proxies in place, so are incomplete diagnostic evidence only."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "generator": "Built-in image_gen",
+  "prompts": "ground-asphalt-prompts.json",
+  "intendedTileSizeMeters": [
+    1.5,
+    1.5
+  ],
+  "maps": [
+    {
+      "file": "ground-asphalt.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005",
+      "bytes": 4193929
+    },
+    {
+      "file": "ground-asphalt-normal.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e",
+      "bytes": 4191849
+    }
+  ],
+  "notes": "Original generated color texture and image-guided OpenGL-style normal texture. Normal relief is an artistic estimate, not a measured scan. No separate lighting or AO map."
+}

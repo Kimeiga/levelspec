@@ -1,18 +1,18 @@
 import {describe,it} from "node:test";
 import assert from "node:assert/strict";
 import {ClipContext,ClippingError,polygonArea} from "../src/vector/clipping.ts";
-import {compile,createDocument,parseLevelSvgx,serializeLevelSvgx,bakeNavmesh,validateForRuntime,toRuntime,type LevelDocument,type V3} from "../src/vector/index.ts";
+import {compile,createArchitecture,parseAml,serializeAml,bakeNavmesh,validateForRuntime,toRuntime,type ArchitectureDocument,type V3} from "levelspec";
 import {auditNavigationCoverage} from "../src/vector/navigation-coverage.ts";
 import {movementLevel,repairWaterPrecision} from "../src/vector/movement.ts";
 
 const square:V3[]=[[0,0,3],[10,0,3],[10,10,3],[0,10,3]];
-function rectangle(d:LevelDocument,id:string,x:number,y:number,w:number,h:number,z:number,water=false) {
-  const vertices=[[x,y],[x+w,y],[x+w,y+h],[x,y+h]].map(([x,y],i)=>({id:id+i,x,y,z}));
-  const edges=vertices.map((v,i)=>({id:id+"e"+i,from:v.id,to:vertices[(i+1)%4].id,kind:"open" as const,openings:[]}));
-  d.layers.push({id,vertices,edges,regions:[{id:id+"region",boundary:edges.map(e=>e.id),holes:[],interior:[],creases:[],fill:water?"water":"floor"}]});
+function rectangle(d:ArchitectureDocument,id:string,x:number,y:number,w:number,h:number,z:number,water=false) {
+  const profile={id,outer:{points:[[x,y,z],[x+w,y,z],[x+w,y+h,z],[x,y+h,z]] as V3[]},holes:[],interior:[] as V3[],breaklines:[]};d.profiles.push(profile);
+  d.elements.push(water?{kind:'water',id:id+'region',profile:id,elevation:0}:{kind:'slab',id:id+'region',profile:id,elevation:0,thickness:.2});
 }
+
 function lake(overhang=0) {
-  const d=createDocument("repair-test");d.validation="premap";
+  const d=createArchitecture("repair-test");d.validation="premap";
   rectangle(d,"bed",0,0,10,10,0);rectangle(d,"water",0,0,10+overhang,10,3,true);return d;
 }
 describe("bounded clipping and automatic repairs",()=>{
@@ -75,9 +75,9 @@ describe("bounded clipping and automatic repairs",()=>{
     assert.ok(draft.waterNavigation?.diagnostics.some(d=>d.code==="WATER_DRAFT"));
   });
   it("audits clipped shoreline margins while retaining unexplained interior gaps",async()=>{
-    const d=createDocument("shore-margin");d.validation="premap";
+    const d=createArchitecture("shore-margin");d.validation="premap";
     rectangle(d,"ground",0,0,10,10,0);
-    d.layers[0].vertices[1].z=2;d.layers[0].vertices[2].z=2;
+    d.profiles[0].outer.points![1][2]=2;d.profiles[0].outer.points![2][2]=2;
     rectangle(d,"water",0,0,5,10,1,true);
     const prepared=movementLevel(await compile(d,{navigation:false}),{});
     const coverage=auditNavigationCoverage(prepared,{},at=>at[0]>5.5?{position:at,reachable:true}:undefined);
@@ -85,14 +85,13 @@ describe("bounded clipping and automatic repairs",()=>{
     const missing=auditNavigationCoverage(prepared,{},()=>undefined);
     assert.ok(missing.uncovered.some(s=>s.position[0]>7&&s.position[1]>3&&s.position[1]<7));
   });
-  it("automatically bounds detail processing on broad rolling terrain",async()=>{
-    const d=createDocument("rolling-terrain");d.validation="premap";
+  it("automatically bounds detail processing on a broad rolling architectural height surface",async()=>{
+    const d=createArchitecture("rolling-terrain");d.validation="premap";
     rectangle(d,"terrain",0,0,48,48,0);
-    const layer=d.layers[0];
+    const profile=d.profiles[0];
     for(let x=2;x<48;x+=2)for(let y=2;y<48;y+=2){
       const id=`p${x}_${y}`;
-      layer.vertices.push({id,x,y,z:x>4&&x<44&&y>4&&y<44?.35*(Math.sin(x*Math.PI/3)+Math.sin(y*Math.PI/3)):0});
-      layer.regions[0].interior.push(id);
+      profile.interior.push([x,y,x>4&&x<44&&y>4&&y<44?.35*(Math.sin(x*Math.PI/3)+Math.sin(y*Math.PI/3)):0]);
     }
     const l=await compile(d);
     assert.equal(l.navigation?.coverage.uncoveredCount,0,JSON.stringify(l.navigation?.coverage.uncovered));
@@ -118,28 +117,28 @@ describe("bounded clipping and automatic repairs",()=>{
 });
 describe("static premaps and strict playable documents",()=>{
   it("uses the same slope cutoff for coverage and Recast, including wholly blocked maps",async()=>{
-    const d=createDocument("slope-cutoff");d.validation="premap";
+    const d=createArchitecture("slope-cutoff");d.validation="premap";
     rectangle(d,"slope",0,0,10,10,0);
-    d.layers[0].vertices[1].z=9.005;d.layers[0].vertices[2].z=9.005;
+    d.profiles[0].outer.points![1][2]=9.005;d.profiles[0].outer.points![2][2]=9.005;
     const l=await compile(d);
     assert.ok((l.navigation!.coverage.blockedByReason?.slope??0)>0);
     assert.equal(l.navigation!.coverage.uncoveredCount,0);
     assert.equal(l.navigation!.passed,true);
   });
-  it("round trips the explicit contract, preserves legacy defaults, and invalidates caches",async()=>{
-    const d=createDocument("islands");rectangle(d,"a",0,0,10,10,0);rectangle(d,"b",30,0,10,10,0);
+  it("round trips the explicit contract, preserves native defaults, and invalidates caches",async()=>{
+    const d=createArchitecture("islands");rectangle(d,"a",0,0,10,10,0);rectangle(d,"b",30,0,10,10,0);
     const l=await compile(d);assert.equal(l.navigation!.passed,false);
     const key=l.navigation!.settings.cacheKey;l.document.validation="premap";
     const nav=await bakeNavmesh(l);assert.equal(nav.passed,true);assert.equal(nav.components,2);assert.notEqual(nav.settings.cacheKey,key);
     assert.deepEqual(nav.diagnostics,[]);
-    assert.equal(parseLevelSvgx(serializeLevelSvgx(l.document)).validation,"premap");
-    assert.equal(parseLevelSvgx('<level version="2" id="legacy"/>').validation,"playable");
+    assert.equal(parseAml(serializeAml({...d,validation:"premap"})).validation,"premap");
+    assert.equal(parseAml('<architecture version="1" id="native"/>').validation,"playable");
     const report=await validateForRuntime(l);assert.equal(report.passed,true);assert.equal(report.gameplayReachabilityVerified,false);
   });
   it("classifies steep ground and low clearance as blocked but still rejects explicit routes",async()=>{
-    const d=createDocument("obstacles");d.validation="premap";
+    const d=createArchitecture("obstacles");d.validation="premap";
     rectangle(d,"flat",0,0,20,10,0);rectangle(d,"roof",8,0,4,10,1);
-    rectangle(d,"steep",30,0,10,10,0);d.layers[2].vertices[1].z=20;d.layers[2].vertices[2].z=20;
+    rectangle(d,"steep",30,0,10,10,0);d.profiles[2].outer.points![1][2]=20;d.profiles[2].outer.points![2][2]=20;
     const l=await compile(d);assert.ok((l.navigation!.coverage.blockedCount??0)>0);
     assert.ok((l.navigation!.coverage.blockedByReason?.slope??0)>0);
     assert.ok((l.navigation!.coverage.blockedByReason?.headroom??0)>0);

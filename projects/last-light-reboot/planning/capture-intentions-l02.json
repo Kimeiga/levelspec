@@ -1,0 +1,227 @@
+{
+  "revision": "L02",
+  "state": "planned only; reuse unaffected L01 captures",
+  "protocol": "After model readiness apply public camera forms atomically, then assert actual dataset.view and retain source hash.",
+  "views": [
+    {
+      "id": "W-REG-P-WP1",
+      "position": [
+        26,
+        30,
+        1.86
+      ],
+      "target": [
+        24.0,
+        16.0,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "W-REG-P-WS1",
+      "position": [
+        26,
+        30,
+        1.86
+      ],
+      "target": [
+        12.0,
+        28.0,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "W-PRESS-P-WP1",
+      "position": [
+        36,
+        16,
+        1.86
+      ],
+      "target": [
+        24.0,
+        16.0,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "W-PRESS-P-WS1",
+      "position": [
+        36,
+        16,
+        1.86
+      ],
+      "target": [
+        12.0,
+        28.0,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "E-REG-P-EP1",
+      "position": [
+        94,
+        74,
+        1.86
+      ],
+      "target": [
+        98.0,
+        88.0,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "E-REG-P-ES1",
+      "position": [
+        94,
+        74,
+        1.86
+      ],
+      "target": [
+        108.0,
+        76.0,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "E-PRESS-P-EP1",
+      "position": [
+        108,
+        64,
+        1.86
+      ],
+      "target": [
+        98.0,
+        88.0,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "E-PRESS-P-ES1",
+      "position": [
+        108,
+        64,
+        1.86
+      ],
+      "target": [
+        108.0,
+        76.0,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "W-public-inside",
+      "position": [
+        21,
+        16,
+        1.86
+      ],
+      "target": [
+        26,
+        16,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "W-service-inside",
+      "position": [
+        15,
+        27,
+        1.86
+      ],
+      "target": [
+        26,
+        16,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "E-public-return",
+      "position": [
+        101,
+        80,
+        1.86
+      ],
+      "target": [
+        108,
+        74,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": "E-service-inside",
+      "position": [
+        108,
+        78,
+        1.86
+      ],
+      "target": [
+        108,
+        74,
+        1.86
+      ],
+      "verticalFov": 75,
+      "aspect": [
+        4,
+        3
+      ]
+    }
+  ],
+  "architecture": [
+    "Roof-on whole shell and low/high seams at (35,30) and (91,86)",
+    "Ground interior under low roof looking into high hall; retain roof closure overhead"
+  ]
+}

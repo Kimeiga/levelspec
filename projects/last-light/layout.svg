@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1100" viewBox="0 0 1200 1100">
+<rect width="1200" height="1100" fill="#f7f3e9"/>
+<style>text{font-family:Arial;fill:#243d40}.small{font-size:12px}.label{font-size:14px;font-weight:bold}</style>
+<text x="60" y="35" font-size="26" font-weight="bold">LAST LIGHT GALLERIA · L03</text>
+<text x="60" y="60" font-size="15">5v5 control · +Y north ↑ · meters · shared floor edges are open except heavy drawn walls</text>
+<polygon points="101,674 245,674 245,530 101,530" fill="#dfdccd" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<polygon points="245,638 425,638 425,494 353,494 353,530 245,530" fill="#dfdccd" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<polygon points="101,530 245,530 245,422 317,422 317,278 101,278" fill="#dfdccd" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<polygon points="371,494 479,494 533,440 533,332 479,278 371,278 317,332 317,440" fill="#dfdccd" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<polygon points="749,98 605,98 605,242 749,242" fill="#dfdccd" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<polygon points="605,134 425,134 425,278 497,278 497,242 605,242" fill="#dfdccd" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<polygon points="749,242 605,242 605,350 533,350 533,494 749,494" fill="#dfdccd" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<polygon points="155,404 317,404 317,332 155,332" fill="#d9b4c0" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<polygon points="695,368 533,368 533,440 695,440" fill="#d9b4c0" fill-opacity=".75" stroke="#768581" stroke-width="1.5"/>
+<text x="173" y="661.4" class="label" text-anchor="middle">ANCHOR-A +0</text>
+<text x="335" y="629" class="label" text-anchor="middle">SOUTH +0</text>
+<text x="218" y="296" class="label" text-anchor="middle">ARCADE +0</text>
+<text x="425" y="305" class="label" text-anchor="middle">COURT +0</text>
+<text x="677" y="116" class="label" text-anchor="middle">ANCHOR-B +0</text>
+<text x="515" y="152" class="label" text-anchor="middle">NORTH +0</text>
+<text x="632" y="476" class="label" text-anchor="middle">CINEMA +0</text>
+<text x="254" y="395" class="label" text-anchor="middle">FOOD-LOFT +3</text>
+<text x="596" y="377" class="label" text-anchor="middle">PROJECTION-LOFT +3</text>
+<polygon points="411.5,404 438.5,404 438.5,368 411.5,368" fill="#607c79" stroke="#465957"/>
+<text x="425.0" y="386.0" font-size="9" text-anchor="middle">LIFT</text>
+<polygon points="290,593 335,593 335,557 290,557" fill="#607c79" stroke="#465957"/>
+<text x="312.5" y="575.0" font-size="9" text-anchor="middle">A-KIOSK</text>
+<polygon points="173,602 209,602 209,548 173,548" fill="#607c79" stroke="#465957"/>
+<text x="191.0" y="575.0" font-size="9" text-anchor="middle">A-CORE</text>
+<polygon points="371,552.5 407,552.5 407,541.7 371,541.7" fill="#c7888e" stroke="#465957"/>
+<text x="389.0" y="547.1" font-size="9" text-anchor="middle">A-LOW</text>
+<polygon points="101,467 119,467 119,422 101,422" fill="#607c79" stroke="#465957"/>
+<text x="110.0" y="444.5" font-size="9" text-anchor="middle">ARCADE-CABINETS</text>
+<polygon points="227,354.5 272,354.5 272,332.0 227,332.0" fill="#c7888e" stroke="#465957"/>
+<text x="249.5" y="343.25" font-size="9" text-anchor="middle">WEST-COUNTER</text>
+<polygon points="560,179 515,179 515,215 560,215" fill="#607c79" stroke="#465957"/>
+<text x="537.5" y="197.0" font-size="9" text-anchor="middle">B-KIOSK</text>
+<polygon points="677,170 641,170 641,224 677,224" fill="#607c79" stroke="#465957"/>
+<text x="659.0" y="197.0" font-size="9" text-anchor="middle">B-CORE</text>
+<polygon points="479,219.5 443,219.5 443,230.3 479,230.3" fill="#c7888e" stroke="#465957"/>
+<text x="461.0" y="224.89999999999998" font-size="9" text-anchor="middle">B-LOW</text>
+<polygon points="749,305 731,305 731,350 749,350" fill="#607c79" stroke="#465957"/>
+<text x="740.0" y="327.5" font-size="9" text-anchor="middle">CINEMA-COUNTER</text>
+<polygon points="623,417.5 578,417.5 578,440.0 623,440.0" fill="#c7888e" stroke="#465957"/>
+<text x="600.5" y="428.75" font-size="9" text-anchor="middle">EAST-COUNTER</text>
+<polygon points="362,440 398,440 398,430.09999999999997 362,430.09999999999997" fill="#c7888e" stroke="#465957"/>
+<text x="380.0" y="435.05" font-size="9" text-anchor="middle">F-SOUTH</text>
+<polygon points="452,341.90000000000003 488,341.90000000000003 488,332.0 452,332.0" fill="#c7888e" stroke="#465957"/>
+<text x="470.0" y="336.95" font-size="9" text-anchor="middle">F-NORTH</text>
+<line x1="245" y1="674" x2="245" y2="620" stroke="#304c4b" stroke-width="4"/>
+<line x1="245" y1="566" x2="245" y2="530" stroke="#304c4b" stroke-width="4"/>
+<line x1="101" y1="530" x2="119" y2="530" stroke="#304c4b" stroke-width="4"/>
+<line x1="173" y1="530" x2="245" y2="530" stroke="#304c4b" stroke-width="4"/>
+<line x1="605" y1="98" x2="605" y2="152" stroke="#304c4b" stroke-width="4"/>
+<line x1="605" y1="206" x2="605" y2="242" stroke="#304c4b" stroke-width="4"/>
+<line x1="749" y1="242" x2="731" y2="242" stroke="#304c4b" stroke-width="4"/>
+<line x1="677" y1="242" x2="605" y2="242" stroke="#304c4b" stroke-width="4"/>
+<line x1="317" y1="404" x2="317" y2="386" stroke="#72384b" stroke-width="4"/>
+<line x1="317" y1="386" x2="317" y2="350" stroke="#72384b" stroke-width="4"/>
+<line x1="317" y1="350" x2="317" y2="332" stroke="#72384b" stroke-width="4"/>
+<line x1="533" y1="440" x2="533" y2="422" stroke="#72384b" stroke-width="4"/>
+<line x1="533" y1="422" x2="533" y2="386" stroke="#72384b" stroke-width="4"/>
+<line x1="533" y1="386" x2="533" y2="368" stroke="#72384b" stroke-width="4"/>
+<line x1="155" y1="404" x2="155" y2="332" stroke="#72384b" stroke-width="4"/>
+<line x1="155" y1="332" x2="317" y2="332" stroke="#72384b" stroke-width="4"/>
+<line x1="209" y1="404" x2="317" y2="404" stroke="#72384b" stroke-width="4"/>
+<line x1="695" y1="368" x2="695" y2="440" stroke="#72384b" stroke-width="4"/>
+<line x1="695" y1="440" x2="533" y2="440" stroke="#72384b" stroke-width="4"/>
+<line x1="641" y1="368" x2="533" y2="368" stroke="#72384b" stroke-width="4"/>
+<polygon points="155.0,512 209.0,512 209.0,404 155.0,404" fill="#a3bfc1" stroke="#405c5e"/>
+<line x1="155.0" y1="506.6" x2="209.0" y2="506.6" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="501.20000000000005" x2="209.0" y2="501.20000000000005" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="495.79999999999995" x2="209.0" y2="495.79999999999995" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="490.4" x2="209.0" y2="490.4" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="485.0" x2="209.0" y2="485.0" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="479.6" x2="209.0" y2="479.6" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="474.20000000000005" x2="209.0" y2="474.20000000000005" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="468.79999999999995" x2="209.0" y2="468.79999999999995" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="463.4" x2="209.0" y2="463.4" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="458.0" x2="209.0" y2="458.0" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="452.59999999999997" x2="209.0" y2="452.59999999999997" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="447.2" x2="209.0" y2="447.2" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="441.8" x2="209.0" y2="441.8" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="436.40000000000003" x2="209.0" y2="436.40000000000003" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="431.0" x2="209.0" y2="431.0" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="425.59999999999997" x2="209.0" y2="425.59999999999997" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="420.2" x2="209.0" y2="420.2" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="414.8" x2="209.0" y2="414.8" stroke="#56777a" stroke-width=".7"/>
+<line x1="155.0" y1="409.40000000000003" x2="209.0" y2="409.40000000000003" stroke="#56777a" stroke-width=".7"/>
+<text x="182" y="458.0" class="small" text-anchor="middle">20 × .15</text>
+<polygon points="641.0,260 695.0,260 695.0,368 641.0,368" fill="#a3bfc1" stroke="#405c5e"/>
+<line x1="641.0" y1="265.40000000000003" x2="695.0" y2="265.40000000000003" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="270.8" x2="695.0" y2="270.8" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="276.2" x2="695.0" y2="276.2" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="281.59999999999997" x2="695.0" y2="281.59999999999997" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="287.0" x2="695.0" y2="287.0" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="292.40000000000003" x2="695.0" y2="292.40000000000003" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="297.8" x2="695.0" y2="297.8" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="303.2" x2="695.0" y2="303.2" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="308.59999999999997" x2="695.0" y2="308.59999999999997" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="314.0" x2="695.0" y2="314.0" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="319.40000000000003" x2="695.0" y2="319.40000000000003" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="324.8" x2="695.0" y2="324.8" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="330.2" x2="695.0" y2="330.2" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="335.59999999999997" x2="695.0" y2="335.59999999999997" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="341.0" x2="695.0" y2="341.0" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="346.40000000000003" x2="695.0" y2="346.40000000000003" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="351.8" x2="695.0" y2="351.8" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="357.2" x2="695.0" y2="357.2" stroke="#56777a" stroke-width=".7"/>
+<line x1="641.0" y1="362.59999999999997" x2="695.0" y2="362.59999999999997" stroke="#56777a" stroke-width=".7"/>
+<text x="668" y="314.0" class="small" text-anchor="middle">20 × .15</text>
+<circle cx="128" cy="647" r="4" fill="#19869a"/>
+<circle cx="155" cy="647" r="4" fill="#19869a"/>
+<circle cx="182" cy="647" r="4" fill="#19869a"/>
+<circle cx="128" cy="620" r="4" fill="#19869a"/>
+<circle cx="155" cy="620" r="4" fill="#19869a"/>
+<circle cx="722" cy="125" r="4" fill="#cd6f40"/>
+<circle cx="695" cy="125" r="4" fill="#cd6f40"/>
+<circle cx="668" cy="125" r="4" fill="#cd6f40"/>
+<circle cx="722" cy="152" r="4" fill="#cd6f40"/>
+<circle cx="695" cy="152" r="4" fill="#cd6f40"/>
+<circle cx="425" cy="386" r="63" fill="none" stroke="#d39c38" stroke-width="3" stroke-dasharray="9 5"/>
+<text x="810" y="95" font-size="14" font-weight="bold">BODY / CAMERA</text>
+<text x="810" y="117" font-size="13" font-weight="normal">Radius .40 · stand 2.00 · crouch 1.15</text>
+<text x="810" y="139" font-size="13" font-weight="normal">Step .30 · slope 42° · eye 1.86 / 1.07</text>
+<text x="810" y="161" font-size="13" font-weight="normal">Inspection fov 75° vertical</text>
+<text x="810" y="183" font-size="13" font-weight="normal"></text>
+<text x="810" y="205" font-size="14" font-weight="bold">GROUND / LOFT INTERFACES</text>
+<text x="810" y="227" font-size="13" font-weight="normal">Ground slab top 0 / thickness .35</text>
+<text x="810" y="249" font-size="13" font-weight="normal">Lofts top +3 / underside +2.65</text>
+<text x="810" y="271" font-size="13" font-weight="normal">Stairs 6m wide · 12m run · 20 risers</text>
+<text x="810" y="293" font-size="13" font-weight="normal">Full 6×8m receiving landing</text>
+<text x="810" y="315" font-size="13" font-weight="normal">Low front guards 1.1; side cheeks 2.6</text>
+<text x="810" y="337" font-size="13" font-weight="normal">No upper bridge / no required jump</text>
+<text x="810" y="359" font-size="13" font-weight="normal"></text>
+<text x="810" y="381" font-size="13" font-weight="normal">COURT MOUTHS (clear before walls)</text>
+<text x="810" y="403" font-size="13" font-weight="normal">South X34–40 / Y24: 6m</text>
+<text x="810" y="425" font-size="13" font-weight="normal">North X40–46 / Y48: 6m</text>
+<text x="810" y="447" font-size="13" font-weight="normal">West X28 / Y32–42: 10m</text>
+<text x="810" y="469" font-size="13" font-weight="normal">East X52 / Y30–40: 10m</text>
+<text x="810" y="491" font-size="13" font-weight="normal">Walls .24m / 5.8m high</text>
+<text x="810" y="513" font-size="13" font-weight="normal"></text>
+<text x="810" y="535" font-size="14" font-weight="bold">READING</text>
+<text x="810" y="557" font-size="13" font-weight="normal">Teal masses: tall optical screens</text>
+<text x="810" y="579" font-size="13" font-weight="normal">Pink masses: low cover, upper exposed</text>
+<text x="810" y="601" font-size="13" font-weight="normal">Pink floor: +3m occupied loft</text>
+<text x="810" y="623" font-size="13" font-weight="normal">Orange dashed: proposed control ring</text>
+<text x="810" y="645" font-size="13" font-weight="normal">White voids: sealed retail / exterior</text>
+<text x="60" y="775" class="label">SECTION X–X · Y36 · LOOK NORTH · predicted height relationships</text>
+<rect x="96" y="920" width="648" height="6.3" fill="#747f7c"/>
+<rect x="150" y="866" width="162" height="6.3" fill="#747f7c"/>
+<rect x="528" y="866" width="162" height="6.3" fill="#747f7c"/>
+<rect x="312" y="846.2" width="3" height="19.8" fill="#455f5d"/>
+<rect x="528" y="846.2" width="3" height="19.8" fill="#455f5d"/>
+<rect x="406.5" y="815.6" width="27" height="104.39999999999999" fill="#455f5d"/>
+<circle cx="285" cy="832.52" r="4" fill="#c7774c"/>
+<line x1="285" y1="832.52" x2="420" y2="832.52" stroke="#bb7645" stroke-dasharray="5 4"/>
+<circle cx="555" cy="832.52" r="4" fill="#c7774c"/>
+<line x1="555" y1="832.52" x2="420" y2="832.52" stroke="#bb7645" stroke-dasharray="5 4"/>
+<text x="60" y="968" class="small">Ground mouths below lofts: 2.65m clear. Lift opaque through +5.8; upper-to-upper center ray intercepted.</text>
+<text x="60" y="992" class="small">Guards are low cover; lofts can see outer control sectors. Full crouch / ascending / offset views remain compiled checks.</text>
+<text x="60" y="1040" font-size="13">Ground loop: A → South → Court → Arcade → A. Opposing loop B → North → Court → Cinema → B.</text>
+<text x="60" y="1064" font-size="13">Upper lofts are local cul-de-sacs with reverse stair exits; ground passages continue underneath.</text>
+</svg>

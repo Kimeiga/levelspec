@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "concept": {
+    "image": "concept.png",
+    "prompt": "concept-prompt.txt",
+    "generation": "exec-c3375b7e-1434-4209-abd5-80fd291e54a2",
+    "references": [
+      "generated/liquor-props/store-surfaces/capture-r01/wide-store.png",
+      "generated/liquor-props/clean-stock/catalog-r03/shop-counter-front.png",
+      "generated/liquor-props/references/bo-kee.jpg"
+    ]
+  },
+  "texture": {
+    "image": "wood-source.png",
+    "prompt": "wood-source-prompt.txt",
+    "generation": "exec-ce20c198-5739-457b-be28-0715a6dd016d",
+    "reference": "concept.png"
+  },
+  "hashes": {
+    "concept.png": "c039aa8febd8e80f256813c76b701b966d9670fdfe1e595e56e43b8b9ea4a488",
+    "wood-source.png": "4b81364aefd59d6bb01ce9e9467a6c9d719f45ec13226741307b8a9ba3fccae3"
+  },
+  "usage": "Concept study and flat timber source; runtime materials are baked with procedural edge/joint wear, dirt, faint paper remnants and normal/roughness variation. The reference shop photograph was used as visual context, not copied into the texture."
+}

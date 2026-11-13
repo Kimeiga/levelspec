@@ -1,0 +1,7 @@
+{
+  "type": "image_to_model",
+  "task_id": "da79f4e3-8a8f-429d-b5ea-807c1ec782f1",
+  "model_file": "projects/kowloon-balcony-props/source-models/snake-plant/model.glb",
+  "sha256": "a78d23888b1e90541391f5c8e27050babe4ccd88f6c7a740d9e10a770d96c961",
+  "credits_consumed": 50
+}

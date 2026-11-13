@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen",
+  "source": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-3edea3d2-3f6e-40c2-ae18-f2df65fd1113.png",
+  "output": "projects/kowloon-liquor-props/materials/shelf-weathering/wood-long-source.png",
+  "sha256": "7d95b15cc6439933eab42848ce5fc9779a4542e21f767205b450a5f2a2d39cbd",
+  "prompt": "projects/kowloon-liquor-props/materials/shelf-weathering/wood-long-source-prompt.txt",
+  "promptSha256": "0250d31751f9ab914e46985f834ad9d5be7fcb6e604884dd3686112d4e7e7543"
+}

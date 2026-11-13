@@ -1,0 +1,43 @@
+{
+  "revision": "L01",
+  "stage": "Developed layout: separate independent strategy and spatial/visibility gates open; no production AML",
+  "selectedAlternative": "B / Loft Street",
+  "visuallyInspected": [
+    "ground-l01.png",
+    "middle-l01.png",
+    "roof-l01.png",
+    "sections-l01.png",
+    "aperture-comparison-l01.png"
+  ],
+  "originalHashesUnchanged": true,
+  "plannedRouteSamples": {
+    "count": 9,
+    "step": 0.25,
+    "radius": 0.25,
+    "height": 2,
+    "issues": 0,
+    "scope": "limited polygon/analytic-flight planning, not native collision or continuous proof"
+  },
+  "plannedViewBodyPositions": {
+    "wallPropConflicts": 0,
+    "scope": "standing endpoint wall/prop screening only"
+  },
+  "sha256": {
+    "aperture-comparison-l01.png": "0b4f88db37e50744908e3b3680681d578af74dbad70061adcf6e2eb750919bc8",
+    "aperture-comparison-l01.svg": "e7bc69a05b91c58b8b8561a98b77c24cc5250384a6e9f8bb0c0b167580d94d33",
+    "check-plan.py": "96319e9a5a0a270d39bfa6750fa9cb4096a5ea19b3e00eed1f5415705ae2ca08",
+    "draw-layout.py": "600f15a6ba7ab5d9c7f352cafd5b0f4725955806eeb482eae1e3d7acdf460189",
+    "draw-sections.py": "8c60f30a680cb2000e7eaa3aa0b7b9582cc6bd01356703015c61b34e019d36ab",
+    "ground-l01.png": "4485b629ac0f1b1976bcb32f9c5ef788aaf573de7bdef3e3b49c8f902f3b052f",
+    "ground-l01.svg": "1b15cd6614c068103c15f5c8c0a86ad804194660bc38e75731097356f96b7bc1",
+    "layout-data.json": "42710c8335259b6e7c197e54596ddd5a86f9a966c41a44529e7b34baa0247e3e",
+    "middle-l01.png": "fefb1bad6a6405a37a7cda05a43f7c8245e5f2efb57e86d81c31a7c779a74ead",
+    "middle-l01.svg": "9c1740b211903a081cd68fa976bd2bc58305f2b35e9db67da9b939ca028ca571",
+    "planning-checks.json": "9d670edddab41b27f48d0028309a3ea2fef2420f77869be2abc6204f3f8d47e3",
+    "review-packet.md": "951be6476c02c5c84c5e77e66154e004c54e758f4b571ceae597029455485762",
+    "roof-l01.png": "67721fffe30822f83f79010edcf8c97481b062e00e90b53aca71ab879476654b",
+    "roof-l01.svg": "98685dd053f2cf689b23d1e5bf29c3401f5a5dca3bde6b1e9f6ca387e4af6b55",
+    "sections-l01.png": "2a15b2f02e62380cebab0eca3c4a4ef5d54675bb43fa2b4dfa2bd533b43b6f25",
+    "sections-l01.svg": "c96260225a683b5980f3014ebc3c244cf089d0c60a8607db9ca08238f4433ead"
+  }
+}

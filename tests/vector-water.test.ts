@@ -1,23 +1,21 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { createDocument, compile, collisionMesh, bakeNavmesh, parseLevelSvgx, serializeLevelSvgx, toRuntime, toGLB, type LevelDocument, type Region, type V3 } from "../src/vector/index.ts";
+import { createArchitecture, compile, collisionMesh, bakeNavmesh, parseAml, serializeAml, toRuntime, toGLB, type ArchitectureDocument, type V3 } from "levelspec";
 import { movementLevel } from "../src/vector/movement.ts";
 
-function rect(d: LevelDocument, id: string, x: number, y: number, w: number, h: number, z: number, fill: Region["fill"] = "floor") {
-  const vertices = [[x,y],[x+w,y],[x+w,y+h],[x,y+h]].map(([x,y],i)=>({id:`${id}_v${i}`,x,y,z}));
-  const edges = vertices.map((v,i)=>({id:`${id}_e${i}`,from:v.id,to:vertices[(i+1)%4].id,kind:"open" as const,openings:[]}));
-  const region: Region = {id,boundary:edges.map(e=>e.id),fill,holes:[],interior:[],creases:[]};
-  d.layers.push({id:`${id}_layer`,vertices,edges,regions:[region]});
-  return region;
+function rect(d: ArchitectureDocument, id: string, x: number, y: number, w: number, h: number, z: number, fill: "floor"|"water" = "floor") {
+  const profile={id:id+':profile',outer:{points:[[x,y,z],[x+w,y,z],[x+w,y+h,z],[x,y+h,z]] as V3[]},holes:[],interior:[],breaklines:[]};d.profiles.push(profile);
+  const element=fill==='water'?{kind:'water' as const,id,profile:profile.id,elevation:0}:{kind:'slab' as const,id,profile:profile.id,elevation:0,thickness:.2};d.elements.push(element);return element;
 }
+
 function lake() {
-  const d=createDocument("water-test");
+  const d=createArchitecture("water-test");
   rect(d,"bed",0,0,20,20,0);
   rect(d,"lake",0,0,20,20,3,"water");
   d.boat={radius:1,draft:0.5,height:2};
   return d;
 }
-function route(d: LevelDocument, id: string, a: V3, b: V3, movement: "land"|"water") {
+function route(d: ArchitectureDocument, id: string, a: V3, b: V3, movement: "land"|"water") {
   for(const [suffix,position] of [["a",a],["b",b]] as const)
     d.markers.push({id:`${id}_${suffix}`,position:[...position],layer:movement==="water"?"lake_layer":"bed_layer",kind:"poi",movement});
   d.routes.push({id,from:`${id}_a`,to:`${id}_b`,minRoutes:1,movement});
@@ -33,7 +31,7 @@ describe("water surfaces and independent movement",()=>{
     assert.ok(solidTriangles.length>0,"the lake bed must have solid geometry");
     for(const sealed of [false,true]) {
       const collision=collisionMesh(l,sealed);
-      assert.deepEqual(collision.surfaces,solidTriangles,"collision must retain terrain and exclude water");
+      assert.ok(collision.surfaces.every(index=>l.surfaces[index].kind!=="water"&&l.surfaces[index].object==="bed"),"collision must retain native bed ownership and exclude water");
       assert.equal(collision.indices.length,solidTriangles.length*3);
     }
     const runtime=toRuntime(l);
@@ -45,7 +43,7 @@ describe("water surfaces and independent movement",()=>{
   it("round trips water, boat profiles and movement markers; exports non-solid water",async()=>{
     const d=lake();
     d.markers.push({id:"tree",layer:"bed_layer",position:[200,200,0],kind:"decoration",movement:"none"});
-    const parsed=parseLevelSvgx(serializeLevelSvgx(d));
+    const parsed=parseAml(serializeAml(d));
     assert.deepEqual(parsed.boat,d.boat);
     assert.equal(parsed.markers[0].movement,"none");
     const l=await compile(parsed);
@@ -74,12 +72,12 @@ describe("water surfaces and independent movement",()=>{
     assert.equal(high.waterNavigation!.routes[0].reachable,true);
     high.document.boat!.height=4;
     assert.equal((await bakeNavmesh(high,{movement:"water"})).routes[0].reachable,false);
-    bridge.layers.find(l=>l.id==="bridge_layer")!.vertices.forEach(v=>v.z=4);
+    bridge.profiles.find(p=>p.id==="bridge:profile")!.outer.points!.forEach(p=>p[2]=4);
     const low=await compile(bridge);
     assert.equal(low.waterNavigation!.routes[0].reachable,false);
   });
   it("honors boat width and draft and invalidates the navigation cache",async()=>{
-    const d=createDocument("channel-test");
+    const d=createArchitecture("channel-test");
     rect(d,"bed",0,0,4,20,0);
     rect(d,"lake",0,0,4,20,1,"water");
     d.boat={radius:0.5,draft:0.5,height:2};
@@ -109,15 +107,15 @@ describe("water surfaces and independent movement",()=>{
     assert.equal(l.navigation!.routes[0].reachable,false);
   });
   it("rejects a sloping water surface and invalid boat dimensions",async()=>{
-    const d=lake();d.layers[1].vertices[0].z=4;
+    const d=lake();d.profiles.find(p=>p.id==="lake:profile")!.outer.points![0][2]=4;
     const l=await compile(d,{navigation:false});
-    assert.ok(l.diagnostics.some(d=>d.message.includes("one surface elevation")));
-    assert.throws(()=>parseLevelSvgx('<level version="2" id="bad"><boat draft="-1"/></level>'));
+    assert.ok(l.diagnostics.some(d=>/horizontal|planar|one surface elevation/i.test(d.message)));
+    const badBoat=lake();badBoat.boat!.draft=-1;const rejected=await compile(parseAml(serializeAml(badBoat)));assert.ok(rejected.diagnostics.some(d=>d.severity==="error"&&/boat|draft/i.test(d.message)));
   });
   it("clips a sloping shoreline without duplicating endpoint fragments", async()=>{
-    const d=createDocument("shoreline");
+    const d=createArchitecture("shoreline");
     rect(d,"bed",54,42,2,2,0);
-    d.layers[0].vertices.forEach((v,i)=>v.z=[1.873,2.262,3.15,2.761][i]);
+    d.profiles[0].outer.points!.forEach((p,i)=>p[2]=[1.873,2.262,3.15,2.761][i]);
     rect(d,"lake",54,42,2,2,3,"water");
     const l=await compile(d,{navigation:false});
     const land=movementLevel(l,{movement:"land"});
@@ -125,7 +123,7 @@ describe("water surfaces and independent movement",()=>{
     for(const f of land.floors) for(const p of f.points) assert.ok(p[2]>=3-1e-6);
   });
   it("excludes water with unknown depth and reports why",async()=>{
-    const d=createDocument("no-bed");rect(d,"lake",0,0,10,10,3,"water");
+    const d=createArchitecture("no-bed");rect(d,"lake",0,0,10,10,3,"water");
     const l=await compile(d);
     assert.equal(l.waterNavigation!.indices.length,0);
     assert.ok(l.waterNavigation!.diagnostics.some(d=>d.code==="WATER_DEPTH_UNKNOWN"));

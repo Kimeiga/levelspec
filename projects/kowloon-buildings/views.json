@@ -1,0 +1,5 @@
+[
+  {"id":"overview","position":[18,-22,16],"target":[4,2.5,4.5],"projection":"perspective","fov":45,"appearance":"full-render"},
+  {"id":"facade","position":[9,-12,7],"target":[4,0,5.8],"projection":"perspective","fov":42,"appearance":"full-render"},
+  {"id":"roof","position":[16,17,21],"target":[4,3,6.7],"projection":"perspective","fov":44,"appearance":"full-render"}
+]

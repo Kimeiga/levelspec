@@ -1,0 +1,9 @@
+# R02 spatial return — promising
+
+Root visually inspected `composition.png`, `floor-4.png` and `floor-8.png`, retained with exact data/hashes in `evidence/root-r02-return/`. This revisits the required composition finding in `interest-root-l01-working.md`; it does not accept the unfinished detailed interfaces or authorize AML.
+
+**Promising.** Laundry now has an occupied ground undercroft, an internal return stair and an upper street frontage within one building. School has a real lower arcade and upper occupied room with an internal transfer. The chapel journey stops at a +6 m porch before continuing around the building edge; this introduces a different preparation/continuation condition from simply reaching the next terrace. Bell's public turning ascent and Customs' cart-road access differ in their enclosing structures, arrival and exposure. Press enters beneath West Homes and reaches its A-facing side, whereas the bridge arrives on the other side of that same mass.
+
+The two shoulders and shoreline still establish different territorial commitments, but the local journeys now rely on actual building/level relationships. This is a substantive response to the repeated-pad finding, beyond curving eight equivalent flights. The early architectural composition finding is closed for this working R02; exact movement and tactical claims are still hypotheses.
+
+Before the detailed freeze, resolve all explicit portals and stair/upper-floor holes, especially School-upper→CT and Laundry-upper→Press; provide coordinate sections through the shared volumes. Clarify the legend for stair holes, occupied interiors and scenic mass. Fresh author-independent strategy and section visibility reviewers must assess the changed relationships, including support lost during turns and the new intermediate porch. Their acceptance is still required before production. Retain the rejected L01 and do not relabel its evidence as R02.

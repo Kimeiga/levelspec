@@ -1,0 +1,37 @@
+# L02 design and review packet
+
+Read layout.svg / layout-data.json before this rationale. L01 accepted as promising; the east stair now rises westward from (68,48,0) to (56,48,2.4), outside the ground court mouth. No feature retired; ST-E relocated, tea terrace east end reduced to x56, repair yard extends to y40 for the second garage exit. The clothes yard is a protected regrouping pocket off the west spawn's north exit, wrapping a textile stall before the west stair. It is not an extra path behind the terrace.
+
+## Game assumptions
+
+No engine or hero settings exist for this project. Design for ten players: nominal one durable frontliner, two damage heroes and two supports per team, but no role lock. Single control point in Auction Court, x34–50/y24–40; objective marker (46,32,0) is clear of the kiosk. Point opens at 25s; one living team alone accrues 1%/s to 100%, contest pauses; 10s respawn waves; sides swap each round. These are proposed integration settings, not implemented game rules.
+
+Body radius0.35m, standing height1.8m, crouch1.1m, step0.25m, slope42°. Standing/crouching inspection eyes1.674/1.023m. Nominal hero movement5.5m/s; no sprint assumed. Main routes require no jump, dash, flight, wall climb, crouch or utility. Flying/dashing heroes and large tank capsules require target-engine review; nominal geometry is enclosed by 5.2m market boundary, which is not a game ability boundary. No health pickups proposed: supports retain a role. Generic sighted projectiles/hitscan and healing line of sight; splash/shields and ultimate charges unspecified. No destructible cover assumed. Ballistic, sound, ability and spawn team-filter behavior is unimplemented.
+
+Two roofed garage spawn rooms, five separated markers each. Engine must implement team-filtered spawn protection and enemy exclusion at both exits; walls/screens prevent straightforward point-to-spawn views, pending compiled evidence. Respawn positions alone do not implement safety. Entry conditions and round swaps belong to external engine.
+
+## Territory hypotheses
+
+Auction court is the scoring territory, 28×24m, with offset west/east mouths and a southern hall threshold. AUCTION kiosk 4×4×3.2m separates point into connected quadrants; it permits breaking sight without abandoning all scoring floor. It is collision/optically solid; ballistic behavior must be configured in engine. A 5-player group can approach together through each mouth; nominal widths allow passing/trading without a single-body funnel. Cover C-W and C-E are offset 4×2×1.1m bench displays; standing exposes upper body and crouch has little margin. C-N gives a fallback along the west court edge; C-S 3×2×2.4m wardrobe shields part of the south approach but leaves 8m east of it. Verify elevated exposure from tea; these benches are not guaranteed refuges against that angle.
+
+Tea terrace is a single raised shared front, +2.4m, with two 6m stairs in different directions. The 12m central screen TEA-SCREEN rises to +5.2m absolute and withholds a panoramic perch. Its two viewing bays are separated by a long opaque frontage; occupants cross the rear walking band to change bay, conceding view temporarily. The parapet is 1.15m above terrace, so standing eye clears it, crouch eye is below it. Kiosk screens lower court feet from some terrace angles. C-TEA is low cover inside the terrace, allowing a crouched rear reset, not a shield from all opposing ground views. Terrace has no scoring area and no rear exit. W stair's court-side wall hides most ascent; E flight is open toward books/approach and needs follower support. Neither stair should block its ground court mouth.
+
+West team is closer to appliance hall; east team is closer to tea. Opening delay permits initial staging; sides swap compensates only match structure, not an untested round advantage. A 3 court / 2 terrace setup trades strength in the south hall for upper information. A 4 court / 1 hall setup contests scoring while threatening the opposite threshold, but must cede tea and break sight around the kiosk. Sending two deep around repair island consumes ~10–15s by distance estimates and leaves 3 allies to contest; a lone flank cannot be assumed to defeat a full hold.
+
+Retake 5v5: stage behind shoe/book screens, show pressure at main mouth, send two to the hall or terrace, then commit together. In a 3v5, regroup behind screens and await the 10s wave instead of splitting into three exposed entries. If two supports occupy tea, court allies can lose healing behind kiosk and central screen; team must reposition or descend. A winning team pushing into an enemy spawn concedes point attendance and may face two exits, but engine protection is still required. Overtime and elimination behavior not specified; target-engine playtests must cover stagger loops and full team wipes.
+
+## Construction and section predictions
+
+All ground slabs top0, thickness0.3m. Solid retaining structure beneath terrace, slab2.05–2.4m, no walk-under route. 16 stair risers at0.15m, tread0.75m, filled body; 6m width. W starts(25,32,0), ends(25,44,2.4); E starts(68,48,0), ends(56,48,2.4). Roofs/canopies nonplayable; visual cloth awnings do not collide, posts/fixtures do. Standing headroom under cloth≥3.8m; garage roofs4.6m. Walls at boundary and flank of terrace prevent unintended floor exits. No guard on internal terrace-to-court edge beyond parapet; vault/drop behavior needs engine verification, and stairs are the intended return.
+
+Scope sections for review: S1 west garage/exits/screens; S2 clothes/shoes and west stair; S3 court W/S; S4 court E and books; S5 east garage/two exits; S6 repair/hall loop; S7 tea and both stairs, opposing low-cover views. Predicted support and views in this document are hypotheses until compiled inspection. Ask spatial reviewer for topology + construction + circulation, visibility reviewer for every section, strategy reviewer for 5v5, 3v5, retake, tea hold and spawn pressure.
+
+## L03 spawn sight repair
+
+Visibility review identified an unblocked L02 ray from point (46,40,1.674) to east marker anchor (77,48,1.674). EAST-SCREEN's north end was insufficient. Added garage baffles W-INNER x9.5–10,y12–22,top3.5 and E-INNER x74–74.5,y42–54,top3.5. They separate protected marker pockets from the two garage exits without building through the east stair. West protected marker pocket x3–7,y13–19; east x78–81,y44–52. Clear west primary circulation goes south of baffle through a 4m band, north exit direct; east exits circulate via 2m north/south bands. Adjusted dotted journeys. These bands must be inspected at body height; they are not a second protected combat front.
+
+Strategy review accepted L02 for blockout with two explicit investigation targets retained: early E access to terrace is faster than W; the unlock delay is preparation time, not prevention of first contact. Side swaps alone do not prove fairness. EAST-RETURN makes both E exits reconverge around books: inspect near (67,38,0), change return if one close hold covers both. Hall north-aisle rotation can be 8–10s; 10–15s applies only to deeper paths, not minimum rotation.
+
+## L04 hall connection repair
+
+Visibility review found SE-SHOP's L02/L03 south extent at y16 pinched the hall's east north aisle to 2m, and the drawn journey y17 ran through the shop. SE-SHOP now begins at y20, leaving the intended 6m north aisle between REPAIR-ISLAND y14 and court south frontage y20. This preserves the broad two-player retake route; no cover added to compensate. Doors, kiosk, objective and stairs unchanged.

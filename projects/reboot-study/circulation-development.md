@@ -1,0 +1,17 @@
+# Circulation variation in the three reboots
+
+The user's added direction is spatial: neighboring paths can run alongside one another at different heights, pass through occupied rooms, or share a stairwell. A climb can turn through 90/180-degree landings or follow a curved/spiral path. These are design opportunities, not required feature totals.
+
+The reusable guidance now lives in `.agents/skills/level-authoring/SKILL.md` (architectural interest and actual circulation checks), `fps-map-workflow/references/node-to-space.md` (granular edge-to-space relationships), and `fps-combat-geometry/SKILL.md` (leader/follower/opponent views around turns). Their skill validators and whitespace check passed. Existing unrelated skill edits are preserved.
+
+## Current comparisons
+
+- **Ninefold:** [NF-V01](../ninefold-reboot/production-layout/shared-volume-option.png) compares the existing straight S5 with two flights, a quarter-turn and a gallery above the occupied Boiler court. R08 is independently accepted as the preferred blockout. Independent local review finds the option worthwhile to study, while School staging, adjoining masses, roof commitment and new lower/upper information need a complete comparison before selection. The independent macro return recommends retaining R08: the new gallery would compromise the current roof-bypass isolation while consuming School staging. Root disposition is **deferred** as a future purposeful court/roof experiment; no change is credited to R08.
+- **Galini:** [turns and neighbors](../galini-reboot/planning/l03/turns-and-neighbors.png) makes the existing six return/quarter-turn systems explicit. Laundry, Press and School share actual building volumes; the lower School arcade remains outside the landing's low underside. The C11 native prototype is now accepted in all three independent review scopes, with actual [roof-on geometry](../galini-reboot/reviews/evidence/c11/roof-on.png) and [turn boards](../galini-reboot/reviews/evidence/c11/boards/index.json). Ordinary CLI publication and bounded navigation/placement limitations remain separate. This does not need an extra spiral solely to add another shape.
+- **Last Light:** the [P01 west-atrium option](../last-light-reboot/planning/stair-comparison-p01.png) became the independently adopted [C02 native variant](../last-light-reboot/level-c02.aml). Its broad 80-degree curved flight has a tangent landing and raised late soffit over the existing G1 approach. The actual comparison records narrower usable width, a 4.547-second faster western public return, a 13.280-second service-route lag, staged leader/follower views and a deliberately offset observation pocket. The [adoption record](../last-light-reboot/reviews/adoption-c02.json) links all three final reviews; frozen C01 remains available for comparison.
+
+## Native capability check
+
+`generated/reboot-stair-syntax/quarter-curve.aml` verifies an analytic arc path with independent 0-to-3.6 m elevation, 24 horizontal treads, a sloped underside and hosted parapets. The native compiler returned no diagnostics with navigation disabled. This is a syntax/construction probe only; it does not establish map clearance, walking, gameplay visibility or a spiral's overlapping-flight headroom.
+
+Ninefold R08, Last Light C02 and Galini C11 have completed all three independent compiled review scopes. The [results gallery](results.md) links actual images and the remaining verification limits. The original three source/layout identities remain unchanged, as recorded in `original-integrity-current.json`.

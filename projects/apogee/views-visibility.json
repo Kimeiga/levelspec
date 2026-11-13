@@ -1,0 +1,53 @@
+[
+  {
+    "id": "CT-pocket-to-control",
+    "position": [
+      69,
+      97,
+      5.86
+    ],
+    "target": [
+      44,
+      97,
+      5.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "cleanroom-to-data",
+    "position": [
+      73,
+      28,
+      1.86
+    ],
+    "target": [
+      68,
+      51,
+      1.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  },
+  {
+    "id": "snow-to-airlock",
+    "position": [
+      88,
+      24,
+      1.86
+    ],
+    "target": [
+      86,
+      40,
+      1.86
+    ],
+    "projection": "perspective",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5
+  }
+]

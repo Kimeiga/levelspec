@@ -1,0 +1,48 @@
+[
+  {
+    "id": "supported-court-west",
+    "position": [
+      18,
+      94.6,
+      4.86
+    ],
+    "target": [
+      113,
+      101,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85
+  },
+  {
+    "id": "supported-court-east",
+    "position": [
+      113,
+      101,
+      4.86
+    ],
+    "target": [
+      18,
+      94.6,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85
+  },
+  {
+    "id": "north-overview",
+    "position": [
+      162,
+      173,
+      140
+    ],
+    "target": [
+      56,
+      58,
+      7
+    ],
+    "projection": "orthographic",
+    "viewHeight": 144,
+    "appearance": "materials"
+  }
+]

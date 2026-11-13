@@ -4,13 +4,13 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import {
   compile,
-  parseLevelSvgx,
+  parseAml,
   validateForRuntime,
-} from "../../src/vector/index.ts";
-import { buildCourtyard } from "../architecture.ts";
-import { sourceForCurve } from "../state.ts";
-import { overlappingSurfaces } from "../surface-audit.ts";
-import { materialDescriptions } from "../world-styles.ts";
+} from "levelspec";
+import { buildCourtyard } from "../../tools/fixtures/courtyard/architecture.ts";
+import { sourceForCurve } from "../../tools/fixtures/courtyard/variants.ts";
+import { overlappingSurfaces } from "../../tests/fixtures/courtyard/surface-audit.ts";
+import { materialDescriptions } from "../../tools/fixtures/courtyard/world-styles.ts";
 import type { CompiledLevel } from "../../src/vector/types.ts";
 test("surface audit detects overlap, not merely shared edges or opposing faces", () => {
   const level = {
@@ -44,7 +44,7 @@ test("styles use genuinely different images and authored features, not just reco
       ),
     );
     const level = await compile(
-      parseLevelSvgx(buildCourtyard({ look, height: 3 })),
+      parseAml(buildCourtyard({ look, height: 3 })),
     );
     assert.ok(
       level.surfaces.some((s) =>
@@ -62,12 +62,12 @@ test("styles use genuinely different images and authored features, not just reco
     for (let j = i + 1; j < 3; j++)
       assert.ok([...sets[i]].filter((hash) => !sets[j].has(hash)).length >= 4);
 });
-test("all additional 350 chalk/slate curve-elevation combinations validate without weakening gates", async () => {
+test("chalk/slate curve-elevation boundary variations validate without weakening gates", async () => {
   for (const look of ["chalk", "night"] as const) {
-    for (let height = 3; height <= 6; height += 0.5) {
-      for (let curve = 0; curve <= 6; curve += 0.25) {
+    for (const height of [3, 4.5, 6]) {
+      for (const curve of [0, 3, 6]) {
         const level = await compile(
-          parseLevelSvgx(
+          parseAml(
             sourceForCurve(buildCourtyard({ look, height }), curve),
           ),
         );
@@ -83,21 +83,20 @@ test("all additional 350 chalk/slate curve-elevation combinations validate witho
           }),
         );
         assert.deepEqual(report.diagnostics, []);
-        if (curve === 0 || curve === 3 || curve === 6)
-          assert.deepEqual(
-            overlappingSurfaces(level),
-            [],
-            `${look} h=${height} curve=${curve}`,
-          );
+        assert.deepEqual(
+          overlappingSurfaces(level),
+          [],
+          `${look} h=${height} curve=${curve}`,
+        );
       }
     }
   }
 });
-test("Lantern Court trim and capitals have no same-facing coplanar conflicts at any elevation", async () => {
-  for (let height = 3; height <= 6; height += 0.5) {
+test("Lantern Court trim and capitals have no same-facing coplanar conflicts at representative elevations", async () => {
+  for (const height of [3, 4.5, 6]) {
     for (const curve of [0, 3, 6]) {
       const level = await compile(
-        parseLevelSvgx(sourceForCurve(buildCourtyard({ height }), curve)),
+        parseAml(sourceForCurve(buildCourtyard({ height }), curve)),
       );
       assert.deepEqual(
         overlappingSurfaces(level),

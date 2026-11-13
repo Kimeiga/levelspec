@@ -11,12 +11,13 @@ exported files.
 | `<id>.game.json` | Spawns, bombsites and player size, in the same glTF Y-up metres. |
 
 ```sh
-npm run game:export   # maps/hand/kiln.plan -> validate -> game/public/maps/kiln
+npm run game:export -- examples/dust2.aml --out generated/game
+# Copy the resulting files to game/public/maps/<name> to load them.
 npm run game:dev      # http://127.0.0.1:5173/ (add ?map=kiln/og_kiln)
 ```
 
 `tools/game-export.ts` refuses to export a map that fails geometry or
-navigation validation. The export is deterministic: the same plan always
+navigation validation. The export is deterministic: the same AML source always
 produces byte-identical files.
 
 `collision.ts`, `controller.ts` and `glb.ts` are engine-agnostic. They give
@@ -28,7 +29,8 @@ This checks traversal independently of LevelSpec's navmesh.
 
 ## Kiln
 
-`maps/hand/kiln.plan` is an original bomb-defusal layout set in a disused
+The bundled Kiln runtime files are a retained collision/walking integration fixture
+from the retired plan authoring workflow. Its original layout represents a disused
 brickworks:
 
 - **Attackers** spawn in the southern clay yard.

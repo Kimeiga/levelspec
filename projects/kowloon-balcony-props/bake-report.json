@@ -1,0 +1,98 @@
+[
+  {
+    "id": "rubber-plant",
+    "source": "generated/kowloon-balcony-props/tripo-out/balcony-rubber-plant-0f7c8dcc/model.glb",
+    "sourceSha256": "11e3ba53cacac3894f593885acbb9ba4166201b3a43624c007e6c65ad57aa1ac",
+    "sourceTriangles": 772,
+    "triangles": 505,
+    "reductionRatio": 0.5,
+    "uniformScale": 0.5811350293542074,
+    "size": [
+      0.44737189009189604,
+      0.466636210179329,
+      0.5808175142413006
+    ],
+    "taskId": "0f7c8dcc-0838-44af-904b-3a1c746fac8a",
+    "credits": 50
+  },
+  {
+    "id": "trailing-pothos",
+    "source": "generated/kowloon-balcony-props/tripo-out/balcony-trailing-pothos-320ba622/model.glb",
+    "sourceSha256": "6c11e994f52c90971bfc931beb7f9f152497730af66a1552e585ed80c1918406",
+    "sourceTriangles": 691,
+    "triangles": 291,
+    "reductionRatio": 0.5,
+    "uniformScale": 0.42082191780821915,
+    "size": [
+      0.35481477063894273,
+      0.3503639994740486,
+      0.4170553531263024
+    ],
+    "taskId": "320ba622-1e4b-42c7-bd52-bd55e315a722",
+    "credits": 50
+  },
+  {
+    "id": "snake-plant",
+    "source": "generated/kowloon-balcony-props/tripo-out/balcony-snake-plant-da79f4e3/model.glb",
+    "sourceSha256": "a78d23888b1e90541391f5c8e27050babe4ccd88f6c7a740d9e10a770d96c961",
+    "sourceTriangles": 560,
+    "triangles": 376,
+    "reductionRatio": 0.5,
+    "uniformScale": 0.6212133072407044,
+    "size": [
+      0.34169247223734855,
+      0.3274402875006199,
+      0.6200433340368748
+    ],
+    "taskId": "da79f4e3-8a8f-429d-b5ea-807c1ec782f1",
+    "credits": 50
+  },
+  {
+    "id": "hanging-shirt",
+    "source": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-shirt-19b1683e/model.glb",
+    "sourceSha256": "878cc7868f662c826efb40194e562f0d98945a8a28e77ca977a446a1f3193213",
+    "sourceTriangles": 830,
+    "triangles": 332,
+    "reductionRatio": 0.4,
+    "uniformScale": 0.7214090019569471,
+    "size": [
+      0.6310185194015503,
+      0.045768630903464474,
+      0.7191315084637608
+    ],
+    "taskId": "19b1683e-3675-4881-bb7a-2c52c3ae8e45",
+    "credits": 50
+  },
+  {
+    "id": "hanging-trousers",
+    "source": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-trousers-d40c3e76/model.glb",
+    "sourceSha256": "71ead52bd83afc33d688d014d0c3ac2603464b88229b155e90643d8cf499024f",
+    "sourceTriangles": 625,
+    "triangles": 250,
+    "reductionRatio": 0.4,
+    "uniformScale": 0.9618786692759295,
+    "size": [
+      0.42852917313575745,
+      0.047978993289319954,
+      0.9602202231035335
+    ],
+    "taskId": "d40c3e76-2979-4fc3-901a-58f27368630c",
+    "credits": 50
+  },
+  {
+    "id": "hanging-bedsheet",
+    "source": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-bedsheet-20cf40a4/model.glb",
+    "sourceSha256": "968c86bdaa5ab96a36857ab35b07deea0978f88bc92acd41ac7e97d79abfdb2b",
+    "sourceTriangles": 575,
+    "triangles": 171,
+    "reductionRatio": 0.3,
+    "uniformScale": 1.4528375733855186,
+    "size": [
+      1.15450781583786,
+      0.047878938065218375,
+      1.457095826335717
+    ],
+    "taskId": "20cf40a4-3927-44bd-9ba4-dc2662c7939b",
+    "credits": 50
+  }
+]

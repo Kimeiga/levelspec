@@ -1,0 +1,23 @@
+{
+  "recipe": "tools/bake-brushed-metal.ts",
+  "recipeSha256": "98fd1be0c10568ea09cc9b036bdc7838ab4a8a9f8e27fb74d194216bf60282d1",
+  "width": 512,
+  "height": 512,
+  "periodMeters": 0.5,
+  "outputs": {
+    "projects/dressing-demo/textures/brushed-metal.png": {
+      "sha256": "1aabaf6cddf71c98c49cd146f0acd4159cd3170075d01037bacf809e19537972",
+      "bytes": 80533
+    },
+    "projects/dressing-demo/textures/brushed-metal-normal.png": {
+      "sha256": "01c54b177625d95d056a5660d5a9291a020dc6f416c820f596b3e019ffa50df2",
+      "bytes": 48272
+    },
+    "projects/dressing-demo/textures/brushed-metal-properties.png": {
+      "sha256": "bbf24bcbcd268ffd02b4b380224045e56e7da0cddc0472248d2540c019397e55",
+      "bytes": 106090
+    }
+  },
+  "channels": "sRGB albedo; linear OpenGL tangent normal; linear R=unused white G=roughness B=metalness",
+  "intent": "Wiped brushed stainless. Shared periodic maps, no baked light, AO, rust, or object-specific edge masks."
+}

@@ -1,0 +1,656 @@
+<?xml version='1.0' encoding='utf-8'?>
+<architecture version="1" id="second-friday" name="Second Friday · Outdoor Flea Market / Amman · 5v5 Control" units="meters" validation="playable" description="B02/R01. Building-first outdoor district. Proposed control rules in gameplay.json; engine integration and 5v5 balance untested.">
+  <material id="limestone" color="#d4c5a5" roughness="1" />
+  <material id="plaster" color="#e4d8bb" roughness="1" />
+  <material id="stone-dark" color="#b5a185" roughness="1" />
+  <material id="roof" color="#a79474" roughness="1" />
+  <material id="street" color="#bba984" roughness="1" />
+  <material id="metal" color="#354f58" roughness="1" />
+  <material id="window" color="#27434d" roughness="1" />
+  <material id="blue" color="#348a9f" roughness="1" />
+  <material id="rust" color="#c17646" roughness="1" />
+  <material id="cream" color="#e5cf9a" roughness="1" />
+  <material id="olive" color="#7c9174" roughness="1" />
+  <material id="wood" color="#927252" roughness="1" />
+  <material id="low" color="#cba865" roughness="1" />
+  <material id="point" color="#d5b069" roughness="1" />
+  <material id="west" color="#b58468" roughness="1" />
+  <material id="east" color="#76a3ad" roughness="1" />
+  <material id="ink" color="#384349" roughness="1" />
+  <profile id="B01-plan" points="0 14; 30 14; 30 34; 20 34; 20 40; 0 40" />
+  <profile id="B02-plan" points="36 8; 58 8; 58 24; 50 24; 50 32; 36 32" />
+  <profile id="B03-plan" points="70 10; 92 10; 92 28; 82 28; 82 34; 70 34" />
+  <profile id="B04-plan" points="108 22; 130 22; 130 48; 116 48; 116 42; 108 42" />
+  <profile id="B05-plan" points="86 42; 100 34; 110 50; 102 60; 92 56" />
+  <profile id="B06-plan" points="50 40; 66 36; 76 46; 72 56; 58 56; 50 50" />
+  <profile id="B07-plan" points="22 48; 36 44; 42 58; 34 66; 22 62" />
+  <profile id="B08-plan" points="54 78; 78 78; 78 94; 54 94" />
+  <profile id="B09-plan" points="98 72; 120 72; 120 94; 98 94" />
+  <profile id="B10-plan" points="16 84; 44 84; 44 100; 16 100" />
+  <profile id="B11-plan" points="0 56; 16 56; 20 70; 14 76; 0 76" />
+  <profile id="district-plan" points="0 0; 136 0; 136 108; 0 108" />
+  <assembly id="district" label="Outdoor market physical union" coincident-material="retained-face">
+    <extrusion id="B01" profile="B01-plan" distance="9" material="limestone" group="buildings" label="Limestone apartments" />
+    <extrusion id="B02" profile="B02-plan" distance="7.5" material="plaster" group="buildings" label="Tailor walk-up" />
+    <extrusion id="B03" profile="B03-plan" distance="8.4" material="stone-dark" group="buildings" label="Radio house" />
+    <extrusion id="B04" profile="B04-plan" distance="6.8" material="limestone" group="buildings" label="East workshops" />
+    <extrusion id="B05" profile="B05-plan" distance="5.5" material="plaster" group="buildings" label="Repair wedge" />
+    <extrusion id="B06" profile="B06-plan" distance="6" material="stone-dark" group="buildings" label="Auction house" />
+    <extrusion id="B07" profile="B07-plan" distance="7" material="limestone" group="buildings" label="Carpet sellers" />
+    <extrusion id="B08" profile="B08-plan" distance="2.9" material="plaster" group="buildings" label="Tea house roof" />
+    <roof id="TEA-ROOF" profile="B08-plan" elevation="3.2" thickness="0.3" material="roof" playable="true" group="terrace" />
+    <extrusion id="B09" profile="B09-plan" distance="9" material="stone-dark" group="buildings" label="Book depot" />
+    <extrusion id="B10" profile="B10-plan" distance="8" material="limestone" group="buildings" label="North tenement" />
+    <extrusion id="B11" profile="B11-plan" distance="9" material="plaster" group="buildings" label="West tenement" />
+    <slab id="STREETS" profile="district-plan" elevation="0" thickness="0.3" material="street" group="streets" />
+    <wall id="BOUNDARY" path="boundary-axis" thickness="0.3" height="5.5" material="limestone" group="boundary" />
+    <stairs id="ST-W" path="ST-W-axis" width="5.2" count="20" thickness="0.3" underside="filled" material="stone-dark" group="stairs" />
+    <stairs id="ST-E" path="ST-E-axis" width="5.2" count="20" thickness="0.3" underside="filled" material="stone-dark" group="stairs" />
+    <wall id="PAR-south-a" path="PAR-south-a-axis" thickness="0.22" height="1.15" material="plaster" group="terrace" />
+    <wall id="PAR-south-b" path="PAR-south-b-axis" thickness="0.22" height="1.15" material="plaster" group="terrace" />
+    <wall id="PAR-south-c" path="PAR-south-c-axis" thickness="0.22" height="1.15" material="plaster" group="terrace" />
+    <wall id="PAR-west" path="PAR-west-axis" thickness="0.22" height="1.15" material="plaster" group="terrace" />
+    <wall id="PAR-north" path="PAR-north-axis" thickness="0.22" height="1.15" material="plaster" group="terrace" />
+    <wall id="PAR-east-a" path="PAR-east-a-axis" thickness="0.22" height="1.15" material="plaster" group="terrace" />
+    <wall id="PAR-east-b" path="PAR-east-b-axis" thickness="0.22" height="1.15" material="plaster" group="terrace" />
+    <wall id="TEA-SCREEN" path="TEA-SCREEN-axis" thickness="0.4" height="2.8" material="blue" group="terrace" />
+    <box id="AUCTION-CABINET" position="81 61 0" width="3" depth="3" height="2.6" material="wood" group="market-cover" />
+    <box id="CLOCKS" position="77 56 0" width="3" depth="2" height="1.1" material="low" group="market-cover" />
+    <box id="BOOKS" position="86 68 0" width="4" depth="2" height="1.1" material="low" group="market-cover" />
+    <box id="RADIO-RACK" position="79 39 0" width="2" depth="4" height="2.4" material="wood" group="market-cover" />
+    <box id="CARPET-LOW" position="44 60 0" width="3" depth="4" height="1.1" material="low" group="market-cover" />
+    <box id="CLOTHES-LOW" position="44 74 0" width="4" depth="2" height="1.1" material="low" group="market-cover" />
+    <box id="WARDROBES" position="28 72 0" width="4" depth="3" height="2.5" material="wood" group="market-cover" />
+    <box id="APPLIANCES" position="118 56 0" width="4" depth="3" height="2.5" material="wood" group="market-cover" />
+    <box id="FRIDGES" position="104 62 0" width="4" depth="3" height="2.5" material="wood" group="market-cover" />
+    <box id="E-LOW" position="96 68 0" width="4" depth="2" height="1.1" material="low" group="market-cover" />
+    <box id="COPPER-LOW" position="61 26 0" width="4" depth="3" height="1.1" material="low" group="market-cover" />
+    <box id="COPPER-RACK" position="64 32 0" width="2" depth="2" height="2.5" material="wood" group="market-cover" />
+    <box id="BOOK-RACK" position="88 74 0" width="4" depth="3" height="2.5" material="wood" group="market-cover" />
+    <cylinder id="clothes-post-0" position="22 68 0" radius="0.12" height="4.3" segments="8" material="metal" group="stalls" />
+    <cylinder id="clothes-post-1" position="36 68 0" radius="0.12" height="4.3" segments="8" material="metal" group="stalls" />
+    <cylinder id="clothes-post-2" position="36 76 0" radius="0.12" height="4.3" segments="8" material="metal" group="stalls" />
+    <cylinder id="clothes-post-3" position="22 76 0" radius="0.12" height="4.3" segments="8" material="metal" group="stalls" />
+    <cylinder id="tailor-post-0" position="34 34 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="tailor-post-1" position="50 34 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="tailor-post-2" position="50 42 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="tailor-post-3" position="34 42 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="appliances-post-0" position="112 54 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="appliances-post-1" position="126 54 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="appliances-post-2" position="126 62 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="appliances-post-3" position="112 62 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="books-post-0" position="80 72 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="books-post-1" position="94 72 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="books-post-2" position="94 80 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+    <cylinder id="books-post-3" position="80 80 0" radius="0.12" height="4.4" segments="8" material="metal" group="stalls" />
+  </assembly>
+  <path id="boundary-axis" points="0 0 0; 136 0 0; 136 108 0; 0 108 0; 0 0 0" />
+  <path id="ST-W-axis" points="60 62 0; 60 78 3.2" />
+  <path id="ST-E-axis" points="94 88 0; 78 88 3.2" />
+  <path id="W-toe-axis" points="57.4 62 0; 62.6 62 0" />
+  <connection id="W-toe" from="STREETS" to="ST-W" path="W-toe-axis" />
+  <path id="W-head-axis" points="57.4 78 3.2; 62.6 78 3.2" />
+  <connection id="W-head" from="ST-W" to="TEA-ROOF" path="W-head-axis" />
+  <path id="E-toe-axis" points="94 85.4 0; 94 90.6 0" />
+  <connection id="E-toe" from="STREETS" to="ST-E" path="E-toe-axis" />
+  <path id="E-head-axis" points="78 85.4 3.2; 78 90.6 3.2" />
+  <connection id="E-head" from="ST-E" to="TEA-ROOF" path="E-head-axis" />
+  <path id="PAR-south-a-axis" points="54 78 3.2; 57.4 78 3.2" />
+  <path id="PAR-south-b-axis" points="62.6 78 3.2; 66 78 3.2" />
+  <path id="PAR-south-c-axis" points="74 78 3.2; 78 78 3.2" />
+  <path id="PAR-west-axis" points="54 78 3.2; 54 94 3.2" />
+  <path id="PAR-north-axis" points="54 94 3.2; 78 94 3.2" />
+  <path id="PAR-east-a-axis" points="78 78 3.2; 78 85.4 3.2" />
+  <path id="PAR-east-b-axis" points="78 90.6 3.2; 78 94 3.2" />
+  <path id="TEA-SCREEN-axis" points="66 78 3.2; 74 78 3.2" />
+  <profile id="point-plan" points="76 56; 90 56; 90 70; 76 70" />
+  <face-material id="point-paint" host="STREETS" face="top" profile="point-plan" material="point" />
+  <profile id="west-yard-plan" points="2 84; 14 84; 14 104; 2 104" />
+  <face-material id="west-yard-paint" host="STREETS" face="top" profile="west-yard-plan" material="west" />
+  <profile id="east-yard-plan" points="116 2; 134 2; 134 18; 116 18" />
+  <face-material id="east-yard-paint" host="STREETS" face="top" profile="east-yard-plan" material="east" />
+  <group id="market-detail" collidable="false">
+    <canopy id="clothes-cloth-0" profile="clothes-cloth-0-plan" elevation="4.3" thickness="0.04" material="blue" collidable="false" playable="false" group="canopies" />
+    <canopy id="clothes-cloth-1" profile="clothes-cloth-1-plan" elevation="4.42" thickness="0.04" material="rust" collidable="false" playable="false" group="canopies" />
+    <canopy id="clothes-cloth-2" profile="clothes-cloth-2-plan" elevation="4.3" thickness="0.04" material="cream" collidable="false" playable="false" group="canopies" />
+    <canopy id="clothes-cloth-3" profile="clothes-cloth-3-plan" elevation="4.42" thickness="0.04" material="olive" collidable="false" playable="false" group="canopies" />
+    <canopy id="tailor-cloth-0" profile="tailor-cloth-0-plan" elevation="4.4" thickness="0.04" material="rust" collidable="false" playable="false" group="canopies" />
+    <canopy id="tailor-cloth-1" profile="tailor-cloth-1-plan" elevation="4.5200000000000005" thickness="0.04" material="cream" collidable="false" playable="false" group="canopies" />
+    <canopy id="tailor-cloth-2" profile="tailor-cloth-2-plan" elevation="4.4" thickness="0.04" material="olive" collidable="false" playable="false" group="canopies" />
+    <canopy id="tailor-cloth-3" profile="tailor-cloth-3-plan" elevation="4.5200000000000005" thickness="0.04" material="blue" collidable="false" playable="false" group="canopies" />
+    <canopy id="appliances-cloth-0" profile="appliances-cloth-0-plan" elevation="4.4" thickness="0.04" material="cream" collidable="false" playable="false" group="canopies" />
+    <canopy id="appliances-cloth-1" profile="appliances-cloth-1-plan" elevation="4.5200000000000005" thickness="0.04" material="olive" collidable="false" playable="false" group="canopies" />
+    <canopy id="appliances-cloth-2" profile="appliances-cloth-2-plan" elevation="4.4" thickness="0.04" material="blue" collidable="false" playable="false" group="canopies" />
+    <canopy id="appliances-cloth-3" profile="appliances-cloth-3-plan" elevation="4.5200000000000005" thickness="0.04" material="rust" collidable="false" playable="false" group="canopies" />
+    <canopy id="books-cloth-0" profile="books-cloth-0-plan" elevation="4.4" thickness="0.04" material="olive" collidable="false" playable="false" group="canopies" />
+    <canopy id="books-cloth-1" profile="books-cloth-1-plan" elevation="4.5200000000000005" thickness="0.04" material="blue" collidable="false" playable="false" group="canopies" />
+    <canopy id="books-cloth-2" profile="books-cloth-2-plan" elevation="4.4" thickness="0.04" material="rust" collidable="false" playable="false" group="canopies" />
+    <canopy id="books-cloth-3" profile="books-cloth-3-plan" elevation="4.5200000000000005" thickness="0.04" material="cream" collidable="false" playable="false" group="canopies" />
+    <box id="B01-window-0-0-0" position="1.8 13.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-0-0-1" position="6.8 13.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-0-0-2" position="11.8 13.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-0-0-3" position="16.8 13.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-0-0-4" position="21.8 13.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-0-0-5" position="26.8 13.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-0-1-0" position="1.8 13.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-1-1" position="6.8 13.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-1-2" position="11.8 13.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-1-3" position="16.8 13.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-1-4" position="21.8 13.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-1-5" position="26.8 13.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-2-0" position="1.8 13.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-2-1" position="6.8 13.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-2-2" position="11.8 13.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-2-3" position="16.8 13.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-2-4" position="21.8 13.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-0-2-5" position="26.8 13.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-1-0-0" position="30.03 15.8 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-1-0-1" position="30.03 20.8 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-1-0-2" position="30.03 25.8 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-1-0-3" position="30.03 30.8 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-1-1-0" position="30.03 15.8 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-1-1-1" position="30.03 20.8 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-1-1-2" position="30.03 25.8 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-1-1-3" position="30.03 30.8 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-1-2-0" position="30.03 15.8 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-1-2-1" position="30.03 20.8 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-1-2-2" position="30.03 25.8 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-1-2-3" position="30.03 30.8 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-2-0-0" position="28.2 34.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-2-0-1" position="23.2 34.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-2-1-0" position="28.2 34.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-2-1-1" position="23.2 34.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-2-2-0" position="28.2 34.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-2-2-1" position="23.2 34.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-3-0-0" position="20.03 36.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-3-1-0" position="20.03 36.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-3-2-0" position="20.03 36.3 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-4-0-0" position="18.2 40.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-4-0-1" position="13.2 40.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-4-0-2" position="8.2 40.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-4-0-3" position="3.2 40.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-4-1-0" position="18.2 40.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-4-1-1" position="13.2 40.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-4-1-2" position="8.2 40.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-4-1-3" position="3.2 40.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-4-2-0" position="18.2 40.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-4-2-1" position="13.2 40.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-4-2-2" position="8.2 40.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-4-2-3" position="3.2 40.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-0-0" position="-0.03 38.1 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-5-0-1" position="-0.03 32.9 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-5-0-2" position="-0.03 27.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-5-0-3" position="-0.03 22.5 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-5-0-4" position="-0.03 17.3 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B01-window-5-1-0" position="-0.03 38.1 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-1-1" position="-0.03 32.9 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-1-2" position="-0.03 27.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-1-3" position="-0.03 22.5 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-1-4" position="-0.03 17.3 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-2-0" position="-0.03 38.1 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-2-1" position="-0.03 32.9 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-2-2" position="-0.03 27.7 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-2-3" position="-0.03 22.5 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B01-window-5-2-4" position="-0.03 17.3 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B01-tank" position="16.6667 29.3333 9" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B02-window-0-0-0" position="38.05 7.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-0-0-1" position="43.55 7.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-0-0-2" position="49.05 7.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-0-0-3" position="54.55 7.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-0-1-0" position="38.05 7.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-0-1-1" position="43.55 7.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-0-1-2" position="49.05 7.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-0-1-3" position="54.55 7.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-1-0-0" position="58.03 9.96667 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-1-0-1" position="58.03 15.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-1-0-2" position="58.03 20.6333 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-1-1-0" position="58.03 9.96667 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-1-1-1" position="58.03 15.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-1-1-2" position="58.03 20.6333 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-2-0-0" position="54.7 24.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-2-1-0" position="54.7 24.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-3-0-0" position="50.03 27.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-3-1-0" position="50.03 27.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-4-0-0" position="47.2 32.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-4-0-1" position="40.2 32.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-4-1-0" position="47.2 32.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-4-1-1" position="40.2 32.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-5-0-0" position="35.97 29.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-5-0-1" position="35.97 23.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-5-0-2" position="35.97 17.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-5-0-3" position="35.97 11.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B02-window-5-1-0" position="35.97 29.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-5-1-1" position="35.97 23.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-5-1-2" position="35.97 17.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B02-window-5-1-3" position="35.97 11.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B02-tank" position="48 21.3333 7.5" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B03-window-0-0-0" position="72.05 9.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-0-0-1" position="77.55 9.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-0-0-2" position="83.05 9.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-0-0-3" position="88.55 9.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-0-1-0" position="72.05 9.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-0-1-1" position="77.55 9.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-0-1-2" position="83.05 9.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-0-1-3" position="88.55 9.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-0-2-0" position="72.05 9.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-0-2-1" position="77.55 9.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-0-2-2" position="83.05 9.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-0-2-3" position="88.55 9.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-1-0-0" position="92.03 12.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-1-0-1" position="92.03 18.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-1-0-2" position="92.03 24.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-1-1-0" position="92.03 12.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-1-1-1" position="92.03 18.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-1-1-2" position="92.03 24.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-1-2-0" position="92.03 12.3 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-1-2-1" position="92.03 18.3 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-1-2-2" position="92.03 24.3 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-2-0-0" position="90.2 28.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-2-0-1" position="85.2 28.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-2-1-0" position="90.2 28.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-2-1-1" position="85.2 28.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-2-2-0" position="90.2 28.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-2-2-1" position="85.2 28.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-3-0-0" position="82.03 30.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-3-1-0" position="82.03 30.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-3-2-0" position="82.03 30.3 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-4-0-0" position="79.7 34.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-4-0-1" position="73.7 34.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-4-1-0" position="79.7 34.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-4-1-1" position="73.7 34.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-4-2-0" position="79.7 34.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-4-2-1" position="73.7 34.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-5-0-0" position="69.97 31.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-5-0-1" position="69.97 25.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-5-0-2" position="69.97 19.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-5-0-3" position="69.97 13.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B03-window-5-1-0" position="69.97 31.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-5-1-1" position="69.97 25.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-5-1-2" position="69.97 19.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-5-1-3" position="69.97 13.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-5-2-0" position="69.97 31.7 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-5-2-1" position="69.97 25.7 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-5-2-2" position="69.97 19.7 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B03-window-5-2-3" position="69.97 13.7 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B03-tank" position="81.3333 24 8.4" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B04-window-0-0-0" position="110.05 21.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-0-0-1" position="115.55 21.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-0-0-2" position="121.05 21.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-0-0-3" position="126.55 21.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-0-1-0" position="110.05 21.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-0-1-1" position="115.55 21.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-0-1-2" position="121.05 21.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-0-1-3" position="126.55 21.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-1-0-0" position="130.03 23.9 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-1-0-1" position="130.03 29.1 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-1-0-2" position="130.03 34.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-1-0-3" position="130.03 39.5 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-1-0-4" position="130.03 44.7 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-1-1-0" position="130.03 23.9 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-1-1-1" position="130.03 29.1 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-1-1-2" position="130.03 34.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-1-1-3" position="130.03 39.5 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-1-1-4" position="130.03 44.7 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-2-0-0" position="127.2 48.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-2-0-1" position="120.2 48.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-2-1-0" position="127.2 48.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-2-1-1" position="120.2 48.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-3-0-0" position="115.97 45.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-3-1-0" position="115.97 45.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-4-0-0" position="112.7 42.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-4-1-0" position="112.7 42.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-5-0-0" position="107.97 40.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-5-0-1" position="107.97 35.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-5-0-2" position="107.97 30.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-5-0-3" position="107.97 25.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B04-window-5-1-0" position="107.97 40.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-5-1-1" position="107.97 35.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-5-1-2" position="107.97 30.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B04-window-5-1-3" position="107.97 25.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B04-tank" position="118 37.3333 6.8" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B05-window-0-0-0" position="87.7107 40.9879 1.3" rotation="0 0 -29.7449" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-0-0-1" position="92.3773 38.3212 1.3" rotation="0 0 -29.7449" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-0-0-2" position="97.044 35.6546 1.3" rotation="0 0 -29.7449" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-0-1-0" position="87.7107 40.9879 4.2" rotation="0 0 -29.7449" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-0-1-1" position="92.3773 38.3212 4.2" rotation="0 0 -29.7449" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-0-1-2" position="97.044 35.6546 4.2" rotation="0 0 -29.7449" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-1-0-0" position="101.321 36.0572 1.3" rotation="0 0 57.9946" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-1-0-1" position="104.654 41.3905 1.3" rotation="0 0 57.9946" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-1-0-2" position="107.988 46.7238 1.3" rotation="0 0 57.9946" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-1-1-0" position="101.321 36.0572 4.2" rotation="0 0 57.9946" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-1-1-1" position="104.654 41.3905 4.2" rotation="0 0 57.9946" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-1-1-2" position="107.988 46.7238 4.2" rotation="0 0 57.9946" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-2-0-0" position="108.461 51.9721 1.3" rotation="0 0 128.66" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-2-0-1" position="104.461 56.9721 1.3" rotation="0 0 128.66" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-2-1-0" position="108.461 51.9721 4.2" rotation="0 0 128.66" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-2-1-1" position="104.461 56.9721 4.2" rotation="0 0 128.66" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-3-0-0" position="100.139 59.2878 1.3" rotation="0 0 -158.199" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-3-0-1" position="95.1388 57.2878 1.3" rotation="0 0 -158.199" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-3-1-0" position="100.139 59.2878 4.2" rotation="0 0 -158.199" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-3-1-1" position="95.1388 57.2878 4.2" rotation="0 0 -158.199" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-4-0-0" position="91.2482 54.3219 1.3" rotation="0 0 -113.199" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-4-0-1" position="89.2482 49.6552 1.3" rotation="0 0 -113.199" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-4-0-2" position="87.2482 44.9886 1.3" rotation="0 0 -113.199" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B05-window-4-1-0" position="91.2482 54.3219 4.2" rotation="0 0 -113.199" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-4-1-1" position="89.2482 49.6552 4.2" rotation="0 0 -113.199" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B05-window-4-1-2" position="87.2482 44.9886 4.2" rotation="0 0 -113.199" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B05-tank" position="98 48.4 5.5" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B06-window-0-0-0" position="51.9803 39.474 1.3" rotation="0 0 -14.0362" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-0-0-1" position="57.3136 38.1407 1.3" rotation="0 0 -14.0362" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-0-0-2" position="62.647 36.8073 1.3" rotation="0 0 -14.0362" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-0-1-0" position="51.9803 39.474 4.2" rotation="0 0 -14.0362" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-0-1-1" position="57.3136 38.1407 4.2" rotation="0 0 -14.0362" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-0-1-2" position="62.647 36.8073 4.2" rotation="0 0 -14.0362" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-1-0-0" position="68.0262 37.9838 1.3" rotation="0 0 45" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-1-0-1" position="73.0262 42.9838 1.3" rotation="0 0 45" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-1-1-0" position="68.0262 37.9838 4.2" rotation="0 0 45" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-1-1-1" position="73.0262 42.9838 4.2" rotation="0 0 45" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-2-0-0" position="75.2878 47.8612 1.3" rotation="0 0 111.801" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-2-0-1" position="73.2878 52.8612 1.3" rotation="0 0 111.801" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-2-1-0" position="75.2878 47.8612 4.2" rotation="0 0 111.801" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-2-1-1" position="73.2878 52.8612 4.2" rotation="0 0 111.801" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-3-0-0" position="69.2 56.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-3-0-1" position="62.2 56.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-3-1-0" position="69.2 56.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-3-1-1" position="62.2 56.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-4-0-0" position="56.542 54.944 1.3" rotation="0 0 -143.13" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-4-0-1" position="52.542 51.944 1.3" rotation="0 0 -143.13" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-4-1-0" position="56.542 54.944 4.2" rotation="0 0 -143.13" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-4-1-1" position="52.542 51.944 4.2" rotation="0 0 -143.13" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-5-0-0" position="49.97 48.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-5-0-1" position="49.97 43.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B06-window-5-1-0" position="49.97 48.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B06-window-5-1-1" position="49.97 43.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B06-tank" position="62 47.3333 6" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B07-window-0-0-0" position="24.8187 47.1635 1.3" rotation="0 0 -15.9454" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-0-0-1" position="31.8187 45.1635 1.3" rotation="0 0 -15.9454" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-0-1-0" position="24.8187 47.1635 4.2" rotation="0 0 -15.9454" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-0-1-1" position="31.8187 45.1635 4.2" rotation="0 0 -15.9454" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-1-0-0" position="36.7518 45.6781 1.3" rotation="0 0 66.8014" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-1-0-1" position="38.7518 50.3448 1.3" rotation="0 0 66.8014" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-1-0-2" position="40.7518 55.0114 1.3" rotation="0 0 66.8014" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-1-1-0" position="36.7518 45.6781 4.2" rotation="0 0 66.8014" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-1-1-1" position="38.7518 50.3448 4.2" rotation="0 0 66.8014" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-1-1-2" position="40.7518 55.0114 4.2" rotation="0 0 66.8014" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-2-0-0" position="40.5162 59.5262 1.3" rotation="0 0 135" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-2-0-1" position="36.5162 63.5262 1.3" rotation="0 0 135" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-2-1-0" position="40.5162 59.5262 4.2" rotation="0 0 135" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-2-1-1" position="36.5162 63.5262 4.2" rotation="0 0 135" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-3-0-0" position="31.6546 65.2498 1.3" rotation="0 0 -161.565" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-3-0-1" position="25.6546 63.2498 1.3" rotation="0 0 -161.565" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-3-1-0" position="31.6546 65.2498 4.2" rotation="0 0 -161.565" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-3-1-1" position="25.6546 63.2498 4.2" rotation="0 0 -161.565" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-4-0-0" position="21.97 59.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-4-0-1" position="21.97 52.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B07-window-4-1-0" position="21.97 59.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B07-window-4-1-1" position="21.97 52.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B07-tank" position="31.2 55.6 7" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B09-window-0-0-0" position="100.05 71.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-0-0-1" position="105.55 71.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-0-0-2" position="111.05 71.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-0-0-3" position="116.55 71.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-0-1-0" position="100.05 71.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-0-1-1" position="105.55 71.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-0-1-2" position="111.05 71.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-0-1-3" position="116.55 71.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-0-2-0" position="100.05 71.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-0-2-1" position="105.55 71.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-0-2-2" position="111.05 71.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-0-2-3" position="116.55 71.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-1-0-0" position="120.03 74.05 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-1-0-1" position="120.03 79.55 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-1-0-2" position="120.03 85.05 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-1-0-3" position="120.03 90.55 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-1-1-0" position="120.03 74.05 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-1-1-1" position="120.03 79.55 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-1-1-2" position="120.03 85.05 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-1-1-3" position="120.03 90.55 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-1-2-0" position="120.03 74.05 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-1-2-1" position="120.03 79.55 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-1-2-2" position="120.03 85.05 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-1-2-3" position="120.03 90.55 7.1" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-2-0-0" position="117.95 94.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-2-0-1" position="112.45 94.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-2-0-2" position="106.95 94.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-2-0-3" position="101.45 94.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-2-1-0" position="117.95 94.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-2-1-1" position="112.45 94.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-2-1-2" position="106.95 94.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-2-1-3" position="101.45 94.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-2-2-0" position="117.95 94.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-2-2-1" position="112.45 94.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-2-2-2" position="106.95 94.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-2-2-3" position="101.45 94.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-3-0-0" position="97.97 91.95 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-3-0-1" position="97.97 86.45 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-3-0-2" position="97.97 80.95 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-3-0-3" position="97.97 75.45 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="olive" collidable="false" group="facades" />
+    <box id="B09-window-3-1-0" position="97.97 91.95 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-3-1-1" position="97.97 86.45 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-3-1-2" position="97.97 80.95 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-3-1-3" position="97.97 75.45 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-3-2-0" position="97.97 91.95 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-3-2-1" position="97.97 86.45 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-3-2-2" position="97.97 80.95 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B09-window-3-2-3" position="97.97 75.45 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B09-tank" position="109 83 9" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B10-window-0-0-0" position="18.1 83.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-0-0-1" position="23.7 83.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-0-0-2" position="29.3 83.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-0-0-3" position="34.9 83.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-0-0-4" position="40.5 83.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-0-1-0" position="18.1 83.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-0-1-1" position="23.7 83.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-0-1-2" position="29.3 83.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-0-1-3" position="34.9 83.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-0-1-4" position="40.5 83.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-1-0-0" position="44.03 85.9667 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-1-0-1" position="44.03 91.3 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-1-0-2" position="44.03 96.6333 1.3" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-1-1-0" position="44.03 85.9667 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-1-1-1" position="44.03 91.3 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-1-1-2" position="44.03 96.6333 4.2" rotation="0 0 90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-2-0-0" position="41.9 100.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-2-0-1" position="36.3 100.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-2-0-2" position="30.7 100.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-2-0-3" position="25.1 100.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-2-0-4" position="19.5 100.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-2-1-0" position="41.9 100.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-2-1-1" position="36.3 100.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-2-1-2" position="30.7 100.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-2-1-3" position="25.1 100.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-2-1-4" position="19.5 100.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-3-0-0" position="15.97 98.0333 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-3-0-1" position="15.97 92.7 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-3-0-2" position="15.97 87.3667 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="blue" collidable="false" group="facades" />
+    <box id="B10-window-3-1-0" position="15.97 98.0333 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-3-1-1" position="15.97 92.7 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B10-window-3-1-2" position="15.97 87.3667 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B10-tank" position="30 92 8" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="B11-window-0-0-0" position="1.96667 55.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-0-0-1" position="7.3 55.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-0-0-2" position="12.6333 55.97 1.3" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-0-1-0" position="1.96667 55.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-0-1-1" position="7.3 55.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-0-1-2" position="12.6333 55.97 4.2" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-0-2-0" position="1.96667 55.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-0-2-1" position="7.3 55.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-0-2-2" position="12.6333 55.97 7.1" rotation="0 0 0" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-1-0-0" position="16.8365 58.8187 1.3" rotation="0 0 74.0546" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-1-0-1" position="18.8365 65.8187 1.3" rotation="0 0 74.0546" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-1-1-0" position="16.8365 58.8187 4.2" rotation="0 0 74.0546" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-1-1-1" position="18.8365 65.8187 4.2" rotation="0 0 74.0546" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-1-2-0" position="16.8365 58.8187 7.1" rotation="0 0 74.0546" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-1-2-1" position="18.8365 65.8187 7.1" rotation="0 0 74.0546" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-2-0-0" position="17.5162 72.5262 1.3" rotation="0 0 135" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-2-1-0" position="17.5162 72.5262 4.2" rotation="0 0 135" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-2-2-0" position="17.5162 72.5262 7.1" rotation="0 0 135" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-3-0-0" position="11.2 76.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-3-0-1" position="4.2 76.03 1.3" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-3-1-0" position="11.2 76.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-3-1-1" position="4.2 76.03 4.2" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-3-2-0" position="11.2 76.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-3-2-1" position="4.2 76.03 7.1" rotation="0 0 180" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-4-0-0" position="-0.03 74.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-4-0-1" position="-0.03 69.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-4-0-2" position="-0.03 64.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-4-0-3" position="-0.03 59.2 1.3" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="rust" collidable="false" group="facades" />
+    <box id="B11-window-4-1-0" position="-0.03 74.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-4-1-1" position="-0.03 69.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-4-1-2" position="-0.03 64.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-4-1-3" position="-0.03 59.2 4.2" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-4-2-0" position="-0.03 74.2 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-4-2-1" position="-0.03 69.2 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-4-2-2" position="-0.03 64.2 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <box id="B11-window-4-2-3" position="-0.03 59.2 7.1" rotation="0 0 -90" width="1.4" depth="0.08" height="1.2" material="window" collidable="false" group="facades" />
+    <cylinder id="B11-tank" position="10 66.8 9" radius="0.75" height="1.2" segments="12" material="ink" collidable="false" group="scenic-roofs" />
+    <box id="AUCTION-CABINET-stock-0" position="81.3 61.25 2.6" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="AUCTION-CABINET-stock-1" position="82.1 61.25 2.6" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="AUCTION-CABINET-stock-2" position="82.9 61.25 2.6" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="CLOCKS-stock-0" position="77.3 56.25 1.1" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="CLOCKS-stock-1" position="78.1 56.25 1.1" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="CLOCKS-stock-2" position="78.9 56.25 1.1" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="BOOKS-stock-0" position="86.3 68.25 1.1" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="BOOKS-stock-1" position="87.4333 68.25 1.1" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="BOOKS-stock-2" position="88.5667 68.25 1.1" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="RADIO-RACK-stock-0" position="79.3 39.25 2.4" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="RADIO-RACK-stock-1" position="79.7667 39.25 2.4" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="RADIO-RACK-stock-2" position="80.2333 39.25 2.4" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="CARPET-LOW-stock-0" position="44.3 60.25 1.1" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="CARPET-LOW-stock-1" position="45.1 60.25 1.1" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="CARPET-LOW-stock-2" position="45.9 60.25 1.1" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="CLOTHES-LOW-stock-0" position="44.3 74.25 1.1" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="CLOTHES-LOW-stock-1" position="45.4333 74.25 1.1" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="CLOTHES-LOW-stock-2" position="46.5667 74.25 1.1" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="WARDROBES-stock-0" position="28.3 72.25 2.5" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="WARDROBES-stock-1" position="29.4333 72.25 2.5" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="WARDROBES-stock-2" position="30.5667 72.25 2.5" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="APPLIANCES-stock-0" position="118.3 56.25 2.5" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="APPLIANCES-stock-1" position="119.433 56.25 2.5" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="APPLIANCES-stock-2" position="120.567 56.25 2.5" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="FRIDGES-stock-0" position="104.3 62.25 2.5" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="FRIDGES-stock-1" position="105.433 62.25 2.5" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="FRIDGES-stock-2" position="106.567 62.25 2.5" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="E-LOW-stock-0" position="96.3 68.25 1.1" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="E-LOW-stock-1" position="97.4333 68.25 1.1" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="E-LOW-stock-2" position="98.5667 68.25 1.1" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="COPPER-LOW-stock-0" position="61.3 26.25 1.1" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="COPPER-LOW-stock-1" position="62.4333 26.25 1.1" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="COPPER-LOW-stock-2" position="63.5667 26.25 1.1" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="COPPER-RACK-stock-0" position="64.3 32.25 2.5" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+    <box id="COPPER-RACK-stock-1" position="64.7667 32.25 2.5" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="COPPER-RACK-stock-2" position="65.2333 32.25 2.5" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="BOOK-RACK-stock-0" position="88.3 74.25 2.5" width="0.3" depth="0.5" height="0.18" material="blue" collidable="false" group="stock" />
+    <box id="BOOK-RACK-stock-1" position="89.4333 74.25 2.5" width="0.3" depth="0.5" height="0.18" material="rust" collidable="false" group="stock" />
+    <box id="BOOK-RACK-stock-2" position="90.5667 74.25 2.5" width="0.3" depth="0.5" height="0.18" material="cream" collidable="false" group="stock" />
+  </group>
+  <profile id="clothes-cloth-0-plan" points="22.12 68; 25.38 68; 25.38 76; 22.12 76" />
+  <profile id="clothes-cloth-1-plan" points="25.62 68; 28.88 68; 28.88 76; 25.62 76" />
+  <profile id="clothes-cloth-2-plan" points="29.12 68; 32.38 68; 32.38 76; 29.12 76" />
+  <profile id="clothes-cloth-3-plan" points="32.62 68; 35.88 68; 35.88 76; 32.62 76" />
+  <profile id="tailor-cloth-0-plan" points="34.12 34; 37.88 34; 37.88 42; 34.12 42" />
+  <profile id="tailor-cloth-1-plan" points="38.12 34; 41.88 34; 41.88 42; 38.12 42" />
+  <profile id="tailor-cloth-2-plan" points="42.12 34; 45.88 34; 45.88 42; 42.12 42" />
+  <profile id="tailor-cloth-3-plan" points="46.12 34; 49.88 34; 49.88 42; 46.12 42" />
+  <profile id="appliances-cloth-0-plan" points="112.12 54; 115.38 54; 115.38 62; 112.12 62" />
+  <profile id="appliances-cloth-1-plan" points="115.62 54; 118.88 54; 118.88 62; 115.62 62" />
+  <profile id="appliances-cloth-2-plan" points="119.12 54; 122.38 54; 122.38 62; 119.12 62" />
+  <profile id="appliances-cloth-3-plan" points="122.62 54; 125.88 54; 125.88 62; 122.62 62" />
+  <profile id="books-cloth-0-plan" points="80.12 72; 83.38 72; 83.38 80; 80.12 80" />
+  <profile id="books-cloth-1-plan" points="83.62 72; 86.88 72; 86.88 80; 83.62 80" />
+  <profile id="books-cloth-2-plan" points="87.12 72; 90.38 72; 90.38 80; 87.12 80" />
+  <profile id="books-cloth-3-plan" points="90.62 72; 93.88 72; 93.88 80; 90.62 80" />
+  <player radius="0.35" height="1.8" step="0.25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="W1" position="5 90 0" kind="attacker_spawn" element="STREETS" movement="land" group="markers" team="west" />
+  <marker id="W2" position="9 90 0" kind="attacker_spawn" element="STREETS" movement="land" group="markers" team="west" />
+  <marker id="W3" position="5 94 0" kind="attacker_spawn" element="STREETS" movement="land" group="markers" team="west" />
+  <marker id="W4" position="9 94 0" kind="attacker_spawn" element="STREETS" movement="land" group="markers" team="west" />
+  <marker id="W5" position="7 98 0" kind="attacker_spawn" element="STREETS" movement="land" group="markers" team="west" />
+  <marker id="E1" position="120 6 0" kind="defender_spawn" element="STREETS" movement="land" group="markers" team="east" />
+  <marker id="E2" position="124 6 0" kind="defender_spawn" element="STREETS" movement="land" group="markers" team="east" />
+  <marker id="E3" position="128 6 0" kind="defender_spawn" element="STREETS" movement="land" group="markers" team="east" />
+  <marker id="E4" position="122 10 0" kind="defender_spawn" element="STREETS" movement="land" group="markers" team="east" />
+  <marker id="E5" position="126 10 0" kind="defender_spawn" element="STREETS" movement="land" group="markers" team="east" />
+  <marker id="CONTROL" position="86 64 0" kind="objective" element="STREETS" movement="land" group="markers" />
+  <marker id="W-SOUTH" position="10 80 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="W-NORTH" position="10 104 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="CLOTHES" position="36 80 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="CARPET" position="50 64 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="TAILOR" position="40 38 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="COPPER" position="67 30 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="E-WEST" position="100 6 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="E-NORTH" position="133 20 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="REPAIR" position="116 54 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="POINT-SOUTH" position="82 50 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="BOOK-WALK" position="86 76 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="W-STAIR-FOOT" position="60 60.5 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="W-STAIR-TOP" position="60 80 3.2" kind="poi" element="TEA-ROOF" movement="land" group="markers" />
+  <marker id="E-STAIR-FOOT" position="95.5 88 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="E-STAIR-TOP" position="76 88 3.2" kind="poi" element="TEA-ROOF" movement="land" group="markers" />
+  <marker id="NORTH-ALLEY" position="50 96 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <marker id="SOUTH-LOOP" position="33 6 0" kind="poi" element="STREETS" movement="land" group="markers" />
+  <route id="W1-point" from="W1" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="W2-point" from="W2" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="W3-point" from="W3" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="W4-point" from="W4" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="W5-point" from="W5" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="E1-point" from="E1" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="E2-point" from="E2" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="E3-point" from="E3" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="E4-point" from="E4" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="E5-point" from="E5" to="CONTROL" min-routes="1" max-distance="160" movement="land" />
+  <route id="W-south-exit" from="W1" to="W-SOUTH" min-routes="1" max-distance="40" movement="land" />
+  <route id="W-north-exit" from="W5" to="W-NORTH" min-routes="1" max-distance="28" movement="land" />
+  <route id="W-primary" from="W-SOUTH" to="CONTROL" min-routes="1" max-distance="125" movement="land" />
+  <route id="W-service" from="W-NORTH" to="NORTH-ALLEY" min-routes="1" max-distance="70" movement="land" />
+  <route id="N-alley-carpet" from="NORTH-ALLEY" to="CARPET" min-routes="1" max-distance="65" movement="land" />
+  <route id="E-west-exit" from="E1" to="E-WEST" min-routes="1" max-distance="40" movement="land" />
+  <route id="E-north-exit" from="E3" to="E-NORTH" min-routes="1" max-distance="32" movement="land" />
+  <route id="E-primary" from="E-WEST" to="CONTROL" min-routes="1" max-distance="110" movement="land" />
+  <route id="E-service" from="E-NORTH" to="REPAIR" min-routes="1" max-distance="65" movement="land" />
+  <route id="repair-point" from="REPAIR" to="CONTROL" min-routes="1" max-distance="75" movement="land" />
+  <route id="carpet-point" from="CARPET" to="CONTROL" min-routes="1" max-distance="60" movement="land" />
+  <route id="copper-point" from="COPPER" to="CONTROL" min-routes="1" max-distance="75" movement="land" />
+  <route id="book-point" from="BOOK-WALK" to="CONTROL" min-routes="1" max-distance="35" movement="land" />
+  <route id="west-ascent" from="W-STAIR-FOOT" to="W-STAIR-TOP" min-routes="1" max-distance="25" movement="land" />
+  <route id="west-descent" from="W-STAIR-TOP" to="W-STAIR-FOOT" min-routes="1" max-distance="25" movement="land" />
+  <route id="east-ascent" from="E-STAIR-FOOT" to="E-STAIR-TOP" min-routes="1" max-distance="25" movement="land" />
+  <route id="east-descent" from="E-STAIR-TOP" to="E-STAIR-FOOT" min-routes="1" max-distance="25" movement="land" />
+  <route id="roof-transfer" from="W-STAIR-TOP" to="E-STAIR-TOP" min-routes="1" max-distance="35" movement="land" />
+  <route id="deep-rotation" from="SOUTH-LOOP" to="COPPER" min-routes="1" max-distance="70" movement="land" />
+  <route id="tailor-carpet" from="TAILOR" to="CARPET" min-routes="1" max-distance="65" movement="land" />
+  <volume id="capture" profile="point-plan" role="objective" height="2">
+    <property name="integration" value="Target engine must implement control scoring / team filtering and enemy exclusion; geometry metadata only." />
+  </volume>
+  <volume id="west-protection" profile="west-yard-plan" role="spawn" height="5">
+    <property name="integration" value="Target engine must implement control scoring / team filtering and enemy exclusion; geometry metadata only." />
+  </volume>
+  <volume id="east-protection" profile="east-yard-plan" role="spawn" height="5">
+    <property name="integration" value="Target engine must implement control scoring / team filtering and enemy exclusion; geometry metadata only." />
+  </volume>
+  <no-spawn-los markers="W1 E1" />
+  <no-spawn-los markers="W1 E2" />
+  <no-spawn-los markers="W1 E3" />
+  <no-spawn-los markers="W1 E4" />
+  <no-spawn-los markers="W1 E5" />
+  <no-spawn-los markers="W2 E1" />
+  <no-spawn-los markers="W2 E2" />
+  <no-spawn-los markers="W2 E3" />
+  <no-spawn-los markers="W2 E4" />
+  <no-spawn-los markers="W2 E5" />
+  <no-spawn-los markers="W3 E1" />
+  <no-spawn-los markers="W3 E2" />
+  <no-spawn-los markers="W3 E3" />
+  <no-spawn-los markers="W3 E4" />
+  <no-spawn-los markers="W3 E5" />
+  <no-spawn-los markers="W4 E1" />
+  <no-spawn-los markers="W4 E2" />
+  <no-spawn-los markers="W4 E3" />
+  <no-spawn-los markers="W4 E4" />
+  <no-spawn-los markers="W4 E5" />
+  <no-spawn-los markers="W5 E1" />
+  <no-spawn-los markers="W5 E2" />
+  <no-spawn-los markers="W5 E3" />
+  <no-spawn-los markers="W5 E4" />
+  <no-spawn-los markers="W5 E5" />
+</architecture>

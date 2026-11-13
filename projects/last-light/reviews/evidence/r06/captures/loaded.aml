@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="last-light" name="Last Light Galleria · 5v5 Control" units="meters" validation="playable" description="R06 dead mall blockout. Ground-only fountain control, diagonal home loops and two local lofts. See brief.md for unimplemented game rules.">
+  <material id="tile" color="#d1c5ab" roughness=".85" />
+  <material id="plaster" color="#d7cfba" roughness=".85" />
+  <material id="teal" color="#477d7e" roughness=".85" />
+  <material id="pink" color="#b87989" roughness=".85" />
+  <material id="dark" color="#3c484c" roughness=".85" />
+  <material id="grout" color="#748581" roughness=".85" />
+  <material id="brass" color="#b39a63" roughness=".85" />
+  <material id="water-tile" color="#7babb0" roughness=".85" />
+  <material id="ink" color="#263e43" roughness=".85" />
+  <material id="cream" color="#eadbb6" roughness=".85" />
+  <material id="soil" color="#766c52" roughness=".85" />
+  <material id="leaf" color="#66795c" roughness=".85" />
+  <material id="a" color="#4c99a8" roughness=".85" />
+  <material id="b" color="#cc8b59" roughness=".85" />
+  <player radius=".4" height="2" crouch="1.15" step=".3" slope="42" />
+  <profile id="ANCHOR-A-plan" points="4 4; 20 4; 20 20; 4 20" />
+  <profile id="SOUTH-plan" points="20 8; 40 8; 40 24; 32 24; 32 20; 20 20" />
+  <profile id="ARCADE-plan" points="4 20; 20 20; 20 32; 28 32; 28 48; 4 48" />
+  <profile id="COURT-plan" points="34 24; 46 24; 52 30; 52 42; 46 48; 34 48; 28 42; 28 30" />
+  <profile id="ANCHOR-B-plan" points="76 68; 60 68; 60 52; 76 52" />
+  <profile id="NORTH-plan" points="60 64; 40 64; 40 48; 48 48; 48 52; 60 52" />
+  <profile id="CINEMA-plan" points="76 52; 60 52; 60 40; 52 40; 52 24; 76 24" />
+  <profile id="FOOD-LOFT-plan" points="10 34; 28 34; 28 42; 10 42" />
+  <profile id="PROJECTION-LOFT-plan" points="70 38; 52 38; 52 30; 70 30" />
+  <profile id="LIFT-plan" points="38.5 34; 41.5 34; 41.5 38; 38.5 38" />
+  <profile id="A-KIOSK-plan" points="25 13; 30 13; 30 17; 25 17" />
+  <profile id="A-CORE-plan" points="12 12; 16 12; 16 18; 12 18" />
+  <profile id="A-LOW-plan" points="34 17.5; 38 17.5; 38 18.7; 34 18.7" />
+  <profile id="ARCADE-CABINETS-plan" points="4 27; 6 27; 6 32; 4 32" />
+  <profile id="WEST-COUNTER-plan" points="18 39.5; 23 39.5; 23 42; 18 42" />
+  <profile id="B-KIOSK-plan" points="55 59; 50 59; 50 55; 55 55" />
+  <profile id="B-CORE-plan" points="68 60; 64 60; 64 54; 68 54" />
+  <profile id="B-LOW-plan" points="46 54.5; 42 54.5; 42 53.3; 46 53.3" />
+  <profile id="CINEMA-COUNTER-plan" points="76 45; 74 45; 74 40; 76 40" />
+  <profile id="EAST-COUNTER-plan" points="62 32.5; 57 32.5; 57 30; 62 30" />
+  <profile id="F-SOUTH-plan" points="33 30; 37 30; 37 31.1; 33 31.1" />
+  <profile id="F-NORTH-plan" points="43 40.9; 47 40.9; 47 42; 43 42" />
+  <path id="A-E1-axis" points="20 4 0; 20 10 0" />
+  <path id="A-E2-axis" points="20 16 0; 20 20 0" />
+  <path id="A-N1-axis" points="4 20 0; 6 20 0" />
+  <path id="A-N2-axis" points="12 20 0; 20 20 0" />
+  <path id="B-E1-axis" points="60 68 0; 60 62 0" />
+  <path id="B-E2-axis" points="60 56 0; 60 52 0" />
+  <path id="B-N1-axis" points="76 52 0; 74 52 0" />
+  <path id="B-N2-axis" points="68 52 0; 60 52 0" />
+  <path id="W-LOFT-FRONT-0-axis" points="28 34 3; 28 36 3" />
+  <path id="W-LOFT-FRONT-1-axis" points="28 36 3; 28 40 3" />
+  <path id="W-LOFT-FRONT-2-axis" points="28 40 3; 28 42 3" />
+  <path id="E-LOFT-FRONT-0-axis" points="52 30 3; 52 32 3" />
+  <path id="E-LOFT-FRONT-1-axis" points="52 32 3; 52 36 3" />
+  <path id="E-LOFT-FRONT-2-axis" points="52 36 3; 52 38 3" />
+  <path id="W-REAR-axis" points="10 34 3; 10 42 3" />
+  <path id="W-NORTH-axis" points="10 42 3; 28 42 3" />
+  <path id="W-SOUTH-axis" points="16 34 3; 28 34 3" />
+  <path id="E-REAR-axis" points="70 38 3; 70 30 3" />
+  <path id="E-SOUTH-axis" points="70 30 3; 52 30 3" />
+  <path id="E-NORTH-axis" points="64 38 3; 52 38 3" />
+  <path id="WEST-STAIR-axis" points="13 22 0; 13 34 3" />
+  <path id="EAST-STAIR-axis" points="67 50 0; 67 38 3" />
+  <path id="EDGE-00-axis" points="4 4 0; 20 4 0" />
+  <path id="EDGE-01-axis" points="20 4 0; 20 8 0" />
+  <path id="EDGE-02-axis" points="4 4 0; 4 20 0" />
+  <path id="EDGE-03-axis" points="20 8 0; 40 8 0" />
+  <path id="EDGE-04-axis" points="40 8 0; 40 24 0" />
+  <path id="EDGE-05-axis" points="32 24 0; 34 24 0" />
+  <path id="EDGE-06-axis" points="32 20 0; 32 24 0" />
+  <path id="EDGE-07-axis" points="20 20 0; 32 20 0" />
+  <path id="EDGE-08-axis" points="20 20 0; 20 32 0" />
+  <path id="EDGE-09-axis" points="20 32 0; 28 32 0" />
+  <path id="EDGE-10-axis" points="28 42 0; 28 48 0" />
+  <path id="EDGE-11-axis" points="4 48 0; 28 48 0" />
+  <path id="EDGE-12-axis" points="4 20 0; 4 48 0" />
+  <path id="EDGE-13-axis" points="40 24 0; 46 24 0" />
+  <path id="EDGE-14-axis" points="46 24 0; 52 30 0" />
+  <path id="EDGE-15-axis" points="52 40 0; 52 42 0" />
+  <path id="EDGE-16-axis" points="46 48 0; 52 42 0" />
+  <path id="EDGE-17-axis" points="34 48 0; 40 48 0" />
+  <path id="EDGE-18-axis" points="28 42 0; 34 48 0" />
+  <path id="EDGE-19-axis" points="28 30 0; 28 32 0" />
+  <path id="EDGE-20-axis" points="28 30 0; 34 24 0" />
+  <path id="EDGE-21-axis" points="60 68 0; 76 68 0" />
+  <path id="EDGE-22-axis" points="60 64 0; 60 68 0" />
+  <path id="EDGE-23-axis" points="76 52 0; 76 68 0" />
+  <path id="EDGE-24-axis" points="40 64 0; 60 64 0" />
+  <path id="EDGE-25-axis" points="40 48 0; 40 64 0" />
+  <path id="EDGE-26-axis" points="46 48 0; 48 48 0" />
+  <path id="EDGE-27-axis" points="48 48 0; 48 52 0" />
+  <path id="EDGE-28-axis" points="48 52 0; 60 52 0" />
+  <path id="EDGE-29-axis" points="60 40 0; 60 52 0" />
+  <path id="EDGE-30-axis" points="52 40 0; 60 40 0" />
+  <path id="EDGE-31-axis" points="52 24 0; 52 30 0" />
+  <path id="EDGE-32-axis" points="52 24 0; 76 24 0" />
+  <path id="EDGE-33-axis" points="76 24 0; 76 52 0" />
+  <assembly id="MALL" coincident-material="retained-face" label="Reviewed structural shell and gameplay cover">
+    <slab id="ANCHOR-A" profile="ANCHOR-A-plan" elevation="0" thickness=".35" material="tile" group="ground" />
+    <slab id="SOUTH" profile="SOUTH-plan" elevation="0" thickness=".35" material="tile" group="ground" />
+    <slab id="ARCADE" profile="ARCADE-plan" elevation="0" thickness=".35" material="tile" group="ground" />
+    <slab id="COURT" profile="COURT-plan" elevation="0" thickness=".35" material="water-tile" group="ground" />
+    <slab id="ANCHOR-B" profile="ANCHOR-B-plan" elevation="0" thickness=".35" material="tile" group="ground" />
+    <slab id="NORTH" profile="NORTH-plan" elevation="0" thickness=".35" material="tile" group="ground" />
+    <slab id="CINEMA" profile="CINEMA-plan" elevation="0" thickness=".35" material="tile" group="ground" />
+    <slab id="FOOD-LOFT" profile="FOOD-LOFT-plan" elevation="3" thickness=".35" material="pink" group="lofts" />
+    <slab id="PROJECTION-LOFT" profile="PROJECTION-LOFT-plan" elevation="3" thickness=".35" material="pink" group="lofts" />
+    <wall id="EDGE-00" path="EDGE-00-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-01" path="EDGE-01-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-02" path="EDGE-02-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-03" path="EDGE-03-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-04" path="EDGE-04-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-05" path="EDGE-05-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-06" path="EDGE-06-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-07" path="EDGE-07-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-08" path="EDGE-08-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-09" path="EDGE-09-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-10" path="EDGE-10-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-11" path="EDGE-11-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-12" path="EDGE-12-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-13" path="EDGE-13-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-14" path="EDGE-14-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-15" path="EDGE-15-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-16" path="EDGE-16-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-17" path="EDGE-17-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-18" path="EDGE-18-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-19" path="EDGE-19-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-20" path="EDGE-20-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-21" path="EDGE-21-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-22" path="EDGE-22-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-23" path="EDGE-23-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-24" path="EDGE-24-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-25" path="EDGE-25-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-26" path="EDGE-26-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-27" path="EDGE-27-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-28" path="EDGE-28-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-29" path="EDGE-29-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-30" path="EDGE-30-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-31" path="EDGE-31-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-32" path="EDGE-32-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="EDGE-33" path="EDGE-33-axis" height="5.8" thickness=".24" material="plaster" group="shell" />
+    <wall id="A-E1" path="A-E1-axis" height="4" thickness=".24" material="teal" group="ground" />
+    <wall id="A-E2" path="A-E2-axis" height="4" thickness=".24" material="teal" group="ground" />
+    <wall id="A-N1" path="A-N1-axis" height="4" thickness=".24" material="teal" group="ground" />
+    <wall id="A-N2" path="A-N2-axis" height="4" thickness=".24" material="teal" group="ground" />
+    <wall id="B-E1" path="B-E1-axis" height="4" thickness=".24" material="teal" group="ground" />
+    <wall id="B-E2" path="B-E2-axis" height="4" thickness=".24" material="teal" group="ground" />
+    <wall id="B-N1" path="B-N1-axis" height="4" thickness=".24" material="teal" group="ground" />
+    <wall id="B-N2" path="B-N2-axis" height="4" thickness=".24" material="teal" group="ground" />
+    <wall id="W-LOFT-FRONT-0" path="W-LOFT-FRONT-0-axis" height="2.6" thickness=".24" material="pink" group="lofts" />
+    <wall id="W-LOFT-FRONT-1" path="W-LOFT-FRONT-1-axis" height="1.1" thickness=".24" material="pink" group="lofts" />
+    <wall id="W-LOFT-FRONT-2" path="W-LOFT-FRONT-2-axis" height="2.6" thickness=".24" material="pink" group="lofts" />
+    <wall id="E-LOFT-FRONT-0" path="E-LOFT-FRONT-0-axis" height="2.6" thickness=".24" material="pink" group="lofts" />
+    <wall id="E-LOFT-FRONT-1" path="E-LOFT-FRONT-1-axis" height="1.1" thickness=".24" material="pink" group="lofts" />
+    <wall id="E-LOFT-FRONT-2" path="E-LOFT-FRONT-2-axis" height="2.6" thickness=".24" material="pink" group="lofts" />
+    <wall id="W-REAR" path="W-REAR-axis" height="1.1" thickness=".24" material="pink" group="lofts" />
+    <wall id="W-NORTH" path="W-NORTH-axis" height="1.1" thickness=".24" material="pink" group="lofts" />
+    <wall id="W-SOUTH" path="W-SOUTH-axis" height="1.1" thickness=".24" material="pink" group="lofts" />
+    <wall id="E-REAR" path="E-REAR-axis" height="1.1" thickness=".24" material="pink" group="lofts" />
+    <wall id="E-SOUTH" path="E-SOUTH-axis" height="1.1" thickness=".24" material="pink" group="lofts" />
+    <wall id="E-NORTH" path="E-NORTH-axis" height="1.1" thickness=".24" material="pink" group="lofts" />
+    <box id="LIFT" position="38.5 34 0" width="3" depth="4" height="5.8" material="teal" group="cover" label="Opaque dead lift shaft splits point and interrupts opposing loft views" />
+    <box id="A-KIOSK" position="25 13 0" width="5" depth="4" height="3.2" material="pink" group="cover" label="Jewelry kiosk gives hard reset before south entry" />
+    <box id="A-CORE" position="12 12 0" width="4" depth="6" height="3.4" material="teal" group="cover" label="Spawn service core offsets both exits" />
+    <box id="A-LOW" position="34 17.5 0" width="4" depth="1.2" height="1.15" material="pink" group="cover" label="Standing exposed / crouch refuge south staging" />
+    <box id="ARCADE-CABINETS" position="4 27 0" width="2" depth="5" height="2.3" material="teal" group="cover" label="Cabinet bank creates west wall recess" />
+    <box id="WEST-COUNTER" position="18 39.5 3" width="5" depth="2.5" height="1.15" material="pink" group="cover" label="Loft preparation refuge; exposed to opposing height" />
+    <box id="B-KIOSK" position="50 55 0" width="5" depth="4" height="3.2" material="pink" group="cover" label="Jewelry kiosk gives hard reset before south entry" />
+    <box id="B-CORE" position="64 54 0" width="4" depth="6" height="3.4" material="teal" group="cover" label="Spawn service core offsets both exits" />
+    <box id="B-LOW" position="42 53.3 0" width="4" depth="1.2" height="1.15" material="pink" group="cover" label="Standing exposed / crouch refuge south staging" />
+    <box id="CINEMA-COUNTER" position="74 40 0" width="2" depth="5" height="2.3" material="teal" group="cover" label="Cabinet bank creates west wall recess" />
+    <box id="EAST-COUNTER" position="57 30 3" width="5" depth="2.5" height="1.15" material="pink" group="cover" label="Loft preparation refuge; exposed to opposing height" />
+    <box id="F-SOUTH" position="33 30 0" width="4" depth="1.1" height="1.1" material="tile" group="cover" label="Broken fountain rim; exposed to upper views" />
+    <box id="F-NORTH" position="43 40.9 0" width="4" depth="1.1" height="1.1" material="tile" group="cover" label="Broken fountain rim; exposed to upper views" />
+    <stairs id="WEST-STAIR" path="WEST-STAIR-axis" width="6" count="20" underside="filled" thickness=".35" material="grout" group="stairs" />
+    <enclosure id="WEST-STAIR-left" host="WEST-STAIR" side="left" construction="parapet" height="1.1" thickness=".20" material="pink" group="stairs" />
+    <enclosure id="WEST-STAIR-right" host="WEST-STAIR" side="right" construction="parapet" height="1.1" thickness=".20" material="pink" group="stairs" />
+    <stairs id="EAST-STAIR" path="EAST-STAIR-axis" width="6" count="20" underside="filled" thickness=".35" material="grout" group="stairs" />
+    <enclosure id="EAST-STAIR-left" host="EAST-STAIR" side="left" construction="parapet" height="1.1" thickness=".20" material="pink" group="stairs" />
+    <enclosure id="EAST-STAIR-right" host="EAST-STAIR" side="right" construction="parapet" height="1.1" thickness=".20" material="pink" group="stairs" />
+    <box id="W-LOFT-PIER-0" position="10 41.6 0" width=".4" depth=".4" height="2.65" material="teal" group="shell" />
+    <box id="W-LOFT-PIER-1" position="18.8 41.6 0" width=".4" depth=".4" height="2.65" material="teal" group="shell" />
+    <box id="W-LOFT-PIER-2" position="27.6 41.6 0" width=".4" depth=".4" height="2.65" material="teal" group="shell" />
+    <box id="E-LOFT-PIER-0" position="69.6 30 0" width=".4" depth=".4" height="2.65" material="teal" group="shell" />
+    <box id="E-LOFT-PIER-1" position="60.8 30 0" width=".4" depth=".4" height="2.65" material="teal" group="shell" />
+    <box id="E-LOFT-PIER-2" position="52 30 0" width=".4" depth=".4" height="2.65" material="teal" group="shell" />
+    <cylinder id="ATRIUM-COLUMN-0" position="34 24 0" radius=".26" height="7.8" segments="12" material="cream" group="shell" />
+    <cylinder id="ATRIUM-COLUMN-1" position="46 24 0" radius=".26" height="7.8" segments="12" material="cream" group="shell" />
+    <cylinder id="ATRIUM-COLUMN-2" position="34 48 0" radius=".26" height="7.8" segments="12" material="cream" group="shell" />
+    <cylinder id="ATRIUM-COLUMN-3" position="46 48 0" radius=".26" height="7.8" segments="12" material="cream" group="shell" />
+    <box id="SKYLIGHT-BEAM-0" position="34 23.88 7.5" rotation="0 0 0" width="12" depth=".24" height=".3" material="teal" group="shell" />
+    <box id="SKYLIGHT-BEAM-1" position="46 23.88 7.5" rotation="0 0 45" width="8.48528" depth=".24" height=".3" material="teal" group="shell" />
+    <box id="SKYLIGHT-BEAM-2" position="52 29.88 7.5" rotation="0 0 90" width="12" depth=".24" height=".3" material="teal" group="shell" />
+    <box id="SKYLIGHT-BEAM-3" position="52 41.88 7.5" rotation="0 0 135" width="8.48528" depth=".24" height=".3" material="teal" group="shell" />
+    <box id="SKYLIGHT-BEAM-4" position="46 47.88 7.5" rotation="0 0 180" width="12" depth=".24" height=".3" material="teal" group="shell" />
+    <box id="SKYLIGHT-BEAM-5" position="34 47.88 7.5" rotation="0 0 -135" width="8.48528" depth=".24" height=".3" material="teal" group="shell" />
+    <box id="SKYLIGHT-BEAM-6" position="28 41.88 7.5" rotation="0 0 -90" width="12" depth=".24" height=".3" material="teal" group="shell" />
+    <box id="SKYLIGHT-BEAM-7" position="28 29.88 7.5" rotation="0 0 -45" width="8.48528" depth=".24" height=".3" material="teal" group="shell" />
+  </assembly>
+  <group id="RETAIL-DETAIL" label="Shutters, faded trims and dead planting; visual only">
+    <assembly id="DETAIL-pink" material="pink" collidable="false" coincident-material="retained-face">
+      <box id="FASCIA-0" position="4.4 3.85 3.15" width="15.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-1" position="20.15 4.4 3.15" width="3.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-2" position="4.15 4.4 3.15" width="15.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-3" position="20.4 7.85 3.15" width="19.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-4" position="40.15 8.4 3.15" width="15.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-5" position="32.4 23.85 3.15" width="1.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-6" position="32.15 20.4 3.15" width="3.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-7" position="20.4 19.85 3.15" width="11.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-8" position="20.15 20.4 3.15" width="11.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-9" position="20.4 31.85 3.15" width="7.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-10" position="28.15 42.4 3.15" width="5.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-11" position="4.4 47.85 3.15" width="23.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-12" position="4.15 20.4 3.15" width="27.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-13" position="40.4 23.85 3.15" width="5.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-14" position="46.3889 24.1768 3.15" width="7.68528" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 45" />
+      <box id="FASCIA-15" position="52.15 40.4 3.15" width="1.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-16" position="46.1768 47.6111 3.15" width="7.68528" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 -45" />
+      <box id="FASCIA-17" position="34.4 47.85 3.15" width="5.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-18" position="28.3889 42.1768 3.15" width="7.68528" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 45" />
+      <box id="FASCIA-19" position="28.15 30.4 3.15" width="1.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-20" position="28.1768 29.6111 3.15" width="7.68528" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 -45" />
+      <box id="FASCIA-21" position="60.4 67.85 3.15" width="15.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-22" position="60.15 64.4 3.15" width="3.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-23" position="76.15 52.4 3.15" width="15.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-24" position="40.4 63.85 3.15" width="19.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-25" position="40.15 48.4 3.15" width="15.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-26" position="46.4 47.85 3.15" width="1.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-27" position="48.15 48.4 3.15" width="3.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-28" position="48.4 51.85 3.15" width="11.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-29" position="60.15 40.4 3.15" width="11.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-30" position="52.4 39.85 3.15" width="7.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-31" position="52.15 24.4 3.15" width="5.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="FASCIA-32" position="52.4 23.85 3.15" width="23.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 0" />
+      <box id="FASCIA-33" position="76.15 24.4 3.15" width="27.2" depth="0.3" height="0.45" material="pink" group="details" rotation="0 0 90" />
+      <box id="A-TILE-0" position="21 8.2 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="A-TILE-1" position="24 8.2 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="A-TILE-2" position="27 8.2 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="A-TILE-3" position="30 8.2 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="A-TILE-4" position="33 8.2 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="B-TILE-0" position="58 60.8 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="B-TILE-1" position="55 60.8 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="B-TILE-2" position="52 60.8 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="B-TILE-3" position="49 60.8 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <box id="B-TILE-4" position="46 60.8 0.002" width="1" depth="3" height="0.002" material="pink" group="details" />
+      <cylinder id="DEAD-CLOCK" position="40 47.25 6.25" rotation="90 0 0" radius=".85" height=".12" segments="24" material="pink" group="details" />
+    </assembly>
+    <assembly id="DETAIL-dark" material="dark" collidable="false" coincident-material="retained-face">
+      <box id="SHUTTER-0-0" position="8.05 3.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-0-1" position="12.45 3.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-2-0" position="4.145 8.05 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-2-1" position="4.145 12.45 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-3-0" position="26.05 7.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-3-1" position="30.45 7.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-4-0" position="40.145 12.05 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-4-1" position="40.145 16.45 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-7-0" position="22.05 19.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-7-1" position="26.45 19.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-8-0" position="20.145 22.05 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-8-1" position="20.145 26.45 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-11-0" position="12.05 47.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-11-1" position="16.45 47.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-12-0" position="4.145 30.05 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-12-1" position="4.145 34.45 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-21-0" position="64.05 67.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-21-1" position="68.45 67.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-23-0" position="76.145 56.05 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-23-1" position="76.145 60.45 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-24-0" position="46.05 63.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-24-1" position="50.45 63.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-25-0" position="40.145 52.05 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-25-1" position="40.145 56.45 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-28-0" position="50.05 51.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-28-1" position="54.45 51.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-29-0" position="60.145 42.05 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-29-1" position="60.145 46.45 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-32-0" position="60.05 23.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-32-1" position="64.45 23.855 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-33-0" position="76.145 34.05 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-33-1" position="76.145 38.45 0.25" width="3.5" depth="0.29" height="2.6" material="dark" group="details" rotation="0 0 90" />
+    </assembly>
+    <assembly id="DETAIL-grout" material="grout" collidable="false" coincident-material="retained-face">
+      <box id="SHUTTER-RIB-0-0-0" position="8.1 3.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-0-0-1" position="8.1 3.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-0-0-2" position="8.1 3.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-0-0-3" position="8.1 3.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-0-1-0" position="12.5 3.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-0-1-1" position="12.5 3.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-0-1-2" position="12.5 3.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-0-1-3" position="12.5 3.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-2-0-0" position="4.16 8.1 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-2-0-1" position="4.16 8.1 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-2-0-2" position="4.16 8.1 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-2-0-3" position="4.16 8.1 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-2-1-0" position="4.16 12.5 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-2-1-1" position="4.16 12.5 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-2-1-2" position="4.16 12.5 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-2-1-3" position="4.16 12.5 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-3-0-0" position="26.1 7.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-3-0-1" position="26.1 7.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-3-0-2" position="26.1 7.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-3-0-3" position="26.1 7.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-3-1-0" position="30.5 7.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-3-1-1" position="30.5 7.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-3-1-2" position="30.5 7.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-3-1-3" position="30.5 7.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-4-0-0" position="40.16 12.1 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-4-0-1" position="40.16 12.1 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-4-0-2" position="40.16 12.1 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-4-0-3" position="40.16 12.1 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-4-1-0" position="40.16 16.5 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-4-1-1" position="40.16 16.5 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-4-1-2" position="40.16 16.5 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-4-1-3" position="40.16 16.5 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-7-0-0" position="22.1 19.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-7-0-1" position="22.1 19.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-7-0-2" position="22.1 19.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-7-0-3" position="22.1 19.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-7-1-0" position="26.5 19.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-7-1-1" position="26.5 19.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-7-1-2" position="26.5 19.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-7-1-3" position="26.5 19.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-8-0-0" position="20.16 22.1 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-8-0-1" position="20.16 22.1 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-8-0-2" position="20.16 22.1 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-8-0-3" position="20.16 22.1 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-8-1-0" position="20.16 26.5 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-8-1-1" position="20.16 26.5 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-8-1-2" position="20.16 26.5 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-8-1-3" position="20.16 26.5 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-11-0-0" position="12.1 47.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-11-0-1" position="12.1 47.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-11-0-2" position="12.1 47.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-11-0-3" position="12.1 47.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-11-1-0" position="16.5 47.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-11-1-1" position="16.5 47.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-11-1-2" position="16.5 47.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-11-1-3" position="16.5 47.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-12-0-0" position="4.16 30.1 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-12-0-1" position="4.16 30.1 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-12-0-2" position="4.16 30.1 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-12-0-3" position="4.16 30.1 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-12-1-0" position="4.16 34.5 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-12-1-1" position="4.16 34.5 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-12-1-2" position="4.16 34.5 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-12-1-3" position="4.16 34.5 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-21-0-0" position="64.1 67.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-21-0-1" position="64.1 67.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-21-0-2" position="64.1 67.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-21-0-3" position="64.1 67.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-21-1-0" position="68.5 67.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-21-1-1" position="68.5 67.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-21-1-2" position="68.5 67.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-21-1-3" position="68.5 67.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-23-0-0" position="76.16 56.1 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-23-0-1" position="76.16 56.1 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-23-0-2" position="76.16 56.1 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-23-0-3" position="76.16 56.1 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-23-1-0" position="76.16 60.5 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-23-1-1" position="76.16 60.5 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-23-1-2" position="76.16 60.5 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-23-1-3" position="76.16 60.5 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-24-0-0" position="46.1 63.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-24-0-1" position="46.1 63.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-24-0-2" position="46.1 63.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-24-0-3" position="46.1 63.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-24-1-0" position="50.5 63.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-24-1-1" position="50.5 63.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-24-1-2" position="50.5 63.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-24-1-3" position="50.5 63.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-25-0-0" position="40.16 52.1 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-25-0-1" position="40.16 52.1 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-25-0-2" position="40.16 52.1 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-25-0-3" position="40.16 52.1 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-25-1-0" position="40.16 56.5 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-25-1-1" position="40.16 56.5 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-25-1-2" position="40.16 56.5 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-25-1-3" position="40.16 56.5 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-28-0-0" position="50.1 51.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-28-0-1" position="50.1 51.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-28-0-2" position="50.1 51.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-28-0-3" position="50.1 51.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-28-1-0" position="54.5 51.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-28-1-1" position="54.5 51.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-28-1-2" position="54.5 51.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-28-1-3" position="54.5 51.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-29-0-0" position="60.16 42.1 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-29-0-1" position="60.16 42.1 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-29-0-2" position="60.16 42.1 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-29-0-3" position="60.16 42.1 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-29-1-0" position="60.16 46.5 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-29-1-1" position="60.16 46.5 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-29-1-2" position="60.16 46.5 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-29-1-3" position="60.16 46.5 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-32-0-0" position="60.1 23.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-32-0-1" position="60.1 23.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-32-0-2" position="60.1 23.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-32-0-3" position="60.1 23.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-32-1-0" position="64.5 23.84 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-32-1-1" position="64.5 23.84 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-32-1-2" position="64.5 23.84 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-32-1-3" position="64.5 23.84 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 0" />
+      <box id="SHUTTER-RIB-33-0-0" position="76.16 34.1 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-33-0-1" position="76.16 34.1 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-33-0-2" position="76.16 34.1 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-33-0-3" position="76.16 34.1 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-33-1-0" position="76.16 38.5 0.6" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-33-1-1" position="76.16 38.5 1.18" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-33-1-2" position="76.16 38.5 1.76" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+      <box id="SHUTTER-RIB-33-1-3" position="76.16 38.5 2.34" width="3.4" depth="0.32" height="0.035" material="grout" group="details" rotation="0 0 90" />
+    </assembly>
+    <assembly id="DETAIL-ink" material="ink" collidable="false" coincident-material="retained-face">
+      <box id="LIFT-DOOR" position="38.7 33.97 0.2" width="2.6" depth="0.07" height="2.7" material="ink" group="details" />
+      <box id="CLOCK-HAND" position="39.96 47.1 6.25" width="0.08" depth="0.07" height="0.6" material="ink" group="details" />
+      <box id="CLOCK-HAND-SHORT" position="40 47.09 6.21" width="0.42" depth="0.07" height="0.08" material="ink" group="details" />
+    </assembly>
+    <assembly id="DETAIL-brass" material="brass" collidable="false" coincident-material="retained-face">
+      <box id="LIFT-HEADER" position="38.4 33.9 3.2" width="3.2" depth="0.15" height="0.35" material="brass" group="details" />
+      <box id="LIFT-CROWN" position="38.3 33.8 5.6" width="3.4" depth="4.4" height="0.18" material="brass" group="details" />
+      <box id="BASIN-STRIP-0" position="33 29 0.002" width="14" depth="0.12" height="0.002" material="brass" group="details" />
+      <box id="BASIN-STRIP-1" position="33 42.88 0.002" width="14" depth="0.12" height="0.002" material="brass" group="details" />
+      <box id="BASIN-STRIP-2" position="32.8 29 0.002" width="0.12" depth="14" height="0.002" material="brass" group="details" />
+      <box id="BASIN-STRIP-3" position="47.08 29 0.002" width="0.12" depth="14" height="0.002" material="brass" group="details" />
+      <box id="CLOCK-ARM" position="39.9 47.5 5.8" width="0.2" depth="0.25" height="1.7" material="brass" group="details" />
+    </assembly>
+    <assembly id="DETAIL-soil" material="soil" collidable="false" coincident-material="retained-face">
+      <cylinder id="W-PLANT-POT" position="19 40.8 4.15" radius=".4" height=".5" material="soil" group="details" />
+      <box id="W-DEAD-STEM" position="18.97 40.77 4.65" width="0.06" depth="0.06" height="0.9" material="soil" group="details" />
+      <cylinder id="E-PLANT-POT" position="61 31.2 4.15" radius=".4" height=".5" material="soil" group="details" />
+      <box id="E-DEAD-STEM" position="60.97 31.17 4.65" width="0.06" depth="0.06" height="0.9" material="soil" group="details" />
+    </assembly>
+    <assembly id="DETAIL-leaf" material="leaf" collidable="false" coincident-material="retained-face">
+      <box id="W-LEAF-0" position="18.55 40.72 4.8" width="0.9" depth="0.16" height="0.08" material="leaf" group="details" rotation="0 20 0" />
+      <box id="W-LEAF-1" position="18.55 40.72 5" width="0.9" depth="0.16" height="0.08" material="leaf" group="details" rotation="0 0 55" />
+      <box id="W-LEAF-2" position="18.55 40.72 5.2" width="0.9" depth="0.16" height="0.08" material="leaf" group="details" rotation="0 -20 110" />
+      <box id="E-LEAF-0" position="60.55 31.12 4.8" width="0.9" depth="0.16" height="0.08" material="leaf" group="details" rotation="0 20 0" />
+      <box id="E-LEAF-1" position="60.55 31.12 5" width="0.9" depth="0.16" height="0.08" material="leaf" group="details" rotation="0 0 55" />
+      <box id="E-LEAF-2" position="60.55 31.12 5.2" width="0.9" depth="0.16" height="0.08" material="leaf" group="details" rotation="0 -20 110" />
+    </assembly>
+  </group>
+  <connection id="ANCHOR-A-to-SOUTH" from="ANCHOR-A" to="SOUTH" />
+  <connection id="ANCHOR-A-to-ARCADE" from="ANCHOR-A" to="ARCADE" />
+  <connection id="SOUTH-to-COURT" from="SOUTH" to="COURT" />
+  <connection id="ARCADE-to-COURT" from="ARCADE" to="COURT" />
+  <connection id="ANCHOR-B-to-NORTH" from="ANCHOR-B" to="NORTH" />
+  <connection id="ANCHOR-B-to-CINEMA" from="ANCHOR-B" to="CINEMA" />
+  <connection id="NORTH-to-COURT" from="NORTH" to="COURT" />
+  <connection id="CINEMA-to-COURT" from="CINEMA" to="COURT" />
+  <connection id="WEST-STAIR-entry" from="ARCADE" to="WEST-STAIR" />
+  <connection id="WEST-STAIR-exit" from="WEST-STAIR" to="FOOD-LOFT" />
+  <connection id="EAST-STAIR-entry" from="CINEMA" to="EAST-STAIR" />
+  <connection id="EAST-STAIR-exit" from="EAST-STAIR" to="PROJECTION-LOFT" />
+  <marker id="control" position="36 36 0" kind="objective" element="COURT" movement="land" group="ground" />
+  <marker id="a-spawn-1" position="7 7 0" kind="spawn" element="ANCHOR-A" movement="land" group="ground" team="A" />
+  <marker id="a-spawn-2" position="10 7 0" kind="spawn" element="ANCHOR-A" movement="land" group="ground" team="A" />
+  <marker id="a-spawn-3" position="13 7 0" kind="spawn" element="ANCHOR-A" movement="land" group="ground" team="A" />
+  <marker id="a-spawn-4" position="7 10 0" kind="spawn" element="ANCHOR-A" movement="land" group="ground" team="A" />
+  <marker id="a-spawn-5" position="10 10 0" kind="spawn" element="ANCHOR-A" movement="land" group="ground" team="A" />
+  <marker id="b-spawn-1" position="73 65 0" kind="spawn" element="ANCHOR-B" movement="land" group="ground" team="B" />
+  <marker id="b-spawn-2" position="70 65 0" kind="spawn" element="ANCHOR-B" movement="land" group="ground" team="B" />
+  <marker id="b-spawn-3" position="67 65 0" kind="spawn" element="ANCHOR-B" movement="land" group="ground" team="B" />
+  <marker id="b-spawn-4" position="73 62 0" kind="spawn" element="ANCHOR-B" movement="land" group="ground" team="B" />
+  <marker id="b-spawn-5" position="70 62 0" kind="spawn" element="ANCHOR-B" movement="land" group="ground" team="B" />
+  <marker id="south-stage" position="36 22 0" kind="poi" element="SOUTH" movement="land" group="ground" />
+  <marker id="north-stage" position="44 50 0" kind="poi" element="NORTH" movement="land" group="ground" />
+  <marker id="west-mouth" position="26 36 0" kind="poi" element="ARCADE" movement="land" group="ground" />
+  <marker id="east-mouth" position="54 36 0" kind="poi" element="CINEMA" movement="land" group="ground" />
+  <marker id="west-loft" position="25 38 3" kind="poi" element="FOOD-LOFT" movement="land" group="lofts" />
+  <marker id="east-loft" position="55 34 3" kind="poi" element="PROJECTION-LOFT" movement="land" group="lofts" />
+  <marker id="west-stair-foot" position="13 21 0" kind="poi" element="ARCADE" movement="land" group="ground" />
+  <marker id="west-stair-top" position="13 35 3" kind="poi" element="FOOD-LOFT" movement="land" group="lofts" />
+  <marker id="east-stair-foot" position="67 51 0" kind="poi" element="CINEMA" movement="land" group="ground" />
+  <marker id="east-stair-top" position="67 37 3" kind="poi" element="PROJECTION-LOFT" movement="land" group="lofts" />
+  <route id="A-to-control" from="a-spawn-1" to="control" max-distance="70" />
+  <route id="B-to-control" from="b-spawn-1" to="control" max-distance="70" />
+  <route id="A-west-exit" from="a-spawn-1" to="west-mouth" max-distance="65" />
+  <route id="B-east-exit" from="b-spawn-1" to="east-mouth" max-distance="65" />
+  <route id="A-south-exit" from="a-spawn-1" to="south-stage" max-distance="55" />
+  <route id="B-north-exit" from="b-spawn-1" to="north-stage" max-distance="55" />
+  <route id="west-ascent" from="west-stair-foot" to="west-stair-top" max-distance="18" />
+  <route id="east-ascent" from="east-stair-foot" to="east-stair-top" max-distance="18" />
+  <route id="west-loft-access" from="west-stair-foot" to="west-loft" max-distance="32" />
+  <route id="east-loft-access" from="east-stair-foot" to="east-loft" max-distance="32" />
+  <route id="court-west-to-east" from="west-mouth" to="east-mouth" max-distance="40" />
+</architecture>

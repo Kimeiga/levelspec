@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-12",
+  "environment": {
+    "node": "v24.12.0",
+    "cpu": "Apple M4",
+    "platform": "darwin",
+    "arch": "arm64",
+    "pngjs": "7.0.0"
+  },
+  "method": "Fresh processes, one serial raster executor, same frozen scene/cache namespace, full PNG validation in both variants; no own overlapping heavy work; external load uncontrolled. Cold Node seed then warm browser/node/node/browser/browser/node. Compilation excludes startup, initial source read, fingerprints, export/GPU/light baking. PNG timing excludes common output ownership copy.",
+  "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+  "fingerprint": "1ef1d619db493bc0b1f4c22a7767d5f3cde6ff33e4ab848e850475fec35605f2",
+  "codeHash": "6697311de843274ae3189ab2eb264c38a0cb8bf515da23eb67372a73d2e5d5e8",
+  "triangles": 798509,
+  "vertices": 2353167,
+  "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+  "renderHash": "27eb3b52276188ef475f654123b88177df68973b6712fc71dbccb69a4e2fb37d",
+  "appearance": {
+    "charts": 95130,
+    "texels": 80645061,
+    "imageBytes": 87813952
+  },
+  "equality": {
+    "physicalHash": true,
+    "renderHash": true,
+    "surfaceAppearance": true,
+    "triangles": true,
+    "vertices": true,
+    "diagnostics": true
+  },
+  "allSourcesStable": true,
+  "appearanceManifestSha256": "702830a1396cfb5b395f4ffa64a62c597d6351b4ce9d7400a6c48488cfb518c8",
+  "runs": [
+    {
+      "name": "cold-native",
+      "codec": "node",
+      "elapsedMs": 108433.838083,
+      "cpuMs": 126642.443,
+      "pngMs": 1058.7462079999987,
+      "pngCalls": 14,
+      "pngPixels": 36174132,
+      "peakRssKiB": 2757440,
+      "misses": {
+        "jobs": 9118,
+        "texels": 80645061
+      },
+      "rasterIntervalMs": 90791.68075,
+      "receiverJoiningMs": 8064.028749999998
+    },
+    {
+      "name": "warm-browser-1",
+      "codec": "browser",
+      "elapsedMs": 35915.162208999995,
+      "cpuMs": 65954.46,
+      "pngMs": 10035.156704000156,
+      "pngCalls": 26981,
+      "pngPixels": 113295795,
+      "peakRssKiB": 3083344,
+      "misses": {
+        "jobs": 116,
+        "texels": 3523398
+      },
+      "rasterIntervalMs": 18061.718292,
+      "receiverJoiningMs": 5085.687290999995
+    },
+    {
+      "name": "warm-native-1",
+      "codec": "node",
+      "elapsedMs": 42311.414249999994,
+      "cpuMs": 68179.571,
+      "pngMs": 6744.388690999878,
+      "pngCalls": 26981,
+      "pngPixels": 113295795,
+      "peakRssKiB": 2555664,
+      "misses": {
+        "jobs": 116,
+        "texels": 3523398
+      },
+      "rasterIntervalMs": 18827.973375,
+      "receiverJoiningMs": 10079.165457999992
+    },
+    {
+      "name": "warm-native-2",
+      "codec": "node",
+      "elapsedMs": 29406.827667,
+      "cpuMs": 48797.508,
+      "pngMs": 4579.461517000168,
+      "pngCalls": 26981,
+      "pngPixels": 113295795,
+      "peakRssKiB": 3049616,
+      "misses": {
+        "jobs": 116,
+        "texels": 3523398
+      },
+      "rasterIntervalMs": 14518.654250000001,
+      "receiverJoiningMs": 5042.043625000002
+    },
+    {
+      "name": "warm-browser-2",
+      "codec": "browser",
+      "elapsedMs": 36142.799083,
+      "cpuMs": 70011.798,
+      "pngMs": 11997.270395000258,
+      "pngCalls": 26981,
+      "pngPixels": 113295795,
+      "peakRssKiB": 3325440,
+      "misses": {
+        "jobs": 116,
+        "texels": 3523398
+      },
+      "rasterIntervalMs": 20018.242833999997,
+      "receiverJoiningMs": 4856.1578329999975
+    },
+    {
+      "name": "warm-browser-3",
+      "codec": "browser",
+      "elapsedMs": 45687.698375,
+      "cpuMs": 78602.562,
+      "pngMs": 11824.128311999939,
+      "pngCalls": 26981,
+      "pngPixels": 113295795,
+      "peakRssKiB": 3149984,
+      "misses": {
+        "jobs": 116,
+        "texels": 3523398
+      },
+      "rasterIntervalMs": 26102.14316600001,
+      "receiverJoiningMs": 5087.551084000006
+    },
+    {
+      "name": "warm-native-3",
+      "codec": "node",
+      "elapsedMs": 36949.611458,
+      "cpuMs": 63771.838,
+      "pngMs": 5770.864298999695,
+      "pngCalls": 26981,
+      "pngPixels": 113295795,
+      "peakRssKiB": 2558288,
+      "misses": {
+        "jobs": 116,
+        "texels": 3523398
+      },
+      "rasterIntervalMs": 15942.678,
+      "receiverJoiningMs": 6669.916917000002
+    }
+  ],
+  "warmMedians": {
+    "browser": {
+      "elapsedMs": 36142.799083,
+      "cpuMs": 70011.798,
+      "pngMs": 11824.128311999939,
+      "rasterIntervalMs": 20018.242833999997,
+      "receiverJoiningMs": 5085.687290999995
+    },
+    "node": {
+      "elapsedMs": 36949.611458,
+      "cpuMs": 63771.838,
+      "pngMs": 5770.864298999695,
+      "rasterIntervalMs": 15942.678,
+      "receiverJoiningMs": 6669.916917000002
+    }
+  },
+  "conclusion": "Median decoder elapsed decreases, but full compilation wall median does not improve in these externally loaded runs. No established end-to-end wall speedup."
+}

@@ -1,0 +1,96 @@
+{
+  "retrieved": "2026-11-09",
+  "use": "Research reference only; not exported game assets. Rights retained by authors/Valve; no redistribution license inferred.",
+  "images": [
+    {
+      "file": "inferno-refrag-cs2-radar.jpg",
+      "url": "https://refrag.gg/cdn-cgi/imagedelivery/5wML_ikJr-qv52ESeLE6CQ/wordpress.refrag.gg/2023/12/de_inferno_radar.jpg/public",
+      "page": "https://refrag.gg/blog/cs2-map-callouts/",
+      "credit": "Refrag / Valve map imagery",
+      "version": "CS2-labeled guide, first dated 2023-12-11; page says updated 2025-03-13",
+      "inspected": true,
+      "sha256": "e86ca5160ca8556df476dd26cb94e048b4acb449773b78d56c43ccecb40dcf8e"
+    },
+    {
+      "file": "inferno-gamemaps-cs2-radar.jpg",
+      "url": "https://images.gamemaps.net/thumbs/map/cs2_inferno/mapImage/De_inferno_radar.png",
+      "page": "https://www.gamemaps.net/game/cs2",
+      "credit": "GameMaps / Valve map imagery",
+      "version": "CS2-labeled undated overview",
+      "inspected": false,
+      "sha256": "23f8fe67b605314f14146a7dde420dacec704ddcb25e60a0912ffd883f27542e"
+    },
+    {
+      "file": "overpass-gamemaps-cs2-radar.jpg",
+      "url": "https://images.gamemaps.net/thumbs/map/cs2_overpass/mapImage/De_overpass_radar.png",
+      "page": "https://www.gamemaps.net/game/cs2",
+      "credit": "GameMaps / Valve map imagery",
+      "version": "CS2-labeled undated overview",
+      "inspected": true,
+      "sha256": "1c643af4d5ee56c4dbfa8517b2bf3ee79a04d11ce8e293c105c7939343048434"
+    },
+    {
+      "file": "inferno-banana-valve-2016.jpg",
+      "url": "https://cdn.fastly.steamstatic.com/apps/csgo/images/inferno/banana1-2.jpg",
+      "page": "https://www.counter-strike.net/inferno",
+      "credit": "Valve",
+      "version": "CS:GO 2016 redesign",
+      "inspected": true,
+      "sha256": "b8b2beedf76a63cc4fd5500ad12446c5a624cb9790ca2b83f7a4fd399cec583a"
+    },
+    {
+      "file": "inferno-apartments-valve-2016.jpg",
+      "url": "https://cdn.fastly.steamstatic.com/apps/csgo/images/inferno/hallway1-2.jpg",
+      "page": "https://www.counter-strike.net/inferno",
+      "credit": "Valve",
+      "version": "CS:GO 2016 redesign",
+      "inspected": true,
+      "sha256": "53c9c5d0b0a7671577c5c6943e5f073e07f5f89cf690d19634b91728d83685cc"
+    },
+    {
+      "file": "inferno-a-valve-2016.jpg",
+      "url": "https://cdn.fastly.steamstatic.com/apps/csgo/images/inferno/asite1-2.jpg",
+      "page": "https://www.counter-strike.net/inferno",
+      "credit": "Valve",
+      "version": "CS:GO 2016 redesign",
+      "inspected": true,
+      "sha256": "79acb526b8d171e6b048a41b06f72b71bfa508773516f95ff2a99b37840e5165"
+    },
+    {
+      "file": "overpass-connector-valve-2014.jpg",
+      "url": "https://steamcdn-a.akamaihd.net/apps/csgo/blog/images/posts/OverpassUpdate/connector2.jpg",
+      "page": "https://blog.counter-strike.net/2014/04/9284/",
+      "credit": "Valve",
+      "version": "CS:GO 2014 design account",
+      "inspected": true,
+      "sha256": "8302f24d134662fd2b2c59863b61a935ba6abc07c387f43e73716a9f2709c0fc"
+    },
+    {
+      "file": "overpass-canal-valve-2014.jpg",
+      "url": "https://steamcdn-a.akamaihd.net/apps/csgo/blog/images/posts/OverpassUpdate/overpass3b.jpg",
+      "page": "https://blog.counter-strike.net/2014/04/9284/",
+      "credit": "Valve",
+      "version": "CS:GO 2014 design account",
+      "inspected": true,
+      "sha256": "25b53b472ed422ce98c01890495a724473af5bf8bf6c52d65cdd2cf41628c13d"
+    },
+    {
+      "file": "overpass-lower-tunnel-valve-cs2.jpg",
+      "url": "https://cdn.fastly.steamstatic.com/apps/csgo/images/csgo_react/cs2/maps/overpass_lower_tunnel_s2.jpg",
+      "page": "https://www.counter-strike.net/cs2",
+      "credit": "Valve",
+      "version": "CS2 launch comparison, JPEG metadata 2023-03-15",
+      "inspected": true,
+      "sha256": "19de8d4c714e8b1ffc8adca52f7c327f3f460a688979a6323bf8bed7d4c9609d"
+    },
+    {
+      "file": "overpass-restroom-valve-cs2.jpg",
+      "url": "https://cdn.fastly.steamstatic.com/apps/csgo/images/csgo_react/cs2/maps/overpass_toilets_s2.jpg",
+      "page": "https://www.counter-strike.net/cs2",
+      "credit": "Valve",
+      "version": "CS2 launch comparison, JPEG metadata 2023-03-15",
+      "inspected": true,
+      "sha256": "36c50e09b29d952d7c30d2c4a6554ffe68ae93e92952eabc217df86f8df56e14"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="shop-dressing" name="Shop dressing street" description="A tenement row large enough for shops, with every eligible bay opened onto a stocked room." units="meters" validation="premap">
+  <profile id="ground:profile" points="-4 -10; 34 -10; 34 12; -4 12"/>
+  <material id="paving" color="#9a9a94" repeat="0.65" roughness="0.95"/>
+  <material id="plaster" color="#d8d0bc" repeat="0.65" roughness="0.9"/>
+  <slab id="ground" material="paving" profile="ground:profile" thickness="0.2" elevation="0"/>
+  <box id="tenement-row" position="0 0 0" width="30" depth="9" height="15.35" collidable="false"/>
+  <light id="sun" position="-12 -25 30" target="15 0 0" color="#fff2dd" intensity="2" kind="directional"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+  <dressing theme="kowloon-street@1" seed="shop-street" grime="0.6" wear="0.3" detail="medium">
+    <floor host="ground" material="paving"/>
+    <building host="tenement-row" material="plaster" stories="5" shops="1"/>
+  </dressing>
+</architecture>

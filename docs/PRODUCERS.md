@@ -1,146 +1,59 @@
-# V2 generators and tracing tools
+# Native AML generation and tracing
 
-The producer commands publish `.level.svgx` by default. Procedural generation
-constructs native vector documents directly. Compatibility source commands also
-compile and runtime validate their source. Every path serializes and parses the
-SVGX, then compiles and runtime validates that exact document before writing it. Failed candidates
-cannot replace an existing artifact. Player dimensions, route requirements and
-spawn visibility requirements are preserved. Expected-failure fixtures and
-premap drafts cannot be published as playable maps.
+For disposable graph and spatial alternatives before AI map planning, use the
+[experimental exploration lab](EXPLORATION.md). Its premap hypotheses are separate
+from the validated publication contract below.
 
-`generateLevelV2` now uses a native builder and seven native archetypes. Shared
-floor boundaries define connections; ramps and switchback stairs are native
-regions. Native generation, native authored loading and the default generator
-CLI do not load the legacy builder, compiler or migration adapter. Player dimensions
-and requested route counts remain unchanged, and depth scales the layout rather
-than the player. Themes supply native materials and solid decoration. Pickups
-and enemy posts are placed on navigation reached from the selected spawn.
-
-Native proposals have their own deterministic seed sequence and layouts; they
-do not promise identical drawings to the compatibility generator. The existing
-`generateLevel` API and `gen --legacy` retain their original algorithms and output
-formats. Radar tracing now constructs native regions directly from raster
-evidence, too. Python semantic annotation/composition and finalization now build
-native geometry directly. Actual `.plan` files are decoded only at an explicit,
-lazy source boundary; their native publication does not run the old compiler.
-Concept proposals now consume the native semantic API directly, including arbitrary
-caller declarations through `levelspec/concept` and `concept --spec`. The public
-`producePlan`/`produceSpec` conversion APIs intentionally retain dual compatibility
-validation. No legacy APIs are retired. See [native concepts](CONCEPTS.md) and [native semantic authoring](SEMANTIC.md)
-for the reusable API, source placement rules and SVGX annotation requirements.
+Maintained producers return `ArchitectureDocument` and publish canonical `.aml`.
+Publication serializes and parses AML, compiles physical geometry, and requires
+playable runtime validation before writing. Invalid candidates cannot replace an
+existing artifact. Player dimensions, route counts, and local distance limits
+remain acceptance requirements. Producers use the same physical route diagnostics
+as direct compilation and CLI validation: demonstrated shortages fail, while
+inconclusive sampled resource counts warn. Review those warnings before treating
+a generated map as gameplay-verified; successful publication alone is not that proof.
 
 ```sh
-npm run gen -- 10 --keep             # generated/vector/levels/*.level.svgx
-npm run plans -- kiln.plan           # generated/vector/plans/hand/kiln.level.svgx
-npm run trace -- radar.png --cells 46 --bands 4 --out generated/radar.level.svgx
-npm run author -- atrium             # generated/vector/authored/atrium.level.svgx
-npm run finalize -- mirage           # generated/vector/finalized/*.level.svgx
-npm run concept -- silo --attempts=1 --write --variants=1 # generated/vector/concepts/*.level.svgx
+npm run gen -- 10 --keep
+npm run trace -- radar.png --cells 46 --bands 4 --out generated/radar.aml
+npm run game:export -- tests/fixtures/aml/showcase.aml --out generated/game
 ```
 
-Image analysis requires Python with NumPy and Pillow. Set `PYTHON` or pass `--python`
-to select an interpreter; the default is `python3`. The raw `trace_radar.py`,
-`annotate.py` and `compose.py` interfaces still emit legacy plan drafts. Use
-the Node commands above for validated publication.
+Generation uses seven archetypes, deterministic seeds, and bounded attempts.
+Native slabs, flights, walls, and explicit connections establish geometry; physical
+route evidence checks actual supported approaches. Furniture is placed only on
+navigation reached from the spawn.
 
-Default `trace` requests structured `levelspec-raster/1` evidence from the image
-analyzer and builds v2 geometry without a plan parser, legacy compiler or migration
-adapter. Identical raster runs form floor polygons with shared cell-boundary
-vertices. Missing cells remain void, including courtyards; exposed boundaries
-become walls. Color bands supply provisional area labels and materials. The
-tracer preserves its 0.35 m radius, 1.8 m height and 0.45 m step, then publishes
-through the same sealed native runtime gate. It does not invent gameplay routes
-or elevations. The image-analysis algorithm, crop controls and raster resolution
-remain shared with the legacy draft writer. `trace --legacy` still validates both
-the source plan and serialized v2 conversion before writing a plan.
-
-The additive `levelspec/trace` API accepts raster evidence without Python:
+Tracing requires Python with NumPy and Pillow. Set `PYTHON` or pass `--python` to
+select the interpreter. The command takes an image. Its private `levelspec-raster/1`
+JSON subprocess protocol is raster evidence, never an architectural source format.
+Color bands are provisional areas; missing cells remain void. Tracing does not
+infer elevations or invent gameplay routes. `--evidence generated/radar.raster.json`
+retains observations separately from AML. Evidence and output paths must differ.
 
 ```ts
-import { parseRasterTrace, traceToDocument, produceTrace } from 'levelspec/trace';
+import { generateLevel, loadAuthored } from 'levelspec/generate';
+import { produceDocument } from 'levelspec/producers';
+import { traceToDocument, produceTrace } from 'levelspec/trace';
 
-const raster = parseRasterTrace(jsonText);
-const proposal = traceToDocument(raster); // editable native document, not validated
-const published = await produceTrace(raster); // canonical SVGX + runtime report
-```
-
-The raster protocol includes `id`, `name`, `sourceImage`, positive `grid` in
-metres, RGB `colors`, and rectangular north-first `rows` of color indices or
-`null` for void. It accepts at most 1024 rows and columns and a minimum 1 mm grid,
-matching the native coordinate lattice. `trace_radar.py --format raster` exports
-this evidence; omitting that option retains its existing plan draft interface.
-The Node command can retain the exact evidence beside SVGX:
-
-```sh
-npm run trace -- radar.png --out generated/radar.level.svgx --evidence generated/radar.raster.json
-```
-
-`--evidence` is never forwarded to Python and is incompatible with `--legacy`.
-Resolved output/evidence paths must differ. Both raster parsing and native
-publication succeed before either file is written; source/validation failure
-preserves both prior files. Retained raster provides exact GRID provenance for
-native annotation; SVGX alone does not retain the raster lattice.
-
-Every command accepts `--out` (a directory except for trace/author, where it is
-a file). Plans/finalize accept `--src` for an input directory. Filters select
-only matching inputs; finalization never deletes unselected outputs.
-Native finalization preflights every selected destination before any publication
-or write. Same-stem `.plan`, `.json`, `.svgx` and `.level.svgx` sources that
-resolve to one output are rejected with both source names and the destination.
-Resolved paths include existing directory aliases and platform case rules.
-An output cannot overwrite another selected input; geometry-preserving native
-finalization in place is supported when it is the source's own destination.
-Python seed annotation preserves every explicit source player field, including
-ability flags, and rejects conflicting annotation or multiple-source values.
-It may supplement unspecified fields; legacy parser defaults are not explicit
-source constraints.
-
-Author
-also accepts `--spec` and `--traced` paths for source proposals. `--legacy`
-retains the old output formats and locations. Author, concept and finalize
-still apply both validation gates with `--legacy`; use the source APIs for
-drafts that are not ready for runtime publication.
-Raw source declarations can still fail strict gameplay or clearance requirements;
-default native publication is not a promise that every draft is valid.
-
-```ts
-import { generateLevelV2, loadAuthoredV2 } from 'levelspec/generate/vector';
-import { producePlan } from 'levelspec/producers';
-
-const generated = await generateLevelV2({ seed: 'run-42', minRoutes: 2 });
+const generated = await generateLevel({ seed: 'run-42', minRoutes: 2 });
 if (!generated.ok) throw new Error(generated.reasons.join('\n'));
-const authored = await loadAuthoredV2({ id: 'my-map', text: svgxText });
-const converted = await producePlan(planText);
+const authored = await loadAuthored({ id: 'my-map', text: amlText });
+const published = await produceDocument(document);
+const proposal = traceToDocument(rasterObservations); // Editable proposal.
+const traced = await produceTrace(rasterObservations);
 ```
 
-V2 results expose `document`, canonical `text`, native compiled `level` and a
-runtime `report`. Compatibility source-based results also include `legacy`
-validation evidence; native procedural and raster tracing results have no legacy intermediate.
-Generation retries up to `attempts`, then returns a failure with reasons; it
-never lowers `minRoutes`. Authored loading places run furniture on navigation
-reached from the actual land run spawn, validates the added markers and a spawn-to-exit
-route, and preserves any stricter authored routes. Run enemy-post results contain
-only newly allocated posts reached from that run's spawn; authored markers for
-other runs or movement domains remain in the document. All APIs accept cancellation
-through `signal`. Navigation observers expose reached samples and walking
-distances without adding validation seeds or changing acceptance.
-Native documents with imported mesh props can supply `resolveAsset` in producer
-options. It is forwarded to every compile, including authored loading's final
-publication. Asset loading stays under host control and resolved geometry still
-passes the usual prop and runtime validation.
+Results expose `document`, canonical `text`, compiled `level`, runtime `report`,
+and physical route evidence. Cancellation uses `signal`; native compilation,
+physical route indexing, trace expansion, and companion loading have explicit
+resource budgets. Imported visualization assets use host-owned resolvers and
+cannot provide physical support. PNG heightmaps use `resolveHeightmap`.
 
-The existing `levelspec`, `levelspec/generate`, `compile`, `generateLevel`,
-`loadAuthored`, and `tools/build.ts` interfaces retain their legacy contracts.
-`loadAuthoredV2` also intentionally accepts legacy plan/spec source formats through
-the compatibility producers; its SVGX source path uses native publication directly.
-`tools/migration/convert.ts` and `crossings.ts` remain compatibility re-exports.
+Run `npm run test:producers` with the tracing Python dependencies installed.
 
-Run `npm run test:producers` for the seven-archetype/depth sweep and real Python
-tracing/composition integration tests. CI installs NumPy/Pillow explicitly and
-requires this job in addition to the existing core, browser and migration jobs.
-The native tests also block legacy module loading, close real lane mouths to
-check route rejection, verify repeatability, and exercise explicit legacy CLI output.
-Tracing tests compare native evidence with legacy footprints across white, black
-and transparent backgrounds, check cropped and full-canvas inputs, and verify
-strict rejection of disconnected floors, narrow passages and unsatisfied gameplay
-constraints.
+The JSON/Python concept, semantic-plan, and gameplay-plan frontends and their
+`author`, `finalize`, `concept`, and `gameplay` commands are retired. Their retained
+input files are historical material. Use native AML for new authoring; historical
+SVGX requires the explicit [migration command](AML.md#migration). Seeded generation,
+image tracing, reconstruction, and game export remain supported.

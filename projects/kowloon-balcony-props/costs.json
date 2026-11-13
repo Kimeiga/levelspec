@@ -1,0 +1,55 @@
+{
+  "steps": [
+    {
+      "asset": "rubber-plant",
+      "step": "image_to_model",
+      "taskId": "0f7c8dcc-0838-44af-904b-3a1c746fac8a",
+      "credits": 50,
+      "model": "generated/kowloon-balcony-props/tripo-out/balcony-rubber-plant-0f7c8dcc/model.glb",
+      "preview": "generated/kowloon-balcony-props/tripo-out/balcony-rubber-plant-0f7c8dcc/preview.png"
+    },
+    {
+      "asset": "trailing-pothos",
+      "step": "image_to_model",
+      "taskId": "320ba622-1e4b-42c7-bd52-bd55e315a722",
+      "credits": 50,
+      "model": "generated/kowloon-balcony-props/tripo-out/balcony-trailing-pothos-320ba622/model.glb",
+      "preview": "generated/kowloon-balcony-props/tripo-out/balcony-trailing-pothos-320ba622/preview.png"
+    },
+    {
+      "asset": "snake-plant",
+      "step": "image_to_model",
+      "taskId": "da79f4e3-8a8f-429d-b5ea-807c1ec782f1",
+      "credits": 50,
+      "model": "generated/kowloon-balcony-props/tripo-out/balcony-snake-plant-da79f4e3/model.glb",
+      "preview": "generated/kowloon-balcony-props/tripo-out/balcony-snake-plant-da79f4e3/preview.png"
+    },
+    {
+      "asset": "hanging-shirt",
+      "step": "image_to_model",
+      "taskId": "19b1683e-3675-4881-bb7a-2c52c3ae8e45",
+      "credits": 50,
+      "model": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-shirt-19b1683e/model.glb",
+      "preview": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-shirt-19b1683e/preview.png"
+    },
+    {
+      "asset": "hanging-trousers",
+      "step": "image_to_model",
+      "taskId": "d40c3e76-2979-4fc3-901a-58f27368630c",
+      "credits": 50,
+      "model": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-trousers-d40c3e76/model.glb",
+      "preview": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-trousers-d40c3e76/preview.png"
+    },
+    {
+      "asset": "hanging-bedsheet",
+      "step": "image_to_model",
+      "taskId": "20cf40a4-3927-44bd-9ba4-dc2662c7939b",
+      "credits": 50,
+      "model": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-bedsheet-20cf40a4/model.glb",
+      "preview": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-bedsheet-20cf40a4/preview.png"
+    }
+  ],
+  "totalCredits": 300,
+  "remainingBalance": 4450,
+  "frozen": 0
+}

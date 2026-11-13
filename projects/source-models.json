@@ -1,0 +1,167 @@
+{
+  "description": "Original external-generated models retained for deterministic local rebaking. Original paths are provenance, not runtime dependencies.",
+  "models": [
+    {
+      "path": "projects/kowloon-asset-pilot/source-models/laundry-shirt.glb",
+      "originalPath": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+      "bytes": 4095400,
+      "sha256": "c46569f1f8f0e6007af497baabc24056ecb87557a6532aa075fb5eca71d931e0"
+    },
+    {
+      "path": "projects/kowloon-asset-pilot/source-models/market-apple.glb",
+      "originalPath": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+      "bytes": 3476252,
+      "sha256": "7c5884bd9d4acf97ca2b6fc0fd6df7179dd8c3232b554fa107906ae14a7e6711"
+    },
+    {
+      "path": "projects/kowloon-asset-pilot/source-models/snack-packet.glb",
+      "originalPath": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+      "bytes": 4410032,
+      "sha256": "1df30f2bdb2da3bfb995eb155dece9ee0d62469d82e3a819a790282485996fcd"
+    },
+    {
+      "path": "projects/kowloon-asset-pilot/source-models/seasoning-jar.glb",
+      "originalPath": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+      "bytes": 3244760,
+      "sha256": "2b1625aac386660881da98bd9e351480f30780cb05f288e00c67e54b78cd1168"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/fluorescent-batten.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-fluorescent-batten-90ef6192/model.glb",
+      "bytes": 1452412,
+      "sha256": "4c6bd68c78519399ebfa1c60be3a87cb5f612a16ba71702c1e2bec5d45cba81a"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/ceiling-fan.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-ceiling-fan-7819cec6/model.glb",
+      "bytes": 2938912,
+      "sha256": "754c14425b3ab3f421ef9935a735844e1e7cd1e8d4faeea7d38705af895c1b0c"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/shop-stool.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-shop-stool-a56c5da3/model.glb",
+      "bytes": 2568056,
+      "sha256": "262d0de50966d57dee14995e54ea53b2ca124544d2c3cf88e106cc302d54ef35"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/tissue-roll.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-tissue-roll-98ab5d8f/model.glb",
+      "bytes": 3549332,
+      "sha256": "be8b84349d432cf65c900f28cfe4e0817afb97f68f3064ec48d1605cfc474bf7"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/garlic-braid.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-garlic-braid-4c4de109/model.glb",
+      "bytes": 5255560,
+      "sha256": "d8b26e879f18cf9cf5fcbff36dfb4cc3a2c04cd63046e85a7ce1b1a24b18f331"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/tea-carton.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-tea-carton-f18e0cd2/model.glb",
+      "bytes": 4071432,
+      "sha256": "efd362fd4bd3bf1b1e56d2183c92c008b198fca78e35753452da5db1114b7529"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/pendant-lamp.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-pendant-lamp-387f5980/model.glb",
+      "bytes": 2298060,
+      "sha256": "dff75f107129440e7c4990c46d5efab04a7a803d2fb11bc4997d5ee27c2a89b8"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/counter-scale.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-counter-scale-be500c34/model.glb",
+      "bytes": 3417968,
+      "sha256": "d9ab60f4fb579f9d8f04c5fd85db410395e2915cf2fc4faf0627edefa3364a00"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/bottle-crate.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-bottle-crate-cbdbccf1/model.glb",
+      "bytes": 3186092,
+      "sha256": "c6ca579feb34fcc407bb530c80dc204201ffaa3200bd81dbdb6ce84d7aa379d6"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/rice-sack.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-rice-sack-832519fe/model.glb",
+      "bytes": 6392984,
+      "sha256": "243b079b616b00bf3f410b79b1455760254f97a20471f778ef3318dbe6018cfc"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/drinks-cooler.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-drinks-cooler-49d640de/model.glb",
+      "bytes": 2861420,
+      "sha256": "2476a1d1a793c8c3b06f480ff0e53033609f641db05fa593cb56dec1b54a569a"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/drink-bottle.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-drink-bottle-9596a42d/model.glb",
+      "bytes": 2068836,
+      "sha256": "dbe999a82aca45089ddad21f67b66efb052b2f7aac41b2d795cfcb94d7660c45"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/shop-counter.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-shop-counter-62a19957/model.glb",
+      "bytes": 2639296,
+      "sha256": "5ef3ce32a360c5f50a05aba8cca03ca2048bc415eb6d74bfea74d595720bb1cd"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/food-tin.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-food-tin-77df3aeb/model.glb",
+      "bytes": 3837072,
+      "sha256": "2dab7fe76303f68c457c014f90140b1b2a5460dfeb1255aaebff931e6ca98d66"
+    },
+    {
+      "path": "projects/kowloon-liquor-props/source-models/egg-basket.glb",
+      "originalPath": "generated/liquor-props/tripo-out/liquor-egg-basket-0a8afa35/model.glb",
+      "bytes": 3962860,
+      "sha256": "c6d04b5cf7b0d7c1db0f41c83e038be73d89bc17c787670a5ca693a5ece836ef"
+    },
+    {
+      "path": "projects/kowloon-balcony-props/source-models/hanging-bedsheet/model.glb",
+      "originalPath": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-bedsheet-20cf40a4/model.glb",
+      "bytes": 4292296,
+      "sha256": "968c86bdaa5ab96a36857ab35b07deea0978f88bc92acd41ac7e97d79abfdb2b"
+    },
+    {
+      "path": "projects/kowloon-balcony-props/source-models/hanging-shirt/model.glb",
+      "originalPath": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-shirt-19b1683e/model.glb",
+      "bytes": 4768992,
+      "sha256": "878cc7868f662c826efb40194e562f0d98945a8a28e77ca977a446a1f3193213"
+    },
+    {
+      "path": "projects/kowloon-balcony-props/source-models/hanging-trousers/model.glb",
+      "originalPath": "generated/kowloon-balcony-props/tripo-out/balcony-hanging-trousers-d40c3e76/model.glb",
+      "bytes": 2866256,
+      "sha256": "71ead52bd83afc33d688d014d0c3ac2603464b88229b155e90643d8cf499024f"
+    },
+    {
+      "path": "projects/kowloon-balcony-props/source-models/rubber-plant/model.glb",
+      "originalPath": "generated/kowloon-balcony-props/tripo-out/balcony-rubber-plant-0f7c8dcc/model.glb",
+      "bytes": 3138824,
+      "sha256": "11e3ba53cacac3894f593885acbb9ba4166201b3a43624c007e6c65ad57aa1ac"
+    },
+    {
+      "path": "projects/kowloon-balcony-props/source-models/snake-plant/model.glb",
+      "originalPath": "generated/kowloon-balcony-props/tripo-out/balcony-snake-plant-da79f4e3/model.glb",
+      "bytes": 3626876,
+      "sha256": "a78d23888b1e90541391f5c8e27050babe4ccd88f6c7a740d9e10a770d96c961"
+    },
+    {
+      "path": "projects/kowloon-balcony-props/source-models/trailing-pothos/model.glb",
+      "originalPath": "generated/kowloon-balcony-props/tripo-out/balcony-trailing-pothos-320ba622/model.glb",
+      "bytes": 4408888,
+      "sha256": "6c11e994f52c90971bfc931beb7f9f152497730af66a1552e585ed80c1918406"
+    },
+    {
+      "path": "projects/kowloon-restaurant-props/source-models/chicken/model.glb",
+      "originalPath": "generated/restaurant-props/tripo-out/restaurant-chicken-62f6c355/model.glb",
+      "bytes": 2774828,
+      "sha256": "de76604141959625df20f28506bbc6d65f56ae3dcc3ec896ca5d25d30144496d"
+    },
+    {
+      "path": "projects/kowloon-restaurant-props/source-models/slices/model.glb",
+      "originalPath": "generated/restaurant-props/tripo-out/restaurant-sliced-meat-816d972e/model.glb",
+      "bytes": 5117500,
+      "sha256": "2ea2c04d0d5f99b1d62b2c371478cede3c18e7131b14d6d32bd625d3c6395c79"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Architectural Review"
+  short_description: "Review building plausibility and enclosure"

@@ -1,0 +1,394 @@
+[
+  {
+    "id": "concourse",
+    "version": "exploration-2",
+    "seed": "last-light-concourse-41",
+    "verticality": 0,
+    "candidates": [
+      {
+        "id": "candidate-1-r2-p835",
+        "nodes": 11,
+        "edges": 17,
+        "heights": [
+          0
+        ],
+        "depth": [
+          2
+        ],
+        "regions": 2,
+        "stacked": 0,
+        "deficits": [
+          "developed territories: 2/3"
+        ]
+      },
+      {
+        "id": "candidate-2-r1-p900",
+        "nodes": 18,
+        "edges": 32,
+        "heights": [
+          0
+        ],
+        "depth": [
+          2
+        ],
+        "regions": 3,
+        "stacked": 0,
+        "deficits": []
+      }
+    ],
+    "realizations": [
+      {
+        "id": "candidate-1-r2-p835-terraces",
+        "interpretation": "terraces",
+        "issues": [
+          "split-451 crosses unrelated area stage-4-0; physical portal reconstruction required",
+          "local-693-1 crosses unrelated area stage-693-3; physical portal reconstruction required",
+          "local-693-2 crosses unrelated area stage-693-2; physical portal reconstruction required",
+          "new-759 crosses unrelated area stage-693-0; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-1-r2-p835-courts",
+        "interpretation": "courts",
+        "issues": [
+          "Shared/special crossing requires manual reconciliation: local-4-2 / new-55",
+          "Shared/special crossing requires manual reconciliation: local-693-1 / local-693-2",
+          "Shared/special crossing requires manual reconciliation: local-693-1 / new-759",
+          "split-451 crosses unrelated area stage-4-0; physical portal reconstruction required",
+          "split-583 crosses unrelated area stage-4-0; physical portal reconstruction required",
+          "local-693-1 crosses unrelated area stage-693-3; physical portal reconstruction required",
+          "local-693-2 crosses unrelated area stage-693-2; physical portal reconstruction required",
+          "new-759 crosses unrelated area stage-693-0; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-1-r2-p835-galleries",
+        "interpretation": "galleries",
+        "issues": [
+          "Shared/special crossing requires manual reconciliation: local-4-2 / new-55",
+          "Shared/special crossing requires manual reconciliation: local-693-1 / local-693-2",
+          "Shared/special crossing requires manual reconciliation: local-693-1 / new-759",
+          "split-583 crosses unrelated area stage-4-0; physical portal reconstruction required",
+          "local-693-1 crosses unrelated area stage-693-3; physical portal reconstruction required",
+          "local-693-2 crosses unrelated area stage-693-2; physical portal reconstruction required",
+          "new-759 crosses unrelated area stage-693-0; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-2-r1-p900-terraces",
+        "interpretation": "terraces",
+        "issues": [
+          "new-99 crosses unrelated area stage-295-0; physical portal reconstruction required",
+          "new-99 crosses unrelated area stage-515-0; physical portal reconstruction required",
+          "new-99 crosses unrelated area stage-751-2; physical portal reconstruction required",
+          "new-317 crosses unrelated area stage-515-3; physical portal reconstruction required",
+          "new-749 crosses unrelated area stage-751-0; physical portal reconstruction required",
+          "split-746 crosses unrelated area entry; physical portal reconstruction required",
+          "split-746 crosses unrelated area stage-515-2; physical portal reconstruction required",
+          "new-770 crosses unrelated area stage-751-1; physical portal reconstruction required",
+          "new-774 crosses unrelated area stage-751-2; physical portal reconstruction required",
+          "depart-295 crosses unrelated area entry; physical portal reconstruction required",
+          "depart-295 crosses unrelated area stage-751-0; physical portal reconstruction required",
+          "depart-295 crosses unrelated area stage-751-2; physical portal reconstruction required",
+          "new-872 crosses unrelated area entry; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-2-r1-p900-courts",
+        "interpretation": "courts",
+        "issues": [
+          "Shared/special crossing requires manual reconciliation: new-99 / local-515-0",
+          "Shared/special crossing requires manual reconciliation: new-99 / local-515-2",
+          "Shared/special crossing requires manual reconciliation: new-317 / local-515-2",
+          "Shared/special crossing requires manual reconciliation: new-317 / local-515-3",
+          "Shared/special crossing requires manual reconciliation: local-515-0 / split-746",
+          "Shared/special crossing requires manual reconciliation: local-515-0 / depart-295",
+          "Shared/special crossing requires manual reconciliation: local-515-0 / new-872",
+          "Shared/special crossing requires manual reconciliation: local-515-2 / new-518",
+          "Shared/special crossing requires manual reconciliation: local-515-3 / split-746",
+          "Shared/special crossing requires manual reconciliation: local-515-3 / new-872",
+          "Shared/special crossing requires manual reconciliation: local-751-1 / new-774",
+          "Unresolved shared floor contact area-5-entry (entry) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+          "new-99 crosses unrelated area stage-515-0; physical portal reconstruction required",
+          "new-317 crosses unrelated area stage-515-3; physical portal reconstruction required",
+          "new-749 crosses unrelated area entry; physical portal reconstruction required",
+          "new-749 crosses unrelated area stage-751-0; physical portal reconstruction required",
+          "split-746 crosses unrelated area entry; physical portal reconstruction required",
+          "split-746 crosses unrelated area stage-515-2; physical portal reconstruction required",
+          "new-770 crosses unrelated area stage-751-1; physical portal reconstruction required",
+          "new-774 crosses unrelated area stage-751-2; physical portal reconstruction required",
+          "depart-295 crosses unrelated area entry; physical portal reconstruction required",
+          "depart-295 crosses unrelated area stage-751-2; physical portal reconstruction required",
+          "new-872 crosses unrelated area entry; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-2-r1-p900-galleries",
+        "interpretation": "galleries",
+        "issues": [
+          "Shared/special crossing requires manual reconciliation: new-99 / local-515-0",
+          "Shared/special crossing requires manual reconciliation: new-99 / local-515-2",
+          "Shared/special crossing requires manual reconciliation: new-317 / local-515-2",
+          "Shared/special crossing requires manual reconciliation: new-317 / local-515-3",
+          "Shared/special crossing requires manual reconciliation: local-515-0 / split-746",
+          "Shared/special crossing requires manual reconciliation: local-515-0 / depart-295",
+          "Shared/special crossing requires manual reconciliation: local-515-0 / new-872",
+          "Shared/special crossing requires manual reconciliation: local-515-2 / new-518",
+          "Shared/special crossing requires manual reconciliation: local-515-3 / split-746",
+          "Shared/special crossing requires manual reconciliation: local-515-3 / new-872",
+          "Shared/special crossing requires manual reconciliation: local-751-1 / new-774",
+          "Unresolved shared floor contact area-5-entry (entry) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+          "new-99 crosses unrelated area stage-515-0; physical portal reconstruction required",
+          "new-317 crosses unrelated area stage-515-3; physical portal reconstruction required",
+          "new-749 crosses unrelated area stage-751-0; physical portal reconstruction required",
+          "split-746 crosses unrelated area entry; physical portal reconstruction required",
+          "split-746 crosses unrelated area stage-515-2; physical portal reconstruction required",
+          "new-770 crosses unrelated area stage-751-1; physical portal reconstruction required",
+          "new-774 crosses unrelated area stage-751-2; physical portal reconstruction required",
+          "depart-295 crosses unrelated area entry; physical portal reconstruction required",
+          "depart-295 crosses unrelated area stage-751-2; physical portal reconstruction required",
+          "new-872 crosses unrelated area entry; physical portal reconstruction required"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "department",
+    "version": "exploration-2",
+    "seed": "last-light-department-73",
+    "verticality": 0.8,
+    "candidates": [
+      {
+        "id": "candidate-1-r2-p974",
+        "nodes": 24,
+        "edges": 33,
+        "heights": [
+          0,
+          7.2,
+          3.6
+        ],
+        "depth": [
+          3
+        ],
+        "regions": 3,
+        "stacked": 0,
+        "deficits": [
+          "stacked region pairs: 0/1"
+        ]
+      },
+      {
+        "id": "candidate-2-r1-p948",
+        "nodes": 19,
+        "edges": 25,
+        "heights": [
+          0,
+          3.6,
+          7.2
+        ],
+        "depth": [
+          2
+        ],
+        "regions": 3,
+        "stacked": 1,
+        "deficits": []
+      }
+    ],
+    "realizations": [
+      {
+        "id": "candidate-1-r2-p974-terraces",
+        "interpretation": "terraces",
+        "issues": [
+          "local-170-0: Stair pitch exceeds profile / provisional 38° envelope",
+          "depart-423: Stair pitch exceeds profile / provisional 38° envelope",
+          "new-163 crosses unrelated area stage-455-2; physical portal reconstruction required",
+          "new-789 crosses unrelated area stage-788-3; physical portal reconstruction required",
+          "new-836 crosses unrelated area stage-170-2; physical portal reconstruction required",
+          "new-836 crosses unrelated area stage-788-2; physical portal reconstruction required",
+          "depart-788 crosses unrelated area stage-170-2; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-1-r2-p974-courts",
+        "interpretation": "courts",
+        "issues": [
+          "local-170-0: Stair pitch exceeds profile / provisional 38° envelope",
+          "depart-423: Stair pitch exceeds profile / provisional 38° envelope",
+          "Shared/special crossing requires manual reconciliation: new-163 / local-788-0",
+          "Shared/special crossing requires manual reconciliation: local-170-1 / depart-788",
+          "Shared/special crossing requires manual reconciliation: depart-170 / local-788-3",
+          "Shared/special crossing requires manual reconciliation: local-788-0 / new-836",
+          "Shared/special crossing requires manual reconciliation: new-836 / local-788-3",
+          "Unresolved shared floor contact area-1-a (a) / shared-floor-6 (explore-shared-space-6): overlapping envelopes at grade; physical portal reconstruction required",
+          "new-163 crosses unrelated area stage-455-2; physical portal reconstruction required",
+          "new-789 crosses unrelated area stage-788-3; physical portal reconstruction required",
+          "new-836 crosses unrelated area stage-170-2; physical portal reconstruction required",
+          "new-836 crosses unrelated area stage-788-2; physical portal reconstruction required",
+          "depart-788 crosses unrelated area stage-170-2; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-1-r2-p974-galleries",
+        "interpretation": "galleries",
+        "issues": [
+          "local-170-0: Stair pitch exceeds profile / provisional 38° envelope",
+          "depart-423: Stair pitch exceeds profile / provisional 38° envelope",
+          "Shared/special crossing requires manual reconciliation: new-163 / local-788-0",
+          "Shared/special crossing requires manual reconciliation: local-170-1 / depart-788",
+          "Shared/special crossing requires manual reconciliation: depart-170 / local-788-3",
+          "Shared/special crossing requires manual reconciliation: local-788-0 / new-836",
+          "Shared/special crossing requires manual reconciliation: new-836 / local-788-3",
+          "Unresolved shared floor contact area-1-a (a) / shared-floor-6 (explore-shared-space-6): overlapping envelopes at grade; physical portal reconstruction required",
+          "new-163 crosses unrelated area stage-455-2; physical portal reconstruction required",
+          "new-789 crosses unrelated area stage-788-3; physical portal reconstruction required",
+          "new-836 crosses unrelated area stage-170-2; physical portal reconstruction required",
+          "new-836 crosses unrelated area stage-788-2; physical portal reconstruction required",
+          "depart-788 crosses unrelated area stage-170-2; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-2-r1-p948-terraces",
+        "interpretation": "terraces",
+        "issues": []
+      },
+      {
+        "id": "candidate-2-r1-p948-courts",
+        "interpretation": "courts",
+        "issues": []
+      },
+      {
+        "id": "candidate-2-r1-p948-galleries",
+        "interpretation": "galleries",
+        "issues": [
+          "Unresolved shared floor contact area-5-entry (entry) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+          "local-53-2 crosses unrelated area stage-53-2; physical portal reconstruction required",
+          "new-153 crosses unrelated area stage-53-2; physical portal reconstruction required",
+          "split-476 crosses unrelated area node-129; physical portal reconstruction required"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "service",
+    "version": "exploration-2",
+    "seed": "last-light-service-19",
+    "verticality": 0.35,
+    "candidates": [
+      {
+        "id": "candidate-1-r1-p978",
+        "nodes": 19,
+        "edges": 26,
+        "heights": [
+          3.6,
+          0,
+          7.2
+        ],
+        "depth": [
+          3
+        ],
+        "regions": 3,
+        "stacked": 1,
+        "deficits": []
+      },
+      {
+        "id": "candidate-2-r2-p890",
+        "nodes": 19,
+        "edges": 25,
+        "heights": [
+          0,
+          7.2,
+          3.6
+        ],
+        "depth": [
+          3
+        ],
+        "regions": 3,
+        "stacked": 0,
+        "deficits": []
+      }
+    ],
+    "realizations": [
+      {
+        "id": "candidate-1-r1-p978-terraces",
+        "interpretation": "terraces",
+        "issues": [
+          "e2: Local slope 47.6° exceeds profile",
+          "split-761: Local slope 57.6° exceeds profile",
+          "local-19-0 crosses unrelated area stage-19-2; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-1-r1-p978-courts",
+        "interpretation": "courts",
+        "issues": [
+          "e2: Local slope 47.6° exceeds profile",
+          "split-761: Local slope 57.6° exceeds profile",
+          "Shared/special crossing requires manual reconciliation: local-71-0 / local-503-2",
+          "Shared/special crossing requires manual reconciliation: local-474-0 / new-975",
+          "local-19-0 crosses unrelated area stage-19-2; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-1-r1-p978-galleries",
+        "interpretation": "galleries",
+        "issues": [
+          "e2: Local slope 47.6° exceeds profile",
+          "split-761: Local slope 57.6° exceeds profile",
+          "Shared/special crossing requires manual reconciliation: local-71-0 / local-503-2",
+          "Shared/special crossing requires manual reconciliation: local-474-0 / new-975",
+          "local-19-0 crosses unrelated area stage-19-2; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-2-r2-p890-terraces",
+        "interpretation": "terraces",
+        "issues": [
+          "local-417-0 crosses unrelated area stage-417-2; physical portal reconstruction required",
+          "new-396 crosses unrelated area stage-5-1; physical portal reconstruction required",
+          "new-457 crosses unrelated area stage-417-1; physical portal reconstruction required",
+          "new-464 crosses unrelated area stage-182-3; physical portal reconstruction required",
+          "local-454-3 crosses unrelated area stage-33-0; physical portal reconstruction required",
+          "new-230 crosses unrelated area stage-5-1; physical portal reconstruction required",
+          "new-761 crosses unrelated area stage-33-0; physical portal reconstruction required",
+          "new-761 crosses unrelated area stage-182-3; physical portal reconstruction required",
+          "new-448 crosses unrelated area b; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-2-r2-p890-courts",
+        "interpretation": "courts",
+        "issues": [
+          "Shared/special crossing requires manual reconciliation: local-5-0 / new-230",
+          "Shared/special crossing requires manual reconciliation: local-417-0 / new-457",
+          "Unresolved shared floor contact area-10-stage-33-0 (stage-33-0) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+          "local-417-0 crosses unrelated area stage-417-2; physical portal reconstruction required",
+          "new-396 crosses unrelated area stage-5-1; physical portal reconstruction required",
+          "new-457 crosses unrelated area stage-417-1; physical portal reconstruction required",
+          "new-464 crosses unrelated area stage-182-3; physical portal reconstruction required",
+          "local-454-3 crosses unrelated area stage-33-0; physical portal reconstruction required",
+          "new-230 crosses unrelated area stage-5-1; physical portal reconstruction required",
+          "new-761 crosses unrelated area stage-33-0; physical portal reconstruction required",
+          "new-761 crosses unrelated area stage-182-3; physical portal reconstruction required",
+          "new-448 crosses unrelated area b; physical portal reconstruction required"
+        ]
+      },
+      {
+        "id": "candidate-2-r2-p890-galleries",
+        "interpretation": "galleries",
+        "issues": [
+          "Shared/special crossing requires manual reconciliation: local-5-0 / new-230",
+          "Shared/special crossing requires manual reconciliation: local-417-0 / new-457",
+          "Unresolved shared floor contact area-10-stage-33-0 (stage-33-0) / shared-floor-3 (explore-shared-space-3): overlapping envelopes at grade; physical portal reconstruction required",
+          "local-417-0 crosses unrelated area stage-417-2; physical portal reconstruction required",
+          "new-396 crosses unrelated area stage-5-1; physical portal reconstruction required",
+          "new-457 crosses unrelated area stage-417-1; physical portal reconstruction required",
+          "new-464 crosses unrelated area stage-182-3; physical portal reconstruction required",
+          "local-454-3 crosses unrelated area stage-33-0; physical portal reconstruction required",
+          "new-230 crosses unrelated area stage-5-1; physical portal reconstruction required",
+          "new-761 crosses unrelated area stage-33-0; physical portal reconstruction required",
+          "new-761 crosses unrelated area stage-182-3; physical portal reconstruction required",
+          "new-448 crosses unrelated area b; physical portal reconstruction required"
+        ]
+      }
+    ]
+  }
+]

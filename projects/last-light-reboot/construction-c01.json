@@ -1,0 +1,1056 @@
+{
+  "revision": "C01",
+  "layoutSha256": "7705d0d6c1f717b1e2ea619cec96855346cd0e7689ecc3e515ca504c23d546bc",
+  "mapping": [
+    {
+      "id": "F-G",
+      "layout": "F-G",
+      "kind": "floor"
+    },
+    {
+      "id": "F-U",
+      "layout": "F-U",
+      "kind": "floor"
+    },
+    {
+      "id": "R-H",
+      "layout": "R-H",
+      "kind": "roof"
+    },
+    {
+      "id": "R-M-0",
+      "layout": "R-M",
+      "kind": "roof"
+    },
+    {
+      "id": "R-M-1",
+      "layout": "R-M",
+      "kind": "roof"
+    },
+    {
+      "id": "R-L",
+      "layout": "R-L",
+      "kind": "roof"
+    },
+    {
+      "id": "R-SK1",
+      "layout": "R-SK1",
+      "kind": "glazing"
+    },
+    {
+      "id": "R-SK2",
+      "layout": "R-SK2",
+      "kind": "glazing"
+    },
+    {
+      "id": "EXT-0-0-0-p0",
+      "layout": "EXT-0-0-0-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-1-p0",
+      "layout": "EXT-0-0-1-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-2-p0",
+      "layout": "EXT-0-0-2-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-3-p0",
+      "layout": "EXT-0-0-3-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-4-p0",
+      "layout": "EXT-0-0-4-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-5-p0",
+      "layout": "EXT-0-0-5-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-6-p0",
+      "layout": "EXT-0-0-6-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-7-p0",
+      "layout": "EXT-0-0-7-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-8-p0",
+      "layout": "EXT-0-0-8-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-9-p0",
+      "layout": "EXT-0-0-9-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-10-p0",
+      "layout": "EXT-0-0-10-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-11-p0",
+      "layout": "EXT-0-0-11-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-12-p0",
+      "layout": "EXT-0-0-12-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-13-p0",
+      "layout": "EXT-0-0-13-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-14-p0",
+      "layout": "EXT-0-0-14-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-15-p0",
+      "layout": "EXT-0-0-15-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-16-p0",
+      "layout": "EXT-0-0-16-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-17-p0",
+      "layout": "EXT-0-0-17-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-18-p0",
+      "layout": "EXT-0-0-18-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-19-p0",
+      "layout": "EXT-0-0-19-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-20-p0",
+      "layout": "EXT-0-0-20-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-21-p0",
+      "layout": "EXT-0-0-21-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-22-p0",
+      "layout": "EXT-0-0-22-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-23-p0",
+      "layout": "EXT-0-0-23-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-24-p0",
+      "layout": "EXT-0-0-24-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-25-p0",
+      "layout": "EXT-0-0-25-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-26-p0",
+      "layout": "EXT-0-0-26-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-27-p0",
+      "layout": "EXT-0-0-27-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-28-p0",
+      "layout": "EXT-0-0-28-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-0-29-p0",
+      "layout": "EXT-0-0-29-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-0-p0",
+      "layout": "EXT-0-1-0-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-1-p0",
+      "layout": "EXT-0-1-1-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-2-p0",
+      "layout": "EXT-0-1-2-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-3-p0",
+      "layout": "EXT-0-1-3-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-4-p0",
+      "layout": "EXT-0-1-4-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-5-p0",
+      "layout": "EXT-0-1-5-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-6-p0",
+      "layout": "EXT-0-1-6-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-7-p0",
+      "layout": "EXT-0-1-7-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-1-8-p0",
+      "layout": "EXT-0-1-8-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-2-0-p0",
+      "layout": "EXT-0-2-0-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-2-1-p0",
+      "layout": "EXT-0-2-1-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-2-2-p0",
+      "layout": "EXT-0-2-2-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-2-3-p0",
+      "layout": "EXT-0-2-3-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-3-0-p0",
+      "layout": "EXT-0-3-0-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-3-1-p0",
+      "layout": "EXT-0-3-1-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-3-2-p0",
+      "layout": "EXT-0-3-2-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "EXT-0-3-3-p0",
+      "layout": "EXT-0-3-3-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-HL-00-p0",
+      "layout": "RC-HL-00-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-HL-01-p0",
+      "layout": "RC-HL-01-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-HL-02-p0",
+      "layout": "RC-HL-02-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-HL-03-p0",
+      "layout": "RC-HL-03-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-HL-04-p0",
+      "layout": "RC-HL-04-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-HM-00-p0",
+      "layout": "RC-HM-00-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-HM-01-p0",
+      "layout": "RC-HM-01-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-HM-02-p0",
+      "layout": "RC-HM-02-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-00-p0",
+      "layout": "RC-ML-00-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-01-p0",
+      "layout": "RC-ML-01-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-02-p0",
+      "layout": "RC-ML-02-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-03-p0",
+      "layout": "RC-ML-03-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-04-p0",
+      "layout": "RC-ML-04-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-05-p0",
+      "layout": "RC-ML-05-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-06-p0",
+      "layout": "RC-ML-06-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-07-p0",
+      "layout": "RC-ML-07-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "RC-ML-08-p0",
+      "layout": "RC-ML-08-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-P-p0",
+      "layout": "SW-P-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-P-h0",
+      "layout": "SW-P-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-P-p1",
+      "layout": "SW-P-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-S-p0",
+      "layout": "SW-S-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-S-h0",
+      "layout": "SW-S-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-S-p1",
+      "layout": "SW-S-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-R1",
+      "layout": "SW-R1",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-R2",
+      "layout": "SW-R2",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-B1",
+      "layout": "SW-B1",
+      "kind": "core"
+    },
+    {
+      "id": "SW-B2",
+      "layout": "SW-B2",
+      "kind": "core"
+    },
+    {
+      "id": "SW-VR-p0",
+      "layout": "SW-VR-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-ATR-p0",
+      "layout": "SW-ATR-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-ATR-h0",
+      "layout": "SW-ATR-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SW-ATR-p1",
+      "layout": "SW-ATR-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-P-p0",
+      "layout": "SE-P-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-P-h0",
+      "layout": "SE-P-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-P-p1",
+      "layout": "SE-P-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-S-p0",
+      "layout": "SE-S-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-S-h0",
+      "layout": "SE-S-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-S-p1",
+      "layout": "SE-S-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-R1",
+      "layout": "SE-R1",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-R2",
+      "layout": "SE-R2",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-B1",
+      "layout": "SE-B1",
+      "kind": "core"
+    },
+    {
+      "id": "SE-B2",
+      "layout": "SE-B2",
+      "kind": "core"
+    },
+    {
+      "id": "SE-VR-p0",
+      "layout": "SE-VR-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-ATR-p0",
+      "layout": "SE-ATR-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-ATR-h0",
+      "layout": "SE-ATR-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SE-ATR-p1",
+      "layout": "SE-ATR-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "SX2-W-h0",
+      "layout": "SX2-W-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX2-W-p1",
+      "layout": "SX2-W-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "SX2-E-p0",
+      "layout": "SX2-E-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX2-E-s0",
+      "layout": "SX2-E-s0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX2-E-h0",
+      "layout": "SX2-E-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX4-E-p0",
+      "layout": "SX4-E-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX2-S-p0",
+      "layout": "SX2-S-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX2-N-p0",
+      "layout": "SX2-N-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX4-N-p0",
+      "layout": "SX4-N-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX4-N-h0",
+      "layout": "SX4-N-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX4-N-p1",
+      "layout": "SX4-N-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "SX4-S-p0",
+      "layout": "SX4-S-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX4-W-s0",
+      "layout": "SX4-W-s0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX4-W-h0",
+      "layout": "SX4-W-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "SX4-W-p1",
+      "layout": "SX4-W-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "G-N-p0",
+      "layout": "G-N-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "G-S-p0",
+      "layout": "G-S-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "G-BW",
+      "layout": "G-BW",
+      "kind": "core"
+    },
+    {
+      "id": "G-BE",
+      "layout": "G-BE",
+      "kind": "core"
+    },
+    {
+      "id": "C-W",
+      "layout": "C-W",
+      "kind": "core"
+    },
+    {
+      "id": "C-NW",
+      "layout": "C-NW",
+      "kind": "core"
+    },
+    {
+      "id": "C-NE",
+      "layout": "C-NE",
+      "kind": "core"
+    },
+    {
+      "id": "C-IS",
+      "layout": "C-IS",
+      "kind": "core"
+    },
+    {
+      "id": "C-E",
+      "layout": "C-E",
+      "kind": "core"
+    },
+    {
+      "id": "C-S",
+      "layout": "C-S",
+      "kind": "core"
+    },
+    {
+      "id": "UP-W-p0",
+      "layout": "UP-W-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-W-h0",
+      "layout": "UP-W-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-W-p1",
+      "layout": "UP-W-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-E-p0",
+      "layout": "UP-E-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-E-h0",
+      "layout": "UP-E-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-E-p1",
+      "layout": "UP-E-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-N-p0",
+      "layout": "UP-N-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-N-h0",
+      "layout": "UP-N-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-S-p0",
+      "layout": "UP-S-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-S-h0",
+      "layout": "UP-S-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-S-p1",
+      "layout": "UP-S-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-WN-p0",
+      "layout": "UP-WN-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-WN-h0",
+      "layout": "UP-WN-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "UP-WN-p1",
+      "layout": "UP-WN-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "LC-W",
+      "layout": "LC-W",
+      "kind": "low-cover"
+    },
+    {
+      "id": "LC-E",
+      "layout": "LC-E",
+      "kind": "low-cover"
+    },
+    {
+      "id": "LC-N",
+      "layout": "LC-N",
+      "kind": "low-cover"
+    },
+    {
+      "id": "LC-S",
+      "layout": "LC-S",
+      "kind": "low-cover"
+    },
+    {
+      "id": "LC-GW",
+      "layout": "LC-GW",
+      "kind": "low-cover"
+    },
+    {
+      "id": "LC-GE",
+      "layout": "LC-GE",
+      "kind": "low-cover"
+    },
+    {
+      "id": "COL-W1",
+      "layout": "COL-W1",
+      "kind": "column"
+    },
+    {
+      "id": "COL-W2",
+      "layout": "COL-W2",
+      "kind": "column"
+    },
+    {
+      "id": "COL-W3",
+      "layout": "COL-W3",
+      "kind": "column"
+    },
+    {
+      "id": "COL-E1",
+      "layout": "COL-E1",
+      "kind": "column"
+    },
+    {
+      "id": "COL-E2",
+      "layout": "COL-E2",
+      "kind": "column"
+    },
+    {
+      "id": "COL-E3",
+      "layout": "COL-E3",
+      "kind": "column"
+    },
+    {
+      "id": "COL-T1",
+      "layout": "COL-T1",
+      "kind": "column"
+    },
+    {
+      "id": "COL-T2",
+      "layout": "COL-T2",
+      "kind": "column"
+    },
+    {
+      "id": "M-CIN",
+      "layout": "M-CIN",
+      "kind": "core"
+    },
+    {
+      "id": "M-CIN-P",
+      "layout": "M-CIN-P",
+      "kind": "core"
+    },
+    {
+      "id": "M-CIN-W",
+      "layout": "M-CIN-W",
+      "kind": "core"
+    },
+    {
+      "id": "M-TICKET",
+      "layout": "M-TICKET",
+      "kind": "core"
+    },
+    {
+      "id": "M-STOCK",
+      "layout": "M-STOCK",
+      "kind": "core"
+    },
+    {
+      "id": "GU-0-0-0",
+      "layout": "GU-0-0-0",
+      "kind": "guard"
+    },
+    {
+      "id": "GU-0-0-1",
+      "layout": "GU-0-0-1",
+      "kind": "guard"
+    },
+    {
+      "id": "GU-0-0-2",
+      "layout": "GU-0-0-2",
+      "kind": "guard"
+    },
+    {
+      "id": "GU-0-0-3",
+      "layout": "GU-0-0-3",
+      "kind": "guard"
+    },
+    {
+      "id": "GU-0-0-4",
+      "layout": "GU-0-0-4",
+      "kind": "guard"
+    },
+    {
+      "id": "GU-0-0-5",
+      "layout": "GU-0-0-5",
+      "kind": "guard"
+    },
+    {
+      "id": "GU-0-0-6",
+      "layout": "GU-0-0-6",
+      "kind": "guard"
+    },
+    {
+      "id": "GU-0-0-7",
+      "layout": "GU-0-0-7",
+      "kind": "guard"
+    },
+    {
+      "id": "GU-0-0-8",
+      "layout": "GU-0-0-8",
+      "kind": "guard"
+    },
+    {
+      "id": "OW-s0",
+      "layout": "OW-s0",
+      "kind": "wall"
+    },
+    {
+      "id": "OW-h0",
+      "layout": "OW-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "OW-p1",
+      "layout": "OW-p1",
+      "kind": "wall"
+    },
+    {
+      "id": "OE-p0",
+      "layout": "OE-p0",
+      "kind": "wall"
+    },
+    {
+      "id": "OE-s0",
+      "layout": "OE-s0",
+      "kind": "wall"
+    },
+    {
+      "id": "OE-h0",
+      "layout": "OE-h0",
+      "kind": "wall"
+    },
+    {
+      "id": "R-CORE",
+      "layout": "R-CORE",
+      "kind": "roof"
+    },
+    {
+      "id": "R-SX2",
+      "layout": "R-SX2",
+      "kind": "roof"
+    },
+    {
+      "id": "R-SX4",
+      "layout": "R-SX4",
+      "kind": "roof"
+    },
+    {
+      "id": "X1",
+      "layout": "X1-t01..24",
+      "kind": "native stair; native tread-following guards replace gW/gE01..24"
+    },
+    {
+      "id": "X2",
+      "layout": "X2-t01..24",
+      "kind": "native stair; native tread-following guards replace gW/gE01..24"
+    },
+    {
+      "id": "X3",
+      "layout": "X3-t01..24",
+      "kind": "native stair; native tread-following guards replace gW/gE01..24"
+    },
+    {
+      "id": "X4",
+      "layout": "X4-t01..24",
+      "kind": "native stair; native tread-following guards replace gW/gE01..24"
+    }
+  ],
+  "profileNormalization": "Consecutive identical millimeter vertices removed; footprint simplify <=2 mm preserves topology and eliminates rounded buffer micro-segment degeneracies.",
+  "residueRepairs": [
+    {
+      "id": "FIX-GNW",
+      "bounds": [
+        34.0,
+        80.0,
+        44.0,
+        84.0
+      ],
+      "z0": 0,
+      "z1": 3.25,
+      "reason": "Closed cinema plinth continuation"
+    },
+    {
+      "id": "FIX-GNE",
+      "bounds": [
+        70.0,
+        76.0,
+        78.0,
+        80.0
+      ],
+      "z0": 0,
+      "z1": 3.25,
+      "reason": "Closed cinema plinth continuation"
+    },
+    {
+      "id": "FIX-UW",
+      "bounds": [
+        30.0,
+        56.0,
+        34.0,
+        72.0
+      ],
+      "z0": 3.6,
+      "z1": 4.7,
+      "reason": "Inaccessible planter ledge west of public/service wall"
+    },
+    {
+      "id": "FIX-USW",
+      "bounds": [
+        42.0,
+        42.0,
+        48.0,
+        48.0
+      ],
+      "z0": 3.6,
+      "z1": 4.7,
+      "reason": "Inaccessible planted observation apron"
+    },
+    {
+      "id": "FIX-UNE",
+      "bounds": [
+        78.0,
+        56.0,
+        82.0,
+        64.0
+      ],
+      "z0": 3.6,
+      "z1": 4.7,
+      "reason": "Inaccessible planted observation apron"
+    },
+    {
+      "id": "FIX-UE",
+      "bounds": [
+        92.0,
+        34.0,
+        94.0,
+        46.0
+      ],
+      "z0": 3.6,
+      "z1": 4.7,
+      "reason": "Inaccessible service-wall planter ledge"
+    },
+    {
+      "id": "FIX-GSLOT",
+      "bounds": [
+        28.0,
+        44.0,
+        29.0,
+        46.0
+      ],
+      "z0": 0,
+      "z1": 1.15,
+      "reason": "Join existing planter to west atrium wall"
+    },
+    {
+      "id": "FIX-USW-SLOT",
+      "bounds": [
+        49.75,
+        21.4,
+        50.3,
+        22.5
+      ],
+      "z0": 3.6,
+      "z1": 4.7,
+      "reason": "Guard junction cap at south gallery outer corner"
+    },
+    {
+      "id": "FIX-USLOT",
+      "bounds": [
+        77.75,
+        75.7,
+        78.25,
+        76.5
+      ],
+      "z0": 3.6,
+      "z1": 4.7,
+      "reason": "Guard junction cap at north gallery outer corner"
+    }
+  ],
+  "physicalChanges": [
+    {
+      "id": "RC-CAP-W",
+      "bounds": [
+        49.8,
+        19.8,
+        4.75,
+        50.2,
+        20.2,
+        7.8
+      ]
+    },
+    {
+      "id": "RC-CAP-E",
+      "bounds": [
+        103.8,
+        19.8,
+        4.75,
+        104.2,
+        20.2,
+        7.8
+      ]
+    }
+  ],
+  "overheadDetail": "Six skylight mullions, wholly at Z10.94..11.18, no route/eye change.",
+  "body": {
+    "radius": 0.4,
+    "height": 2,
+    "crouchHeight": 1.15,
+    "step": 0.3,
+    "maxSlope": 42,
+    "standingEye": 1.86,
+    "crouchEye": 1.0695,
+    "verticalFov": 75,
+    "aspect": 1.3333333333333333,
+    "walkSpeed": 3.4,
+    "crouchSpeed": 1.7,
+    "gameRunHypothesis": 5.5
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "revision": "S01",
+  "phase": "A",
+  "status": "Unselected alternatives; awaiting independent spatial-interest review",
+  "originalSourceSha256": "a393a80702338e800205c9ecaa9076b59250f5d9b21d2e6c13fa51d2329ca929",
+  "files": {
+    "brief.md": "e5fb1cd3982ff293174bb229010dea0af1d2b6de19d4d1dd6215b0a9cd678a56",
+    "references/study.md": "53e7716d9812b8acaabcfc3e043011e13866812563a183927b8860ced285365a",
+    "references/sources.json": "a703e591ed08e8b433321eb72281398d0dbc625ec54699f3b7b5bbe596c900c6",
+    "planning/baseline.json": "b9225c096238dd69b3d8618ca8426ef1557ef3f5ddfcee3c737ae3de815f00cb",
+    "planning/alternatives.json": "d18a9076095f2afabc9c002a82b1a2a7c655c42ec77fd78d499b2cb6b7384387",
+    "planning/harbor-fold.svg": "33bc8986535abbe71b723bae4b9668098494aa025bf3ae22cb7b5de412f6d11e",
+    "planning/harbor-fold.png": "6a477d07a68f61cc95263bbe6e9d16e066d404fa018e1db820a466ec94d2ba7f",
+    "planning/ravine-quarter.svg": "a082556b8f53f722f70aa5b3b997157dbcff368cc790fe1cbe2dd0480468ff7c",
+    "planning/ravine-quarter.png": "3e60e017ae7dabed1d9151855a44fd177b247b50401ed4eb10c7f3d6d33a9269",
+    "planning/sections.svg": "742ae35f8428aa68da59d1a1666c72c424441bb61e91d5212f0d1b8e814f534b",
+    "planning/sections.png": "54cd18bfe8c2e550f810e4932554848a66fd0fee01b9be3268a32ec3783a6e61",
+    "planning/experiment-folded.json": "5d7e5d7ef32d24c1044a6d882b6fc3fd1cba6d9067ee0ab159148c5bde00b1e7",
+    "planning/experiment-ravine.json": "4e5442ed1bbf3c455cb2d6a4428eb40ccdd0f25e79ba75a90a16cc541e631c23",
+    "planning/experiment-contour.json": "5671ce876b5f23767883dc80854176e6d23b1cb8c019ab70511c2d9a4bfc6c23",
+    "planning/exploration-summary.json": "e645c53f298caf9b79bdbce68eaf64c994853104ecbdac85f106745907f1d710",
+    "planning/exploration-board.png": "ddea4aea9ebf4e82b9c3f6cdd0c436e4e8f61e2e454e11d8fd25f156542450f8"
+  },
+  "visualInspection": [
+    "references/images/symi-harbor.jpg",
+    "references/images/symi-stair.jpg",
+    "references/images/monemvasia-town.jpg",
+    "references/images/monemvasia-passage.jpg",
+    "planning/exploration-board.png",
+    "planning/harbor-fold.png",
+    "planning/ravine-quarter.png",
+    "planning/sections.png"
+  ],
+  "productionAmlAuthored": false,
+  "physicalAcceptance": false
+}

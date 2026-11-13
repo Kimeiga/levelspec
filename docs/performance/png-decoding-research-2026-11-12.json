@@ -1,0 +1,53 @@
+{
+  "node": "v24.12.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "cpu": "Apple M4",
+  "pngjsVersion": "7.0.0",
+  "artifactDirectory": "generated/kowloon-large-materials-20261112/final/generated/material-cache",
+  "artifactFiles": 9001,
+  "corpusSha256": "37a011e7d0e5a9ee370537698f62a794911e5bd35c5abca2a84487fcd5f7c30e",
+  "images": 26964,
+  "pixels": 77120640,
+  "encodedBytes": 90611275,
+  "equality": "All decoded RGBA bytes and dimensions match on this generated-image corpus.",
+  "method": "Single synchronous decoder, complete preloaded corpus, three alternating-order runs after untimed full-corpus equality warmup; explicit GC before each timed run. Both paths copy encoded input and decoded output. No file I/O, JSON/base64, hashing, or scene compilation in timing. Other machine load uncontrolled.",
+  "runs": [
+    {
+      "decoder": "browser",
+      "elapsedMs": 6754.967583,
+      "cpuMs": 7732.735,
+      "checksum": 11212254
+    },
+    {
+      "decoder": "node",
+      "elapsedMs": 2803.206875,
+      "cpuMs": 3155.967,
+      "checksum": 11212254
+    },
+    {
+      "decoder": "node",
+      "elapsedMs": 2829.009416000001,
+      "cpuMs": 3166.743,
+      "checksum": 11212254
+    },
+    {
+      "decoder": "browser",
+      "elapsedMs": 7097.921417000001,
+      "cpuMs": 7770.441,
+      "checksum": 11212254
+    },
+    {
+      "decoder": "browser",
+      "elapsedMs": 10590.460625,
+      "cpuMs": 10310.739,
+      "checksum": 11212254
+    },
+    {
+      "decoder": "node",
+      "elapsedMs": 2965.557833000006,
+      "cpuMs": 3254.651,
+      "checksum": 11212254
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "state": "unselected P01 paper option; C01 AML unchanged",
+  "baselineSourceSHA256": "7a31f5a513d49f8f6f45899c48dfb40ff67e96475e7a35a349b0607cab833069",
+  "visuallyInspected": [
+    "stair-comparison-p01.png"
+  ],
+  "files": {
+    "planning/stair-comparison-p01.svg": "57580bed4f4b626e77fbf95d726faac906e6a2e91d7beab5e6cf6fd6d8ae5915",
+    "planning/compare-stair-p01.py": "be0de43582a6eb4d36c6a762f02fc00d99443c84dcacee348b28d7feeb305d74",
+    "planning/stair-comparison-p01.md": "e9166741c95a38b6838999ca0ba3235365c745f699db303c59c4f869c3972f1e",
+    "planning/stair-comparison-p01.json": "0889c5d21a5f128d92d8811c8d781852a8c02929a8698a128c9e0e11d365e483",
+    "planning/stair-comparison-p01.png": "11dd0e044cfc58d17cdc7f9b3f999a3e7ac276c29f5a594b3516338db98c0508"
+  }
+}

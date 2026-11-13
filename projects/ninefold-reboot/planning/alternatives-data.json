@@ -1,0 +1,1960 @@
+[
+  {
+    "id": "A",
+    "name": "Courtyard Stack",
+    "extent": [
+      80,
+      96
+    ],
+    "subtitle": "Several occupied courts, a through-gallery and a roof precinct around two offset light wells.",
+    "rooms": [
+      {
+        "id": "T",
+        "label": "CART GATE",
+        "polygon": [
+          [
+            8,
+            5
+          ],
+          [
+            20,
+            5
+          ],
+          [
+            20,
+            17
+          ],
+          [
+            8,
+            17
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "MARKET",
+        "label": "PRINT COURT",
+        "polygon": [
+          [
+            19,
+            20
+          ],
+          [
+            28,
+            20
+          ],
+          [
+            28,
+            18
+          ],
+          [
+            34,
+            18
+          ],
+          [
+            36,
+            25
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            19,
+            32
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "NOODLE",
+        "label": "NOODLE WORKS",
+        "polygon": [
+          [
+            35,
+            30
+          ],
+          [
+            48,
+            30
+          ],
+          [
+            48,
+            42
+          ],
+          [
+            40,
+            42
+          ],
+          [
+            40,
+            39
+          ],
+          [
+            35,
+            39
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "A",
+        "label": "A / MACHINE COURT",
+        "polygon": [
+          [
+            56,
+            38
+          ],
+          [
+            66,
+            38
+          ],
+          [
+            66,
+            35
+          ],
+          [
+            74,
+            38
+          ],
+          [
+            74,
+            58
+          ],
+          [
+            64,
+            58
+          ],
+          [
+            64,
+            55
+          ],
+          [
+            56,
+            55
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "DYE",
+        "label": "DYE STORE",
+        "polygon": [
+          [
+            61,
+            64
+          ],
+          [
+            74,
+            64
+          ],
+          [
+            74,
+            73
+          ],
+          [
+            61,
+            73
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "PUMP",
+        "label": "PUMP COURT",
+        "polygon": [
+          [
+            12,
+            60
+          ],
+          [
+            29,
+            60
+          ],
+          [
+            29,
+            72
+          ],
+          [
+            12,
+            72
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "WORKSHOP",
+        "label": "REPAIR SHOP",
+        "polygon": [
+          [
+            9,
+            39
+          ],
+          [
+            18,
+            39
+          ],
+          [
+            18,
+            37
+          ],
+          [
+            23,
+            37
+          ],
+          [
+            23,
+            51
+          ],
+          [
+            9,
+            51
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "WELL",
+        "label": "LOW LIGHTWELL",
+        "polygon": [
+          [
+            28,
+            46
+          ],
+          [
+            39,
+            46
+          ],
+          [
+            44,
+            50
+          ],
+          [
+            44,
+            59
+          ],
+          [
+            36,
+            63
+          ],
+          [
+            28,
+            58
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "HERB",
+        "label": "HERB SHOP",
+        "polygon": [
+          [
+            52,
+            15
+          ],
+          [
+            66,
+            15
+          ],
+          [
+            66,
+            27
+          ],
+          [
+            52,
+            27
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "CT",
+        "label": "CT / SERVICE GATE",
+        "polygon": [
+          [
+            58,
+            83
+          ],
+          [
+            73,
+            83
+          ],
+          [
+            73,
+            92
+          ],
+          [
+            58,
+            92
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "LAUNDRY",
+        "label": "LAUNDRY",
+        "polygon": [
+          [
+            9,
+            61
+          ],
+          [
+            24,
+            61
+          ],
+          [
+            24,
+            69
+          ],
+          [
+            9,
+            69
+          ]
+        ],
+        "z": 3.2,
+        "kind": "open"
+      },
+      {
+        "id": "CLINIC",
+        "label": "CLINIC HALL",
+        "polygon": [
+          [
+            49,
+            62
+          ],
+          [
+            61,
+            62
+          ],
+          [
+            61,
+            75
+          ],
+          [
+            49,
+            75
+          ]
+        ],
+        "z": 3.2,
+        "kind": "indoor"
+      },
+      {
+        "id": "GALLERY",
+        "label": "WELL GALLERY",
+        "polygon": [
+          [
+            28,
+            45
+          ],
+          [
+            46,
+            45
+          ],
+          [
+            46,
+            50
+          ],
+          [
+            28,
+            50
+          ]
+        ],
+        "z": 3.2,
+        "kind": "open"
+      },
+      {
+        "id": "TEA",
+        "label": "TEA LANDING",
+        "polygon": [
+          [
+            59,
+            39
+          ],
+          [
+            69,
+            39
+          ],
+          [
+            69,
+            47
+          ],
+          [
+            59,
+            47
+          ]
+        ],
+        "z": 3.2,
+        "kind": "indoor"
+      },
+      {
+        "id": "B",
+        "label": "B / TANK COURT",
+        "polygon": [
+          [
+            21,
+            70
+          ],
+          [
+            28,
+            70
+          ],
+          [
+            28,
+            67
+          ],
+          [
+            42,
+            67
+          ],
+          [
+            42,
+            85
+          ],
+          [
+            34,
+            85
+          ],
+          [
+            34,
+            82
+          ],
+          [
+            21,
+            82
+          ]
+        ],
+        "z": 6.4,
+        "kind": "open"
+      },
+      {
+        "id": "DRYING",
+        "label": "DRYING COURT",
+        "polygon": [
+          [
+            47,
+            78
+          ],
+          [
+            59,
+            78
+          ],
+          [
+            59,
+            88
+          ],
+          [
+            47,
+            88
+          ]
+        ],
+        "z": 6.4,
+        "kind": "open"
+      }
+    ],
+    "paths": [
+      {
+        "id": "cart-print",
+        "points": [
+          [
+            14,
+            16
+          ],
+          [
+            14,
+            24
+          ],
+          [
+            20,
+            24
+          ]
+        ],
+        "z": 0,
+        "width": 4.5
+      },
+      {
+        "id": "south-arcade",
+        "points": [
+          [
+            20,
+            10
+          ],
+          [
+            42,
+            10
+          ],
+          [
+            42,
+            20
+          ],
+          [
+            52,
+            20
+          ]
+        ],
+        "z": 0,
+        "width": 5
+      },
+      {
+        "id": "print-noodle",
+        "points": [
+          [
+            34,
+            26
+          ],
+          [
+            41,
+            26
+          ],
+          [
+            41,
+            30
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "print-repair",
+        "points": [
+          [
+            24,
+            32
+          ],
+          [
+            24,
+            36
+          ],
+          [
+            17,
+            36
+          ],
+          [
+            17,
+            39
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "covered-street",
+        "points": [
+          [
+            48,
+            36
+          ],
+          [
+            52,
+            36
+          ],
+          [
+            52,
+            45
+          ],
+          [
+            56,
+            45
+          ]
+        ],
+        "z": 0,
+        "width": 4.5
+      },
+      {
+        "id": "valve-alley",
+        "points": [
+          [
+            66,
+            21
+          ],
+          [
+            69,
+            21
+          ],
+          [
+            69,
+            38
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "repair-well",
+        "points": [
+          [
+            23,
+            44
+          ],
+          [
+            31,
+            44
+          ],
+          [
+            31,
+            46
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "well-pump",
+        "points": [
+          [
+            28,
+            55
+          ],
+          [
+            24,
+            55
+          ],
+          [
+            24,
+            60
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "well-dye",
+        "points": [
+          [
+            44,
+            55
+          ],
+          [
+            51,
+            55
+          ],
+          [
+            51,
+            68
+          ],
+          [
+            61,
+            68
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "dye-A",
+        "points": [
+          [
+            68,
+            64
+          ],
+          [
+            68,
+            58
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "north-service",
+        "points": [
+          [
+            20,
+            72
+          ],
+          [
+            20,
+            78
+          ],
+          [
+            53,
+            78
+          ],
+          [
+            64,
+            78
+          ],
+          [
+            64,
+            83
+          ]
+        ],
+        "z": 0,
+        "width": 4.5
+      },
+      {
+        "id": "CT-dye",
+        "points": [
+          [
+            67,
+            83
+          ],
+          [
+            67,
+            73
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "laundry-gallery",
+        "points": [
+          [
+            24,
+            65
+          ],
+          [
+            25,
+            65
+          ],
+          [
+            25,
+            48
+          ],
+          [
+            28,
+            48
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "gallery-clinic",
+        "points": [
+          [
+            46,
+            48
+          ],
+          [
+            51,
+            48
+          ],
+          [
+            51,
+            62
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "tea-clinic",
+        "points": [
+          [
+            64,
+            47
+          ],
+          [
+            64,
+            57
+          ],
+          [
+            56,
+            57
+          ],
+          [
+            56,
+            62
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "gallery-tea",
+        "points": [
+          [
+            46,
+            48
+          ],
+          [
+            55,
+            48
+          ],
+          [
+            55,
+            43
+          ],
+          [
+            59,
+            43
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "herb-top",
+        "points": [
+          [
+            57,
+            37
+          ],
+          [
+            62,
+            37
+          ],
+          [
+            62,
+            39
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "well-top",
+        "points": [
+          [
+            47,
+            60
+          ],
+          [
+            51,
+            60
+          ],
+          [
+            51,
+            62
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "roof-fold",
+        "points": [
+          [
+            42,
+            80
+          ],
+          [
+            47,
+            80
+          ]
+        ],
+        "z": 6.4,
+        "width": 4
+      },
+      {
+        "id": "laundry-top",
+        "points": [
+          [
+            20,
+            77
+          ],
+          [
+            24,
+            77
+          ]
+        ],
+        "z": 6.4,
+        "width": 4
+      }
+    ],
+    "stairs": [
+      {
+        "id": "S1",
+        "a": [
+          13,
+          49
+        ],
+        "b": [
+          13,
+          61
+        ],
+        "low": 0,
+        "high": 3.2,
+        "width": 4
+      },
+      {
+        "id": "S2",
+        "a": [
+          57,
+          25
+        ],
+        "b": [
+          57,
+          37
+        ],
+        "low": 0,
+        "high": 3.2,
+        "width": 4
+      },
+      {
+        "id": "S3",
+        "a": [
+          56,
+          79
+        ],
+        "b": [
+          56,
+          67
+        ],
+        "low": 0,
+        "high": 3.2,
+        "width": 4
+      },
+      {
+        "id": "S4",
+        "a": [
+          35,
+          60
+        ],
+        "b": [
+          47,
+          60
+        ],
+        "low": 0,
+        "high": 3.2,
+        "width": 4
+      },
+      {
+        "id": "S5",
+        "a": [
+          20,
+          65
+        ],
+        "b": [
+          20,
+          77
+        ],
+        "low": 3.2,
+        "high": 6.4,
+        "width": 4
+      },
+      {
+        "id": "S6",
+        "a": [
+          51,
+          72
+        ],
+        "b": [
+          51,
+          84
+        ],
+        "low": 3.2,
+        "high": 6.4,
+        "width": 4
+      }
+    ],
+    "anchors": {
+      "T": [
+        14,
+        10,
+        0
+      ],
+      "CT": [
+        65,
+        88,
+        0
+      ],
+      "A": [
+        65,
+        48,
+        0
+      ],
+      "B": [
+        31,
+        78,
+        6.4
+      ]
+    },
+    "views": [
+      {
+        "a": [
+          36,
+          48
+        ],
+        "b": [
+          36,
+          56
+        ],
+        "z": 3.2,
+        "label": "gallery \u2192 well"
+      },
+      {
+        "a": [
+          64,
+          43
+        ],
+        "b": [
+          64,
+          51
+        ],
+        "z": 3.2,
+        "label": "tea \u2192 A threshold"
+      }
+    ],
+    "journeys": [
+      "Cart Gate \u2192 Print Court \u2192 Repair Shop \u2192 Laundry \u2192 Tank Court, with lower Lightwell and gallery exits after contact.",
+      "Cart Gate \u2192 South Arcade \u2192 Herb Shop \u2192 A south threshold; Herb stair can shift pressure to Tea / Clinic.",
+      "CT Service Gate \u2192 Dye Store \u2192 A rear, or North Service \u2192 Clinic / Drying Court \u2192 B east."
+    ],
+    "risks": [
+      "The middle gallery may compress too much territory into one rotation hub; review its exposed versus screened segments.",
+      "B western/eastern arrivals need distinct clearings around tank masses; do not count two nearby mouths as independent strategies."
+    ]
+  },
+  {
+    "id": "B",
+    "name": "Loft Street",
+    "extent": [
+      98,
+      86
+    ],
+    "subtitle": "A dogleg commercial street passes below a split factory loft; roof travel reconnects its two approach districts.",
+    "rooms": [
+      {
+        "id": "T",
+        "label": "CANAL GATE",
+        "polygon": [
+          [
+            5,
+            9
+          ],
+          [
+            18,
+            9
+          ],
+          [
+            18,
+            21
+          ],
+          [
+            5,
+            21
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "AWNING",
+        "label": "AWNING COURT",
+        "polygon": [
+          [
+            24,
+            10
+          ],
+          [
+            39,
+            10
+          ],
+          [
+            39,
+            21
+          ],
+          [
+            35,
+            25
+          ],
+          [
+            24,
+            24
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "UNDER",
+        "label": "FACTORY UNDERPASS",
+        "polygon": [
+          [
+            43,
+            30
+          ],
+          [
+            61,
+            30
+          ],
+          [
+            61,
+            39
+          ],
+          [
+            43,
+            39
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "A",
+        "label": "A / PORCELAIN WORKS",
+        "polygon": [
+          [
+            73,
+            42
+          ],
+          [
+            83,
+            42
+          ],
+          [
+            83,
+            39
+          ],
+          [
+            92,
+            42
+          ],
+          [
+            92,
+            62
+          ],
+          [
+            81,
+            62
+          ],
+          [
+            81,
+            59
+          ],
+          [
+            73,
+            59
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "BOILER",
+        "label": "BOILER COURT",
+        "polygon": [
+          [
+            28,
+            50
+          ],
+          [
+            40,
+            50
+          ],
+          [
+            44,
+            54
+          ],
+          [
+            44,
+            65
+          ],
+          [
+            34,
+            65
+          ],
+          [
+            34,
+            62
+          ],
+          [
+            28,
+            62
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "DYE",
+        "label": "DYE STORE",
+        "polygon": [
+          [
+            51,
+            52
+          ],
+          [
+            64,
+            52
+          ],
+          [
+            64,
+            65
+          ],
+          [
+            51,
+            65
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "CT",
+        "label": "CT / WATER STREET",
+        "polygon": [
+          [
+            67,
+            70
+          ],
+          [
+            82,
+            70
+          ],
+          [
+            82,
+            82
+          ],
+          [
+            67,
+            82
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "BUTCHER",
+        "label": "BUTCHER ARCADE",
+        "polygon": [
+          [
+            11,
+            31
+          ],
+          [
+            24,
+            31
+          ],
+          [
+            24,
+            39
+          ],
+          [
+            21,
+            39
+          ],
+          [
+            21,
+            44
+          ],
+          [
+            11,
+            44
+          ]
+        ],
+        "z": 0,
+        "kind": "indoor"
+      },
+      {
+        "id": "DRAIN",
+        "label": "DRAIN POCKET",
+        "polygon": [
+          [
+            13,
+            50
+          ],
+          [
+            23,
+            50
+          ],
+          [
+            23,
+            58
+          ],
+          [
+            13,
+            58
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "WELL",
+        "label": "LIFT LIGHTWELL",
+        "polygon": [
+          [
+            46,
+            42
+          ],
+          [
+            56,
+            42
+          ],
+          [
+            56,
+            51
+          ],
+          [
+            46,
+            51
+          ]
+        ],
+        "z": 0,
+        "kind": "open"
+      },
+      {
+        "id": "LAUNDRY",
+        "label": "SCHOOL LANDING",
+        "polygon": [
+          [
+            33,
+            40
+          ],
+          [
+            43,
+            40
+          ],
+          [
+            43,
+            51
+          ],
+          [
+            33,
+            51
+          ]
+        ],
+        "z": 3.2,
+        "kind": "open"
+      },
+      {
+        "id": "EAST",
+        "label": "EAST LANDING",
+        "polygon": [
+          [
+            62,
+            39
+          ],
+          [
+            72,
+            39
+          ],
+          [
+            72,
+            49
+          ],
+          [
+            62,
+            49
+          ]
+        ],
+        "z": 3.2,
+        "kind": "open"
+      },
+      {
+        "id": "SIGN",
+        "label": "SIGN GALLERY",
+        "polygon": [
+          [
+            80,
+            48
+          ],
+          [
+            90,
+            48
+          ],
+          [
+            90,
+            58
+          ],
+          [
+            80,
+            58
+          ]
+        ],
+        "z": 3.2,
+        "kind": "open"
+      },
+      {
+        "id": "BOILERG",
+        "label": "BOILER GALLERY",
+        "polygon": [
+          [
+            59,
+            51
+          ],
+          [
+            68,
+            51
+          ],
+          [
+            68,
+            56
+          ],
+          [
+            59,
+            56
+          ]
+        ],
+        "z": 3.2,
+        "kind": "open"
+      },
+      {
+        "id": "ROOF",
+        "label": "ROOF COURT",
+        "polygon": [
+          [
+            32,
+            61
+          ],
+          [
+            43,
+            61
+          ],
+          [
+            48,
+            65
+          ],
+          [
+            48,
+            72
+          ],
+          [
+            32,
+            72
+          ]
+        ],
+        "z": 6.4,
+        "kind": "open"
+      },
+      {
+        "id": "RESERVOIR",
+        "label": "RESERVOIR ROOF",
+        "polygon": [
+          [
+            57,
+            64
+          ],
+          [
+            69,
+            64
+          ],
+          [
+            69,
+            74
+          ],
+          [
+            57,
+            74
+          ]
+        ],
+        "z": 6.4,
+        "kind": "open"
+      },
+      {
+        "id": "B",
+        "label": "B / MACHINE LOFT",
+        "polygon": [
+          [
+            42,
+            32
+          ],
+          [
+            62,
+            32
+          ],
+          [
+            62,
+            53
+          ],
+          [
+            56,
+            53
+          ],
+          [
+            56,
+            41
+          ],
+          [
+            46,
+            41
+          ],
+          [
+            46,
+            52
+          ],
+          [
+            42,
+            52
+          ]
+        ],
+        "z": 3.2,
+        "kind": "indoor"
+      }
+    ],
+    "paths": [
+      {
+        "id": "canal-awning",
+        "points": [
+          [
+            18,
+            15
+          ],
+          [
+            24,
+            15
+          ]
+        ],
+        "z": 0,
+        "width": 5
+      },
+      {
+        "id": "canal-butcher",
+        "points": [
+          [
+            11,
+            21
+          ],
+          [
+            11,
+            31
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "dogleg-street",
+        "points": [
+          [
+            37,
+            24
+          ],
+          [
+            40,
+            28
+          ],
+          [
+            40,
+            34
+          ],
+          [
+            43,
+            34
+          ]
+        ],
+        "z": 0,
+        "width": 5
+      },
+      {
+        "id": "tailor-alley",
+        "points": [
+          [
+            39,
+            17
+          ],
+          [
+            56,
+            17
+          ],
+          [
+            56,
+            24
+          ],
+          [
+            68,
+            24
+          ],
+          [
+            68,
+            39
+          ],
+          [
+            78,
+            42
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "butcher-drain",
+        "points": [
+          [
+            17,
+            44
+          ],
+          [
+            17,
+            50
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "paper-arcade",
+        "points": [
+          [
+            24,
+            39
+          ],
+          [
+            31,
+            39
+          ],
+          [
+            31,
+            34
+          ],
+          [
+            43,
+            34
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "drain-boiler",
+        "points": [
+          [
+            23,
+            54
+          ],
+          [
+            28,
+            54
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "boiler-dye",
+        "points": [
+          [
+            44,
+            58
+          ],
+          [
+            51,
+            58
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "under-well",
+        "points": [
+          [
+            52,
+            39
+          ],
+          [
+            52,
+            42
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "well-dye",
+        "points": [
+          [
+            52,
+            51
+          ],
+          [
+            52,
+            52
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "dye-A",
+        "points": [
+          [
+            64,
+            58
+          ],
+          [
+            73,
+            58
+          ]
+        ],
+        "z": 0,
+        "width": 4.5
+      },
+      {
+        "id": "water-street",
+        "points": [
+          [
+            59,
+            65
+          ],
+          [
+            59,
+            76
+          ],
+          [
+            67,
+            76
+          ]
+        ],
+        "z": 0,
+        "width": 5
+      },
+      {
+        "id": "A-CT",
+        "points": [
+          [
+            82,
+            62
+          ],
+          [
+            82,
+            70
+          ]
+        ],
+        "z": 0,
+        "width": 4.5
+      },
+      {
+        "id": "tailor-stair",
+        "points": [
+          [
+            68,
+            27
+          ],
+          [
+            65,
+            27
+          ]
+        ],
+        "z": 0,
+        "width": 4
+      },
+      {
+        "id": "east-sign",
+        "points": [
+          [
+            72,
+            46
+          ],
+          [
+            80,
+            46
+          ],
+          [
+            84,
+            48
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "east-boiler",
+        "points": [
+          [
+            66,
+            49
+          ],
+          [
+            66,
+            51
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "loft-boiler",
+        "points": [
+          [
+            59,
+            52
+          ],
+          [
+            59,
+            54
+          ],
+          [
+            61,
+            54
+          ]
+        ],
+        "z": 3.2,
+        "width": 4
+      },
+      {
+        "id": "roof-seam",
+        "points": [
+          [
+            48,
+            67
+          ],
+          [
+            57,
+            67
+          ]
+        ],
+        "z": 6.4,
+        "width": 4
+      }
+    ],
+    "stairs": [
+      {
+        "id": "S1",
+        "a": [
+          21,
+          42
+        ],
+        "b": [
+          33,
+          42
+        ],
+        "low": 0,
+        "high": 3.2,
+        "width": 4
+      },
+      {
+        "id": "S2",
+        "a": [
+          65,
+          27
+        ],
+        "b": [
+          65,
+          39
+        ],
+        "low": 0,
+        "high": 3.2,
+        "width": 4
+      },
+      {
+        "id": "S3",
+        "a": [
+          60,
+          65
+        ],
+        "b": [
+          60,
+          53
+        ],
+        "low": 0,
+        "high": 3.2,
+        "width": 4
+      },
+      {
+        "id": "S4",
+        "a": [
+          86,
+          62
+        ],
+        "b": [
+          86,
+          50
+        ],
+        "low": 0,
+        "high": 3.2,
+        "width": 4
+      },
+      {
+        "id": "S5",
+        "a": [
+          36,
+          49
+        ],
+        "b": [
+          36,
+          61
+        ],
+        "low": 3.2,
+        "high": 6.4,
+        "width": 4
+      },
+      {
+        "id": "S6",
+        "a": [
+          65,
+          54
+        ],
+        "b": [
+          65,
+          66
+        ],
+        "low": 3.2,
+        "high": 6.4,
+        "width": 4
+      }
+    ],
+    "anchors": {
+      "T": [
+        11,
+        15,
+        0
+      ],
+      "CT": [
+        74,
+        77,
+        0
+      ],
+      "A": [
+        83,
+        52,
+        0
+      ],
+      "B": [
+        52,
+        36,
+        3.2
+      ]
+    },
+    "views": [
+      {
+        "a": [
+          50,
+          40
+        ],
+        "b": [
+          50,
+          47
+        ],
+        "z": 3.2,
+        "label": "loft \u2192 lift well"
+      },
+      {
+        "a": [
+          84,
+          52
+        ],
+        "b": [
+          78,
+          52
+        ],
+        "z": 3.2,
+        "label": "sign \u2192 A shoulder"
+      },
+      {
+        "a": [
+          41,
+          66
+        ],
+        "b": [
+          38,
+          58
+        ],
+        "z": 6.4,
+        "label": "roof \u2192 boiler edge"
+      }
+    ],
+    "journeys": [
+      "Canal Gate \u2192 Butcher Arcade \u2192 School Landing \u2192 B west; Drain / Boiler remains a lower continuation after early contact.",
+      "Canal Gate \u2192 Awning Court \u2192 dogleg Underpass \u2192 Lift Well \u2192 Dye Store; Tailor Alley commits to A or East Landing.",
+      "CT Water Street \u2192 Dye Store \u2192 B north stair, or A rear \u2192 Sign Gallery \u2192 East Landing; Roof Court is a longer approach switch."
+    ],
+    "risks": [
+      "B surrounds a lift well above a real through-route; distinguish sound/visibility assumptions and isolate unavoidable multi-level threats.",
+      "The roof bypass must cost meaningful time without becoming a dominant panorama over both objectives."
+    ]
+  }
+]

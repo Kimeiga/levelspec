@@ -1,0 +1,425 @@
+{
+ "revision": "R02",
+ "objects": [
+  {
+   "layout": "YGATE",
+   "kind": "door"
+  },
+  {
+   "layout": "G_POD_WR",
+   "kind": "window"
+  },
+  {
+   "layout": "G_POD_ER",
+   "kind": "window"
+  },
+  {
+   "layout": "G_POD_W",
+   "kind": "window"
+  },
+  {
+   "layout": "G_POD_E",
+   "kind": "window"
+  },
+  {
+   "layout": "G_STRIP",
+   "kind": "window"
+  },
+  {
+   "layout": "G_STRIP_W",
+   "kind": "window"
+  },
+  {
+   "layout": "G_STRIP_E",
+   "kind": "window"
+  },
+  {
+   "layout": "MID_E",
+   "kind": "door"
+  },
+  {
+   "layout": "COL_E1",
+   "kind": "portal"
+  },
+  {
+   "layout": "COL_E2",
+   "kind": "portal"
+  },
+  {
+   "layout": "LAND_E",
+   "kind": "door"
+  },
+  {
+   "layout": "GW1",
+   "kind": "window"
+  },
+  {
+   "layout": "GW2",
+   "kind": "window"
+  },
+  {
+   "layout": "BACKDOOR",
+   "kind": "door"
+  },
+  {
+   "layout": "A_EAST",
+   "kind": "door"
+  },
+  {
+   "layout": "GAL_W",
+   "kind": "door"
+  },
+  {
+   "layout": "FB_ST",
+   "kind": "door"
+  },
+  {
+   "layout": "EL_YARD",
+   "kind": "door"
+  },
+  {
+   "layout": "FB_YARD",
+   "kind": "door"
+  },
+  {
+   "layout": "FB_B",
+   "kind": "door"
+  },
+  {
+   "layout": "YOUTH_N",
+   "kind": "door"
+  },
+  {
+   "layout": "YOUTH_SW",
+   "kind": "door"
+  },
+  {
+   "layout": "YOUTH_E",
+   "kind": "door"
+  },
+  {
+   "layout": "A_NORTH",
+   "kind": "door"
+  },
+  {
+   "layout": "SY1",
+   "aml": "SY1"
+  },
+  {
+   "layout": "SLW2",
+   "aml": "SLW2"
+  },
+  {
+   "layout": "SY2b",
+   "aml": "SY2b"
+  },
+  {
+   "layout": "SLE1",
+   "aml": "SLE1"
+  },
+  {
+   "layout": "SLE2",
+   "aml": "SLE2"
+  },
+  {
+   "layout": "SW1",
+   "aml": "SW1"
+  },
+  {
+   "layout": "SW2",
+   "aml": "SW2"
+  },
+  {
+   "layout": "SS1",
+   "aml": "SS1"
+  },
+  {
+   "layout": "SS2",
+   "aml": "SS2"
+  },
+  {
+   "layout": "SB1",
+   "aml": "SB1"
+  },
+  {
+   "layout": "SB2a",
+   "aml": "SB2a"
+  },
+  {
+   "layout": "SB2b",
+   "aml": "SB2b"
+  },
+  {
+   "layout": "RUIN",
+   "aml": "RUIN"
+  },
+  {
+   "layout": "RUIN_WALL",
+   "aml": "RUIN_WALL"
+  },
+  {
+   "layout": "PORCH_COL0",
+   "aml": "PORCH_COL0"
+  },
+  {
+   "layout": "PORCH_COL1",
+   "aml": "PORCH_COL1"
+  },
+  {
+   "layout": "PORCH_COL_SW",
+   "aml": "PORCH_COL_SW"
+  },
+  {
+   "layout": "PORCH_COL_SE",
+   "aml": "PORCH_COL_SE"
+  },
+  {
+   "layout": "HALL_RET_W",
+   "aml": "HALL_RET_W"
+  },
+  {
+   "layout": "HALL_RET_E",
+   "aml": "HALL_RET_E"
+  },
+  {
+   "layout": "COURT_URN",
+   "aml": "COURT_URN"
+  },
+  {
+   "layout": "EL_PIER",
+   "aml": "EL_PIER"
+  },
+  {
+   "layout": "SCREEN",
+   "aml": "SCREEN"
+  },
+  {
+   "layout": "TINHAU",
+   "aml": "TINHAU"
+  },
+  {
+   "layout": "TINHAU_POST_W",
+   "aml": "TINHAU_POST_W"
+  },
+  {
+   "layout": "TINHAU_POST_E",
+   "aml": "TINHAU_POST_E"
+  },
+  {
+   "layout": "A_SCREEN",
+   "aml": "A_SCREEN"
+  },
+  {
+   "layout": "SB2_WALL",
+   "aml": "SB2_WALL"
+  },
+  {
+   "layout": "BOILER",
+   "aml": "BOILER"
+  },
+  {
+   "layout": "HALL_LINTEL_W",
+   "aml": "HALL_LINTEL_W"
+  },
+  {
+   "layout": "HALL_LINTEL_E",
+   "aml": "HALL_LINTEL_E"
+  },
+  {
+   "layout": "HALL_W",
+   "aml": "HALL_W"
+  },
+  {
+   "layout": "HALL_COL0",
+   "aml": "HALL_COL0"
+  },
+  {
+   "layout": "HALL_COL1",
+   "aml": "HALL_COL1"
+  },
+  {
+   "layout": "HALL_COL2",
+   "aml": "HALL_COL2"
+  },
+  {
+   "layout": "HALL_COL3",
+   "aml": "HALL_COL3"
+  },
+  {
+   "layout": "LION_W",
+   "aml": "LION_W"
+  },
+  {
+   "layout": "LION_E",
+   "aml": "LION_E"
+  },
+  {
+   "layout": "STELE",
+   "aml": "STELE"
+  },
+  {
+   "layout": "CANNON_GUN",
+   "aml": "CANNON_GUN"
+  },
+  {
+   "layout": "STUMP_W",
+   "aml": "STUMP_W"
+  },
+  {
+   "layout": "STUMP_E",
+   "aml": "STUMP_E"
+  },
+  {
+   "layout": "PLANTER_W",
+   "aml": "PLANTER_W"
+  },
+  {
+   "layout": "PLANTER_E",
+   "aml": "PLANTER_E"
+  },
+  {
+   "layout": "TERRACE_STELE",
+   "aml": "TERRACE_STELE"
+  },
+  {
+   "layout": "A_SW_BLOCK",
+   "aml": "A_SW_BLOCK"
+  },
+  {
+   "layout": "INCENSE",
+   "aml": "INCENSE"
+  },
+  {
+   "layout": "A_CRATES",
+   "aml": "A_CRATES"
+  },
+  {
+   "layout": "MOULDS",
+   "aml": "MOULDS"
+  },
+  {
+   "layout": "CRUCIBLE",
+   "aml": "CRUCIBLE"
+  },
+  {
+   "layout": "FURNACE_S",
+   "aml": "FURNACE_S"
+  },
+  {
+   "layout": "FURNACE",
+   "aml": "FURNACE"
+  },
+  {
+   "layout": "SB1_WALL",
+   "aml": "SB1_WALL"
+  },
+  {
+   "layout": "MEZZ_POST0",
+   "aml": "MEZZ_POST0"
+  },
+  {
+   "layout": "MEZZ_POST1",
+   "aml": "MEZZ_POST1"
+  },
+  {
+   "layout": "MEZZ_POST2",
+   "aml": "MEZZ_POST2"
+  },
+  {
+   "layout": "MEZZ_POST3",
+   "aml": "MEZZ_POST3"
+  },
+  {
+   "layout": "MEZZ_SCR_W",
+   "aml": "MEZZ_SCR_W"
+  },
+  {
+   "layout": "MEZZ_SCR_N",
+   "aml": "MEZZ_SCR_N"
+  },
+  {
+   "layout": "RACKS",
+   "aml": "RACKS"
+  },
+  {
+   "layout": "KW_PIER_W",
+   "aml": "KW_PIER_W"
+  },
+  {
+   "layout": "KW_PIER_E",
+   "aml": "KW_PIER_E"
+  },
+  {
+   "layout": "DENT_PART",
+   "aml": "DENT_PART"
+  },
+  {
+   "layout": "YOUTH_PART_E",
+   "aml": "YOUTH_PART_E"
+  },
+  {
+   "layout": "YOUTH_PART_W",
+   "aml": "YOUTH_PART_W"
+  },
+  {
+   "layout": "YOUTH_PART_C",
+   "aml": "YOUTH_PART_C"
+  },
+  {
+   "layout": "PL_CRATES",
+   "aml": "PL_CRATES"
+  },
+  {
+   "layout": "YOUTH_COL_W",
+   "aml": "YOUTH_COL_W"
+  },
+  {
+   "layout": "YOUTH_COL_E",
+   "aml": "YOUTH_COL_E"
+  },
+  {
+   "layout": "PINGPONG",
+   "aml": "PINGPONG"
+  },
+  {
+   "layout": "SHED_W",
+   "aml": "SHED_W"
+  },
+  {
+   "layout": "SHED_E",
+   "aml": "SHED_E"
+  },
+  {
+   "layout": "ARCADE_COL0",
+   "aml": "ARCADE_COL0"
+  },
+  {
+   "layout": "ARCADE_COL1",
+   "aml": "ARCADE_COL1"
+  },
+  {
+   "layout": "ARCADE_COL2",
+   "aml": "ARCADE_COL2"
+  },
+  {
+   "layout": "ARCADE_COL3",
+   "aml": "ARCADE_COL3"
+  },
+  {
+   "layout": "ARCADE_COL4",
+   "aml": "ARCADE_COL4"
+  },
+  {
+   "layout": "KIOSK_W",
+   "aml": "KIOSK_W"
+  },
+  {
+   "layout": "KIOSK_E",
+   "aml": "KIOSK_E"
+  },
+  {
+   "layout": "STALL",
+   "aml": "STALL"
+  }
+ ]
+}

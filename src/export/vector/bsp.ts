@@ -2,9 +2,9 @@ import { writeFile, readFile, rm } from "node:fs/promises";
 import { join } from "node:path";
 import type { CompiledLevel, ExportSolid, V3 } from "../../vector/types.ts";
 import type { ExportAsset } from "../../vector/export-assets.ts";
-import { geometryKernel } from "../../vector/compiler.ts";
+import { solidKernel } from "../../architecture/geometry.ts";
 import { heightAt } from "../../vector/geometry.ts";
-import { boxMesh } from "../../core/mesh.ts";
+import { boxMesh } from "./box-mesh.ts";
 import {
   convexBrushes,
   solidManifold,
@@ -134,11 +134,30 @@ export async function buildQuakeMap(
   name: string,
   options: ProcessOptions = {},
 ) {
+  if (level.document.materials.some(material => material.emissive && (material.emissiveStrength ?? 1) > 0))
+    throw new Error("Emissive materials currently export through GLB or glTF, not BSP.");
+  if (level.document.materials.some(material => material.normalTexture))
+    throw new Error("Normal-mapped materials currently export through GLB or glTF, not BSP.");
+  if (level.document.materials.some(material => material.alphaCutoff !== undefined))
+    throw new Error("Materials with an alpha cutoff currently export through GLB or glTF, not BSP.");
+  if (level.document.materials.some(material => material.metallicRoughnessTexture))
+    throw new Error("Metallic-roughness textures currently export through GLB or glTF, not BSP.");
+  if (level.document.materials.some(material => (material.opacity ?? 1) < 1))
+    throw new Error("Alpha-blended materials currently export through GLB or glTF, not BSP.");
   if (level.water?.length)
-    throw new Error("BSP water volumes are not supported yet. Export water surfaces with GLB, glTF, OBJ or FBX and runtime metadata.");
+    throw new Error(
+      "BSP water volumes are not supported yet. Export water surfaces with GLB, glTF, OBJ or FBX and runtime metadata.",
+    );
   if (!level.exportSolids?.length)
     throw new Error("BSP requires compile(..., { retainExportSolids: true }).");
-  const K = await geometryKernel();
+  const imported = level.surfaces.find(
+    (surface) => surface.role === "visual-mesh" && surface.visible !== false,
+  );
+  if (imported)
+    throw new Error(
+      `${imported.object}: imported visualization meshes cannot be exported as BSP brushes. Use a native AML proxy or another render export.`,
+    );
+  const K = await solidKernel();
   const brushes: Brush[] = [];
   for (const solid of level.exportSolids) {
     options.signal?.throwIfAborted();
@@ -230,14 +249,19 @@ export async function buildQuakeMap(
   }
   const skipTexture: QuakeTexture = { name: "skip", width: 16, height: 16 };
   const emit = (b: Brush) => {
-    const texture =
-      b.surface.visible === false
-        ? skipTexture
-        : mappings[b.surface.material] ?? mappings.default;
-    const repeat =
-      level.document.materials.find((m) => m.id === b.surface.material)
-        ?.repeat ?? 1;
-    return `// source ${quoted(b.surface.id)}\n{\n${b.planes.map((p) => planeLine(p, b, texture, repeat)).join("\n")}\n}`;
+    return `// source ${quoted(b.surface.id)}\n{\n${b.planes
+      .map((p) => {
+        const surface = p.surface ?? b.surface;
+        const texture =
+          b.surface.visible === false
+            ? skipTexture
+            : (mappings[surface.material] ?? mappings.default);
+        const repeat =
+          level.document.materials.find((m) => m.id === surface.material)
+            ?.repeat ?? 1;
+        return planeLine(p, { ...b, surface }, texture, repeat);
+      })
+      .join("\n")}\n}`;
   };
   const text = [
     "// LevelSpec 2 / Valve 220 / Z-up / 32 units per metre",

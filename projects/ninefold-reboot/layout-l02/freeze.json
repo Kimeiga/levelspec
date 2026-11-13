@@ -1,0 +1,28 @@
+{
+  "revision": "L02",
+  "parent": "../layout-l01/freeze.json",
+  "scope": "Two nominated view/camera position corrections, identical physical geometry",
+  "files": {
+    "aperture-comparison-l02.png": "a44652332a5923ea65d3fa829403c5a6695fcb9d81fd5e1619e7360f0b1a3d5a",
+    "aperture-comparison-l02.svg": "fa8d7c5c28e223f7ad8934f76a0604823a2784e2e434c33f96df20d3b87e3d5d",
+    "check-plan.py": "720445e49ef7c818def0b946344e605887ef2e479a85de61acfe08a8d9dbe14b",
+    "draw-focused.py": "1ed7ab8555bce3e709310956835417caf4b7dba138b29e9f5356c31a288094b5",
+    "draw-layout.py": "cdae6f35f446097435d007ed1d6b4279995fddd062c03779adf6475c6f7a46df",
+    "draw-sections.py": "8d5376be6873efc6dc236f4f607afcef10261f489b03f521d462aa95f6a9215b",
+    "focused-checks.json": "c0ce012b6df6614c9e087cc7f70684d4e55214d0cd9d7ce9296d32706706d5c1",
+    "focused-corrections.md": "e80b6e0b417326c38d809652e63f9ce25c7588700128c2d60411736c78228b3c",
+    "focused-views-l02.png": "70d92a92f6df49e7808082c06889bc440f6e535bb1e89461e5c5c41068b5ea36",
+    "focused-views-l02.svg": "306fdfc2679fbb69b68628b67470b9158068f6498408fccbea0522ee02dfbe5d",
+    "ground-l02.png": "e7ba8d901961b00f509ef3e4bc49726108ed1d35810dfa27f4b106c5768b0015",
+    "ground-l02.svg": "6f004c116e29e897e341cd6708c1b7e70b838a276d6dcf0a02b43caa64297c31",
+    "layout-data.json": "54b34581aec7c036426797653870cfe13700a665b73dca6587806d993d8ac49d",
+    "middle-l02.png": "3c56464f17c354db7fba7345ae86a281e4b7ac925fe6de322bbf18f1be671bcf",
+    "middle-l02.svg": "9b30d780425d3ecfcd71168bbeeaaefe6dd9fc2de9dcf7e47e836a23e5cdf530",
+    "planning-checks.json": "7842e67dcc71ab58e52ed7a2876e7ef8afc40b73945bb6434eda620f67239d7f",
+    "review-packet.md": "f846f427172f01d8acb70a47cf2084c6bb0237a481505cc00d3bfb6d43c60bcf",
+    "roof-l02.png": "a4b47254747e5bef6adab391fe6d6a91a3cbc2367ac833e9c4a8cd6d9a753010",
+    "roof-l02.svg": "8b28363c10faf6fcd8e0e51cb09bef1a2049e45c3973ccb92073ebc0afc1e87c",
+    "sections-l02.png": "02fb22bb5b448af175e1d2d38003fe2438ed4ffbd9a7acad7fbd125e24840921",
+    "sections-l02.svg": "88a78439ffb4ad92a8e4bfe2778eb5bc9a5a0ec2b67a50104a47ee56ca8ed5bf"
+  }
+}

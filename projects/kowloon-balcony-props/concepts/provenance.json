@@ -1,0 +1,51 @@
+[
+  {
+    "id": "rubber-plant",
+    "tool": "built-in image_gen",
+    "source": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-d8f060a0-74e4-40e2-a35d-858535ee79b4.png",
+    "saved": "projects/kowloon-balcony-props/concepts/rubber-plant.png",
+    "sha256": "4d24ac7094860107c97b11cfa2b4c7c84cd430b6d840ae5c41c9763c9e15a34c"
+  },
+  {
+    "id": "trailing-pothos",
+    "tool": "built-in image_gen",
+    "source": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-a841c432-29c6-4d74-af13-d2f8b3ea6d74.png",
+    "saved": "projects/kowloon-balcony-props/concepts/trailing-pothos.png",
+    "sha256": "900f0a1afd7ad192bae74891ca0177c8fd3ed2cb16e7bbc1341bb2e3b0a7a5d0"
+  },
+  {
+    "id": "snake-plant",
+    "tool": "built-in image_gen",
+    "source": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-9171c497-bfbb-4eec-8e7c-24baca5320d8.png",
+    "saved": "projects/kowloon-balcony-props/concepts/snake-plant.png",
+    "sha256": "3470615d58f5e797700feca63d6e99e7dfa7e3c3a6588ec643adc6a85be3eed8"
+  },
+  {
+    "id": "hanging-shirt",
+    "tool": "built-in image_gen",
+    "source": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-3ff3da4e-487a-4060-bd94-0aa34b99cd22.png",
+    "saved": "projects/kowloon-balcony-props/concepts/hanging-shirt.png",
+    "sha256": "99ead26905b2b3c849ed9a5318872c8994d14d379af34001eb9333aa7bf01256"
+  },
+  {
+    "id": "hanging-trousers",
+    "tool": "built-in image_gen",
+    "source": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-af7ccc2c-2e16-4938-a099-f8fdd629b17e.png",
+    "saved": "projects/kowloon-balcony-props/concepts/hanging-trousers.png",
+    "sha256": "936f7c8abc3c08855d379f3e3f9c286d46ca23aed4098aced8a934d9ff1e9a85"
+  },
+  {
+    "id": "hanging-bedsheet",
+    "tool": "built-in image_gen",
+    "source": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-87d52bc7-bd7e-4c6d-a966-d56ba306c310.png",
+    "saved": "projects/kowloon-balcony-props/concepts/hanging-bedsheet.png",
+    "sha256": "c4da2c85e7c4599ca74578b278c41c4c34f36f93a49da7e8b950442d46f0a091"
+  },
+  {
+    "id": "plain-cotton",
+    "tool": "built-in image_gen",
+    "source": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-0a9fd354-f571-41b2-982d-9ec004326479.png",
+    "saved": "projects/kowloon-balcony-props/concepts/plain-cotton.png",
+    "sha256": "0159c5b0512f736c879c166da73c7aa6c0c005687b3e63318f964101f00021e9"
+  }
+]

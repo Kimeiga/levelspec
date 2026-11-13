@@ -1,0 +1,722 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      163,
+      -132,
+      153
+    ],
+    "target": [
+      56,
+      58,
+      9
+    ],
+    "projection": "orthographic",
+    "viewHeight": 142,
+    "appearance": "materials"
+  },
+  {
+    "id": "mountain-bowl",
+    "position": [
+      173,
+      -141,
+      109
+    ],
+    "target": [
+      57,
+      57,
+      13
+    ],
+    "projection": "perspective",
+    "fov": 58,
+    "appearance": "materials"
+  },
+  {
+    "id": "plan",
+    "position": [
+      56,
+      57,
+      180
+    ],
+    "target": [
+      56,
+      57,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 121,
+    "appearance": "materials"
+  },
+  {
+    "id": "t-spawn",
+    "position": [
+      58,
+      11,
+      1.86
+    ],
+    "target": [
+      57,
+      35,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "foyer-screen",
+    "position": [
+      57,
+      35,
+      4.86
+    ],
+    "target": [
+      54,
+      44,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "hall-to-front",
+    "position": [
+      55,
+      45.5,
+      4.86
+    ],
+    "target": [
+      57,
+      29,
+      3
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "garden-crest",
+    "position": [
+      20,
+      41,
+      4.86
+    ],
+    "target": [
+      29,
+      59,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "garden-to-a",
+    "position": [
+      30,
+      57,
+      4.86
+    ],
+    "target": [
+      34,
+      69,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-to-garden",
+    "position": [
+      29,
+      63,
+      4.86
+    ],
+    "target": [
+      27,
+      55,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "retired-a-south-arch",
+    "position": [
+      41,
+      57,
+      4.86
+    ],
+    "target": [
+      38,
+      70,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-north-hold",
+    "position": [
+      35,
+      78,
+      4.86
+    ],
+    "target": [
+      35,
+      61,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-low-standing",
+    "position": [
+      29,
+      74.5,
+      4.86
+    ],
+    "target": [
+      29,
+      60,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-low-crouched",
+    "position": [
+      29,
+      74.5,
+      4.023
+    ],
+    "target": [
+      29,
+      60,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "service-top",
+    "position": [
+      66,
+      49,
+      4.86
+    ],
+    "target": [
+      81,
+      49,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "service-reverse",
+    "position": [
+      80,
+      49,
+      1.86
+    ],
+    "target": [
+      66,
+      49,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "drain-to-b",
+    "position": [
+      90,
+      42,
+      1.86
+    ],
+    "target": [
+      87,
+      57,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-to-drain",
+    "position": [
+      90,
+      51,
+      1.86
+    ],
+    "target": [
+      90,
+      41,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-anchor",
+    "position": [
+      90,
+      66,
+      1.86
+    ],
+    "target": [
+      85,
+      46,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-low-standing",
+    "position": [
+      81.5,
+      61.5,
+      1.86
+    ],
+    "target": [
+      90,
+      44,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-low-crouched",
+    "position": [
+      81.5,
+      61.5,
+      1.023
+    ],
+    "target": [
+      90,
+      44,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "vault-stair-top",
+    "position": [
+      82,
+      79,
+      4.86
+    ],
+    "target": [
+      85,
+      57,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "vault-stair-middle",
+    "position": [
+      82,
+      74,
+      3.36
+    ],
+    "target": [
+      85,
+      57,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "vault-stair-reverse",
+    "position": [
+      82,
+      65,
+      1.86
+    ],
+    "target": [
+      82,
+      79,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "staff-court",
+    "position": [
+      65,
+      85,
+      4.86
+    ],
+    "target": [
+      82,
+      80,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "orangery",
+    "position": [
+      5,
+      56,
+      4.86
+    ],
+    "target": [
+      11,
+      64,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "music-south",
+    "position": [
+      11,
+      66,
+      4.86
+    ],
+    "target": [
+      22,
+      71,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "music-to-a",
+    "position": [
+      22,
+      71,
+      4.86
+    ],
+    "target": [
+      34,
+      72,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-to-music",
+    "position": [
+      26,
+      71,
+      4.86
+    ],
+    "target": [
+      11,
+      71,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "music-north",
+    "position": [
+      11,
+      86,
+      4.86
+    ],
+    "target": [
+      11,
+      70,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "library-south",
+    "position": [
+      54,
+      62,
+      4.86
+    ],
+    "target": [
+      52,
+      73,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "library-north",
+    "position": [
+      52,
+      78,
+      4.86
+    ],
+    "target": [
+      72,
+      78,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "library-to-a",
+    "position": [
+      48,
+      73,
+      4.86
+    ],
+    "target": [
+      35,
+      73,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "pump-house",
+    "position": [
+      118,
+      40,
+      1.86
+    ],
+    "target": [
+      98,
+      37,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "wine-entry",
+    "position": [
+      118,
+      48,
+      1.86
+    ],
+    "target": [
+      116,
+      56,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cellar-south",
+    "position": [
+      118,
+      53,
+      1.86
+    ],
+    "target": [
+      112,
+      76,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cellar-north",
+    "position": [
+      110,
+      80,
+      1.86
+    ],
+    "target": [
+      112,
+      55,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cellar-to-b",
+    "position": [
+      98,
+      59,
+      1.86
+    ],
+    "target": [
+      86,
+      59,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-to-cellar",
+    "position": [
+      93,
+      59,
+      1.86
+    ],
+    "target": [
+      112,
+      59,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cellar-stair-top",
+    "position": [
+      110,
+      93,
+      4.86
+    ],
+    "target": [
+      110,
+      77,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cellar-stair-middle",
+    "position": [
+      113,
+      89,
+      3.66
+    ],
+    "target": [
+      96,
+      59,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "cellar-stair-reverse",
+    "position": [
+      110,
+      80,
+      1.86
+    ],
+    "target": [
+      110,
+      94,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "carriage-spawn",
+    "position": [
+      56,
+      98,
+      4.86
+    ],
+    "target": [
+      57,
+      90,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "court-west-diagonal",
+    "position": [
+      18,
+      94.6,
+      4.86
+    ],
+    "target": [
+      113.4,
+      101.4,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "court-east-diagonal",
+    "position": [
+      113.4,
+      101.4,
+      4.86
+    ],
+    "target": [
+      18,
+      94.6,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  },
+  {
+    "id": "court-central-corner",
+    "position": [
+      72,
+      100.5,
+      4.86
+    ],
+    "target": [
+      60,
+      100,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 85,
+    "appearance": "materials"
+  }
+]

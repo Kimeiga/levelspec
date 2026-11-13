@@ -1,0 +1,73 @@
+{
+  "source": "projects/kowloon-liquor-props/materials/shelf-weathering/wood-long-source.png",
+  "sourceSha256": "7d95b15cc6439933eab42848ce5fc9779a4542e21f767205b450a5f2a2d39cbd",
+  "recipeHashes": {
+    "tools/bake-shop-timber.ts": "3f73d0d0b40241c9daa145f726afd7af052089524f84fb7c70673defe8ee3096",
+    "src/dressing/finish/noise.ts": "20a190a251b630c27b7ae15d8565a7397bc5b5ba967b0cbc764e533e26696b37"
+  },
+  "metadata": {
+    "version": 2,
+    "width": 1024,
+    "height": 1792,
+    "padding": 4,
+    "texelsPerMeter": 494,
+    "endGrainStart": 4,
+    "albedoGain": 2,
+    "regions": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 1536
+      },
+      {
+        "x": 256,
+        "y": 0,
+        "width": 256,
+        "height": 1536
+      },
+      {
+        "x": 512,
+        "y": 0,
+        "width": 256,
+        "height": 1536
+      },
+      {
+        "x": 768,
+        "y": 0,
+        "width": 256,
+        "height": 1536
+      },
+      {
+        "x": 0,
+        "y": 1536,
+        "width": 256,
+        "height": 256
+      },
+      {
+        "x": 256,
+        "y": 1536,
+        "width": 256,
+        "height": 256
+      },
+      {
+        "x": 512,
+        "y": 1536,
+        "width": 256,
+        "height": 256
+      },
+      {
+        "x": 768,
+        "y": 1536,
+        "width": 256,
+        "height": 256
+      }
+    ]
+  },
+  "outputs": {
+    "projects/dressing-demo/textures/shop-timber.png": "d1ef79b23c68fb97d91d45ff86d6197959f32553a421b810a42a6c0e93386539",
+    "projects/dressing-demo/textures/shop-timber-normal.png": "afda993157e0c6756fd24c8cf530762274f374d7bcd35f07905c33c9b366a2f7",
+    "projects/dressing-demo/textures/shop-timber-properties.png": "4b06f884bf4c3f8562be84d7040234e1e08ebcabd7cdf365f6ed0a8dfbf98b14"
+  },
+  "technique": "Four long unique scans preserve source aspect at 494 texels/m; four end-grain fields, periodic borders and aligned normal/ORM maps. Albedo has unclipped linear gain 2, balanced by normalized vertex colors so physical edge wear can brighten within GLB color limits."
+}

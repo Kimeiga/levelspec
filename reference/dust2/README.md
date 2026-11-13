@@ -1,9 +1,10 @@
 # Dust II / CS2 spatial contract
 
 This is an approximate playable CS2 blockout. The reference radar establishes XY
-registration and broad connectivity; it is not surveyed geometry. Architecture
-is authored as clean segments and native Bézier curves in `tools/vector-dust2.py`.
-The image is no longer thresholded or traced to produce the map.
+registration and broad connectivity; it is not surveyed geometry. The maintained native source is `examples/dust2.aml`, using editable footprints,
+curves, and elevation datums. The original generator is retained in Git history; its SVGX input remains
+in `tests/fixtures/migration/` as explicit migration evidence. The image is not thresholded or traced
+to produce the maintained map.
 
 ## Coordinates and reference authority
 
@@ -115,21 +116,24 @@ detour from masking a broken landing. All sixteen required routes pass.
 ## Reproduce and inspect
 
 ```sh
-generated/dust2-venv/bin/python tools/vector-dust2.py
-node tools/vector-build.ts examples/dust2.level.svgx
-generated/dust2-venv/bin/python tools/dust2-overlay.py --check
-npm run dev -- --host 127.0.0.1
+npm run --silent levelspec -- validate examples/dust2.aml --json
+npm run --silent levelspec -- build examples/dust2.aml --out generated/dust2-native --json
+npm run --silent levelspec -- preview examples/dust2.aml
+node --test tests/aml-dust2.test.ts tests/aml-map-walk.test.ts
 ```
 
-Open `http://127.0.0.1:5173/?map=dust2`. Source and inspection panels start closed;
-both viewports support panning. Navigation mode exposes uncovered floor samples
-and their causes. The overlay is `generated/dust2-alignment/index.html`.
+All sixteen original route assertions and their local distance limits are retained.
+The native tests check independent elevation/collision samples; map walkthroughs
+replay actual paths through physical support and clearance checks with the same
+player. Mechanical migration equivalence is tested separately from the maintained
+source rewrite.
 
-The generator writes `generated/dust2-plan-contract.json`, with authored outlines,
-landmarks, passages and the half-width stair contract. Overlay acceptance checks
-actual exported floor triangles against that contract, named landmark support,
-minimum corridor widths, wall presence and navigation. Radar IoU remains an
-informational comparison; it is no longer a 99.9% release gate.
+### Historical reconstruction evidence
+
+The removed SVGX generator and radar-overlay workflow are available in Git history
+before the repository cleanup. They are not current authoring commands. The native
+map and independent elevation, collision and local-route expectations are authoritative
+for maintained acceptance; radar overlap remains informational rather than a release gate.
 
 `tests/vector-dust2.test.ts` additionally checks the flat center, level lower hall,
 separate flights, elevation ordering, requested capsule, runtime navigation export

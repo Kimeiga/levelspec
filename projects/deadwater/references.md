@@ -1,0 +1,8 @@
+# Theme study
+
+Original playable layout; no source correspondence is claimed. The following actual photographs were visually inspected during L03 planning. Their images are reference only and are not included as map textures or geometry assets.
+
+- [Synergia offshore steel platform](https://www.synergia.cn/fabrication/steel-structure/offshore-oil-drilling-steel-platform.html), [photograph](https://www.synergia.cn/uploads/41683/offshore-oil-drilling-steel-platform7f3ef.jpg): a broad opaque topside sits over exposed braced legs; a tapered derrick rises above modular equipment, cranes and yellow guarded walkways. Adapted as the map's thick deck edges, tapered lattice silhouette, cargo crane and lower structural jacket.
+- [FNC Energy offshore](https://www.fncenergy.it/offshore.html), [photograph](https://www.fncenergy.it/uploads/7/3/9/9/7399991/ashrafi-libia-1.jpg): adjacent deck modules have distinct heights; external stairs and braced support frames remain legible below equipment; heavy pipework hangs along the deck edge. Adapted as separate drilling/process modules, three proper stair/landing assemblies, edge pipe racks and diagonal underdeck braces.
+
+Exact dimensions, team routes, plant positions and abandoned condition are invented. Corroded orange, faded teal, salt-gray steel and isolated equipment create the abandoned treatment without adding debris across walkable thresholds. Ref photos show working structures and do not establish decommissioned condition. Broad opaque bulkheads and the wide tactical stairs are gameplay adaptations; they are not a claim about offshore engineering or code compliance.

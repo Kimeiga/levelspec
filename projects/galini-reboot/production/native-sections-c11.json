@@ -1,0 +1,78 @@
+{
+  "sourceSha256": "5ec0bdb6c187e15c2c38a1ce830cff74af514bca5201bdef39860818070f78a6",
+  "physicalHash": "a8e755d357088326c997bfaa841546713b99634430f750f2678b12a0d2194350",
+  "sections": [
+    {
+      "name": "Laundry occupied return",
+      "axis": 0,
+      "plane": 17,
+      "bounds": [
+        37,
+        60,
+        -0.5,
+        12
+      ],
+      "segments": 128
+    },
+    {
+      "name": "Press return / upper exit",
+      "axis": 1,
+      "plane": 79,
+      "bounds": [
+        30,
+        50,
+        3.5,
+        15
+      ],
+      "segments": 177
+    },
+    {
+      "name": "School and Bell shared level",
+      "axis": 1,
+      "plane": 79,
+      "bounds": [
+        91,
+        128,
+        3,
+        15
+      ],
+      "segments": 243
+    },
+    {
+      "name": "Market bridge arch and bank",
+      "axis": 1,
+      "plane": 56.2,
+      "bounds": [
+        47,
+        81,
+        -6.8,
+        8
+      ],
+      "segments": 185
+    },
+    {
+      "name": "School north landing support",
+      "axis": 0,
+      "plane": 100,
+      "bounds": [
+        68,
+        91,
+        3,
+        13
+      ],
+      "segments": 79
+    },
+    {
+      "name": "Bell lower arrival",
+      "axis": 1,
+      "plane": 71,
+      "bounds": [
+        118,
+        126,
+        3.2,
+        10
+      ],
+      "segments": 48
+    }
+  ]
+}

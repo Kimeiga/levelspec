@@ -1,0 +1,27 @@
+# Independent fresh onboarding exercise
+
+Completed 2026-10-31 in `/Users/tomokif/code/levelspec`, Node v24.12.0, installed dependencies and installed Google Chrome/Playwright. No installation, production edits, commits, or new agents. All exercise files are under `/tmp/levelspec-fresh.gYcii9`. Repository had extensive pre-existing changes; preserved them. Read README, AGENTS, docs/README, docs/WEBSITE and docs/EXPORTS; applied level-preview-art skill. Did not read docs/reviews or historical plans. Consulted existing preview-browser script only for stable DOM selectors and installed browser pattern.
+
+## Actual workflow and results
+
+1. `npm run --silent levelspec -- --help`: succeeds, concise authoritative commands and flags.
+2. `npm run --silent levelspec -- init /tmp/levelspec-fresh.gYcii9/project --json`: succeeds, creates XML, BRIEF and reference/schematic/review folders; `init.json` retained. Starter is a simple 8 x 6 m four-wall room and spawn, easy to understand.
+3. Widened both x=8 vertices to x=10 and changed display name externally. `npm run --silent levelspec -- validate /tmp/levelspec-fresh.gYcii9/project/level.level.svgx --json`: success. `validate-valid.json` retained; 2 meshes, 112 triangles, 1 room, one nav component, all 240 samples covered. JSON stdout is clean; progress goes to stderr. `artifacts: []` correctly reports no written exports.
+4. Intentionally changed edge ab target to `missing`. Validation failed with source-linked TOPOLOGY error at line 8 column 5, message `Edge ab references a missing vertex.` It also reported unknown boundary edge ab at region and EMPTY_GEOMETRY. `validate-invalid.json` retained. Restored b and revalidated successfully (`validate-repaired.json`). No route/clearance assertion weakened.
+5. `npm run --silent levelspec -- preview /tmp/levelspec-fresh.gYcii9/project/level.level.svgx --port 48391`: prints loopback URL. Used real headless installed Chrome at 1440 x 1000. Initial ready state and illustrated three-quarter view render correctly. Switched to top preset, widened room to 12 m and renamed it. Browser updates automatically and preserves camera. Wrote malformed `<level broken`: browser enters error, marks model data-stale=true and visibly says previous preview is stale, with XML line/column error. Restored valid source: automatic recovery to ready. No page errors. Evidence: browser.mjs, browser-results.json, initial.png, stale.png, recovered.png.
+6. `npm run --silent levelspec -- build /tmp/levelspec-fresh.gYcii9/project/level.level.svgx --out /tmp/levelspec-fresh.gYcii9/output --formats glb,gltf --json`: succeeds; repeated after final recovery successfully (`build-recovered.json`). Outputs GLB, glTF, bin, runtime JSON, authoritative levelspec metadata, export JSON, report, OBJ, SVG and UV/atlas reports. Inspecting runtime and report: name `Fresh recovered room`, canonical right-handed Z-up coordinates, playable validation, passed=true, gameplayReachabilityVerified=true, one nav component, matching runtime/sidecar geometry hashes. GLB header magic/version/length valid; all relative glTF buffers exist.
+7. Sent SIGINT to the actual CLI child, equivalent to terminal Ctrl+C: process exits 130. Curl then fails connection with HTTP 000 and exit 7. Restarted same command on same port: succeeds immediately; fresh browser loads `Fresh recovered room` and reaches ready. Sent SIGINT again; no preview left running. restart.mjs retained.
+
+## Findings and friction
+
+No blocking product defect encountered in this small end-to-end workflow. Quickstart/CLI were sufficient to initialize, edit, diagnose, repair, inspect and build. Missing-vertex diagnostic names the edge and exact source position; the follow-on unknown boundary/empty geometry errors add noise but do not obscure the first cause. Validation JSON includes complete nav positions and indices, making even this small response fairly long; saved output files are easier to inspect than terminal dumps.
+
+Illustrated view: adequately framed open room, clear silhouette/slab rims/corners, grayscale dither and contrasting walls/floor. Controls readable at tested desktop viewport. This is a limited simple-room appearance inspection, not a comprehensive artistic audit.
+
+Two mistakes were in my harness, not the product: zsh variable `status` is read-only (the invalid JSON was still saved); first camera check sampled immediately after click before the preset update. Waiting for camera attribute change fixed the assertion and subsequent test passed. No product workaround required.
+
+## Meaning and limits of validation
+
+This authored starter uses playable navigation: report `gameplayReachabilityVerified=true` applies to compiler sampling/voxel navigation and this simple room/spawn. It is not continuous proof, structural/building-code certification, or destination-engine gameplay verification. Render visibility, collision and navigation remain distinct. Premap success would leave gameplay reachability unverified; this exercise did not substitute a static/premap result for playable validation.
+
+Native FBX/BSP, Blender/Quake, baked lighting, external engine import, multiple rooms/floors/stairs/links, source companion assets, mobile/reduced-motion, graphics loss and offline use were not exercised. No full repository suite run was needed for an external temporary-source onboarding exercise. Portable export structure was checked, not imported into an external engine. No dependency install was attempted because prerequisites were already available.

@@ -18,17 +18,13 @@
     "esModuleInterop": true
   },
   "include": [
+    "src/architecture/**/*.ts",
+    "tests/aml*.ts",
+    "tests/surface*.ts",
     "src/generate/**/*.ts",
-    "src/gameplay/**/*.ts",
-    "tools/gameplay.ts",
-    "src/authoring/producers.ts",
     "tools/producers/**/*.ts",
     "tools/generate.ts",
-    "tools/plans.ts",
     "tools/trace.ts",
-    "tools/author.ts",
-    "tools/finalize.ts",
-    "tools/concept.ts",
     "tests/producers/**/*.ts",
     "src/vector/**/*.ts",
     "src/lighting/**/*.ts",
@@ -45,10 +41,19 @@
     "src/reconstruction/**/*.ts",
     "tools/reconstruct*.ts",
     "tools/game-export.ts",
+    "tools/build-dressing-demo.ts",
+    "tools/profile-dressing.ts",
+    "tools/dressing-demo/**/*.ts",
     "game/**/*.ts",
     "vite.game.config.ts",
     "tests/game-*.ts",
-    "tests/flight-solids.test.ts",
-    "tests/plan-pipeline.test.ts"
+    "review/**/*.ts",
+    "src/cli/**/*.ts",
+    "tests/review-*.ts",
+    "src/authoring/**/*.ts",
+    "tools/fixtures/**/*.ts",
+    "tools/fps/explore.ts",
+    "tools/fps/explore/**/*.ts",
+    "vite.explore.config.ts"
   ]
 }

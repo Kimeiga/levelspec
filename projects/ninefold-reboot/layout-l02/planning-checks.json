@@ -1,0 +1,141 @@
+{
+  "revision": "L02",
+  "method": "0.25m planned path centers, r0.25/height2, polygon walls and props, analytic flight height. No native stair treads, headroom roof mesh, stances, time or target-engine validation. Aperture rays only test one wall plane.",
+  "journeys": [
+    {
+      "id": "J01",
+      "sampleSpacing": 0.25,
+      "issues": []
+    },
+    {
+      "id": "J02",
+      "sampleSpacing": 0.25,
+      "issues": []
+    },
+    {
+      "id": "J03",
+      "sampleSpacing": 0.25,
+      "issues": []
+    },
+    {
+      "id": "J04",
+      "sampleSpacing": 0.25,
+      "issues": []
+    },
+    {
+      "id": "J05",
+      "sampleSpacing": 0.25,
+      "issues": []
+    },
+    {
+      "id": "J06",
+      "sampleSpacing": 0.25,
+      "issues": []
+    },
+    {
+      "id": "J07",
+      "sampleSpacing": 0.25,
+      "issues": []
+    },
+    {
+      "id": "J08",
+      "sampleSpacing": 0.25,
+      "issues": []
+    },
+    {
+      "id": "J09",
+      "sampleSpacing": 0.25,
+      "issues": []
+    }
+  ],
+  "apertureComparison": [
+    {
+      "id": "School-west (declined)",
+      "x": 46,
+      "y": [
+        44,
+        46
+      ],
+      "sill": 4.15,
+      "head": 5.75,
+      "observer": [
+        45,
+        45,
+        5.06
+      ],
+      "rays": [
+        {
+          "target": "underpass",
+          "wallIntersection": [
+            46,
+            44.286,
+            4.603
+          ],
+          "insideAperture": true
+        },
+        {
+          "target": "well-center",
+          "wallIntersection": [
+            46,
+            45.8,
+            4.42
+          ],
+          "insideAperture": true
+        },
+        {
+          "target": "Dye-threshold",
+          "wallIntersection": [
+            46,
+            46.286,
+            4.603
+          ],
+          "insideAperture": false
+        }
+      ]
+    },
+    {
+      "id": "East-north pocket (selected)",
+      "x": 56,
+      "y": [
+        47.6,
+        49.6
+      ],
+      "sill": 4.15,
+      "head": 5.75,
+      "observer": [
+        57,
+        48.6,
+        5.06
+      ],
+      "rays": [
+        {
+          "target": "underpass",
+          "wallIntersection": [
+            56,
+            46.88,
+            4.42
+          ],
+          "insideAperture": false
+        },
+        {
+          "target": "well-center",
+          "wallIntersection": [
+            56,
+            48.657,
+            4.603
+          ],
+          "insideAperture": true
+        },
+        {
+          "target": "Dye-threshold",
+          "wallIntersection": [
+            56,
+            49.68,
+            4.42
+          ],
+          "insideAperture": false
+        }
+      ]
+    }
+  ]
+}

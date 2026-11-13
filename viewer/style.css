@@ -468,7 +468,7 @@ footer {
   color: var(--muted);
 }
 body.dragging:after {
-  content: "Drop an SVGX map to inspect it";
+  content: "Drop an AML map to inspect it";
   position: fixed;
   inset: 12px;
   background: #edf3f6ed;

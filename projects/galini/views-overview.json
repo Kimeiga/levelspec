@@ -1,0 +1,68 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      172.9,
+      -117,
+      145.6
+    ],
+    "target": [
+      61.1,
+      63.7,
+      1
+    ],
+    "projection": "orthographic",
+    "viewHeight": 140,
+    "frameAspect": 1.4,
+    "appearance": "materials"
+  },
+  {
+    "id": "plan",
+    "position": [
+      63.7,
+      62.400000000000006,
+      208
+    ],
+    "target": [
+      63.7,
+      62.400000000000006,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 137.8,
+    "frameAspect": 1.05,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-court",
+    "position": [
+      61.1,
+      54.6,
+      25
+    ],
+    "target": [
+      26,
+      85.8,
+      5
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "appearance": "materials"
+  },
+  {
+    "id": "b-court",
+    "position": [
+      149.5,
+      49.4,
+      24
+    ],
+    "target": [
+      107.9,
+      80.60000000000001,
+      1
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "appearance": "materials"
+  }
+]

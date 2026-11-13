@@ -1,0 +1,6 @@
+{
+  "type": "image_to_model",
+  "task_id": "62f6c355-d1d6-4065-958f-042f94a6b3ef",
+  "model_file": "projects/kowloon-restaurant-props/source-models/chicken/model.glb",
+  "sha256": "de76604141959625df20f28506bbc6d65f56ae3dcc3ec896ca5d25d30144496d"
+}

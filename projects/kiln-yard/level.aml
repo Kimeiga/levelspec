@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="kiln-yard" name="Kiln Yard · 5v5 defusal" units="meters" validation="playable" description="Original flat ceramic-works blockout; shared courts, Arcade transfer and wrapping Wash. Layout L04; project brief records gameplay limitations.">
+  <material id="paving" color="#c7c6b9"/>
+  <material id="site-a" color="#d7a178"/>
+  <material id="site-b" color="#8eb8c1"/>
+  <material id="masonry" color="#b2b7aa"/>
+  <material id="portal" color="#7f9692"/>
+  <material id="machinery" color="#716e60"/>
+  <material id="low-cover" color="#b5a472"/>
+  <material id="plant-a" color="#e9b951"/>
+  <material id="plant-b" color="#6b9dab"/>
+  <player radius=".3" height="1.8" step=".25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <profile id="footprint-T" points="28 3; 54 3; 59 12; 52 21; 36 21; 27 15"/>
+  <profile id="footprint-W1" points="27 15; 36 21; 27 31; 24 43; 18 51; 10 48; 13 30"/>
+  <profile id="footprint-W2" points="10 48; 18 51; 24 43; 34 45; 35 59; 28 66; 15 63; 8 56"/>
+  <profile id="footprint-A" points="15 63; 28 66; 35 59; 44 61; 45 75; 36 83; 19 81; 12 73"/>
+  <profile id="footprint-M1" points="36 21; 52 21; 57 31; 52 45; 39 45; 33 37"/>
+  <profile id="footprint-M2" points="39 45; 52 45; 56 53; 50 61; 44 61; 35 59; 34 45"/>
+  <profile id="footprint-E1" points="52 21; 59 12; 71 17; 85 26; 88 40; 80 46; 72 40; 72 31; 61 28"/>
+  <profile id="footprint-B" points="72 40; 80 46; 88 40; 92 52; 85 64; 72 65; 65 57; 65 48"/>
+  <profile id="footprint-R4" points="50 61; 56 53; 65 48; 65 57; 72 65; 66 72; 54 70"/>
+  <profile id="footprint-D" points="36 83; 45 75; 54 70; 66 72; 72 65; 85 64; 85 73; 75 81; 70 90; 51 94; 43 88"/>
+  <profile id="K0-footprint" points="27 23; 32 22; 33 37; 34 45; 24 43"/>
+  <profile id="K1-footprint" points="52 30; 64 31; 67 41; 62 47; 56 50; 52 45"/>
+  <profile id="K2-footprint" points="44 63; 50 63; 54 70; 45 75"/>
+  <profile id="K3-office-footprint" points="34.5 29; 44 29; 47 32; 47 35; 33.375 35"/>
+  <profile id="L1-footprint" points="17 36; 20 36; 20 37.4; 17 37.4"/>
+  <profile id="L2-footprint" points="25 54; 29 54; 29 55.5; 25 55.5"/>
+  <profile id="L3-footprint" points="20 72; 24 72; 24 73.5; 20 73.5"/>
+  <profile id="L4-footprint" points="50 35; 53 35; 53 36.5; 50 36.5"/>
+  <profile id="L5-footprint" points="46 53; 49 53; 49 54.5; 46 54.5"/>
+  <profile id="L6-footprint" points="66 23; 70 23; 70 24.5; 66 24.5"/>
+  <profile id="L7-footprint" points="75 37; 79 37; 79 38.5; 75 38.5"/>
+  <profile id="L8-footprint" points="78 54; 82 54; 82 55.5; 78 55.5"/>
+  <profile id="L9-footprint" points="72 74; 76 74; 76 75.5; 72 75.5"/>
+  <profile id="A-press-footprint" points="28 69; 33 69; 33 73; 28 73"/>
+  <profile id="B-filter-footprint" points="74 57; 77 57; 77 62; 74 62"/>
+  <profile id="R4-return-footprint" points="54 62; 58 62; 58 63; 54.4 63"/>
+  <profile id="D-store-footprint" points="56 80; 62 80; 62 83; 56 83"/>
+  <profile id="A-short-bench-footprint" points="38 64; 41 64; 41 65.2; 38 65.2"/>
+  <profile id="R4-bench-footprint" points="60 64; 63 64; 63 65.2; 60 65.2"/>
+  <profile id="plant-A-footprint" points="24.8 70; 27.5 70; 27.5 76; 24.8 76"/>
+  <profile id="plant-B-footprint" points="78 56.5; 83 56.5; 83 62; 78 62"/>
+  <profile id="t-spawn-footprint" points="38 9; 44 9; 44 13; 38 13"/>
+  <profile id="ct-spawn-footprint" points="56 83; 62 83; 62 87; 56 87"/>
+  <path id="wall-1-axis" points="28 3 0; 54 3 0"/>
+  <path id="wall-2-axis" points="54 3 0; 59 12 0"/>
+  <path id="wall-3-axis" points="52 21 0; 59 12 0"/>
+  <path id="wall-4-axis" points="36 21 0; 52 21 0"/>
+  <path id="wall-5-axis" points="27 15 0; 36 21 0"/>
+  <path id="wall-6-axis" points="27 15 0; 28 3 0"/>
+  <path id="wall-7-axis" points="27 31 0; 36 21 0"/>
+  <path id="wall-8-axis" points="24 43 0; 27 31 0"/>
+  <path id="wall-9-axis" points="18 51 0; 24 43 0"/>
+  <path id="wall-10-axis" points="10 48 0; 18 51 0"/>
+  <path id="wall-11-axis" points="10 48 0; 13 30 0"/>
+  <path id="wall-12-axis" points="13 30 0; 27 15 0"/>
+  <path id="wall-13-axis" points="24 43 0; 34 45 0"/>
+  <path id="wall-14-axis" points="34 45 0; 35 59 0"/>
+  <path id="wall-15-axis" points="28 66 0; 35 59 0"/>
+  <path id="wall-16-axis" points="15 63 0; 28 66 0"/>
+  <path id="wall-17-axis" points="8 56 0; 15 63 0"/>
+  <path id="wall-18-axis" points="8 56 0; 10 48 0"/>
+  <path id="wall-19-axis" points="35 59 0; 44 61 0"/>
+  <path id="wall-20-axis" points="44 61 0; 45 75 0"/>
+  <path id="wall-21-axis" points="36 83 0; 45 75 0"/>
+  <path id="wall-22-axis" points="19 81 0; 36 83 0"/>
+  <path id="wall-23-axis" points="12 73 0; 19 81 0"/>
+  <path id="wall-24-axis" points="12 73 0; 15 63 0"/>
+  <path id="wall-25-axis" points="52 21 0; 57 31 0"/>
+  <path id="wall-26-axis" points="52 45 0; 57 31 0"/>
+  <path id="wall-27-axis" points="39 45 0; 52 45 0"/>
+  <path id="wall-28-axis" points="33 37 0; 39 45 0"/>
+  <path id="wall-29-axis" points="33 37 0; 36 21 0"/>
+  <path id="wall-30-axis" points="52 45 0; 56 53 0"/>
+  <path id="wall-31-axis" points="50 61 0; 56 53 0"/>
+  <path id="wall-32-axis" points="44 61 0; 50 61 0"/>
+  <path id="wall-33-axis" points="34 45 0; 39 45 0"/>
+  <path id="wall-34-axis" points="59 12 0; 71 17 0"/>
+  <path id="wall-35-axis" points="71 17 0; 85 26 0"/>
+  <path id="wall-36-axis" points="85 26 0; 88 40 0"/>
+  <path id="wall-37-axis" points="80 46 0; 88 40 0"/>
+  <path id="wall-38-axis" points="72 40 0; 80 46 0"/>
+  <path id="wall-39-axis" points="72 31 0; 72 40 0"/>
+  <path id="wall-40-axis" points="61 28 0; 72 31 0"/>
+  <path id="wall-41-axis" points="52 21 0; 61 28 0"/>
+  <path id="wall-42-axis" points="88 40 0; 92 52 0"/>
+  <path id="wall-43-axis" points="85 64 0; 92 52 0"/>
+  <path id="wall-44-axis" points="72 65 0; 85 64 0"/>
+  <path id="wall-45-axis" points="65 57 0; 72 65 0"/>
+  <path id="wall-46-axis" points="65 48 0; 65 57 0"/>
+  <path id="wall-47-axis" points="65 48 0; 72 40 0"/>
+  <path id="wall-48-axis" points="56 53 0; 65 48 0"/>
+  <path id="wall-49-axis" points="66 72 0; 72 65 0"/>
+  <path id="wall-50-axis" points="54 70 0; 66 72 0"/>
+  <path id="wall-51-axis" points="50 61 0; 54 70 0"/>
+  <path id="wall-52-axis" points="45 75 0; 54 70 0"/>
+  <path id="wall-53-axis" points="85 64 0; 85 73 0"/>
+  <path id="wall-54-axis" points="75 81 0; 85 73 0"/>
+  <path id="wall-55-axis" points="70 90 0; 75 81 0"/>
+  <path id="wall-56-axis" points="51 94 0; 70 90 0"/>
+  <path id="wall-57-axis" points="43 88 0; 51 94 0"/>
+  <path id="wall-58-axis" points="36 83 0; 43 88 0"/>
+  <path id="P01-seam" points="28.8 16.2 0; 34.2 19.8 0"/>
+  <path id="P02-seam" points="45 21 0; 51 21 0"/>
+  <path id="P03-seam" points="53.4 19.2 0; 57.6 13.8 0"/>
+  <path id="P04-seam" points="12 48.75 0; 16 50.25 0"/>
+  <path id="P05-seam" points="20.2 64.2 0; 25.4 65.4 0"/>
+  <path id="P06-seam" points="39 45 0; 43 45 0"/>
+  <path id="P07-seam" points="36.8 59.4 0; 42.2 60.6 0"/>
+  <path id="P08-seam" points="51.2 59.4 0; 54.8 54.6 0"/>
+  <path id="P09-seam" points="65 50 0; 65 55 0"/>
+  <path id="P10-seam" points="74.4 41.8 0; 78.4 44.8 0"/>
+  <path id="P11-seam" points="75.9 64.7 0; 82.4 64.2 0"/>
+  <path id="P12-seam" points="38.7 80.6 0; 43.2 76.6 0"/>
+  <path id="P13-seam" points="57.6 70.6 0; 63.6 71.6 0"/>
+  <path id="P14-seam" points="34.357142857 50 0; 34.642857143 54 0"/>
+  <assembly id="kiln-works" coincident-material="retained-face">
+    <slab id="floor-T" label="Loading spawn" profile="footprint-T" thickness=".25" material="paving" group="ground"/>
+    <slab id="floor-W1" label="Arcade approach" profile="footprint-W1" thickness=".25" material="paving" group="ground"/>
+    <slab id="floor-W2" label="Arcade court" profile="footprint-W2" thickness=".25" material="paving" group="ground"/>
+    <slab id="floor-A" label="Press site" profile="footprint-A" thickness=".25" material="site-a" group="ground"/>
+    <slab id="floor-M1" label="Forecourt" profile="footprint-M1" thickness=".25" material="paving" group="ground"/>
+    <slab id="floor-M2" label="Saddle" profile="footprint-M2" thickness=".25" material="paving" group="ground"/>
+    <slab id="floor-E1" label="Wash" profile="footprint-E1" thickness=".25" material="paving" group="ground"/>
+    <slab id="floor-B" label="Basin site" profile="footprint-B" thickness=".25" material="site-b" group="ground"/>
+    <slab id="floor-R4" label="Inspection passage" profile="footprint-R4" thickness=".25" material="paving" group="ground"/>
+    <slab id="floor-D" label="Service yard and defender spawn" profile="footprint-D" thickness=".25" material="paving" group="ground"/>
+    <wall id="wall-1" path="wall-1-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-2" path="wall-2-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-3" path="wall-3-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-4" path="wall-4-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-5" path="wall-5-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-6" path="wall-6-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-7" path="wall-7-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-8" path="wall-8-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-9" path="wall-9-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-10" path="wall-10-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-11" path="wall-11-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-12" path="wall-12-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-13" path="wall-13-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-14" path="wall-14-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-15" path="wall-15-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-16" path="wall-16-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-17" path="wall-17-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-18" path="wall-18-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-19" path="wall-19-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-20" path="wall-20-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-21" path="wall-21-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-22" path="wall-22-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-23" path="wall-23-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-24" path="wall-24-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-25" path="wall-25-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-26" path="wall-26-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-27" path="wall-27-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-28" path="wall-28-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-29" path="wall-29-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-30" path="wall-30-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-31" path="wall-31-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-32" path="wall-32-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-33" path="wall-33-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-34" path="wall-34-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-35" path="wall-35-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-36" path="wall-36-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-37" path="wall-37-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-38" path="wall-38-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-39" path="wall-39-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-40" path="wall-40-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-41" path="wall-41-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-42" path="wall-42-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-43" path="wall-43-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-44" path="wall-44-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-45" path="wall-45-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-46" path="wall-46-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-47" path="wall-47-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-48" path="wall-48-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-49" path="wall-49-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-50" path="wall-50-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-51" path="wall-51-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-52" path="wall-52-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-53" path="wall-53-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-54" path="wall-54-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-55" path="wall-55-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-56" path="wall-56-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-57" path="wall-57-axis" thickness=".3" height="6" material="masonry"/>
+    <wall id="wall-58" path="wall-58-axis" thickness=".3" height="6" material="masonry"/>
+    <extrusion id="K0" profile="K0-footprint" distance="6" material="masonry"/>
+    <extrusion id="K1" profile="K1-footprint" distance="6" material="masonry"/>
+    <extrusion id="K2" profile="K2-footprint" distance="6" material="masonry"/>
+    <extrusion id="K3-office" profile="K3-office-footprint" distance="6" material="masonry"/>
+    <extrusion id="L1" profile="L1-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="L2" profile="L2-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="L3" profile="L3-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="L4" profile="L4-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="L5" profile="L5-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="L6" profile="L6-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="L7" profile="L7-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="L8" profile="L8-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="L9" profile="L9-footprint" distance="1.15" material="low-cover"/>
+    <extrusion id="A-press" profile="A-press-footprint" distance="3.2" material="machinery"/>
+    <extrusion id="B-filter" profile="B-filter-footprint" distance="3.2" material="machinery"/>
+    <extrusion id="R4-return" profile="R4-return-footprint" distance="3.2" material="machinery"/>
+    <extrusion id="D-store" profile="D-store-footprint" distance="4" material="machinery"/>
+    <extrusion id="A-short-bench" profile="A-short-bench-footprint" distance="1.25" material="low-cover"/>
+    <extrusion id="R4-bench" profile="R4-bench-footprint" distance="1.25" material="low-cover"/>
+  </assembly>
+  <opening id="P03" host="wall-3" mode="notch" shape="rectangle" center="5.700877125 1.5" width="6.841052551" height="3" reveal-material="portal"/>
+  <opening id="P02" host="wall-4" mode="notch" shape="rectangle" center="12 1.5" width="6" height="3" reveal-material="portal"/>
+  <opening id="P01" host="wall-5" mode="notch" shape="rectangle" center="5.408326913 1.5" width="6.489992296" height="3" reveal-material="portal"/>
+  <opening id="P04" host="wall-10" mode="notch" shape="rectangle" center="4.272001873 1.5" width="4.272001873" height="3" reveal-material="portal"/>
+  <opening id="P14" host="wall-14" mode="notch" shape="rectangle" center="7.017834424 1.5" width="4.010191099" height="3" reveal-material="portal"/>
+  <opening id="P05" host="wall-16" mode="notch" shape="rectangle" center="8.004998438 1.5" width="5.336665626" height="3" reveal-material="portal"/>
+  <opening id="P07" host="wall-19" mode="notch" shape="rectangle" center="4.609772229 1.5" width="5.531726674" height="3" reveal-material="portal"/>
+  <opening id="P12" host="wall-21" mode="notch" shape="rectangle" center="6.622877018 1.5" width="6.020797289" height="3" reveal-material="portal"/>
+  <opening id="P06" host="wall-27" mode="notch" shape="rectangle" center="2 1.5" width="4" height="3" reveal-material="portal"/>
+  <opening id="P08" host="wall-31" mode="notch" shape="rectangle" center="5 1.5" width="6" height="3" reveal-material="portal"/>
+  <opening id="P10" host="wall-38" mode="notch" shape="rectangle" center="5.5 1.5" width="5" height="3" reveal-material="portal"/>
+  <opening id="P11" host="wall-44" mode="notch" shape="rectangle" center="7.171122646 1.5" width="6.519202405" height="3" reveal-material="portal"/>
+  <opening id="P09" host="wall-46" mode="notch" shape="rectangle" center="4.5 1.5" width="5" height="3" reveal-material="portal"/>
+  <opening id="P13" host="wall-50" mode="notch" shape="rectangle" center="6.691038783 1.5" width="6.08276253" height="3" reveal-material="portal"/>
+  <zone id="space-T" profile="footprint-T" role="room" height="3" label="Loading spawn"/>
+  <zone id="space-W1" profile="footprint-W1" role="room" height="3" label="Arcade approach"/>
+  <zone id="space-W2" profile="footprint-W2" role="room" height="3" label="Arcade court"/>
+  <zone id="space-A" profile="footprint-A" role="room" height="3" label="Press site"/>
+  <zone id="space-M1" profile="footprint-M1" role="room" height="3" label="Forecourt"/>
+  <zone id="space-M2" profile="footprint-M2" role="room" height="3" label="Saddle"/>
+  <zone id="space-E1" profile="footprint-E1" role="room" height="3" label="Wash"/>
+  <zone id="space-B" profile="footprint-B" role="room" height="3" label="Basin site"/>
+  <zone id="space-R4" profile="footprint-R4" role="room" height="3" label="Inspection passage"/>
+  <zone id="space-D" profile="footprint-D" role="room" height="3" label="Service yard and defender spawn"/>
+  <face-material id="paint-A" host="floor-A" face="top" profile="plant-A-footprint" material="plant-a"/>
+  <volume id="plant-A" profile="plant-A-footprint" role="objective" height="2"><property name="site" value="A"/><property name="mode" value="bomb-defusal"/></volume>
+  <clearance id="plant-A-clear" profile="plant-A-footprint" height="1.8" require-support="true"/>
+  <marker id="site-A" kind="objective" element="floor-A" group="ground" position="26.15 73 0"/>
+  <face-material id="paint-B" host="floor-B" face="top" profile="plant-B-footprint" material="plant-b"/>
+  <volume id="plant-B" profile="plant-B-footprint" role="objective" height="2"><property name="site" value="B"/><property name="mode" value="bomb-defusal"/></volume>
+  <clearance id="plant-B-clear" profile="plant-B-footprint" height="1.8" require-support="true"/>
+  <marker id="site-B" kind="objective" element="floor-B" group="ground" position="80.5 59.25 0"/>
+  <marker id="t-spawn-1" kind="attacker_spawn" element="floor-T" group="ground" team="t" position="39 10 0"/>
+  <marker id="t-spawn-2" kind="attacker_spawn" element="floor-T" group="ground" team="t" position="41 10 0"/>
+  <marker id="t-spawn-3" kind="attacker_spawn" element="floor-T" group="ground" team="t" position="43 10 0"/>
+  <marker id="t-spawn-4" kind="attacker_spawn" element="floor-T" group="ground" team="t" position="40 12 0"/>
+  <marker id="t-spawn-5" kind="attacker_spawn" element="floor-T" group="ground" team="t" position="42 12 0"/>
+  <volume id="t-spawn-zone" profile="t-spawn-footprint" role="spawn" height="2"><property name="team" value="t"/><property name="capacity" value="5"/></volume>
+  <clearance id="t-spawn-clear" profile="t-spawn-footprint" height="1.8" require-support="true"/>
+  <marker id="ct-spawn-1" kind="defender_spawn" element="floor-D" group="ground" team="ct" position="57 84 0"/>
+  <marker id="ct-spawn-2" kind="defender_spawn" element="floor-D" group="ground" team="ct" position="59 84 0"/>
+  <marker id="ct-spawn-3" kind="defender_spawn" element="floor-D" group="ground" team="ct" position="61 84 0"/>
+  <marker id="ct-spawn-4" kind="defender_spawn" element="floor-D" group="ground" team="ct" position="58 86 0"/>
+  <marker id="ct-spawn-5" kind="defender_spawn" element="floor-D" group="ground" team="ct" position="60 86 0"/>
+  <volume id="ct-spawn-zone" profile="ct-spawn-footprint" role="spawn" height="2"><property name="team" value="ct"/><property name="capacity" value="5"/></volume>
+  <clearance id="ct-spawn-clear" profile="ct-spawn-footprint" height="1.8" require-support="true"/>
+  <connection id="P01-join" from="floor-T" to="floor-W1" path="P01-seam"/>
+  <marker id="P01-T" kind="poi" element="floor-T" group="ground" position="32.165640235 17.001539647 0"/>
+  <marker id="P01-W1" kind="poi" element="floor-W1" group="ground" position="30.834359765 18.998460353 0"/>
+  <route id="P01-local" from="P01-T" to="P01-W1" min-routes="1" max-distance="5"/>
+  <connection id="P02-join" from="floor-T" to="floor-M1" path="P02-seam"/>
+  <marker id="P02-T" kind="poi" element="floor-T" group="ground" position="48 19.8 0"/>
+  <marker id="P02-M1" kind="poi" element="floor-M1" group="ground" position="48 22.2 0"/>
+  <route id="P02-local" from="P02-T" to="P02-M1" min-routes="1" max-distance="5"/>
+  <connection id="P03-join" from="floor-T" to="floor-E1" path="P03-seam"/>
+  <marker id="P03-T" kind="poi" element="floor-T" group="ground" position="54.552777339 15.763271264 0"/>
+  <marker id="P03-E1" kind="poi" element="floor-E1" group="ground" position="56.447222661 17.236728736 0"/>
+  <route id="P03-local" from="P03-T" to="P03-E1" min-routes="1" max-distance="5"/>
+  <connection id="P04-join" from="floor-W1" to="floor-W2" path="P04-seam"/>
+  <marker id="P04-W1" kind="poi" element="floor-W1" group="ground" position="14.42134813 48.376404987 0"/>
+  <marker id="P04-W2" kind="poi" element="floor-W2" group="ground" position="13.57865187 50.623595013 0"/>
+  <route id="P04-local" from="P04-W1" to="P04-W2" min-routes="1" max-distance="5"/>
+  <connection id="P05-join" from="floor-W2" to="floor-A" path="P05-seam"/>
+  <marker id="P05-W2" kind="poi" element="floor-W2" group="ground" position="23.069831408 63.630730565 0"/>
+  <marker id="P05-A" kind="poi" element="floor-A" group="ground" position="22.530168592 65.969269435 0"/>
+  <route id="P05-local" from="P05-W2" to="P05-A" min-routes="1" max-distance="5"/>
+  <connection id="P06-join" from="floor-M1" to="floor-M2" path="P06-seam"/>
+  <marker id="P06-M1" kind="poi" element="floor-M1" group="ground" position="41 43.8 0"/>
+  <marker id="P06-M2" kind="poi" element="floor-M2" group="ground" position="41 46.2 0"/>
+  <route id="P06-local" from="P06-M1" to="P06-M2" min-routes="1" max-distance="5"/>
+  <connection id="P07-join" from="floor-M2" to="floor-A" path="P07-seam"/>
+  <marker id="P07-M2" kind="poi" element="floor-M2" group="ground" position="39.760316549 58.828575528 0"/>
+  <marker id="P07-A" kind="poi" element="floor-A" group="ground" position="39.239683451 61.171424472 0"/>
+  <route id="P07-local" from="P07-M2" to="P07-A" min-routes="1" max-distance="5"/>
+  <connection id="P08-join" from="floor-M2" to="floor-R4" path="P08-seam"/>
+  <marker id="P08-M2" kind="poi" element="floor-M2" group="ground" position="52.04 56.28 0"/>
+  <marker id="P08-R4" kind="poi" element="floor-R4" group="ground" position="53.96 57.72 0"/>
+  <route id="P08-local" from="P08-M2" to="P08-R4" min-routes="1" max-distance="5"/>
+  <connection id="P09-join" from="floor-R4" to="floor-B" path="P09-seam"/>
+  <marker id="P09-R4" kind="poi" element="floor-R4" group="ground" position="63.8 52.5 0"/>
+  <marker id="P09-B" kind="poi" element="floor-B" group="ground" position="66.2 52.5 0"/>
+  <route id="P09-local" from="P09-R4" to="P09-B" min-routes="1" max-distance="5"/>
+  <connection id="P10-join" from="floor-E1" to="floor-B" path="P10-seam"/>
+  <marker id="P10-E1" kind="poi" element="floor-E1" group="ground" position="77.12 42.34 0"/>
+  <marker id="P10-B" kind="poi" element="floor-B" group="ground" position="75.68 44.26 0"/>
+  <route id="P10-local" from="P10-E1" to="P10-B" min-routes="1" max-distance="5"/>
+  <connection id="P11-join" from="floor-B" to="floor-D" path="P11-seam"/>
+  <marker id="P11-B" kind="poi" element="floor-B" group="ground" position="79.057964201 63.253534617 0"/>
+  <marker id="P11-D" kind="poi" element="floor-D" group="ground" position="79.242035799 65.646465383 0"/>
+  <route id="P11-local" from="P11-B" to="P11-D" min-routes="1" max-distance="5"/>
+  <connection id="P12-join" from="floor-A" to="floor-D" path="P12-seam"/>
+  <marker id="P12-A" kind="poi" element="floor-A" group="ground" position="40.152763393 77.703108818 0"/>
+  <marker id="P12-D" kind="poi" element="floor-D" group="ground" position="41.747236607 79.496891182 0"/>
+  <route id="P12-local" from="P12-A" to="P12-D" min-routes="1" max-distance="5"/>
+  <connection id="P13-join" from="floor-R4" to="floor-D" path="P13-seam"/>
+  <marker id="P13-R4" kind="poi" element="floor-R4" group="ground" position="60.797278785 69.916327291 0"/>
+  <marker id="P13-D" kind="poi" element="floor-D" group="ground" position="60.402721215 72.283672709 0"/>
+  <route id="P13-local" from="P13-R4" to="P13-D" min-routes="1" max-distance="5"/>
+  <connection id="P14-join" from="floor-W2" to="floor-M2" path="P14-seam"/>
+  <marker id="P14-W2" kind="poi" element="floor-W2" group="ground" position="33.30304956 52.08549646 0"/>
+  <marker id="P14-M2" kind="poi" element="floor-M2" group="ground" position="35.69695044 51.91450354 0"/>
+  <route id="P14-local" from="P14-W2" to="P14-M2" min-routes="1" max-distance="5"/>
+  <route id="T-A" from="t-spawn-2" to="site-A" min-routes="1" max-distance="130"/>
+  <route id="T-B" from="t-spawn-2" to="site-B" min-routes="1" max-distance="125"/>
+  <route id="CT-A" from="ct-spawn-2" to="site-A" min-routes="1" max-distance="85"/>
+  <route id="CT-B" from="ct-spawn-2" to="site-B" min-routes="1" max-distance="85"/>
+  <route id="site-rotation" from="site-A" to="site-B" min-routes="1" max-distance="105"/>
+  <no-spawn-los markers="t-spawn-1 ct-spawn-1"/>
+  <no-spawn-los markers="t-spawn-1 ct-spawn-2"/>
+  <no-spawn-los markers="t-spawn-1 ct-spawn-3"/>
+  <no-spawn-los markers="t-spawn-1 ct-spawn-4"/>
+  <no-spawn-los markers="t-spawn-1 ct-spawn-5"/>
+  <no-spawn-los markers="t-spawn-2 ct-spawn-1"/>
+  <no-spawn-los markers="t-spawn-2 ct-spawn-2"/>
+  <no-spawn-los markers="t-spawn-2 ct-spawn-3"/>
+  <no-spawn-los markers="t-spawn-2 ct-spawn-4"/>
+  <no-spawn-los markers="t-spawn-2 ct-spawn-5"/>
+  <no-spawn-los markers="t-spawn-3 ct-spawn-1"/>
+  <no-spawn-los markers="t-spawn-3 ct-spawn-2"/>
+  <no-spawn-los markers="t-spawn-3 ct-spawn-3"/>
+  <no-spawn-los markers="t-spawn-3 ct-spawn-4"/>
+  <no-spawn-los markers="t-spawn-3 ct-spawn-5"/>
+  <no-spawn-los markers="t-spawn-4 ct-spawn-1"/>
+  <no-spawn-los markers="t-spawn-4 ct-spawn-2"/>
+  <no-spawn-los markers="t-spawn-4 ct-spawn-3"/>
+  <no-spawn-los markers="t-spawn-4 ct-spawn-4"/>
+  <no-spawn-los markers="t-spawn-4 ct-spawn-5"/>
+  <no-spawn-los markers="t-spawn-5 ct-spawn-1"/>
+  <no-spawn-los markers="t-spawn-5 ct-spawn-2"/>
+  <no-spawn-los markers="t-spawn-5 ct-spawn-3"/>
+  <no-spawn-los markers="t-spawn-5 ct-spawn-4"/>
+  <no-spawn-los markers="t-spawn-5 ct-spawn-5"/>
+</architecture>

@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { WalkClock } from "../walk-clock.ts";
-import { NavigationSurface } from "../navigation.ts";
+import { WalkClock } from "../../review/walk-clock.ts";
+import { NavigationSurface } from "../../review/navigation-surface.ts";
 
 test("held input has the same speed at 144, 60, 20, 5, 2 and 1 Hz", () => {
   for (const hz of [144, 60, 20, 5, 2, 1]) {

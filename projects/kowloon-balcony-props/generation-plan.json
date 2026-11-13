@@ -1,0 +1,340 @@
+{
+  "provider": "Tripo",
+  "modelAlias": "tripo-p1",
+  "model": "P1-20260311",
+  "approval": "User approved six-model approximately 300-credit batch in chat, 2026-11-12. One generation per concept, no paid conversions or automatic rerolls.",
+  "balanceAtPlanning": 4750,
+  "estimatedTotalCredits": 300,
+  "plans": [
+    {
+      "id": "rubber-plant",
+      "estimatedCredits": 50,
+      "argv": [
+        "tripo",
+        "make",
+        "projects/kowloon-balcony-props/concepts/rubber-plant.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=900",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "--name",
+        "balcony-rubber-plant",
+        "-o",
+        "generated/kowloon-balcony-props",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-balcony-props/concepts/rubber-plant.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-balcony-props/concepts/rubber-plant.png>",
+              "model": "P1-20260311",
+              "face_limit": 900,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard"
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-balcony-props/concepts/rubber-plant.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "id": "trailing-pothos",
+      "estimatedCredits": 50,
+      "argv": [
+        "tripo",
+        "make",
+        "projects/kowloon-balcony-props/concepts/trailing-pothos.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=1000",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "--name",
+        "balcony-trailing-pothos",
+        "-o",
+        "generated/kowloon-balcony-props",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-balcony-props/concepts/trailing-pothos.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-balcony-props/concepts/trailing-pothos.png>",
+              "model": "P1-20260311",
+              "face_limit": 1000,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard"
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-balcony-props/concepts/trailing-pothos.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "id": "snake-plant",
+      "estimatedCredits": 50,
+      "argv": [
+        "tripo",
+        "make",
+        "projects/kowloon-balcony-props/concepts/snake-plant.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=650",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "--name",
+        "balcony-snake-plant",
+        "-o",
+        "generated/kowloon-balcony-props",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-balcony-props/concepts/snake-plant.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-balcony-props/concepts/snake-plant.png>",
+              "model": "P1-20260311",
+              "face_limit": 650,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard"
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-balcony-props/concepts/snake-plant.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "id": "hanging-shirt",
+      "estimatedCredits": 50,
+      "argv": [
+        "tripo",
+        "make",
+        "projects/kowloon-balcony-props/concepts/hanging-shirt.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=1000",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "--name",
+        "balcony-hanging-shirt",
+        "-o",
+        "generated/kowloon-balcony-props",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-balcony-props/concepts/hanging-shirt.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-balcony-props/concepts/hanging-shirt.png>",
+              "model": "P1-20260311",
+              "face_limit": 1000,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard"
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-balcony-props/concepts/hanging-shirt.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "id": "hanging-trousers",
+      "estimatedCredits": 50,
+      "argv": [
+        "tripo",
+        "make",
+        "projects/kowloon-balcony-props/concepts/hanging-trousers.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=850",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "--name",
+        "balcony-hanging-trousers",
+        "-o",
+        "generated/kowloon-balcony-props",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-balcony-props/concepts/hanging-trousers.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-balcony-props/concepts/hanging-trousers.png>",
+              "model": "P1-20260311",
+              "face_limit": 850,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard"
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-balcony-props/concepts/hanging-trousers.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "id": "hanging-bedsheet",
+      "estimatedCredits": 50,
+      "argv": [
+        "tripo",
+        "make",
+        "projects/kowloon-balcony-props/concepts/hanging-bedsheet.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=750",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "--name",
+        "balcony-hanging-bedsheet",
+        "-o",
+        "generated/kowloon-balcony-props",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-balcony-props/concepts/hanging-bedsheet.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-balcony-props/concepts/hanging-bedsheet.png>",
+              "model": "P1-20260311",
+              "face_limit": 750,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard"
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-balcony-props/concepts/hanging-bedsheet.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    }
+  ]
+}

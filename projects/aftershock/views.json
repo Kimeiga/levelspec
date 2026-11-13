@@ -1,0 +1,261 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      150,
+      -105,
+      135
+    ],
+    "target": [
+      50,
+      58,
+      1
+    ],
+    "projection": "orthographic",
+    "viewHeight": 96,
+    "frameAspect": 1.5,
+    "appearance": "materials"
+  },
+  {
+    "id": "reverse",
+    "position": [
+      -70,
+      155,
+      120
+    ],
+    "target": [
+      50,
+      58,
+      3
+    ],
+    "projection": "orthographic",
+    "viewHeight": 100,
+    "frameAspect": 1.5,
+    "appearance": "materials"
+  },
+  {
+    "id": "plan",
+    "position": [
+      50,
+      57,
+      180
+    ],
+    "target": [
+      50,
+      57,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 110,
+    "frameAspect": 1,
+    "appearance": "materials"
+  },
+  {
+    "id": "T-exit",
+    "position": [
+      12,
+      49,
+      1.86
+    ],
+    "target": [
+      26,
+      49,
+      1.7
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "red-loop",
+    "position": [
+      21,
+      29,
+      1.86
+    ],
+    "target": [
+      42,
+      17,
+      1.7
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "cable-entry",
+    "position": [
+      40,
+      46,
+      1.87
+    ],
+    "target": [
+      55,
+      48,
+      1.7
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "fan-landing",
+    "position": [
+      29,
+      54,
+      3.86
+    ],
+    "target": [
+      29,
+      71,
+      6
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "A-west",
+    "position": [
+      25,
+      87,
+      6.86
+    ],
+    "target": [
+      47,
+      95,
+      6.3
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "A-inner",
+    "position": [
+      41,
+      88,
+      6.86
+    ],
+    "target": [
+      51,
+      95,
+      6.5
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "A-CT",
+    "position": [
+      63,
+      96,
+      6.86
+    ],
+    "target": [
+      38,
+      93,
+      6.5
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "A-low",
+    "position": [
+      52.4,
+      91,
+      6.023
+    ],
+    "target": [
+      65,
+      91,
+      6.5
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "east-crest",
+    "position": [
+      84,
+      75,
+      6.86
+    ],
+    "target": [
+      84,
+      59,
+      1.7
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "east-foot",
+    "position": [
+      85,
+      59,
+      1.86
+    ],
+    "target": [
+      84,
+      74,
+      6.5
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "B-service",
+    "position": [
+      54,
+      50,
+      1.86
+    ],
+    "target": [
+      66,
+      40,
+      1.4
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "B-south",
+    "position": [
+      64,
+      31,
+      1.86
+    ],
+    "target": [
+      66,
+      48,
+      1.7
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  },
+  {
+    "id": "B-retake",
+    "position": [
+      76,
+      54,
+      1.86
+    ],
+    "target": [
+      63,
+      40,
+      1.7
+    ],
+    "projection": "perspective",
+    "fov": 73,
+    "frameAspect": 1.333
+  }
+]

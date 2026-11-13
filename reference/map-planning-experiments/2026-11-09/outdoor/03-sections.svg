@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1660" viewBox="0 0 1600 1660">
+<rect width="100%" height="100%" fill="#fbfaf5"/>
+<defs>
+ <pattern id="roof" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="8" height="8" fill="#f5e7bc"/><path d="M0 0V8" stroke="#cbb776" stroke-width="1"/></pattern>
+ <pattern id="water" width="26" height="20" patternUnits="userSpaceOnUse"><rect width="26" height="20" fill="#d1e4e6"/><path d="M2 11h13" stroke="#a7c9cd" stroke-width="1"/></pattern>
+ <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#217c83"/></marker>
+ <marker id="rustarrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b55a34"/></marker>
+ <style>text{font-family:Arial,Helvetica,sans-serif;fill:#28343a} .label{font-size:15px;font-weight:600;paint-order:stroke;stroke:#fbfaf5;stroke-width:4px;stroke-linejoin:round} .small{font-size:13px} .tiny{font-size:11px} .masslabel{font-size:13px;font-weight:600;fill:#465256} .heading{font-size:31px;font-weight:700;letter-spacing:1px} .sub{font-size:16px;fill:#55656a}</style>
+ </defs>
+<text x="64.00" y="57.00" text-anchor="start" font-size="19" font-weight="700">
+<tspan x="64.00" dy="0.00">SALTTURN  /  03</tspan>
+</text>
+<text x="64.00" y="99.00" text-anchor="start" font-size="30" font-weight="700">
+<tspan x="64.00" dy="0.00">SECTIONS</tspan>
+</text>
+<text x="64.00" y="132.00" text-anchor="start" font-size="16" fill="#59686b">
+<tspan x="64.00" dy="0.00">Cuts keyed on 01 · meters · equal horizontal and vertical scale within each section</tspan>
+</text>
+<text x="64.00" y="208.00" text-anchor="start" font-size="20" font-weight="700">
+<tspan x="64.00" dy="0.00">A—A  /  Auction court → open loggia → sealed office → Customs lane</tspan>
+</text>
+<polygon points="95,425 1145,425 1145,429.5 95,429.5" fill="#d6d0bd" stroke="#28343a" stroke-width="2"/>
+<polygon points="710,425 950,425 950,357.5 710,357.5" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="545,357.5 747.5,332.0 950,357.5 950,361.25 747.5,335.75 545,361.25" fill="#a3aaa7" stroke="#28343a" stroke-width="2"/>
+<polygon points="540.5,425 549.5,425 549.5,357.5 540.5,357.5" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<circle cx="395" cy="400.85" r="2.1" fill="#28343a"/>
+<polyline points="395,420.8 395,402.95" fill="none" stroke="#28343a" stroke-width="2"/>
+<polyline points="391.7,425 395,416.0 398.3,425" fill="none" stroke="#28343a" stroke-width="2"/>
+<circle cx="635" cy="400.85" r="2.1" fill="#28343a"/>
+<polyline points="635,420.8 635,402.95" fill="none" stroke="#28343a" stroke-width="2"/>
+<polyline points="631.7,425 635,416.0 638.3,425" fill="none" stroke="#28343a" stroke-width="2"/>
+<text x="305.00" y="470.00" text-anchor="middle" font-size="14">
+<tspan x="305.00" dy="0.00">06 · AUCTION COURT</tspan>
+<tspan x="305.00" dy="16.80">Open sky · z 0.00</tspan>
+</text>
+<text x="627.50" y="470.00" text-anchor="middle" font-size="14">
+<tspan x="627.50" dy="0.00">07 · LOGGIA</tspan>
+<tspan x="627.50" dy="16.80">11 m deep · z 0.00</tspan>
+</text>
+<text x="830.00" y="470.00" text-anchor="middle" font-size="14">
+<tspan x="830.00" dy="0.00">M08 · AUCTION OFFICE</tspan>
+<tspan x="830.00" dy="16.80">Solid / inaccessible</tspan>
+</text>
+<text x="1047.50" y="470.00" text-anchor="middle" font-size="14">
+<tspan x="1047.50" dy="0.00">16 · CUSTOMS</tspan>
+<tspan x="1047.50" dy="16.80">z 0.00</tspan>
+</text>
+<text x="747.50" y="314.00" text-anchor="middle" font-size="13">
+<tspan x="747.50" dy="0.00">Roof ridge +6.20</tspan>
+</text>
+<text x="525.50" y="340.50" text-anchor="end" font-size="13">
+<tspan x="525.50" dy="0.00">Eave +4.50</tspan>
+</text>
+<text x="1260.00" y="331.00" text-anchor="start" font-size="14">
+<tspan x="1260.00" dy="0.00">Continuous market paving.</tspan>
+<tspan x="1260.00" dy="16.80">The loggia is an open-sided</tspan>
+<tspan x="1260.00" dy="16.80">covered margin, not an upper</tspan>
+<tspan x="1260.00" dy="16.80">route. Auction office remains</tspan>
+<tspan x="1260.00" dy="16.80">a complete enclosed mass.</tspan>
+</text>
+<text x="64.00" y="592.00" text-anchor="start" font-size="20" font-weight="700">
+<tspan x="64.00" dy="0.00">B—B  /  Ice loading ledge → open apron → guarded quay and water</tspan>
+</text>
+<polygon points="95,811 139.1999999999999,811 231,803.35 554,803.35 645.8000000000001,811 1030,811 1030,858.6 95,858.6" fill="#d6d0bd" stroke="#28343a" stroke-width="2"/>
+<polygon points="1030,851.8 1217,851.8 1217,858.6 1030,858.6" fill="#d1e4e6" stroke="none" stroke-width="2"/>
+<polyline points="1030,851.8 1217,851.8" fill="none" stroke="#4c7075" stroke-width="1.5"/>
+<polyline points="197,739.6 588,739.6" fill="none" stroke="#28343a" stroke-width="4"/>
+<polyline points="231,803.35 231,739.6" fill="none" stroke="#28343a" stroke-width="3"/>
+<polyline points="554,803.35 554,739.6" fill="none" stroke="#28343a" stroke-width="3"/>
+<polyline points="163,666.5 554,666.5 554,732.8" fill="none" stroke="#849293" stroke-width="1.5" stroke-dasharray="5 5"/>
+<text x="358.50" y="652.50" text-anchor="middle" font-size="13">
+<tspan x="358.50" dy="0.00">Cold-store silhouette behind cut · roof +8.50</tspan>
+</text>
+<polyline points="1026.6000000000001,811 1026.6000000000001,791.45" fill="none" stroke="#28343a" stroke-width="4"/>
+<polyline points="1019.8000000000001,791.45 1033.3999999999999,791.45" fill="none" stroke="#28343a" stroke-width="2"/>
+<circle cx="384" cy="775.98" r="2.3800000000000003" fill="#28343a"/>
+<polyline points="384,798.59 384,778.36" fill="none" stroke="#28343a" stroke-width="2"/>
+<polyline points="380.26,803.35 384,793.15 387.74,803.35" fill="none" stroke="#28343a" stroke-width="2"/>
+<circle cx="741" cy="783.63" r="2.3800000000000003" fill="#28343a"/>
+<polyline points="741,806.24 741,786.01" fill="none" stroke="#28343a" stroke-width="2"/>
+<polyline points="737.26,811 741,800.8 744.74,811" fill="none" stroke="#28343a" stroke-width="2"/>
+<text x="185.10" y="875.00" text-anchor="middle" font-size="13">
+<tspan x="185.10" dy="0.00">5.4 m ramp</tspan>
+<tspan x="185.10" dy="15.60">1:12</tspan>
+</text>
+<text x="392.50" y="875.00" text-anchor="middle" font-size="13">
+<tspan x="392.50" dy="0.00">19 × 4 m ledge</tspan>
+<tspan x="392.50" dy="15.60">z +0.45</tspan>
+</text>
+<text x="599.90" y="875.00" text-anchor="middle" font-size="13">
+<tspan x="599.90" dy="0.00">5.4 m ramp</tspan>
+<tspan x="599.90" dy="15.60">1:12</tspan>
+</text>
+<text x="800.50" y="875.00" text-anchor="middle" font-size="13">
+<tspan x="800.50" dy="0.00">ICE APRON</tspan>
+<tspan x="800.50" dy="15.60">z 0.00</tspan>
+</text>
+<text x="1098.00" y="875.00" text-anchor="middle" font-size="13">
+<tspan x="1098.00" dy="0.00">WATER</tspan>
+<tspan x="1098.00" dy="15.60">−2.40</tspan>
+</text>
+<text x="1026.60" y="773.45" text-anchor="middle" font-size="13">
+<tspan x="1026.60" dy="0.00">Guard +1.15</tspan>
+</text>
+<text x="1260.00" y="704.00" text-anchor="start" font-size="14">
+<tspan x="1260.00" dy="0.00">Both ledge ends return to grade.</tspan>
+<tspan x="1260.00" dy="16.80">The planting anchor is on the</tspan>
+<tspan x="1260.00" dy="16.80">open apron; final planting area</tspan>
+<tspan x="1260.00" dy="16.80">is still provisional. Sea and roofs</tspan>
+<tspan x="1260.00" dy="16.80">are outside intended circulation.</tspan>
+</text>
+<text x="64.00" y="990.00" text-anchor="start" font-size="20" font-weight="700">
+<tspan x="64.00" dy="0.00">C—C  /  Merchant row → Back lane / awning → retail block</tspan>
+</text>
+<polygon points="95,1176 890,1176 890,1180.5 95,1180.5" fill="#d6d0bd" stroke="#28343a" stroke-width="2"/>
+<polygon points="95,1176 320,1176 320,1066.5 215,1044.0 95,1066.5" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="545,1176 773.0,1176 773.0,1078.5 659.0,1056 545,1078.5" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polyline points="485,1132.5 545,1126.5" fill="none" stroke="#b55a34" stroke-width="5"/>
+<circle cx="425" cy="1151.85" r="2.1" fill="#28343a"/>
+<polyline points="425,1171.8 425,1153.95" fill="none" stroke="#28343a" stroke-width="2"/>
+<polyline points="421.7,1176 425,1167.0 428.3,1176" fill="none" stroke="#28343a" stroke-width="2"/>
+<text x="200.00" y="1227.00" text-anchor="middle" font-size="13">
+<tspan x="200.00" dy="0.00">MERCHANT ROW</tspan>
+<tspan x="200.00" dy="15.60">No upper access</tspan>
+</text>
+<text x="402.50" y="1227.00" text-anchor="middle" font-size="13">
+<tspan x="402.50" dy="0.00">11 m open sky</tspan>
+<tspan x="402.50" dy="15.60">z 0.00</tspan>
+</text>
+<text x="515.00" y="1227.00" text-anchor="middle" font-size="13">
+<tspan x="515.00" dy="0.00">4 m awning</tspan>
+<tspan x="515.00" dy="15.60">clear ≥ 2.9 m</tspan>
+</text>
+<text x="659.00" y="1227.00" text-anchor="middle" font-size="13">
+<tspan x="659.00" dy="0.00">RETAIL BLOCK</tspan>
+<tspan x="659.00" dy="15.60">No upper access</tspan>
+</text>
+<text x="833.00" y="1227.00" text-anchor="middle" font-size="12">
+<tspan x="833.00" dy="0.00">FILLET WALK</tspan>
+<tspan x="833.00" dy="14.40">continues</tspan>
+</text>
+<text x="1015.00" y="1102.00" text-anchor="start" font-size="14">
+<tspan x="1015.00" dy="0.00">Street width is shaped by full building masses.</tspan>
+<tspan x="1015.00" dy="16.80">Only the narrow stall margin is covered.</tspan>
+<tspan x="1015.00" dy="16.80">Roofline heights are provisional architectural</tspan>
+<tspan x="1015.00" dy="16.80">enclosure, not accessible vantage points.</tspan>
+</text>
+<text x="64.00" y="1340.00" text-anchor="start" font-size="20" font-weight="700">
+<tspan x="64.00" dy="0.00">D—D  /  Fish-shop working wing → Cart gate → open loggia arm</tspan>
+</text>
+<polygon points="95,1548 874,1548 874,1553.7 95,1553.7" fill="#d6d0bd" stroke="#28343a" stroke-width="2"/>
+<polygon points="95,1548 247,1548 247,1470.1 171,1451.1 95,1470.1" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="361,1462.5 617.5,1430.2 874,1462.5 874,1467.25 617.5,1434.95 361,1467.25" fill="#a3aaa7" stroke="#28343a" stroke-width="2"/>
+<polygon points="355.30000000000007,1548 366.69999999999993,1548 366.69999999999993,1462.5 355.30000000000007,1462.5" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<circle cx="304" cy="1517.41" r="2.66" fill="#28343a"/>
+<polyline points="304,1542.68 304,1520.07" fill="none" stroke="#28343a" stroke-width="2"/>
+<polyline points="299.82,1548 304,1536.6 308.18,1548" fill="none" stroke="#28343a" stroke-width="2"/>
+<circle cx="494" cy="1517.41" r="2.66" fill="#28343a"/>
+<polyline points="494,1542.68 494,1520.07" fill="none" stroke="#28343a" stroke-width="2"/>
+<polyline points="489.82,1548 494,1536.6 498.18,1548" fill="none" stroke="#28343a" stroke-width="2"/>
+<text x="171.00" y="1592.00" text-anchor="middle" font-size="13">
+<tspan x="171.00" dy="0.00">FISH-SHOP WING</tspan>
+<tspan x="171.00" dy="15.60">Solid / inaccessible</tspan>
+</text>
+<text x="304.00" y="1592.00" text-anchor="middle" font-size="13">
+<tspan x="304.00" dy="0.00">20 · CART GATE</tspan>
+<tspan x="304.00" dy="15.60">6 m open sky · z 0.00</tspan>
+</text>
+<text x="617.50" y="1592.00" text-anchor="middle" font-size="13">
+<tspan x="617.50" dy="0.00">07 · LOGGIA SOUTH ARM</tspan>
+<tspan x="617.50" dy="15.60">Covered ground · z 0.00</tspan>
+</text>
+<text x="1015.00" y="1440.00" text-anchor="start" font-size="14">
+<tspan x="1015.00" dy="0.00">Wash court and Auction court meet through</tspan>
+<tspan x="1015.00" dy="16.80">a ground-level opening between the fish-shop</tspan>
+<tspan x="1015.00" dy="16.80">working wing and the roofed auction margin.</tspan>
+<tspan x="1015.00" dy="16.80">The loggia remains a separate through-route;</tspan>
+<tspan x="1015.00" dy="16.80">the building extension defines the threshold.</tspan>
+</text>
+<text x="64.00" y="1640.00" text-anchor="start" font-size="12" fill="#68767b">
+<tspan x="64.00" dy="0.00">Sections are authored intentions. No collision, body-fit or gameplay verification has been performed.</tspan>
+</text>
+</svg>

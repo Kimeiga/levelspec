@@ -1,0 +1,373 @@
+{
+  "settings": {
+    "spacing": 1,
+    "eyeHeights": [
+      1.86,
+      1.023
+    ],
+    "longDistance": 30,
+    "fovDegrees": 100,
+    "verticalFovDegrees": 75,
+    "maxSamples": 12000,
+    "maxPairQueries": 30000000
+  },
+  "points": [
+    {
+      "id": "T-center",
+      "feet": [
+        32,
+        7,
+        0
+      ]
+    },
+    {
+      "id": "CT-center",
+      "feet": [
+        32,
+        74,
+        0
+      ]
+    },
+    {
+      "id": "T-offset",
+      "feet": [
+        35.5,
+        9,
+        0
+      ]
+    },
+    {
+      "id": "CT-offset",
+      "feet": [
+        29,
+        70,
+        0
+      ]
+    },
+    {
+      "id": "A-plant",
+      "feet": [
+        17,
+        58,
+        0
+      ]
+    },
+    {
+      "id": "B-plant",
+      "feet": [
+        54,
+        63,
+        6.4
+      ]
+    },
+    {
+      "id": "gallery-eye",
+      "feet": [
+        25.5,
+        58,
+        3.2
+      ]
+    },
+    {
+      "id": "B-east-hold",
+      "feet": [
+        56.7,
+        66.2,
+        6.4
+      ]
+    },
+    {
+      "id": "A-south-mouth",
+      "feet": [
+        16,
+        51,
+        0
+      ]
+    },
+    {
+      "id": "A-east-mouth",
+      "feet": [
+        24.4,
+        54.5,
+        0
+      ]
+    },
+    {
+      "id": "A-rear-mouth",
+      "feet": [
+        22.5,
+        64,
+        0
+      ]
+    },
+    {
+      "id": "B-west-mouth",
+      "feet": [
+        45.2,
+        65.5,
+        6.4
+      ]
+    },
+    {
+      "id": "B-south-mouth",
+      "feet": [
+        53,
+        57.2,
+        6.4
+      ]
+    }
+  ],
+  "protectedPairs": [
+    {
+      "id": "spawn-centers",
+      "from": "T-center",
+      "to": "CT-center"
+    },
+    {
+      "id": "spawn-offsets",
+      "from": "T-offset",
+      "to": "CT-offset"
+    }
+  ],
+  "protectedAreas": [
+    {
+      "id": "spawn-areas",
+      "from": {
+        "min": [
+          27,
+          3,
+          -0.05
+        ],
+        "max": [
+          37,
+          11,
+          0.1
+        ]
+      },
+      "to": {
+        "min": [
+          28,
+          69,
+          -0.05
+        ],
+        "max": [
+          38,
+          76,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "upper-to-T",
+      "from": {
+        "min": [
+          24,
+          35,
+          3
+        ],
+        "max": [
+          59,
+          71,
+          6.5
+        ]
+      },
+      "to": {
+        "min": [
+          27,
+          3,
+          -0.05
+        ],
+        "max": [
+          37,
+          11,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "upper-to-CT",
+      "from": {
+        "min": [
+          24,
+          35,
+          3
+        ],
+        "max": [
+          59,
+          71,
+          6.5
+        ]
+      },
+      "to": {
+        "min": [
+          28,
+          69,
+          -0.05
+        ],
+        "max": [
+          38,
+          76,
+          0.1
+        ]
+      }
+    }
+  ],
+  "holdRegions": [
+    {
+      "id": "A-site",
+      "bounds": {
+        "min": [
+          5.5,
+          51,
+          -0.05
+        ],
+        "max": [
+          23.5,
+          65,
+          0.1
+        ]
+      },
+      "approachesComplete": true,
+      "entries": [
+        {
+          "id": "south",
+          "points": [
+            [
+              15,
+              51,
+              0
+            ],
+            [
+              16,
+              51,
+              0
+            ],
+            [
+              17,
+              51,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "east",
+          "points": [
+            [
+              24.5,
+              53.6,
+              0
+            ],
+            [
+              24.5,
+              54.5,
+              0
+            ],
+            [
+              24.5,
+              55.1,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "rear",
+          "points": [
+            [
+              22.3,
+              64,
+              0
+            ],
+            [
+              23,
+              64,
+              0
+            ],
+            [
+              23.5,
+              64,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "window-observation",
+          "points": [
+            [
+              25.5,
+              57.4,
+              3.2
+            ],
+            [
+              25.5,
+              58,
+              3.2
+            ],
+            [
+              25.5,
+              58.6,
+              3.2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B-site",
+      "bounds": {
+        "min": [
+          44.8,
+          57,
+          6.3
+        ],
+        "max": [
+          57.6,
+          68,
+          6.5
+        ]
+      },
+      "approachesComplete": true,
+      "entries": [
+        {
+          "id": "south",
+          "points": [
+            [
+              52,
+              57.2,
+              6.4
+            ],
+            [
+              53,
+              57.2,
+              6.4
+            ],
+            [
+              54,
+              57.2,
+              6.4
+            ]
+          ]
+        },
+        {
+          "id": "west",
+          "points": [
+            [
+              45.2,
+              64.2,
+              6.4
+            ],
+            [
+              45.2,
+              65.5,
+              6.4
+            ],
+            [
+              45.2,
+              66.8,
+              6.4
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

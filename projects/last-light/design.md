@@ -1,0 +1,13 @@
+# Author design notes · L03 / R06
+
+The ruined mall's daily circulation provides two home loops, not a parallel-lane template: former department-store anchors at opposite diagonal corners feed a main promenade and a service/entertainment wing; each loop meets the same ground court. Choosing the outer branch buys an oblique entry and loft access at the cost of a longer arrival and delayed point pressure. Losing a promenade leaves an independent home exit for regrouping, but defenders holding Court can pressure both mouths.
+
+A plausible five-player opening is tank + support + damage through the promenade, damage + second support through the entertainment wing. Contact can make the pair join the ground mouth, climb, or return to regroup. These are hypotheses. Three players cannot simultaneously cover every point mouth, chase a flanker and protect their support. Forcing an enemy off the ground point can reduce healing support for a loft without first clearing the entire outer wing.
+
+The two local lofts use the mall's gallery architecture selectively. A stair flank is slow (roughly40m/7s at assumed5.5m/s, before clearing) and committed. Immediate answers instead include denying ground score, direct fire up at the low guard, and pressure from the opposing loft/outer court sector. The opaque lift splits upper views, so a loft cannot automatically see the complete ring or every entrance. Tall end cheeks restrict side coverage; actual offset exposure is a compiled question. The only ordinary loft retreat uses its own six-meter stair, so an isolated ranged hero risks being pinned. Mobility drops/flights need target-engine testing, not extra authoring links.
+
+The dead lift is a tall point divider. Tank and healer can work the same side, but wrapping alone breaks their mutual view. The broken fountain rims are low posture refuges from some level-ground angles; neither is asserted safe from lofts. The lift ends offer intentional exposed transfers between point sectors. Regrouping in an anchor or behind a kiosk should be preferable to a2v5 stagger; respawn and scoring timings require playtest calibration.
+
+Physical materials are opaque in this blockout. Colors do not establish bullet resistance, penetration, destructibility, barriers or healing behavior. Target engine must implement the ground-only capture volume, team spawn protections, respawns and hero abilities. No ten-player combat playtest has occurred.
+
+The L03 kiosk positions close actual spawn rays found in R05. The wide5m promenade bypass carries grouped movement; the2.88m north aisle remains a deliberate narrower clearing option. Unchanged body movement follows the existing southern aisle, with the same approach endpoints.

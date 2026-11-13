@@ -1,0 +1,1197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation><xs:documentation>AML version 1 structural vocabulary. Source-linked semantic and geometry checks are performed by parseAml and compile. Units are meters, right-handed Z-up.</xs:documentation></xs:annotation>
+  <xs:complexType name="coordinate-frameType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="datumType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="elevation" type="xs:double"/>
+    <xs:attribute name="datum" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="pathType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="line"/>
+      <xs:element ref="quadratic"/>
+      <xs:element ref="cubic"/>
+      <xs:element ref="bezier"/>
+      <xs:element ref="arc"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="points" type="xs:string"/>
+    <xs:attribute name="paths" type="xs:string"/>
+    <xs:attribute name="closed" type="xs:boolean"/>
+    <xs:attribute name="elevation" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="lineType">
+    <xs:attribute name="to" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="quadraticType">
+    <xs:attribute name="to" type="xs:string" use="required"/>
+    <xs:attribute name="controls" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="cubicType">
+    <xs:attribute name="to" type="xs:string" use="required"/>
+    <xs:attribute name="controls" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="bezierType">
+    <xs:attribute name="to" type="xs:string" use="required"/>
+    <xs:attribute name="controls" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="arcType">
+    <xs:attribute name="center" type="xs:string" use="required"/>
+    <xs:attribute name="radii" type="xs:string" use="required"/>
+    <xs:attribute name="start" type="xs:double"/>
+    <xs:attribute name="sweep" type="xs:double" use="required"/>
+    <xs:attribute name="rotation" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="profileType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="hole"/>
+      <xs:element ref="breakline"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="points" type="xs:string"/>
+    <xs:attribute name="paths" type="xs:string"/>
+    <xs:attribute name="dimensions" type="xs:string"/>
+    <xs:attribute name="interior" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="holeType">
+    <xs:attribute name="points" type="xs:string"/>
+    <xs:attribute name="paths" type="xs:string"/>
+    <xs:attribute name="dimensions" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="breaklineType">
+    <xs:attribute name="points" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="materialType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="color" type="xs:string"/>
+    <xs:attribute name="repeat" type="xs:double"/>
+    <xs:attribute name="roughness" type="xs:double"/>
+    <xs:attribute name="metalness" type="xs:double"/>
+    <xs:attribute name="texture" type="xs:string"/>
+    <xs:attribute name="normal-texture" type="xs:string"/>
+    <xs:attribute name="normal-scale" type="xs:double"/>
+    <xs:attribute name="metallic-roughness-texture" type="xs:string"/>
+    <xs:attribute name="height-texture" type="xs:string"/>
+    <xs:attribute name="height-scale" type="xs:double"/>
+    <xs:attribute name="height-offset" type="xs:double"/>
+    <xs:attribute name="opacity" type="xs:double"/>
+    <xs:attribute name="alpha-cutoff" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="face-materialType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="host" type="xs:string" use="required"/>
+    <xs:attribute name="material" type="xs:string" use="required"/>
+    <xs:attribute name="face"><xs:simpleType><xs:restriction base="xs:string">
+      <xs:enumeration value="all"/><xs:enumeration value="top"/><xs:enumeration value="bottom"/>
+      <xs:enumeration value="front"/><xs:enumeration value="back"/><xs:enumeration value="left"/>
+      <xs:enumeration value="right"/><xs:enumeration value="side"/><xs:enumeration value="reveal"/>
+    </xs:restriction></xs:simpleType></xs:attribute>
+    <xs:attribute name="profile" type="xs:string"/>
+    <xs:attribute name="projection"><xs:simpleType><xs:restriction base="xs:string">
+      <xs:enumeration value="xy"/><xs:enumeration value="xz"/><xs:enumeration value="yz"/>
+    </xs:restriction></xs:simpleType></xs:attribute>
+  </xs:complexType>
+  <xs:element name="face-material" type="face-materialType"/>
+  <xs:complexType name="wallType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="path" type="xs:string" use="required"/>
+    <xs:attribute name="thickness" type="xs:double"/>
+    <xs:attribute name="height" type="xs:double"/>
+    <xs:attribute name="alignment" type="xs:string"/>
+    <xs:attribute name="base" type="xs:string"/>
+    <xs:attribute name="top" type="xs:string"/>
+    <xs:attribute name="base-floor" type="xs:string"/>
+    <xs:attribute name="contact-floor" type="xs:string"/>
+    <xs:attribute name="fit-floor" type="xs:string"/>
+    <xs:attribute name="top-floor" type="xs:string"/>
+    <xs:attribute name="span-floors" type="xs:boolean"/>
+    <xs:attribute name="join" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="slabType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="profile" type="xs:string" use="required"/>
+    <xs:attribute name="elevation" type="xs:double"/>
+    <xs:attribute name="datum" type="xs:string"/>
+    <xs:attribute name="offset" type="xs:double"/>
+    <xs:attribute name="thickness" type="xs:double"/>
+    <xs:attribute name="ceiling" type="xs:double"/>
+    <xs:attribute name="area" type="xs:string"/>
+    <xs:attribute name="flat" type="xs:boolean"/>
+    <xs:attribute name="playable" type="xs:boolean"/>
+  </xs:complexType>
+  <xs:complexType name="openingType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="host" type="xs:string" use="required"/>
+    <xs:attribute name="shape" type="xs:string"/>
+    <xs:attribute name="mode" type="xs:string"/>
+    <xs:attribute name="center" type="xs:string"/>
+    <xs:attribute name="width" type="xs:double"/>
+    <xs:attribute name="height" type="xs:double"/>
+    <xs:attribute name="radius" type="xs:double"/>
+    <xs:attribute name="radii" type="xs:string"/>
+    <xs:attribute name="profile" type="xs:string"/>
+    <xs:attribute name="depth" type="xs:double"/>
+    <xs:attribute name="offset" type="xs:double"/>
+    <xs:attribute name="reveal-material" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="panelType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="opening" type="xs:string" use="required"/>
+    <xs:attribute name="depth" type="xs:double"/>
+    <xs:attribute name="offset" type="xs:double"/>
+    <xs:attribute name="border" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="boxType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="width" type="xs:double"/>
+    <xs:attribute name="depth" type="xs:double"/>
+    <xs:attribute name="height" type="xs:double"/>
+    <xs:attribute name="radius" type="xs:double"/>
+    <xs:attribute name="top-radius" type="xs:double"/>
+    <xs:attribute name="segments" type="xs:positiveInteger"/>
+    <xs:attribute name="anchor" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="extrusionType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="profile" type="xs:string" use="required"/>
+    <xs:attribute name="distance" type="xs:double" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="sweepType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="profile" type="xs:string" use="required"/>
+    <xs:attribute name="path" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="stairsType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="path" type="xs:string"/>
+    <xs:attribute name="width" type="xs:double"/>
+    <xs:attribute name="width-profile" type="xs:string"/>
+    <xs:attribute name="left" type="xs:string"/>
+    <xs:attribute name="right" type="xs:string"/>
+    <xs:attribute name="count" type="xs:positiveInteger"/>
+    <xs:attribute name="maximum-riser" type="xs:double"/>
+    <xs:attribute name="thickness" type="xs:double"/>
+    <xs:attribute name="underside" type="xs:string"/>
+    <xs:attribute name="underside-profile" type="xs:string"/>
+    <xs:attribute name="area" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="enclosureType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="rail"><xs:complexType><xs:attribute name="profile" type="xs:string" use="required"/><xs:attribute name="top-offset" type="xs:double"/></xs:complexType></xs:element>
+      <xs:element name="posts"><xs:complexType><xs:attribute name="profile" type="xs:string" use="required"/><xs:attribute name="maximum-spacing" type="xs:double" use="required"/></xs:complexType></xs:element>
+    </xs:choice>
+    <xs:attribute name="loop" type="xs:integer"/>
+    <xs:attribute name="edge" type="xs:integer"/>
+    <xs:attribute name="start-return" type="xs:double"/>
+    <xs:attribute name="end-return" type="xs:double"/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="host" type="xs:string" use="required"/>
+    <xs:attribute name="side" type="xs:string"/>
+    <xs:attribute name="construction" type="xs:string"/>
+    <xs:attribute name="start" type="xs:double"/>
+    <xs:attribute name="end" type="xs:double"/>
+    <xs:attribute name="offset" type="xs:double"/>
+    <xs:attribute name="thickness" type="xs:double"/>
+    <xs:attribute name="height" type="xs:double"/>
+    <xs:attribute name="top" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="retaining-wallType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="lower" type="xs:string" use="required"/>
+    <xs:attribute name="upper" type="xs:string" use="required"/>
+    <xs:attribute name="lower-floor" type="xs:string"/>
+    <xs:attribute name="upper-floor" type="xs:string"/>
+    <xs:attribute name="thickness" type="xs:double"/>
+    <xs:attribute name="height" type="xs:double"/>
+    <xs:attribute name="mode" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="instanceType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="ref" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="visual-meshType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="src" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="faceted-solidType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="points" type="xs:string" use="required"/>
+    <xs:attribute name="triangles" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="sharedEdgeType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="from" type="xs:string" use="required"/>
+    <xs:attribute name="to" type="xs:string" use="required"/>
+    <xs:attribute name="path" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:element name="shared-edge" type="sharedEdgeType"/>
+  <xs:complexType name="gradeType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="host" type="xs:string" use="required"/>
+    <xs:attribute name="path" type="xs:string" use="required"/>
+    <xs:attribute name="width" type="xs:double"/>
+    <xs:attribute name="width-profile" type="xs:string"/>
+    <xs:attribute name="cross-slope" type="xs:double"/>
+    <xs:attribute name="transition" type="xs:double"/>
+    <xs:attribute name="start-transition" type="xs:double"/>
+    <xs:attribute name="end-transition" type="xs:double"/>
+    <xs:attribute name="order" type="xs:integer"/>
+  </xs:complexType>
+  <xs:element name="grade" type="gradeType"/>
+  <xs:complexType name="terrainType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="tile-size" type="xs:positiveInteger"/>
+    <xs:attribute name="heightmap" type="xs:string"/>
+    <xs:attribute name="min-height" type="xs:double"/>
+    <xs:attribute name="max-height" type="xs:double"/>
+    <xs:attribute name="flip-y" type="xs:boolean"/>
+    <xs:attribute name="profile" type="xs:string"/>
+    <xs:attribute name="points" type="xs:string"/>
+    <xs:attribute name="triangles" type="xs:string"/>
+    <xs:attribute name="columns" type="xs:positiveInteger"/>
+    <xs:attribute name="rows" type="xs:positiveInteger"/>
+    <xs:attribute name="heights" type="xs:string"/>
+    <xs:attribute name="cell-size" type="xs:string"/>
+    <xs:attribute name="base" type="xs:double"/>
+    <xs:attribute name="orientation" type="xs:string"/>
+    <xs:attribute name="playable" type="xs:boolean"/>
+  </xs:complexType>
+  <xs:complexType name="waterType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="profile" type="xs:string" use="required"/>
+    <xs:attribute name="elevation" type="xs:double"/>
+    <xs:attribute name="datum" type="xs:string"/>
+    <xs:attribute name="offset" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="roomType">
+    <xs:sequence><xs:element name="property" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="name" type="xs:string" use="required"/><xs:attribute name="value" type="xs:string" use="required"/></xs:complexType></xs:element></xs:sequence>
+    <xs:attribute name="movement" type="xs:string"/>
+    <xs:attribute name="require-support" type="xs:boolean"/>
+
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="profile" type="xs:string" use="required"/>
+    <xs:attribute name="elevation" type="xs:double"/>
+    <xs:attribute name="datum" type="xs:string"/>
+    <xs:attribute name="offset" type="xs:double"/>
+    <xs:attribute name="height" type="xs:double"/>
+    <xs:attribute name="role" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="playerType">
+    <xs:attribute name="radius" type="xs:double"/>
+    <xs:attribute name="height" type="xs:double"/>
+    <xs:attribute name="step" type="xs:double"/>
+    <xs:attribute name="slope" type="xs:double"/>
+    <xs:attribute name="crouch" type="xs:double"/>
+    <xs:attribute name="vault" type="xs:double"/>
+    <xs:attribute name="rappel" type="xs:boolean"/>
+    <xs:attribute name="ladder" type="xs:boolean"/>
+  </xs:complexType>
+  <xs:complexType name="boatType">
+    <xs:attribute name="radius" type="xs:double"/>
+    <xs:attribute name="height" type="xs:double"/>
+    <xs:attribute name="draft" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="markerType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="element" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string" use="required"/>
+    <xs:attribute name="kind" type="xs:string" use="required"/>
+    <xs:attribute name="team" type="xs:string"/>
+    <xs:attribute name="movement" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="routeType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="from" type="xs:string" use="required"/>
+    <xs:attribute name="to" type="xs:string" use="required"/>
+    <xs:attribute name="min-routes" type="xs:positiveInteger"/>
+    <xs:attribute name="min-distance" type="xs:double"/>
+    <xs:attribute name="max-distance" type="xs:double"/>
+    <xs:attribute name="movement" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="linkType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="from" type="xs:string" use="required"/>
+    <xs:attribute name="to" type="xs:string" use="required"/>
+    <xs:attribute name="kind" type="xs:string"/>
+    <xs:attribute name="bidirectional" type="xs:boolean"/>
+    <xs:attribute name="ability" type="xs:string"/>
+    <xs:attribute name="from-area" type="xs:string"/>
+    <xs:attribute name="to-area" type="xs:string"/>
+    <xs:attribute name="movement" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="connectionType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="from" type="xs:string" use="required"/>
+    <xs:attribute name="to" type="xs:string" use="required"/>
+    <xs:attribute name="path" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="lightType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="kind" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string" use="required"/>
+    <xs:attribute name="target" type="xs:string"/>
+    <xs:attribute name="color" type="xs:string"/>
+    <xs:attribute name="intensity" type="xs:double"/>
+    <xs:attribute name="angle" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="skyType">
+    <xs:attribute name="color" type="xs:string"/>
+    <xs:attribute name="intensity" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="review-suppressionType">
+    <xs:attribute name="suggestion" type="xs:string" use="required"/>
+    <xs:attribute name="fingerprint" type="xs:string" use="required"/>
+    <xs:attribute name="reason" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="no-spawn-losType">
+    <xs:attribute name="markers" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="referenceType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="landmark"/>
+      <xs:element ref="mask"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="image" type="xs:string" use="required"/>
+    <xs:attribute name="width" type="xs:positiveInteger" use="required"/>
+    <xs:attribute name="height" type="xs:positiveInteger" use="required"/>
+    <xs:attribute name="position" type="xs:string" use="required"/>
+    <xs:attribute name="target" type="xs:string" use="required"/>
+    <xs:attribute name="up" type="xs:string"/>
+    <xs:attribute name="fov" type="xs:double"/>
+    <xs:attribute name="near" type="xs:double"/>
+    <xs:attribute name="far" type="xs:double"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="scale-note" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="landmarkType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string" use="required"/>
+    <xs:attribute name="image" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="maskType">
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="points" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="assemblyType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="face-material"/>
+      <xs:element ref="wall"/>
+      <xs:element ref="slab"/>
+      <xs:element ref="landing"/>
+      <xs:element ref="roof"/>
+      <xs:element ref="canopy"/>
+      <xs:element ref="opening"/>
+      <xs:element ref="panel"/>
+      <xs:element ref="glazing"/>
+      <xs:element ref="infill"/>
+      <xs:element ref="frame"/>
+      <xs:element ref="box"/>
+      <xs:element ref="wedge"/>
+      <xs:element ref="cylinder"/>
+      <xs:element ref="cone"/>
+      <xs:element ref="sphere"/>
+      <xs:element ref="extrusion"/>
+      <xs:element ref="sweep"/>
+      <xs:element ref="beam"/>
+      <xs:element ref="column"/>
+      <xs:element ref="stairs"/>
+      <xs:element ref="ramp"/>
+      <xs:element ref="enclosure"/>
+      <xs:element ref="retaining-wall"/>
+      <xs:element ref="instance"/>
+      <xs:element ref="visual-mesh"/>
+      <xs:element ref="faceted-solid"/>
+      <xs:element ref="collision-surface"/>
+      <xs:element ref="terrain"/>
+      <xs:element ref="grade"/>
+      <xs:element ref="shared-edge"/>
+      <xs:element ref="water"/>
+      <xs:element ref="room"/>
+      <xs:element ref="zone"/>
+      <xs:element ref="volume"/>
+      <xs:element ref="clearance"/>
+      <xs:element ref="assembly"/>
+      <xs:element ref="group"/>
+      <xs:element ref="union"/>
+      <xs:element ref="subtract"/>
+      <xs:element ref="intersect"/>
+      <xs:element ref="collision"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="material-owner" type="xs:string"/>
+    <xs:attribute name="coincident-material"><xs:simpleType><xs:restriction base="xs:string">
+      <xs:enumeration value="error"/><xs:enumeration value="retained-face"/>
+    </xs:restriction></xs:simpleType></xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="groupType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="face-material"/>
+      <xs:element ref="wall"/>
+      <xs:element ref="slab"/>
+      <xs:element ref="landing"/>
+      <xs:element ref="roof"/>
+      <xs:element ref="canopy"/>
+      <xs:element ref="opening"/>
+      <xs:element ref="panel"/>
+      <xs:element ref="glazing"/>
+      <xs:element ref="infill"/>
+      <xs:element ref="frame"/>
+      <xs:element ref="box"/>
+      <xs:element ref="wedge"/>
+      <xs:element ref="cylinder"/>
+      <xs:element ref="cone"/>
+      <xs:element ref="sphere"/>
+      <xs:element ref="extrusion"/>
+      <xs:element ref="sweep"/>
+      <xs:element ref="beam"/>
+      <xs:element ref="column"/>
+      <xs:element ref="stairs"/>
+      <xs:element ref="ramp"/>
+      <xs:element ref="enclosure"/>
+      <xs:element ref="retaining-wall"/>
+      <xs:element ref="instance"/>
+      <xs:element ref="visual-mesh"/>
+      <xs:element ref="faceted-solid"/>
+      <xs:element ref="collision-surface"/>
+      <xs:element ref="terrain"/>
+      <xs:element ref="grade"/>
+      <xs:element ref="shared-edge"/>
+      <xs:element ref="water"/>
+      <xs:element ref="room"/>
+      <xs:element ref="zone"/>
+      <xs:element ref="volume"/>
+      <xs:element ref="clearance"/>
+      <xs:element ref="assembly"/>
+      <xs:element ref="group"/>
+      <xs:element ref="union"/>
+      <xs:element ref="subtract"/>
+      <xs:element ref="intersect"/>
+      <xs:element ref="collision"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="material-owner" type="xs:string"/>
+    <xs:attribute name="coincident-material"><xs:simpleType><xs:restriction base="xs:string">
+      <xs:enumeration value="error"/><xs:enumeration value="retained-face"/>
+    </xs:restriction></xs:simpleType></xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="unionType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="face-material"/>
+      <xs:element ref="wall"/>
+      <xs:element ref="slab"/>
+      <xs:element ref="landing"/>
+      <xs:element ref="roof"/>
+      <xs:element ref="canopy"/>
+      <xs:element ref="opening"/>
+      <xs:element ref="panel"/>
+      <xs:element ref="glazing"/>
+      <xs:element ref="infill"/>
+      <xs:element ref="frame"/>
+      <xs:element ref="box"/>
+      <xs:element ref="wedge"/>
+      <xs:element ref="cylinder"/>
+      <xs:element ref="cone"/>
+      <xs:element ref="sphere"/>
+      <xs:element ref="extrusion"/>
+      <xs:element ref="sweep"/>
+      <xs:element ref="beam"/>
+      <xs:element ref="column"/>
+      <xs:element ref="stairs"/>
+      <xs:element ref="ramp"/>
+      <xs:element ref="enclosure"/>
+      <xs:element ref="retaining-wall"/>
+      <xs:element ref="instance"/>
+      <xs:element ref="visual-mesh"/>
+      <xs:element ref="faceted-solid"/>
+      <xs:element ref="collision-surface"/>
+      <xs:element ref="terrain"/>
+      <xs:element ref="grade"/>
+      <xs:element ref="shared-edge"/>
+      <xs:element ref="water"/>
+      <xs:element ref="room"/>
+      <xs:element ref="zone"/>
+      <xs:element ref="volume"/>
+      <xs:element ref="clearance"/>
+      <xs:element ref="assembly"/>
+      <xs:element ref="group"/>
+      <xs:element ref="union"/>
+      <xs:element ref="subtract"/>
+      <xs:element ref="intersect"/>
+      <xs:element ref="collision"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="material-owner" type="xs:string"/>
+    <xs:attribute name="coincident-material"><xs:simpleType><xs:restriction base="xs:string">
+      <xs:enumeration value="error"/><xs:enumeration value="retained-face"/>
+    </xs:restriction></xs:simpleType></xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="subtractType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="face-material"/>
+      <xs:element ref="wall"/>
+      <xs:element ref="slab"/>
+      <xs:element ref="landing"/>
+      <xs:element ref="roof"/>
+      <xs:element ref="canopy"/>
+      <xs:element ref="opening"/>
+      <xs:element ref="panel"/>
+      <xs:element ref="glazing"/>
+      <xs:element ref="infill"/>
+      <xs:element ref="frame"/>
+      <xs:element ref="box"/>
+      <xs:element ref="wedge"/>
+      <xs:element ref="cylinder"/>
+      <xs:element ref="cone"/>
+      <xs:element ref="sphere"/>
+      <xs:element ref="extrusion"/>
+      <xs:element ref="sweep"/>
+      <xs:element ref="beam"/>
+      <xs:element ref="column"/>
+      <xs:element ref="stairs"/>
+      <xs:element ref="ramp"/>
+      <xs:element ref="enclosure"/>
+      <xs:element ref="retaining-wall"/>
+      <xs:element ref="instance"/>
+      <xs:element ref="visual-mesh"/>
+      <xs:element ref="faceted-solid"/>
+      <xs:element ref="collision-surface"/>
+      <xs:element ref="terrain"/>
+      <xs:element ref="grade"/>
+      <xs:element ref="shared-edge"/>
+      <xs:element ref="water"/>
+      <xs:element ref="room"/>
+      <xs:element ref="zone"/>
+      <xs:element ref="volume"/>
+      <xs:element ref="clearance"/>
+      <xs:element ref="assembly"/>
+      <xs:element ref="group"/>
+      <xs:element ref="union"/>
+      <xs:element ref="subtract"/>
+      <xs:element ref="intersect"/>
+      <xs:element ref="collision"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="material-owner" type="xs:string"/>
+    <xs:attribute name="coincident-material"><xs:simpleType><xs:restriction base="xs:string">
+      <xs:enumeration value="error"/><xs:enumeration value="retained-face"/>
+    </xs:restriction></xs:simpleType></xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="intersectType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="face-material"/>
+      <xs:element ref="wall"/>
+      <xs:element ref="slab"/>
+      <xs:element ref="landing"/>
+      <xs:element ref="roof"/>
+      <xs:element ref="canopy"/>
+      <xs:element ref="opening"/>
+      <xs:element ref="panel"/>
+      <xs:element ref="glazing"/>
+      <xs:element ref="infill"/>
+      <xs:element ref="frame"/>
+      <xs:element ref="box"/>
+      <xs:element ref="wedge"/>
+      <xs:element ref="cylinder"/>
+      <xs:element ref="cone"/>
+      <xs:element ref="sphere"/>
+      <xs:element ref="extrusion"/>
+      <xs:element ref="sweep"/>
+      <xs:element ref="beam"/>
+      <xs:element ref="column"/>
+      <xs:element ref="stairs"/>
+      <xs:element ref="ramp"/>
+      <xs:element ref="enclosure"/>
+      <xs:element ref="retaining-wall"/>
+      <xs:element ref="instance"/>
+      <xs:element ref="visual-mesh"/>
+      <xs:element ref="faceted-solid"/>
+      <xs:element ref="collision-surface"/>
+      <xs:element ref="terrain"/>
+      <xs:element ref="grade"/>
+      <xs:element ref="shared-edge"/>
+      <xs:element ref="water"/>
+      <xs:element ref="room"/>
+      <xs:element ref="zone"/>
+      <xs:element ref="volume"/>
+      <xs:element ref="clearance"/>
+      <xs:element ref="assembly"/>
+      <xs:element ref="group"/>
+      <xs:element ref="union"/>
+      <xs:element ref="subtract"/>
+      <xs:element ref="intersect"/>
+      <xs:element ref="collision"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="material-owner" type="xs:string"/>
+    <xs:attribute name="coincident-material"><xs:simpleType><xs:restriction base="xs:string">
+      <xs:enumeration value="error"/><xs:enumeration value="retained-face"/>
+    </xs:restriction></xs:simpleType></xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="collisionType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="face-material"/>
+      <xs:element ref="wall"/>
+      <xs:element ref="slab"/>
+      <xs:element ref="landing"/>
+      <xs:element ref="roof"/>
+      <xs:element ref="canopy"/>
+      <xs:element ref="opening"/>
+      <xs:element ref="panel"/>
+      <xs:element ref="glazing"/>
+      <xs:element ref="infill"/>
+      <xs:element ref="frame"/>
+      <xs:element ref="box"/>
+      <xs:element ref="wedge"/>
+      <xs:element ref="cylinder"/>
+      <xs:element ref="cone"/>
+      <xs:element ref="sphere"/>
+      <xs:element ref="extrusion"/>
+      <xs:element ref="sweep"/>
+      <xs:element ref="beam"/>
+      <xs:element ref="column"/>
+      <xs:element ref="stairs"/>
+      <xs:element ref="ramp"/>
+      <xs:element ref="enclosure"/>
+      <xs:element ref="retaining-wall"/>
+      <xs:element ref="instance"/>
+      <xs:element ref="visual-mesh"/>
+      <xs:element ref="faceted-solid"/>
+      <xs:element ref="collision-surface"/>
+      <xs:element ref="terrain"/>
+      <xs:element ref="grade"/>
+      <xs:element ref="shared-edge"/>
+      <xs:element ref="water"/>
+      <xs:element ref="room"/>
+      <xs:element ref="zone"/>
+      <xs:element ref="volume"/>
+      <xs:element ref="clearance"/>
+      <xs:element ref="assembly"/>
+      <xs:element ref="group"/>
+      <xs:element ref="union"/>
+      <xs:element ref="subtract"/>
+      <xs:element ref="intersect"/>
+      <xs:element ref="collision"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+    <xs:attribute name="frame" type="xs:string"/>
+    <xs:attribute name="position" type="xs:string"/>
+    <xs:attribute name="rotation" type="xs:string"/>
+    <xs:attribute name="scale" type="xs:string"/>
+    <xs:attribute name="material" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+    <xs:attribute name="visible" type="xs:boolean"/>
+    <xs:attribute name="collidable" type="xs:boolean"/>
+    <xs:attribute name="dynamic" type="xs:boolean"/>
+    <xs:attribute name="material-owner" type="xs:string"/>
+    <xs:attribute name="coincident-material"><xs:simpleType><xs:restriction base="xs:string">
+      <xs:enumeration value="error"/><xs:enumeration value="retained-face"/>
+    </xs:restriction></xs:simpleType></xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="definitionType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="face-material"/>
+      <xs:element ref="wall"/>
+      <xs:element ref="slab"/>
+      <xs:element ref="landing"/>
+      <xs:element ref="roof"/>
+      <xs:element ref="canopy"/>
+      <xs:element ref="opening"/>
+      <xs:element ref="panel"/>
+      <xs:element ref="glazing"/>
+      <xs:element ref="infill"/>
+      <xs:element ref="frame"/>
+      <xs:element ref="box"/>
+      <xs:element ref="wedge"/>
+      <xs:element ref="cylinder"/>
+      <xs:element ref="cone"/>
+      <xs:element ref="sphere"/>
+      <xs:element ref="extrusion"/>
+      <xs:element ref="sweep"/>
+      <xs:element ref="beam"/>
+      <xs:element ref="column"/>
+      <xs:element ref="stairs"/>
+      <xs:element ref="ramp"/>
+      <xs:element ref="enclosure"/>
+      <xs:element ref="retaining-wall"/>
+      <xs:element ref="instance"/>
+      <xs:element ref="visual-mesh"/>
+      <xs:element ref="faceted-solid"/>
+      <xs:element ref="collision-surface"/>
+      <xs:element ref="terrain"/>
+      <xs:element ref="grade"/>
+      <xs:element ref="shared-edge"/>
+      <xs:element ref="water"/>
+      <xs:element ref="room"/>
+      <xs:element ref="zone"/>
+      <xs:element ref="volume"/>
+      <xs:element ref="clearance"/>
+      <xs:element ref="assembly"/>
+      <xs:element ref="group"/>
+      <xs:element ref="union"/>
+      <xs:element ref="subtract"/>
+      <xs:element ref="intersect"/>
+      <xs:element ref="collision"/>
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="label" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="coordinate-frame" type="coordinate-frameType"/>
+  <xs:element name="datum" type="datumType"/>
+  <xs:element name="path" type="pathType"/>
+  <xs:element name="line" type="lineType"/>
+  <xs:element name="quadratic" type="quadraticType"/>
+  <xs:element name="cubic" type="cubicType"/>
+  <xs:element name="bezier" type="bezierType"/>
+  <xs:element name="arc" type="arcType"/>
+  <xs:element name="profile" type="profileType"/>
+  <xs:element name="hole" type="holeType"/>
+  <xs:element name="breakline" type="breaklineType"/>
+  <xs:element name="material" type="materialType"/>
+  <xs:element name="wall" type="wallType"/>
+  <xs:element name="slab" type="slabType"/>
+  <xs:element name="opening" type="openingType"/>
+  <xs:element name="panel" type="panelType"/>
+  <xs:element name="box" type="boxType"/>
+  <xs:element name="extrusion" type="extrusionType"/>
+  <xs:element name="sweep" type="sweepType"/>
+  <xs:element name="stairs" type="stairsType"/>
+  <xs:element name="enclosure" type="enclosureType"/>
+  <xs:element name="retaining-wall" type="retaining-wallType"/>
+  <xs:element name="instance" type="instanceType"/>
+  <xs:element name="visual-mesh" type="visual-meshType"/>
+  <xs:element name="faceted-solid" type="faceted-solidType"/>
+  <xs:element name="terrain" type="terrainType"/>
+  <xs:element name="water" type="waterType"/>
+  <xs:element name="room" type="roomType"/>
+  <xs:element name="player" type="playerType"/>
+  <xs:element name="boat" type="boatType"/>
+  <xs:element name="marker" type="markerType"/>
+  <xs:element name="route" type="routeType"/>
+  <xs:element name="link" type="linkType"/>
+  <xs:element name="connection" type="connectionType"/>
+  <xs:element name="light" type="lightType"/>
+  <xs:element name="sky" type="skyType"/>
+  <xs:element name="review-suppression" type="review-suppressionType"/>
+  <xs:element name="no-spawn-los" type="no-spawn-losType"/>
+  <xs:element name="reference" type="referenceType"/>
+  <xs:element name="landmark" type="landmarkType"/>
+  <xs:element name="mask" type="maskType"/>
+  <xs:element name="assembly" type="assemblyType"/>
+  <xs:element name="group" type="groupType"/>
+  <xs:element name="union" type="unionType"/>
+  <xs:element name="subtract" type="subtractType"/>
+  <xs:element name="intersect" type="intersectType"/>
+  <xs:element name="collision" type="collisionType"/>
+  <xs:element name="definition" type="definitionType"/>
+  <xs:element name="landing" type="slabType"/>
+  <xs:element name="roof" type="slabType"/>
+  <xs:element name="canopy" type="slabType"/>
+  <xs:element name="glazing" type="panelType"/>
+  <xs:element name="infill" type="panelType"/>
+  <xs:element name="frame" type="panelType"/>
+  <xs:element name="wedge" type="boxType"/>
+  <xs:element name="cylinder" type="boxType"/>
+  <xs:element name="cone" type="boxType"/>
+  <xs:element name="sphere" type="boxType"/>
+  <xs:element name="beam" type="sweepType"/>
+  <xs:element name="column" type="sweepType"/>
+  <xs:element name="ramp" type="stairsType"/>
+  <xs:element name="collision-surface" type="faceted-solidType"/>
+  <xs:element name="zone" type="roomType"/>
+  <xs:element name="volume" type="roomType"/>
+  <xs:element name="clearance" type="roomType"/>
+  <xs:complexType name="dressingRuleType">
+    <xs:attribute name="host" type="xs:string" use="required"/>
+    <xs:attribute name="material" type="xs:string" use="required"/>
+    <xs:attribute name="face" type="xs:string"/>
+    <xs:attribute name="grime" type="xs:double"/>
+    <xs:attribute name="wear" type="xs:double"/>
+    <xs:attribute name="windows" type="xs:boolean"/>
+    <xs:attribute name="stories" type="xs:positiveInteger"/>
+    <xs:attribute name="shops" type="xs:double"/>
+    <xs:attribute name="base-wall" type="xs:string"/>
+    <xs:attribute name="ground">
+      <xs:simpleType><xs:restriction base="xs:string"><xs:enumeration value="patched"/></xs:restriction></xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="patch-size" type="xs:double"/>
+    <xs:attribute name="material-size" type="xs:double"/>
+    <xs:attribute name="relief" type="xs:double"/>
+    <xs:attribute name="wetness" type="xs:double"/>
+    <xs:attribute name="litter" type="xs:double"/>
+    <xs:attribute name="repairs" type="xs:double"/>
+    <xs:attribute name="joined-pours" type="xs:double"/>
+    <xs:attribute name="asphalt" type="xs:double"/>
+    <xs:attribute name="asphalt-material" type="xs:string"/>
+    <xs:attribute name="manholes" type="xs:double"/>
+    <xs:attribute name="breakup" type="xs:double"/>
+    <xs:attribute name="tile-share" type="xs:double"/>
+    <xs:attribute name="tile-size" type="xs:double"/>
+    <xs:attribute name="tile-aspect" type="xs:double"/>
+    <xs:attribute name="tile-wear" type="xs:double"/>
+    <xs:attribute name="tile-grime" type="xs:double"/>
+    <xs:attribute name="tile-color" type="xs:string"/>
+    <xs:attribute name="texture-density" type="xs:double"/>
+    <xs:attribute name="timber-share" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="dressingSpansType">
+    <xs:attribute name="hosts" type="xs:string"/>
+    <xs:attribute name="cables" type="xs:double"/>
+    <xs:attribute name="clotheslines" type="xs:double"/>
+    <xs:attribute name="signs" type="xs:double"/>
+    <xs:attribute name="clearance" type="xs:double"/>
+    <xs:attribute name="reach" type="xs:double"/>
+  </xs:complexType>
+  <xs:element name="dressing">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="wall" type="dressingRuleType"/>
+        <xs:element name="floor" type="dressingRuleType"/>
+        <xs:element name="building" type="dressingRuleType"/>
+        <xs:element name="spans" type="dressingSpansType"/>
+      </xs:choice>
+      <xs:attribute name="theme" fixed="kowloon-street@1"/>
+      <xs:attribute name="seed" type="xs:string" use="required"/>
+      <xs:attribute name="grime" type="xs:double"/>
+      <xs:attribute name="wear" type="xs:double"/>
+      <xs:attribute name="detail" type="xs:string"/>
+      <xs:attribute name="finishes" type="xs:string"/>
+      <xs:attribute name="wall-materials" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="architecture">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="dressing"/>
+        <xs:element ref="coordinate-frame"/>
+        <xs:element ref="datum"/>
+        <xs:element ref="path"/>
+        <xs:element ref="profile"/>
+        <xs:element ref="definition"/>
+        <xs:element ref="material"/>
+        <xs:element ref="player"/>
+        <xs:element ref="boat"/>
+        <xs:element ref="marker"/>
+        <xs:element ref="route"/>
+        <xs:element ref="link"/>
+        <xs:element ref="connection"/>
+        <xs:element ref="light"/>
+        <xs:element ref="sky"/>
+        <xs:element ref="reference"/>
+        <xs:element ref="review-suppression"/>
+        <xs:element ref="no-spawn-los"/>
+        <xs:element ref="face-material"/>
+      <xs:element ref="wall"/>
+        <xs:element ref="slab"/>
+        <xs:element ref="landing"/>
+        <xs:element ref="roof"/>
+        <xs:element ref="canopy"/>
+        <xs:element ref="opening"/>
+        <xs:element ref="panel"/>
+        <xs:element ref="glazing"/>
+        <xs:element ref="infill"/>
+        <xs:element ref="frame"/>
+        <xs:element ref="box"/>
+        <xs:element ref="wedge"/>
+        <xs:element ref="cylinder"/>
+        <xs:element ref="cone"/>
+        <xs:element ref="sphere"/>
+        <xs:element ref="extrusion"/>
+        <xs:element ref="sweep"/>
+        <xs:element ref="beam"/>
+        <xs:element ref="column"/>
+        <xs:element ref="stairs"/>
+        <xs:element ref="ramp"/>
+        <xs:element ref="enclosure"/>
+        <xs:element ref="retaining-wall"/>
+        <xs:element ref="instance"/>
+        <xs:element ref="visual-mesh"/>
+        <xs:element ref="faceted-solid"/>
+        <xs:element ref="collision-surface"/>
+        <xs:element ref="terrain"/>
+      <xs:element ref="grade"/>
+      <xs:element ref="shared-edge"/>
+        <xs:element ref="water"/>
+        <xs:element ref="room"/>
+        <xs:element ref="zone"/>
+        <xs:element ref="volume"/>
+        <xs:element ref="clearance"/>
+        <xs:element ref="assembly"/>
+        <xs:element ref="group"/>
+        <xs:element ref="union"/>
+        <xs:element ref="subtract"/>
+        <xs:element ref="intersect"/>
+        <xs:element ref="collision"/>
+      </xs:choice>
+      <xs:attribute name="version" use="required" fixed="1"/>
+      <xs:attribute name="units" fixed="meters"/>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="label" type="xs:string"/>
+      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="description" type="xs:string"/>
+      <xs:attribute name="validation" type="xs:string"/>
+      <xs:attribute name="curve-tolerance" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

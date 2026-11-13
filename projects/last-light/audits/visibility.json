@@ -1,0 +1,604 @@
+{
+  "settings": {
+    "spacing": 3,
+    "eyeHeights": [
+      1.0695,
+      1.86
+    ],
+    "longDistance": 30,
+    "fovDegrees": 100,
+    "verticalFovDegrees": 75,
+    "maxSamples": 1500,
+    "maxPairQueries": 1000000
+  },
+  "points": [
+    {
+      "id": "west-loft",
+      "feet": [
+        25,
+        38,
+        3
+      ]
+    },
+    {
+      "id": "east-loft",
+      "feet": [
+        55,
+        34,
+        3
+      ]
+    },
+    {
+      "id": "west-late-stair",
+      "feet": [
+        13.03248892243223,
+        32.17685933813054,
+        2.7093300796845825
+      ]
+    },
+    {
+      "id": "east-late-stair",
+      "feet": [
+        66.96751107756681,
+        39.82314066186926,
+        2.709330079684594
+      ]
+    },
+    {
+      "id": "west-point",
+      "feet": [
+        36,
+        36,
+        0
+      ]
+    },
+    {
+      "id": "east-point",
+      "feet": [
+        44,
+        36,
+        0
+      ]
+    },
+    {
+      "id": "south-prep",
+      "feet": [
+        36,
+        16.5,
+        0
+      ]
+    },
+    {
+      "id": "north-prep",
+      "feet": [
+        44,
+        55.5,
+        0
+      ]
+    },
+    {
+      "id": "a-spawn-1",
+      "feet": [
+        7,
+        7,
+        0
+      ]
+    },
+    {
+      "id": "a-spawn-2",
+      "feet": [
+        10,
+        7,
+        0
+      ]
+    },
+    {
+      "id": "a-spawn-3",
+      "feet": [
+        13,
+        7,
+        0
+      ]
+    },
+    {
+      "id": "a-spawn-4",
+      "feet": [
+        7,
+        10,
+        0
+      ]
+    },
+    {
+      "id": "a-spawn-5",
+      "feet": [
+        10,
+        10,
+        0
+      ]
+    },
+    {
+      "id": "b-spawn-1",
+      "feet": [
+        73,
+        65,
+        0
+      ]
+    },
+    {
+      "id": "b-spawn-2",
+      "feet": [
+        70,
+        65,
+        0
+      ]
+    },
+    {
+      "id": "b-spawn-3",
+      "feet": [
+        67,
+        65,
+        0
+      ]
+    },
+    {
+      "id": "b-spawn-4",
+      "feet": [
+        73,
+        62,
+        0
+      ]
+    },
+    {
+      "id": "b-spawn-5",
+      "feet": [
+        70,
+        62,
+        0
+      ]
+    }
+  ],
+  "protectedPairs": [
+    {
+      "id": "opposing-loft-center",
+      "from": "west-loft",
+      "to": "east-loft"
+    },
+    {
+      "id": "east-loft-late-ascent",
+      "from": "east-loft",
+      "to": "west-late-stair"
+    },
+    {
+      "id": "west-loft-late-ascent",
+      "from": "west-loft",
+      "to": "east-late-stair"
+    },
+    {
+      "id": "a-spawn-1-to-west-point",
+      "from": "a-spawn-1",
+      "to": "west-point"
+    },
+    {
+      "id": "a-spawn-1-to-east-point",
+      "from": "a-spawn-1",
+      "to": "east-point"
+    },
+    {
+      "id": "a-spawn-1-to-east-loft",
+      "from": "a-spawn-1",
+      "to": "east-loft"
+    },
+    {
+      "id": "a-spawn-2-to-west-point",
+      "from": "a-spawn-2",
+      "to": "west-point"
+    },
+    {
+      "id": "a-spawn-2-to-east-point",
+      "from": "a-spawn-2",
+      "to": "east-point"
+    },
+    {
+      "id": "a-spawn-2-to-east-loft",
+      "from": "a-spawn-2",
+      "to": "east-loft"
+    },
+    {
+      "id": "a-spawn-3-to-west-point",
+      "from": "a-spawn-3",
+      "to": "west-point"
+    },
+    {
+      "id": "a-spawn-3-to-east-point",
+      "from": "a-spawn-3",
+      "to": "east-point"
+    },
+    {
+      "id": "a-spawn-3-to-east-loft",
+      "from": "a-spawn-3",
+      "to": "east-loft"
+    },
+    {
+      "id": "a-spawn-4-to-west-point",
+      "from": "a-spawn-4",
+      "to": "west-point"
+    },
+    {
+      "id": "a-spawn-4-to-east-point",
+      "from": "a-spawn-4",
+      "to": "east-point"
+    },
+    {
+      "id": "a-spawn-4-to-east-loft",
+      "from": "a-spawn-4",
+      "to": "east-loft"
+    },
+    {
+      "id": "a-spawn-5-to-west-point",
+      "from": "a-spawn-5",
+      "to": "west-point"
+    },
+    {
+      "id": "a-spawn-5-to-east-point",
+      "from": "a-spawn-5",
+      "to": "east-point"
+    },
+    {
+      "id": "a-spawn-5-to-east-loft",
+      "from": "a-spawn-5",
+      "to": "east-loft"
+    },
+    {
+      "id": "b-spawn-1-to-west-point",
+      "from": "b-spawn-1",
+      "to": "west-point"
+    },
+    {
+      "id": "b-spawn-1-to-east-point",
+      "from": "b-spawn-1",
+      "to": "east-point"
+    },
+    {
+      "id": "b-spawn-1-to-west-loft",
+      "from": "b-spawn-1",
+      "to": "west-loft"
+    },
+    {
+      "id": "b-spawn-2-to-west-point",
+      "from": "b-spawn-2",
+      "to": "west-point"
+    },
+    {
+      "id": "b-spawn-2-to-east-point",
+      "from": "b-spawn-2",
+      "to": "east-point"
+    },
+    {
+      "id": "b-spawn-2-to-west-loft",
+      "from": "b-spawn-2",
+      "to": "west-loft"
+    },
+    {
+      "id": "b-spawn-3-to-west-point",
+      "from": "b-spawn-3",
+      "to": "west-point"
+    },
+    {
+      "id": "b-spawn-3-to-east-point",
+      "from": "b-spawn-3",
+      "to": "east-point"
+    },
+    {
+      "id": "b-spawn-3-to-west-loft",
+      "from": "b-spawn-3",
+      "to": "west-loft"
+    },
+    {
+      "id": "b-spawn-4-to-west-point",
+      "from": "b-spawn-4",
+      "to": "west-point"
+    },
+    {
+      "id": "b-spawn-4-to-east-point",
+      "from": "b-spawn-4",
+      "to": "east-point"
+    },
+    {
+      "id": "b-spawn-4-to-west-loft",
+      "from": "b-spawn-4",
+      "to": "west-loft"
+    },
+    {
+      "id": "b-spawn-5-to-west-point",
+      "from": "b-spawn-5",
+      "to": "west-point"
+    },
+    {
+      "id": "b-spawn-5-to-east-point",
+      "from": "b-spawn-5",
+      "to": "east-point"
+    },
+    {
+      "id": "b-spawn-5-to-west-loft",
+      "from": "b-spawn-5",
+      "to": "west-loft"
+    }
+  ],
+  "protectedAreas": [
+    {
+      "id": "spawn-A-to-B",
+      "from": {
+        "min": [
+          4,
+          4,
+          -0.1
+        ],
+        "max": [
+          20,
+          20,
+          0.1
+        ]
+      },
+      "to": {
+        "min": [
+          60,
+          52,
+          -0.1
+        ],
+        "max": [
+          76,
+          68,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "spawn-A-to-court",
+      "from": {
+        "min": [
+          4,
+          4,
+          -0.1
+        ],
+        "max": [
+          20,
+          20,
+          0.1
+        ]
+      },
+      "to": {
+        "min": [
+          28,
+          24,
+          -0.1
+        ],
+        "max": [
+          52,
+          48,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "spawn-B-to-court",
+      "from": {
+        "min": [
+          60,
+          52,
+          -0.1
+        ],
+        "max": [
+          76,
+          68,
+          0.1
+        ]
+      },
+      "to": {
+        "min": [
+          28,
+          24,
+          -0.1
+        ],
+        "max": [
+          52,
+          48,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "spawn-A-to-opposing-loft",
+      "from": {
+        "min": [
+          4,
+          4,
+          -0.1
+        ],
+        "max": [
+          20,
+          20,
+          0.1
+        ]
+      },
+      "to": {
+        "min": [
+          52,
+          30,
+          2.9
+        ],
+        "max": [
+          70,
+          38,
+          3.1
+        ]
+      }
+    },
+    {
+      "id": "spawn-B-to-opposing-loft",
+      "from": {
+        "min": [
+          60,
+          52,
+          -0.1
+        ],
+        "max": [
+          76,
+          68,
+          0.1
+        ]
+      },
+      "to": {
+        "min": [
+          10,
+          34,
+          2.9
+        ],
+        "max": [
+          28,
+          42,
+          3.1
+        ]
+      }
+    }
+  ],
+  "holdRegions": [
+    {
+      "id": "fountain-ring",
+      "bounds": {
+        "min": [
+          33,
+          29,
+          -0.1
+        ],
+        "max": [
+          47,
+          43,
+          0.1
+        ]
+      },
+      "approachesComplete": true,
+      "entries": [
+        {
+          "id": "south",
+          "points": [
+            [
+              35,
+              25,
+              0
+            ],
+            [
+              37,
+              25,
+              0
+            ],
+            [
+              39,
+              25,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "north",
+          "points": [
+            [
+              41,
+              47,
+              0
+            ],
+            [
+              43,
+              47,
+              0
+            ],
+            [
+              45,
+              47,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "west-low",
+          "points": [
+            [
+              29,
+              33,
+              0
+            ],
+            [
+              29,
+              36,
+              0
+            ],
+            [
+              29,
+              40,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "east-low",
+          "points": [
+            [
+              51,
+              32,
+              0
+            ],
+            [
+              51,
+              36,
+              0
+            ],
+            [
+              51,
+              39,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "west-loft",
+          "points": [
+            [
+              27,
+              36.5,
+              3
+            ],
+            [
+              27,
+              38,
+              3
+            ],
+            [
+              27,
+              39.5,
+              3
+            ]
+          ]
+        },
+        {
+          "id": "east-loft",
+          "points": [
+            [
+              53,
+              32.5,
+              3
+            ],
+            [
+              53,
+              34,
+              3
+            ],
+            [
+              53,
+              35.5,
+              3
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

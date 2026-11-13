@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<title>Kowloon prop pilot</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e5e2dc; color: #252b2a; font: 15px system-ui; }
+  header { height: 72px; padding: 12px 24px; display: flex; gap: 22px; align-items: center; }
+  h1 { margin: 0; font-size: 19px; }
+  select, button { font: inherit; padding: 5px; }
+  #labels { display: flex; height: 55px; background: #f4f2ed; border-block: 1px solid #c5c5bb; }
+  #labels > div { width: 50%; padding: 8px 24px; }
+  #labels small { display: block; font-size: 12px; margin-top: 2px; }
+  #stage { height: calc(100vh - 167px); }
+  canvas { display: block; }
+  footer { height: 40px; padding: 10px 24px; font-size: 12px; }
+  #error { color: #a31d1d; white-space: pre-wrap; }
+</style>
+<header><h1>Kowloon prop pilot</h1>
+  <label>Asset <select id="asset">
+    <option value="laundry-shirt">Hanging shirt</option><option value="market-apple">Apple</option>
+    <option value="snack-packet">Snack packet</option><option value="seasoning-jar">Seasoning jar</option>
+  </select></label>
+  <label>View <select id="view">
+    <option value="oblique">Oblique</option><option value="front">Front</option>
+    <option value="side">Side</option><option value="back">Back</option>
+    <option value="context">Repeated arrangement</option>
+  </select></label>
+  <label>Surface <select id="surface"><option value="textured">Textured</option><option value="clay">Clay</option></select></label>
+  <label>Light <select id="light"><option value="left">Left</option><option value="right">Right</option></select></label>
+</header>
+<div id="labels"><div>Current procedural <small id="baseline-label"></small></div><div>Tripo P1 candidate <small id="candidate-label"></small></div></div>
+<main id="stage"></main><footer id="status">Loading…</footer><pre id="error"></pre>
+<script type="module" src="./viewer.ts"></script>
+</html>

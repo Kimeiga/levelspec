@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1060"><rect width="1100" height="1060" fill="#102b38"/><style>text{font-family:Arial,sans-serif;fill:#eaf0ed} .room{stroke:#102b38;stroke-width:3} .label{font-size:12px;text-anchor:middle;font-weight:bold}.small{font-size:11px;fill:#bdc9c9}</style><text x="60" y="48" font-size="30" font-weight="bold">DEADWATER / abandoned offshore rig</text><text x="60" y="76" font-size="15">R01 · Spatial proposal · 5v5 CT / T defusal · meters · north ↑ · ocean is inaccessible</text><g transform="translate(90 930) scale(10 -10)">
+<polygon class="room" points="4,4 30,4 30,20 4,20" fill="#374e59" stroke-width=".3"/>
+<polygon class="room" points="30,8 48,8 48,22 40,22 40,20 30,20" fill="#374e59" stroke-width=".3"/>
+<polygon class="room" points="48,8 70,8 70,26 58,26 58,30 48,30" fill="#374e59" stroke-width=".3"/>
+<polygon class="room" points="4,20 18,20 18,38 4,38" fill="#374e59" stroke-width=".3"/>
+<polygon class="room" points="18,20 40,20 40,42 28,42 28,38 18,38" fill="#374e59" stroke-width=".3"/>
+<polygon class="room" points="40,22 48,22 48,30 58,30 58,48 42,48 42,42 40,42" fill="#374e59" stroke-width=".3"/>
+<polygon class="room" points="58,26 86,26 86,52 66,52 66,48 58,48" fill="#a06d4b" stroke-width=".3"/>
+<polygon class="room" points="4,38 18,38 18,50 4,50" fill="#374e59" stroke-width=".3"/>
+<polygon class="room" points="28,42 40,42 40,58 34,58 34,50 28,50" fill="#374e59" stroke-width=".3"/>
+<polygon class="room" points="4,50 34,50 34,58 44,58 44,76 4,76" fill="#a06d4b" stroke-width=".3"/>
+<polygon class="room" points="44,62 66,62 66,76 44,76" fill="#526f77" stroke-width=".3"/>
+<polygon class="room" points="66,62 86,62 86,80 66,80" fill="#526f77" stroke-width=".3"/>
+<polygon class="room" points="66,52 86,52 86,62 66,62" fill="#374e59" stroke-width=".3"/>
+<path d="M 7 20 L 13 20" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 30 11 L 30 17" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 18 24 L 18 30" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 32 20 L 37 20" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 48 13 L 48 19" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 43 22 L 47 22" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 40 32 L 40 38" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 58 32 L 58 38" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 64 26 L 69 26" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 7 38 L 13 38" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 7 50 L 13 50" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 30 42 L 36 42" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 34 51 L 34 57" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 40 58 L 43 58" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 44 65 L 44 71" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 66 66 L 66 72" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 72 52 L 78 52" stroke="#d4ede2" stroke-width=".7"/>
+<path d="M 72 62 L 78 62" stroke="#d4ede2" stroke-width=".7"/>
+<rect x="7" y="26" width="3" height="5" fill="#1e3039" stroke="#d9b973" stroke-width=".15"/>
+<rect x="22" y="24" width="8" height="4" fill="#1e3039" stroke="#d9b973" stroke-width=".15"/>
+<rect x="24" y="32" width="8" height="4" fill="#1e3039" stroke="#d9b973" stroke-width=".15"/>
+<rect x="51" y="13" width="5" height="10" fill="#1e3039" stroke="#d9b973" stroke-width=".15"/>
+<rect x="67" y="36" width="9" height="4" fill="#1e3039" stroke="#d9b973" stroke-width=".15"/>
+<rect x="14" y="59" width="6" height="6" fill="#1e3039" stroke="#d9b973" stroke-width=".15"/>
+<rect x="28" y="67" width="6" height="3" fill="#1e3039" stroke="#d9b973" stroke-width=".15"/>
+<rect x="51" y="64" width="7" height="2" fill="#1e3039" stroke="#d9b973" stroke-width=".15"/>
+<path d="M10 41 L10 47 l-1 -1 M10 47 l1 -1" stroke="#f2bd72" stroke-width=".3" fill="none"/>
+<path d="M33 43 L33 49 l-1 -1 M33 49 l1 -1" stroke="#f2bd72" stroke-width=".3" fill="none"/>
+<path d="M75 54 L75 60 l-1 -1 M75 60 l1 -1" stroke="#f2bd72" stroke-width=".3" fill="none"/>
+</g>
+<text class="label" x="260" y="820">T · CARGO DOCK</text><text class="small" text-anchor="middle" x="260" y="835">deck 0</text>
+<text class="label" x="480" y="790">FREIGHT</text><text class="small" text-anchor="middle" x="480" y="805">deck 0</text>
+<text class="label" x="680" y="760">COMPRESSORS</text><text class="small" text-anchor="middle" x="680" y="775">deck 0</text>
+<text class="label" x="200" y="640">SEA WALK</text><text class="small" text-anchor="middle" x="200" y="655">deck 0</text>
+<text class="label" x="380" y="630">VALVE HALL</text><text class="small" text-anchor="middle" x="380" y="645">deck 0</text>
+<text class="label" x="580" y="540">PIPE BEND</text><text class="small" text-anchor="middle" x="580" y="555">deck 0</text>
+<text class="label" x="820" y="540">B · SEPARATORS</text><text class="small" text-anchor="middle" x="820" y="555">deck 0</text>
+<text class="label" x="200" y="490">WEST STAIR</text><text class="small" text-anchor="middle" x="200" y="505">deck 0</text>
+<text class="label" x="430" y="460">SHORT STAIR</text><text class="small" text-anchor="middle" x="430" y="475">deck 0</text>
+<text class="label" x="310" y="270">A · DRILL FLOOR</text><text class="small" text-anchor="middle" x="310" y="285">+2.4 m</text>
+<text class="label" x="640" y="220">CT · MUSTER</text><text class="small" text-anchor="middle" x="640" y="235">+2.4 m</text>
+<text class="label" x="850" y="210">CONTROL</text><text class="small" text-anchor="middle" x="850" y="225">+2.4 m</text>
+<text class="label" x="850" y="360">PROCESS STAIR</text><text class="small" text-anchor="middle" x="850" y="375">deck 0</text>
+<text x="90" y="990" font-size="15">Pale gaps = thresholds · dark masses = machinery / occluders · amber arrows = stairs</text><text x="90" y="1016" font-size="15">Raised north deck: A → muster → control. Lower loops: cargo → valve / compressors → B.</text></svg>

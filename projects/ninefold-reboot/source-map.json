@@ -1,0 +1,1580 @@
+{
+  "revision": "R08",
+  "status": "Bounded compiled blockout; independent compiled review pending; no balance claim",
+  "acceptedLayoutSha256": "54b34581aec7c036426797653870cfe13700a665b73dca6587806d993d8ac49d",
+  "productionLayout": "production-layout/layout-data-r08.json",
+  "objects": [
+    {
+      "layout": "FL-0",
+      "aml": "floor-0-0"
+    },
+    {
+      "layout": "FL-3.2",
+      "aml": "floor-3.2-0"
+    },
+    {
+      "layout": "FL-6.4",
+      "aml": "floor-6.4-0"
+    },
+    {
+      "layout": "EDGE-0-001-0-p3-a0",
+      "aml": "EDGE-0-001-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-002-0-p3-a0",
+      "aml": "EDGE-0-002-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-003-0-p3-a0",
+      "aml": "EDGE-0-003-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-004-0-p3-a0",
+      "aml": "EDGE-0-004-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-005-0-p3-a0",
+      "aml": "EDGE-0-005-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-006-0-p3-a0",
+      "aml": "EDGE-0-006-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-007-0-p3-a0",
+      "aml": "EDGE-0-007-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-008-0-p3-a0",
+      "aml": "EDGE-0-008-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-009-0-p3-a0",
+      "aml": "EDGE-0-009-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-010-0-p2-a0",
+      "aml": "EDGE-0-010-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-010-0-p3-a0",
+      "aml": "EDGE-0-010-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-011-0-p2-a0",
+      "aml": "EDGE-0-011-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-012-0-p2-a0",
+      "aml": "EDGE-0-012-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-013-0-p2-a0",
+      "aml": "EDGE-0-013-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-013-0-p3-a0",
+      "aml": "EDGE-0-013-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-014-0-p1-a0",
+      "aml": "EDGE-0-014-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-014-0-p3-a0",
+      "aml": "EDGE-0-014-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-015-0-p1-a0",
+      "aml": "EDGE-0-015-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-015-0-p2-a0",
+      "aml": "EDGE-0-015-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-015-0-p3-a0",
+      "aml": "EDGE-0-015-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-016-0-p2-a0",
+      "aml": "EDGE-0-016-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-016-0-p3-a0",
+      "aml": "EDGE-0-016-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-017-0-p2-a0",
+      "aml": "EDGE-0-017-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-017-0-p3-a0",
+      "aml": "EDGE-0-017-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-017-0-p4-a0",
+      "aml": "EDGE-0-017-0-p4-a0"
+    },
+    {
+      "layout": "EDGE-0-018-0-p2-a0",
+      "aml": "EDGE-0-018-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-018-0-p3-a0",
+      "aml": "EDGE-0-018-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-019-0-p2-a0",
+      "aml": "EDGE-0-019-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-020-0-p2-a0",
+      "aml": "EDGE-0-020-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-020-0-p3-a0",
+      "aml": "EDGE-0-020-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-021-0-p3-a0",
+      "aml": "EDGE-0-021-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-022-0-p3-a0",
+      "aml": "EDGE-0-022-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-023-0-p3-a0",
+      "aml": "EDGE-0-023-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-024-0-p3-a0",
+      "aml": "EDGE-0-024-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-025-0-p3-a0",
+      "aml": "EDGE-0-025-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-026-0-p1-a0",
+      "aml": "EDGE-0-026-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-026-0-p3-a0",
+      "aml": "EDGE-0-026-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-028-0-p1-a0",
+      "aml": "EDGE-0-028-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-028-0-p3-a0",
+      "aml": "EDGE-0-028-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-029-0-p1-a0",
+      "aml": "EDGE-0-029-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-029-0-p3-a0",
+      "aml": "EDGE-0-029-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-029-0-p5-a0",
+      "aml": "EDGE-0-029-0-p5-a0"
+    },
+    {
+      "layout": "EDGE-0-030-0-p3-a0",
+      "aml": "EDGE-0-030-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-031-0-p3-a0",
+      "aml": "EDGE-0-031-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-032-0-p3-a0",
+      "aml": "EDGE-0-032-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-033-0-p3-a0",
+      "aml": "EDGE-0-033-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-034-0-p1-a0",
+      "aml": "EDGE-0-034-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-034-0-p3-a0",
+      "aml": "EDGE-0-034-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-035-0-p1-a0",
+      "aml": "EDGE-0-035-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-035-0-p3-a0",
+      "aml": "EDGE-0-035-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-036-0-p3-a0",
+      "aml": "EDGE-0-036-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-037-0-p3-a0",
+      "aml": "EDGE-0-037-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-038-0-p3-a0",
+      "aml": "EDGE-0-038-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-039-0-p3-a0",
+      "aml": "EDGE-0-039-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-040-0-p3-a0",
+      "aml": "EDGE-0-040-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-041-0-p3-a0",
+      "aml": "EDGE-0-041-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-042-0-p3-a0",
+      "aml": "EDGE-0-042-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-043-0-p3-a0",
+      "aml": "EDGE-0-043-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-044-0-p3-a0",
+      "aml": "EDGE-0-044-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-045-0-p3-a0",
+      "aml": "EDGE-0-045-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-046-0-p3-a0",
+      "aml": "EDGE-0-046-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-047-0-p3-a0",
+      "aml": "EDGE-0-047-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-048-0-p3-a0",
+      "aml": "EDGE-0-048-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-049-0-p1-a0",
+      "aml": "EDGE-0-049-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-049-0-p3-a0",
+      "aml": "EDGE-0-049-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-050-0-p3-a0",
+      "aml": "EDGE-0-050-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-051-0-p1-a0",
+      "aml": "EDGE-0-051-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-051-0-p3-a0",
+      "aml": "EDGE-0-051-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-052-0-p1-a0",
+      "aml": "EDGE-0-052-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-052-0-p3-a0",
+      "aml": "EDGE-0-052-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-053-0-p3-a0",
+      "aml": "EDGE-0-053-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-054-0-p3-a0",
+      "aml": "EDGE-0-054-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-055-0-p1-a0",
+      "aml": "EDGE-0-055-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-055-0-p3-a0",
+      "aml": "EDGE-0-055-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-055-0-p5-a0",
+      "aml": "EDGE-0-055-0-p5-a0"
+    },
+    {
+      "layout": "EDGE-0-056-0-p3-a0",
+      "aml": "EDGE-0-056-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-057-0-p3-a0",
+      "aml": "EDGE-0-057-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-058-0-p1-a0",
+      "aml": "EDGE-0-058-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-058-0-p3-a0",
+      "aml": "EDGE-0-058-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-059-0-p1-a0",
+      "aml": "EDGE-0-059-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-059-0-p3-a0",
+      "aml": "EDGE-0-059-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-060-0-p1-a0",
+      "aml": "EDGE-0-060-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-060-0-p3-a0",
+      "aml": "EDGE-0-060-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-061-0-p1-a0",
+      "aml": "EDGE-0-061-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-061-0-p3-a0",
+      "aml": "EDGE-0-061-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-061-0-p5-a0",
+      "aml": "EDGE-0-061-0-p5-a0"
+    },
+    {
+      "layout": "EDGE-0-062-0-p1-a0",
+      "aml": "EDGE-0-062-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-062-0-p3-a0",
+      "aml": "EDGE-0-062-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-063-0-p1-a0",
+      "aml": "EDGE-0-063-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-063-0-p3-a0",
+      "aml": "EDGE-0-063-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-064-0-p1-a0",
+      "aml": "EDGE-0-064-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-065-0-p1-a0",
+      "aml": "EDGE-0-065-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-065-0-p3-a0",
+      "aml": "EDGE-0-065-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-066-0-p3-a0",
+      "aml": "EDGE-0-066-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-067-0-p1-a0",
+      "aml": "EDGE-0-067-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-067-0-p3-a0",
+      "aml": "EDGE-0-067-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-068-0-p1-a0",
+      "aml": "EDGE-0-068-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-069-0-p1-a0",
+      "aml": "EDGE-0-069-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-069-0-p3-a0",
+      "aml": "EDGE-0-069-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-070-0-p3-a0",
+      "aml": "EDGE-0-070-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-073-0-p3-a0",
+      "aml": "EDGE-0-073-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-074-0-p3-a0",
+      "aml": "EDGE-0-074-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-075-0-p3-a0",
+      "aml": "EDGE-0-075-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-076-0-p3-a0",
+      "aml": "EDGE-0-076-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-077-0-p3-a0",
+      "aml": "EDGE-0-077-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-078-0-p3-a0",
+      "aml": "EDGE-0-078-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-079-0-p3-a0",
+      "aml": "EDGE-0-079-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-080-0-p3-a0",
+      "aml": "EDGE-0-080-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-081-0-p3-a0",
+      "aml": "EDGE-0-081-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-082-0-p3-a0",
+      "aml": "EDGE-0-082-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-083-0-p3-a0",
+      "aml": "EDGE-0-083-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-084-0-p3-a0",
+      "aml": "EDGE-0-084-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-086-0-p3-a0",
+      "aml": "EDGE-0-086-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-087-0-p3-a0",
+      "aml": "EDGE-0-087-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-088-0-p3-a0",
+      "aml": "EDGE-0-088-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-089-0-p3-a0",
+      "aml": "EDGE-0-089-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-090-0-p3-a0",
+      "aml": "EDGE-0-090-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-091-0-p3-a0",
+      "aml": "EDGE-0-091-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-092-0-p1-a0",
+      "aml": "EDGE-0-092-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-092-0-p3-a0",
+      "aml": "EDGE-0-092-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-096-0-p1-a0",
+      "aml": "EDGE-0-096-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-096-0-p3-a0",
+      "aml": "EDGE-0-096-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-097-0-p3-a0",
+      "aml": "EDGE-0-097-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-102-0-p1-a0",
+      "aml": "EDGE-0-102-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-103-0-p1-a0",
+      "aml": "EDGE-0-103-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-104-0-p1-a0",
+      "aml": "EDGE-0-104-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-105-0-p1-a0",
+      "aml": "EDGE-0-105-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-106-0-p1-a0",
+      "aml": "EDGE-0-106-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-107-0-p1-a0",
+      "aml": "EDGE-0-107-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-108-0-p1-a0",
+      "aml": "EDGE-0-108-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-108-0-p3-a0",
+      "aml": "EDGE-0-108-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-109-0-p1-a0",
+      "aml": "EDGE-0-109-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-109-0-p3-a0",
+      "aml": "EDGE-0-109-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-110-0-p1-a0",
+      "aml": "EDGE-0-110-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-111-0-p1-a0",
+      "aml": "EDGE-0-111-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-111-0-p3-a0",
+      "aml": "EDGE-0-111-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-112-0-p1-a0",
+      "aml": "EDGE-0-112-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-112-0-p3-a0",
+      "aml": "EDGE-0-112-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-113-0-p1-a0",
+      "aml": "EDGE-0-113-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-114-0-p1-a0",
+      "aml": "EDGE-0-114-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-115-0-p1-a0",
+      "aml": "EDGE-0-115-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-116-0-p1-a0",
+      "aml": "EDGE-0-116-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-117-0-p1-a0",
+      "aml": "EDGE-0-117-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-117-0-p3-a0",
+      "aml": "EDGE-0-117-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-117-0-p5-a0",
+      "aml": "EDGE-0-117-0-p5-a0"
+    },
+    {
+      "layout": "EDGE-0-118-0-p0-a0",
+      "aml": "EDGE-0-118-0-p0-a0"
+    },
+    {
+      "layout": "EDGE-0-118-0-p1-a0",
+      "aml": "EDGE-0-118-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-118-0-p2-a0",
+      "aml": "EDGE-0-118-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-118-0-p4-a0",
+      "aml": "EDGE-0-118-0-p4-a0"
+    },
+    {
+      "layout": "EDGE-0-119-0-p3-a0",
+      "aml": "EDGE-0-119-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-120-0-p3-a0",
+      "aml": "EDGE-0-120-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-121-0-p3-a0",
+      "aml": "EDGE-0-121-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-122-0-p3-a0",
+      "aml": "EDGE-0-122-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-123-0-p3-a0",
+      "aml": "EDGE-0-123-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-124-0-p1-a0",
+      "aml": "EDGE-0-124-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-124-0-p3-a0",
+      "aml": "EDGE-0-124-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-126-0-p1-a0",
+      "aml": "EDGE-0-126-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-126-0-p3-a0",
+      "aml": "EDGE-0-126-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-128-0-p1-a0",
+      "aml": "EDGE-0-128-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-128-0-p3-a0",
+      "aml": "EDGE-0-128-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-129-0-p3-a0",
+      "aml": "EDGE-0-129-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-130-0-p3-a0",
+      "aml": "EDGE-0-130-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-131-0-p3-a0",
+      "aml": "EDGE-0-131-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-132-0-p1-a0",
+      "aml": "EDGE-0-132-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-132-0-p3-a0",
+      "aml": "EDGE-0-132-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-136-0-p0-a0",
+      "aml": "EDGE-0-136-0-p0-a0"
+    },
+    {
+      "layout": "EDGE-0-136-0-p2-a0",
+      "aml": "EDGE-0-136-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-137-0-p0-a0",
+      "aml": "EDGE-0-137-0-p0-a0"
+    },
+    {
+      "layout": "EDGE-0-137-0-p2-a0",
+      "aml": "EDGE-0-137-0-p2-a0"
+    },
+    {
+      "layout": "EDGE-0-138-0-p0-a0",
+      "aml": "EDGE-0-138-0-p0-a0"
+    },
+    {
+      "layout": "EDGE-0-139-0-p0-a0",
+      "aml": "EDGE-0-139-0-p0-a0"
+    },
+    {
+      "layout": "EDGE-0-140-0-p0-a0",
+      "aml": "EDGE-0-140-0-p0-a0"
+    },
+    {
+      "layout": "EDGE-0-140-0-p1-a0",
+      "aml": "EDGE-0-140-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-141-0-p1-a0",
+      "aml": "EDGE-0-141-0-p1-a0"
+    },
+    {
+      "layout": "EDGE-0-141-0-p3-a0",
+      "aml": "EDGE-0-141-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-142-0-p3-a0",
+      "aml": "EDGE-0-142-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-143-0-p3-a0",
+      "aml": "EDGE-0-143-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-0-144-0-p3-a0",
+      "aml": "EDGE-0-144-0-p3-a0"
+    },
+    {
+      "layout": "EDGE-3.2-002-0-p1",
+      "aml": "EDGE-3.2-002-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-003-0-p1",
+      "aml": "EDGE-3.2-003-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-004-0-p1",
+      "aml": "EDGE-3.2-004-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-005-0-p1",
+      "aml": "EDGE-3.2-005-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-006-0-p1",
+      "aml": "EDGE-3.2-006-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-007-0-p1",
+      "aml": "EDGE-3.2-007-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-011-0-p1",
+      "aml": "EDGE-3.2-011-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-012-0-p0",
+      "aml": "EDGE-3.2-012-0-p0"
+    },
+    {
+      "layout": "EDGE-3.2-012-0-p1",
+      "aml": "EDGE-3.2-012-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-016-0-p0",
+      "aml": "EDGE-3.2-016-0-p0"
+    },
+    {
+      "layout": "EDGE-3.2-016-0-p1",
+      "aml": "EDGE-3.2-016-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-017-0-p1",
+      "aml": "EDGE-3.2-017-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-018-0-p1",
+      "aml": "EDGE-3.2-018-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-019-0-p1",
+      "aml": "EDGE-3.2-019-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-020-0-p1",
+      "aml": "EDGE-3.2-020-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-021-0-p0",
+      "aml": "EDGE-3.2-021-0-p0"
+    },
+    {
+      "layout": "EDGE-3.2-021-0-p1",
+      "aml": "EDGE-3.2-021-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-025-0-p0",
+      "aml": "EDGE-3.2-025-0-p0"
+    },
+    {
+      "layout": "EDGE-3.2-025-0-p1",
+      "aml": "EDGE-3.2-025-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-029-0-p1",
+      "aml": "EDGE-3.2-029-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-030-0-p1",
+      "aml": "EDGE-3.2-030-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-031-0-p1",
+      "aml": "EDGE-3.2-031-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-032-0-p1",
+      "aml": "EDGE-3.2-032-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-033-0-p1",
+      "aml": "EDGE-3.2-033-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-034-0-p1",
+      "aml": "EDGE-3.2-034-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-035-0-p1",
+      "aml": "EDGE-3.2-035-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-036-0-p1",
+      "aml": "EDGE-3.2-036-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-037-0-p1",
+      "aml": "EDGE-3.2-037-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-038-0-p1",
+      "aml": "EDGE-3.2-038-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-039-0-p1",
+      "aml": "EDGE-3.2-039-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-040-0-p1",
+      "aml": "EDGE-3.2-040-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-041-0-p1",
+      "aml": "EDGE-3.2-041-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-042-0-p1",
+      "aml": "EDGE-3.2-042-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-043-0-p1",
+      "aml": "EDGE-3.2-043-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-044-0-p1",
+      "aml": "EDGE-3.2-044-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-044-1-p1",
+      "aml": "EDGE-3.2-044-1-p1"
+    },
+    {
+      "layout": "EDGE-3.2-045-0-p1",
+      "aml": "EDGE-3.2-045-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-049-0-p1",
+      "aml": "EDGE-3.2-049-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-050-0-p1",
+      "aml": "EDGE-3.2-050-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-051-0-p1",
+      "aml": "EDGE-3.2-051-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-052-0-p1",
+      "aml": "EDGE-3.2-052-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-053-0-p1",
+      "aml": "EDGE-3.2-053-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-054-0-p1",
+      "aml": "EDGE-3.2-054-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-055-0-p1",
+      "aml": "EDGE-3.2-055-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-058-0-p1",
+      "aml": "EDGE-3.2-058-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-059-0-p1",
+      "aml": "EDGE-3.2-059-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-060-0-p1",
+      "aml": "EDGE-3.2-060-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-061-0-p1",
+      "aml": "EDGE-3.2-061-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-061-1-p1",
+      "aml": "EDGE-3.2-061-1-p1"
+    },
+    {
+      "layout": "EDGE-3.2-062-0-p1",
+      "aml": "EDGE-3.2-062-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-063-0-p1",
+      "aml": "EDGE-3.2-063-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-064-0-p1",
+      "aml": "EDGE-3.2-064-0-p1"
+    },
+    {
+      "layout": "EDGE-3.2-065-0-p1",
+      "aml": "EDGE-3.2-065-0-p1"
+    },
+    {
+      "layout": "EDGE-6.4-003-0-p0",
+      "aml": "EDGE-6.4-003-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-004-0-p0",
+      "aml": "EDGE-6.4-004-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-005-0-p0",
+      "aml": "EDGE-6.4-005-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-006-0-p0",
+      "aml": "EDGE-6.4-006-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-007-0-p0",
+      "aml": "EDGE-6.4-007-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-008-0-p0",
+      "aml": "EDGE-6.4-008-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-009-0-p0",
+      "aml": "EDGE-6.4-009-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-010-0-p0",
+      "aml": "EDGE-6.4-010-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-011-0-p0",
+      "aml": "EDGE-6.4-011-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-012-0-p0",
+      "aml": "EDGE-6.4-012-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-013-0-p0",
+      "aml": "EDGE-6.4-013-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-017-0-p0",
+      "aml": "EDGE-6.4-017-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-018-0-p0",
+      "aml": "EDGE-6.4-018-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-019-0-p0",
+      "aml": "EDGE-6.4-019-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-020-0-p0",
+      "aml": "EDGE-6.4-020-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-021-0-p0",
+      "aml": "EDGE-6.4-021-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-022-0-p0",
+      "aml": "EDGE-6.4-022-0-p0"
+    },
+    {
+      "layout": "EDGE-6.4-023-0-p0",
+      "aml": "EDGE-6.4-023-0-p0"
+    },
+    {
+      "layout": "AWNING-join-wall-0-0",
+      "aml": "AWNING-join-wall-0-0"
+    },
+    {
+      "layout": "AWNING-join-wall-0-1",
+      "aml": "AWNING-join-wall-0-1"
+    },
+    {
+      "layout": "AWNING-join-wall-0-2",
+      "aml": "AWNING-join-wall-0-2"
+    },
+    {
+      "layout": "AWNING-join-wall-0-3",
+      "aml": "AWNING-join-wall-0-3"
+    },
+    {
+      "layout": "AWNING-join-wall-1-0",
+      "aml": "AWNING-join-wall-1-0"
+    },
+    {
+      "layout": "AWNING-join-wall-1-1",
+      "aml": "AWNING-join-wall-1-1"
+    },
+    {
+      "layout": "AWNING-join-wall-2-0",
+      "aml": "AWNING-join-wall-2-0"
+    },
+    {
+      "layout": "AWNING-join-wall-2-1",
+      "aml": "AWNING-join-wall-2-1"
+    },
+    {
+      "layout": "AWNING-join-wall-2-2",
+      "aml": "AWNING-join-wall-2-2"
+    },
+    {
+      "layout": "D-BUTCHER-2-p1",
+      "aml": "D-BUTCHER-2-p1"
+    },
+    {
+      "layout": "D-BUTCHER-lintel-p1",
+      "aml": "D-BUTCHER-lintel-p1"
+    },
+    {
+      "layout": "D-PAPER-1-p1",
+      "aml": "D-PAPER-1-p1"
+    },
+    {
+      "layout": "D-PAPER-lintel-p0",
+      "aml": "D-PAPER-lintel-p0"
+    },
+    {
+      "layout": "D-PAPER-lintel-p1",
+      "aml": "D-PAPER-lintel-p1"
+    },
+    {
+      "layout": "D-UNDER-W-1-p0",
+      "aml": "D-UNDER-W-1-p0"
+    },
+    {
+      "layout": "D-UNDER-W-1-p1",
+      "aml": "D-UNDER-W-1-p1"
+    },
+    {
+      "layout": "D-UNDER-W-2-p0",
+      "aml": "D-UNDER-W-2-p0"
+    },
+    {
+      "layout": "D-UNDER-W-lintel-p0",
+      "aml": "D-UNDER-W-lintel-p0"
+    },
+    {
+      "layout": "D-UNDER-N-1-p0",
+      "aml": "D-UNDER-N-1-p0"
+    },
+    {
+      "layout": "D-UNDER-N-2-p0",
+      "aml": "D-UNDER-N-2-p0"
+    },
+    {
+      "layout": "D-UNDER-N-lintel-p0",
+      "aml": "D-UNDER-N-lintel-p0"
+    },
+    {
+      "layout": "D-DYE-S-2-p0",
+      "aml": "D-DYE-S-2-p0"
+    },
+    {
+      "layout": "D-DYE-S-2-p1",
+      "aml": "D-DYE-S-2-p1"
+    },
+    {
+      "layout": "D-DYE-S-lintel-p0",
+      "aml": "D-DYE-S-lintel-p0"
+    },
+    {
+      "layout": "D-DYE-W-1-p0",
+      "aml": "D-DYE-W-1-p0"
+    },
+    {
+      "layout": "D-DYE-W-2-p0",
+      "aml": "D-DYE-W-2-p0"
+    },
+    {
+      "layout": "D-DYE-W-2-p1",
+      "aml": "D-DYE-W-2-p1"
+    },
+    {
+      "layout": "D-DYE-W-lintel-p0",
+      "aml": "D-DYE-W-lintel-p0"
+    },
+    {
+      "layout": "D-DYE-E-1-p1",
+      "aml": "D-DYE-E-1-p1"
+    },
+    {
+      "layout": "D-DYE-E-2-p0",
+      "aml": "D-DYE-E-2-p0"
+    },
+    {
+      "layout": "D-DYE-E-lintel-p0",
+      "aml": "D-DYE-E-lintel-p0"
+    },
+    {
+      "layout": "D-DYE-E-lintel-p1",
+      "aml": "D-DYE-E-lintel-p1"
+    },
+    {
+      "layout": "D-DYE-N-1-p1",
+      "aml": "D-DYE-N-1-p1"
+    },
+    {
+      "layout": "D-DYE-N-2-p0",
+      "aml": "D-DYE-N-2-p0"
+    },
+    {
+      "layout": "D-DYE-N-lintel-p0",
+      "aml": "D-DYE-N-lintel-p0"
+    },
+    {
+      "layout": "D-DYE-N-lintel-p1",
+      "aml": "D-DYE-N-lintel-p1"
+    },
+    {
+      "layout": "D-A-S-1-p3",
+      "aml": "D-A-S-1-p3"
+    },
+    {
+      "layout": "D-A-S-2-p3",
+      "aml": "D-A-S-2-p3"
+    },
+    {
+      "layout": "D-A-S-lintel-p3",
+      "aml": "D-A-S-lintel-p3"
+    },
+    {
+      "layout": "D-A-W-1-p1",
+      "aml": "D-A-W-1-p1"
+    },
+    {
+      "layout": "D-A-W-1-p3",
+      "aml": "D-A-W-1-p3"
+    },
+    {
+      "layout": "D-A-W-1-p5",
+      "aml": "D-A-W-1-p5"
+    },
+    {
+      "layout": "D-A-W-lintel-p3",
+      "aml": "D-A-W-lintel-p3"
+    },
+    {
+      "layout": "D-A-N-2-p1",
+      "aml": "D-A-N-2-p1"
+    },
+    {
+      "layout": "D-A-N-2-p3",
+      "aml": "D-A-N-2-p3"
+    },
+    {
+      "layout": "D-A-N-2-p5",
+      "aml": "D-A-N-2-p5"
+    },
+    {
+      "layout": "D-A-N-2-p7",
+      "aml": "D-A-N-2-p7"
+    },
+    {
+      "layout": "D-A-N-lintel-p3",
+      "aml": "D-A-N-lintel-p3"
+    },
+    {
+      "layout": "D-B-W-1-p1",
+      "aml": "D-B-W-1-p1"
+    },
+    {
+      "layout": "D-B-W-2-p1",
+      "aml": "D-B-W-2-p1"
+    },
+    {
+      "layout": "D-B-W-lintel-p1",
+      "aml": "D-B-W-lintel-p1"
+    },
+    {
+      "layout": "D-B-E-1-p1",
+      "aml": "D-B-E-1-p1"
+    },
+    {
+      "layout": "D-B-E-2-p1",
+      "aml": "D-B-E-2-p1"
+    },
+    {
+      "layout": "D-B-E-lintel-p1",
+      "aml": "D-B-E-lintel-p1"
+    },
+    {
+      "layout": "D-B-N-1-p1",
+      "aml": "D-B-N-1-p1"
+    },
+    {
+      "layout": "D-B-N-2-p1",
+      "aml": "D-B-N-2-p1"
+    },
+    {
+      "layout": "D-B-N-lintel-p1",
+      "aml": "D-B-N-lintel-p1"
+    },
+    {
+      "layout": "D-NORTH-2-p1",
+      "aml": "D-NORTH-2-p1"
+    },
+    {
+      "layout": "D-NORTH-lintel-p1",
+      "aml": "D-NORTH-lintel-p1"
+    },
+    {
+      "layout": "SCH-RETURN-p0",
+      "aml": "SCH-RETURN-p0"
+    },
+    {
+      "layout": "EAST-RETURN-p1",
+      "aml": "EAST-RETURN-p1"
+    },
+    {
+      "layout": "WELL-W-p1",
+      "aml": "WELL-W-p1"
+    },
+    {
+      "layout": "WELL-S-p1",
+      "aml": "WELL-S-p1"
+    },
+    {
+      "layout": "WELL-N-p1",
+      "aml": "WELL-N-p1"
+    },
+    {
+      "layout": "WELL-E-1-p1",
+      "aml": "WELL-E-1-p1"
+    },
+    {
+      "layout": "WELL-E-2-p1",
+      "aml": "WELL-E-2-p1"
+    },
+    {
+      "layout": "WELL-AP-sill-p0",
+      "aml": "WELL-AP-sill-p0"
+    },
+    {
+      "layout": "WELL-AP-head-p1",
+      "aml": "WELL-AP-head-p1"
+    },
+    {
+      "layout": "SIGN-W1-p1",
+      "aml": "SIGN-W1-p1"
+    },
+    {
+      "layout": "SIGN-entry-head-p1",
+      "aml": "SIGN-entry-head-p1"
+    },
+    {
+      "layout": "SIGN-W2-p1",
+      "aml": "SIGN-W2-p1"
+    },
+    {
+      "layout": "SIGN-sill-p0",
+      "aml": "SIGN-sill-p0"
+    },
+    {
+      "layout": "SIGN-head-p1",
+      "aml": "SIGN-head-p1"
+    },
+    {
+      "layout": "ROOF-SCREEN-p0",
+      "aml": "ROOF-SCREEN-p0"
+    },
+    {
+      "layout": "ROOF-FOLD-p0",
+      "aml": "ROOF-FOLD-p0"
+    },
+    {
+      "layout": "S1",
+      "aml": "S1",
+      "guards": [
+        "S1-L",
+        "S1-R"
+      ]
+    },
+    {
+      "layout": "S2",
+      "aml": "S2",
+      "guards": [
+        "S2-L",
+        "S2-R"
+      ]
+    },
+    {
+      "layout": "S3",
+      "aml": "S3",
+      "guards": [
+        "S3-L",
+        "S3-R"
+      ]
+    },
+    {
+      "layout": "S4",
+      "aml": "S4",
+      "guards": [
+        "S4-L",
+        "S4-R"
+      ]
+    },
+    {
+      "layout": "S5",
+      "aml": "S5",
+      "guards": [
+        "S5-L",
+        "S5-R"
+      ]
+    },
+    {
+      "layout": "S6",
+      "aml": "S6",
+      "guards": [
+        "S6-L",
+        "S6-R"
+      ]
+    },
+    {
+      "layout": "CORE",
+      "aml": "CORE"
+    },
+    {
+      "layout": "B-PRESS",
+      "aml": "B-PRESS"
+    },
+    {
+      "layout": "B-TABLE",
+      "aml": "B-TABLE"
+    },
+    {
+      "layout": "N-SORT",
+      "aml": "N-SORT"
+    },
+    {
+      "layout": "A-KILN",
+      "aml": "A-KILN"
+    },
+    {
+      "layout": "A-PALLET",
+      "aml": "A-PALLET"
+    },
+    {
+      "layout": "A-BENCH",
+      "aml": "A-BENCH"
+    },
+    {
+      "layout": "W-CART",
+      "aml": "W-CART"
+    },
+    {
+      "layout": "U-PIER",
+      "aml": "U-PIER"
+    },
+    {
+      "layout": "DYE-RACK",
+      "aml": "DYE-RACK"
+    },
+    {
+      "layout": "BOILER-TANK",
+      "aml": "BOILER-TANK"
+    },
+    {
+      "layout": "BUTCHER-COUNTER",
+      "aml": "BUTCHER-COUNTER"
+    },
+    {
+      "layout": "AWNING-STALL",
+      "aml": "AWNING-STALL"
+    },
+    {
+      "layout": "T-RETURN",
+      "aml": "T-RETURN"
+    },
+    {
+      "layout": "CT-RETURN",
+      "aml": "CT-RETURN"
+    },
+    {
+      "layout": "R-WATER",
+      "aml": "R-WATER"
+    },
+    {
+      "layout": "R-HUT",
+      "aml": "R-HUT"
+    },
+    {
+      "layout": "PL-MIDDLE",
+      "aml": "PL-MIDDLE-0"
+    },
+    {
+      "layout": "PL-MIDDLE",
+      "aml": "PL-MIDDLE-1"
+    },
+    {
+      "layout": "PL-MIDDLE",
+      "aml": "PL-MIDDLE-2"
+    },
+    {
+      "layout": "PL-MIDDLE",
+      "aml": "PL-MIDDLE-3"
+    },
+    {
+      "layout": "PL-MIDDLE",
+      "aml": "PL-MIDDLE-4"
+    },
+    {
+      "layout": "PL-ROOF",
+      "aml": "PL-ROOF-0"
+    },
+    {
+      "layout": "PL-ROOF",
+      "aml": "PL-ROOF-1"
+    },
+    {
+      "layout": "PL-ROOF",
+      "aml": "PL-ROOF-2"
+    },
+    {
+      "layout": "F1",
+      "aml": "F1-roof-0"
+    },
+    {
+      "layout": "F2",
+      "aml": "F2-roof-0"
+    },
+    {
+      "layout": "F3",
+      "aml": "F3-roof-0"
+    },
+    {
+      "layout": "F3",
+      "aml": "F3-roof-1"
+    },
+    {
+      "layout": "F3",
+      "aml": "F3-roof-2"
+    },
+    {
+      "layout": "F4",
+      "aml": "F4-roof-0"
+    },
+    {
+      "layout": "F5",
+      "aml": "F5-roof-0"
+    },
+    {
+      "layout": "F6",
+      "aml": "F6-roof-0"
+    },
+    {
+      "layout": "C01",
+      "aml": "C01-0"
+    },
+    {
+      "layout": "C01",
+      "aml": "C01-1"
+    },
+    {
+      "layout": "C02",
+      "aml": "C02-0"
+    },
+    {
+      "layout": "C02",
+      "aml": "C02-1"
+    },
+    {
+      "layout": "C02",
+      "aml": "C02-2"
+    },
+    {
+      "layout": "C03",
+      "aml": "C03-0"
+    },
+    {
+      "layout": "C03",
+      "aml": "C03-1"
+    },
+    {
+      "layout": "C03",
+      "aml": "C03-2"
+    },
+    {
+      "layout": "C04",
+      "aml": "C04-0"
+    },
+    {
+      "layout": "C04",
+      "aml": "C04-1"
+    },
+    {
+      "layout": "C04",
+      "aml": "C04-2"
+    },
+    {
+      "layout": "C05",
+      "aml": "C05-0"
+    },
+    {
+      "layout": "C05",
+      "aml": "C05-1"
+    },
+    {
+      "layout": "C06",
+      "aml": "C06-0"
+    },
+    {
+      "layout": "C07",
+      "aml": "C07-0"
+    },
+    {
+      "layout": "C08",
+      "aml": "C08-0"
+    },
+    {
+      "layout": "C08",
+      "aml": "C08-1"
+    },
+    {
+      "layout": "C08",
+      "aml": "C08-2"
+    },
+    {
+      "layout": "C08",
+      "aml": "C08-3"
+    }
+  ],
+  "constructionNotes": [
+    "F1/F2/F5/F6 roof thickness is .25 rather than .24 to close the paper .01 m wall/soffit gap. Top elevations unchanged.",
+    "Roof faces coincident with playable slabs are omitted where those slabs already provide real enclosure/support.",
+    "All six flights retain native horizontal treads and graded parapets. Custom soffits enclose unusably low portions of S1\u2013S5; the claimed S3/S5/S6 underpasses remain real open volumes.",
+    "Awning paving and local lintel, bearing and joint repairs realize the intended L02 links. Exact dimensions are in production-layout/physical-repairs-r08.json.",
+    "Ground lightwell walls stop at 3.2 m and attach to upper facades through nonplayable setback caps; the service core reaches ground. V-WELL and the upper roof hole are unchanged.",
+    "Facade panes are flush, noncolliding visualization-only infill on contextual masses; no new gameplay window or route."
+  ]
+}

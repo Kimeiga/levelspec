@@ -1,0 +1,94 @@
+{
+  "jobs": {
+    "liquor-rice-sack": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "832519fe-23f5-4392-a51f-773818bdab8c",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-rice-sack-832519fe"
+    },
+    "liquor-egg-basket": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "0a8afa35-a1ee-4580-9ace-5715c47dcfb6",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-egg-basket-0a8afa35"
+    },
+    "liquor-garlic-braid": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "4c4de109-a61e-4b61-951f-24bb3ae06239",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-garlic-braid-4c4de109"
+    },
+    "liquor-counter-scale": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "be500c34-d826-480c-b37e-a249ae760436",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-counter-scale-be500c34"
+    },
+    "liquor-bottle-crate": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "cbdbccf1-b034-49a2-9744-9f8d558b2d9b",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-bottle-crate-cbdbccf1"
+    },
+    "liquor-drink-bottle": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "9596a42d-93f5-4b82-8252-456ec367dec1",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-drink-bottle-9596a42d"
+    },
+    "liquor-food-tin": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "77df3aeb-028a-45bf-9116-4d6325beb04c",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-food-tin-77df3aeb"
+    },
+    "liquor-tea-carton": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "f18e0cd2-bdfb-4cb5-b8f3-cb11c831930d",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-tea-carton-f18e0cd2"
+    },
+    "liquor-tissue-roll": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "98ab5d8f-7bf1-4f41-b030-eb98e1c5d03e",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-tissue-roll-98ab5d8f"
+    },
+    "liquor-shop-stool": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "a56c5da3-74e7-4767-9911-0d3ec86e4f23",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-shop-stool-a56c5da3"
+    },
+    "liquor-shop-counter": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "62a19957-80e7-470d-a159-a5f46182c3ea",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-shop-counter-62a19957"
+    },
+    "liquor-drinks-cooler": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "49d640de-8c82-45f5-bf40-bcc316848c6f",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-drinks-cooler-49d640de"
+    },
+    "liquor-pendant-lamp": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "387f5980-fca4-45b9-ac20-6a21925654ae",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-pendant-lamp-387f5980"
+    },
+    "liquor-ceiling-fan": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "7819cec6-525c-402b-81c3-c0923964c242",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-ceiling-fan-7819cec6"
+    },
+    "liquor-fluorescent-batten": {
+      "status": "success",
+      "attempts": 1,
+      "task_id": "90ef6192-7858-4e38-bc9c-62111328722e",
+      "output_dir": "generated/liquor-props/tripo-out/liquor-fluorescent-batten-90ef6192"
+    }
+  }
+}

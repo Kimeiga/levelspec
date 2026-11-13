@@ -1,19 +1,29 @@
+import type { CompiledLevel } from "../src/vector/types.ts";
 import { zipSync, strToU8 } from "fflate";
+import { materialCompanions } from "../src/vector/materials.ts";
 import {
   toGLB,
   toGLTF,
   exportName,
   exportMetadata,
   resolveExportAssets,
-  type CompiledLevel,
+  parseAml,
   type ExportFormat,
   type ExportFiles,
-} from "../src/vector/index.ts";
+} from "../src/architecture/index.ts";
 type Snapshot = {
   level: CompiledLevel;
   source: string;
   companions: Map<string, File>;
 };
+
+/** Encodes an already admitted image or mesh for the local export request. */
+function encodeBytes(bytes: Uint8Array): string {
+  let binary = "";
+  for (let i = 0; i < bytes.length; i += 8192)
+    binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
+  return btoa(binary);
+}
 export function setupExport(getSnapshot: () => Snapshot | undefined) {
   const button = document.getElementById("export") as HTMLButtonElement;
   const dialog = document.createElement("dialog");
@@ -27,7 +37,7 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
       <label><input type="checkbox" name="format" value="bsp" disabled> Quake BSP2 <small>Modern Quake ports · requires compiler and palette</small></label>
     </fieldset>
     <p class="export-dependencies" role="status">Checking local export tools…</p>
-    <details><summary>Companion assets</summary><p>Select referenced PNG/JPEG material images and GLB meshes, or their parent folder. Paths are relative to the SVGX file.</p>
+    <details><summary>Companion assets</summary><p>Select referenced PNG/JPEG material images and GLB meshes, or their parent folder. Paths are relative to the AML file.</p>
       <label>Files <input id="export-images" type="file" accept=".png,.jpg,.jpeg,.glb" multiple></label>
       <label>Asset folder <input id="export-folder" type="file" webkitdirectory multiple></label>
       <p id="export-assets">No companion files selected.</p>
@@ -104,7 +114,7 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
       ].join(" ");
     } catch {
       dependencies.textContent =
-        "Native export is available through the local viewer (npm run dev) or CLI: npm run compile:vector -- map.level.svgx --formats fbx,bsp. Set BLENDER_PATH, QBSP_PATH, VIS_PATH, LIGHT_PATH and QUAKE_PALETTE_PATH as needed.";
+        "Native export is available through the local viewer (npm run dev) or CLI: npm run compile -- map.aml --formats fbx,bsp. Set BLENDER_PATH, QBSP_PATH, VIS_PATH, LIGHT_PATH and QUAKE_PALETTE_PATH as needed.";
     }
     busy(false);
   };
@@ -128,35 +138,44 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
     busy(true);
     try {
       status.textContent = "Resolving material images…";
+      const imageSnapshots = new Map<string, Uint8Array>();
+      /** Reads source image companions once, preserving the same bytes throughout this export. */
+      const readImage = async (reference: string): Promise<Uint8Array> => {
+        abort.signal.throwIfAborted();
+        const cached = imageSnapshots.get(reference);
+        if (cached) return cached;
+        const normalized = reference.replaceAll("\\", "/").replace(/^\.\//, "");
+        const file = files.get(normalized) ?? files.get(normalized.split("/").at(-1)!);
+        if (!file) throw new Error(`Select "${reference}" or its containing folder.`);
+        if (file.size > 16 * 1024 * 1024) throw new Error(`Material image exceeds its encoded byte budget: ${reference}`);
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        abort.signal.throwIfAborted();
+        imageSnapshots.set(reference, bytes);
+        return bytes;
+      };
       const assets = await resolveExportAssets(
         snapshot.level,
-        async (ref) => {
-          const normalized = ref.replaceAll("\\", "/").replace(/^\.\//, "");
-          const file = files.get(normalized);
-          if (!file)
-            throw new Error(`Select "${ref}" or its containing folder.`);
-          return new Uint8Array(await file.arrayBuffer());
-        },
+        readImage,
         abort.signal,
       );
       if (formats.some((f) => f === "fbx" || f === "bsp")) {
         const encoded: Record<string, string> = {},
           meshAssets: Record<string, string> = {};
         for (const [ref, asset] of Object.entries(assets)) {
-          let binary = "";
-          for (let i = 0; i < asset.bytes.length; i += 8192)
-            binary += String.fromCharCode(...asset.bytes.subarray(i, i + 8192));
-          encoded[ref] = btoa(binary);
+          encoded[ref] = encodeBytes(asset.bytes);
         }
+        for (const material of parseAml(snapshot.source).materials)
+          for (const reference of materialCompanions(material))
+            encoded[reference] ??= encodeBytes(await readImage(reference));
         for (const asset of snapshot.level.document.assets ?? []) {
-          const normalized = asset.src.replaceAll("\\", "/").replace(/^\.\//, ""),
-            file = files.get(normalized) ?? files.get(normalized.split("/").at(-1)!);
+          const normalized = asset.src
+              .replaceAll("\\", "/")
+              .replace(/^\.\//, ""),
+            file =
+              files.get(normalized) ?? files.get(normalized.split("/").at(-1)!);
           if (!file) throw new Error(`Select companion GLB "${asset.src}".`);
           const bytes = new Uint8Array(await file.arrayBuffer());
-          let binary = "";
-          for (let i = 0; i < bytes.length; i += 8192)
-            binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
-          meshAssets[asset.src] = btoa(binary);
+          meshAssets[asset.src] = encodeBytes(bytes);
         }
         const response = await fetch("/api/exports", {
           method: "POST",
@@ -209,6 +228,8 @@ export function setupExport(getSnapshot: () => Snapshot | undefined) {
               2,
             ),
           };
+        for (const image of Object.values(snapshot.level.generatedImages ?? {}))
+          bundle[image.file] = image.bytes;
         if (formats.includes("glb"))
           bundle[`${name}.glb`] = toGLB(snapshot.level, { assets });
         if (formats.includes("gltf"))

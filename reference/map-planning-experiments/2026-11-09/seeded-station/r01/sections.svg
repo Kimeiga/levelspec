@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="1080" viewBox="0 0 1520 1080">
+<rect width="100%" height="100%" fill="#f6f3eb"/>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 7L7 0" stroke="#839297" stroke-width="1"/></pattern><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0L6 3L0 6" fill="#4b7985"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#34474a} .label{font-size:13px;font-weight:bold;paint-order:stroke;stroke:#f6f3eb;stroke-width:3px;stroke-linejoin:round}.small{font-size:11px}.micro{font-size:10px}.note{font-size:14px}.route{fill:none;stroke:#4b7985;stroke-width:2;stroke-dasharray:5 4;marker-end:url(#arrow)}</style>
+<text x="60" y="47" font-size="30" font-weight="bold">BRACKEN QUAY · sections and building organization</text>
+<text x="60" y="79" font-size="16">Matched floor datums and shared volumes · dimensions are provisional design estimates</text>
+<text x="60" y="109" font-size="13">Developed initial spatial proposal · phase 1 · invented station · no independent review, AML, navigation or gameplay validation</text>
+<text x="60" y="160" font-size="18" style="fill:#34474a">S–S / looking east through parcels, north platform, express island and quay</text>
+<path d="M90 520H1130V650H90Z" fill="#deded2" stroke="#63766b" stroke-width="2"/>
+<path d="M360 568H1040V640H360Z" fill="#bed4dc" stroke="#34474a" stroke-width="2"/>
+<path d="M625 520H710V640H625Z" fill="#bed4dc" stroke="#34474a" stroke-width="2"/>
+<path d="M625 640H1080V664H625Z" fill="#bed4dc" stroke="#34474a" stroke-width="2"/>
+<path d="M155 520V352H345V520M345 520V345Q500 268 670 268Q850 268 1040 345V520" fill="#ece8da" stroke="#34474a" stroke-width="4"/>
+<path d="M170 350V300H330V350M345 340Q500 263 670 263Q850 263 1040 340" fill="none" stroke="#7f918a" stroke-width="2"/>
+<path d="M490 520V546.4H580V520M820 520V546.4H910V520" fill="#c8c9bd" stroke="#34474a" stroke-width="2"/>
+<rect x="495" y="445" width="80" height="92" rx="10" fill="#91a19e" stroke="#34474a" stroke-width="2"/>
+<path d="M470 520V412H780V520M485 520V422H765V520" fill="none" stroke="#8b7d9e" stroke-width="7" stroke-dasharray="8 4"/>
+<path d="M625 520V640M710 520V640" stroke="#34474a" stroke-width="2"/>
+<path d="M665 520l-13 12h13l-13 12h13l-13 12h13l-13 12h13l-13 12h13l-13 12h13l-13 12h13l-13 12h13l-13 12h13l-13 12" fill="none" stroke="#8b7d9e" stroke-width="3"/>
+<text x="180" y="420" font-size="13" style="fill:#34474a">12 parcels</text>
+<text x="180" y="439" font-size="13" style="fill:#34474a">roof +7.0</text>
+<text x="180" y="458" font-size="13" style="fill:#34474a">platform floor 0</text>
+<text x="363" y="474" font-size="13" style="fill:#34474a">north</text>
+<text x="363" y="493" font-size="13" style="fill:#34474a">platform</text>
+<text x="590" y="490" font-size="13" style="fill:#34474a">15 island</text>
+<text x="590" y="509" font-size="13" style="fill:#34474a">B beyond</text>
+<text x="841" y="480" font-size="13" style="fill:#34474a">south</text>
+<text x="841" y="499" font-size="13" style="fill:#34474a">track bed</text>
+<text x="120" y="570" font-size="13" style="fill:#34474a">retained</text>
+<text x="120" y="589" font-size="13" style="fill:#34474a">embankment</text>
+<text x="805" y="590" font-size="12" style="fill:#34474a">cut runs along the subway</text>
+<text x="805" y="608" font-size="12" style="fill:#34474a">solid fill lies on either side</text>
+<text x="630" y="612" font-size="13" style="fill:#34474a">subway −5</text>
+<text x="630" y="631" font-size="13" style="fill:#34474a">3 m clear</text>
+<text x="950" y="685" font-size="13" style="fill:#34474a">quay −5.00 / open sky</text>
+<text x="635" y="245" font-size="14" style="fill:#34474a">Iron-and-glass shed roof / ridge +10.5</text>
+<text x="524" y="397" font-size="12" style="fill:#34474a">F footbridge +4.5 / local structure at east end, shown dashed projection</text>
+<text x="1070" y="515" font-size="13" style="fill:#34474a">z0.00</text>
+<text x="1070" y="548" font-size="13" style="fill:#34474a">track −1.10</text>
+<text x="1070" y="640" font-size="13" style="fill:#34474a">z−5.00</text>
+<path d="M1085 520v120m-5 -120h10m-10 120h10" stroke="#aa6b57" fill="none"/>
+<text x="60" y="734" font-size="18" style="fill:#34474a">G–G / freight warehouse and road-loading floor</text>
+<path d="M90 965V840L275 785L460 840V965M90 880H460M90 965H460" fill="#e4c6ad" stroke="#34474a" stroke-width="3"/>
+<path d="M90 880H235M310 880H460M235 880V887M310 880V887" fill="none" stroke="#f6f3eb" stroke-width="8"/>
+<path d="M235 880V886M310 880V886M272 810V940" fill="none" stroke="#34474a" stroke-width="2"/>
+<rect x="248" y="915" width="48" height="26" fill="#a7bbc0" stroke="#34474a"/>
+<text x="110" y="865" font-size="13" style="fill:#34474a">upper freight bank / A · z0</text>
+<text x="110" y="950" font-size="13" style="fill:#34474a">17 road-loading floor · z−5</text>
+<text x="323" y="921" font-size="12" style="fill:#34474a">G stair</text>
+<path d="M335 958l10 -8h10l10 -8h10l10 -8h10l10 -8h10l10 -8h10l10 -8" stroke="#8b7d9e" stroke-width="3" fill="none"/>
+<text x="500" y="790" font-size="14" style="fill:#34474a">BUILDING READING</text>
+<text x="500" y="810" font-size="14" style="fill:#34474a">A masonry civic headhouse leads into a high fan-shaped circulation room.</text>
+<text x="500" y="830" font-size="14" style="fill:#34474a">The passenger shed is one continuous roofed volume around rails and platforms.</text>
+<text x="500" y="850" font-size="14" style="fill:#34474a">The freight building uses the same rail datum but opens to the lower road court.</text>
+<text x="500" y="870" font-size="14" style="fill:#34474a">The embankment contains a public subway and retained fill; it is not a hollow maze.</text>
+<text x="500" y="890" font-size="14" style="fill:#34474a">No train movement, track walking, hoist riding or playable water is assumed.</text>
+<text x="500" y="955" font-size="13" style="fill:#34474a">Next study: independent spatial interest, then mechanics, route/visibility development.</text>
+<text x="500" y="974" font-size="13" style="fill:#34474a">These drawings stop before that review and before physical modeling.</text>
+</svg>

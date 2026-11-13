@@ -1,0 +1,1479 @@
+{
+ "sourceSha256": "726e499a31d384abdf7acec885353fcb4c6cda7930c389438343e4b203ae85d6",
+ "physicalHash": "0e8cba27fb6e6813a833272fd93b42f67c58852bcde8b89a9ceb4ecedfc1d576",
+ "renderHash": "f8c519757b60e5c2a8435ec1ba19122c89f94f6e72c13ecb408de8c6972a4e1d",
+ "player": {
+  "radius": 0.25,
+  "height": 2,
+  "step": 0.25,
+  "slope": 42,
+  "crouch": 1.1,
+  "vault": 0,
+  "rappel": false,
+  "ladder": false
+ },
+ "diagnosticCounts": {
+  "warning FLIGHT_OPEN_SIDE": 24,
+  "warning NAV_ISLAND": 43
+ },
+ "errors": [],
+ "navigation": {
+  "passed": false,
+  "routes": [
+   {
+    "id": "J-TA-school",
+    "distance": 71.96656581127247
+   },
+   {
+    "id": "J-TA-saishing",
+    "distance": 71.96656581127247
+   },
+   {
+    "id": "J-TB-kwong",
+    "distance": 72.42989117745584
+   },
+   {
+    "id": "J-TB-fishball",
+    "distance": 72.42989117745584
+   },
+   {
+    "id": "J-T-mid",
+    "distance": 60.57369696155957
+   },
+   {
+    "id": "J-T-rot",
+    "distance": 39.59062966938208
+   },
+   {
+    "id": "J-CT-mid",
+    "distance": 34.64306727055727
+   },
+   {
+    "id": "J-CT-A",
+    "distance": 54.904283230556445
+   },
+   {
+    "id": "J-CT-A-outer",
+    "distance": 54.904283230556445
+   },
+   {
+    "id": "J-CT-B",
+    "distance": 60.48343548188458
+   },
+   {
+    "id": "J-CT-B-outer",
+    "distance": 60.48343548188458
+   },
+   {
+    "id": "J-CT-rot",
+    "distance": 70.42936611350073
+   },
+   {
+    "id": "J-half",
+    "distance": 47.411888853581964
+   },
+   {
+    "id": "J-low-link",
+    "distance": 32.892305819682896
+   },
+   {
+    "id": "J-catwalk",
+    "distance": 19.12490265600565
+   }
+  ]
+ },
+ "results": [
+  {
+   "id": "J-TA-school",
+   "kind": "journey: T spawn → South Gate → Lung Chun W → Free School stairs → gallery → Slot yard → A",
+   "reverse": false,
+   "ok": true,
+   "distance": 83.24,
+   "seconds": 24.5
+  },
+  {
+   "id": "J-TA-school",
+   "kind": "journey: T spawn → South Gate → Lung Chun W → Free School stairs → gallery → Slot yard → A",
+   "reverse": true,
+   "ok": true,
+   "distance": 83.24,
+   "seconds": 24.5
+  },
+  {
+   "id": "J-TA-saishing",
+   "kind": "journey: T spawn → Lung Chun W jog → Well Court → Sai Shing flights → diagonal lane → A (SW)",
+   "reverse": false,
+   "ok": true,
+   "distance": 88.69,
+   "seconds": 26.1
+  },
+  {
+   "id": "J-TA-saishing",
+   "kind": "journey: T spawn → Lung Chun W jog → Well Court → Sai Shing flights → diagonal lane → A (SW)",
+   "reverse": true,
+   "ok": true,
+   "distance": 88.69,
+   "seconds": 26.1
+  },
+  {
+   "id": "J-TB-kwong",
+   "kind": "journey: T spawn → apron east → Kwong Ming Street → jog → foundry mouth → B",
+   "reverse": false,
+   "ok": true,
+   "distance": 86.06,
+   "seconds": 25.3
+  },
+  {
+   "id": "J-TB-kwong",
+   "kind": "journey: T spawn → apron east → Kwong Ming Street → jog → foundry mouth → B",
+   "reverse": true,
+   "ok": true,
+   "distance": 86.06,
+   "seconds": 25.3
+  },
+  {
+   "id": "J-TB-fishball",
+   "kind": "journey: T spawn → Kwong Ming → Fishball workshop → B (SW door)",
+   "reverse": false,
+   "ok": true,
+   "distance": 86.38,
+   "seconds": 25.4
+  },
+  {
+   "id": "J-TB-fishball",
+   "kind": "journey: T spawn → Kwong Ming → Fishball workshop → B (SW door)",
+   "reverse": true,
+   "ok": true,
+   "distance": 86.38,
+   "seconds": 25.4
+  },
+  {
+   "id": "J-T-mid",
+   "kind": "journey: T spawn → South Gate → Cannon Court → Yamen gate → hall steps → inner court → west wing steps → rear strip",
+   "reverse": false,
+   "ok": true,
+   "distance": 73.82,
+   "seconds": 21.7
+  },
+  {
+   "id": "J-T-mid",
+   "kind": "journey: T spawn → South Gate → Cannon Court → Yamen gate → hall steps → inner court → west wing steps → rear strip",
+   "reverse": true,
+   "ok": true,
+   "distance": 73.82,
+   "seconds": 21.7
+  },
+  {
+   "id": "J-T-rot",
+   "kind": "journey: Attacker inner rotation: Lung Chun W mouth → round the ruin → Lung Chun E → Kwong Ming",
+   "reverse": false,
+   "ok": true,
+   "distance": 41.97,
+   "seconds": 12.3
+  },
+  {
+   "id": "J-T-rot",
+   "kind": "journey: Attacker inner rotation: Lung Chun W mouth → round the ruin → Lung Chun E → Kwong Ming",
+   "reverse": true,
+   "ok": true,
+   "distance": 41.97,
+   "seconds": 12.3
+  },
+  {
+   "id": "J-CT-mid",
+   "kind": "journey: CT spawn → Youth hall → back yard → west lane top → rear strip",
+   "reverse": false,
+   "ok": true,
+   "distance": 37.6,
+   "seconds": 11.1
+  },
+  {
+   "id": "J-CT-mid",
+   "kind": "journey: CT spawn → Youth hall → back yard → west lane top → rear strip",
+   "reverse": true,
+   "ok": true,
+   "distance": 37.6,
+   "seconds": 11.1
+  },
+  {
+   "id": "J-CT-A",
+   "kind": "journey: CT spawn → Youth hall → Clinic corridor → Dentist shop → A north mouth → east gap → plant",
+   "reverse": false,
+   "ok": true,
+   "distance": 75.85,
+   "seconds": 22.3
+  },
+  {
+   "id": "J-CT-A",
+   "kind": "journey: CT spawn → Youth hall → Clinic corridor → Dentist shop → A north mouth → east gap → plant",
+   "reverse": true,
+   "ok": true,
+   "distance": 75.85,
+   "seconds": 22.3
+  },
+  {
+   "id": "J-CT-A-outer",
+   "kind": "journey: CT spawn → frontage → NW lane → Dentist shop → A",
+   "reverse": false,
+   "ok": true,
+   "distance": 72.42,
+   "seconds": 21.3
+  },
+  {
+   "id": "J-CT-A-outer",
+   "kind": "journey: CT spawn → frontage → NW lane → Dentist shop → A",
+   "reverse": true,
+   "ok": true,
+   "distance": 72.42,
+   "seconds": 21.3
+  },
+  {
+   "id": "J-CT-B",
+   "kind": "journey: CT spawn → Youth hall → East yard → East lane top → Coffin lane → mezzanine → west stair → B floor",
+   "reverse": false,
+   "ok": true,
+   "distance": 71.92,
+   "seconds": 21.2
+  },
+  {
+   "id": "J-CT-B",
+   "kind": "journey: CT spawn → Youth hall → East yard → East lane top → Coffin lane → mezzanine → west stair → B floor",
+   "reverse": true,
+   "ok": true,
+   "distance": 71.92,
+   "seconds": 21.2
+  },
+  {
+   "id": "J-CT-B-outer",
+   "kind": "journey: CT spawn → frontage → NE lane → mezzanine → west stair → B floor",
+   "reverse": false,
+   "ok": true,
+   "distance": 91.75,
+   "seconds": 27
+  },
+  {
+   "id": "J-CT-B-outer",
+   "kind": "journey: CT spawn → frontage → NE lane → mezzanine → west stair → B floor",
+   "reverse": true,
+   "ok": true,
+   "distance": 91.75,
+   "seconds": 27
+  },
+  {
+   "id": "J-CT-rot",
+   "kind": "journey: Defender rotation A → Slot yard → gallery → back door → rear strip → East lane top → Coffin lane → mezzanine",
+   "reverse": false,
+   "ok": true,
+   "distance": 84.84,
+   "seconds": 25
+  },
+  {
+   "id": "J-CT-rot",
+   "kind": "journey: Defender rotation A → Slot yard → gallery → back door → rear strip → East lane top → Coffin lane → mezzanine",
+   "reverse": true,
+   "ok": true,
+   "distance": 84.84,
+   "seconds": 25
+  },
+  {
+   "id": "J-half",
+   "kind": "journey: Half-level lateral: Sai Shing landing → Tooth shop → School landing → west wing → inner court → East landing",
+   "reverse": false,
+   "ok": true,
+   "distance": 52.87,
+   "seconds": 15.5
+  },
+  {
+   "id": "J-half",
+   "kind": "journey: Half-level lateral: Sai Shing landing → Tooth shop → School landing → west wing → inner court → East landing",
+   "reverse": true,
+   "ok": true,
+   "distance": 52.87,
+   "seconds": 15.5
+  },
+  {
+   "id": "J-low-link",
+   "kind": "journey: Yamen front court → East lane → Rubbish yard → Fishball workshop → Kwong Ming",
+   "reverse": false,
+   "ok": true,
+   "distance": 42.71,
+   "seconds": 12.6
+  },
+  {
+   "id": "J-low-link",
+   "kind": "journey: Yamen front court → East lane → Rubbish yard → Fishball workshop → Kwong Ming",
+   "reverse": true,
+   "ok": true,
+   "distance": 42.71,
+   "seconds": 12.6
+  },
+  {
+   "id": "J-catwalk",
+   "kind": "journey: Mezzanine west arm → catwalk → Fishball roof perch (experimental)",
+   "reverse": false,
+   "ok": true,
+   "distance": 19.13,
+   "seconds": 5.6
+  },
+  {
+   "id": "J-catwalk",
+   "kind": "journey: Mezzanine west arm → catwalk → Fishball roof perch (experimental)",
+   "reverse": true,
+   "ok": true,
+   "distance": 19.13,
+   "seconds": 5.6
+  },
+  {
+   "id": "SY1-line--2.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY1-line--2.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY1-line-2.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY1-line-2.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLW2-line--1.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLW2-line--1.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLW2-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLW2-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLW2-line-1.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLW2-line-1.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY2b-line--0.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY2b-line--0.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY2b-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY2b-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY2b-line-0.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SY2b-line-0.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE1-line--1.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE1-line--1.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE1-line-1.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE1-line-1.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE2-line--1.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE2-line--1.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE2-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE2-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE2-line-1.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SLE2-line-1.40",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW1-line--0.70",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW1-line--0.70",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW1-line-0.70",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW1-line-0.70",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW2-line--0.70",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW2-line--0.70",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW2-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW2-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW2-line-0.70",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SW2-line-0.70",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS1-line--1.15",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS1-line--1.15",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS1-line-1.15",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS1-line-1.15",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS2-line--0.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS2-line--0.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS2-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS2-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS2-line-0.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SS2-line-0.90",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB1-line--0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 9.96,
+   "seconds": 2.9
+  },
+  {
+   "id": "SB1-line--0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 9.96,
+   "seconds": 2.9
+  },
+  {
+   "id": "SB1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 9.96,
+   "seconds": 2.9
+  },
+  {
+   "id": "SB1-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 9.96,
+   "seconds": 2.9
+  },
+  {
+   "id": "SB1-line-0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 9.96,
+   "seconds": 2.9
+  },
+  {
+   "id": "SB1-line-0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 9.96,
+   "seconds": 2.9
+  },
+  {
+   "id": "SB2a-line--0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2a-line--0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2a-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2a-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2a-line-0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2a-line-0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2b-line--0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2b-line--0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2b-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2b-line-0.00",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2b-line-0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": false,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  },
+  {
+   "id": "SB2b-line-0.60",
+   "kind": "stair: landing before foot, mid-flight, landing beyond crest (seams crossed mid-segment)",
+   "reverse": true,
+   "ok": true,
+   "distance": 5.88,
+   "seconds": 1.7
+  }
+ ],
+ "views": [
+  {
+   "id": "V-spawn",
+   "note": "Spawn to spawn",
+   "expect": "blocked",
+   "feet": [
+    52,
+    6,
+    0.01
+   ],
+   "targetFeet": [
+    46.179,
+    88.843,
+    3.4100000953674314
+   ],
+   "distance": 83.1,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-strip-front",
+   "note": "Rear strip parapet to the front court: hall roof should hide the front court",
+   "expect": "blocked",
+   "feet": [
+    49.986,
+    53.635,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    53.59,
+    35.379,
+    0.01
+   ],
+   "distance": 18.9,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-strip-court",
+   "note": "Rear strip parapet down into the inner court",
+   "expect": "visible",
+   "feet": [
+    49.986,
+    53.635,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    49.207,
+    51.057,
+    1.7100000476837158
+   ],
+   "distance": 3.2,
+   "postures": {
+    "stand->stand": true,
+    "stand->crouch": true,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": true,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-steps-strip",
+   "note": "Foot of the hall steps to the strip: hall and screen should block",
+   "expect": "blocked",
+   "feet": [
+    53.198,
+    39.862,
+    0.01
+   ],
+   "targetFeet": [
+    49.986,
+    53.635,
+    3.4100000953674314
+   ],
+   "distance": 14.5,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-gallery-court",
+   "note": "School gallery window GW1 into the inner court",
+   "expect": "visible",
+   "feet": [
+    34.619,
+    50.283,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    46.219,
+    50.795,
+    1.7100000476837158
+   ],
+   "distance": 11.7,
+   "postures": {
+    "stand->stand": true,
+    "stand->crouch": true,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": true,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-gallery-strip",
+   "note": "School gallery window GW2 along the strip",
+   "expect": "visible",
+   "feet": [
+    34.314,
+    53.769,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    49.594,
+    58.117,
+    3.4100000953674314
+   ],
+   "distance": 15.9,
+   "postures": {
+    "stand->stand": true,
+    "stand->crouch": true,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": true,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-tunnel-gate",
+   "note": "South Gate tunnel mouth to the Yamen gate: ruin wall",
+   "expect": "blocked",
+   "feet": [
+    48,
+    15,
+    0.01
+   ],
+   "targetFeet": [
+    53.896,
+    31.893,
+    0.01
+   ],
+   "distance": 17.9,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-lung-through",
+   "note": "Along Lung Chun Road through Cannon Court: ruin footing on the line",
+   "expect": "blocked",
+   "feet": [
+    37.68,
+    21.933,
+    0.01
+   ],
+   "targetFeet": [
+    73.237,
+    16.301,
+    0.01
+   ],
+   "distance": 36,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-lung-slit",
+   "note": "South-edge thread past the ruin footing",
+   "expect": "blocked",
+   "feet": [
+    44.437,
+    19.85,
+    0.01
+   ],
+   "targetFeet": [
+    75.04,
+    14.902,
+    0.01
+   ],
+   "distance": 31,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-strip-length",
+   "note": "Full length of the defenders crossing",
+   "expect": "visible",
+   "feet": [
+    37.124,
+    57.227,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    65.515,
+    59.711,
+    3.4100000953674314
+   ],
+   "distance": 28.5,
+   "postures": {
+    "stand->stand": true,
+    "stand->crouch": true,
+    "crouch->stand": true,
+    "crouch->crouch": true
+   },
+   "feetSeen": true,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-A-sw-north",
+   "note": "A SW arrival to the north mouth: Tin Hau hall between",
+   "expect": "blocked",
+   "feet": [
+    9.034,
+    53.3,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    17.323,
+    69.199,
+    3.4100000953674314
+   ],
+   "distance": 17.9,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-A-east-plant",
+   "note": "A east door to the plant: screen wall",
+   "expect": "blocked",
+   "feet": [
+    23.972,
+    58.123,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    15.603,
+    58.335,
+    3.4100000953674314
+   ],
+   "distance": 8.4,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-A-sw-plant",
+   "note": "A SW arrival to the plant (crates and incense burner partly cover)",
+   "expect": null,
+   "feet": [
+    9.034,
+    53.3,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    15.603,
+    58.335,
+    3.4100000953674314
+   ],
+   "distance": 8.3,
+   "postures": {
+    "stand->stand": true,
+    "stand->crouch": true,
+    "crouch->stand": true,
+    "crouch->crouch": true
+   },
+   "feetSeen": true,
+   "agrees": null,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-kwong-B",
+   "note": "Kwong Ming south to the foundry floor: jog",
+   "expect": "blocked",
+   "feet": [
+    76.416,
+    15.956,
+    0.01
+   ],
+   "targetFeet": [
+    91.359,
+    51.629,
+    0.01
+   ],
+   "distance": 38.7,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-mouth-plant",
+   "note": "Foundry mouth to the plant past the boiler",
+   "expect": null,
+   "feet": [
+    89.28,
+    41.847,
+    0.01
+   ],
+   "targetFeet": [
+    87.899,
+    57.476,
+    0.01
+   ],
+   "distance": 15.7,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": null,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-mezz-plant",
+   "note": "Mezzanine north rail to the plant",
+   "expect": null,
+   "feet": [
+    95.12,
+    60.664,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    87.899,
+    57.476,
+    0.01
+   ],
+   "distance": 8.6,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": null,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-mezz-mouth",
+   "note": "Mezzanine rail to the foundry mouth past the boiler",
+   "expect": null,
+   "feet": [
+    88.273,
+    62.12,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    90.216,
+    46.249,
+    0.01
+   ],
+   "distance": 16.3,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": null,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-fbroof-yard",
+   "note": "Fishball roof parapet down into the Rubbish yard",
+   "expect": null,
+   "feet": [
+    73.782,
+    41.563,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    69.292,
+    44.081,
+    0.01
+   ],
+   "distance": 6.2,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": null,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-fbroof-eastlane",
+   "note": "Fishball roof parapet to the East lane foot",
+   "expect": null,
+   "feet": [
+    74.094,
+    43.031,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    66.342,
+    44.525,
+    0.01
+   ],
+   "distance": 8.6,
+   "postures": {
+    "stand->stand": true,
+    "stand->crouch": true,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": null,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-A-B",
+   "note": "Site to site along the upper grade",
+   "expect": "blocked",
+   "feet": [
+    22.491,
+    58.357,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    79.665,
+    65.872,
+    3.4100000953674314
+   ],
+   "distance": 57.7,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": true,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-hub-strip",
+   "note": "Youth hall SW door down the west lane top to the terrace",
+   "expect": null,
+   "feet": [
+    41.321,
+    72.575,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    38.12,
+    57.314,
+    3.4100000953674314
+   ],
+   "distance": 15.6,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": null,
+   "observerClear": true,
+   "targetClear": true
+  },
+  {
+   "id": "V-ct-youth",
+   "note": "CT spawn into the Youth hall through its north door",
+   "expect": null,
+   "feet": [
+    46.179,
+    88.843,
+    3.4100000953674314
+   ],
+   "targetFeet": [
+    49.046,
+    76.676,
+    3.4100000953674314
+   ],
+   "distance": 12.5,
+   "postures": {
+    "stand->stand": false,
+    "stand->crouch": false,
+    "crouch->stand": false,
+    "crouch->crouch": false
+   },
+   "feetSeen": false,
+   "agrees": null,
+   "observerClear": true,
+   "targetClear": true
+  }
+ ],
+ "placementFailures": [],
+ "limitations": "Existing eroded navigation with physical support/step/headroom checks at <=0.035 m requested substeps; not a continuous capsule sweep. Optical finite mesh segments between eye points; not weapons, utility, audio, body blocking or observed play. Crouch eye offsets are optical studies."
+}

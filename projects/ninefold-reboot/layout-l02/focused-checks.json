@@ -1,0 +1,92 @@
+{
+  "scope": "Finite plan-wall/obstacle intersections; not compiled mesh visibility",
+  "physicalGeometryMatchesL01": true,
+  "rays": [
+    {
+      "id": "B-SUPPORT",
+      "a": [
+        44.5,
+        39.7,
+        5.0600000000000005
+      ],
+      "b": [
+        44,
+        46,
+        5.0600000000000005
+      ],
+      "hits": []
+    },
+    {
+      "id": "SIGN-UP",
+      "a": [
+        80.75,
+        52,
+        5.0600000000000005
+      ],
+      "b": [
+        76,
+        52,
+        1.86
+      ],
+      "hits": []
+    },
+    {
+      "id": "SIGN-DOWN",
+      "a": [
+        76,
+        52,
+        1.86
+      ],
+      "b": [
+        80.75,
+        52,
+        5.0600000000000005
+      ],
+      "hits": []
+    },
+    {
+      "id": "west-mouth-to-School",
+      "a": [
+        44.5,
+        39.7,
+        5.06
+      ],
+      "b": [
+        40,
+        35.5,
+        5.06
+      ],
+      "hits": []
+    },
+    {
+      "id": "west-mouth-to-East",
+      "a": [
+        44.5,
+        39.7,
+        5.06
+      ],
+      "b": [
+        64,
+        41,
+        5.06
+      ],
+      "hits": []
+    },
+    {
+      "id": "west-mouth-to-plant",
+      "a": [
+        44.5,
+        39.7,
+        5.06
+      ],
+      "b": [
+        57,
+        35,
+        5.06
+      ],
+      "hits": [
+        "B-PRESS"
+      ]
+    }
+  ]
+}

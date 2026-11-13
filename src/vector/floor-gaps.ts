@@ -8,7 +8,6 @@ import type {
 } from "./types.ts";
 import { aborted } from "./types.ts";
 import { area, heightAt, orient } from "./geometry.ts";
-import { buildFlight } from "./flights.ts";
 
 const XY_EPS = 1e-5;
 const HEIGHT_EPS = 0.001 + 1e-6;
@@ -48,10 +47,15 @@ function slice(a: V3, b: V3, p: [V3, V3, V3]): Piece | undefined {
     const f0 = sign * orient(u, v, a),
       f1 = sign * orient(u, v, b);
     const tolerance = XY_EPS * Math.hypot(v[0] - u[0], v[1] - u[1]);
-    if (Math.abs(f1 - f0) < 1e-12) {
+    if (
+      Math.abs(f1 - f0) < 1e-12 ||
+      (Math.abs(f0) <= tolerance && Math.abs(f1) <= tolerance)
+    ) {
       if (f0 < -tolerance) return;
     } else {
-      const t = (-tolerance - f0) / (f1 - f0);
+      // Clip crossing edges at their real plane. Expanding the interval turns
+      // corner-only contacts into spans beyond a sloped stair's guide surface.
+      const t = -f0 / (f1 - f0);
       if (f1 > f0) start = Math.max(start, t);
       else end = Math.min(end, t);
     }
@@ -92,14 +96,20 @@ function overlap(a: Boundary, b: Boundary): [V3, V3] | undefined {
   ];
 }
 
-function topSlices(floor: FloorPatch, a: V3, b: V3) {
+/** Exact affine floor-height spans along an XY segment, in normalized segment fractions. */
+export function floorBoundarySpans(floor: FloorPatch, a: V3, b: V3) {
   return floor.triangles.flatMap((tri) => {
     const result = slice(a, b, tri.map((i) => floor.points[i]) as [V3, V3, V3]);
     return result ? [result] : [];
   });
 }
 
-function wallSpans(pieces: Piece[], t: number): [number, number][] {
+/**
+ * Pairs actual entry/exit faces per structural mesh into occupied vertical intervals.
+ * Duplicate triangle-edge hits count once; touching caps cancel. Repeated entries
+ * or exits at solid junctions retain their real intervening gaps.
+ */
+function solidSpans(pieces: Piece[], t: number): [number, number][] {
   const byMesh = new Map<string, { z: number; sign: number }[]>();
   for (const p of pieces) {
     const hits = byMesh.get(p.mesh!) ?? [];
@@ -110,15 +120,11 @@ function wallSpans(pieces: Piece[], t: number): [number, number][] {
   for (const hits of byMesh.values()) {
     hits.sort((a, b) => a.z - b.z);
     let start: number | undefined, top: number | undefined;
-    for (let i = 0; i < hits.length; ) {
+    for (let i = 0; i < hits.length;) {
       const z = hits[i].z,
         signs = new Set<number>();
       while (i < hits.length && hits[i].z - z < XY_EPS)
         signs.add(hits[i++].sign);
-      // Duplicate triangle-edge hits count once. Touching caps cancel. A ray
-      // along a wall junction may touch several entry caps but fewer exit caps;
-      // group consecutive entries/exits instead of leaving a winding count open.
-      // A new entry after an exit starts a separate span, preserving vertical gaps.
       if (signs.size === 2) continue;
       if (signs.has(-1)) {
         if (start !== undefined && top !== undefined) {
@@ -145,7 +151,7 @@ function openHeight(low: number, high: number, spans: [number, number][]) {
   return Math.max(largest, high - cursor);
 }
 
-/** Warn about exposed vertical gaps, using final static wall geometry rather
+/** Warn about exposed vertical gaps, using final static structural collision geometry rather
  * than trusting that a wall/seam declaration actually fills the required span.
  * All triangle crossings and linear height-order changes partition the boundary;
  * this is an interval audit, not a fixed-distance sampling grid. */
@@ -159,16 +165,12 @@ export function auditFloorGaps(
     slopedStairGuides = new Map<string, FloorPatch>();
   for (const layer of d.layers)
     for (const region of layer.regions)
-      if (region.fill === "stairs" && region.underside === "sloped")
-        slopedStairGuides.set(
-          region.id,
-          buildFlight(
-            region,
-            layer,
-            level.curves,
-            region.thickness ?? d.floorThickness,
-          ).guide,
-        );
+      if (
+        region.fill === "stairs" &&
+        region.underside === "sloped" &&
+        level.flightGuides?.[region.id]
+      )
+        slopedStairGuides.set(region.id, level.flightGuides[region.id]);
   for (const layer of d.layers) {
     const edges = new Map(layer.edges.map((e) => [e.id, e]));
     for (const region of layer.regions) {
@@ -194,13 +196,19 @@ export function auditFloorGaps(
       });
     }
   }
+  const physical = level.physicalMesh ?? level.mesh;
   const faces: Face[] = [];
-  for (let t = 0; t < level.mesh.surfaces.length; t++) {
-    const surface = level.surfaces[level.mesh.surfaces[t]];
-    if (surface.kind !== "wall" || surface.dynamic) continue;
-    const points = level.mesh.indices
+  for (let t = 0; t < physical.surfaces.length; t++) {
+    const surface = level.surfaces[physical.surfaces[t]];
+    if (
+      surface.dynamic ||
+      surface.collidable === false ||
+      !["wall", "floor", "stairs"].includes(surface.kind)
+    )
+      continue;
+    const points = physical.indices
       .slice(t * 3, t * 3 + 3)
-      .map((v) => level.mesh.positions.slice(v * 3, v * 3 + 3) as V3) as [
+      .map((v) => physical.positions.slice(v * 3, v * 3 + 3) as V3) as [
       V3,
       V3,
       V3,
@@ -209,7 +217,7 @@ export function auditFloorGaps(
     if (Math.abs(projected) < 1e-10) continue;
     faces.push({
       points,
-      mesh: surface.mesh,
+      mesh: physical.solidIds?.[t] || surface.mesh,
       sign: Math.sign(projected),
       bounds: [
         Math.min(...points.map((p) => p[0])),
@@ -232,11 +240,11 @@ export function auditFloorGaps(
       if (!segment) continue;
       const [p, q] = segment,
         length = Math.hypot(q[0] - p[0], q[1] - p[1]);
-      const topsA = topSlices(a.floor, p, q),
-        topsB = topSlices(b.floor, p, q);
+      const topsA = floorBoundarySpans(a.floor, p, q),
+        topsB = floorBoundarySpans(b.floor, p, q);
       const bottom = (s: Piece, r: Region): Piece => {
         const thickness = r.thickness ?? d.floorThickness;
-        if (r.fill !== "stairs")
+        if (r.fill !== "stairs" || r.underside === "stepped")
           return { ...s, z0: s.z0 - thickness };
         const guide = slopedStairGuides.get(r.id);
         if (!guide)
@@ -290,7 +298,7 @@ export function auditFloorGaps(
             ];
           }),
         );
-      const wall = faces.flatMap((face) => {
+      const seals = faces.flatMap((face) => {
         if (
           face.bounds[0] > Math.max(p[0], q[0]) + XY_EPS ||
           face.bounds[2] < Math.min(p[0], q[0]) - XY_EPS ||
@@ -306,7 +314,7 @@ export function auditFloorGaps(
         ...topsB,
         ...bottomsA,
         ...bottomsB,
-        ...wall,
+        ...seals,
         ...continuations,
         ...continuations.map((c) => c.base),
       ];
@@ -324,7 +332,7 @@ export function auditFloorGaps(
         const A = topsA.filter(active),
           B = topsB.filter(active);
         if (!A.length || !B.length) continue;
-        const W = wall.filter(active),
+        const occupiedFaces = seals.filter(active),
           lines = all.filter(active),
           subcuts = [lo, hi];
         for (let u = 0; u < lines.length; u++)
@@ -367,7 +375,7 @@ export function auditFloorGaps(
             )
           )
             continue;
-          const gap = openHeight(low, high, wallSpans(W, t));
+          const gap = openHeight(low, high, solidSpans(occupiedFaces, t));
           if (gap <= HEIGHT_EPS) continue;
           missingLength += (subcuts[k] - subcuts[k - 1]) * length;
           if (gap > maxHeight) {
@@ -394,6 +402,6 @@ export function auditFloorGaps(
     objects: [a.region.id, b.region.id, a.edge.id, b.edge.id],
     source:
       a.edge.source ?? a.region.source ?? b.edge.source ?? b.region.source,
-    message: `Adjacent floors ${a.region.id} (${a.edge.id}) and ${b.region.id} (${b.edge.id}) leave an unsealed vertical gap along ${length.toFixed(3)} m of boundary (about ${height.toFixed(3)} m high near ${at[0].toFixed(3)}, ${at[1].toFixed(3)}). Add an elevation seam or a wall spanning the lower floor to the upper slab underside; a wall above the gap does not seal it.`,
+    message: `Floor boundaries ${a.region.id} (${a.edge.id}) and ${b.region.id} (${b.edge.id}) coincide in plan and leave an unsealed vertical interval along ${length.toFixed(3)} m of boundary (about ${height.toFixed(3)} m high near ${at[0].toFixed(3)}, ${at[1].toFixed(3)}). Verify whether these boundaries require a retaining join or belong to separate storeys. If a join is intended, add an elevation seam or a wall spanning the lower floor to the upper slab underside; a wall above the interval does not seal it.`,
   }));
 }

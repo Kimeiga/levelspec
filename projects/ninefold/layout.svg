@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1540" height="1200" viewBox="0 0 1540 1200">
+<rect width="1540" height="1200" fill="#f5f0e5"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10" fill="#8a3647"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#253c40}.title{font-size:28px;font-weight:700}.sub{font-size:14px}.call{font-size:12px;font-weight:700;paint-order:stroke;stroke:#f5f0e5;stroke-width:3px;stroke-linejoin:round}.tiny{font-size:10px}</style>
+<text x="36" y="44" class="title">NINEFOLD / 九重城 — L04</text>
+<text x="36" y="72" class="sub">Kowloon-inspired 5v5 defuse · meters · north ↑ · origin (0,0) southwest · two distinct sites · no jump-only routes</text>
+<text x="45" y="111" class="sub">GROUND / z0</text>
+<path d="M 69.0,686.0 L 237.0,686.0 L 237.0,750.0 L 365.0,750.0 L 365.0,686.0 L 525.0,686.0 L 525.0,190.0 L 373.0,158.0 L 373.0,118.0 L 245.0,118.0 L 245.0,166.0 L 69.0,198.0 L 69.0,686.0 Z " fill="#c5c6ba" stroke="#6e7a72"/>
+<path d="M 117.0,670.0 L 117.0,638.0 L 115.4,638.0 L 115.4,582.0 L 105.0,582.0 L 105.0,534.0 L 157.0,534.0 L 157.0,544.4 L 175.4,544.4 L 175.4,510.0 L 165.0,510.0 L 165.0,499.6 L 115.4,499.6 L 115.4,376.4 L 159.4,376.4 L 159.4,350.0 L 85.0,350.0 L 85.0,230.0 L 181.0,206.0 L 231.4,227.6 L 231.4,168.4 L 261.0,168.4 L 261.0,134.0 L 357.0,134.0 L 357.0,160.4 L 410.6,160.4 L 410.6,183.6 L 397.0,183.6 L 397.0,187.6 L 357.0,187.6 L 357.0,206.0 L 314.6,206.0 L 314.6,216.4 L 346.6,216.4 L 346.6,307.6 L 314.6,307.6 L 314.6,326.0 L 381.0,326.0 L 381.0,406.0 L 379.4,406.0 L 379.4,532.4 L 315.4,532.4 L 315.4,630.0 L 455.4,630.0 L 455.4,582.0 L 429.0,582.0 L 429.0,571.6 L 423.4,571.6 L 423.4,524.4 L 450.6,524.4 L 450.6,534.0 L 493.0,534.0 L 493.0,582.0 L 482.6,582.0 L 482.6,630.0 L 485.0,630.0 L 485.0,670.0 L 349.0,670.0 L 349.0,734.0 L 253.0,734.0 L 253.0,670.0 L 117.0,670.0 Z M 269.0,334.0 L 221.0,334.0 L 205.0,350.0 L 186.6,350.0 L 186.6,403.6 L 142.6,403.6 L 142.6,472.4 L 165.0,472.4 L 165.0,462.0 L 213.0,462.0 L 213.0,510.0 L 202.6,510.0 L 202.6,571.6 L 157.0,571.6 L 157.0,582.0 L 142.6,582.0 L 142.6,630.0 L 286.6,630.0 L 286.6,503.6 L 350.6,503.6 L 350.6,406.0 L 269.0,406.0 L 269.0,358.0 L 269.0,334.0 Z M 237.0,306.8 L 285.0,306.8 L 285.0,326.0 L 287.4,326.0 L 287.4,280.4 L 319.4,280.4 L 319.4,243.6 L 287.4,243.6 L 287.4,206.0 L 261.0,206.0 L 261.0,195.6 L 258.6,195.6 L 258.6,259.6 L 237.0,259.6 L 237.0,306.8 Z " fill="#ece3c8" stroke="#424f4a" stroke-width="1.5"/>
+<path d="M 423.4,462.0 L 450.6,462.0 L 450.6,526.0 L 423.4,526.0 L 423.4,462.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 437,526 L 437,462" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="415.4" y="494.0" text-anchor="middle" class="call">S1</text>
+<path d="M 455.4,302.0 L 482.6,302.0 L 482.6,366.0 L 455.4,366.0 L 455.4,302.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 469,366 L 469,302" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="447.4" y="334.0" text-anchor="middle" class="call">S2</text>
+<path d="M 386.6,326.0 L 359.4,326.0 L 359.4,262.0 L 386.6,262.0 L 386.6,326.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 373,262 L 373,326" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="351.4" y="294.0" text-anchor="middle" class="call">S3</text>
+<path d="M 410.6,246.0 L 383.4,246.0 L 383.4,182.0 L 410.6,182.0 L 410.6,246.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 397,182 L 397,246" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="375.4" y="214.0" text-anchor="middle" class="call">S4</text>
+<path d="M 319.4,302.0 L 346.6,302.0 L 346.6,366.0 L 319.4,366.0 L 319.4,302.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 333,366 L 333,302" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="311.4" y="334.0" text-anchor="middle" class="call">SM</text>
+<path d="M 157.0,302.0 L 157.0,278.0 L 125.0,278.0 L 125.0,302.0 L 157.0,302.0 Z " fill="#536165"/>
+<text x="141.0" y="271.6" text-anchor="middle" class="tiny">A-press</text>
+<path d="M 117.0,262.0 L 117.0,251.6 L 93.0,251.6 L 93.0,262.0 L 117.0,262.0 Z " fill="#4e7e69"/>
+<text x="105.0" y="245.20000000000005" text-anchor="middle" class="tiny">A-trays</text>
+<path d="M 209.0,334.0 L 209.0,324.4 L 189.0,324.4 L 189.0,334.0 L 209.0,334.0 Z " fill="#4e7e69"/>
+<text x="199.0" y="318.0" text-anchor="middle" class="tiny">A-cart</text>
+<path d="M 118.6,574.0 L 118.6,550.0 L 105.0,550.0 L 105.0,574.0 L 118.6,574.0 Z " fill="#4e7e69"/>
+<text x="111.8" y="543.6" text-anchor="middle" class="tiny">W-counter</text>
+<path d="M 205.0,494.0 L 205.0,474.0 L 195.4,474.0 L 195.4,494.0 L 205.0,494.0 Z " fill="#4e7e69"/>
+<text x="200.2" y="467.6" text-anchor="middle" class="tiny">W-sink</text>
+<path d="M 285.0,382.0 L 285.0,358.0 L 269.0,358.0 L 269.0,382.0 L 285.0,382.0 Z " fill="#536165"/>
+<text x="277.0" y="351.6" text-anchor="middle" class="tiny">M-shrine</text>
+<path d="M 374.6,390.0 L 374.6,374.0 L 363.4,374.0 L 363.4,390.0 L 374.6,390.0 Z " fill="#4e7e69"/>
+<text x="369.0" y="367.6" text-anchor="middle" class="tiny">M-bench</text>
+<text x="301" y="694" text-anchor="middle" class="call">T SPAWN</text>
+<text x="301" y="158" text-anchor="middle" class="call">CT SPAWN</text>
+<text x="157" y="246" text-anchor="middle" class="call">A / NOODLE WORKS z0</text>
+<text x="133" y="430" text-anchor="middle" class="call">DRAIN ALLEY</text>
+<text x="141" y="542" text-anchor="middle" class="call">MARKET</text>
+<text x="325" y="358" text-anchor="middle" class="call">SHRINE MID</text>
+<text x="293" y="582" text-anchor="middle" class="call">PIPE STREET</text>
+<text x="245" y="198" text-anchor="middle" class="call">A REAR</text>
+<text x="453" y="582" text-anchor="middle" class="call">DENTIST</text>
+<text x="421" y="438" text-anchor="middle" class="call">LAUNDRY +3.2</text>
+<text x="293" y="302" text-anchor="middle" class="call">GALLERY +3.2</text>
+<text x="461" y="214" text-anchor="middle" class="call">B / WATERWORKS +6.4</text>
+<text x="389" y="262" text-anchor="middle" class="call">SERVICE</text>
+<text x="181" y="294" text-anchor="middle" class="call">A PLANT</text>
+<text x="477" y="246" text-anchor="middle" class="call">B PLANT</text>
+<path d="M 253 286 L 181 294" stroke="#ad4b65" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="181" y="310" text-anchor="middle" class="tiny">predicted gallery LOS</text>
+<path d="M85,726h80" stroke="#253c40" stroke-width="3"/><text x="125" y="744" text-anchor="middle" class="tiny">10 m</text>
+<text x="800" y="111" class="sub">STACKED ROUTES / z3.2 + z6.4</text>
+<path d="M 824.0,686.0 L 992.0,686.0 L 992.0,750.0 L 1120.0,750.0 L 1120.0,686.0 L 1280.0,686.0 L 1280.0,190.0 L 1128.0,158.0 L 1128.0,118.0 L 1000.0,118.0 L 1000.0,166.0 L 824.0,198.0 L 824.0,686.0 Z " fill="#c5c6ba" stroke="#6e7a72"/>
+<path d="M 872.0,670.0 L 872.0,638.0 L 870.4,638.0 L 870.4,582.0 L 860.0,582.0 L 860.0,534.0 L 912.0,534.0 L 912.0,544.4 L 930.4,544.4 L 930.4,510.0 L 920.0,510.0 L 920.0,499.6 L 870.4,499.6 L 870.4,376.4 L 914.4,376.4 L 914.4,350.0 L 840.0,350.0 L 840.0,230.0 L 936.0,206.0 L 986.4,227.6 L 986.4,168.4 L 1016.0,168.4 L 1016.0,134.0 L 1112.0,134.0 L 1112.0,160.4 L 1165.6,160.4 L 1165.6,183.6 L 1152.0,183.6 L 1152.0,187.6 L 1112.0,187.6 L 1112.0,206.0 L 1069.6,206.0 L 1069.6,216.4 L 1101.6,216.4 L 1101.6,307.6 L 1069.6,307.6 L 1069.6,326.0 L 1136.0,326.0 L 1136.0,406.0 L 1134.4,406.0 L 1134.4,532.4 L 1070.4,532.4 L 1070.4,630.0 L 1210.4,630.0 L 1210.4,582.0 L 1184.0,582.0 L 1184.0,571.6 L 1178.4,571.6 L 1178.4,524.4 L 1205.6,524.4 L 1205.6,534.0 L 1248.0,534.0 L 1248.0,582.0 L 1237.6,582.0 L 1237.6,630.0 L 1240.0,630.0 L 1240.0,670.0 L 1104.0,670.0 L 1104.0,734.0 L 1008.0,734.0 L 1008.0,670.0 L 872.0,670.0 Z M 1024.0,334.0 L 976.0,334.0 L 960.0,350.0 L 941.6,350.0 L 941.6,403.6 L 897.6,403.6 L 897.6,472.4 L 920.0,472.4 L 920.0,462.0 L 968.0,462.0 L 968.0,510.0 L 957.6,510.0 L 957.6,571.6 L 912.0,571.6 L 912.0,582.0 L 897.6,582.0 L 897.6,630.0 L 1041.6,630.0 L 1041.6,503.6 L 1105.6,503.6 L 1105.6,406.0 L 1024.0,406.0 L 1024.0,358.0 L 1024.0,334.0 Z M 992.0,306.8 L 1040.0,306.8 L 1040.0,326.0 L 1042.4,326.0 L 1042.4,280.4 L 1074.4,280.4 L 1074.4,243.6 L 1042.4,243.6 L 1042.4,206.0 L 1016.0,206.0 L 1016.0,195.6 L 1013.6,195.6 L 1013.6,259.6 L 992.0,259.6 L 992.0,306.8 Z " fill="#ece3c8" stroke="#424f4a" stroke-width="1.5"/>
+<path d="M 1208.0,462.0 L 1160.0,462.0 L 1160.0,422.0 L 1162.4,422.0 L 1162.4,376.4 L 1210.4,376.4 L 1210.4,366.0 L 1237.6,366.0 L 1237.6,403.6 L 1189.6,403.6 L 1189.6,422.0 L 1208.0,422.0 L 1208.0,462.0 Z M 1024.0,262.0 L 1024.0,272.4 L 1074.4,272.4 L 1074.4,240.4 L 1128.0,240.4 L 1128.0,246.0 L 1168.0,246.0 L 1168.0,270.0 L 1112.0,270.0 L 1112.0,267.6 L 1101.6,267.6 L 1101.6,302.0 L 1074.4,302.0 L 1074.4,299.6 L 1024.0,299.6 L 1024.0,318.0 L 994.4,318.0 L 994.4,262.0 L 1024.0,262.0 Z " fill="#82b9b2" stroke="#245d5c" stroke-width="1.4"/>
+<path d="M 1141.6,326.0 L 1141.6,353.2 L 1082.4,353.2 L 1082.4,339.6 L 1082.4,326.0 L 1082.4,212.4 L 1157.6,212.4 L 1157.6,206.0 L 1232.0,190.0 L 1264.0,214.0 L 1264.0,302.0 L 1157.6,302.0 L 1157.6,239.6 L 1109.6,239.6 L 1109.6,326.0 L 1141.6,326.0 Z " fill="#e8aa76" stroke="#9b5327" stroke-width="1.4"/>
+<path d="M 1178.4,462.0 L 1205.6,462.0 L 1205.6,526.0 L 1178.4,526.0 L 1178.4,462.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 1192,526 L 1192,462" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="1170.4" y="494.0" text-anchor="middle" class="call">S1</text>
+<path d="M 1210.4,302.0 L 1237.6,302.0 L 1237.6,366.0 L 1210.4,366.0 L 1210.4,302.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 1224,366 L 1224,302" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="1202.4" y="334.0" text-anchor="middle" class="call">S2</text>
+<path d="M 1141.6,326.0 L 1114.4,326.0 L 1114.4,262.0 L 1141.6,262.0 L 1141.6,326.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 1128,262 L 1128,326" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="1106.4" y="294.0" text-anchor="middle" class="call">S3</text>
+<path d="M 1165.6,246.0 L 1138.4,246.0 L 1138.4,182.0 L 1165.6,182.0 L 1165.6,246.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 1152,182 L 1152,246" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="1130.4" y="214.0" text-anchor="middle" class="call">S4</text>
+<path d="M 1074.4,302.0 L 1101.6,302.0 L 1101.6,366.0 L 1074.4,366.0 L 1074.4,302.0 Z " fill="#d7b7b0" stroke="#7d5152"/>
+<path d="M 1088,366 L 1088,302" stroke="#8a3647" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="1066.4" y="334.0" text-anchor="middle" class="call">SM</text>
+<path d="M 1114.4,270.0 L 1114.4,262.0 L 1112.0,262.0 L 1112.0,270.0 L 1114.4,270.0 Z " fill="#536165"/>
+<text x="1113.2" y="255.60000000000002" text-anchor="middle" class="tiny">SF-01</text>
+<path d="M 912.0,302.0 L 912.0,278.0 L 880.0,278.0 L 880.0,302.0 L 912.0,302.0 Z " fill="#536165"/>
+<text x="896.0" y="271.6" text-anchor="middle" class="tiny">A-press</text>
+<path d="M 872.0,262.0 L 872.0,251.6 L 848.0,251.6 L 848.0,262.0 L 872.0,262.0 Z " fill="#4e7e69"/>
+<text x="860.0" y="245.20000000000005" text-anchor="middle" class="tiny">A-trays</text>
+<path d="M 964.0,334.0 L 964.0,324.4 L 944.0,324.4 L 944.0,334.0 L 964.0,334.0 Z " fill="#4e7e69"/>
+<text x="954.0" y="318.0" text-anchor="middle" class="tiny">A-cart</text>
+<path d="M 873.6,574.0 L 873.6,550.0 L 860.0,550.0 L 860.0,574.0 L 873.6,574.0 Z " fill="#4e7e69"/>
+<text x="866.8" y="543.6" text-anchor="middle" class="tiny">W-counter</text>
+<path d="M 960.0,494.0 L 960.0,474.0 L 950.4,474.0 L 950.4,494.0 L 960.0,494.0 Z " fill="#4e7e69"/>
+<text x="955.2" y="467.6" text-anchor="middle" class="tiny">W-sink</text>
+<path d="M 1040.0,382.0 L 1040.0,358.0 L 1024.0,358.0 L 1024.0,382.0 L 1040.0,382.0 Z " fill="#536165"/>
+<text x="1032.0" y="351.6" text-anchor="middle" class="tiny">M-shrine</text>
+<path d="M 1129.6,390.0 L 1129.6,374.0 L 1118.4,374.0 L 1118.4,390.0 L 1129.6,390.0 Z " fill="#4e7e69"/>
+<text x="1124.0" y="367.6" text-anchor="middle" class="tiny">M-bench</text>
+<path d="M 1171.2,450.8 L 1171.2,433.2 L 1160.0,433.2 L 1160.0,450.8 L 1171.2,450.8 Z " fill="#4e7e69"/>
+<text x="1165.6" y="426.8" text-anchor="middle" class="tiny">L-washer</text>
+<path d="M 1056.0,282.0 L 1056.0,272.4 L 1040.0,272.4 L 1040.0,282.0 L 1056.0,282.0 Z " fill="#4e7e69"/>
+<text x="1048.0" y="266.0" text-anchor="middle" class="tiny">U-planter</text>
+<path d="M 1212.0,262.0 L 1212.0,238.0 L 1188.0,238.0 L 1188.0,262.0 L 1212.0,262.0 Z " fill="#536165"/>
+<text x="1200.0" y="231.60000000000002" text-anchor="middle" class="tiny">B-tank</text>
+<path d="M 1252.0,282.0 L 1252.0,270.0 L 1236.0,270.0 L 1236.0,282.0 L 1252.0,282.0 Z " fill="#4e7e69"/>
+<text x="1244.0" y="263.6" text-anchor="middle" class="tiny">B-pump</text>
+<path d="M 1196.0,230.0 L 1196.0,218.8 L 1176.0,218.8 L 1176.0,230.0 L 1196.0,230.0 Z " fill="#4e7e69"/>
+<text x="1186.0" y="212.39999999999998" text-anchor="middle" class="tiny">B-crates</text>
+<text x="1056" y="694" text-anchor="middle" class="call">T SPAWN</text>
+<text x="1056" y="158" text-anchor="middle" class="call">CT SPAWN</text>
+<text x="912" y="246" text-anchor="middle" class="call">A / NOODLE WORKS z0</text>
+<text x="888" y="430" text-anchor="middle" class="call">DRAIN ALLEY</text>
+<text x="896" y="542" text-anchor="middle" class="call">MARKET</text>
+<text x="1080" y="358" text-anchor="middle" class="call">SHRINE MID</text>
+<text x="1048" y="582" text-anchor="middle" class="call">PIPE STREET</text>
+<text x="1000" y="198" text-anchor="middle" class="call">A REAR</text>
+<text x="1208" y="582" text-anchor="middle" class="call">DENTIST</text>
+<text x="1176" y="438" text-anchor="middle" class="call">LAUNDRY +3.2</text>
+<text x="1048" y="302" text-anchor="middle" class="call">GALLERY +3.2</text>
+<text x="1216" y="214" text-anchor="middle" class="call">B / WATERWORKS +6.4</text>
+<text x="1144" y="262" text-anchor="middle" class="call">SERVICE</text>
+<text x="936" y="294" text-anchor="middle" class="call">A PLANT</text>
+<text x="1232" y="246" text-anchor="middle" class="call">B PLANT</text>
+<path d="M 1008 286 L 936 294" stroke="#ad4b65" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="936" y="310" text-anchor="middle" class="tiny">predicted gallery LOS</text>
+<path d="M840,726h80" stroke="#253c40" stroke-width="3"/><text x="880" y="744" text-anchor="middle" class="tiny">10 m</text>
+<text x="40" y="804" class="sub">LEGEND: cream ground · teal +3.2 m gallery/laundry · orange +6.4 m rooftop · arrows climb · green low cover · slate tall obstacle</text>
+<text x="40" y="832" class="sub">Solid route boundaries are walls/tower faces. Stair endpoints remain open. Stacked XY overlaps are NOT movement junctions.</text>
+<text x="40" y="866" class="title">SECTION / BRIDGE AND VERTICAL THREATS</text>
+<path d="M60 1115H1470" stroke="#3e5557" stroke-width="3"/>
+<rect x="80" y="900" width="145" height="215" fill="#b8beb3"/>
+<rect x="650" y="900" width="150" height="215" fill="#b8beb3"/>
+<rect x="250" y="1047" width="360" height="6" fill="#67a69d"/>
+<rect x="1000" y="979" width="350" height="6" fill="#dca16a"/>
+<path d="M850 1115L1000 1047L1150 979" stroke="#85424f" stroke-width="5" fill="none"/>
+<circle cx="490" cy="1009" r="5" fill="#ac4662"/>
+<circle cx="1170" cy="941" r="5" fill="#ac4662"/>
+<text x="270" y="1085" class="sub">Ground z0 · deck soffit z2.9</text>
+<text x="270" y="1032" class="sub">Gallery z3.2 · eye z5.06 / crouch z4.223</text>
+<text x="1000" y="923" class="sub">Roof z6.4 · eye z8.26</text>
+<text x="60" y="1150" class="sub">Schematic: z scale 21.25 px/m. Towers top z18–26. Deck .30 m thick. Guards +2.5 m except W-A view aperture.</text>
+<text x="60" y="1178" class="sub">FOV hypothesis 90°H / 70°V; window sill z4.4, head z5.6, width2 m. Optical/low-cover/skyline checks required in compiled blockout.</text>
+</svg>

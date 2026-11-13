@@ -1,0 +1,406 @@
+[
+  {
+    "kind": "compact",
+    "sourceSha256": "fe05a4bdfc531217ff7dff5954298bfa2c251d5eade5190edcc3d323f8e12083",
+    "samples": [
+      {
+        "origin": [
+          0.4,
+          -1,
+          0.7
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          0.4,
+          -1,
+          2.3
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          0.4,
+          1,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          0.4,
+          1,
+          2.3
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          0.4,
+          0,
+          5
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "distance": 2,
+        "material": "red"
+      },
+      {
+        "origin": [
+          1.4,
+          -1,
+          0.7
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          1.4,
+          -1,
+          2.3
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          1.4,
+          1,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          1.4,
+          1,
+          2.3
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          1.4,
+          0,
+          5
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "distance": 2,
+        "material": "red"
+      },
+      {
+        "origin": [
+          2.4,
+          -1,
+          0.7
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          2.4,
+          -1,
+          2.3
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          2.4,
+          1,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          2.4,
+          1,
+          2.3
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          2.4,
+          0,
+          5
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "distance": 2,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          3.4,
+          -1,
+          0.7
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          3.4,
+          -1,
+          2.3
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          3.4,
+          1,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          3.4,
+          1,
+          2.3
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          3.4,
+          0,
+          5
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "distance": 2,
+        "material": "blue"
+      }
+    ]
+  },
+  {
+    "kind": "showcase",
+    "sourceSha256": "a6c5e97e9f7afd8d786bc58367ddf4e57237e19309499096286ee3004a0a72a3",
+    "samples": [
+      {
+        "origin": [
+          0.02,
+          13,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900003433227539,
+        "material": "default"
+      },
+      {
+        "origin": [
+          0.06,
+          13,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900003433227539,
+        "material": "default"
+      },
+      {
+        "origin": [
+          0.16,
+          13,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900003433227539,
+        "material": "default"
+      },
+      {
+        "origin": [
+          -1,
+          11.94,
+          0.7
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "default"
+      },
+      {
+        "origin": [
+          -1,
+          11.98,
+          0.7
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "distance": 0.8900000005960464,
+        "material": "default"
+      },
+      {
+        "origin": [
+          2,
+          9,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 10.061466756485034,
+        "material": "default"
+      },
+      {
+        "origin": [
+          2,
+          11,
+          0.7
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8444366130213652,
+        "material": "blue"
+      },
+      {
+        "origin": [
+          2,
+          13,
+          2
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.8900003433227539,
+        "material": "default"
+      }
+    ]
+  }
+]

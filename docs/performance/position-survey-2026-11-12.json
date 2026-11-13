@@ -1,0 +1,1325 @@
+{
+  "experiment": "position-survey-2026-11-12",
+  "scope": "One fresh-process profiled dressing pair, not full compilation",
+  "localArtifacts": "generated/kowloon-position-survey-20261112",
+  "reports": {
+    "baseline": {
+      "variant": "baseline",
+      "environment": {
+        "node": "v24.12.0",
+        "cpu": "Apple M4",
+        "arch": "arm64"
+      },
+      "elapsedMs": 3256.505583,
+      "cpuMs": 6280.156,
+      "peakAfterDressingKiB": 1686624,
+      "draws": [
+        {
+          "host": "background-west",
+          "detail": 2,
+          "purpose": "survey",
+          "ms": 175.03208300000006,
+          "triangles": 101050,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 3334650,
+          "receivers": 0,
+          "uvReceivers": 0,
+          "deposits": 0
+        },
+        {
+          "host": "background-west",
+          "detail": 1,
+          "purpose": "retained",
+          "ms": 211.86037499999998,
+          "triangles": 87662,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 2892846,
+          "receivers": 757,
+          "uvReceivers": 0,
+          "deposits": 4
+        },
+        {
+          "host": "background-east",
+          "detail": 2,
+          "purpose": "survey",
+          "ms": 112.17208299999993,
+          "triangles": 97980,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 3233340,
+          "receivers": 0,
+          "uvReceivers": 0,
+          "deposits": 0
+        },
+        {
+          "host": "background-east",
+          "detail": 1,
+          "purpose": "retained",
+          "ms": 160.8622499999999,
+          "triangles": 79662,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 2628846,
+          "receivers": 811,
+          "uvReceivers": 0,
+          "deposits": 1
+        },
+        {
+          "host": "shop-row",
+          "detail": 2,
+          "purpose": "survey",
+          "ms": 489.3923339999999,
+          "triangles": 455248,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 15023184,
+          "receivers": 0,
+          "uvReceivers": 0,
+          "deposits": 0
+        },
+        {
+          "host": "shop-row",
+          "detail": 1,
+          "purpose": "retained",
+          "ms": 837.8631249999999,
+          "triangles": 426146,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 14062818,
+          "receivers": 3232,
+          "uvReceivers": 0,
+          "deposits": 19
+        }
+      ],
+      "registration": {
+        "calls": 98566,
+        "uvCalls": 91518,
+        "depositCalls": 55,
+        "receiverVisitsOnDeposit": 88366
+      },
+      "equivalence": {
+        "mesh": "268dc2bfdb6ec4db78d4e1425c267cfc1c035029464fd6409f484b240fe86f09",
+        "materials": "5cbd7c10fe50cfa008aa2beddbb7837ca8a18b353b1654549008bdb230aafd1c",
+        "surfaces": "2135d05cf130a5ac5395a5e857069abca756c8515f7d2204c06e408757ece8a1",
+        "provenance": "cc7e4a0443493a95d7224e059d229c5e60a5b5867606249400a3c466e5e3ebda",
+        "groundPlans": "73e661ef095df30e4280c67ac5f3f1783f79452ba8275db02926fc90961b44c8",
+        "signPlans": "0faea283509bd41dc020fee4cddee674c0cf9f38aaa06edeae29f7da52a0d8ac",
+        "diagnostics": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "physicalMesh": "85f661a6c2479e610d6c3d0d14eaf23b566c4bb7cdf46186b396d20bf4d50383",
+        "charts": "49c40f7a2717fec6b3518c1f8781b7571bdc76d857ba99aef467966b4eaa9e14",
+        "chartCount": 96623,
+        "surveys": [
+          "7d5b9c10ebbe04ddc925723dbe87acf95ac88cf096c23db885dfd8267f93a4f4",
+          "b6ec056e5750437eb33c5d2ae2231d95adc7ee358772ecac85d1338f9f8c5f72",
+          "c8d56bba8e8854040a7f22971dfd33afe8ec4fca21a8722abc8daaf4b6a0f3e2"
+        ]
+      },
+      "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+      "fingerprintBefore": "e9190735ddbdac5a592585f88ca16d701949b8a57deeb5d6001c52d8b9377982",
+      "fingerprintAfter": "e9190735ddbdac5a592585f88ca16d701949b8a57deeb5d6001c52d8b9377982"
+    },
+    "optimized": {
+      "variant": "optimized",
+      "environment": {
+        "node": "v24.12.0",
+        "cpu": "Apple M4",
+        "arch": "arm64"
+      },
+      "elapsedMs": 4260.895209,
+      "cpuMs": 8221.282,
+      "peakAfterDressingKiB": 1918656,
+      "draws": [
+        {
+          "host": "background-west",
+          "detail": 2,
+          "purpose": "survey",
+          "ms": 223.32712500000002,
+          "triangles": 101050,
+          "surveyPositionNumbers": 909450,
+          "attributeNumbers": 0,
+          "receivers": 0,
+          "uvReceivers": 0,
+          "deposits": 0
+        },
+        {
+          "host": "background-west",
+          "detail": 1,
+          "purpose": "retained",
+          "ms": 372.5213329999999,
+          "triangles": 87662,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 2892846,
+          "receivers": 757,
+          "uvReceivers": 0,
+          "deposits": 4
+        },
+        {
+          "host": "background-east",
+          "detail": 2,
+          "purpose": "survey",
+          "ms": 186.29566699999987,
+          "triangles": 97980,
+          "surveyPositionNumbers": 881820,
+          "attributeNumbers": 0,
+          "receivers": 0,
+          "uvReceivers": 0,
+          "deposits": 0
+        },
+        {
+          "host": "background-east",
+          "detail": 1,
+          "purpose": "retained",
+          "ms": 280.04929200000015,
+          "triangles": 79662,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 2628846,
+          "receivers": 811,
+          "uvReceivers": 0,
+          "deposits": 1
+        },
+        {
+          "host": "shop-row",
+          "detail": 2,
+          "purpose": "survey",
+          "ms": 440.9528339999997,
+          "triangles": 455248,
+          "surveyPositionNumbers": 4097232,
+          "attributeNumbers": 0,
+          "receivers": 0,
+          "uvReceivers": 0,
+          "deposits": 0
+        },
+        {
+          "host": "shop-row",
+          "detail": 1,
+          "purpose": "retained",
+          "ms": 1077.843625,
+          "triangles": 426146,
+          "surveyPositionNumbers": 0,
+          "attributeNumbers": 14062818,
+          "receivers": 3232,
+          "uvReceivers": 0,
+          "deposits": 19
+        }
+      ],
+      "registration": {
+        "calls": 98566,
+        "uvCalls": 91518,
+        "depositCalls": 55,
+        "receiverVisitsOnDeposit": 88366
+      },
+      "equivalence": {
+        "mesh": "268dc2bfdb6ec4db78d4e1425c267cfc1c035029464fd6409f484b240fe86f09",
+        "materials": "5cbd7c10fe50cfa008aa2beddbb7837ca8a18b353b1654549008bdb230aafd1c",
+        "surfaces": "2135d05cf130a5ac5395a5e857069abca756c8515f7d2204c06e408757ece8a1",
+        "provenance": "cc7e4a0443493a95d7224e059d229c5e60a5b5867606249400a3c466e5e3ebda",
+        "groundPlans": "73e661ef095df30e4280c67ac5f3f1783f79452ba8275db02926fc90961b44c8",
+        "signPlans": "0faea283509bd41dc020fee4cddee674c0cf9f38aaa06edeae29f7da52a0d8ac",
+        "diagnostics": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "physicalMesh": "85f661a6c2479e610d6c3d0d14eaf23b566c4bb7cdf46186b396d20bf4d50383",
+        "charts": "49c40f7a2717fec6b3518c1f8781b7571bdc76d857ba99aef467966b4eaa9e14",
+        "chartCount": 96623,
+        "surveys": [
+          "7d5b9c10ebbe04ddc925723dbe87acf95ac88cf096c23db885dfd8267f93a4f4",
+          "b6ec056e5750437eb33c5d2ae2231d95adc7ee358772ecac85d1338f9f8c5f72",
+          "c8d56bba8e8854040a7f22971dfd33afe8ec4fca21a8722abc8daaf4b6a0f3e2"
+        ]
+      },
+      "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+      "fingerprintBefore": "7c0bf6dba005eed72c52f04cf094a94f2faab3ed9694e4bcdcf35ec636283f0f",
+      "fingerprintAfter": "7c0bf6dba005eed72c52f04cf094a94f2faab3ed9694e4bcdcf35ec636283f0f"
+    }
+  },
+  "profileSummaries": {
+    "baseline": {
+      "self": [
+        {
+          "location": "(garbage collector) :0",
+          "ms": 514.708
+        },
+        {
+          "location": "add dressing/kit-mesh.ts:199",
+          "ms": 467.252
+        },
+        {
+          "location": "appendTo dressing/kowloon/building-job.ts:52",
+          "ms": 185.583
+        },
+        {
+          "location": "face dressing/kowloon/weathered.ts:140",
+          "ms": 170.708
+        },
+        {
+          "location": "finished dressing/kit-mesh.ts:161",
+          "ms": 101.873
+        },
+        {
+          "location": "face dressing/pen.ts:138",
+          "ms": 101.171
+        },
+        {
+          "location": "eachCell dressing/spans/scene.ts:126",
+          "ms": 78.875
+        },
+        {
+          "location": "memberUV dressing/kowloon/weathered.ts:27",
+          "ms": 70.543
+        },
+        {
+          "location": "materialRecipeKey dressing/surface/material.ts:6",
+          "ms": 48.664
+        },
+        {
+          "location": "post node:inspector:115",
+          "ms": 36.458
+        },
+        {
+          "location": "get materialKey dressing/finish/wall-condition.ts:108",
+          "ms": 36.251
+        },
+        {
+          "location": "triangle dressing/wall-geometry.ts:160",
+          "ms": 33.458
+        },
+        {
+          "location": "planar dressing/pen.ts:117",
+          "ms": 32.958
+        },
+        {
+          "location": "Obstructions dressing/spans/scene.ts:87",
+          "ms": 31.625
+        },
+        {
+          "location": "tube dressing/pen.ts:342",
+          "ms": 31.542
+        },
+        {
+          "location": "world dressing/pen.ts:92",
+          "ms": 31.207
+        },
+        {
+          "location": "balconyPlant dressing/kowloon/balcony-props.ts:28",
+          "ms": 30.29
+        },
+        {
+          "location": "receive dressing/kit-surfaces.ts:108",
+          "ms": 28.374
+        },
+        {
+          "location": "sweep dressing/kowloon/pipes.ts:202",
+          "ms": 27.375
+        },
+        {
+          "location": "segmentCrosses dressing/spans/scene.ts:15",
+          "ms": 23.334
+        },
+        {
+          "location": "beveledBar dressing/pen.ts:314",
+          "ms": 21.834
+        },
+        {
+          "location": "(program) :0",
+          "ms": 20.166
+        },
+        {
+          "location": " dressing/kowloon/shop/grocer-props.ts:70",
+          "ms": 19.459
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:154",
+          "ms": 19.166
+        },
+        {
+          "location": "groundEdgeDistance dressing/ground-field.ts:79",
+          "ms": 18.626
+        },
+        {
+          "location": " dressing/kowloon/balcony-props.ts:96",
+          "ms": 18.252
+        },
+        {
+          "location": "triangleCorners dressing/kowloon/building.ts:54",
+          "ms": 18.041
+        },
+        {
+          "location": " dressing/ground.ts:933",
+          "ms": 17.459
+        },
+        {
+          "location": "blocked dressing/spans/scene.ts:153",
+          "ms": 17.375
+        },
+        {
+          "location": " dressing/spans/scene.ts:59",
+          "ms": 16.416
+        },
+        {
+          "location": "face dressing/kowloon/shop/timber.ts:207",
+          "ms": 16.292
+        },
+        {
+          "location": "hangMeshGarment dressing/kowloon/balcony-props.ts:56",
+          "ms": 16.208
+        },
+        {
+          "location": " dressing/kowloon/clearance.ts:14",
+          "ms": 15.166
+        },
+        {
+          "location": "intersectGround dressing/ground-field.ts:20",
+          "ms": 14.833
+        },
+        {
+          "location": "dot dressing/pen.ts:15",
+          "ms": 14.708
+        },
+        {
+          "location": "finishSeed dressing/wall-surface.ts:10",
+          "ms": 14.375
+        },
+        {
+          "location": "emit dressing/kowloon/balcony-props.ts:94",
+          "ms": 14.042
+        },
+        {
+          "location": "intersects dressing/kit-surfaces.ts:34",
+          "ms": 13.627
+        },
+        {
+          "location": "panel dressing/kowloon/tarps.ts:285",
+          "ms": 13.46
+        },
+        {
+          "location": "append dressing/kowloon/building.ts:311",
+          "ms": 12.542
+        },
+        {
+          "location": "add dressing/kowloon/pipes.ts:9",
+          "ms": 12.459
+        },
+        {
+          "location": "renderPatch dressing/ground.ts:811",
+          "ms": 12.375
+        },
+        {
+          "location": " dressing/kowloon/pipes.ts:11",
+          "ms": 12.291
+        },
+        {
+          "location": "difference dressing/kowloon/weathered.ts:23",
+          "ms": 12.209
+        },
+        {
+          "location": "createMetalSurface dressing/finish/metal-surface.ts:21",
+          "ms": 11.876
+        },
+        {
+          "location": "terrain dressing/ground.ts:775",
+          "ms": 11.291
+        },
+        {
+          "location": "triangle dressing/geometry.ts:8",
+          "ms": 11.249
+        },
+        {
+          "location": "clipChart dressing/kowloon/shop/timber.ts:102",
+          "ms": 10.957
+        },
+        {
+          "location": " dressing/kowloon/building.ts:57",
+          "ms": 10.584
+        },
+        {
+          "location": " dressing/kit-mesh.ts:147",
+          "ms": 10.582
+        },
+        {
+          "location": "direction dressing/pen.ts:107",
+          "ms": 10.581
+        },
+        {
+          "location": "grocerProp dressing/kowloon/shop/grocer-props.ts:43",
+          "ms": 10.459
+        },
+        {
+          "location": " dressing/kowloon/pipes.ts:213",
+          "ms": 10.375
+        },
+        {
+          "location": "deposit dressing/kit-surfaces.ts:161",
+          "ms": 10.082
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:28",
+          "ms": 10.0
+        },
+        {
+          "location": "closeEdges dressing/ground.ts:924",
+          "ms": 9.75
+        },
+        {
+          "location": "triangleTouchesBox dressing/kowloon/clearance.ts:13",
+          "ms": 9.208
+        },
+        {
+          "location": "blocked dressing/kowloon/clearance.ts:121",
+          "ms": 9.083
+        },
+        {
+          "location": "settleSigns dressing/kowloon/building.ts:325",
+          "ms": 8.875
+        },
+        {
+          "location": " dressing/kowloon/balcony-props.ts:32",
+          "ms": 8.751
+        }
+      ],
+      "inclusive": [
+        {
+          "location": "(root) :0",
+          "ms": 3293.0
+        },
+        {
+          "location": " file:///Users/tomokif/code/levelspec/generated/kowloon-position-survey-20261112/bench.mjs:0",
+          "ms": 2740.377
+        },
+        {
+          "location": "applyDressing dressing/apply.ts:85",
+          "ms": 2702.419
+        },
+        {
+          "location": "generate dressing/kowloon/building.ts:291",
+          "ms": 1771.584
+        },
+        {
+          "location": "KowloonBuildings.generate file:///Users/tomokif/code/levelspec/generated/kowloon-position-survey-20261112/bench.mjs:52",
+          "ms": 1771.584
+        },
+        {
+          "location": "KowloonBuildings.drawSite file:///Users/tomokif/code/levelspec/generated/kowloon-position-survey-20261112/bench.mjs:43",
+          "ms": 1741.459
+        },
+        {
+          "location": "drawSite dressing/kowloon/building.ts:347",
+          "ms": 1741.459
+        },
+        {
+          "location": "dressFacade dressing/kowloon/facade.ts:539",
+          "ms": 1501.71
+        },
+        {
+          "location": "face dressing/pen.ts:138",
+          "ms": 762.711
+        },
+        {
+          "location": "add dressing/kit-mesh.ts:199",
+          "ms": 569.917
+        },
+        {
+          "location": "face dressing/kowloon/weathered.ts:140",
+          "ms": 547.794
+        },
+        {
+          "location": "(garbage collector) :0",
+          "ms": 514.708
+        },
+        {
+          "location": "windowCell dressing/kowloon/facade.ts:260",
+          "ms": 450.757
+        },
+        {
+          "location": "drawGround dressing/kowloon/facade.ts:763",
+          "ms": 366.996
+        },
+        {
+          "location": "bolt dressing/kowloon/signs/steel.ts:80",
+          "ms": 347.338
+        },
+        {
+          "location": "tube dressing/pen.ts:342",
+          "ms": 327.624
+        },
+        {
+          "location": "run dressing/kowloon/pipes.ts:139",
+          "ms": 319.962
+        },
+        {
+          "location": "beveledBar dressing/pen.ts:314",
+          "ms": 315.377
+        },
+        {
+          "location": "windowUnit dressing/kowloon/windows.ts:90",
+          "ms": 235.961
+        },
+        {
+          "location": "shell dressing/kowloon/building.ts:562",
+          "ms": 233.749
+        },
+        {
+          "location": "settleSigns dressing/kowloon/building.ts:325",
+          "ms": 233.544
+        },
+        {
+          "location": "dressSpans dressing/spans/spans.ts:106",
+          "ms": 228.666
+        },
+        {
+          "location": "drawShop dressing/kowloon/shop/shop.ts:136",
+          "ms": 225.456
+        },
+        {
+          "location": "mount dressing/kowloon/pipes.ts:118",
+          "ms": 219.918
+        },
+        {
+          "location": "beveledBar dressing/kowloon/weathered.ts:115",
+          "ms": 213.045
+        },
+        {
+          "location": "rooftop dressing/kowloon/rooftop.ts:114",
+          "ms": 211.542
+        },
+        {
+          "location": "services dressing/kowloon/facade.ts:783",
+          "ms": 207.879
+        },
+        {
+          "location": "drop dressing/kowloon/facade.ts:802",
+          "ms": 206.379
+        },
+        {
+          "location": "append dressing/kowloon/building.ts:311",
+          "ms": 198.833
+        },
+        {
+          "location": "appendTo dressing/kowloon/building-job.ts:52",
+          "ms": 186.291
+        },
+        {
+          "location": "tube dressing/kowloon/weathered.ts:125",
+          "ms": 185.957
+        },
+        {
+          "location": "drawSkin dressing/kowloon/skin.ts:99",
+          "ms": 182.792
+        },
+        {
+          "location": "settle dressing/kowloon/signs/book.ts:166",
+          "ms": 181.044
+        },
+        {
+          "location": "surfacePanel dressing/kowloon/skin.ts:173",
+          "ms": 172.499
+        },
+        {
+          "location": "cage dressing/kowloon/fixtures.ts:174",
+          "ms": 161.333
+        },
+        {
+          "location": "dressGroundSite dressing/ground.ts:446",
+          "ms": 160.624
+        },
+        {
+          "location": "build dressing/ground.ts:1357",
+          "ms": 159.166
+        },
+        {
+          "location": "sweep dressing/kowloon/pipes.ts:202",
+          "ms": 154.673
+        },
+        {
+          "location": "frameBox dressing/kowloon/windows.ts:74",
+          "ms": 152.625
+        },
+        {
+          "location": "bandCell dressing/kowloon/facade.ts:311",
+          "ms": 139.75
+        },
+        {
+          "location": "dressGround dressing/ground.ts:351",
+          "ms": 138.417
+        },
+        {
+          "location": "awning dressing/kowloon/fixtures.ts:239",
+          "ms": 136.251
+        },
+        {
+          "location": "canvasAwning dressing/kowloon/tarps.ts:329",
+          "ms": 133.209
+        },
+        {
+          "location": "panel dressing/kowloon/tarps.ts:285",
+          "ms": 132.501
+        },
+        {
+          "location": "memberUV dressing/kowloon/weathered.ts:27",
+          "ms": 132.209
+        },
+        {
+          "location": " dressing/kowloon/signs/book.ts:169",
+          "ms": 131.795
+        },
+        {
+          "location": "draw dressing/kowloon/signs/book.ts:110",
+          "ms": 131.795
+        },
+        {
+          "location": "fixingPlate dressing/kowloon/signs/steel.ts:104",
+          "ms": 118.125
+        },
+        {
+          "location": "Obstructions dressing/spans/scene.ts:87",
+          "ms": 114.916
+        },
+        {
+          "location": "groundUnit dressing/kowloon/ground.ts:191",
+          "ms": 114.581
+        },
+        {
+          "location": "sleeve dressing/kowloon/pipes.ts:194",
+          "ms": 113.461
+        },
+        {
+          "location": "member dressing/kowloon/weathered.ts:93",
+          "ms": 107.415
+        },
+        {
+          "location": "box dressing/pen.ts:255",
+          "ms": 106.12
+        },
+        {
+          "location": "member dressing/kowloon/signs/steel.ts:41",
+          "ms": 105.626
+        },
+        {
+          "location": "finished dressing/kit-mesh.ts:161",
+          "ms": 101.873
+        },
+        {
+          "location": "surface dressing/kit-mesh.ts:151",
+          "ms": 97.331
+        },
+        {
+          "location": "ofMesh dressing/spans/scene.ts:121",
+          "ms": 93.707
+        },
+        {
+          "location": "face dressing/kowloon/shop/timber.ts:207",
+          "ms": 91.078
+        },
+        {
+          "location": "stockShelf dressing/kowloon/shop/goods.ts:507",
+          "ms": 89.958
+        },
+        {
+          "location": "hangGarment dressing/kowloon/laundry.ts:499",
+          "ms": 87.206
+        }
+      ],
+      "selected": {
+        "self": [
+          {
+            "location": "receive dressing/kit-surfaces.ts:108",
+            "ms": 28.374
+          },
+          {
+            "location": "intersects dressing/kit-surfaces.ts:34",
+            "ms": 13.627
+          },
+          {
+            "location": "appendTo dressing/kowloon/building-job.ts:52",
+            "ms": 185.583
+          },
+          {
+            "location": "deposit dressing/kit-surfaces.ts:161",
+            "ms": 10.082
+          }
+        ],
+        "inclusive": [
+          {
+            "location": "receive dressing/kit-surfaces.ts:108",
+            "ms": 35.502
+          },
+          {
+            "location": "intersects dressing/kit-surfaces.ts:34",
+            "ms": 25.626
+          },
+          {
+            "location": "deposit dressing/kit-surfaces.ts:161",
+            "ms": 29.122
+          },
+          {
+            "location": "appendTo dressing/kowloon/building-job.ts:52",
+            "ms": 186.291
+          }
+        ]
+      }
+    },
+    "optimized": {
+      "self": [
+        {
+          "location": "(garbage collector) :0",
+          "ms": 546.712
+        },
+        {
+          "location": "add dressing/kit-mesh.ts:200",
+          "ms": 411.248
+        },
+        {
+          "location": "face dressing/kowloon/weathered.ts:140",
+          "ms": 261.749
+        },
+        {
+          "location": "appendTo dressing/kowloon/building-job.ts:52",
+          "ms": 253.332
+        },
+        {
+          "location": "face dressing/pen.ts:138",
+          "ms": 138.004
+        },
+        {
+          "location": "memberUV dressing/kowloon/weathered.ts:27",
+          "ms": 88.084
+        },
+        {
+          "location": "eachCell dressing/spans/scene.ts:126",
+          "ms": 84.25
+        },
+        {
+          "location": "materialRecipeKey dressing/surface/material.ts:6",
+          "ms": 72.751
+        },
+        {
+          "location": "finished dressing/kit-mesh.ts:162",
+          "ms": 69.293
+        },
+        {
+          "location": "tube dressing/pen.ts:342",
+          "ms": 61.626
+        },
+        {
+          "location": "triangle dressing/wall-geometry.ts:160",
+          "ms": 59.458
+        },
+        {
+          "location": "post node:inspector:115",
+          "ms": 59.041
+        },
+        {
+          "location": "get materialKey dressing/finish/wall-condition.ts:108",
+          "ms": 57.251
+        },
+        {
+          "location": "segmentCrosses dressing/spans/scene.ts:15",
+          "ms": 53.667
+        },
+        {
+          "location": "Obstructions dressing/spans/scene.ts:87",
+          "ms": 51.584
+        },
+        {
+          "location": " dressing/ground.ts:941",
+          "ms": 44.333
+        },
+        {
+          "location": "emit dressing/kowloon/balcony-props.ts:94",
+          "ms": 43.916
+        },
+        {
+          "location": "sweep dressing/kowloon/pipes.ts:202",
+          "ms": 42.539
+        },
+        {
+          "location": "planar dressing/pen.ts:117",
+          "ms": 41.253
+        },
+        {
+          "location": "(program) :0",
+          "ms": 40.748
+        },
+        {
+          "location": "world dressing/pen.ts:92",
+          "ms": 40.08
+        },
+        {
+          "location": "receive dressing/kit-surfaces.ts:108",
+          "ms": 36.124
+        },
+        {
+          "location": "balconyPlant dressing/kowloon/balcony-props.ts:28",
+          "ms": 33.291
+        },
+        {
+          "location": " dressing/spans/scene.ts:59",
+          "ms": 27.625
+        },
+        {
+          "location": "scale dressing/kowloon/pipes.ts:11",
+          "ms": 27.29
+        },
+        {
+          "location": "intersects dressing/kit-surfaces.ts:34",
+          "ms": 27.168
+        },
+        {
+          "location": " dressing/kowloon/weathered.ts:154",
+          "ms": 23.957
+        },
+        {
+          "location": " dressing/kowloon/pipes.ts:11",
+          "ms": 23.584
+        },
+        {
+          "location": "difference dressing/kowloon/weathered.ts:23",
+          "ms": 22.831
+        },
+        {
+          "location": "hangMeshGarment dressing/kowloon/balcony-props.ts:56",
+          "ms": 22.125
+        },
+        {
+          "location": "finishSeed dressing/wall-surface.ts:10",
+          "ms": 21.291
+        },
+        {
+          "location": "blocked dressing/kowloon/clearance.ts:121",
+          "ms": 20.124
+        },
+        {
+          "location": "dot dressing/pen.ts:15",
+          "ms": 20.083
+        },
+        {
+          "location": "groundEdgeDistance dressing/ground-field.ts:79",
+          "ms": 19.459
+        },
+        {
+          "location": "grocerProp dressing/kowloon/shop/grocer-props.ts:43",
+          "ms": 19.457
+        },
+        {
+          "location": "vertex dressing/kowloon/pipes.ts:206",
+          "ms": 18.999
+        },
+        {
+          "location": "append dressing/kowloon/building.ts:312",
+          "ms": 18.584
+        },
+        {
+          "location": "panel dressing/kowloon/tarps.ts:285",
+          "ms": 18.168
+        },
+        {
+          "location": "touchesScenery dressing/kowloon/signs/survey.ts:105",
+          "ms": 18.043
+        },
+        {
+          "location": "renderPatch dressing/ground.ts:819",
+          "ms": 18.001
+        },
+        {
+          "location": "intersectGround dressing/ground-field.ts:20",
+          "ms": 16.5
+        },
+        {
+          "location": " dressing/kowloon/tarps.ts:312",
+          "ms": 16.166
+        },
+        {
+          "location": "profiledStrip dressing/kowloon/molding.ts:52",
+          "ms": 15.709
+        },
+        {
+          "location": "beveledBar dressing/pen.ts:314",
+          "ms": 15.666
+        },
+        {
+          "location": "settleSigns dressing/kowloon/building.ts:326",
+          "ms": 15.583
+        },
+        {
+          "location": " dressing/kowloon/tarps.ts:311",
+          "ms": 15.5
+        },
+        {
+          "location": "triangleTouchesBox dressing/kowloon/clearance.ts:13",
+          "ms": 15.458
+        },
+        {
+          "location": " dressing/kit-mesh.ts:148",
+          "ms": 15.334
+        },
+        {
+          "location": " dressing/kowloon/balcony-props.ts:96",
+          "ms": 15.169
+        },
+        {
+          "location": "triangle dressing/geometry.ts:9",
+          "ms": 14.667
+        },
+        {
+          "location": "dressFacade dressing/kowloon/facade.ts:539",
+          "ms": 13.791
+        },
+        {
+          "location": " dressing/kowloon/clearance.ts:14",
+          "ms": 13.627
+        },
+        {
+          "location": "valueNoiseRange dressing/finish/noise.ts:41",
+          "ms": 13.334
+        },
+        {
+          "location": " dressing/kowloon/balcony-props.ts:71",
+          "ms": 13.249
+        },
+        {
+          "location": "blocked dressing/spans/scene.ts:153",
+          "ms": 13.041
+        },
+        {
+          "location": "face dressing/kowloon/shop/timber.ts:207",
+          "ms": 13.002
+        },
+        {
+          "location": "snapshot dressing/triangle-survey.ts:15",
+          "ms": 12.875
+        },
+        {
+          "location": "visibleCorners dressing/spans/scene.ts:54",
+          "ms": 12.791
+        },
+        {
+          "location": "deposit dressing/kit-surfaces.ts:161",
+          "ms": 12.375
+        },
+        {
+          "location": "surfacePanel dressing/kowloon/skin.ts:173",
+          "ms": 12.083
+        }
+      ],
+      "inclusive": [
+        {
+          "location": "(root) :0",
+          "ms": 4320.625
+        },
+        {
+          "location": " file:///Users/tomokif/code/levelspec/generated/kowloon-position-survey-20261112/bench.mjs:0",
+          "ms": 3704.957
+        },
+        {
+          "location": "applyDressing dressing/apply.ts:85",
+          "ms": 3643.624
+        },
+        {
+          "location": "generate dressing/kowloon/building.ts:292",
+          "ms": 2278.165
+        },
+        {
+          "location": "KowloonBuildings.generate file:///Users/tomokif/code/levelspec/generated/kowloon-position-survey-20261112/bench.mjs:52",
+          "ms": 2278.165
+        },
+        {
+          "location": "KowloonBuildings.drawSite file:///Users/tomokif/code/levelspec/generated/kowloon-position-survey-20261112/bench.mjs:43",
+          "ms": 2264.123
+        },
+        {
+          "location": "drawSite dressing/kowloon/building.ts:348",
+          "ms": 2261.164
+        },
+        {
+          "location": "dressFacade dressing/kowloon/facade.ts:539",
+          "ms": 1992.08
+        },
+        {
+          "location": "face dressing/kowloon/weathered.ts:140",
+          "ms": 747.454
+        },
+        {
+          "location": "face dressing/pen.ts:138",
+          "ms": 739.422
+        },
+        {
+          "location": "windowCell dressing/kowloon/facade.ts:260",
+          "ms": 589.499
+        },
+        {
+          "location": "(garbage collector) :0",
+          "ms": 546.712
+        },
+        {
+          "location": "add dressing/kit-mesh.ts:200",
+          "ms": 487.0
+        },
+        {
+          "location": "bolt dressing/kowloon/signs/steel.ts:80",
+          "ms": 447.003
+        },
+        {
+          "location": "drawGround dressing/kowloon/facade.ts:763",
+          "ms": 436.707
+        },
+        {
+          "location": "tube dressing/pen.ts:342",
+          "ms": 435.628
+        },
+        {
+          "location": "beveledBar dressing/pen.ts:314",
+          "ms": 415.372
+        },
+        {
+          "location": "run dressing/kowloon/pipes.ts:139",
+          "ms": 411.498
+        },
+        {
+          "location": "dressSpans dressing/spans/spans.ts:106",
+          "ms": 328.792
+        },
+        {
+          "location": "beveledBar dressing/kowloon/weathered.ts:115",
+          "ms": 319.286
+        },
+        {
+          "location": "windowUnit dressing/kowloon/windows.ts:90",
+          "ms": 316.919
+        },
+        {
+          "location": "settleSigns dressing/kowloon/building.ts:326",
+          "ms": 309.459
+        },
+        {
+          "location": "services dressing/kowloon/facade.ts:783",
+          "ms": 286.501
+        },
+        {
+          "location": "tube dressing/kowloon/weathered.ts:125",
+          "ms": 286.168
+        },
+        {
+          "location": "mount dressing/kowloon/pipes.ts:118",
+          "ms": 281.419
+        },
+        {
+          "location": "drop dressing/kowloon/facade.ts:802",
+          "ms": 280.793
+        },
+        {
+          "location": "drawSkin dressing/kowloon/skin.ts:99",
+          "ms": 275.039
+        },
+        {
+          "location": "append dressing/kowloon/building.ts:312",
+          "ms": 273.124
+        },
+        {
+          "location": "shell dressing/kowloon/building.ts:563",
+          "ms": 265.126
+        },
+        {
+          "location": "drawShop dressing/kowloon/shop/shop.ts:136",
+          "ms": 262.542
+        },
+        {
+          "location": "dressGroundSite dressing/ground.ts:447",
+          "ms": 262.252
+        },
+        {
+          "location": "build dressing/ground.ts:1366",
+          "ms": 259.169
+        },
+        {
+          "location": "appendTo dressing/kowloon/building-job.ts:52",
+          "ms": 254.54
+        },
+        {
+          "location": "surfacePanel dressing/kowloon/skin.ts:173",
+          "ms": 249.083
+        },
+        {
+          "location": "settle dressing/kowloon/signs/book.ts:166",
+          "ms": 240.293
+        },
+        {
+          "location": "dressGround dressing/ground.ts:352",
+          "ms": 238.627
+        },
+        {
+          "location": "rooftop dressing/kowloon/rooftop.ts:114",
+          "ms": 235.583
+        },
+        {
+          "location": "cage dressing/kowloon/fixtures.ts:174",
+          "ms": 230.703
+        },
+        {
+          "location": "frameBox dressing/kowloon/windows.ts:74",
+          "ms": 213.835
+        },
+        {
+          "location": "sweep dressing/kowloon/pipes.ts:202",
+          "ms": 205.163
+        },
+        {
+          "location": "bandCell dressing/kowloon/facade.ts:311",
+          "ms": 192.001
+        },
+        {
+          "location": "memberUV dressing/kowloon/weathered.ts:27",
+          "ms": 181.167
+        },
+        {
+          "location": "awning dressing/kowloon/fixtures.ts:239",
+          "ms": 181.082
+        },
+        {
+          "location": " dressing/kowloon/signs/book.ts:169",
+          "ms": 179.417
+        },
+        {
+          "location": "draw dressing/kowloon/signs/book.ts:110",
+          "ms": 179.417
+        },
+        {
+          "location": "canvasAwning dressing/kowloon/tarps.ts:329",
+          "ms": 178.207
+        },
+        {
+          "location": "panel dressing/kowloon/tarps.ts:285",
+          "ms": 177.582
+        },
+        {
+          "location": "sleeve dressing/kowloon/pipes.ts:194",
+          "ms": 154.039
+        },
+        {
+          "location": "fixingPlate dressing/kowloon/signs/steel.ts:104",
+          "ms": 148.79
+        },
+        {
+          "location": "member dressing/kowloon/weathered.ts:93",
+          "ms": 148.704
+        },
+        {
+          "location": "Obstructions dressing/spans/scene.ts:87",
+          "ms": 143.25
+        },
+        {
+          "location": "groundUnit dressing/kowloon/ground.ts:191",
+          "ms": 142.623
+        },
+        {
+          "location": "ofMesh dressing/spans/scene.ts:121",
+          "ms": 130.083
+        },
+        {
+          "location": "hangGarment dressing/kowloon/laundry.ts:499",
+          "ms": 126.293
+        },
+        {
+          "location": "member dressing/kowloon/signs/steel.ts:41",
+          "ms": 121.164
+        },
+        {
+          "location": "emit dressing/kowloon/balcony-props.ts:94",
+          "ms": 119.708
+        },
+        {
+          "location": "dressPlainWalls dressing/walls.ts:280",
+          "ms": 110.582
+        },
+        {
+          "location": "balconyPlant dressing/kowloon/balcony-props.ts:28",
+          "ms": 108.998
+        },
+        {
+          "location": "pottedPlant dressing/kowloon/fixtures.ts:159",
+          "ms": 108.998
+        },
+        {
+          "location": "plantRow dressing/kowloon/fixtures.ts:164",
+          "ms": 108.998
+        }
+      ],
+      "selected": {
+        "self": [
+          {
+            "location": "receive dressing/kit-surfaces.ts:108",
+            "ms": 36.124
+          },
+          {
+            "location": "deposit dressing/kit-surfaces.ts:161",
+            "ms": 12.375
+          },
+          {
+            "location": "appendTo dressing/kowloon/building-job.ts:52",
+            "ms": 253.332
+          },
+          {
+            "location": "intersects dressing/kit-surfaces.ts:34",
+            "ms": 27.168
+          }
+        ],
+        "inclusive": [
+          {
+            "location": "receive dressing/kit-surfaces.ts:108",
+            "ms": 54.208
+          },
+          {
+            "location": "intersects dressing/kit-surfaces.ts:34",
+            "ms": 45.377
+          },
+          {
+            "location": "deposit dressing/kit-surfaces.ts:161",
+            "ms": 41.251
+          },
+          {
+            "location": "appendTo dressing/kowloon/building-job.ts:52",
+            "ms": 254.54
+          }
+        ]
+      }
+    }
+  },
+  "allEquivalenceFieldsMatch": true,
+  "numericSurveyAttributeValueReductionPercent": 72.72727272727273,
+  "observedDressingWallIncreasePercent": 30.842558085674266,
+  "speedImprovementEstablished": false,
+  "memoryImprovementEstablished": false,
+  "productionDifference": [
+    "src/dressing/triangle-survey.ts",
+    "src/dressing/kit-mesh.ts",
+    "src/dressing/geometry.ts",
+    "src/dressing/ground.ts",
+    "src/dressing/kowloon/building.ts",
+    "src/dressing/kowloon/deck.ts",
+    "src/dressing/kowloon/skin.ts",
+    "src/dressing/kowloon/weathered.ts"
+  ],
+  "workspaceIsolation": "Concurrent skin.ts clean-wall/deposit edits retained in root but excluded from optimized frozen snapshot; only survey guard applied there. Other seven edited files match optimized snapshot.",
+  "sha256": {
+    "generated/kowloon-position-survey-20261112/bench.mjs": "44674456b71c2dedeb0cc9d94f83b87dc3a3b4484298be5debda6720a1c080e9",
+    "generated/kowloon-position-survey-20261112/summarize.py": "8cfbb4c4718ef9224e1aebaf368719de2b500b48c27096c2e36defb1c7c98020",
+    "generated/kowloon-position-survey-20261112/implementation.diff": "2ecdc3e31a51047132dc4ad9dd5695790c70bc38f2dceac9facf0031fdb2879f",
+    "tests/surface-building-survey.test.ts": "d8e3c9c29c2233a763bfec11176704d68333cae9797b382e95dde3ab7abb731a",
+    "generated/kowloon-position-survey-20261112/optimized/src/dressing/triangle-survey.ts": "26fce9db19e12d3ada5cfc261932a4517c902c98c4bed47ebc30c50dbf8bd7a0",
+    "generated/kowloon-position-survey-20261112/optimized/src/dressing/kit-mesh.ts": "2090fb9b4360a6eaeb92761c4e634cc101f0775ec6c0dc43da841c090d0834f4",
+    "generated/kowloon-position-survey-20261112/optimized/src/dressing/geometry.ts": "7d7d503d08a7d9b2d846bbd68a8bbbff45dfca027a724d618a3b719336836942",
+    "generated/kowloon-position-survey-20261112/optimized/src/dressing/ground.ts": "1ad154d7eafb9c24df15929ab7fc5ac95064595d653d1b7180eceebdfc776b09",
+    "generated/kowloon-position-survey-20261112/optimized/src/dressing/kowloon/building.ts": "88e9367aecad6ac6a496d9e3b2f07af294c3a43923bda30c40df943d5989c797",
+    "generated/kowloon-position-survey-20261112/optimized/src/dressing/kowloon/deck.ts": "cc9bcdb417ba924ef85585a6a13cf4a5f8e345a2341f2a66a8e84372415470f7",
+    "generated/kowloon-position-survey-20261112/optimized/src/dressing/kowloon/skin.ts": "305cbc9c1c7249cb8fe7d0a4cafec99fde672b12691f7aa8301dc9908d1723be",
+    "generated/kowloon-position-survey-20261112/optimized/src/dressing/kowloon/weathered.ts": "5ef77bea83c67bd1f16da53e073bae0da4bb1280849dd0567185afb015424390"
+  },
+  "validation": {
+    "originalSurveyTestsPassed": 4,
+    "optimizedFocusedTestsPassed": 21,
+    "groundTestsPassed": 12,
+    "typecheck": "passed",
+    "testReview": "approved, including raw execution evidence",
+    "implementationReview": "approved, including final report and evidence"
+  },
+  "limitations": [
+    "Single pair was slower and had higher process high-water RSS",
+    "No causal explanation of slowdown established; no statistical throughput claim",
+    "72.7% means numeric attribute values in intermediate survey representation, not total allocations or memory",
+    "Final owned Float64 snapshot and producer scratch/callback work remain",
+    "Chart functions sampled at selected coordinates; mesh JSON normalizes signed zero, raw survey bytes do not",
+    "No new full-pipeline or rendered-image comparison or full-suite acceptance"
+  ]
+}

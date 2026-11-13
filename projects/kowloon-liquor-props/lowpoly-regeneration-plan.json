@@ -1,0 +1,196 @@
+{
+  "estimateCredits": 150,
+  "textureQuality": "standard",
+  "steps": [
+    {
+      "asset": "seasoning-jar",
+      "concept": "projects/kowloon-asset-pilot/concepts/seasoning-jar.png",
+      "conceptSha256": "b6f7d384f1072cb0a5866c3c5a7d48c45613b3392d7782c0d19a9242bd832779",
+      "faceLimit": 64,
+      "estimateCredits": 50,
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-asset-pilot/concepts/seasoning-jar.png",
+        "-p",
+        "face_limit=64",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "delight=true",
+        "--name",
+        "liquor-lowpoly-seasoning-jar",
+        "-o",
+        "generated/liquor-props/lowpoly-regeneration",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-asset-pilot/concepts/seasoning-jar.png",
+        "model": "P1-20260311",
+        "model_reason": "face budget 64 \u2264 20000 \u2192 P1",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-asset-pilot/concepts/seasoning-jar.png>",
+              "model": "P1-20260311",
+              "face_limit": 64,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard",
+              "texture_version": "v3.5-20260815",
+              "delight": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-asset-pilot/concepts/seasoning-jar.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "drink-bottle",
+      "concept": "projects/kowloon-liquor-props/concepts/drink-bottle.png",
+      "conceptSha256": "6b775d9666ff7122caa771917e781b4017ddb9de429d6029e02636fb90e252da",
+      "faceLimit": 80,
+      "estimateCredits": 50,
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/drink-bottle.png",
+        "-p",
+        "face_limit=80",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "delight=true",
+        "--name",
+        "liquor-lowpoly-drink-bottle",
+        "-o",
+        "generated/liquor-props/lowpoly-regeneration",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/drink-bottle.png",
+        "model": "P1-20260311",
+        "model_reason": "face budget 80 \u2264 20000 \u2192 P1",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/drink-bottle.png>",
+              "model": "P1-20260311",
+              "face_limit": 80,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard",
+              "texture_version": "v3.5-20260815",
+              "delight": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/drink-bottle.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "food-tin",
+      "concept": "projects/kowloon-liquor-props/concepts/food-tin.png",
+      "conceptSha256": "1b253df6cd0c5ed0775814ed11a88d94b8cf723b0fc444f66a42541729baa466",
+      "faceLimit": 50,
+      "estimateCredits": 50,
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/food-tin.png",
+        "-p",
+        "face_limit=50",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "-p",
+        "texture_quality=standard",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "delight=true",
+        "--name",
+        "liquor-lowpoly-food-tin",
+        "-o",
+        "generated/liquor-props/lowpoly-regeneration",
+        "--yes",
+        "--json"
+      ],
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/food-tin.png",
+        "model": "P1-20260311",
+        "model_reason": "face budget 50 \u2264 20000 \u2192 P1",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/food-tin.png>",
+              "model": "P1-20260311",
+              "face_limit": 50,
+              "texture": true,
+              "pbr": true,
+              "texture_quality": "standard",
+              "texture_version": "v3.5-20260815",
+              "delight": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/food-tin.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    }
+  ],
+  "authorization": {
+    "approvedCredits": 150,
+    "scope": "One generation each of jar64, bottle80, tin50; no paid conversions or automatic rerolls."
+  }
+}

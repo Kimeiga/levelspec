@@ -1,0 +1,213 @@
+{
+  "revision": "L03",
+  "scope": "Focused independent-review findings only: radius-.30 projected local routes, finite Press shell strip, explicit School support intersections and unchanged design fields. No compiled geometry, continuous body collision, sightline, balance or engineering acceptance.",
+  "localRouteChecks": [
+    {
+      "id": "R02-quay",
+      "waypoints": [
+        [
+          25,
+          25
+        ],
+        [
+          27,
+          26.2
+        ],
+        [
+          36,
+          26
+        ]
+      ],
+      "z": 0,
+      "radius": 0.3,
+      "minimumCenterToProjectedEdge": 0.8220192795504354,
+      "radiusSweepOutsideArea": 0.0,
+      "passesProjectedEnvelope": true,
+      "scope": "Continuous XY projection only, allowing the named adjacent flight at Salt foot; not the real stepped surface or full collision shape."
+    },
+    {
+      "id": "R07-Press",
+      "waypoints": [
+        [
+          28,
+          45.5
+        ],
+        [
+          28,
+          50
+        ],
+        [
+          28,
+          55
+        ]
+      ],
+      "z": 4,
+      "radius": 0.3,
+      "minimumCenterToProjectedEdge": 1.0,
+      "radiusSweepOutsideArea": 0.0,
+      "passesProjectedEnvelope": true,
+      "scope": "Continuous XY projection only, allowing the named adjacent flight at Salt foot; not the real stepped surface or full collision shape."
+    },
+    {
+      "id": "R05/R10-Salt-foot",
+      "waypoints": [
+        [
+          103,
+          29
+        ],
+        [
+          103,
+          28.6
+        ],
+        [
+          109,
+          28.6
+        ],
+        [
+          111,
+          25
+        ]
+      ],
+      "z": 0,
+      "radius": 0.3,
+      "minimumCenterToProjectedEdge": 0.3999999999999986,
+      "radiusSweepOutsideArea": 0.0,
+      "passesProjectedEnvelope": true,
+      "scope": "Continuous XY projection only, allowing the named adjacent flight at Salt foot; not the real stepped surface or full collision shape."
+    },
+    {
+      "id": "R07-finite-Press-shell",
+      "wall": "WX-M05-12",
+      "thickness": 0.45,
+      "centerDistanceToFiniteShell": 0.8649999999999984,
+      "radiusMargin": 0.5649999999999984,
+      "passes": true
+    }
+  ],
+  "schoolSupportChecks": [
+    {
+      "assembly": "SS01",
+      "path": [
+        [
+          92,
+          84,
+          4
+        ],
+        [
+          98,
+          84,
+          4
+        ]
+      ],
+      "radius": 0.3,
+      "standingHeight": 1.8,
+      "intersectingLowerMembers": [],
+      "overheadMembers": [
+        {
+          "id": "SS01-B1",
+          "clearHeightAboveFloor": 3.25
+        }
+      ],
+      "lowerSupportFootings": [],
+      "boundaryFillRemoved": true
+    },
+    {
+      "assembly": "SS02",
+      "path": [
+        [
+          107,
+          58,
+          4
+        ],
+        [
+          108,
+          65,
+          4
+        ],
+        [
+          108,
+          68,
+          4
+        ]
+      ],
+      "radius": 0.3,
+      "standingHeight": 1.8,
+      "intersectingLowerMembers": [],
+      "overheadMembers": [
+        {
+          "id": "SS02-B1",
+          "clearHeightAboveFloor": 3.25
+        }
+      ],
+      "lowerSupportFootings": [
+        {
+          "id": "SS02-P1",
+          "basePolygonWithinExistingFloor": true
+        },
+        {
+          "id": "SS02-P2",
+          "basePolygonWithinExistingFloor": true
+        }
+      ],
+      "boundaryFillRemoved": true
+    },
+    {
+      "assembly": "SS03",
+      "path": [
+        [
+          116,
+          83,
+          4
+        ],
+        [
+          125.5,
+          83,
+          4
+        ],
+        [
+          126,
+          77,
+          4
+        ],
+        [
+          125,
+          70,
+          4
+        ]
+      ],
+      "radius": 0.3,
+      "standingHeight": 1.8,
+      "intersectingLowerMembers": [],
+      "overheadMembers": [
+        {
+          "id": "SS03-B2",
+          "clearHeightAboveFloor": 3.25
+        },
+        {
+          "id": "SS03-B3",
+          "clearHeightAboveFloor": 3.25
+        },
+        {
+          "id": "SS03-B4",
+          "clearHeightAboveFloor": 3.25
+        }
+      ],
+      "lowerSupportFootings": [],
+      "boundaryFillRemoved": true
+    }
+  ],
+  "unchangedFromL02": {
+    "body": true,
+    "flatFloors": true,
+    "stairs": true,
+    "ramps": true,
+    "landings": true,
+    "doors": true,
+    "walls": true,
+    "buildings": true,
+    "stairVoids": true,
+    "objectiveFootprints": true,
+    "spawns": true,
+    "windows": true
+  }
+}

@@ -1,0 +1,707 @@
+{
+  "date": "2026-11-11",
+  "environment": {
+    "node": "v24.12.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4"
+  },
+  "scope": "One CPU-profiled full compile of the frozen texture implementation, including navigation. Imports, parsing, export and browser upload excluded. No concurrent assistant-owned workloads. External machine load uncontrolled.",
+  "fingerprint": "a04a09e1ed6d03f4c709ae027c1d442ee967c6e63e0e08d16363c2b732ff59a3",
+  "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+  "renderHash": "aef4c1f4d154d6b32c41cb9399b1b9c95e008b6d50a605603f733ea23ce71dcc",
+  "cpuProfileSha256": "91894b78713dc959ab5d7d9e12d66732867adbd3a4ccfe6418db80477bdcd4c8",
+  "analysis": {
+    "elapsedMs": 9175.437833,
+    "cpuMs": 11350.686,
+    "sampledMs": 9205.292000000001,
+    "status": "completed",
+    "sourceChangedDuringRun": false,
+    "intervals": [
+      {
+        "stage": "Compile setup",
+        "startMs": 0,
+        "durationMs": 1.3893749999999727
+      },
+      {
+        "stage": "Resolving architecture",
+        "startMs": 1.3893749999999727,
+        "durationMs": 10.50879100000003
+      },
+      {
+        "stage": "Building solids",
+        "startMs": 11.898166000000003,
+        "durationMs": 24.425542000000007
+      },
+      {
+        "stage": "Composing",
+        "startMs": 36.32370800000001,
+        "durationMs": 10.528832999999963
+      },
+      {
+        "stage": "Physical surfaces",
+        "startMs": 46.852540999999974,
+        "durationMs": 1.8597090000000094
+      },
+      {
+        "stage": "Resolving face materials",
+        "startMs": 48.71224999999998,
+        "durationMs": 26.448666000000003
+      },
+      {
+        "stage": "Procedural dressing",
+        "startMs": 75.16091599999999,
+        "durationMs": 942.667209
+      },
+      {
+        "stage": "Surface appearance",
+        "startMs": 1017.828125,
+        "durationMs": 0.8073750000000928
+      },
+      {
+        "stage": "Surface appearance: validating receivers",
+        "startMs": 1018.6355000000001,
+        "durationMs": 50.062415999999985
+      },
+      {
+        "stage": "Surface appearance: decoding material images",
+        "startMs": 1068.697916,
+        "durationMs": 684.7519590000002
+      },
+      {
+        "stage": "Surface appearance: deriving height normals",
+        "startMs": 1753.4498750000002,
+        "durationMs": 0.5780829999998787
+      },
+      {
+        "stage": "Surface appearance: rasterizing materials",
+        "startMs": 1754.0279580000001,
+        "durationMs": 6159.266083
+      },
+      {
+        "stage": "Surface appearance: receiver 1/3402",
+        "startMs": 7913.294041,
+        "durationMs": 3.022624999999607
+      },
+      {
+        "stage": "Surface appearance: receiver 342/3402",
+        "startMs": 7916.316666,
+        "durationMs": 1.4419170000001031
+      },
+      {
+        "stage": "Surface appearance: receiver 683/3402",
+        "startMs": 7917.758583,
+        "durationMs": 0.16404200000033597
+      },
+      {
+        "stage": "Surface appearance: receiver 1024/3402",
+        "startMs": 7917.922625,
+        "durationMs": 1.4246659999989788
+      },
+      {
+        "stage": "Surface appearance: receiver 1365/3402",
+        "startMs": 7919.347290999999,
+        "durationMs": 1.4546250000003056
+      },
+      {
+        "stage": "Surface appearance: receiver 1706/3402",
+        "startMs": 7920.801915999999,
+        "durationMs": 0.16083400000024994
+      },
+      {
+        "stage": "Surface appearance: receiver 2047/3402",
+        "startMs": 7920.96275,
+        "durationMs": 1.428583000000799
+      },
+      {
+        "stage": "Surface appearance: receiver 2388/3402",
+        "startMs": 7922.3913330000005,
+        "durationMs": 1.468457999999373
+      },
+      {
+        "stage": "Surface appearance: receiver 2729/3402",
+        "startMs": 7923.859791,
+        "durationMs": 0.14895900000010442
+      },
+      {
+        "stage": "Surface appearance: receiver 3070/3402",
+        "startMs": 7924.00875,
+        "durationMs": 1.420791000000463
+      },
+      {
+        "stage": "Surface appearance: joining receiver edges",
+        "startMs": 7925.429541,
+        "durationMs": 505.7277089999998
+      },
+      {
+        "stage": "Mesh parts and finalization",
+        "startMs": 8431.15725,
+        "durationMs": 575.4758750000001
+      },
+      {
+        "stage": "Navigation",
+        "startMs": 9006.633125,
+        "durationMs": 168.80470799999966
+      }
+    ],
+    "categories": [
+      {
+        "category": "Other compilation",
+        "sampledMs": 2118.378999999989,
+        "percent": 23.0126214355828
+      },
+      {
+        "category": "Native wall finish fields",
+        "sampledMs": 1072.785000000002,
+        "percent": 11.654002936571722
+      },
+      {
+        "category": "Idle",
+        "sampledMs": 1023.2520000000037,
+        "percent": 11.115910282911216
+      },
+      {
+        "category": "Repair field evaluation",
+        "sampledMs": 855.1290000000012,
+        "percent": 9.28953693158241
+      },
+      {
+        "category": "Other raster work",
+        "sampledMs": 761.7510000000012,
+        "percent": 8.275142168222379
+      },
+      {
+        "category": "PBR source sampling",
+        "sampledMs": 724.2510000000004,
+        "percent": 7.867767801390768
+      },
+      {
+        "category": "Ground finish fields",
+        "sampledMs": 663.1199999999999,
+        "percent": 7.20368240355656
+      },
+      {
+        "category": "Source image decoding",
+        "sampledMs": 641.9989999999996,
+        "percent": 6.974238296840552
+      },
+      {
+        "category": "PNG encoding",
+        "sampledMs": 367.87999999999977,
+        "percent": 3.9963968552002447
+      },
+      {
+        "category": "Output pixel encoding",
+        "sampledMs": 357.9539999999998,
+        "percent": 3.8885675761290326
+      },
+      {
+        "category": "Garbage collection",
+        "sampledMs": 206.168,
+        "percent": 2.239668225624999
+      },
+      {
+        "category": "Other facade patina and bump",
+        "sampledMs": 156.375,
+        "percent": 1.698751109687775
+      },
+      {
+        "category": "Receiver mesh binding",
+        "sampledMs": 135.833,
+        "percent": 1.4755968631956484
+      },
+      {
+        "category": "Facade variation evaluation",
+        "sampledMs": 120.416,
+        "percent": 1.3081171135038407
+      }
+    ],
+    "self": [
+      {
+        "location": "(idle) :0",
+        "sampledMs": 1023.2520000000037,
+        "percent": 11.115910282911216
+      },
+      {
+        "location": "renderRepairSample src/dressing/finish/patina.ts:43",
+        "sampledMs": 848.004000000001,
+        "percent": 9.212135801884404
+      },
+      {
+        "location": "rasterizeSurface src/dressing/surface/raster.ts:161",
+        "sampledMs": 393.70600000000064,
+        "percent": 4.276952865808066
+      },
+      {
+        "location": "hash src/vector/geometry.ts:383",
+        "sampledMs": 384.79199999999975,
+        "percent": 4.180117262983072
+      },
+      {
+        "location": "writePixel src/dressing/surface/raster.ts:261",
+        "sampledMs": 333.24699999999996,
+        "percent": 3.620167616627478
+      },
+      {
+        "location": "wallLattice src/dressing/finish/wall-noise.ts:2",
+        "sampledMs": 317.74899999999997,
+        "percent": 3.451807938303314
+      },
+      {
+        "location": "sourcePixel src/dressing/surface/raster.ts:139",
+        "sampledMs": 300.17099999999994,
+        "percent": 3.260852561765557
+      },
+      {
+        "location": "inflate_fast node_modules/pngjs/browser.js:10512",
+        "sampledMs": 274.376,
+        "percent": 2.9806333139676604
+      },
+      {
+        "location": "at src/dressing/wall-finish.ts:131",
+        "sampledMs": 261.877,
+        "percent": 2.8448527216735764
+      },
+      {
+        "location": "triangle src/dressing/geometry.ts:8",
+        "sampledMs": 260.081,
+        "percent": 2.825342205331455
+      },
+      {
+        "location": "(program) :0",
+        "sampledMs": 258.377,
+        "percent": 2.8068311141026268
+      },
+      {
+        "location": "(garbage collector) :0",
+        "sampledMs": 206.168,
+        "percent": 2.239668225624999
+      },
+      {
+        "location": "sample src/dressing/finish/wall-condition.ts:189",
+        "sampledMs": 199.74699999999999,
+        "percent": 2.16991487070698
+      },
+      {
+        "location": "fractalNoise src/dressing/finish/noise.ts:76",
+        "sampledMs": 191.664,
+        "percent": 2.0821066838509843
+      },
+      {
+        "location": "linear src/dressing/surface/raster.ts:46",
+        "sampledMs": 142.0,
+        "percent": 1.5425909357356615
+      },
+      {
+        "location": "buildSurfaceRegions src/dressing/surface/regions.ts:474",
+        "sampledMs": 128.25,
+        "percent": 1.3932203345640743
+      },
+      {
+        "location": "colorSample src/dressing/surface/raster.ts:51",
+        "sampledMs": 125.75200000000001,
+        "percent": 1.3660837700748656
+      },
+      {
+        "location": "runoff src/dressing/finish/wall-condition.ts:160",
+        "sampledMs": 123.459,
+        "percent": 1.3411741854576693
+      },
+      {
+        "location": "wrap src/dressing/surface/raster.ts:48",
+        "sampledMs": 123.24799999999999,
+        "percent": 1.3388820256869631
+      },
+      {
+        "location": "plasterSample src/dressing/wall-surface.ts:44",
+        "sampledMs": 121.499,
+        "percent": 1.3198820852179374
+      },
+      {
+        "location": "valueNoise src/dressing/finish/noise.ts:17",
+        "sampledMs": 121.17100000000002,
+        "percent": 1.3163189174227172
+      },
+      {
+        "location": "sample src/dressing/ground-surface.ts:276",
+        "sampledMs": 97.457,
+        "percent": 1.0587062311548616
+      },
+      {
+        "location": "sample src/dressing/wall-finish.ts:242",
+        "sampledMs": 93.251,
+        "percent": 1.0130151221710293
+      },
+      {
+        "location": "CrcCalculator.write node_modules/pngjs/browser.js:684",
+        "sampledMs": 83.28999999999999,
+        "percent": 0.9048056270241073
+      },
+      {
+        "location": "fromArrayLike node_modules/pngjs/browser.js:5182",
+        "sampledMs": 64.66499999999999,
+        "percent": 0.7024763581644121
+      },
+      {
+        "location": "filterSumPaeth node_modules/pngjs/browser.js:803",
+        "sampledMs": 58.00200000000001,
+        "percent": 0.6300940806657735
+      },
+      {
+        "location": "deflate_rle node_modules/pngjs/browser.js:9463",
+        "sampledMs": 56.040000000000006,
+        "percent": 0.6087802537931443
+      },
+      {
+        "location": "face src/dressing/pen.ts:131",
+        "sampledMs": 54.793000000000006,
+        "percent": 0.5952336981814373
+      },
+      {
+        "location": "renderVariation src/dressing/finish/patina.ts:61",
+        "sampledMs": 54.5,
+        "percent": 0.5920507464619263
+      },
+      {
+        "location": "(anonymous) src/dressing/wall-finish.ts:250",
+        "sampledMs": 50.5,
+        "percent": 0.5485974806665557
+      },
+      {
+        "location": "add src/dressing/kit-mesh.ts:169",
+        "sampledMs": 49.168,
+        "percent": 0.5341275431566972
+      },
+      {
+        "location": "mapImage8Bit node_modules/pngjs/browser.js:174",
+        "sampledMs": 46.70700000000007,
+        "percent": 0.507392921376096
+      },
+      {
+        "location": "triangle src/dressing/wall-geometry.ts:145",
+        "sampledMs": 44.834,
+        "percent": 0.487045929667413
+      },
+      {
+        "location": "Filter._unFilterType3 node_modules/pngjs/browser.js:1025",
+        "sampledMs": 41.836000000000006,
+        "percent": 0.45447770695378265
+      },
+      {
+        "location": "renderPatina src/dressing/finish/patina.ts:101",
+        "sampledMs": 40.623000000000005,
+        "percent": 0.4413005041013365
+      }
+    ],
+    "inclusive": [
+      {
+        "location": "(root) :0",
+        "sampledMs": 9205.292000000052,
+        "percent": 100.00000000000055
+      },
+      {
+        "location": "rasterizeSurface src/dressing/surface/raster.ts:161",
+        "sampledMs": 4666.867000000009,
+        "percent": 50.69765304566122
+      },
+      {
+        "location": "chart.sample src/dressing/kit-surfaces.ts:109",
+        "sampledMs": 1168.9649999999997,
+        "percent": 12.698836712621386
+      },
+      {
+        "location": "sample src/dressing/kowloon/skin.ts:132",
+        "sampledMs": 1103.1710000000012,
+        "percent": 11.984095670186248
+      },
+      {
+        "location": "compile src/architecture/compiler.ts:98",
+        "sampledMs": 1050.872,
+        "percent": 11.415955083228212
+      },
+      {
+        "location": "(idle) :0",
+        "sampledMs": 1023.2520000000037,
+        "percent": 11.115910282911216
+      },
+      {
+        "location": "bumpRow src/dressing/surface/raster.ts:184",
+        "sampledMs": 984.079000000001,
+        "percent": 10.690361587660673
+      },
+      {
+        "location": "applyDressing src/dressing/apply.ts:83",
+        "sampledMs": 885.58,
+        "percent": 9.620335780766107
+      },
+      {
+        "location": "renderRepairSample src/dressing/finish/patina.ts:43",
+        "sampledMs": 855.1290000000012,
+        "percent": 9.28953693158241
+      },
+      {
+        "location": "sample src/dressing/wall-finish.ts:242",
+        "sampledMs": 751.1220000000008,
+        "percent": 8.159675977687623
+      },
+      {
+        "location": "sourcePixel src/dressing/surface/raster.ts:139",
+        "sampledMs": 722.4180000000005,
+        "percent": 7.847855342340041
+      },
+      {
+        "location": "compileSurfaceAppearance src/dressing/surface/compile.ts:84",
+        "sampledMs": 701.6649999999997,
+        "percent": 7.622408936077201
+      },
+      {
+        "location": "decodeSurfaceImage src/dressing/surface/images.ts:10",
+        "sampledMs": 641.9989999999996,
+        "percent": 6.974238296840552
+      },
+      {
+        "location": "exports.read node_modules/pngjs/browser.js:2158",
+        "sampledMs": 625.4170000000001,
+        "percent": 6.794102783485847
+      },
+      {
+        "location": "module.exports node_modules/pngjs/browser.js:1758",
+        "sampledMs": 625.4170000000001,
+        "percent": 6.794102783485847
+      },
+      {
+        "location": "sample src/dressing/ground-surface.ts:276",
+        "sampledMs": 578.4569999999997,
+        "percent": 6.28396144304819
+      },
+      {
+        "location": "draw src/dressing/kowloon/building.ts:289",
+        "sampledMs": 573.8729999999999,
+        "percent": 6.234164000446698
+      },
+      {
+        "location": "generate src/dressing/kowloon/building.ts:342",
+        "sampledMs": 564.8309999999999,
+        "percent": 6.135937893116262
+      },
+      {
+        "location": "finalizeArchitecture src/architecture/finalize.ts:22",
+        "sampledMs": 514.9159999999997,
+        "percent": 5.593695452572278
+      },
+      {
+        "location": "dressFacade src/dressing/kowloon/facade.ts:521",
+        "sampledMs": 512.2899999999998,
+        "percent": 5.565168383577618
+      },
+      {
+        "location": "prepareSurfaceRasters src/dressing/surface/raster-bindings.ts:17",
+        "sampledMs": 482.95999999999947,
+        "percent": 5.246547312133058
+      },
+      {
+        "location": "Zlib._processChunk node_modules/pngjs/browser.js:4804",
+        "sampledMs": 475.2919999999994,
+        "percent": 5.163247401603331
+      },
+      {
+        "location": "sample src/dressing/finish/wall-condition.ts:189",
+        "sampledMs": 462.99599999999947,
+        "percent": 5.029672062548363
+      },
+      {
+        "location": "Zlib._write node_modules/pngjs/browser.js:3981",
+        "sampledMs": 452.6249999999995,
+        "percent": 4.917008607657415
+      },
+      {
+        "location": "Zlib._process node_modules/pngjs/browser.js:4042",
+        "sampledMs": 451.1249999999995,
+        "percent": 4.900713632984151
+      },
+      {
+        "location": "Zlib.writeSync node_modules/pngjs/browser.js:3977",
+        "sampledMs": 445.1249999999995,
+        "percent": 4.8355337342910945
+      },
+      {
+        "location": "hash src/vector/geometry.ts:383",
+        "sampledMs": 423.4999999999997,
+        "percent": 4.600614516084875
+      },
+      {
+        "location": "retention src/dressing/finish/ground-tile-erosion.ts:139",
+        "sampledMs": 418.4139999999997,
+        "percent": 4.54536368862606
+      },
+      {
+        "location": "face src/dressing/pen.ts:131",
+        "sampledMs": 404.79200000000014,
+        "percent": 4.3973835919599304
+      },
+      {
+        "location": "coating src/dressing/finish/ground-tile-erosion.ts:49",
+        "sampledMs": 393.2489999999998,
+        "percent": 4.271988330190935
+      },
+      {
+        "location": "colorSample src/dressing/surface/raster.ts:51",
+        "sampledMs": 390.9999999999998,
+        "percent": 4.247556731497488
+      },
+      {
+        "location": "bump src/dressing/ground.ts:830",
+        "sampledMs": 380.87199999999973,
+        "percent": 4.137533062503609
+      },
+      {
+        "location": "renderedHeight src/dressing/ground-surface.ts:256",
+        "sampledMs": 371.3719999999997,
+        "percent": 4.034331556239603
+      },
+      {
+        "location": "tint src/dressing/kowloon/skin.ts:84",
+        "sampledMs": 368.8759999999998,
+        "percent": 4.007216718383293
+      },
+      {
+        "location": "encodeSurfaceImage src/dressing/surface/images.ts:28",
+        "sampledMs": 367.87999999999977,
+        "percent": 3.9963968552002447
+      },
+      {
+        "location": "module.exports node_modules/pngjs/browser.js:1372",
+        "sampledMs": 366.37999999999977,
+        "percent": 3.980101880526981
+      },
+      {
+        "location": "renderPatina src/dressing/finish/patina.ts:101",
+        "sampledMs": 365.8759999999998,
+        "percent": 3.9746267690367647
+      },
+      {
+        "location": "add src/dressing/kit-mesh.ts:169",
+        "sampledMs": 361.58400000000006,
+        "percent": 3.9280014148383344
+      },
+      {
+        "location": "writePixel src/dressing/surface/raster.ts:261",
+        "sampledMs": 357.9539999999998,
+        "percent": 3.8885675761290326
+      },
+      {
+        "location": "plasterSample src/dressing/wall-surface.ts:44",
+        "sampledMs": 348.8319999999998,
+        "percent": 3.7894724034826894
+      },
+      {
+        "location": "wallNoise src/dressing/finish/wall-noise.ts:8",
+        "sampledMs": 342.58099999999985,
+        "percent": 3.7215658123609745
+      },
+      {
+        "location": "inflateSync node_modules/pngjs/browser.js:2526",
+        "sampledMs": 331.4179999999998,
+        "percent": 3.6002986108425428
+      },
+      {
+        "location": "zlibBufferSync node_modules/pngjs/browser.js:2510",
+        "sampledMs": 331.4179999999998,
+        "percent": 3.6002986108425428
+      },
+      {
+        "location": "value src/dressing/finish/ground-tile-erosion.ts:64",
+        "sampledMs": 323.7069999999999,
+        "percent": 3.516531577705518
+      },
+      {
+        "location": "wallLattice src/dressing/finish/wall-noise.ts:2",
+        "sampledMs": 317.74899999999997,
+        "percent": 3.451807938303314
+      },
+      {
+        "location": "inflate node_modules/pngjs/browser.js:11179",
+        "sampledMs": 310.25099999999986,
+        "percent": 3.3703547915698904
+      },
+      {
+        "location": "bump src/dressing/wall-finish.ts:233",
+        "sampledMs": 308.24699999999984,
+        "percent": 3.34858470540641
+      },
+      {
+        "location": "coatings src/dressing/kowloon/skin.ts:90",
+        "sampledMs": 301.6649999999999,
+        "percent": 3.2770823565401277
+      },
+      {
+        "location": "bump src/dressing/kowloon/skin.ts:83",
+        "sampledMs": 282.127,
+        "percent": 3.0648348797626404
+      },
+      {
+        "location": "renderBump src/dressing/finish/patina.ts:114",
+        "sampledMs": 280.627,
+        "percent": 3.0485399050893767
+      },
+      {
+        "location": "inflate_fast node_modules/pngjs/browser.js:10512",
+        "sampledMs": 274.376,
+        "percent": 2.9806333139676604
+      },
+      {
+        "location": "at src/dressing/wall-finish.ts:131",
+        "sampledMs": 261.877,
+        "percent": 2.8448527216735764
+      },
+      {
+        "location": "triangle src/dressing/geometry.ts:8",
+        "sampledMs": 261.581,
+        "percent": 2.8416371800047187
+      },
+      {
+        "location": "(program) :0",
+        "sampledMs": 258.377,
+        "percent": 2.8068311141026268
+      },
+      {
+        "location": "along src/dressing/wall-finish.ts:82",
+        "sampledMs": 250.211,
+        "percent": 2.7181212719813774
+      },
+      {
+        "location": "retention src/dressing/kowloon/skin.ts:89",
+        "sampledMs": 245.62800000000001,
+        "percent": 2.6683346926963316
+      },
+      {
+        "location": "wallPaintTint src/dressing/wall-finish.ts:172",
+        "sampledMs": 244.665,
+        "percent": 2.6578733189560957
+      },
+      {
+        "location": "exports.write node_modules/pngjs/browser.js:2162",
+        "sampledMs": 241.83800000000002,
+        "percent": 2.6271627233552177
+      },
+      {
+        "location": "sample src/dressing/ground.ts:828",
+        "sampledMs": 223.167,
+        "percent": 2.4243337419388755
+      },
+      {
+        "location": "(garbage collector) :0",
+        "sampledMs": 206.168,
+        "percent": 2.239668225624999
+      }
+    ]
+  },
+  "interpretation": "Stage intervals are measured elapsed time. Function and category values are sampled time. Inclusive rows overlap. Categories classify each leaf sample by its ancestor chain and are mutually exclusive.",
+  "nextWork": [
+    "Compute repair, tint, coating coverage, roughness and bump together per sample, reusing row data.",
+    "Bind wall path station mapping to known receiver geometry before sampling, avoiding whole-path scans per texel.",
+    "Use shared time-budgeted cooperative yields across raster groups, retaining cancellation and responsiveness.",
+    "Prelinearize source color data and reduce temporary sample allocations.",
+    "Reuse material atlases and compact masks to reduce generated texels, image encoding and copied mesh data."
+  ]
+}

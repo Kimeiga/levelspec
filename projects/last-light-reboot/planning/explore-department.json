@@ -1,0 +1,27 @@
+{
+  "seed": "last-light-department-73",
+  "verticality": 0.8,
+  "restarts": 2,
+  "proposals": 1000,
+  "bounds": [
+    130,
+    110
+  ],
+  "elevations": [
+    0,
+    3.6,
+    7.2
+  ],
+  "profile": {
+    "height": 2,
+    "crouchHeight": 1.15,
+    "radius": 0.4,
+    "step": 0.3,
+    "maxSlope": 42
+  },
+  "targets": {
+    "decisionDepth": 2,
+    "territories": 3,
+    "stackedRegions": 1
+  }
+}

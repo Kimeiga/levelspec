@@ -2,13 +2,50 @@
 
 LevelSpec remains a deterministic **source-to-geometry compiler**. This workflow
 provides the missing layer around it: an image-capable author produces a complete
-editable `.level.svgx` document, the compiler validates it, a multi-view evaluator
+editable `.aml` document, the compiler validates it, a multi-view evaluator
 compares its *actual rendered geometry* with independent observations, and the
 author can revise the source.
 
 This is an experimental authoring pipeline. It is **not** a turnkey photogrammetry
 system and does not claim to recover hidden geometry or exact dimensions from
 photographs. A successful runtime validator does not imply photographic accuracy.
+
+Historical SVGX studies remain unchanged. Before evaluating one with current tools,
+run `levelspec migrate <study.level.svgx> --out <new-project>` and use the emitted
+AML project. Exact historical compiler replay requires its recorded repository
+revision; current reconstruction does not implicitly migrate source.
+
+## Agent workflow
+
+Use [level-authoring](../.agents/skills/level-authoring/SKILL.md) for physical layout,
+topology and circulation, and
+[reference-level-authoring](../.agents/skills/reference-level-authoring/SKILL.md)
+for source interpretation and fidelity. Start with a structural blockout; use plans,
+sections, traces and independent specialists when complexity warrants them. Simple
+maps and diagnostic trials need no preapproved drawing package.
+
+The runner below is optional for authoring. Use it when independent image annotations
+and controlled numerical comparisons add useful evidence. Native validate/build/preview
+remain the normal path for ordinary revisions. See the
+[bounded cycle](../.agents/skills/reference-level-authoring/references/reconstruction-workflow.md)
+for frozen inputs, retained failures and valid-best selection. Machine acceptance,
+physical circulation and architectural fidelity are separate conclusions.
+
+For narrow passages, `--nav-cell 0.0625` selects a finer horizontal navigation grid
+for compilation and open/closed runtime validation. Use the same setting in
+`levelspec validate/build/preview` and the reviewer's **Walking grid** control.
+The default is 0.125 m; CLI values range from 0.025 to 0.5 m. Resolution changes do
+not change the player, geometry or acceptance thresholds. `run-config.json` records
+`navigation.cell` and whether it was `explicit` or `default`; iterations and
+`result.json` retain the cell setting even when a candidate fails. Treat resolution
+comparisons separately from architectural changes.
+
+When using the runner, freeze evidence and cameras across geometry comparisons,
+inspect per-view results and actual renders, and retain failures. Do not weaken
+checks to obtain a pass. Recheck affected structural and fidelity findings after
+repairs; no fixed reviewer count is required beyond the project's explicit brief.
+Example annotations are specific to their own image identities/dimensions, not
+trusted evidence for another project's crops or model.
 
 ## Run with photographs
 
@@ -30,12 +67,18 @@ npm run reconstruct -- \
 
 The first proposal and subsequent revisions pass through the same compiler,
 runtime navigation checks, and multi-view evaluator. Each iteration saves its
-SVGX source and diagnostic report. A **successful** run always outputs the
+AML source and diagnostic report. A **successful** run always outputs the
 candidate that actually satisfied acceptance, even when an earlier rejected
 candidate had a numerically better score. When no candidate is accepted,
-`best.level.svgx` may contain the best geometry- and navigation-valid draft;
+`best.aml` may contain the best geometry- and navigation-valid draft;
 `result.json` states clearly that acceptance failed. Invalid drafts stay in
 the iteration files.
+
+For a detailed source that exceeds the default 2,000,000-character evaluation
+budget, pass `--max-source-characters 6000000` (integer range 1,000–10,000,000).
+This uses JavaScript string length, not file bytes. It changes input admission;
+geometry, navigation and reference acceptance checks remain unchanged. It is not
+a preparse memory limit. Keep the initial budget rejection in its own run directory.
 
 When a valid best candidate exists, the CLI also writes `best.glb`,
 `best-collision.glb`, and `best.runtime.json`. They are portable game
@@ -44,18 +87,10 @@ results in its output directory, including stale exports and iteration files.
 Unrelated user files are preserved. If no valid candidate exists, no best
 source or GLB is emitted. The command exits nonzero if acceptance fails.
 
-Model requests are retried (three attempts, exponential backoff) only for
-rate limits, 5xx responses and network failures; other 4xx errors and
-truncated (`incomplete`) structured output fail immediately. If the model
-adapter still fails, the run stops with `status: "failed"` and the
-provider message in `result.json`'s `error`, while keeping every recorded
-iteration and the best valid candidate so far. Ctrl+C cancels any in-flight
-request, records `status: "aborted"`, and never issues another revision.
-
 To evaluate a candidate without a model or API key:
 
 ```sh
-npm run reconstruct -- --source path/to/candidate.level.svgx \
+npm run reconstruct -- --source path/to/candidate.aml \
   --image view1=/path/to/cropped-front.jpg \
   --image view2=/path/to/cropped-oblique.jpg \
   --evidence path/to/annotations.json \
@@ -63,9 +98,33 @@ npm run reconstruct -- --source path/to/candidate.level.svgx \
 ```
 
 The reference IDs in `--image id=path` must exactly match the root-level
-`<reference id="id" ...>` declarations in the SVGX. Without an explicit ID,
-images are named `view1`, `view2`, etc. Open `best.level.svgx` in the normal
+`<reference id="id" ...>` declarations in the AML. Without an explicit ID,
+images are named `view1`, `view2`, etc. Open `best.aml` in the normal
 workbench to use the existing registered image overlay and walkability inspector.
+
+## Local companions and saved candidates
+
+`--source` resolves GLB assets, textures and available reference images relative to
+that XML file, independently of the working directory. Each local path is read
+once into a run-scoped byte snapshot shared by compilation, model-feedback renders
+and archival output. The library loop accepts `resolveAsset` for callers that own
+their storage boundary. An unresolved geometry asset rejects the candidate.
+
+Each attempt keeps its exact proposed XML plus a portable XML copy and a
+`*.companions.json` manifest recording its source directory, source hash and
+companion identities. `best.aml` uses content-addressed paths under
+`companions/`; keep that directory beside the saved source when moving it.
+Visual GLB exports embed resolved textures. Missing declared textures or archive
+write/integrity errors fail publication. A symbolic reference image may be absent
+in an evidence-only evaluation; the manifest records that omission with
+`portableComplete: false`, so inspect it before claiming a complete preview bundle.
+
+Explicit `--image` inputs are matched to source-declared photos by their bytes when
+the source-relative file exists. A same-named different image is rejected. A bare
+logical image filename can bind to its explicit input; a missing nested source path
+is reported rather than guessed. Companion files remain content-addressed across
+reruns; the runner clears owned result/iteration files and preserves other files.
+Use fresh output directories for reviewed, immutable cycles.
 
 ## Independent evidence
 
@@ -76,7 +135,7 @@ the edges. To certify a reconstruction, supply a human-reviewed
 Landmarks help calibrate the camera and detect projection errors but cannot
 prove the compiled geometry matches the building. Exclusion masks likewise
 do not count as positive reconstruction evidence. These must be independently supplied by the caller,
-never generated alongside the SVGX or reverse-engineered from its projections.
+never generated alongside the AML or reverse-engineered from its projections.
 Acceptance uses the original cropped image dimensions from `--image`, or
 `imageDimensions: [width, height]` in the independent manifest when image
 pixels are omitted. Without those independent dimensions, annotated geometry
@@ -91,7 +150,6 @@ Example `annotations.json`:
 {
   "thresholds": {
     "minimumVerifiedViews": 2,
-    "minimumCameraLandmarks": 4,
     "landmarkRmsPixels": 8,
     "silhouetteIoU": 0.8,
     "strokeErrorPixels": 5
@@ -101,10 +159,7 @@ Example `annotations.json`:
       "referenceId": "view1",
       "imageDimensions": [1500, 1000],
       "landmarks": [
-        { "id": "door-left-sill", "position": [0, 0, 0], "image": [0.31, 0.78] },
-        { "id": "door-right-sill", "position": [1.2, 0, 0], "image": [0.42, 0.79] },
-        { "id": "parapet-corner", "position": [0, 0, 6.4], "image": [0.29, 0.12] },
-        { "id": "far-pier-base", "position": [9.5, 4, 0], "image": [0.86, 0.71] }
+        { "id": "trusted-corner", "position": [0, 0, 3], "image": [0.5, 0.4] }
       ],
       "masks": [
         { "id": "foreground-person", "points": [[0.02, 0.7], [0.15, 0.7], [0.15, 0.98], [0.02, 0.98]] }
@@ -135,16 +190,9 @@ Example `annotations.json`:
   obstructions (people, vehicles, trees) from acceptance comparisons.
   Occluded or invisible structures are not assumed to be present or absent.
 - The manifest's `landmarks` are trusted 3D world coordinates paired with
-  normalized, photo-observed 2D locations. Source SVGX landmarks are ignored
+  normalized, photo-observed 2D locations. Source AML landmarks are ignored
   for acceptance even when they yield zero reprojection error. Independently
   validate image correspondence and the assumed physical scale.
-- The candidate SVGX authors each reference camera, so a silhouette or stroke
-  match proves little on its own: a crude box seen from a convenient camera can
-  match a building outline. A view is therefore certified only when its camera
-  is pinned by at least `minimumCameraLandmarks` (default 4) trusted, in-frame
-  landmarks that are not collinear. Their RMS must also pass
-  `landmarkRmsPixels`. Only the independent manifest can lower this; `0`
-  disables the requirement and should be reserved for synthetic fixtures.
 - A photo view cannot be certified by natural-photo edge similarity, landmark
   reprojection, or camera calibration alone. A structural stroke must have
   multiple distinct points and cannot consist of a single coincident pixel.
@@ -208,7 +256,7 @@ coordinates, never share vertex or edge IDs implicitly.
 - `src/reconstruction/loop.ts`: model-agnostic async revision callback, bounded
   attempts, strict compile + sealed traversal, errors fed back to the caller.
 - `tools/reconstruct-openai.ts`: optional Responses API image input, structured
-  SVGX response, previous compiled renders and feedback; no hard-coded model.
+  AML response, previous compiled renders and feedback; no hard-coded model.
 - `tools/reconstruct.ts`: local-file entrypoint and durable iteration artifacts.
 - `src/vector/architecture.ts`: physical walls, apertures, irregular enterable
   shells and individual playable flights.
@@ -218,7 +266,7 @@ the compiler, Recast and independent reference annotations determine that.
 Source, diagnostic and candidate-size limits prevent unconstrained revision
 loops; this is a bounded process, not a promise to reach a solution.
 
-The reference evaluator uses a flat-material z-buffer render at a bounded
+The reference evaluator clips triangles to the camera near/far planes and uses a flat-material z-buffer render at a bounded
 resolution. This intentionally measures structure rather than color fidelity;
 it does not solve camera calibration, lens distortion, occlusion classification,
 unknown interiors, or material reconstruction. It can only evaluate what the

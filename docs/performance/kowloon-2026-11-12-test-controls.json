@@ -1,0 +1,446 @@
+{
+  "archiveNote": "This control uses current visual sources, tests, and schema, with this performance work reverted from implementation-before plus the original raster-bindings.ts. It is not a historical all-repository baseline. Results establish only the selected cases and their observed root causes.",
+  "node": "v24.12.0",
+  "cwd": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/current-control",
+  "concurrency": 1,
+  "timeoutMs": 300000,
+  "output": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z",
+  "currentWorkspaceReference": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/final-tests.log",
+  "startedAt": "2026-11-12T10:23:49.364Z",
+  "finishedAt": "2026-11-12T10:25:27.006Z",
+  "results": [
+    {
+      "id": "chart-admission",
+      "file": "tests/aml-building-dressing.test.ts",
+      "name": "generated objects use the documented parts and never the roof role",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 989.434792,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/chart-admission.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/chart-admission.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "{\"width\":22,\"depth\":8,\"height\":20.35,\"stories\":6,\"detail\":\"high\"}\n+ actual - expected\n\n+ [\n+   {\n+     code: 'AML_SURFACE_APPEARANCE',\n+     message: 'envelope/surface/0: Surface appearance chart budget exceeded (18578/16384); receivers: building=18578.',\n+     objects: [\n+       'building'\n+     ],\n+     relatedSources: [\n+       {\n+         object: 'building',\n+         source: {\n+           column: 3,\n+           end: 195,\n+           line: 3,\n+           offset: 119\n+         }\n+       }\n+     ],\n+     review: {\n+       bounds: {\n+         max: [\n+           0.9670131105299229,\n+           0,\n+           0.575\n+         ],\n+         min: [\n+           0,\n+           0,\n+           0\n+         ]\n+       },\n+       direction: [\n+         1,\n+         -1,\n+         0.5\n+       ],\n+       id: 'AML_SURFACE_APPEARANCE:building',\n+       layers: [\n+         'architecture'\n+       ],\n+       patches: [],\n+       position: [\n+         0.48350655526496145,\n+         0,\n+         0.2875\n+       ]\n+     },\n+     severity: 'error',\n+     source: {\n+       column: 3,\n+       end: 195,\n+       line: 3,\n+       offset: 119\n+     }\n+   }\n+ ]\n- []\n",
+        "code": "ERR_ASSERTION",
+        "operator": "deepStrictEqual",
+        "actual": [
+          {
+            "severity": "error",
+            "code": "AML_SURFACE_APPEARANCE",
+            "message": "envelope/surface/0: Surface appearance chart budget exceeded (18578/16384); receivers: building=18578.",
+            "objects": [
+              "building"
+            ],
+            "relatedSources": [
+              {
+                "object": "building",
+                "source": {
+                  "line": 3,
+                  "column": 3,
+                  "offset": 119,
+                  "end": 195
+                }
+              }
+            ],
+            "source": {
+              "line": 3,
+              "column": 3,
+              "offset": 119,
+              "end": 195
+            },
+            "review": {
+              "id": "AML_SURFACE_APPEARANCE:building",
+              "layers": [
+                "architecture"
+              ],
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  0.9670131105299229,
+                  0,
+                  0.575
+                ]
+              },
+              "position": [
+                0.48350655526496145,
+                0,
+                0.2875
+              ],
+              "direction": [
+                1,
+                -1,
+                0.5
+              ],
+              "patches": []
+            }
+          }
+        ],
+        "expected": [],
+        "diagnosticMessages": [
+          "envelope/surface/0: Surface appearance chart budget exceeded (18578/16384); receivers: building=18578."
+        ]
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "roof-texel-admission",
+      "file": "tests/aml-polygon-building.test.ts",
+      "name": "polygon buildings follow slanted footprint walls and close only their actual roof",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 4727.565625,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/roof-texel-admission.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/roof-texel-admission.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     code: 'AML_SURFACE_APPEARANCE',\n+     message: 'building/ground/polygon/building/lot-0/deck/deck/0.19423962414119106,0.14,6/6/2/1/patch: Surface appearance raster texel budget exceeded at [\"host\",\"building\",\"polygon/building/lot-0/deck/deck/2/1\"] (1912071 + 384417 / 2097152).',\n+     objects: [\n+       'building'\n+     ],\n+     relatedSources: [\n+       {\n+         object: 'building',\n+         source: {\n+           column: 5,\n+           end: 262,\n+           line: 4,\n+           offset: 186\n+         }\n+       }\n+     ],\n+     review: {\n+       bounds: {\n+         max: [\n+           3.8990937091921425,\n+           2.86,\n+           6\n+         ],\n+         min: [\n+           2.5000000000000004,\n+           1.5,\n+           6\n+         ]\n+       },\n+       direction: [\n+         1,\n+         -1,\n+         0.5\n+       ],\n+       id: 'AML_SURFACE_APPEARANCE:building',\n+       layers: [\n+         'architecture'\n+       ],\n+       patches: [],\n+       position: [\n+         3.1995468545960715,\n+         2.1799999999999997,\n+         6\n+       ]\n+     },\n+     severity: 'error',\n+     source: {\n+       column: 5,\n+       end: 262,\n+       line: 4,\n+       offset: 186\n+     }\n+   }\n+ ]\n- []\n",
+        "code": "ERR_ASSERTION",
+        "operator": "deepStrictEqual",
+        "actual": [
+          {
+            "severity": "error",
+            "code": "AML_SURFACE_APPEARANCE",
+            "message": "building/ground/polygon/building/lot-0/deck/deck/0.19423962414119106,0.14,6/6/2/1/patch: Surface appearance raster texel budget exceeded at [\"host\",\"building\",\"polygon/building/lot-0/deck/deck/2/1\"] (1912071 + 384417 / 2097152).",
+            "objects": [
+              "building"
+            ],
+            "relatedSources": [
+              {
+                "object": "building",
+                "source": {
+                  "line": 4,
+                  "column": 5,
+                  "offset": 186,
+                  "end": 262
+                }
+              }
+            ],
+            "source": {
+              "line": 4,
+              "column": 5,
+              "offset": 186,
+              "end": 262
+            },
+            "review": {
+              "id": "AML_SURFACE_APPEARANCE:building",
+              "layers": [
+                "architecture"
+              ],
+              "bounds": {
+                "min": [
+                  2.5000000000000004,
+                  1.5,
+                  6
+                ],
+                "max": [
+                  3.8990937091921425,
+                  2.86,
+                  6
+                ]
+              },
+              "position": [
+                3.1995468545960715,
+                2.1799999999999997,
+                6
+              ],
+              "direction": [
+                1,
+                -1,
+                0.5
+              ],
+              "patches": []
+            }
+          }
+        ],
+        "expected": [],
+        "diagnosticMessages": [
+          "building/ground/polygon/building/lot-0/deck/deck/0.19423962414119106,0.14,6/6/2/1/patch: Surface appearance raster texel budget exceeded at [\"host\",\"building\",\"polygon/building/lot-0/deck/deck/2/1\"] (1912071 + 384417 / 2097152)."
+        ]
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "ground-texel-admission",
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "tiled ground preserves footprint coverage and closes any emitted interfaces",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 5060.852999999999,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/ground-texel-admission.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/ground-texel-admission.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "The positive fixture must compile successfully\n+ actual - expected\n\n+ [\n+   {\n+     code: 'AML_SURFACE_APPEARANCE',\n+     message: 'floor/ground/ground-contract/floor/ground/0,0,0/0/2/3/patch: Surface appearance raster texel budget exceeded at [\"host\",\"floor\",\"ground-contract/floor/ground/2/3\"] (4012416 + 402480 / 4194304).',\n+     objects: [\n+       'floor'\n+     ],\n+     relatedSources: [\n+       {\n+         object: 'floor',\n+         source: {\n+           column: 3,\n+           end: 335,\n+           line: 5,\n+           offset: 286\n+         }\n+       }\n+     ],\n+     review: {\n+       bounds: {\n+         max: [\n+           4,\n+           5,\n+           0\n+         ],\n+         min: [\n+           3,\n+           3,\n+           0\n+         ]\n+       },\n+       direction: [\n+         1,\n+         -1,\n+         0.5\n+       ],\n+       id: 'AML_SURFACE_APPEARANCE:floor',\n+       layers: [\n+         'architecture'\n+       ],\n+       patches: [],\n+       position: [\n+         3.5,\n+         4,\n+         0\n+       ]\n+     },\n+     severity: 'error',\n+     source: {\n+       column: 3,\n+       end: 335,\n+       line: 5,\n+       offset: 286\n+     }\n+   }\n+ ]\n- []\n",
+        "code": "ERR_ASSERTION",
+        "operator": "deepStrictEqual",
+        "actual": [
+          {
+            "severity": "error",
+            "code": "AML_SURFACE_APPEARANCE",
+            "message": "floor/ground/ground-contract/floor/ground/0,0,0/0/2/3/patch: Surface appearance raster texel budget exceeded at [\"host\",\"floor\",\"ground-contract/floor/ground/2/3\"] (4012416 + 402480 / 4194304).",
+            "objects": [
+              "floor"
+            ],
+            "relatedSources": [
+              {
+                "object": "floor",
+                "source": {
+                  "line": 5,
+                  "column": 3,
+                  "offset": 286,
+                  "end": 335
+                }
+              }
+            ],
+            "source": {
+              "line": 5,
+              "column": 3,
+              "offset": 286,
+              "end": 335
+            },
+            "review": {
+              "id": "AML_SURFACE_APPEARANCE:floor",
+              "layers": [
+                "architecture"
+              ],
+              "bounds": {
+                "min": [
+                  3,
+                  3,
+                  0
+                ],
+                "max": [
+                  4,
+                  5,
+                  0
+                ]
+              },
+              "position": [
+                3.5,
+                4,
+                0
+              ],
+              "direction": [
+                1,
+                -1,
+                0.5
+              ],
+              "patches": []
+            }
+          }
+        ],
+        "expected": [],
+        "diagnosticMessages": [
+          "floor/ground/ground-contract/floor/ground/0,0,0/0/2/3/patch: Surface appearance raster texel budget exceeded at [\"host\",\"floor\",\"ground-contract/floor/ground/2/3\"] (4012416 + 402480 / 4194304)."
+        ]
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "head-clearance",
+      "file": "tests/aml-building-dressing.test.ts",
+      "name": "generated parts respect the documented projection and head-clearance limits",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 11083.104333000001,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/head-clearance.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/head-clearance.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "Intrudes on head clearance: {\"mass\":{\"width\":4,\"depth\":4,\"height\":9.35,\"stories\":3},\"detail\":\"medium\",\"seed\":\"limits-medium\",\"part\":\"fixtures\",\"point\":[1.08478,4.15265,0.60057]}",
+        "code": "ERR_ASSERTION",
+        "operator": "fail",
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "wall-transform",
+      "file": "tests/aml-wall-dressing.test.ts",
+      "name": "front/back dressing remains attached and correctly wound through yaw, translation, and reflection",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 1082.1359999999986,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/wall-transform.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/wall-transform.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "wall/$dressing/wall/57358:-81915:0:485176/cell-2/pipe/riser: outward projection=-0.0000028491799398955298",
+        "code": "ERR_ASSERTION",
+        "operator": "==",
+        "actual": false,
+        "expected": true,
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "pipe-connectivity",
+      "file": "tests/aml-wall-details.test.ts",
+      "name": "bent service pipes are closed connected sweeps with no internal segment caps",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 1941.4299589999973,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/pipe-connectivity.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/pipe-connectivity.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "A full-height bent riser must be one edge-connected surface, not capped cylinders touching at elbows.",
+        "code": "ERR_ASSERTION",
+        "operator": "==",
+        "actual": false,
+        "expected": true,
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "schema-dressing",
+      "file": "tests/aml-schema.test.ts",
+      "name": "published AML schema accepts the default dressing theme and ground controls",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 288.81695899999977,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/schema-dressing.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/schema-dressing.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "-:3: element dressing: Schemas validity error : Element 'dressing', attribute 'time-of-day': The attribute 'time-of-day' is not allowed.\n- fails to validate\n\n\n3 !== 0\n",
+        "code": "ERR_ASSERTION",
+        "operator": "strictEqual",
+        "actual": 3,
+        "expected": 0,
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "shop-trade-identity",
+      "file": "tests/aml-shop-dressing.test.ts",
+      "name": "a room is open to the street, closed to the building, furnished throughout, and unlike its neighbors",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 35665.98574999999,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/shop-trade-identity.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/shop-trade-identity.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "Room 23.124 26.112 0.120 2.384 3.202 holds trades [\"roast\",\"roast/chopping-board\",\"roast/board-scoring\",\"roast/cleaver\",\"roast/display\",\"roast/work-towel\",\"roast/display-food\",\"roast/task-lamp-0\",\"roast/order-slips\",\"roast/tableware\"].\n\n10 !== 1\n",
+        "code": "ERR_ASSERTION",
+        "operator": "strictEqual",
+        "actual": 10,
+        "expected": 1,
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "material-repeat",
+      "file": "tests/aml-dressing.test.ts",
+      "name": "yaw and reflection keep generated surfaces outward, and textures honor material scale",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 27870.974167,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/material-repeat.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/material-repeat.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "The expression evaluated to a falsy value:\n\n  assert.ok(Math.abs(span(scaled.mesh) - 2 * span(original.mesh)) < 1e-6)\n",
+        "code": "ERR_ASSERTION",
+        "operator": "==",
+        "actual": false,
+        "expected": true,
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "ground-anchor",
+      "file": "tests/aml-ground-dressing.test.ts",
+      "name": "scaled walls retain construction anchors at their actual ground contact",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 1454.3490829999937,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/ground-anchor.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/ground-anchor.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "The wall's contacting end remains a construction anchor with width scale 1",
+        "code": "ERR_ASSERTION",
+        "operator": "==",
+        "actual": false,
+        "expected": true,
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "utility-batching",
+      "file": "tests/aml-wall-dressing.test.ts",
+      "name": "weathering leaves established three-dimensional utilities in place and long walls batch draw objects",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 6740.6161250000005,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/utility-batching.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/utility-batching.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "A 40 m plain wall must batch families and materials instead of exporting each stroke or tile as a draw object: 350",
+        "code": "ERR_ASSERTION",
+        "operator": "==",
+        "actual": false,
+        "expected": true,
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    },
+    {
+      "id": "tiny-receiver",
+      "file": "tests/aml-wall-planning.test.ts",
+      "name": "emitted utilities remain inside tiny receivers",
+      "status": "failed",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 728.828583999988,
+      "logPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/tiny-receiver.log",
+      "eventPath": "/Users/tomokif/code/levelspec/generated/kowloon-profile-20261112/control-regressions-2026-11-12T10-23-49-362Z/tiny-receiver.jsonl",
+      "selectedOutcomes": 1,
+      "error": {
+        "name": "AssertionError",
+        "message": "The fixture exercises utility containment",
+        "code": "ERR_ASSERTION",
+        "operator": "==",
+        "actual": false,
+        "expected": true,
+        "diagnosticMessages": []
+      },
+      "literalReferenceMatch": true
+    }
+  ]
+}

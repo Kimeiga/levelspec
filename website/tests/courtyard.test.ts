@@ -1,23 +1,23 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { buildCourtyard } from "../architecture.ts";
+import { buildCourtyard } from "../../tools/fixtures/courtyard/architecture.ts";
 import {
   compile,
-  parseLevelSvgx,
+  parseAml,
   validateForRuntime,
-} from "../../src/vector/index.ts";
-import { NavigationSurface } from "../navigation.ts";
+} from "levelspec";
+import { NavigationSurface } from "../../review/navigation-surface.ts";
 const fixture = readFileSync(
-  new URL("../demo.level.svgx", import.meta.url),
+  new URL("../demo.aml", import.meta.url),
   "utf8",
 );
-test("the default SVGX matches the live architectural authoring module", () => {
-  // Git may check the fixture out with CRLF on Windows; XML content must match.
-  assert.equal(fixture.replaceAll("\r\n", "\n"), buildCourtyard({ height: 3 }));
+test("the default AML matches the live architectural authoring document", () => {
+  const authored=(source:string)=>JSON.parse(JSON.stringify(parseAml(source),(key,value)=>key==="source"?undefined:value));
+  assert.deepEqual(authored(fixture),authored(buildCourtyard({height:3})));
 });
 test("rooms, overhead bridge and details survive real compilation", async () => {
-  const level = await compile(parseLevelSvgx(fixture));
+  const level = await compile(parseAml(fixture));
   const report = await validateForRuntime(level, { sealed: true });
   assert.equal(report.passed, true);
   assert.deepEqual(report.diagnostics, []);

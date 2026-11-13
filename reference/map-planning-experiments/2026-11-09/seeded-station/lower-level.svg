@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="1240" viewBox="0 0 1520 1240">
+<rect width="100%" height="100%" fill="#f6f3eb"/>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 7L7 0" stroke="#839297" stroke-width="1"/></pattern><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0L6 3L0 6" fill="#4b7985"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#34474a} .label{font-size:13px;font-weight:bold;paint-order:stroke;stroke:#f6f3eb;stroke-width:3px;stroke-linejoin:round}.small{font-size:11px}.micro{font-size:10px}.note{font-size:14px}.route{fill:none;stroke:#4b7985;stroke-width:2;stroke-dasharray:5 4;marker-end:url(#arrow)}</style>
+<text x="60" y="47" font-size="30" font-weight="bold">BRACKEN QUAY R02 · lower level</text>
+<text x="60" y="79" font-size="16">Quay, explicit subway landings and a double-arcaded delivery arrival beneath the railway / z−5.00 m</text>
+<text x="60" y="109" font-size="13">R02 · phase 1 · invented station · return review pending · no AML, navigation or gameplay validation</text>
+<polygon points="68,1038 356,990 676,1022 1148,1006 1148,1094 68,1094" fill="#d8e7e8" stroke="none" stroke-width="2"/>
+<text class="label" x="820" y="1070" text-anchor="middle" style="font-size:11px;">ESTUARY / scenic continuation</text>
+<polygon points="84,230 628,230 628,294 292,326 212,422 84,422" fill="#e6e5dd" stroke="#b4b7ad" stroke-width="1"/>
+<text class="label" x="292" y="270" text-anchor="middle" style="font-size:10px;">CITY FABRIC / inaccessible</text>
+<polygon points="644,262 860,262 884,342 820,390 652,374" fill="#e0dfd7" stroke="#a9afa9" stroke-width="1"/>
+<text class="label" x="748" y="310" text-anchor="middle" style="font-size:10px;">ADMINISTRATION</text>
+<text class="label" x="748" y="323" text-anchor="middle" style="font-size:10px;">scenic upper mass</text>
+<path d="M1148,534L1148,966" fill="none" stroke="#a3afa9" stroke-width="2" stroke-dasharray="6 4"/>
+<text class="label" x="1100" y="646" text-anchor="middle" style="font-size:10px;">RAIL</text>
+<text class="label" x="1100" y="659" text-anchor="middle" style="font-size:10px;">CONTINUES</text>
+<text class="label" x="1100" y="672" text-anchor="middle" style="font-size:10px;">OFF MAP</text>
+<path d="M1116,206L1116,270" fill="none" stroke="#34474a" stroke-width="2"/>
+<polygon points="1116,198 1108,222 1124,222" fill="#34474a" stroke="#34474a" stroke-width="2"/>
+<text class="label" x="1116" y="182" text-anchor="middle" style="font-size:11px;">N</text>
+<polygon points="332,326 532,294 580,342 580,438 604,494 604,566 548,622 508,638 508,862 444,894 356,830 356,670 380,606 364,542 332,470" fill="#eeece4" stroke="#b7bcb4" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M492,654L1012,678Q1044,774 1060,958Q828,974 492,910Z" fill="#edece3" stroke="#b7bcb4" stroke-width="1" stroke-dasharray="5 4"/>
+<text class="label" x="468" y="406" text-anchor="middle" style="font-size:11px;fill:#8f9b96;">headhouse above</text>
+<text class="label" x="468" y="420" text-anchor="middle" style="font-size:11px;fill:#8f9b96;">no lower floor</text>
+<text class="label" x="764" y="822" text-anchor="middle" style="font-size:10px;fill:#8f9b96;">retained fill</text>
+<text class="label" x="764" y="835" text-anchor="middle" style="font-size:10px;fill:#8f9b96;">except subway and east court</text>
+<path d="M284,822L364,838L436,886Q652,910 812,942L900,862L908,806L1084,806L1060,886L908,998Q660,1038 388,966L260,910Z" fill="#bed4dc" stroke="#34474a" stroke-width="3"/>
+<polygon points="372,838 540,846 572,878 564,934 428,926 364,894" fill="#bed4dc" stroke="#34474a" stroke-width="2"/>
+<rect x="396" y="846" width="56" height="40" fill="#8fa6ac" stroke="#34474a" stroke-width="2"/>
+<rect x="484" y="862" width="40" height="32" fill="#8fa6ac" stroke="#34474a" stroke-width="2"/>
+<rect x="580" y="686" width="72" height="264" fill="#bed4dc" stroke="#34474a" stroke-width="3"/>
+<polygon points="620,766 732,766 732,846 700,846 700,798 620,798" fill="#bed4dc" stroke="#34474a" stroke-width="2"/>
+<rect x="576" y="630" width="40" height="120" fill="#bed4dc" stroke="#34474a" stroke-width="1.5"/>
+<path d="M596,950L644,950" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M596,950L644,950" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="260" y="726" width="40" height="88" fill="#cec6df" stroke="#34474a" stroke-width="1.5"/>
+<path d="M260,735.778L300,735.778" fill="none" stroke="#8e84a2" stroke-width="1"/>
+<path d="M260,745.556L300,745.556" fill="none" stroke="#8e84a2" stroke-width="1"/>
+<path d="M260,755.333L300,755.333" fill="none" stroke="#8e84a2" stroke-width="1"/>
+<path d="M260,765.111L300,765.111" fill="none" stroke="#8e84a2" stroke-width="1"/>
+<path d="M260,774.889L300,774.889" fill="none" stroke="#8e84a2" stroke-width="1"/>
+<path d="M260,784.667L300,784.667" fill="none" stroke="#8e84a2" stroke-width="1"/>
+<path d="M260,794.444L300,794.444" fill="none" stroke="#8e84a2" stroke-width="1"/>
+<path d="M260,804.222L300,804.222" fill="none" stroke="#8e84a2" stroke-width="1"/>
+<text class="label" x="280" y="770" text-anchor="middle" style="font-size:10px;">W ↑ z0</text>
+<polygon points="260,814 300,814 324,862 284,878 252,854" fill="#cec6df" stroke="#34474a" stroke-width="1.5"/>
+<path d="M660,918Q764,926 812,942L892,862L908,806" fill="none" stroke="#61796c" stroke-width="7"/>
+<polygon points="748,926 764,926 764,942 748,938" fill="#7e9186" stroke="#34474a" stroke-width="1"/>
+<polygon points="852,894 868,878 884,886 868,902" fill="#7e9186" stroke="#34474a" stroke-width="1"/>
+<polygon points="892,830 908,814 924,822 908,838" fill="#7e9186" stroke="#34474a" stroke-width="1"/>
+<path d="M340,814L356,846" fill="none" stroke="#667b73" stroke-width="6"/>
+<path d="M540,854L572,862" fill="none" stroke="#667b73" stroke-width="6"/>
+<rect x="900" y="790" width="24" height="32" fill="#6d8274" stroke="#34474a" stroke-width="1.5"/>
+<rect x="980" y="790" width="16" height="32" fill="#6d8274" stroke="#34474a" stroke-width="1.5"/>
+<rect x="1060" y="790" width="24" height="32" fill="#6d8274" stroke="#34474a" stroke-width="1.5"/>
+<path d="M924,806L980,806" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M924,806L980,806" fill="none" stroke="#85968a" stroke-width="1.5" stroke-dasharray="3 3"/>
+<path d="M996,806L1060,806" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M996,806L1060,806" fill="none" stroke="#85968a" stroke-width="1.5" stroke-dasharray="3 3"/>
+<text class="label" x="452" y="910" text-anchor="middle" style="font-size:10px;">20 · riverside arcade</text>
+<text class="label" x="708" y="982" text-anchor="middle" style="font-size:10px;">21 · QUIET QUAY / OPEN SKY</text>
+<text class="label" x="708" y="995" text-anchor="middle" style="font-size:10px;">retaining face north; estuary south</text>
+<text class="label" x="972" y="878" text-anchor="middle" style="font-size:10px;">flared working arrival</text>
+<text class="label" x="972" y="891" text-anchor="middle" style="font-size:10px;">double arcade ahead</text>
+<text class="label" x="612" y="878" text-anchor="middle" style="font-size:10px;">22 · subway</text>
+<text class="label" x="612" y="891" text-anchor="middle" style="font-size:10px;">ceiling −2 / floor −5</text>
+<polyline class="route" points="284,838 348,886 420,934 524,950"/>
+<polyline class="route" points="668,966 796,982 900,950 972,870 956,822 956,774"/>
+<polyline class="route" points="956,750 996,678 996,622"/>
+<polygon points="788,558 884,558 908,614 892,670 844,702 780,638" fill="#d9dfd4" stroke="#34474a" stroke-width="3"/>
+<polygon points="892,430 1076,430 1092,494 1076,638 892,638" fill="#bed4dc" stroke="#34474a" stroke-width="3"/>
+<polygon points="868,638 1076,638 1108,734 1084,822 908,822 852,726" fill="#bed4dc" stroke="#34474a" stroke-width="3"/>
+<rect x="932" y="518" width="40" height="40" fill="url(#hatch)" stroke="#34474a" stroke-width="2"/>
+<rect x="908" y="462" width="40" height="40" fill="#8fa6ac" stroke="#34474a" stroke-width="2"/>
+<rect x="972" y="446" width="56" height="32" fill="#8fa6ac" stroke="#34474a" stroke-width="2"/>
+<path d="M892,558L892,598" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M892,558L892,598" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M956,638L1012,638" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M956,638L1012,638" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="876" y="662" width="16" height="24" fill="#7d8c80" stroke="#34474a" stroke-width="1"/>
+<rect x="956" y="662" width="16" height="24" fill="#7d8c80" stroke="#34474a" stroke-width="1"/>
+<rect x="1052" y="662" width="16" height="24" fill="#7d8c80" stroke="#34474a" stroke-width="1"/>
+<rect x="876" y="742" width="16" height="24" fill="#7d8c80" stroke="#34474a" stroke-width="1"/>
+<rect x="1052" y="742" width="16" height="24" fill="#7d8c80" stroke="#34474a" stroke-width="1"/>
+<path d="M884,674L1060,674" fill="none" stroke="#8b9c93" stroke-width="1.4" stroke-dasharray="4 4"/>
+<path d="M884,754L1060,754" fill="none" stroke="#8b9c93" stroke-width="1.4" stroke-dasharray="4 4"/>
+<text class="label" x="948" y="566" text-anchor="middle" style="font-size:10px;">17 · road-loading hall</text>
+<text class="label" x="948" y="579" text-anchor="middle" style="font-size:10px;">z−5 / hoist overhead</text>
+<text class="label" x="996" y="718" text-anchor="middle" style="font-size:10px;">18 · COVERED DELIVERY COURT</text>
+<text class="label" x="996" y="731" text-anchor="middle" style="font-size:10px;">rail/service deck above</text>
+<text class="label" x="996" y="744" text-anchor="middle" style="font-size:10px;">small parcel vans / centre aisle</text>
+<text class="label" x="812" y="662" text-anchor="middle" style="font-size:10px;">19 · apron</text>
+<rect x="900" y="790" width="24" height="32" fill="#6d8274" stroke="#34474a" stroke-width="1.5"/>
+<rect x="980" y="790" width="16" height="32" fill="#6d8274" stroke="#34474a" stroke-width="1.5"/>
+<rect x="1060" y="790" width="24" height="32" fill="#6d8274" stroke="#34474a" stroke-width="1.5"/>
+<path d="M924,822L980,822" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M924,822L980,822" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M924,806L980,806" fill="none" stroke="#85968a" stroke-width="1.5" stroke-dasharray="3 3"/>
+<path d="M996,822L1060,822" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M996,822L1060,822" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M996,806L1060,806" fill="none" stroke="#85968a" stroke-width="1.5" stroke-dasharray="3 3"/>
+<path d="M1092,686L1108,734" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M1092,686L1108,734" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M1108,734L1100,766" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M1108,734L1100,766" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="580" y="622" width="32" height="16" fill="#e6e8df" stroke="#34474a" stroke-width="1.2"/>
+<rect x="580" y="726" width="32" height="24" fill="#bed4dc" stroke="#34474a" stroke-width="1.2"/>
+<rect x="580" y="638" width="32" height="88" fill="url(#hatch)" stroke="#34474a" stroke-width="1.5"/>
+<path d="M580,645.333L612,645.333" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,652.667L612,652.667" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,660L612,660" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,667.333L612,667.333" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,674.667L612,674.667" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,682L612,682" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,689.333L612,689.333" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,696.667L612,696.667" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,704L612,704" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,711.333L612,711.333" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M580,718.667L612,718.667" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="596,630 596,738"/>
+<text class="label" x="596" y="630" text-anchor="middle" style="font-size:8px;">N 0</text>
+<text class="label" x="596" y="738" text-anchor="middle" style="font-size:8px;">N −5</text>
+<path d="M583.2,622L608.8,622" fill="none" stroke="#e6e8df" stroke-width="9"/>
+<path d="M583.2,622L608.8,622" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M583.2,750L608.8,750" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M583.2,750L608.8,750" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="596" y="798" width="16" height="32" fill="#e6e8df" stroke="#34474a" stroke-width="1.2"/>
+<rect x="700" y="798" width="24" height="32" fill="#bed4dc" stroke="#34474a" stroke-width="1.2"/>
+<rect x="612" y="798" width="88" height="32" fill="url(#hatch)" stroke="#34474a" stroke-width="1.5"/>
+<path d="M619.333,798L619.333,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M626.667,798L626.667,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M634,798L634,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M641.333,798L641.333,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M648.667,798L648.667,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M656,798L656,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M663.333,798L663.333,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M670.667,798L670.667,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M678,798L678,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M685.333,798L685.333,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M692.667,798L692.667,830" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="604,814 712,814"/>
+<text class="label" x="604" y="814" text-anchor="middle" style="font-size:8px;">I 0</text>
+<text class="label" x="712" y="814" text-anchor="middle" style="font-size:8px;">I −5</text>
+<path d="M596,801.2L596,826.8" fill="none" stroke="#e6e8df" stroke-width="9"/>
+<path d="M596,801.2L596,826.8" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M703.2,798L720.8,798" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M703.2,798L720.8,798" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="804" y="486" width="40" height="16" fill="#e6e8df" stroke="#34474a" stroke-width="1.2"/>
+<rect x="804" y="590" width="40" height="24" fill="#bed4dc" stroke="#34474a" stroke-width="1.2"/>
+<rect x="804" y="502" width="40" height="88" fill="url(#hatch)" stroke="#34474a" stroke-width="1.5"/>
+<path d="M804,509.333L844,509.333" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,516.667L844,516.667" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,524L844,524" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,531.333L844,531.333" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,538.667L844,538.667" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,546L844,546" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,553.333L844,553.333" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,560.667L844,560.667" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,568L844,568" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,575.333L844,575.333" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M804,582.667L844,582.667" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="824,494 824,602"/>
+<text class="label" x="824" y="494" text-anchor="middle" style="font-size:8px;">C 0</text>
+<text class="label" x="824" y="602" text-anchor="middle" style="font-size:8px;">C −5</text>
+<path d="M807.2,486L840.8,486" fill="none" stroke="#e6e8df" stroke-width="9"/>
+<path d="M807.2,486L840.8,486" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M807.2,614L840.8,614" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M807.2,614L840.8,614" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="948" y="582" width="16" height="32" fill="#e6e8df" stroke="#34474a" stroke-width="1.2"/>
+<rect x="1052" y="582" width="24" height="32" fill="#bed4dc" stroke="#34474a" stroke-width="1.2"/>
+<rect x="964" y="582" width="88" height="32" fill="url(#hatch)" stroke="#34474a" stroke-width="1.5"/>
+<path d="M971.333,582L971.333,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M978.667,582L978.667,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M986,582L986,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M993.333,582L993.333,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M1000.67,582L1000.67,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M1008,582L1008,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M1015.33,582L1015.33,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M1022.67,582L1022.67,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M1030,582L1030,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M1037.33,582L1037.33,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<path d="M1044.67,582L1044.67,614" fill="none" stroke="#9183a5" stroke-width="0.8"/>
+<polyline class="route" points="956,598 1064,598"/>
+<text class="label" x="956" y="598" text-anchor="middle" style="font-size:8px;">G 0</text>
+<text class="label" x="1064" y="598" text-anchor="middle" style="font-size:8px;">G −5</text>
+<path d="M948,585.2L948,610.8" fill="none" stroke="#e6e8df" stroke-width="9"/>
+<path d="M948,585.2L948,610.8" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M1055.2,582L1072.8,582" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M1055.2,582L1072.8,582" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M702.4,798L721.6,798" fill="none" stroke="#bed4dc" stroke-width="9"/>
+<path d="M702.4,798L721.6,798" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<polyline class="route" points="712,798 712,782 644,782"/>
+<polyline class="route" points="824,614 852,638 892,582"/>
+<path d="M1108,694L1148,694" fill="none" stroke="#99a79e" stroke-width="2" stroke-dasharray="5 4"/>
+<text class="label" x="1116" y="750" text-anchor="middle" style="font-size:9px;">road out</text>
+<text class="label" x="1116" y="762" text-anchor="middle" style="font-size:9px;">scenic</text>
+<text x="1180" y="180" font-size="16" style="fill:#34474a">DRAWING KEY</text>
+<rect x="1180" y="195" width="19" height="14" fill="#bed4dc" stroke="#34474a"/>
+<text x="1208" y="207" font-size="13" style="fill:#34474a">Playable lower floor, −5</text>
+<rect x="1180" y="222" width="19" height="14" fill="#d9dfd4" stroke="#34474a"/>
+<text x="1208" y="234" font-size="13" style="fill:#34474a">Open lower working apron</text>
+<rect x="1180" y="249" width="19" height="14" fill="#cec6df" stroke="#34474a"/>
+<text x="1208" y="261" font-size="13" style="fill:#34474a">Upper/lower stair transfer</text>
+<rect x="1180" y="276" width="19" height="14" fill="#edece3" stroke="#34474a"/>
+<text x="1208" y="288" font-size="13" style="fill:#34474a">Solid station fill above</text>
+<rect x="1180" y="303" width="19" height="14" fill="#6d8274" stroke="#34474a"/>
+<text x="1208" y="315" font-size="13" style="fill:#34474a">Retaining mass / arcade piers</text>
+<rect x="1180" y="330" width="19" height="14" fill="url(#hatch)" stroke="#34474a"/>
+<text x="1208" y="342" font-size="13" style="fill:#34474a">Stair underside / hoist</text>
+<text x="1180" y="405" font-size="13" style="fill:#34474a">EAST ARRIVAL</text>
+<text x="1180" y="424" font-size="13" style="fill:#34474a">The quiet quay follows a real</text>
+<text x="1180" y="443" font-size="13" style="fill:#34474a">five-metre retaining face.</text>
+<text x="1180" y="462" font-size="13" style="fill:#34474a">Buttresses carry station mass.</text>
+<text x="1180" y="481" font-size="13" style="fill:#34474a">The path widens toward two</text>
+<text x="1180" y="500" font-size="13" style="fill:#34474a">arched bays beneath the railway.</text>
+<text x="1180" y="519" font-size="13" style="fill:#34474a">The covered court has deep</text>
+<text x="1180" y="538" font-size="13" style="fill:#34474a">load-bearing piers and an east</text>
+<text x="1180" y="557" font-size="13" style="fill:#34474a">road opening. Freight hall 17</text>
+<text x="1180" y="576" font-size="13" style="fill:#34474a">is the northern destination.</text>
+<text x="1180" y="595" font-size="13" style="fill:#34474a">See Q–Q arrival section.</text>
+<text x="1180" y="660" font-size="13" style="fill:#34474a">STAIR FEET / MOUTHS</text>
+<text x="1180" y="679" font-size="13" style="fill:#34474a">N lands in the subway north arm.</text>
+<text x="1180" y="698" font-size="13" style="fill:#34474a">I exits east into a foot landing,</text>
+<text x="1180" y="717" font-size="13" style="fill:#34474a">then north and west into subway.</text>
+<text x="1180" y="736" font-size="13" style="fill:#34474a">The lowest I flight is bypassed</text>
+<text x="1180" y="755" font-size="13" style="fill:#34474a">rather than walked beneath.</text>
+<text x="1180" y="774" font-size="13" style="fill:#34474a">C opens south into the apron.</text>
+<text x="1180" y="793" font-size="13" style="fill:#34474a">G opens north into road hall 17.</text>
+<text x="1180" y="812" font-size="13" style="fill:#34474a">Aligned plans use identical XY</text>
+<text x="1180" y="831" font-size="13" style="fill:#34474a">for wells, flights and landings.</text>
+<text x="1180" y="900" font-size="13" style="fill:#34474a">LIMITS</text>
+<text x="1180" y="919" font-size="13" style="fill:#34474a">Portal / stair headroom remains</text>
+<text x="1180" y="938" font-size="13" style="fill:#34474a">a drawing hypothesis. No engine</text>
+<text x="1180" y="957" font-size="13" style="fill:#34474a">movement or timing evidence is</text>
+<text x="1180" y="976" font-size="13" style="fill:#34474a">claimed. Quay water and rail</text>
+<text x="1180" y="995" font-size="13" style="fill:#34474a">beds remain inaccessible.</text>
+<path d="M60 1110h160m-160 -5v10m80 -10v10m80 -10v10" fill="none" stroke="#34474a" stroke-width="2"/>
+<text x="60" y="1134" font-size="12" style="fill:#34474a">0</text>
+<text x="135" y="1134" font-size="12" style="fill:#34474a">10</text>
+<text x="215" y="1134" font-size="12" style="fill:#34474a">20 m</text>
+<text x="350" y="1115" font-size="13" style="fill:#34474a">Provisional dimensions; plan north is up. Rail platform datum z=0.00 m.</text>
+<text x="60" y="1175" font-size="13" style="fill:#34474a">The eastern court is a covered under-rail working space in R02. Scenic deck above and lower piers explain its enclosure and arrival.</text>
+<text x="60" y="1194" font-size="13" style="fill:#34474a">The long waterfront journey remains quiet; architecture develops its station-side edge and destination without adding intermediate rooms.</text>
+</svg>

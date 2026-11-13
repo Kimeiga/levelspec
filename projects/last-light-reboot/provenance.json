@@ -1,0 +1,58 @@
+{
+  "project": "Last Light Galleria reboot",
+  "phase": "A / unselected S01 alternatives",
+  "recorded_date": "2026-11-09",
+  "original_project": "projects/last-light",
+  "original_unchanged": true,
+  "originals": {
+    "projects/last-light/level.aml": "efbd743e587066ec818152217563be275b6b70d248dcbb1f5ec58ce07322b692",
+    "projects/last-light/layout.svg": "e1bbc6a6cef82571ebf16433fecd169dd3d9979071a008d9c545e221a418615d",
+    "projects/last-light/brief.md": "602b8d7bc847b8aed044baf500ef152d4cc41a6375fde0a3b21c3f7e7075946f",
+    "projects/last-light/design.md": "07a20e0e3dae2d8abcc529268520619d8702359634ab9a49f649d36630df66d4",
+    "projects/last-light/README.md": "11e2e5f33974171cec1ee5bbb3fc3b3554d7d07abc525b8148aa0c28f19d2491",
+    "projects/last-light/references/study.md": "d33e054a7c0aea554191318026613937b7493910c756846f602f93bb2bc2aad5"
+  },
+  "inspection": {
+    "original_layout_png": "planning/original-layout.png",
+    "original_render": "projects/last-light/preview.png",
+    "source_and_brief_read": true,
+    "original_layout_and_render_visually_inspected": true
+  },
+  "artifact_hashes": {
+    "planning/alternatives.md": "fafbfb4e3bf83b73e7a0bd44314b7e43f71c198fbb93f599785a1f60f5bf91d3",
+    "planning/draw-alternatives.py": "64109e80861adf23afe58d034dceac89e2b2c317f230d3ae6b935f236561c57c",
+    "planning/engine-source.json": "f6fd78bb5ca44657803292eb4664c01283eef6738f3023631dc0baa083524647",
+    "planning/exploration-board.png": "9fadbedf0c111c35740aa5123073f6f28d4c4d79745f48cfc418f3f177590a37",
+    "planning/exploration-concourse.json": "5b5f9c80e0a7dd5b9140db644e91347d18613a04caaa68edcb79829a3739ca08",
+    "planning/exploration-department.json": "9a0c06a43b91dc406d0861b86a94f078895724cce3d9b4a1d935df080ce38bdc",
+    "planning/exploration-notes.md": "0eef26bdab1bcaf7a0eaca9dfaaa4a8a7be92b76db48f72317bb39cf7c3bf9bb",
+    "planning/exploration-service.json": "05d3db33dd1da9ef98e60f0b9d179c11314855a751951ee43f8b94b094f725de",
+    "planning/exploration-summary.json": "183806a5f980a53989a02b5c565e58d205ff6eb9714555b2a7e786b61e42c4cc",
+    "planning/explore-concourse.json": "bc26a9e0eaaac4b3da399f9472334bac47f2fb53eae1bb7c5e86ade85cbbbc0b",
+    "planning/explore-department.json": "975cf0b3c6fa56541fca889f0919dbff01afc424097856e78d70315db0d8c3fb",
+    "planning/explore-service.json": "b25d3669aae16e6ce19261c7b4ae72a10a0141ff6729f5e43001d191b853b83f",
+    "planning/original-layout.png": "cb748cad11699fffa00a5929bf551e458c295bfdef207aeaa6f34beecc2636e8",
+    "planning/proposal-a-s01.json": "6babdc258cfaca27673a6383011e5ffd86db33903b10d663c2300e2643f81a0a",
+    "planning/proposal-a-s01.png": "b860a64d0975f861a13acde27e88d1f48daa0d0faa93e0bd8cc74fbaa9978fcd",
+    "planning/proposal-a-s01.svg": "f69e93f5940518704f6c9f14b834c31671c01e45595d1a2fe1642e9b1c8b0ad8",
+    "planning/proposal-b-s01.json": "1d9b265977e99508481f8b6650e031d51d0ad64b89e9417e76bebf6244859b75",
+    "planning/proposal-b-s01.png": "40b3637b5bf6e3963d824c7c5ff14ce32fc2d432c845b3221b97138b4b5835e3",
+    "planning/proposal-b-s01.svg": "5fc0679af1f250565adb5f3bf00ea10ad09f5419e6bafb4ac449b6e96d4a02f8",
+    "references/images/metro-north.jpg": "883bbf27b3bdb494dfcbf3794d7998bd0c301f0f1eb22ef78a413a9c4fc90ecd",
+    "references/images/rolling-center.jpg": "9ef15b0699766e9be654476980588d5ae60a05b814d3123060dd22f9c8a446c8",
+    "references/images/rolling-foodcourt.jpg": "2ef685f437a1cd38abc9e78823038555dc32b37a9f074d1542392ba37fe44905",
+    "references/images/rolling-service.jpg": "3e0ecd2dff5694bbd14c14d20130492173515409eca56640dab11f9aea1e01da",
+    "references/images/rolling-void.jpg": "b413a546fcdc354661ca39d7d107dcc08664d331b36e6c02c076a8d3d7661abb",
+    "references/images/tower-place-atrium.jpeg": "d5f10b107e49929f0592d05c5b38a010db2d847f075922a748fe2d9e8705ec5d",
+    "references/images/tower-store-threshold.jpeg": "f670b11fa0f18a05759dda77241f9595ea1b4d728be3babe6a662fa0c0a836f0",
+    "references/images/tower-vertical-gallery.jpeg": "780681e0356941978a32517620480def5c60d4921df2696aec374e3cba4c0714",
+    "references/images.json": "1e94ef3fb5f022de78a7640bb6c2e92f08c87f6c46ecf21f07fe06ee068ee917",
+    "references/study.md": "e9b58cd3efe2a11c1b3810c7846831af6638270077c7d9e9cac53a80b99c469b"
+  },
+  "pending_gates": [
+    "independent spatial interest comparison",
+    "detailed layout/construction/visibility",
+    "strategy/player behavior",
+    "production AML and compiled architecture/gameplay review"
+  ]
+}

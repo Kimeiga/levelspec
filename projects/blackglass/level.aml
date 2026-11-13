@@ -1,0 +1,834 @@
+<?xml version='1.0' encoding='utf-8'?>
+<architecture version="1" id="blackglass" name="Blackglass · Cliffside Array" units="meters" validation="playable" description="L05 / R04: original 5v5 CT/T two-site defusal blockout. High-tech villain lair on a steep mountain. Reactor+12, suspended Data Vault0, CT operations+6. Gameplay integration and playtesting pending.">
+  <material id="deck" color="#a5b8c4" roughness="0.7" metalness="0" />
+  <material id="shell" color="#cbd5db" roughness="0.7" metalness="0" />
+  <material id="steel" color="#3d586b" roughness="0.7" metalness="0.25" />
+  <material id="dark" color="#1c3346" roughness="0.7" metalness="0.25" />
+  <material id="cyan" color="#4ad8dc" roughness="0.7" metalness="0" />
+  <material id="orange" color="#eaaa57" roughness="0.7" metalness="0" />
+  <material id="low" color="#77aab8" roughness="0.7" metalness="0" />
+  <material id="rock" color="#54606b" roughness="0.7" metalness="0" />
+  <material id="rock-light" color="#75818b" roughness="0.7" metalness="0" />
+  <material id="snow" color="#dce6eb" roughness="0.7" metalness="0" />
+  <material id="plant-a" color="#edb363" roughness="0.7" metalness="0" />
+  <material id="plant-b" color="#7cd8cc" roughness="0.7" metalness="0" />
+  <assembly id="facility" label="Physical cliffside facility" coincident-material="retained-face">
+    <assembly id="mountain" label="Nonplayable mountain and structural supports" coincident-material="retained-face">
+      <extrusion id="mountain-south" profile="rock-south-section" distance="42" position="0 20 0" rotation="90 0 0" material="rock-light" />
+      <extrusion id="mountain-central" profile="rock-central-section" distance="45" position="0 65 0" rotation="90 0 0" material="rock" />
+      <extrusion id="mountain-north" profile="rock-north-section" distance="45" position="0 110 0" rotation="90 0 0" material="rock-light" />
+      <box id="rock-shelf-reactor" position="48 58 -36" width="24" depth="20" height="47.65" material="rock" />
+      <box id="rock-shelf-command" position="48 84 -36" width="22" depth="12" height="47.65" material="rock" />
+      <box id="rock-shelf-heat" position="48 36 -36" width="16" depth="10" height="41.65" material="rock" />
+      <box id="ravine-bed" position="-25 -20 -38" width="91" depth="132" height="2" material="rock" />
+      <box id="foundation-0" position="5.3 54.3 -36" width="1.4000000000000004" depth="1.4000000000000057" height="35.65" material="steel" />
+      <box id="foundation-cap-0" position="5 54 -0.65" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-1" position="5.3 68.3 -36" width="1.4000000000000004" depth="1.4000000000000057" height="35.65" material="steel" />
+      <box id="foundation-cap-1" position="5 68 -0.65" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-2" position="22.3 54.3 -36" width="1.3999999999999986" depth="1.4000000000000057" height="35.65" material="steel" />
+      <box id="foundation-cap-2" position="22 54 -0.65" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-3" position="22.3 68.3 -36" width="1.3999999999999986" depth="1.4000000000000057" height="35.65" material="steel" />
+      <box id="foundation-cap-3" position="22 68 -0.65" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-4" position="11.3 3.3 -36" width="1.3999999999999986" depth="1.4000000000000004" height="35.65" material="steel" />
+      <box id="foundation-cap-4" position="11 3 -0.65" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-5" position="33.3 3.3 -36" width="1.4000000000000057" depth="1.4000000000000004" height="35.65" material="steel" />
+      <box id="foundation-cap-5" position="33 3 -0.65" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-6" position="30.3 37.3 -36" width="1.3999999999999986" depth="1.4000000000000057" height="41.65" material="steel" />
+      <box id="foundation-cap-6" position="30 37 5.35" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-7" position="45.3 47.3 -36" width="1.4000000000000057" depth="1.4000000000000057" height="41.65" material="steel" />
+      <box id="foundation-cap-7" position="45 47 5.35" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-8" position="48.3 59.3 -36" width="1.4000000000000057" depth="1.4000000000000057" height="47.65" material="steel" />
+      <box id="foundation-cap-8" position="48 59 11.35" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-9" position="69.3 75.3 -36" width="1.4000000000000057" depth="1.4000000000000057" height="47.65" material="steel" />
+      <box id="foundation-cap-9" position="69 75 11.35" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-10" position="27.3 73.3 -36" width="1.3999999999999986" depth="1.4000000000000057" height="41.65" material="steel" />
+      <box id="foundation-cap-10" position="27 73 5.35" width="2" depth="2" height="0.3" material="steel" />
+      <box id="foundation-11" position="41.3 73.3 -36" width="1.4000000000000057" depth="1.4000000000000057" height="41.65" material="steel" />
+      <box id="foundation-cap-11" position="41 73 5.35" width="2" depth="2" height="0.3" material="steel" />
+      <box id="spire-base" position="77 75 22" width="8" depth="8" height="6" material="dark" />
+      <cylinder id="comms-spire" position="81 79 28" radius="1.25" height="25" segments="12" material="steel" />
+      <cone id="comms-crown" position="81 79 48" radius="5" top-radius="1.3" height="3" segments="12" material="dark" />
+      <cylinder id="comms-signal" position="81 79 53" radius="0.35" height="4" segments="8" material="cyan" />
+      <cylinder id="turbine-stack-0" position="76 28 18" radius="2.4" height="9" segments="16" material="steel" />
+      <cylinder id="turbine-stack-rim-0" position="76 28 26.7" radius="2.6" height="0.4" segments="16" material="cyan" />
+      <cylinder id="turbine-stack-1" position="76 40 18" radius="2.4" height="9" segments="16" material="steel" />
+      <cylinder id="turbine-stack-rim-1" position="76 40 26.7" radius="2.6" height="0.4" segments="16" material="cyan" />
+    </assembly>
+    <slab id="floor-T" label="Insertion dock" profile="T-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <roof id="roof-T" profile="T-plan" elevation="4.55" thickness="0.35" material="steel" playable="false" />
+    <slab id="floor-F" label="Freight hall" profile="F-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-C" label="Arrival concourse" profile="C-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-E" label="Cable port" profile="E-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-P" label="Cooling pumps" profile="P-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-L" label="Lower gallery" profile="L-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-K" label="Cold airlock" profile="K-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-PC" label="Pump control" profile="PC-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-B" label="B / Data vault" profile="B-plan" elevation="0" thickness="0.35" material="steel" playable="true" />
+    <slab id="floor-M" label="Mid / Atrium" profile="M-plan" elevation="6" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-H" label="Heat exchangers" profile="H-plan" elevation="6" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-Q" label="Suspended gallery" profile="Q-plan" elevation="6" thickness="0.8" material="deck" playable="true" />
+    <slab id="floor-D" label="Cleanroom" profile="D-plan" elevation="6" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-J" label="Short airlock" profile="J-plan" elevation="0" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-W" label="Service spine" profile="W-plan" elevation="6" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-R" label="CT operations / rear bridge" profile="R-plan" elevation="6" thickness="0.35" material="deck" playable="true" />
+    <roof id="roof-R" profile="R-plan" elevation="10.55" thickness="0.35" material="steel" playable="false" />
+    <slab id="floor-U" label="Switchgear" profile="U-plan" elevation="6" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-V" label="Vault stair head" profile="V-plan" elevation="6" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-N" label="Coolant manifold" profile="N-plan" elevation="6" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-I" label="Security vestibule" profile="I-plan" elevation="12" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-CT" label="Summit command pad" profile="CT-plan" elevation="12" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-A" label="A / Reactor hall" profile="A-plan" elevation="12" thickness="0.35" material="steel" playable="true" />
+    <slab id="floor-AW" label="Scrubber landing" profile="AW-plan" elevation="12" thickness="0.35" material="deck" playable="true" />
+    <slab id="floor-AC" label="Command access" profile="AC-plan" elevation="12" thickness="0.35" material="deck" playable="true" />
+    <wall id="T-wall-0-0-solid" path="T-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="T-wall-1-0-solid" path="T-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="T-wall-2-0-solid" path="T-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="T-wall-2-0-head" path="T-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="T-wall-2-1-solid" path="T-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="T-wall-2-1-head" path="T-wall-2-1-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="T-wall-2-2-solid" path="T-wall-2-2-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="T-wall-3-0-solid" path="T-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="F-wall-0-0-solid" path="F-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="F-wall-0-0-head" path="F-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="F-wall-0-1-solid" path="F-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="F-wall-1-0-solid" path="F-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="F-wall-1-0-head" path="F-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="F-wall-1-1-solid" path="F-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="F-wall-2-0-solid" path="F-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="F-wall-2-0-head" path="F-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="F-wall-2-1-solid" path="F-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="F-wall-2-1-head" path="F-wall-2-1-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="F-wall-2-2-solid" path="F-wall-2-2-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="F-wall-3-0-solid" path="F-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="C-wall-0-0-solid" path="C-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="C-wall-0-0-head" path="C-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="C-wall-0-1-solid" path="C-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="C-wall-1-0-solid" path="C-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="C-wall-1-0-head" path="C-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="C-wall-1-1-solid" path="C-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="C-wall-2-0-solid" path="C-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="C-wall-2-0-head" path="C-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="C-wall-3-0-solid" path="C-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="C-wall-3-0-head" path="C-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="C-wall-3-1-solid" path="C-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="E-wall-0-0-solid" path="E-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="E-wall-1-0-solid" path="E-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="E-wall-2-0-solid" path="E-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="E-wall-2-0-head" path="E-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="E-wall-3-0-solid" path="E-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="E-wall-3-0-head" path="E-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="E-wall-3-1-solid" path="E-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="P-wall-0-0-solid" path="P-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="P-wall-0-0-head" path="P-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="P-wall-0-1-solid" path="P-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="P-wall-1-0-solid" path="P-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="P-wall-1-0-head" path="P-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="P-wall-1-1-solid" path="P-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="P-wall-2-0-solid" path="P-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="P-wall-2-0-head" path="P-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="P-wall-2-1-solid" path="P-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="P-wall-3-0-solid" path="P-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="L-wall-0-0-solid" path="L-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="L-wall-0-0-head" path="L-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="L-wall-0-1-solid" path="L-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="L-wall-1-0-solid" path="L-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="L-wall-2-0-solid" path="L-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="L-wall-2-0-head" path="L-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="L-wall-2-1-solid" path="L-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="L-wall-3-0-solid" path="L-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="L-wall-3-0-head" path="L-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="L-wall-3-1-solid" path="L-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="K-wall-0-0-solid" path="K-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="K-wall-0-0-head" path="K-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="K-wall-0-1-solid" path="K-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="K-wall-1-0-solid" path="K-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="K-wall-1-0-head" path="K-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="K-wall-1-1-solid" path="K-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="K-wall-2-0-solid" path="K-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="K-wall-2-0-head" path="K-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="K-wall-2-1-solid" path="K-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="K-wall-3-0-solid" path="K-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="PC-wall-0-0-solid" path="PC-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="PC-wall-0-0-head" path="PC-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="PC-wall-0-1-solid" path="PC-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="PC-wall-1-0-solid" path="PC-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="PC-wall-2-0-solid" path="PC-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="PC-wall-2-0-head" path="PC-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="PC-wall-2-1-solid" path="PC-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="PC-wall-3-0-solid" path="PC-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="PC-wall-3-0-head" path="PC-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="PC-wall-3-1-solid" path="PC-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-0-0-solid" path="B-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-0-0-head" path="B-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="B-wall-0-1-solid" path="B-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-0-1-head" path="B-wall-0-1-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="B-wall-0-2-solid" path="B-wall-0-2-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-1-0-solid" path="B-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-1-0-head" path="B-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="B-wall-1-1-solid" path="B-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-2-0-solid" path="B-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-2-0-head" path="B-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="B-wall-2-1-solid" path="B-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-3-0-solid" path="B-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="B-wall-3-0-sill" path="B-wall-3-0-sill-axis" thickness="0.3" height="1.1" material="shell" />
+    <wall id="B-wall-3-0-head" path="B-wall-3-0-head-axis" thickness="0.3" height="2.0" material="shell" />
+    <wall id="B-wall-3-1-solid" path="B-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="M-wall-0-0-solid" path="M-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="M-wall-0-0-head" path="M-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="M-wall-0-1-solid" path="M-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="M-wall-1-0-solid" path="M-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="M-wall-1-0-head" path="M-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="M-wall-1-1-solid" path="M-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="M-wall-2-0-solid" path="M-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="M-wall-2-0-head" path="M-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="M-wall-2-1-solid" path="M-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="M-wall-3-0-solid" path="M-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="M-wall-3-0-head" path="M-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="M-wall-3-1-solid" path="M-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="H-wall-0-0-solid" path="H-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="H-wall-0-0-head" path="H-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="H-wall-0-1-solid" path="H-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="H-wall-1-0-solid" path="H-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="H-wall-2-0-solid" path="H-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="H-wall-2-0-head" path="H-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="H-wall-3-0-solid" path="H-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="H-wall-3-0-head" path="H-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="H-wall-3-1-solid" path="H-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="Q-wall-0-0-solid" path="Q-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="Q-wall-1-0-solid" path="Q-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="Q-wall-1-0-head" path="Q-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="Q-wall-1-1-solid" path="Q-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="Q-wall-2-0-solid" path="Q-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="Q-wall-2-0-head" path="Q-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="Q-wall-3-0-solid" path="Q-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="D-wall-0-0-solid" path="D-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="D-wall-0-0-head" path="D-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="D-wall-0-1-solid" path="D-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="D-wall-1-0-solid" path="D-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="D-wall-2-0-solid" path="D-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="D-wall-2-0-head" path="D-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="D-wall-2-1-solid" path="D-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="D-wall-2-1-head" path="D-wall-2-1-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="D-wall-2-2-solid" path="D-wall-2-2-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="D-wall-3-0-solid" path="D-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="J-wall-0-0-head" path="J-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="J-wall-0-1-solid" path="J-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="J-wall-1-0-solid" path="J-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="J-wall-2-0-solid" path="J-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="J-wall-3-0-solid" path="J-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="J-wall-3-0-head" path="J-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="J-wall-3-1-solid" path="J-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="W-wall-0-0-solid" path="W-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="W-wall-0-0-head" path="W-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="W-wall-0-1-solid" path="W-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="W-wall-1-0-solid" path="W-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="W-wall-2-0-solid" path="W-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="W-wall-2-0-head" path="W-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="W-wall-2-1-solid" path="W-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="W-wall-3-0-solid" path="W-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="R-wall-0-0-solid" path="R-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="R-wall-0-0-head" path="R-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="R-wall-0-1-solid" path="R-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="R-wall-1-0-solid" path="R-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="R-wall-2-0-solid" path="R-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="R-wall-2-0-head" path="R-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="R-wall-2-1-solid" path="R-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="R-wall-2-1-head" path="R-wall-2-1-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="R-wall-3-0-solid" path="R-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="U-wall-0-0-solid" path="U-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="U-wall-0-0-head" path="U-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="U-wall-0-1-solid" path="U-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="U-wall-1-0-solid" path="U-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="U-wall-2-0-solid" path="U-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="U-wall-3-0-solid" path="U-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="U-wall-3-0-head" path="U-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="U-wall-3-1-solid" path="U-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="V-wall-0-0-head" path="V-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="V-wall-1-0-solid" path="V-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="V-wall-1-0-head" path="V-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="V-wall-1-1-solid" path="V-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="V-wall-2-0-solid" path="V-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="V-wall-3-0-solid" path="V-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="N-wall-0-0-solid" path="N-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="N-wall-0-0-head" path="N-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="N-wall-0-1-solid" path="N-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="N-wall-1-0-solid" path="N-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="N-wall-2-0-solid" path="N-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="N-wall-2-0-head" path="N-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="N-wall-2-1-solid" path="N-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="N-wall-3-0-solid" path="N-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="I-wall-0-0-head" path="I-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="I-wall-0-1-solid" path="I-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="I-wall-1-0-solid" path="I-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="I-wall-1-0-head" path="I-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="I-wall-1-1-solid" path="I-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="I-wall-2-0-solid" path="I-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="I-wall-3-0-solid" path="I-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="CT-wall-0-0-solid" path="CT-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="CT-wall-0-0-head" path="CT-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="CT-wall-0-1-solid" path="CT-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="CT-wall-1-0-solid" path="CT-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="CT-wall-2-0-solid" path="CT-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="CT-wall-3-0-solid" path="CT-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="CT-wall-3-0-head" path="CT-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="CT-wall-3-1-solid" path="CT-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="A-wall-0-0-solid" path="A-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="A-wall-0-0-head" path="A-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="A-wall-0-1-solid" path="A-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="A-wall-1-0-solid" path="A-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="A-wall-1-0-sill" path="A-wall-1-0-sill-axis" thickness="0.3" height="1.1" material="shell" />
+    <wall id="A-wall-1-0-head" path="A-wall-1-0-head-axis" thickness="0.3" height="2.0" material="shell" />
+    <wall id="A-wall-1-1-solid" path="A-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="A-wall-2-0-solid" path="A-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="A-wall-2-0-head" path="A-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="A-wall-2-1-solid" path="A-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="A-wall-3-0-solid" path="A-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="A-wall-3-0-head" path="A-wall-3-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="A-wall-3-1-solid" path="A-wall-3-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AW-wall-0-0-head" path="AW-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="AW-wall-1-0-solid" path="AW-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AW-wall-1-0-head" path="AW-wall-1-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="AW-wall-1-1-solid" path="AW-wall-1-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AW-wall-2-0-solid" path="AW-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AW-wall-3-0-solid" path="AW-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AC-wall-0-0-solid" path="AC-wall-0-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AC-wall-0-0-head" path="AC-wall-0-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="AC-wall-0-1-solid" path="AC-wall-0-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AC-wall-1-0-solid" path="AC-wall-1-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AC-wall-2-0-solid" path="AC-wall-2-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AC-wall-2-0-head" path="AC-wall-2-0-head-axis" thickness="0.3" height="1.6" material="shell" />
+    <wall id="AC-wall-2-1-solid" path="AC-wall-2-1-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="AC-wall-3-0-solid" path="AC-wall-3-0-solid-axis" thickness="0.3" height="5.2" material="shell" />
+    <stairs id="S1" path="S1-axis" width="6" count="30" thickness="0.35" underside="sloped" material="steel" />
+    <wall id="S1-west" path="S1-west-axis" thickness="0.3" height="5.2" material="shell" />
+    <wall id="S1-east" path="S1-east-axis" thickness="0.3" height="3.4" material="shell" />
+    <stairs id="S2" path="S2-axis" width="6" count="30" thickness="0.35" underside="sloped" material="steel" />
+    <wall id="S2-west" path="S2-west-axis" thickness="0.3" height="3.4" material="shell" />
+    <wall id="S2-east" path="S2-east-axis" thickness="0.3" height="3.4" material="shell" />
+    <stairs id="S3" path="S3-axis" width="6" count="30" thickness="0.35" underside="sloped" material="steel" />
+    <wall id="S3-west" path="S3-west-axis" thickness="0.3" height="3.4" material="shell" />
+    <wall id="S3-east" path="S3-east-axis" thickness="0.3" height="3.4" material="shell" />
+    <stairs id="S4" path="S4-axis" width="6" count="30" thickness="0.35" underside="sloped" material="steel" />
+    <wall id="S4-west" path="S4-west-axis" thickness="0.3" height="3.4" material="shell" />
+    <wall id="S4-east" path="S4-east-axis" thickness="0.3" height="3.4" material="shell" />
+    <stairs id="S5" path="S5-axis" width="4" count="30" thickness="0.35" underside="sloped" material="steel" />
+    <wall id="S5-west" path="S5-west-axis" thickness="0.3" height="3.4" material="shell" />
+    <wall id="S5-east" path="S5-east-axis" thickness="0.3" height="3.4" material="shell" />
+    <stairs id="S6" path="S6-axis" width="6" count="30" thickness="0.35" underside="sloped" material="steel" />
+    <wall id="S6-west" path="S6-west-axis" thickness="0.3" height="3.4" material="shell" />
+    <wall id="S6-east" path="S6-east-axis" thickness="0.3" height="3.4" material="shell" />
+    <stairs id="S7" path="S7-axis" width="6" count="30" thickness="0.35" underside="sloped" material="steel" />
+    <wall id="S7-west" path="S7-west-axis" thickness="0.3" height="3.4" material="shell" />
+    <wall id="S7-east" path="S7-east-axis" thickness="0.3" height="3.4" material="shell" />
+    <box id="F-cargo" position="7 18 0" width="7" depth="4" height="3.2" material="dark" />
+    <box id="F-cargo-status" position="7.08 17.982 2.96" width="6.84" depth="0.038000000000000256" height="0.12" material="cyan" collidable="false" />
+    <box id="F-low" position="17 23 0" width="4" depth="2" height="1.25" material="low" />
+    <box id="F-low-status" position="17.08 22.982 1.01" width="3.8400000000000034" depth="0.038000000000000256" height="0.12" material="cyan" collidable="false" />
+    <box id="C-kiosk" position="30 16 0" width="4" depth="4" height="3.4" material="dark" />
+    <box id="C-kiosk-status" position="30.08 15.982 3.16" width="3.8400000000000034" depth="0.038000000000000256" height="0.12" material="cyan" collidable="false" />
+    <box id="E-low" position="47 20 0" width="4" depth="2" height="1.25" material="low" />
+    <box id="E-low-status" position="47.08 19.982 1.01" width="3.8400000000000034" depth="0.038000000000000256" height="0.12" material="cyan" collidable="false" />
+    <box id="P-pump1" position="7 32 0" width="4" depth="4" height="2.8" material="dark" />
+    <box id="P-pump1-status" position="7.08 31.982 2.56" width="3.84" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="P-pump2" position="12 37 0" width="4" depth="3" height="1.25" material="low" />
+    <box id="P-pump2-status" position="12.08 36.982 1.01" width="3.84" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="K-low" position="5.5 46 0" width="3.5" depth="2" height="1.25" material="low" />
+    <box id="K-low-status" position="5.58 45.982 1.01" width="3.34" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="PC-rack" position="21 45 0" width="3" depth="3" height="2.8" material="dark" />
+    <box id="PC-rack-status" position="21.08 44.982 2.56" width="2.8400000000000034" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="B-core" position="11 59 0" width="6" depth="6" height="4.2" material="dark" />
+    <box id="B-core-status" position="11.08 58.982 3.96" width="5.840000000000002" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="B-low1" position="5 55 0" width="4" depth="2" height="1.25" material="low" />
+    <box id="B-low1-status" position="5.08 54.982 1.01" width="3.84" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="B-rack" position="21 64 0" width="3" depth="3" height="2.8" material="dark" />
+    <box id="B-rack-status" position="21.08 63.982 2.56" width="2.8400000000000034" depth="0.0379999999999967" height="0.12" material="cyan" collidable="false" />
+    <box id="B-low2" position="18 68 0" width="4" depth="2" height="1.25" material="low" />
+    <box id="B-low2-status" position="18.08 67.982 1.01" width="3.8400000000000034" depth="0.0379999999999967" height="0.12" material="cyan" collidable="false" />
+    <box id="M-array" position="39 41 6" width="5" depth="4" height="3.5" material="dark" />
+    <box id="M-array-status" position="39.08 40.982 9.26" width="4.840000000000003" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="M-low" position="32 46 6" width="3" depth="2" height="1.25" material="low" />
+    <box id="M-low-status" position="32.08 45.982 7.01" width="2.8400000000000034" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="H-exchanger" position="50 40.5 6" width="4" depth="3.5" height="3.4" material="dark" />
+    <box id="H-exchanger-status" position="50.08 40.482 9.16" width="3.8400000000000034" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="H-low" position="59 38 6" width="3" depth="2" height="1.25" material="low" />
+    <box id="H-low-status" position="59.08 37.982 7.01" width="2.8400000000000034" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="Q-low" position="19 42 6" width="4" depth="2" height="1.25" material="low" />
+    <box id="Q-low-status" position="19.08 41.982 7.01" width="3.8400000000000034" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="D-screen" position="32 53 6" width="5" depth="2" height="3.4" material="dark" />
+    <box id="D-screen-status" position="32.08 52.982 9.16" width="4.840000000000003" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="D-low" position="41 54 6" width="3" depth="2" height="1.25" material="low" />
+    <box id="D-low-status" position="41.08 53.982 7.01" width="2.8400000000000034" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="R-low" position="27 72.8 6" width="3" depth="1.5" height="1.25" material="low" />
+    <box id="R-low-status" position="27.08 72.782 7.01" width="2.8400000000000034" depth="0.0379999999999967" height="0.12" material="cyan" collidable="false" />
+    <box id="U-low" position="22 85 6" width="2" depth="2" height="1.25" material="low" />
+    <box id="U-low-status" position="22.08 84.982 7.01" width="1.8400000000000034" depth="0.0379999999999967" height="0.12" material="cyan" collidable="false" />
+    <box id="AW-low" position="43 71 12" width="2.5" depth="1.5" height="1.25" material="low" />
+    <box id="AW-low-status" position="43.08 70.982 13.01" width="2.3400000000000034" depth="0.0379999999999967" height="0.12" material="cyan" collidable="false" />
+    <cylinder id="A-reactor" position="60 68 12" radius="3.4" height="5" segments="24" material="dark" />
+    <cylinder id="A-reactor-cap" position="60 68 17" radius="3.4" height="0.25" segments="24" material="orange" />
+    <cylinder id="A-reactor-ring-0" position="60 68 12.7" radius="3.42" height="0.16" segments="24" material="cyan" />
+    <cylinder id="A-reactor-ring-1" position="60 68 15.9" radius="3.42" height="0.16" segments="24" material="cyan" />
+    <box id="A-screen" position="50 64 12" width="4" depth="2" height="3.4" material="dark" />
+    <box id="A-screen-status" position="50.08 63.982 15.16" width="3.8400000000000034" depth="0.0379999999999967" height="0.12" material="cyan" collidable="false" />
+    <box id="A-low1" position="55 60.5 12" width="4" depth="2.0" height="1.25" material="low" />
+    <box id="A-low1-status" position="55.08 60.482 13.01" width="3.8400000000000034" depth="0.03800000000000381" height="0.12" material="cyan" collidable="false" />
+    <box id="A-low2" position="65 73 12" width="4" depth="2" height="1.25" material="low" />
+    <box id="A-low2-status" position="65.08 72.982 13.01" width="3.8400000000000034" depth="0.0379999999999967" height="0.12" material="cyan" collidable="false" />
+    <box id="B-window-safety" position="1.97 59 1.1" width="0.05999999999999983" depth="7" height="2.1" material="cyan" visible="false" collidable="true" />
+    <box id="A-window-safety" position="71.97 63 13.1" width="0.060000000000002274" depth="9" height="2.1" material="cyan" visible="false" collidable="true" />
+    <box id="B-window-frame-0" position="1.78 58.88 1.1" width="0.44000000000000017" depth="0.23999999999999488" height="2.1" material="steel" />
+    <box id="B-window-frame-1" position="1.78 65.88 1.1" width="0.44000000000000017" depth="0.2400000000000091" height="2.1" material="steel" />
+    <box id="B-window-band" position="1.79 59 3.2" width="0.41999999999999993" depth="7" height="0.12" material="cyan" />
+    <box id="A-window-frame-0" position="71.78 62.88 13.1" width="0.4399999999999977" depth="0.23999999999999488" height="2.1" material="steel" />
+    <box id="A-window-frame-1" position="71.78 71.88 13.1" width="0.4399999999999977" depth="0.2400000000000091" height="2.1" material="steel" />
+    <box id="A-window-band" position="71.79 63 15.2" width="0.4199999999999875" depth="9" height="0.12" material="cyan" />
+    <box id="B-fin-0" position="1.58 53 -0.35" width="0.8399999999999999" depth="0.3500000000000014" height="5.55" material="steel" />
+    <box id="B-fin-1" position="1.58 57 -0.35" width="0.8399999999999999" depth="0.3500000000000014" height="5.55" material="steel" />
+    <box id="B-fin-2" position="1.58 61 -0.35" width="0.8399999999999999" depth="0.3500000000000014" height="5.55" material="steel" />
+    <box id="B-fin-3" position="1.58 65 -0.35" width="0.8399999999999999" depth="0.3499999999999943" height="5.55" material="steel" />
+    <box id="B-fin-4" position="1.58 69 -0.35" width="0.8399999999999999" depth="0.3499999999999943" height="5.55" material="steel" />
+    <box id="B-lightline" position="1.81 53 4.5" width="0.3799999999999999" depth="18" height="0.13" material="cyan" />
+    <box id="A-fin-0" position="71.58 59 11.65" width="0.8400000000000034" depth="0.3500000000000014" height="5.55" material="steel" />
+    <box id="A-fin-1" position="71.58 63 11.65" width="0.8400000000000034" depth="0.3500000000000014" height="5.55" material="steel" />
+    <box id="A-fin-2" position="71.58 67 11.65" width="0.8400000000000034" depth="0.3499999999999943" height="5.55" material="steel" />
+    <box id="A-fin-3" position="71.58 71 11.65" width="0.8400000000000034" depth="0.3499999999999943" height="5.55" material="steel" />
+    <box id="A-fin-4" position="71.58 75 11.65" width="0.8400000000000034" depth="0.3499999999999943" height="5.55" material="steel" />
+    <box id="A-lightline" position="71.81 59 16.5" width="0.37999999999999545" depth="18" height="0.13" material="cyan" />
+  </assembly>
+  <profile id="T-plan" points="10 0; 36 0; 36 12; 10 12" />
+  <profile id="F-plan" points="4 12; 24 12; 24 28; 4 28" />
+  <profile id="C-plan" points="24 12; 44 12; 44 24; 24 24" />
+  <profile id="E-plan" points="44 12; 60 12; 60 24; 44 24" />
+  <profile id="P-plan" points="4 28; 18 28; 18 42; 4 42" />
+  <profile id="L-plan" points="18 28; 30 28; 30 42; 18 42" />
+  <profile id="K-plan" points="4 42; 18 42; 18 52; 4 52" />
+  <profile id="PC-plan" points="18 42; 26 42; 26 52; 18 52" />
+  <profile id="B-plan" points="2 52; 26 52; 26 72; 2 72" />
+  <profile id="M-plan" points="30 36; 48 36; 48 50; 30 50" />
+  <profile id="H-plan" points="48 36; 64 36; 64 46; 48 46" />
+  <profile id="Q-plan" points="18 38; 30 38; 30 44; 18 44" />
+  <profile id="D-plan" points="32 50; 52 50; 52 58; 32 58" />
+  <profile id="J-plan" points="26 56; 32 56; 32 62; 26 62" />
+  <profile id="W-plan" points="32 58; 38 58; 38 72; 32 72" />
+  <profile id="R-plan" points="26 72; 44 72; 44 78; 26 78" />
+  <profile id="U-plan" points="20 84; 38 84; 38 90; 20 90" />
+  <profile id="V-plan" points="14 84; 20 84; 20 90; 14 90" />
+  <profile id="N-plan" points="26 78; 32 78; 32 84; 26 84" />
+  <profile id="I-plan" points="38 90; 48 90; 48 96; 38 96" />
+  <profile id="CT-plan" points="48 84; 70 84; 70 96; 48 96" />
+  <profile id="A-plan" points="48 58; 72 58; 72 78; 48 78" />
+  <profile id="AW-plan" points="42 70; 48 70; 48 78; 42 78" />
+  <profile id="AC-plan" points="56 78; 64 78; 64 84; 56 84" />
+  <path id="portal-T-F" points="13.75 12 0; 18.25 12 0" />
+  <connection id="connection-T-F" from="floor-T" to="floor-F" path="portal-T-F" />
+  <path id="portal-T-C" points="27.75 12 0; 32.25 12 0" />
+  <connection id="connection-T-C" from="floor-T" to="floor-C" path="portal-T-C" />
+  <path id="portal-F-C" points="24 16 0; 24 20 0" />
+  <connection id="connection-F-C" from="floor-F" to="floor-C" path="portal-F-C" />
+  <path id="portal-C-E" points="44 17 0; 44 21 0" />
+  <connection id="connection-C-E" from="floor-C" to="floor-E" path="portal-C-E" />
+  <path id="portal-F-P" points="8 28 0; 12 28 0" />
+  <connection id="connection-F-P" from="floor-F" to="floor-P" path="portal-F-P" />
+  <path id="portal-F-L" points="20.5 28 0; 23.5 28 0" />
+  <connection id="connection-F-L" from="floor-F" to="floor-L" path="portal-F-L" />
+  <path id="portal-P-L" points="18 30.3 0; 18 33.7 0" />
+  <connection id="connection-P-L" from="floor-P" to="floor-L" path="portal-P-L" />
+  <path id="portal-P-K" points="7 42 0; 11 42 0" />
+  <connection id="connection-P-K" from="floor-P" to="floor-K" path="portal-P-K" />
+  <path id="portal-K-PC" points="18 46.3 0; 18 49.7 0" />
+  <connection id="connection-K-PC" from="floor-K" to="floor-PC" path="portal-K-PC" />
+  <path id="portal-L-PC" points="20.3 42 0; 23.7 42 0" />
+  <connection id="connection-L-PC" from="floor-L" to="floor-PC" path="portal-L-PC" />
+  <path id="portal-K-B" points="8 52 0; 12 52 0" />
+  <connection id="connection-K-B" from="floor-K" to="floor-B" path="portal-K-B" />
+  <path id="portal-PC-B" points="20.3 52 0; 23.7 52 0" />
+  <connection id="connection-PC-B" from="floor-PC" to="floor-B" path="portal-PC-B" />
+  <path id="portal-M-H" points="48 37.5 6; 48 41.5 6" />
+  <connection id="connection-M-H" from="floor-M" to="floor-H" path="portal-M-H" />
+  <path id="portal-M-Q" points="30 38.5 6; 30 42.5 6" />
+  <connection id="connection-M-Q" from="floor-M" to="floor-Q" path="portal-M-Q" />
+  <path id="portal-M-D" points="33 50 6; 37 50 6" />
+  <connection id="connection-M-D" from="floor-M" to="floor-D" path="portal-M-D" />
+  <path id="portal-J-B" points="26 57 0; 26 61 0" />
+  <connection id="connection-J-B" from="floor-J" to="floor-B" path="portal-J-B" />
+  <path id="portal-D-W" points="33 58 6; 37 58 6" />
+  <connection id="connection-D-W" from="floor-D" to="floor-W" path="portal-D-W" />
+  <path id="portal-W-R" points="33 72 6; 37 72 6" />
+  <connection id="connection-W-R" from="floor-W" to="floor-R" path="portal-W-R" />
+  <path id="portal-R-N" points="27 78 6; 31 78 6" />
+  <connection id="connection-R-N" from="floor-R" to="floor-N" path="portal-R-N" />
+  <path id="portal-N-U" points="27 84 6; 31 84 6" />
+  <connection id="connection-N-U" from="floor-N" to="floor-U" path="portal-N-U" />
+  <path id="portal-U-V" points="20 85 6; 20 89 6" />
+  <connection id="connection-U-V" from="floor-U" to="floor-V" path="portal-U-V" />
+  <path id="portal-I-CT" points="48 91 12; 48 95 12" />
+  <connection id="connection-I-CT" from="floor-I" to="floor-CT" path="portal-I-CT" />
+  <path id="portal-CT-AC" points="58 84 12; 62 84 12" />
+  <connection id="connection-CT-AC" from="floor-CT" to="floor-AC" path="portal-CT-AC" />
+  <path id="portal-AC-A" points="58 78 12; 62 78 12" />
+  <connection id="connection-AC-A" from="floor-AC" to="floor-A" path="portal-AC-A" />
+  <path id="portal-A-AW" points="48 72 12; 48 76 12" />
+  <connection id="connection-A-AW" from="floor-A" to="floor-AW" path="portal-A-AW" />
+  <path id="T-wall-0-0-solid-axis" points="10 0 0; 36 0 0" />
+  <path id="T-wall-1-0-solid-axis" points="36 0 0; 36 12 0" />
+  <path id="T-wall-2-0-solid-axis" points="10 12 0; 13.75 12 0" />
+  <path id="T-wall-2-0-head-axis" points="13.75 12 3.6; 18.25 12 3.6" />
+  <path id="T-wall-2-1-solid-axis" points="18.25 12 0; 27.75 12 0" />
+  <path id="T-wall-2-1-head-axis" points="27.75 12 3.6; 32.25 12 3.6" />
+  <path id="T-wall-2-2-solid-axis" points="32.25 12 0; 36 12 0" />
+  <path id="T-wall-3-0-solid-axis" points="10 0 0; 10 12 0" />
+  <path id="F-wall-0-0-solid-axis" points="4 12 0; 13.75 12 0" />
+  <path id="F-wall-0-0-head-axis" points="13.75 12 3.6; 18.25 12 3.6" />
+  <path id="F-wall-0-1-solid-axis" points="18.25 12 0; 24 12 0" />
+  <path id="F-wall-1-0-solid-axis" points="24 12 0; 24 16 0" />
+  <path id="F-wall-1-0-head-axis" points="24 16 3.6; 24 20 3.6" />
+  <path id="F-wall-1-1-solid-axis" points="24 20 0; 24 28 0" />
+  <path id="F-wall-2-0-solid-axis" points="4 28 0; 8 28 0" />
+  <path id="F-wall-2-0-head-axis" points="8 28 3.6; 12 28 3.6" />
+  <path id="F-wall-2-1-solid-axis" points="12 28 0; 20.5 28 0" />
+  <path id="F-wall-2-1-head-axis" points="20.5 28 3.6; 23.5 28 3.6" />
+  <path id="F-wall-2-2-solid-axis" points="23.5 28 0; 24 28 0" />
+  <path id="F-wall-3-0-solid-axis" points="4 12 0; 4 28 0" />
+  <path id="C-wall-0-0-solid-axis" points="24 12 0; 27.75 12 0" />
+  <path id="C-wall-0-0-head-axis" points="27.75 12 3.6; 32.25 12 3.6" />
+  <path id="C-wall-0-1-solid-axis" points="32.25 12 0; 44 12 0" />
+  <path id="C-wall-1-0-solid-axis" points="44 12 0; 44 17 0" />
+  <path id="C-wall-1-0-head-axis" points="44 17 3.6; 44 21 3.6" />
+  <path id="C-wall-1-1-solid-axis" points="44 21 0; 44 24 0" />
+  <path id="C-wall-2-0-solid-axis" points="24 24 0; 38 24 0" />
+  <path id="C-wall-2-0-head-axis" points="38 24 3.6; 44 24 3.6" />
+  <path id="C-wall-3-0-solid-axis" points="24 12 0; 24 16 0" />
+  <path id="C-wall-3-0-head-axis" points="24 16 3.6; 24 20 3.6" />
+  <path id="C-wall-3-1-solid-axis" points="24 20 0; 24 24 0" />
+  <path id="E-wall-0-0-solid-axis" points="44 12 0; 60 12 0" />
+  <path id="E-wall-1-0-solid-axis" points="60 12 0; 60 24 0" />
+  <path id="E-wall-2-0-solid-axis" points="44 24 0; 54 24 0" />
+  <path id="E-wall-2-0-head-axis" points="54 24 3.6; 60 24 3.6" />
+  <path id="E-wall-3-0-solid-axis" points="44 12 0; 44 17 0" />
+  <path id="E-wall-3-0-head-axis" points="44 17 3.6; 44 21 3.6" />
+  <path id="E-wall-3-1-solid-axis" points="44 21 0; 44 24 0" />
+  <path id="P-wall-0-0-solid-axis" points="4 28 0; 8 28 0" />
+  <path id="P-wall-0-0-head-axis" points="8 28 3.6; 12 28 3.6" />
+  <path id="P-wall-0-1-solid-axis" points="12 28 0; 18 28 0" />
+  <path id="P-wall-1-0-solid-axis" points="18 28 0; 18 30.3 0" />
+  <path id="P-wall-1-0-head-axis" points="18 30.3 3.6; 18 33.7 3.6" />
+  <path id="P-wall-1-1-solid-axis" points="18 33.7 0; 18 42 0" />
+  <path id="P-wall-2-0-solid-axis" points="4 42 0; 7 42 0" />
+  <path id="P-wall-2-0-head-axis" points="7 42 3.6; 11 42 3.6" />
+  <path id="P-wall-2-1-solid-axis" points="11 42 0; 18 42 0" />
+  <path id="P-wall-3-0-solid-axis" points="4 28 0; 4 42 0" />
+  <path id="L-wall-0-0-solid-axis" points="18 28 0; 20.5 28 0" />
+  <path id="L-wall-0-0-head-axis" points="20.5 28 3.6; 23.5 28 3.6" />
+  <path id="L-wall-0-1-solid-axis" points="23.5 28 0; 30 28 0" />
+  <path id="L-wall-1-0-solid-axis" points="30 28 0; 30 42 0" />
+  <path id="L-wall-2-0-solid-axis" points="18 42 0; 20.3 42 0" />
+  <path id="L-wall-2-0-head-axis" points="20.3 42 3.6; 23.7 42 3.6" />
+  <path id="L-wall-2-1-solid-axis" points="23.7 42 0; 30 42 0" />
+  <path id="L-wall-3-0-solid-axis" points="18 28 0; 18 30.3 0" />
+  <path id="L-wall-3-0-head-axis" points="18 30.3 3.6; 18 33.7 3.6" />
+  <path id="L-wall-3-1-solid-axis" points="18 33.7 0; 18 42 0" />
+  <path id="K-wall-0-0-solid-axis" points="4 42 0; 7 42 0" />
+  <path id="K-wall-0-0-head-axis" points="7 42 3.6; 11 42 3.6" />
+  <path id="K-wall-0-1-solid-axis" points="11 42 0; 18 42 0" />
+  <path id="K-wall-1-0-solid-axis" points="18 42 0; 18 46.3 0" />
+  <path id="K-wall-1-0-head-axis" points="18 46.3 3.6; 18 49.7 3.6" />
+  <path id="K-wall-1-1-solid-axis" points="18 49.7 0; 18 52 0" />
+  <path id="K-wall-2-0-solid-axis" points="4 52 0; 8 52 0" />
+  <path id="K-wall-2-0-head-axis" points="8 52 3.6; 12 52 3.6" />
+  <path id="K-wall-2-1-solid-axis" points="12 52 0; 18 52 0" />
+  <path id="K-wall-3-0-solid-axis" points="4 42 0; 4 52 0" />
+  <path id="PC-wall-0-0-solid-axis" points="18 42 0; 20.3 42 0" />
+  <path id="PC-wall-0-0-head-axis" points="20.3 42 3.6; 23.7 42 3.6" />
+  <path id="PC-wall-0-1-solid-axis" points="23.7 42 0; 26 42 0" />
+  <path id="PC-wall-1-0-solid-axis" points="26 42 0; 26 52 0" />
+  <path id="PC-wall-2-0-solid-axis" points="18 52 0; 20.3 52 0" />
+  <path id="PC-wall-2-0-head-axis" points="20.3 52 3.6; 23.7 52 3.6" />
+  <path id="PC-wall-2-1-solid-axis" points="23.7 52 0; 26 52 0" />
+  <path id="PC-wall-3-0-solid-axis" points="18 42 0; 18 46.3 0" />
+  <path id="PC-wall-3-0-head-axis" points="18 46.3 3.6; 18 49.7 3.6" />
+  <path id="PC-wall-3-1-solid-axis" points="18 49.7 0; 18 52 0" />
+  <path id="B-wall-0-0-solid-axis" points="2 52 0; 8 52 0" />
+  <path id="B-wall-0-0-head-axis" points="8 52 3.6; 12 52 3.6" />
+  <path id="B-wall-0-1-solid-axis" points="12 52 0; 20.3 52 0" />
+  <path id="B-wall-0-1-head-axis" points="20.3 52 3.6; 23.7 52 3.6" />
+  <path id="B-wall-0-2-solid-axis" points="23.7 52 0; 26 52 0" />
+  <path id="B-wall-1-0-solid-axis" points="26 52 0; 26 57 0" />
+  <path id="B-wall-1-0-head-axis" points="26 57 3.6; 26 61 3.6" />
+  <path id="B-wall-1-1-solid-axis" points="26 61 0; 26 72 0" />
+  <path id="B-wall-2-0-solid-axis" points="2 72 0; 14 72 0" />
+  <path id="B-wall-2-0-head-axis" points="14 72 3.6; 20 72 3.6" />
+  <path id="B-wall-2-1-solid-axis" points="20 72 0; 26 72 0" />
+  <path id="B-wall-3-0-solid-axis" points="2 52 0; 2 59 0" />
+  <path id="B-wall-3-0-sill-axis" points="2 59 0; 2 66 0" />
+  <path id="B-wall-3-0-head-axis" points="2 59 3.2; 2 66 3.2" />
+  <path id="B-wall-3-1-solid-axis" points="2 66 0; 2 72 0" />
+  <path id="M-wall-0-0-solid-axis" points="30 36 6; 38 36 6" />
+  <path id="M-wall-0-0-head-axis" points="38 36 9.6; 44 36 9.6" />
+  <path id="M-wall-0-1-solid-axis" points="44 36 6; 48 36 6" />
+  <path id="M-wall-1-0-solid-axis" points="48 36 6; 48 37.5 6" />
+  <path id="M-wall-1-0-head-axis" points="48 37.5 9.6; 48 41.5 9.6" />
+  <path id="M-wall-1-1-solid-axis" points="48 41.5 6; 48 50 6" />
+  <path id="M-wall-2-0-solid-axis" points="30 50 6; 33 50 6" />
+  <path id="M-wall-2-0-head-axis" points="33 50 9.6; 37 50 9.6" />
+  <path id="M-wall-2-1-solid-axis" points="37 50 6; 48 50 6" />
+  <path id="M-wall-3-0-solid-axis" points="30 36 6; 30 38.5 6" />
+  <path id="M-wall-3-0-head-axis" points="30 38.5 9.6; 30 42.5 9.6" />
+  <path id="M-wall-3-1-solid-axis" points="30 42.5 6; 30 50 6" />
+  <path id="H-wall-0-0-solid-axis" points="48 36 6; 54 36 6" />
+  <path id="H-wall-0-0-head-axis" points="54 36 9.6; 60 36 9.6" />
+  <path id="H-wall-0-1-solid-axis" points="60 36 6; 64 36 6" />
+  <path id="H-wall-1-0-solid-axis" points="64 36 6; 64 46 6" />
+  <path id="H-wall-2-0-solid-axis" points="48 46 6; 58 46 6" />
+  <path id="H-wall-2-0-head-axis" points="58 46 9.6; 64 46 9.6" />
+  <path id="H-wall-3-0-solid-axis" points="48 36 6; 48 37.5 6" />
+  <path id="H-wall-3-0-head-axis" points="48 37.5 9.6; 48 41.5 9.6" />
+  <path id="H-wall-3-1-solid-axis" points="48 41.5 6; 48 46 6" />
+  <path id="Q-wall-0-0-solid-axis" points="18 38 6; 30 38 6" />
+  <path id="Q-wall-1-0-solid-axis" points="30 38 6; 30 38.5 6" />
+  <path id="Q-wall-1-0-head-axis" points="30 38.5 9.6; 30 42.5 9.6" />
+  <path id="Q-wall-1-1-solid-axis" points="30 42.5 6; 30 44 6" />
+  <path id="Q-wall-2-0-solid-axis" points="18 44 6; 26 44 6" />
+  <path id="Q-wall-2-0-head-axis" points="26 44 9.6; 30 44 9.6" />
+  <path id="Q-wall-3-0-solid-axis" points="18 38 6; 18 44 6" />
+  <path id="D-wall-0-0-solid-axis" points="32 50 6; 33 50 6" />
+  <path id="D-wall-0-0-head-axis" points="33 50 9.6; 37 50 9.6" />
+  <path id="D-wall-0-1-solid-axis" points="37 50 6; 52 50 6" />
+  <path id="D-wall-1-0-solid-axis" points="52 50 6; 52 58 6" />
+  <path id="D-wall-2-0-solid-axis" points="32 58 6; 33 58 6" />
+  <path id="D-wall-2-0-head-axis" points="33 58 9.6; 37 58 9.6" />
+  <path id="D-wall-2-1-solid-axis" points="37 58 6; 42 58 6" />
+  <path id="D-wall-2-1-head-axis" points="42 58 9.6; 48 58 9.6" />
+  <path id="D-wall-2-2-solid-axis" points="48 58 6; 52 58 6" />
+  <path id="D-wall-3-0-solid-axis" points="32 50 6; 32 58 6" />
+  <path id="J-wall-0-0-head-axis" points="26 56 3.6; 30 56 3.6" />
+  <path id="J-wall-0-1-solid-axis" points="30 56 0; 32 56 0" />
+  <path id="J-wall-1-0-solid-axis" points="32 56 0; 32 62 0" />
+  <path id="J-wall-2-0-solid-axis" points="26 62 0; 32 62 0" />
+  <path id="J-wall-3-0-solid-axis" points="26 56 0; 26 57 0" />
+  <path id="J-wall-3-0-head-axis" points="26 57 3.6; 26 61 3.6" />
+  <path id="J-wall-3-1-solid-axis" points="26 61 0; 26 62 0" />
+  <path id="W-wall-0-0-solid-axis" points="32 58 6; 33 58 6" />
+  <path id="W-wall-0-0-head-axis" points="33 58 9.6; 37 58 9.6" />
+  <path id="W-wall-0-1-solid-axis" points="37 58 6; 38 58 6" />
+  <path id="W-wall-1-0-solid-axis" points="38 58 6; 38 72 6" />
+  <path id="W-wall-2-0-solid-axis" points="32 72 6; 33 72 6" />
+  <path id="W-wall-2-0-head-axis" points="33 72 9.6; 37 72 9.6" />
+  <path id="W-wall-2-1-solid-axis" points="37 72 6; 38 72 6" />
+  <path id="W-wall-3-0-solid-axis" points="32 58 6; 32 72 6" />
+  <path id="R-wall-0-0-solid-axis" points="26 72 6; 33 72 6" />
+  <path id="R-wall-0-0-head-axis" points="33 72 9.6; 37 72 9.6" />
+  <path id="R-wall-0-1-solid-axis" points="37 72 6; 44 72 6" />
+  <path id="R-wall-1-0-solid-axis" points="44 72 6; 44 78 6" />
+  <path id="R-wall-2-0-solid-axis" points="26 78 6; 27 78 6" />
+  <path id="R-wall-2-0-head-axis" points="27 78 9.6; 31 78 9.6" />
+  <path id="R-wall-2-1-solid-axis" points="31 78 6; 38 78 6" />
+  <path id="R-wall-2-1-head-axis" points="38 78 9.6; 44 78 9.6" />
+  <path id="R-wall-3-0-solid-axis" points="26 72 6; 26 78 6" />
+  <path id="U-wall-0-0-solid-axis" points="20 84 6; 27 84 6" />
+  <path id="U-wall-0-0-head-axis" points="27 84 9.6; 31 84 9.6" />
+  <path id="U-wall-0-1-solid-axis" points="31 84 6; 38 84 6" />
+  <path id="U-wall-1-0-solid-axis" points="38 84 6; 38 90 6" />
+  <path id="U-wall-2-0-solid-axis" points="20 90 6; 38 90 6" />
+  <path id="U-wall-3-0-solid-axis" points="20 84 6; 20 85 6" />
+  <path id="U-wall-3-0-head-axis" points="20 85 9.6; 20 89 9.6" />
+  <path id="U-wall-3-1-solid-axis" points="20 89 6; 20 90 6" />
+  <path id="V-wall-0-0-head-axis" points="14 84 9.6; 20 84 9.6" />
+  <path id="V-wall-1-0-solid-axis" points="20 84 6; 20 85 6" />
+  <path id="V-wall-1-0-head-axis" points="20 85 9.6; 20 89 9.6" />
+  <path id="V-wall-1-1-solid-axis" points="20 89 6; 20 90 6" />
+  <path id="V-wall-2-0-solid-axis" points="14 90 6; 20 90 6" />
+  <path id="V-wall-3-0-solid-axis" points="14 84 6; 14 90 6" />
+  <path id="N-wall-0-0-solid-axis" points="26 78 6; 27 78 6" />
+  <path id="N-wall-0-0-head-axis" points="27 78 9.6; 31 78 9.6" />
+  <path id="N-wall-0-1-solid-axis" points="31 78 6; 32 78 6" />
+  <path id="N-wall-1-0-solid-axis" points="32 78 6; 32 84 6" />
+  <path id="N-wall-2-0-solid-axis" points="26 84 6; 27 84 6" />
+  <path id="N-wall-2-0-head-axis" points="27 84 9.6; 31 84 9.6" />
+  <path id="N-wall-2-1-solid-axis" points="31 84 6; 32 84 6" />
+  <path id="N-wall-3-0-solid-axis" points="26 78 6; 26 84 6" />
+  <path id="I-wall-0-0-head-axis" points="38 90 15.6; 44 90 15.6" />
+  <path id="I-wall-0-1-solid-axis" points="44 90 12; 48 90 12" />
+  <path id="I-wall-1-0-solid-axis" points="48 90 12; 48 91 12" />
+  <path id="I-wall-1-0-head-axis" points="48 91 15.6; 48 95 15.6" />
+  <path id="I-wall-1-1-solid-axis" points="48 95 12; 48 96 12" />
+  <path id="I-wall-2-0-solid-axis" points="38 96 12; 48 96 12" />
+  <path id="I-wall-3-0-solid-axis" points="38 90 12; 38 96 12" />
+  <path id="CT-wall-0-0-solid-axis" points="48 84 12; 58 84 12" />
+  <path id="CT-wall-0-0-head-axis" points="58 84 15.6; 62 84 15.6" />
+  <path id="CT-wall-0-1-solid-axis" points="62 84 12; 70 84 12" />
+  <path id="CT-wall-1-0-solid-axis" points="70 84 12; 70 96 12" />
+  <path id="CT-wall-2-0-solid-axis" points="48 96 12; 70 96 12" />
+  <path id="CT-wall-3-0-solid-axis" points="48 84 12; 48 91 12" />
+  <path id="CT-wall-3-0-head-axis" points="48 91 15.6; 48 95 15.6" />
+  <path id="CT-wall-3-1-solid-axis" points="48 95 12; 48 96 12" />
+  <path id="A-wall-0-0-solid-axis" points="48 58 12; 58 58 12" />
+  <path id="A-wall-0-0-head-axis" points="58 58 15.6; 64 58 15.6" />
+  <path id="A-wall-0-1-solid-axis" points="64 58 12; 72 58 12" />
+  <path id="A-wall-1-0-solid-axis" points="72 58 12; 72 63 12" />
+  <path id="A-wall-1-0-sill-axis" points="72 63 12; 72 72 12" />
+  <path id="A-wall-1-0-head-axis" points="72 63 15.2; 72 72 15.2" />
+  <path id="A-wall-1-1-solid-axis" points="72 72 12; 72 78 12" />
+  <path id="A-wall-2-0-solid-axis" points="48 78 12; 58 78 12" />
+  <path id="A-wall-2-0-head-axis" points="58 78 15.6; 62 78 15.6" />
+  <path id="A-wall-2-1-solid-axis" points="62 78 12; 72 78 12" />
+  <path id="A-wall-3-0-solid-axis" points="48 58 12; 48 72 12" />
+  <path id="A-wall-3-0-head-axis" points="48 72 15.6; 48 76 15.6" />
+  <path id="A-wall-3-1-solid-axis" points="48 76 12; 48 78 12" />
+  <path id="AW-wall-0-0-head-axis" points="42 70 15.6; 48 70 15.6" />
+  <path id="AW-wall-1-0-solid-axis" points="48 70 12; 48 72 12" />
+  <path id="AW-wall-1-0-head-axis" points="48 72 15.6; 48 76 15.6" />
+  <path id="AW-wall-1-1-solid-axis" points="48 76 12; 48 78 12" />
+  <path id="AW-wall-2-0-solid-axis" points="42 78 12; 48 78 12" />
+  <path id="AW-wall-3-0-solid-axis" points="42 70 12; 42 78 12" />
+  <path id="AC-wall-0-0-solid-axis" points="56 78 12; 58 78 12" />
+  <path id="AC-wall-0-0-head-axis" points="58 78 15.6; 62 78 15.6" />
+  <path id="AC-wall-0-1-solid-axis" points="62 78 12; 64 78 12" />
+  <path id="AC-wall-1-0-solid-axis" points="64 78 12; 64 84 12" />
+  <path id="AC-wall-2-0-solid-axis" points="56 84 12; 58 84 12" />
+  <path id="AC-wall-2-0-head-axis" points="58 84 15.6; 62 84 15.6" />
+  <path id="AC-wall-2-1-solid-axis" points="62 84 12; 64 84 12" />
+  <path id="AC-wall-3-0-solid-axis" points="56 78 12; 56 84 12" />
+  <path id="S1-axis" points="41 24 0; 41 36 6" />
+  <path id="S1-west-axis" points="38 24 0; 38 36 6" />
+  <path id="S1-east-axis" points="44 24 0; 44 36 6" />
+  <path id="S1-in-portal" points="38 24 0; 44 24 0" />
+  <connection id="S1-in" from="floor-C" to="S1" path="S1-in-portal" />
+  <path id="S1-out-portal" points="38 36 6; 44 36 6" />
+  <connection id="S1-out" from="S1" to="floor-M" path="S1-out-portal" />
+  <path id="S2-axis" points="57 24 0; 57 36 6" />
+  <path id="S2-west-axis" points="54 24 0; 54 36 6" />
+  <path id="S2-east-axis" points="60 24 0; 60 36 6" />
+  <path id="S2-in-portal" points="54 24 0; 60 24 0" />
+  <connection id="S2-in" from="floor-E" to="S2" path="S2-in-portal" />
+  <path id="S2-out-portal" points="54 36 6; 60 36 6" />
+  <connection id="S2-out" from="S2" to="floor-H" path="S2-out-portal" />
+  <path id="S3-axis" points="61 46 6; 61 58 12" />
+  <path id="S3-west-axis" points="58 46 6; 58 58 12" />
+  <path id="S3-east-axis" points="64 46 6; 64 58 12" />
+  <path id="S3-in-portal" points="58 46 6; 64 46 6" />
+  <connection id="S3-in" from="floor-H" to="S3" path="S3-in-portal" />
+  <path id="S3-out-portal" points="58 58 12; 64 58 12" />
+  <connection id="S3-out" from="S3" to="floor-A" path="S3-out-portal" />
+  <path id="S4-axis" points="45 58 6; 45 70 12" />
+  <path id="S4-west-axis" points="42 58 6; 42 70 12" />
+  <path id="S4-east-axis" points="48 58 6; 48 70 12" />
+  <path id="S4-in-portal" points="42 58 6; 48 58 6" />
+  <connection id="S4-in" from="floor-D" to="S4" path="S4-in-portal" />
+  <path id="S4-out-portal" points="42 70 12; 48 70 12" />
+  <connection id="S4-out" from="S4" to="floor-AW" path="S4-out-portal" />
+  <path id="S5-axis" points="28 44 6; 28 56 0" />
+  <path id="S5-west-axis" points="26 44 6; 26 56 0" />
+  <path id="S5-east-axis" points="30 44 6; 30 56 0" />
+  <path id="S5-in-portal" points="26 44 6; 30 44 6" />
+  <connection id="S5-in" from="floor-Q" to="S5" path="S5-in-portal" />
+  <path id="S5-out-portal" points="26 56 0; 30 56 0" />
+  <connection id="S5-out" from="S5" to="floor-J" path="S5-out-portal" />
+  <path id="S6-axis" points="17 72 0; 17 84 6" />
+  <path id="S6-west-axis" points="14 72 0; 14 84 6" />
+  <path id="S6-east-axis" points="20 72 0; 20 84 6" />
+  <path id="S6-in-portal" points="14 72 0; 20 72 0" />
+  <connection id="S6-in" from="floor-B" to="S6" path="S6-in-portal" />
+  <path id="S6-out-portal" points="14 84 6; 20 84 6" />
+  <connection id="S6-out" from="S6" to="floor-V" path="S6-out-portal" />
+  <path id="S7-axis" points="41 78 6; 41 90 12" />
+  <path id="S7-west-axis" points="38 78 6; 38 90 12" />
+  <path id="S7-east-axis" points="44 78 6; 44 90 12" />
+  <path id="S7-in-portal" points="38 78 6; 44 78 6" />
+  <connection id="S7-in" from="floor-R" to="S7" path="S7-in-portal" />
+  <path id="S7-out-portal" points="38 90 12; 44 90 12" />
+  <connection id="S7-out" from="S7" to="floor-I" path="S7-out-portal" />
+  <profile id="plant-A-plan" points="63.5 63; 69 63; 69 69; 63.5 69" />
+  <face-material id="plant-A" host="floor-A" face="top" profile="plant-A-plan" material="plant-a" />
+  <profile id="plant-B-plan" points="5 60.5; 10.5 60.5; 10.5 66; 5 66" />
+  <face-material id="plant-B" host="floor-B" face="top" profile="plant-B-plan" material="plant-b" />
+  <profile id="rock-south-section" points="66 -36; 66 -6; 74 9; 82 26; 96 40; 113 55; 126 46; 126 -40" />
+  <profile id="rock-central-section" points="66 -36; 66 7; 72 10; 78 25; 90 42; 106 58; 122 61; 126 -40" />
+  <profile id="rock-north-section" points="66 -36; 66 7; 72 10; 80 28; 92 48; 110 60; 126 51; 126 -40" />
+  <player radius="0.3" height="1.8" step="0.25" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="point-T" label="Insertion dock" position="22 6 0" kind="attacker_spawn" element="floor-T" movement="land" />
+  <marker id="point-F" label="Freight hall" position="18 16 0" kind="poi" element="floor-F" movement="land" />
+  <marker id="point-C" label="Arrival concourse" position="37 19 0" kind="poi" element="floor-C" movement="land" />
+  <marker id="point-E" label="Cable port" position="54 19 0" kind="poi" element="floor-E" movement="land" />
+  <marker id="point-P" label="Cooling pumps" position="14 32 0" kind="poi" element="floor-P" movement="land" />
+  <marker id="point-L" label="Lower gallery" position="22 34 0" kind="poi" element="floor-L" movement="land" />
+  <marker id="point-K" label="Cold airlock" position="12 48 0" kind="poi" element="floor-K" movement="land" />
+  <marker id="point-PC" label="Pump control" position="20 50 0" kind="poi" element="floor-PC" movement="land" />
+  <marker id="point-B" label="B / Data vault" position="8 63 0" kind="objective" element="floor-B" movement="land" />
+  <marker id="point-M" label="Mid / Atrium" position="35 44 6" kind="poi" element="floor-M" movement="land" />
+  <marker id="point-H" label="Heat exchangers" position="57 42 6" kind="poi" element="floor-H" movement="land" />
+  <marker id="point-Q" label="Suspended gallery" position="25 40 6" kind="poi" element="floor-Q" movement="land" />
+  <marker id="point-D" label="Cleanroom" position="39 52 6" kind="poi" element="floor-D" movement="land" />
+  <marker id="point-J" label="Short airlock" position="29 59 0" kind="poi" element="floor-J" movement="land" />
+  <marker id="point-W" label="Service spine" position="35 66 6" kind="poi" element="floor-W" movement="land" />
+  <marker id="point-R" label="CT operations / rear bridge" position="35 75 6" kind="defender_spawn" element="floor-R" movement="land" />
+  <marker id="point-U" label="Switchgear" position="29 87 6" kind="poi" element="floor-U" movement="land" />
+  <marker id="point-V" label="Vault stair head" position="17 87 6" kind="poi" element="floor-V" movement="land" />
+  <marker id="point-N" label="Coolant manifold" position="29 81 6" kind="poi" element="floor-N" movement="land" />
+  <marker id="point-I" label="Security vestibule" position="42 93 12" kind="poi" element="floor-I" movement="land" />
+  <marker id="point-CT" label="Summit command pad" position="58 89 12" kind="poi" element="floor-CT" movement="land" />
+  <marker id="point-A" label="A / Reactor hall" position="65 66 12" kind="objective" element="floor-A" movement="land" />
+  <marker id="point-AW" label="Scrubber landing" position="46 75 12" kind="poi" element="floor-AW" movement="land" />
+  <marker id="point-AC" label="Command access" position="60 81 12" kind="poi" element="floor-AC" movement="land" />
+  <marker id="T-spawn-2" position="15 4 0" kind="attacker_spawn" element="floor-T" movement="land" />
+  <marker id="T-spawn-3" position="29 4 0" kind="attacker_spawn" element="floor-T" movement="land" />
+  <marker id="T-spawn-4" position="15 8 0" kind="attacker_spawn" element="floor-T" movement="land" />
+  <marker id="T-spawn-5" position="29 8 0" kind="attacker_spawn" element="floor-T" movement="land" />
+  <marker id="CT-spawn-2" position="32 74 6" kind="defender_spawn" element="floor-R" movement="land" />
+  <marker id="CT-spawn-3" position="38 74 6" kind="defender_spawn" element="floor-R" movement="land" />
+  <marker id="CT-spawn-4" position="32 76 6" kind="defender_spawn" element="floor-R" movement="land" />
+  <marker id="CT-spawn-5" position="38 76 6" kind="defender_spawn" element="floor-R" movement="land" />
+  <route id="door-T-F" from="point-T" to="point-F" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-T-C" from="point-T" to="point-C" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-F-C" from="point-F" to="point-C" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-C-E" from="point-C" to="point-E" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-F-P" from="point-F" to="point-P" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-F-L" from="point-F" to="point-L" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-P-L" from="point-P" to="point-L" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-P-K" from="point-P" to="point-K" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-K-PC" from="point-K" to="point-PC" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-L-PC" from="point-L" to="point-PC" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-K-B" from="point-K" to="point-B" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-PC-B" from="point-PC" to="point-B" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-M-H" from="point-M" to="point-H" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-M-Q" from="point-M" to="point-Q" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-M-D" from="point-M" to="point-D" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-J-B" from="point-J" to="point-B" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-D-W" from="point-D" to="point-W" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-W-R" from="point-W" to="point-R" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-R-N" from="point-R" to="point-N" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-N-U" from="point-N" to="point-U" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-U-V" from="point-U" to="point-V" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-I-CT" from="point-I" to="point-CT" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-CT-AC" from="point-CT" to="point-AC" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-AC-A" from="point-AC" to="point-A" min-routes="1" max-distance="45" movement="land" />
+  <route id="door-A-AW" from="point-A" to="point-AW" min-routes="1" max-distance="45" movement="land" />
+  <marker id="S1-foot" position="41 23.3 0" kind="poi" element="floor-C" movement="land" />
+  <marker id="S1-head" position="41 36.7 6" kind="poi" element="floor-M" movement="land" />
+  <route id="S1-traverse" from="S1-foot" to="S1-head" min-routes="1" max-distance="19" movement="land" />
+  <marker id="S2-foot" position="57 23.3 0" kind="poi" element="floor-E" movement="land" />
+  <marker id="S2-head" position="57 36.7 6" kind="poi" element="floor-H" movement="land" />
+  <route id="S2-traverse" from="S2-foot" to="S2-head" min-routes="1" max-distance="19" movement="land" />
+  <marker id="S3-foot" position="61 45.3 6" kind="poi" element="floor-H" movement="land" />
+  <marker id="S3-head" position="61 58.7 12" kind="poi" element="floor-A" movement="land" />
+  <route id="S3-traverse" from="S3-foot" to="S3-head" min-routes="1" max-distance="19" movement="land" />
+  <marker id="S4-foot" position="45 57.3 6" kind="poi" element="floor-D" movement="land" />
+  <marker id="S4-head" position="45 70.7 12" kind="poi" element="floor-AW" movement="land" />
+  <route id="S4-traverse" from="S4-foot" to="S4-head" min-routes="1" max-distance="19" movement="land" />
+  <marker id="S5-foot" position="28 43.3 6" kind="poi" element="floor-Q" movement="land" />
+  <marker id="S5-head" position="28 56.7 0" kind="poi" element="floor-J" movement="land" />
+  <route id="S5-traverse" from="S5-foot" to="S5-head" min-routes="1" max-distance="19" movement="land" />
+  <marker id="S6-foot" position="17 71.3 0" kind="poi" element="floor-B" movement="land" />
+  <marker id="S6-head" position="17 84.7 6" kind="poi" element="floor-V" movement="land" />
+  <route id="S6-traverse" from="S6-foot" to="S6-head" min-routes="1" max-distance="19" movement="land" />
+  <marker id="S7-foot" position="41 77.3 6" kind="poi" element="floor-R" movement="land" />
+  <marker id="S7-head" position="41 90.7 12" kind="poi" element="floor-I" movement="land" />
+  <route id="S7-traverse" from="S7-foot" to="S7-head" min-routes="1" max-distance="19" movement="land" />
+  <route id="T-A" from="point-T" to="point-A" min-routes="1" max-distance="160" movement="land" />
+  <route id="T-B" from="point-T" to="point-B" min-routes="1" max-distance="110" movement="land" />
+  <route id="CT-A" from="point-R" to="point-A" min-routes="1" max-distance="110" movement="land" />
+  <route id="CT-B" from="point-R" to="point-B" min-routes="1" max-distance="100" movement="land" />
+  <route id="A-B" from="point-A" to="point-B" min-routes="1" max-distance="155" movement="land" />
+  <route id="Mid-B" from="point-M" to="point-B" min-routes="1" max-distance="65" movement="land" />
+  <route id="Mid-A" from="point-M" to="point-A" min-routes="1" max-distance="85" movement="land" />
+  <no-spawn-los markers="point-T point-R" />
+</architecture>

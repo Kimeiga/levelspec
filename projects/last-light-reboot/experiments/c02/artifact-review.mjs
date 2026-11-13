@@ -1,0 +1,3 @@
+/** Artifact-backed review only: native compiler output/report, unmodified renderer and walking. */
+import{createServer}from'vite';import{resolve}from'node:path';
+export async function startArtifactReview(directory){const server=await createServer({configFile:false,root:process.cwd(),publicDir:false,logLevel:'silent',server:{host:'127.0.0.1',port:0},optimizeDeps:{exclude:['manifold-3d','recast-navigation','xatlas-wasm']}});await server.listen();return{url:server.resolvedUrls.local[0]+'projects/last-light-reboot/experiments/c02/artifact.html?nav-cell=0.125&artifact='+encodeURIComponent('/'+directory+'/artifact.json'),close:()=>server.close()};}

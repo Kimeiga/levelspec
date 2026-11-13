@@ -1,0 +1,276 @@
+[
+  {
+    "path": "src/dressing/kowloon/shop/assets/grocer-props.json",
+    "bytes": 2067046,
+    "sha256": "d330870bdfdc52d791bb9e3b2fa721ad2431ba03864dcd3121294aae009b0821"
+  },
+  {
+    "path": "projects/dressing-demo/textures/grocer-props.png",
+    "bytes": 6535507,
+    "sha256": "2804d355c4ac104091976bd44fca1fcfce0897ebc9795fe05115229cd29bcc13",
+    "dimensions": [
+      2560,
+      2048
+    ]
+  },
+  {
+    "path": "projects/dressing-demo/textures/grocer-props-normal.png",
+    "bytes": 2772174,
+    "sha256": "d59701776fddf9c3eddfce402b1ff5bafc85d9adef2637e86a91a8e59fff8712",
+    "dimensions": [
+      2560,
+      2048
+    ]
+  },
+  {
+    "path": "projects/dressing-demo/textures/grocer-props-properties.png",
+    "bytes": 2738340,
+    "sha256": "cd0eb195fe23fd4dcb833ce95f55889f93b73b1e40f2762763e9f6a110cdf9b6",
+    "dimensions": [
+      2560,
+      2048
+    ]
+  },
+  {
+    "path": "src/dressing/kowloon/shop/assets/snack-packet.json",
+    "bytes": 17315,
+    "sha256": "de6924f1a61a5e0cde86897173a04ad2e566501703edd13eb364b0df276917a8"
+  },
+  {
+    "path": "projects/dressing-demo/textures/snack-packet.png",
+    "bytes": 1278961,
+    "sha256": "ab5f890087d9886dc31965ef60389dd475517ba4c6dbd4d78242b00356ab9533",
+    "dimensions": [
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "src/dressing/kowloon/shop/assets/apple-pile.json",
+    "bytes": 276794,
+    "sha256": "d6da50c6a731217c9cba39a6ac43e0c72a39b0c138b6a89770aca6cb7c71f271"
+  },
+  {
+    "path": "projects/dressing-demo/textures/market-apple.png",
+    "bytes": 82939,
+    "sha256": "845577bf1f2f69e1c1870b5b53fb57520502dff26f314d184a2667a2ff643586",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/worn-shop-wood.png",
+    "bytes": 3057647,
+    "sha256": "289b59ec8d66f2792d74269982818b25feb10768ef647df4267a412700538fa4",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/worn-crate-plastic.png",
+    "bytes": 3089559,
+    "sha256": "88932206133a5a76402e26e8915d033f1167ebe53d967bd857a5eb44329342b1",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  {
+    "path": "src/dressing/kowloon/shop/assets/stock-appearances.json",
+    "bytes": 1228718,
+    "sha256": "958f6f14228e28bb29c348733ba27961fa22ff0f7609b18f5c84761316fbdd4c"
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/packaging-labels.png",
+    "bytes": 3956463,
+    "sha256": "a74fe2a6aee2835f1b385f32d30a3ef8d897d9e30837a58c5b081c9463e5d3b2",
+    "dimensions": [
+      1774,
+      887
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/snack-packet-base.png",
+    "bytes": 290103,
+    "sha256": "67260342132e8173b35bf4c907f48ba34b27c142f98e241c9b2d58fa47307ebc",
+    "dimensions": [
+      512,
+      512
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/concepts/packed-store-target.png",
+    "bytes": 3476065,
+    "sha256": "9d97044b1e1b18f44d529ea720197c90cd3d7971bbc53e923a253072a9e7ff9b",
+    "dimensions": [
+      1495,
+      1052
+    ]
+  },
+  {
+    "path": "src/dressing/kowloon/shop/assets/bag-clusters.json",
+    "bytes": 2921332,
+    "sha256": "8107c60f10d0094e876d2985cdfb03b9a3c0b294f8668322dd9172a37f9f9753"
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/food-tin-normal-256.png",
+    "bytes": 759,
+    "sha256": "1f512d718e2e134cd93ffad0371df7b869dc3db963d23d4621a6e507320d3e0b",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/seasoning-jar-properties-256.png",
+    "bytes": 1047,
+    "sha256": "31df816afe471a839ebe1baf0890b7c4b1e6235d2a37d2bb4259067a578f1bc8",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/seasoning-jar-color-256.png",
+    "bytes": 90020,
+    "sha256": "8e60d3e44b3f1679c3288dee1e76e8fcd80a71560f163ec5195a793ad0e84a35",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/food-tin-color-256.png",
+    "bytes": 91024,
+    "sha256": "2338257a59413de1796338533fa8461a785dcef1dd3ef84ff7d4d35f576371c7",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/drink-bottle-normal-256.png",
+    "bytes": 759,
+    "sha256": "1f512d718e2e134cd93ffad0371df7b869dc3db963d23d4621a6e507320d3e0b",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/drink-bottle-color-256.png",
+    "bytes": 93938,
+    "sha256": "1f337697afd61d2b1a9a0d79ae17de14ea6c748a6a3cd7f3ea0ea0f089dbcc4b",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/food-tin-properties-256.png",
+    "bytes": 1187,
+    "sha256": "6a3cad518d74b4d8ee438184c58f8aa86ed93313a420aed817b12ead8e46f6e8",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/drink-bottle-properties-256.png",
+    "bytes": 1047,
+    "sha256": "b28bd7cefc8ca91d8cc5c22a1554f1d50ebee52963019b1db458f55f97e3561f",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/seasoning-jar-normal-256.png",
+    "bytes": 759,
+    "sha256": "1f512d718e2e134cd93ffad0371df7b869dc3db963d23d4621a6e507320d3e0b",
+    "dimensions": [
+      256,
+      256
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/clean-stock/tin-label-source.png",
+    "bytes": 3002273,
+    "sha256": "a1405fc6d201a6a803d77b97b6079eeda77a5ed9972673eb68f51394a845695c",
+    "dimensions": [
+      1774,
+      887
+    ]
+  },
+  {
+    "path": "projects/dressing-demo/textures/shop-timber-properties.png",
+    "bytes": 234086,
+    "sha256": "4b06f884bf4c3f8562be84d7040234e1e08ebcabd7cdf365f6ed0a8dfbf98b14",
+    "dimensions": [
+      1024,
+      1792
+    ]
+  },
+  {
+    "path": "projects/dressing-demo/textures/shop-timber-normal.png",
+    "bytes": 723088,
+    "sha256": "afda993157e0c6756fd24c8cf530762274f374d7bcd35f07905c33c9b366a2f7",
+    "dimensions": [
+      1024,
+      1792
+    ]
+  },
+  {
+    "path": "projects/dressing-demo/textures/shop-timber.png",
+    "bytes": 3576868,
+    "sha256": "d1ef79b23c68fb97d91d45ff86d6197959f32553a421b810a42a6c0e93386539",
+    "dimensions": [
+      1024,
+      1792
+    ]
+  },
+  {
+    "path": "src/dressing/kowloon/shop/assets/shop-timber.json",
+    "bytes": 459,
+    "sha256": "cd85dfa47c82195afbf86206579283bd259b6f98939de1f9bf3a70cd73be25a0"
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/shelf-weathering/concept.png",
+    "bytes": 2216665,
+    "sha256": "c039aa8febd8e80f256813c76b701b966d9670fdfe1e595e56e43b8b9ea4a488",
+    "dimensions": [
+      1494,
+      1052
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/shelf-weathering/wood-source.png",
+    "bytes": 2959486,
+    "sha256": "4b81364aefd59d6bb01ce9e9467a6c9d719f45ec13226741307b8a9ba3fccae3",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/shelf-weathering/wood-long-source.png",
+    "bytes": 2878593,
+    "sha256": "7d95b15cc6439933eab42848ce5fc9779a4542e21f767205b450a5f2a2d39cbd",
+    "dimensions": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/shelf-weathering/wood-long-source-prompt.txt",
+    "bytes": 1920,
+    "sha256": "0250d31751f9ab914e46985f834ad9d5be7fcb6e604884dd3686112d4e7e7543"
+  },
+  {
+    "path": "projects/kowloon-liquor-props/materials/shelf-weathering/wood-long-provenance.json",
+    "bytes": 531,
+    "sha256": "cf8656af8da400dd7169880ec782df5110444c28e0411799063efceaa3f27abf"
+  }
+]

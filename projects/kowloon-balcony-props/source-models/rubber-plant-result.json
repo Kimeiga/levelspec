@@ -1,0 +1,7 @@
+{
+  "type": "image_to_model",
+  "task_id": "0f7c8dcc-0838-44af-904b-3a1c746fac8a",
+  "model_file": "projects/kowloon-balcony-props/source-models/rubber-plant/model.glb",
+  "sha256": "11e3ba53cacac3894f593885acbb9ba4166201b3a43624c007e6c65ad57aa1ac",
+  "credits_consumed": 50
+}

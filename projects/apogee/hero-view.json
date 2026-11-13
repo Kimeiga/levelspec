@@ -1,0 +1,20 @@
+[
+  {
+    "id": "overview-clean",
+    "position": [
+      165,
+      -145,
+      150
+    ],
+    "target": [
+      50,
+      52,
+      -1
+    ],
+    "projection": "orthographic",
+    "appearance": "materials",
+    "fov": 90,
+    "frameAspect": 1.5,
+    "viewHeight": 155
+  }
+]

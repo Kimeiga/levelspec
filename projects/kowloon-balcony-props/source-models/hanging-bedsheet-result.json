@@ -1,0 +1,7 @@
+{
+  "type": "image_to_model",
+  "task_id": "20cf40a4-3927-44bd-9ba4-dc2662c7939b",
+  "model_file": "projects/kowloon-balcony-props/source-models/hanging-bedsheet/model.glb",
+  "sha256": "968c86bdaa5ab96a36857ab35b07deea0978f88bc92acd41ac7e97d79abfdb2b",
+  "credits_consumed": 50
+}

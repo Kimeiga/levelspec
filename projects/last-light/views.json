@@ -1,0 +1,355 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      108,
+      -76,
+      104
+    ],
+    "target": [
+      40,
+      36,
+      1
+    ],
+    "projection": "orthographic",
+    "viewHeight": 98,
+    "appearance": "full-render",
+    "frameAspect": 1.4
+  },
+  {
+    "id": "court",
+    "position": [
+      36,
+      25,
+      1.86
+    ],
+    "target": [
+      40,
+      37,
+      2.6
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "west-loft",
+    "position": [
+      25,
+      38,
+      4.86
+    ],
+    "target": [
+      42,
+      36,
+      1.5
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "east-loft",
+    "position": [
+      55,
+      34,
+      4.86
+    ],
+    "target": [
+      38,
+      36,
+      1.5
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "under-west",
+    "position": [
+      24,
+      36,
+      1.86
+    ],
+    "target": [
+      42,
+      36,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "under-east",
+    "position": [
+      56,
+      36,
+      1.86
+    ],
+    "target": [
+      38,
+      36,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "west-stair",
+    "position": [
+      13,
+      26.5,
+      2.91
+    ],
+    "target": [
+      18,
+      38,
+      4.5
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "east-stair",
+    "position": [
+      67,
+      45.5,
+      2.91
+    ],
+    "target": [
+      62,
+      34,
+      4.5
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "south-low-standing",
+    "position": [
+      36,
+      16.5,
+      1.86
+    ],
+    "target": [
+      40,
+      32,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "south-low-crouched",
+    "position": [
+      36,
+      16.5,
+      1.0695
+    ],
+    "target": [
+      40,
+      32,
+      1.0695
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "north-low-standing",
+    "position": [
+      44,
+      55.5,
+      1.86
+    ],
+    "target": [
+      40,
+      40,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "north-low-crouched",
+    "position": [
+      44,
+      55.5,
+      1.0695
+    ],
+    "target": [
+      40,
+      40,
+      1.0695
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "spawn-a",
+    "position": [
+      10,
+      10,
+      1.86
+    ],
+    "target": [
+      19,
+      15,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "spawn-b",
+    "position": [
+      70,
+      62,
+      1.86
+    ],
+    "target": [
+      61,
+      57,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "point-west",
+    "position": [
+      35,
+      36,
+      1.86
+    ],
+    "target": [
+      28,
+      38,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "point-east",
+    "position": [
+      45,
+      36,
+      1.86
+    ],
+    "target": [
+      52,
+      34,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "spawn-a-low-witness",
+    "position": [
+      13,
+      7,
+      1.0795
+    ],
+    "target": [
+      48,
+      30,
+      1.0795
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "court-to-spawn-a",
+    "position": [
+      48,
+      30,
+      1.0795
+    ],
+    "target": [
+      13,
+      7,
+      1.0795
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "spawn-b-low-witness",
+    "position": [
+      67,
+      65,
+      1.0795
+    ],
+    "target": [
+      30,
+      39,
+      1.0795
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "court-to-spawn-b",
+    "position": [
+      30,
+      39,
+      1.0795
+    ],
+    "target": [
+      67,
+      65,
+      1.0795
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "east-loft-to-spawn",
+    "position": [
+      55,
+      34,
+      4.87
+    ],
+    "target": [
+      12,
+      6,
+      1.0795
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  },
+  {
+    "id": "west-loft-to-spawn",
+    "position": [
+      25,
+      38,
+      4.87
+    ],
+    "target": [
+      68,
+      66,
+      1.0795
+    ],
+    "projection": "perspective",
+    "fov": 75,
+    "appearance": "materials"
+  }
+]

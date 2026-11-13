@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1230" viewBox="0 0 1600 1230"><rect width="1600" height="1230" fill="#111e2c"/><style>text{font-family:Arial,sans-serif;fill:#e9eef3}.label{font-size:12px;text-anchor:middle;font-weight:700}.tiny{font-size:9px;text-anchor:middle}</style><text x="55" y="40" font-size="28" font-weight="700">APOGEE / developed layout L06</text><text x="55" y="66" font-size="15">5v5 bomb defusal • 104 × 102 m • 26 spaces / 37 connections • meters / +Y north / Z up</text>
+<polygon points="423.4,1090 646.6,1090 646.6,959.8 423.4,959.8" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="349,997 423.4,997 423.4,885.4 349,885.4" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="163,941.2 349,941.2 349,792.4 163,792.4" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="163,792.4 218.8,792.4 218.8,643.6 163,643.6" fill="#c39150" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="107.2,643.6 218.8,643.6 218.8,532 107.2,532" fill="#607d9c" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="218.8,643.6 311.8,643.6 311.8,532 218.8,532" fill="#607d9c" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="311.8,643.6 423.4,643.6 423.4,625 460.6,625 460.6,532 311.8,532" fill="#607d9c" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="163,439 256,532 367.6,532 460.6,439 460.6,327.4 367.6,234.4 256,234.4 163,327.4" fill="#a45e49" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="256,234.4 479.2,234.4 479.2,141.4 256,141.4" fill="#607d9c" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="479.2,253 832.6,253 832.6,141.4 479.2,141.4" fill="#607d9c" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="628,308.8 702.4,308.8 702.4,253 628,253" fill="#607d9c" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="460.6,364.6 702.4,364.6 702.4,308.8 460.6,308.8" fill="#607d9c" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="423.4,959.8 553.6,959.8 553.6,792.4 423.4,792.4" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="423.4,792.4 646.6,792.4 646.6,625 423.4,625" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="367.6,792.4 423.4,792.4 423.4,643.6 367.6,643.6" fill="#c39150" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="646.6,997 814,997 814,848.2 646.6,848.2" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="814,922.6 1000,922.6 1000,736.6 814,736.6" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="646.6,848.2 795.4,848.2 795.4,625 646.6,625" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="795.4,736.6 907,736.6 907,643.6 795.4,643.6" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="795.4,643.6 907,643.6 907,699.4 1037.2,699.4 1037.2,457.6 795.4,457.6" fill="#a45e49" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="497.8,625 609.4,625 609.4,308.8 497.8,308.8" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="609.4,625 795.4,625 795.4,457.6 609.4,457.6" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="609.4,457.6 795.4,457.6 795.4,401.8 702.4,401.8 702.4,308.8 609.4,308.8" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="795.4,457.6 925.6,457.6 925.6,346 795.4,346" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="705.19,401.8 758.2,401.8 758.2,253 705.19,253" fill="#c39150" stroke="#17232b" stroke-width="2.5"/>
+<polygon points="925.6,457.6 1037.2,457.6 1037.2,271.6 925.6,271.6" fill="#435e69" stroke="#17232b" stroke-width="2.5"/>
+<rect x="460.6" y="848.2" width="37.2" height="55.800000000000004" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="479.20000000000005" y="845.2">IT-S1</text>
+<rect x="237.4" y="855.64" width="46.5" height="11.16" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="260.65" y="852.64">SV-L1</text>
+<rect x="116.5" y="587.8" width="27.900000000000002" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="130.45" y="584.8">RM-L1</text>
+<rect x="237.4" y="559.9" width="18.6" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="246.70000000000002" y="556.9">AA-L1</text>
+<rect x="358.3" y="569.1999999999999" width="18.6" height="27.900000000000002" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="367.6" y="566.1999999999999">OP-S1</text>
+<rect x="423.40000000000003" y="559.9" width="18.6" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="432.70000000000005" y="556.9">OP-L1</text>
+<rect x="283.9" y="364.5999999999999" width="55.800000000000004" height="55.800000000000004" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="311.79999999999995" y="361.5999999999999">A-TEL</text>
+<rect x="209.5" y="392.5" width="46.5" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="232.75" y="389.5">A-L1</text>
+<rect x="349.0" y="299.4999999999999" width="37.2" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="367.6" y="296.4999999999999">A-L2</text>
+<rect x="302.5" y="466.9" width="27.900000000000002" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="316.45" y="463.9">A-L3</text>
+<rect x="404.8" y="383.19999999999993" width="27.900000000000002" height="18.6" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="418.75" y="380.19999999999993">A-S1</text>
+<rect x="507.1" y="680.8" width="27.900000000000002" height="55.800000000000004" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="521.0500000000001" y="677.8">MD-S1</text>
+<rect x="442.0" y="708.7" width="37.2" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="460.6" y="705.7">MD-L1</text>
+<rect x="702.4000000000001" y="718.0" width="18.6" height="65.10000000000001" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="711.7" y="715.0">CL-S1</text>
+<rect x="748.9000000000001" y="662.2" width="27.900000000000002" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="762.8500000000001" y="659.2">CL-L1</text>
+<rect x="702.4000000000001" y="904.0" width="46.5" height="27.900000000000002" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="725.6500000000001" y="901.0">EQ-S1</text>
+<rect x="860.5000000000001" y="838.9" width="46.5" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="883.7500000000001" y="835.9">SN-L1</text>
+<rect x="944.2" y="773.8" width="27.900000000000002" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="958.1500000000001" y="770.8">SN-L2</text>
+<rect x="804.7" y="662.2" width="27.900000000000002" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="818.6500000000001" y="659.2">BA-L1</text>
+<rect x="888.4000000000001" y="532.0" width="37.2" height="55.800000000000004" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="907.0000000000001" y="529.0">B-CRYO</text>
+<rect x="823.3000000000001" y="504.0999999999999" width="27.900000000000002" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="837.2500000000001" y="501.0999999999999">B-L1</text>
+<rect x="962.8000000000001" y="625.0" width="37.2" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="981.4000000000001" y="622.0">B-L2</text>
+<rect x="962.8000000000001" y="485.5" width="27.900000000000002" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="976.7500000000001" y="482.5">B-L3</text>
+<rect x="665.2" y="522.6999999999999" width="27.900000000000002" height="46.5" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="679.1500000000001" y="519.6999999999999">DA-S1</text>
+<rect x="730.3000000000001" y="494.79999999999995" width="37.2" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="748.9000000000001" y="491.79999999999995">DA-L1</text>
+<rect x="497.8" y="457.5999999999999" width="37.2" height="37.2" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="516.4" y="454.5999999999999">TR-S1</text>
+<rect x="562.9000000000001" y="392.5" width="27.900000000000002" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="576.8500000000001" y="389.5">TR-L1</text>
+<rect x="628.0" y="420.4" width="37.2" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="646.6" y="417.4">AR-L1</text>
+<rect x="525.7" y="348.9759999999999" width="27.900000000000002" height="13.950000000000001" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="539.6500000000001" y="345.9759999999999">SK-L1</text>
+<rect x="600.1" y="310.47400000000005" width="27.900000000000002" height="13.950000000000001" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="614.0500000000001" y="307.47400000000005">SK-L2</text>
+<rect x="376.90000000000003" y="169.29999999999995" width="18.6" height="37.2" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="386.20000000000005" y="166.29999999999995">AC-S1</text>
+<rect x="581.5" y="206.4999999999999" width="37.2" height="27.900000000000002" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="600.1" y="203.4999999999999">CT-S1</text>
+<rect x="869.8000000000001" y="383.19999999999993" width="37.2" height="18.6" fill="#c4d9c6" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="888.4000000000001" y="380.19999999999993">BC-L1</text>
+<rect x="962.8000000000001" y="336.69999999999993" width="27.900000000000002" height="37.2" fill="#283642" stroke="#f0ede0" stroke-width=".7"/>
+<text class="tiny" x="976.7500000000001" y="333.69999999999993">DC-S1</text>
+<rect x="358.3" y="327.4" width="46.5" height="46.5" fill="none" stroke="#f4cc64" stroke-width="3" stroke-dasharray="6 3"/>
+<rect x="962.8000000000001" y="532.0" width="55.800000000000004" height="46.5" fill="none" stroke="#f4cc64" stroke-width="3" stroke-dasharray="6 3"/>
+<path d="M423.40000000000003 997.0L423.40000000000003 959.8" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="432.40000000000003" y="974.4">P01</text>
+<path d="M479.20000000000005 959.8L525.7 959.8" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="511.45000000000005" y="955.8">P02</text>
+<path d="M646.6 997.0L646.6 959.8" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="655.6" y="974.4">P03</text>
+<path d="M349.0 931.9L349.0 894.7" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="358.0" y="909.3">P04</text>
+<path d="M423.40000000000003 931.9L423.40000000000003 894.7" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="432.40000000000003" y="909.3">P05</text>
+<path d="M172.3 792.4L209.5 792.4" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="199.9" y="788.4">P06</text>
+<path d="M172.3 643.5999999999999L209.5 643.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="199.9" y="639.5999999999999">P07</text>
+<path d="M218.8 615.7L218.8 578.5" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="227.8" y="593.1">P08</text>
+<path d="M311.8 625.0L311.8 587.8" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="320.8" y="602.4">P09</text>
+<path d="M265.3 532.0L302.5 532.0" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="292.9" y="528.0">P10</text>
+<path d="M330.40000000000003 532.0L367.6 532.0" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="358.0" y="528.0">P11</text>
+<path d="M376.90000000000003 643.5999999999999L414.1 643.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="404.5" y="639.5999999999999">P12</text>
+<path d="M293.20000000000005 234.39999999999998L330.40000000000003 234.39999999999998" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="320.80000000000007" y="230.39999999999998">P13</text>
+<path d="M460.6 364.5999999999999L460.6 327.4" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="469.6" y="341.99999999999994">P14</text>
+<path d="M479.20000000000005 215.79999999999995L479.20000000000005 169.29999999999995" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="488.20000000000005" y="188.54999999999995">P15</text>
+<path d="M646.6 252.9999999999999L693.1 252.9999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="678.85" y="248.9999999999999">P16</text>
+<path d="M711.7 252.9999999999999L748.9000000000001 252.9999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="739.3000000000001" y="248.9999999999999">P17</text>
+<path d="M646.6 308.79999999999995L693.1 308.79999999999995" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="678.85" y="304.79999999999995">P18</text>
+<path d="M442.0 792.4L479.20000000000005 792.4" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="469.6" y="788.4">P19</text>
+<path d="M423.40000000000003 792.4L423.40000000000003 755.2" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="432.40000000000003" y="769.8">P20</text>
+<path d="M646.6 783.0999999999999L646.6 745.9" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="655.6" y="760.5">P21</text>
+<path d="M516.4000000000001 625.0L562.9000000000001 625.0" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="548.6500000000001" y="621.0">P22</text>
+<path d="M814.0 904.0L814.0 866.8" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="823.0" y="881.4">P23</text>
+<path d="M693.1 848.2L739.6 848.2" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="725.35" y="844.2">P24</text>
+<path d="M851.2 736.5999999999999L888.4000000000001 736.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="878.8000000000001" y="732.5999999999999">P25</text>
+<path d="M795.4000000000001 727.3L795.4000000000001 690.0999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="804.4000000000001" y="704.6999999999999">P26</text>
+<path d="M674.5 625.0L730.3000000000001 625.0" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="711.4000000000001" y="621.0">P27</text>
+<path d="M832.6 643.5999999999999L879.1 643.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="864.85" y="639.5999999999999">P28</text>
+<path d="M795.4000000000001 587.8L795.4000000000001 541.3" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="804.4000000000001" y="560.55">P29</text>
+<path d="M814.0 457.5999999999999L860.5000000000001 457.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="846.25" y="453.5999999999999">P30</text>
+<path d="M962.8000000000001 457.5999999999999L1009.3000000000001 457.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="995.0500000000001" y="453.5999999999999">P31</text>
+<path d="M609.4000000000001 587.8L609.4000000000001 541.3" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="618.4000000000001" y="560.55">P32</text>
+<path d="M609.4000000000001 364.5999999999999L609.4000000000001 327.4" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="618.4000000000001" y="341.99999999999994">P33</text>
+<path d="M665.2 457.5999999999999L711.7 457.5999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="697.45" y="453.5999999999999">P34</text>
+<path d="M795.4000000000001 448.29999999999995L795.4000000000001 411.0999999999999" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="804.4000000000001" y="425.69999999999993">P35</text>
+<path d="M711.7 401.79999999999995L748.9000000000001 401.79999999999995" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="739.3000000000001" y="397.79999999999995">P36</text>
+<path d="M925.6 429.69999999999993L925.6 392.5" stroke="#f2dd9d" stroke-width="5"/>
+<text class="tiny" x="934.6" y="407.09999999999997">P37</text>
+<text class="label" x="535.0" y="1024.9">01 Cable arrivals</text>
+<text class="label" x="386.20000000000005" y="941.2">02 Boot room</text>
+<text class="label" x="256.0" y="866.8">03 Service court</text>
+<text class="label" x="190.9" y="718.0">04 Rim ascent</text>
+<path d="M163.0 780.9538461538461L218.8 780.9538461538461" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 769.5076923076923L218.8 769.5076923076923" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 758.0615384615385L218.8 758.0615384615385" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 746.6153846153846L218.8 746.6153846153846" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 735.1692307692308L218.8 735.1692307692308" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 723.7230769230769L218.8 723.7230769230769" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 712.2769230769231L218.8 712.2769230769231" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 700.8307692307692L218.8 700.8307692307692" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 689.3846153846152L218.8 689.3846153846152" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 677.9384615384615L218.8 677.9384615384615" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 666.4923076923076L218.8 666.4923076923076" stroke="#e4c48a" stroke-width="1"/>
+<path d="M163.0 655.0461538461539L218.8 655.0461538461539" stroke="#e4c48a" stroke-width="1"/>
+<text class="label" x="163.0" y="587.8">05 Rim walk</text>
+<text class="label" x="265.3" y="587.8">06 A airlock</text>
+<text class="label" x="398.6" y="600.2">07 Optics</text>
+<text class="label" x="274.6" y="290.19999999999993">08 A telescope</text>
+<text class="label" x="367.6" y="187.89999999999998">09 A control</text>
+<text class="label" x="655.9000000000001" y="197.19999999999993">10 CT operations</text>
+<text class="label" x="665.2" y="280.9">11 Upper spine</text>
+<text class="label" x="581.5" y="336.69999999999993">12 Skybridge</text>
+<text class="label" x="488.50000000000006" y="876.1">13 Intake</text>
+<text class="label" x="535.0" y="708.7">14 Calibration court</text>
+<text class="label" x="395.5" y="718.0">15 Optics ascent</text>
+<path d="M367.6 746.6153846153846L423.40000000000003 746.6153846153846" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 738.0307692307692L423.40000000000003 738.0307692307692" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 729.4461538461538L423.40000000000003 729.4461538461538" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 720.8615384615384L423.40000000000003 720.8615384615384" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 712.2769230769231L423.40000000000003 712.2769230769231" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 703.6923076923076L423.40000000000003 703.6923076923076" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 695.1076923076923L423.40000000000003 695.1076923076923" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 686.5230769230768L423.40000000000003 686.5230769230768" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 677.9384615384615L423.40000000000003 677.9384615384615" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 669.3538461538462L423.40000000000003 669.3538461538462" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 660.7692307692307L423.40000000000003 660.7692307692307" stroke="#e4c48a" stroke-width="1"/>
+<path d="M367.6 652.1846153846153L423.40000000000003 652.1846153846153" stroke="#e4c48a" stroke-width="1"/>
+<text class="label" x="730.3000000000001" y="922.6">16 Equipment</text>
+<text class="label" x="907.0000000000001" y="829.5999999999999">17 Snow yard</text>
+<text class="label" x="721.0" y="736.5999999999999">18 Cleanroom</text>
+<text class="label" x="851.2" y="690.0999999999999">19 B airlock</text>
+<text class="label" x="944.2" y="606.4">20 B cryolab</text>
+<text class="label" x="553.6" y="522.6999999999999">21 Transit underpass</text>
+<text class="label" x="702.4000000000001" y="541.3">22 Data hall</text>
+<text class="label" x="655.9000000000001" y="383.19999999999993">23 Archive</text>
+<text class="label" x="860.5000000000001" y="401.79999999999995">24 B control</text>
+<text class="label" x="730.3000000000001" y="327.4">25 CT descent</text>
+<path d="M705.19 390.3538461538461L758.2 390.3538461538461" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 378.9076923076922L758.2 378.9076923076922" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 367.46153846153845L758.2 367.46153846153845" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 356.0153846153846L758.2 356.0153846153846" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 344.56923076923067L758.2 344.56923076923067" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 333.12307692307684L758.2 333.12307692307684" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 321.676923076923L758.2 321.676923076923" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 310.2307692307693L758.2 310.2307692307693" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 298.78461538461534L758.2 298.78461538461534" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 287.3384615384615L758.2 287.3384615384615" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 275.89230769230767L758.2 275.89230769230767" stroke="#e4c48a" stroke-width="1"/>
+<path d="M705.19 264.4461538461537L758.2 264.4461538461537" stroke="#e4c48a" stroke-width="1"/>
+<text class="label" x="981.4000000000001" y="364.5999999999999">26 Decon</text>
+<circle cx="479.20000000000005" cy="1043.5" r="4" fill="#f9bf6d"/>
+<circle cx="516.4000000000001" cy="1043.5" r="4" fill="#f9bf6d"/>
+<circle cx="553.6" cy="1043.5" r="4" fill="#f9bf6d"/>
+<circle cx="497.8" cy="1006.3" r="4" fill="#f9bf6d"/>
+<circle cx="553.6" cy="1006.3" r="4" fill="#f9bf6d"/>
+<circle cx="637.3000000000001" cy="187.89999999999998" r="4" fill="#9fddf5"/>
+<circle cx="674.5" cy="187.89999999999998" r="4" fill="#9fddf5"/>
+<circle cx="711.7" cy="187.89999999999998" r="4" fill="#9fddf5"/>
+<circle cx="748.9000000000001" cy="187.89999999999998" r="4" fill="#9fddf5"/>
+<circle cx="786.1" cy="187.89999999999998" r="4" fill="#9fddf5"/>
+<path d="M256.0 448.29999999999995L283.9 522.6999999999999" stroke="#efb1b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<path d="M953.5000000000001 532.0L869.8000000000001 643.5999999999999" stroke="#efb1b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<path d="M553.6 439.0L553.6 615.7" stroke="#efb1b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1100" y="120" font-size="22" font-weight="700">READING THE PLAN</text>
+<text x="1100" y="157">Blue: upper +4 m / slate: lower 0 m</text>
+<text x="1100" y="183">Amber: 4 m climb / pale: low cover</text>
+<text x="1100" y="209">Yellow: actual movement thresholds</text>
+<text x="1100" y="235">Red dashed: predicted LOS studies</text>
+<text x="1100" y="261">Plant areas: dashed amber outlines</text>
+<text x="1100" y="315" font-size="20">HEIGHT SECTION</text>
+<path d="M1100 374h370v5h-370z" fill="#607d9c"/><text x="1100" y="357">Bridge walking top +4 / soffit +3.65</text>
+<path d="M1100 451h370v6h-370z" fill="#435e69"/><text x="1100" y="485">Transit +0 / standing body 2 m</text>
+<text x="1100" y="525">Labs +6.4 m; crossing walls +3.65.</text>
+<text x="1100" y="552">Bridge south screen top +6.8 m.</text>
+<text x="1100" y="579">Upper eye +5.86 m: no panorama</text>
+<text x="1100" y="606">over lab walls or bridge screen.</text>
+<text x="1100" y="650">Low cover base0/top1.25 or</text>
+<text x="1100" y="677">base4/top5.25. Crouch eye+1.023.</text>
+<text x="1100" y="704">Standing eye+1.86 / audit FOV90h×65v.</text>
+<text x="1100" y="750">Optics15: lower landing32..36,</text>
+<text x="1100" y="777">stair36..48 to +4 m.</text>
+<text x="1100" y="804">Rim4 and CT25: 16 m flights.</text>
+<text x="1100" y="850">No jumps, boosts or drops required.</text>
+<text x="1100" y="890">Portals and obstacles map exactly</text>
+<text x="1100" y="917">to plan-data.json / inventory.md.</text>
+<text x="1100" y="960">All visibility/behavior predictions</text>
+<text x="1100" y="987">await compiled inspection/playtest.</text>
+<text x="55" y="1160" font-size="15">N ↑ / three meaningful vertical transfers / bridge crossing is not a transfer / seeds and graph retained in sketch-data.json</text>
+<text x="55" y="1190" font-size="14">L01 repairs shared boundaries at Boot/Service, Rim/A, upper foyer and Cleanroom/Data. No undeclared walk-through seams.</text>
+<text x="1100" y="1040" font-size="15">CT stair westedge68.30 / width5.70m.</text><text x="1100" y="1065" font-size="15">L06: IT-S1 extends west to42m / width4m.</text></svg>

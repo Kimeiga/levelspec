@@ -1,0 +1,45 @@
+{
+  "scope": "Analytic centerline crossings of exterior/internal shell lines, with standing head height and declared door voids. Not capsule clearance or compiled collision evidence.",
+  "routes": [
+    {
+      "route": "R01",
+      "issues": []
+    },
+    {
+      "route": "R02",
+      "issues": []
+    },
+    {
+      "route": "R03",
+      "issues": []
+    },
+    {
+      "route": "R04",
+      "issues": []
+    },
+    {
+      "route": "R05",
+      "issues": []
+    },
+    {
+      "route": "R06",
+      "issues": []
+    },
+    {
+      "route": "R07",
+      "issues": []
+    },
+    {
+      "route": "R08",
+      "issues": []
+    },
+    {
+      "route": "R09",
+      "issues": []
+    },
+    {
+      "route": "R10",
+      "issues": []
+    }
+  ]
+}

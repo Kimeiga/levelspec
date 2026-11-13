@@ -1,0 +1,50 @@
+[
+  {
+    "id": "rearhall-to-orangery-long",
+    "position": [
+      60,
+      90,
+      4.87
+    ],
+    "target": [
+      -9,
+      54,
+      4.87
+    ],
+    "projection": "perspective",
+    "fov": 70,
+    "appearance": "materials"
+  },
+  {
+    "id": "orangery-to-rearhall-long",
+    "position": [
+      -9,
+      54,
+      4.87
+    ],
+    "target": [
+      60,
+      90,
+      4.87
+    ],
+    "projection": "perspective",
+    "fov": 70,
+    "appearance": "materials"
+  },
+  {
+    "id": "library-to-music-long",
+    "position": [
+      75,
+      78,
+      4.033
+    ],
+    "target": [
+      0,
+      72,
+      4.033
+    ],
+    "projection": "perspective",
+    "fov": 70,
+    "appearance": "materials"
+  }
+]

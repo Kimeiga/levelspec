@@ -1,0 +1,17 @@
+{
+  "purpose": "Style-transfer polish study of the accepted restaurant; concept art, not a renderer capture.",
+  "tool": "built-in image_gen",
+  "generatedSource": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-3d765a75-e2a3-4c1f-8255-be1695a54a6a.png",
+  "input": {
+    "path": "generated/restaurant-props/acceptance/wide-store.png",
+    "sha256": "9763524c05a92008eab74ab6d557b8ffdf2fb5202af533e313bb84c6e87c8720"
+  },
+  "prompt": {
+    "path": "projects/kowloon-restaurant-props/concepts/polish-study-prompt.txt",
+    "sha256": "7f2a184ad282755a2c48cc85468d126094091e09a52dbed58fff18d71ebbc016"
+  },
+  "output": {
+    "path": "projects/kowloon-restaurant-props/concepts/polish-study.png",
+    "sha256": "c3445009587bc8526ca910ba996995d94503b80f80283ca74981553d73c3aaa3"
+  }
+}

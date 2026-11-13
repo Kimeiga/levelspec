@@ -3,20 +3,34 @@ import { mkdir, readdir, rm } from "node:fs/promises";
 import { join } from "node:path";
 
 const results = new Set([
-  "best.level.svgx", "best.glb", "best-collision.glb",
-  "best.runtime.json", "result.json",
+  "best.aml",
+  "best.glb",
+  "best-collision.glb",
+  "best.runtime.json",
+  "result.json",
+  "best.companions.json",
+  "input-photos.json",
+  "run-config.json",
 ]);
 
 export function isRunArtifact(name: string): boolean {
-  return results.has(name) || /^iteration-[0-9]+\.(?:json|level\.svgx)$/.test(name);
+  return (
+    results.has(name) ||
+    /^iteration-[0-9]+\.(?:json|aml|portable\.aml|companions\.json)$/.test(name)
+  );
 }
 
 /** Clear stale success artifacts even when the next run fails before its first candidate. */
 export async function prepareRunOutput(directory: string): Promise<void> {
   await mkdir(directory, { recursive: true });
   const entries = await readdir(directory, { withFileTypes: true });
-  await Promise.all(entries
-    .filter(entry => isRunArtifact(entry.name) &&
-      (entry.isFile() || entry.isSymbolicLink()))
-    .map(entry => rm(join(directory, entry.name), { force: true })));
+  await Promise.all(
+    entries
+      .filter(
+        (entry) =>
+          isRunArtifact(entry.name) &&
+          (entry.isFile() || entry.isSymbolicLink()),
+      )
+      .map((entry) => rm(join(directory, entry.name), { force: true })),
+  );
 }

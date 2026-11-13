@@ -1,11 +1,11 @@
 # Rooftop reference acceptance
 
 This directory contains original synthetic reference images for
-`examples/rooftop-reference.level.svgx`. They are not photographs or
+`tests/fixtures/aml/rooftop-reference.aml`. They are not photographs or
 third-party assets.
 
 Each PNG is a checked-in visual golden produced from one explicitly saved
-perspective camera. The acceptance test recompiles the SVGX, renders the final
+perspective camera. The acceptance test recompiles the AML, renders the final
 visible triangle mesh through each camera with LevelSpec's deterministic
 CPU reference renderer, and compares the resulting pixels with these files.
 

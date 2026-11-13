@@ -1,0 +1,512 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      -85,
+      -90,
+      86
+    ],
+    "target": [
+      42,
+      48,
+      8
+    ],
+    "projection": "orthographic",
+    "viewHeight": 152,
+    "appearance": "materials",
+    "fov": 55
+  },
+  {
+    "id": "overview-ink",
+    "position": [
+      -85,
+      -90,
+      86
+    ],
+    "target": [
+      42,
+      48,
+      8
+    ],
+    "projection": "orthographic",
+    "viewHeight": 152,
+    "appearance": "full-render",
+    "fov": 55
+  },
+  {
+    "id": "north-overview",
+    "position": [
+      -70,
+      150,
+      105
+    ],
+    "target": [
+      42,
+      50,
+      10
+    ],
+    "projection": "orthographic",
+    "viewHeight": 145,
+    "appearance": "materials",
+    "fov": 55
+  },
+  {
+    "id": "plan",
+    "position": [
+      36,
+      48,
+      180
+    ],
+    "target": [
+      36,
+      48,
+      4
+    ],
+    "projection": "orthographic",
+    "viewHeight": 112,
+    "appearance": "materials",
+    "fov": 55
+  },
+  {
+    "id": "a-main",
+    "position": [
+      61,
+      58.8,
+      13.674
+    ],
+    "target": [
+      60,
+      69,
+      14
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "a-rear",
+    "position": [
+      66,
+      76,
+      13.674
+    ],
+    "target": [
+      61,
+      60,
+      13.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "a-short",
+    "position": [
+      48.8,
+      74,
+      13.674
+    ],
+    "target": [
+      60,
+      68,
+      14
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "a-reverse-short",
+    "position": [
+      55,
+      72,
+      13.674
+    ],
+    "target": [
+      47,
+      74,
+      13.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "b-long",
+    "position": [
+      10,
+      52.8,
+      1.674
+    ],
+    "target": [
+      12,
+      63,
+      1.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "b-rear",
+    "position": [
+      17,
+      71,
+      1.674
+    ],
+    "target": [
+      8,
+      61,
+      1.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "b-short",
+    "position": [
+      25,
+      59,
+      1.674
+    ],
+    "target": [
+      12,
+      62,
+      1.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "b-reverse-short",
+    "position": [
+      19,
+      61,
+      1.674
+    ],
+    "target": [
+      26,
+      59,
+      1.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "mid-up",
+    "position": [
+      41,
+      36.8,
+      7.674
+    ],
+    "target": [
+      37,
+      46,
+      7.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "mid-reverse",
+    "position": [
+      35,
+      49,
+      7.674
+    ],
+    "target": [
+      41,
+      37,
+      7.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "gallery",
+    "position": [
+      29,
+      40,
+      7.674
+    ],
+    "target": [
+      20,
+      42,
+      7.4
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "under-gallery",
+    "position": [
+      22,
+      36,
+      1.674
+    ],
+    "target": [
+      22,
+      45,
+      1.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "rear-bridge",
+    "position": [
+      34,
+      74,
+      7.674
+    ],
+    "target": [
+      39,
+      76,
+      7.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "s3-up",
+    "position": [
+      61,
+      45,
+      7.674
+    ],
+    "target": [
+      61,
+      57,
+      13
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "s3-down",
+    "position": [
+      61,
+      59,
+      13.674
+    ],
+    "target": [
+      61,
+      47,
+      8
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "s4-up",
+    "position": [
+      45,
+      57,
+      7.674
+    ],
+    "target": [
+      45,
+      71,
+      13
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "s5-down",
+    "position": [
+      28,
+      43,
+      7.674
+    ],
+    "target": [
+      28,
+      57,
+      1.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "s6-up",
+    "position": [
+      17,
+      71,
+      1.674
+    ],
+    "target": [
+      17,
+      85,
+      7
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "s7-up",
+    "position": [
+      41,
+      77,
+      7.674
+    ],
+    "target": [
+      41,
+      91,
+      13
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "t-spawn",
+    "position": [
+      22,
+      6,
+      1.674
+    ],
+    "target": [
+      30,
+      12,
+      1.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "ct-spawn",
+    "position": [
+      35,
+      75,
+      7.674
+    ],
+    "target": [
+      35,
+      71,
+      7.5
+    ],
+    "projection": "perspective",
+    "viewHeight": 70,
+    "appearance": "materials",
+    "fov": 100
+  },
+  {
+    "id": "b-valley-window",
+    "position": [
+      6,
+      62,
+      1.674
+    ],
+    "target": [
+      -16,
+      62,
+      -8
+    ],
+    "projection": "perspective",
+    "fov": 100,
+    "viewHeight": 70,
+    "appearance": "materials"
+  },
+  {
+    "id": "a-rock-window",
+    "position": [
+      68,
+      68,
+      13.674
+    ],
+    "target": [
+      90,
+      68,
+      32
+    ],
+    "projection": "perspective",
+    "fov": 100,
+    "viewHeight": 70,
+    "appearance": "materials"
+  },
+  {
+    "id": "s1-crest-west",
+    "position": [
+      42,
+      36,
+      7.674
+    ],
+    "target": [
+      26,
+      6,
+      1.674
+    ],
+    "projection": "perspective",
+    "fov": 100,
+    "viewHeight": 70,
+    "appearance": "materials"
+  },
+  {
+    "id": "t-reverse-crest",
+    "position": [
+      26,
+      6,
+      1.674
+    ],
+    "target": [
+      42,
+      36,
+      7.674
+    ],
+    "projection": "perspective",
+    "fov": 100,
+    "viewHeight": 70,
+    "appearance": "materials"
+  },
+  {
+    "id": "playable-overview",
+    "position": [
+      -85,
+      -90,
+      86
+    ],
+    "target": [
+      34,
+      48,
+      4
+    ],
+    "projection": "orthographic",
+    "viewHeight": 112,
+    "fov": 55,
+    "appearance": "materials"
+  }
+]

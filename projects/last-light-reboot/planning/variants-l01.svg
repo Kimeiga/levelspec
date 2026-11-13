@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1620" height="870" viewBox="0 0 1620 870">
+<rect width="1620" height="870" fill="#f7f2e8"/>
+<style>text{font-family:Arial,sans-serif;fill:#203c42}.t{font-size:28px;font-weight:bold}.s{font-size:16px}.l{font-size:13px;font-weight:bold}.n{font-size:11px}</style>
+<text x="38" y="42" class="t">LAST LIGHT / L01 · UNDERPASS / INFORMATION COMPARISON</text>
+<text x="38" y="72" class="s">Bounded local variants. V2 selected for independent review; neither this diagram nor named rays establishes gameplay balance.</text>
+<text x="35" y="120" class="s" font-weight="bold">V0-straight-open</text>
+<rect x="75" y="290" width="380" height="100" fill="#ded9ca" stroke="#50666a"/>
+<rect x="75" y="390" width="380" height="3.999999999999986" fill="#203c42" stroke="#50666a"/>
+<rect x="75" y="286.0" width="380" height="3.999999999999986" fill="#203c42" stroke="#50666a"/>
+<text x="255" y="365" text-anchor="middle" class="l">10 m transfer / +3.25 soffit</text>
+<text x="35" y="490" class="n">G-WC → G-EC: named eye ray open</text>
+<text x="35" y="521" class="n">G-W → G-E: named eye ray open</text>
+<text x="35" y="552" class="n">W-LOOK → W-STAGE: named eye ray open</text>
+<text x="35" y="583" class="n">E-LOOK → E-STAGE: named eye ray open</text>
+<text x="35" y="614" class="n">POINT-E → W-LOOK: blocked: F-U</text>
+<text x="35" y="645" class="n">POINT-W → E-LOOK: blocked: F-U</text>
+<text x="35" y="740" class="n">Straight lower cross-view; full low edges; maximum cross-support.</text>
+<text x="570" y="120" class="s" font-weight="bold">V1-offset-opaque</text>
+<rect x="610" y="290" width="380" height="100" fill="#ded9ca" stroke="#50666a"/>
+<rect x="610" y="390" width="380" height="3.999999999999986" fill="#203c42" stroke="#50666a"/>
+<rect x="610" y="286.0" width="380" height="3.999999999999986" fill="#203c42" stroke="#50666a"/>
+<rect x="646.0" y="330" width="7.999999999999972" height="60" fill="#50666a" stroke="#50666a"/>
+<rect x="926.0" y="290" width="8.000000000000114" height="60" fill="#50666a" stroke="#50666a"/>
+<text x="790" y="365" text-anchor="middle" class="l">10 m transfer / +3.25 soffit</text>
+<text x="570" y="490" class="n">G-WC → G-EC: blocked: G-BW</text>
+<text x="570" y="521" class="n">G-W → G-E: named eye ray open</text>
+<text x="570" y="552" class="n">W-LOOK → W-STAGE: blocked: V1-closed-W</text>
+<text x="570" y="583" class="n">E-LOOK → E-STAGE: blocked: V1-closed-E</text>
+<text x="570" y="614" class="n">POINT-E → W-LOOK: blocked: F-U</text>
+<text x="570" y="645" class="n">POINT-W → E-LOOK: blocked: F-U</text>
+<text x="570" y="740" class="n">Offset returns; sealed observation fronts; reduced useful information.</text>
+<text x="1105" y="120" class="s" font-weight="bold">V2-offset-bounded</text>
+<rect x="1145" y="290" width="380" height="100" fill="#ded9ca" stroke="#50666a"/>
+<rect x="1145" y="390" width="380" height="3.999999999999986" fill="#203c42" stroke="#50666a"/>
+<rect x="1145" y="286.0" width="380" height="3.999999999999986" fill="#203c42" stroke="#50666a"/>
+<rect x="1181.0" y="330" width="7.999999999999972" height="60" fill="#50666a" stroke="#50666a"/>
+<rect x="1461.0" y="290" width="8.000000000000114" height="60" fill="#50666a" stroke="#50666a"/>
+<text x="1325" y="365" text-anchor="middle" class="l">10 m transfer / +3.25 soffit</text>
+<text x="1105" y="490" class="n">G-WC → G-EC: blocked: G-BW</text>
+<text x="1105" y="521" class="n">G-W → G-E: named eye ray open</text>
+<text x="1105" y="552" class="n">W-LOOK → W-STAGE: named eye ray open</text>
+<text x="1105" y="583" class="n">E-LOOK → E-STAGE: named eye ray open</text>
+<text x="1105" y="614" class="n">POINT-E → W-LOOK: blocked: F-U</text>
+<text x="1105" y="645" class="n">POINT-W → E-LOOK: blocked: F-U</text>
+<text x="1105" y="740" class="n">Offset returns + 4 m observation apertures; stand-only named relationship.</text>
+<text x="35" y="805" class="s">O-W: y48 / x40–44; O-E: y56 / x80–84. Both sill +4.7, head +6.4; no movement portal.</text><text x="35" y="836" class="s">Named rays use analytic proposal prisms. Later check offsets, bodies, opposing views and apertures against compiled geometry.</text></svg>

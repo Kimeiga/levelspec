@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1242 226" font-family="Helvetica,Arial,sans-serif">
+<rect width="1242" height="226" fill="#f7f5ee"/>
+<text x="14" y="22" font-size="15" font-weight="bold">Dragon Ford S02 — section EW: west→east along the rear terrace strip</text>
+<text x="14" y="38" font-size="10.5" fill="#555">from (-4.218,53.61) to (97.393,62.5); horizontal = distance along cut (m); vertical = z (m). Figure = 2.0 m standing body.</text>
+<rect x="60" y="184.2" width="1122.0" height="13.2" fill="#3d3f44"/>
+<rect x="106.6" y="146.8" width="858.7" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="106.6" y="109.4" width="82.0" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="364.2" y="109.4" width="58.7" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="945.8" y="109.4" width="19.4" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="106.6" y="72.0" width="82.0" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="364.2" y="72.0" width="135.7" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="852.0" y="72.0" width="330.0" height="37.4" fill="#5b5f66" stroke="#2c2e33" stroke-width="0.5"/>
+<rect x="965.3" y="184.2" width="51.8" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="1044.6" y="184.2" width="137.4" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="188.5" y="146.8" width="175.7" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="423.0" y="146.8" width="522.8" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="965.3" y="146.8" width="51.8" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="1073.3" y="146.8" width="108.6" height="3.3" fill="#c98b3a" stroke="#6b4514" stroke-width="0.5"/>
+<rect x="489.0" y="109.4" width="11.0" height="9.9" fill="#2d7fa6"/>
+<polygon points="1017.0,155.0 1044.6,151.0 1044.6,184.2 1017.0,184.2" fill="#e9a48d" stroke="#8a3d24"/>
+<text x="1030.8" y="147.0" font-size="9" text-anchor="middle" fill="#5a1d0c">SB1</text>
+<rect x="326.8" y="118.2" width="5.7" height="28.6" fill="#8c6f4e" stroke="#221a10" stroke-width="0.5"/>
+<text x="676.0" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Rear terrace strip (in front of closed rear hall)</text>
+<rect x="673.25" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="527.5" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">West lane top</text>
+<rect x="524.75" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="824.5" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">East lane top</text>
+<rect x="821.75" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="456.0" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Free School gallery</text>
+<rect x="453.25" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="276.4" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">A — Tin Hau lot (hall porch = plant)</text>
+<rect x="273.65" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="1073.6" y="159.45" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">B — Kwong Ming Foundry floor (double height)</text>
+<rect x="1070.85" y="162.2" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="1127.7" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Foundry mezzanine</text>
+<rect x="1124.95" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="991.1" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">mezz W</text>
+<rect x="988.35" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<text x="898.9" y="122.05000000000001" font-size="9" text-anchor="middle" fill="#1b1b1b" stroke="#fff" stroke-width="2" paint-order="stroke">Coffin lane</text>
+<rect x="896.15" y="124.8" width="5.5" height="22.0" fill="none" stroke="#c0392b" stroke-width="1"/>
+<line x1="52" y1="184.2" x2="1190.0" y2="184.2" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="187.2" font-size="9" text-anchor="end">0</text>
+<line x1="52" y1="146.8" x2="1190.0" y2="146.8" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="149.8" font-size="9" text-anchor="end">3.4</text>
+<line x1="52" y1="109.4" x2="1190.0" y2="109.4" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="112.4" font-size="9" text-anchor="end">6.8</text>
+<line x1="52" y1="72.0" x2="1190.0" y2="72.0" stroke="#000" stroke-opacity="0.25" stroke-dasharray="5 4"/><text x="48" y="75.0" font-size="9" text-anchor="end">10.2</text>
+<line x1="60" y1="197.39999999999998" x2="60" y2="202.39999999999998" stroke="#333"/><text x="60" y="213.39999999999998" font-size="9" text-anchor="middle">0</text>
+<line x1="170" y1="197.39999999999998" x2="170" y2="202.39999999999998" stroke="#333"/><text x="170" y="213.39999999999998" font-size="9" text-anchor="middle">10</text>
+<line x1="280" y1="197.39999999999998" x2="280" y2="202.39999999999998" stroke="#333"/><text x="280" y="213.39999999999998" font-size="9" text-anchor="middle">20</text>
+<line x1="390" y1="197.39999999999998" x2="390" y2="202.39999999999998" stroke="#333"/><text x="390" y="213.39999999999998" font-size="9" text-anchor="middle">30</text>
+<line x1="500" y1="197.39999999999998" x2="500" y2="202.39999999999998" stroke="#333"/><text x="500" y="213.39999999999998" font-size="9" text-anchor="middle">40</text>
+<line x1="610" y1="197.39999999999998" x2="610" y2="202.39999999999998" stroke="#333"/><text x="610" y="213.39999999999998" font-size="9" text-anchor="middle">50</text>
+<line x1="720" y1="197.39999999999998" x2="720" y2="202.39999999999998" stroke="#333"/><text x="720" y="213.39999999999998" font-size="9" text-anchor="middle">60</text>
+<line x1="830" y1="197.39999999999998" x2="830" y2="202.39999999999998" stroke="#333"/><text x="830" y="213.39999999999998" font-size="9" text-anchor="middle">70</text>
+<line x1="940" y1="197.39999999999998" x2="940" y2="202.39999999999998" stroke="#333"/><text x="940" y="213.39999999999998" font-size="9" text-anchor="middle">80</text>
+<line x1="1050" y1="197.39999999999998" x2="1050" y2="202.39999999999998" stroke="#333"/><text x="1050" y="213.39999999999998" font-size="9" text-anchor="middle">90</text>
+<line x1="1160" y1="197.39999999999998" x2="1160" y2="202.39999999999998" stroke="#333"/><text x="1160" y="213.39999999999998" font-size="9" text-anchor="middle">100</text>
+</svg>

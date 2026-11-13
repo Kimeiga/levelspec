@@ -1,0 +1,33 @@
+{
+  "packet": {
+    "method": "Procedural sealed inflated 5\u00d75-sample pouch; generated label art on four padded atlas tiles, reduced from192triangles after dense-string budget review",
+    "triangles": 96,
+    "rejected": "Direct decimation fragmented UV seams; welding alone preserved geometry but distorted the printed UV islands"
+  },
+  "bottle-crate": {
+    "method": "Regular closed beveled frame, lattice, floor and bottle dividers; authored UV patch reuses original color and PBR maps",
+    "triangles": 648,
+    "rejected": "Generated source had nonmanifold, twisted wall panels"
+  },
+  "additionalGenerationCredits": 0,
+  "apple-pile": {
+    "method": "Weld seam positions before reducing each fruit; bake a24-fruit clump. Fit every tray and pile uniformly; use two crates on wide supports.",
+    "triangles": 1356
+  },
+  "shop-materials": {
+    "method": "Generated worn hardwood and scuffed plastic albedos; directional UV mapping, shared atlas tiles, derived low-strength normal and roughness maps.",
+    "produceCrateTriangles": 196
+  },
+  "dry-goods-bag": {
+    "method": "Reuse source rice-sack mesh, uniformly fit and reduce for repeated shelf goods; retain UVs and neutral cloth/contents with printed label variants",
+    "triangles": 94
+  },
+  "stock-box": {
+    "method": "Regular closed shipping-box shell with generated printed labels and replicated atlas gutters",
+    "triangles": 12
+  },
+  "stock-appearances": {
+    "method": "Eight generated label designs projected onto front UV islands, four appearances per eligible asset; copy matching normal/property maps; reuse seven spare atlas tiles and no extra PBR materials",
+    "metadata": "src/dressing/kowloon/shop/assets/stock-appearances.json"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "id": "rubber-plant",
+      "faceLimit": 900,
+      "targetHeightMeters": 0.58,
+      "prompt": "Use case: stylized-concept. Asset type: isolated reference for a low-poly real-time 3D mesh, lived-in Hong Kong tenement balcony dressing. One object only, centered with ample margin, full silhouette visible, plain light neutral gray background, soft even neutral studio lighting. Realistic materials and grounded proportions with carefully chosen readable details, subtle aged wear, no outline ink, no dramatic lighting, no environment, no stand or pedestal, no text or watermark. One small bushy rubber plant in a weathered reddish terracotta flowerpot with an intact rim and a matching shallow saucer. About eighteen broad thick oval leaves in varied sizes, deep olive green with restrained pale veins, growing from several visible connected stems. Asymmetric compact branching, irregular leaf directions, open gaps between leaves; healthy but dusty, one slightly yellowed lower leaf. Pot has chalky mineral deposits, dark damp soil visible below rim, rubbed clay edges. Three-quarter view slightly from above showing soil and pot base. Total height roughly 58cm, pot diameter 22cm; pot is a minority of height. No hanging vines.",
+      "concept": "projects/kowloon-balcony-props/concepts/rubber-plant.png",
+      "estimatedCredits": 50
+    },
+    {
+      "id": "trailing-pothos",
+      "faceLimit": 1000,
+      "targetHeightMeters": 0.42,
+      "prompt": "Use case: stylized-concept. Asset type: isolated reference for a low-poly real-time 3D mesh, lived-in Hong Kong tenement balcony dressing. One object only, centered with ample margin, full silhouette visible, plain light neutral gray background, soft even neutral studio lighting. Realistic materials and grounded proportions with carefully chosen readable details, subtle aged wear, no outline ink, no dramatic lighting, no environment, no stand or pedestal, no text or watermark. One compact pothos plant in a chipped teal glazed ceramic flowerpot standing on its flat base. Heart-shaped variegated olive green leaves with a few cream patches; coherent connected stems, compact leafy crown, two short trailing stems spilling over front and side of rim, tips ending just above the pot base. Asymmetric natural clusters, distinguishable leaves with visible gaps, no dense spherical blob. Soil visible in the pot, streaked mineral stains and small glaze chips. Three-quarter view slightly above. Overall plant about42cm tall and42cm wide, pot diameter22cm. No rope, basket, shelf or support. No impossibly thin tendrils.",
+      "concept": "projects/kowloon-balcony-props/concepts/trailing-pothos.png",
+      "estimatedCredits": 50
+    },
+    {
+      "id": "snake-plant",
+      "faceLimit": 650,
+      "targetHeightMeters": 0.62,
+      "prompt": "Use case: stylized-concept. Asset type: isolated reference for a low-poly real-time 3D mesh, lived-in Hong Kong tenement balcony dressing. One object only, centered with ample margin, full silhouette visible, plain light neutral gray background, soft even neutral studio lighting. Realistic materials and grounded proportions with carefully chosen readable details, subtle aged wear, no outline ink, no dramatic lighting, no environment, no stand or pedestal, no text or watermark. One compact snake plant with nine upright thick pointed sword-shaped leaves, irregular heights and slight natural bends. Broad dark sage green leaves with pale horizontal mottling and restrained faded yellow margins. Leaves emerge visibly from dark soil inside a battered off-white cylindrical repurposed enamel pot, small chips revealing dark substrate and rusty streaks near its base; no text or handle. Plant full height62cm, container diameter22cm and height18cm. Three-quarter view showing leaf depth, soil and entire flat pot base. Natural asymmetric spacing, not a perfect radial array.",
+      "concept": "projects/kowloon-balcony-props/concepts/snake-plant.png",
+      "estimatedCredits": 50
+    },
+    {
+      "id": "hanging-shirt",
+      "faceLimit": 1000,
+      "targetHeightMeters": 0.72,
+      "prompt": "Use case: stylized-concept. Asset type: isolated reference for a low-poly real-time 3D mesh, lived-in Hong Kong tenement balcony dressing. One object only, centered with ample margin, full silhouette visible, plain light neutral gray background, soft even neutral studio lighting. Realistic materials and grounded proportions with carefully chosen readable details, subtle aged wear, no outline ink, no dramatic lighting, no environment, no stand or pedestal, no text or watermark. One empty worn short-sleeved cotton button shirt hanging upright as if its two shoulder seams are pinched to an invisible horizontal clothesline. Pale faded powder blue fabric, small left chest pocket, subtle thin off-white vertical woven stripes. Garment hangs limp and nearly flat, front and back collapse toward each other, sleeves droop downward with open cuffs, unoccupied collar, no torso bulge. Fine diagonal tension folds below the two shoulder attachment points, soft uneven hem, small seam wear. Front view with just a very slight angle revealing thin fabric depth. No mannequin, body, person, hanger, clips, rope, pole, wire, support or background objects. Top of each shoulder at same elevation. Roughly72cm shoulder-to-hem; real wearable shirt proportions.",
+      "concept": "projects/kowloon-balcony-props/concepts/hanging-shirt.png",
+      "estimatedCredits": 50
+    },
+    {
+      "id": "hanging-trousers",
+      "faceLimit": 850,
+      "targetHeightMeters": 0.96,
+      "prompt": "Use case: stylized-concept. Asset type: isolated reference for a low-poly real-time 3D mesh, lived-in Hong Kong tenement balcony dressing. One object only, centered with ample margin, full silhouette visible, plain light neutral gray background, soft even neutral studio lighting. Realistic materials and grounded proportions with carefully chosen readable details, subtle aged wear, no outline ink, no dramatic lighting, no environment, no stand or pedestal, no text or watermark. One empty pair of faded indigo cotton work trousers hanging upright by the two ends of its waistband as if clipped to an invisible horizontal clothesline. Soft collapsed thin cloth, two distinct separated legs with uneven natural vertical folds, subtle faded seams, two front pockets and a small stitched knee patch in slightly darker blue. Dusty desaturated blue, rubbed knees, restrained wear, not ripped. Front view at a very slight angle, showing empty thin cloth depth. Waistband nearly horizontal; legs hang straight under gravity with slight asymmetry. Length96cm, waistband width42cm. No person, mannequin, body volume, boots, rope, clips, hanger, furniture, wall or ground.",
+      "concept": "projects/kowloon-balcony-props/concepts/hanging-trousers.png",
+      "estimatedCredits": 50
+    },
+    {
+      "id": "hanging-bedsheet",
+      "faceLimit": 750,
+      "targetHeightMeters": 1.45,
+      "prompt": "Use case: stylized-concept. Asset type: isolated reference for a low-poly real-time 3D mesh, lived-in Hong Kong tenement balcony dressing. One object only, centered with ample margin, full silhouette visible, plain light neutral gray background, soft even neutral studio lighting. Realistic materials and grounded proportions with carefully chosen readable details, subtle aged wear, no outline ink, no dramatic lighting, no environment, no stand or pedestal, no text or watermark. One used cotton bedsheet folded over an invisible horizontal drying rail, hanging as two thin fabric layers with the near layer longer than the rear. Near panel about115cm wide and145cm drop, rear panel ending about20cm higher and visible along one side. Broad restrained irregular vertical gravity folds, shallow rounded fold across the straight top, softly waving asymmetrical lower hem, no inflated volume. Warm ivory cloth printed with small faded brick-red flowers and sparse dusty sage leaves in a loosely repeating old household textile pattern, mildly yellowed edges and washed-out creases; clean laundry, not filthy. Three-quarter nearly frontal view, enough side angle to read the two thin hanging layers. No rail, pole, rope, clips, furniture, hanger, person, wind-blown ballooning, or background objects.",
+      "concept": "projects/kowloon-balcony-props/concepts/hanging-bedsheet.png",
+      "estimatedCredits": 50
+    }
+  ],
+  "plainCottonPrompt": "Use case: stylized-concept. Asset type: flat seamless albedo texture for plain worn cotton laundry in a real-time Kowloon balcony scene. Generate a square texture filling the entire image edge-to-edge: plain warm off-white cotton fabric with very fine understated woven fibers, slight irregular washing fade and subtle small tonal variation. Even neutral unlit scan, no cast shadows, no highlights, no large folds, no object silhouette, no borders. NO floral print, NO stripes, NO check pattern, NO logos, NO stains shaped like motifs, NO decorative pattern, NO text. The fine weave should nearly disappear at normal viewing distance. The whole image should be neutral warm ivory with restrained contrast, usable across an already UV-unwrapped shirt or bedsheet. Repeat seamlessly on all edges."
+}

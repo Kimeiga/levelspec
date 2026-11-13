@@ -1,0 +1,24 @@
+<architecture version="1" id="poster-gallery" validation="premap">
+ <material id="paint" color="#858c80" roughness=".95"/>
+ <material id="print-wall-posters" color="#ffffff" roughness=".96" texture="textures/posters-atlas.jpg"/>
+ <path id="wall-axis" points="0 0 0; 5.4 0 0"/>
+ <wall id="wall" path="wall-axis" height="2.8" thickness=".15" material="paint"/>
+ <dressing seed="poster-library" finishes="print">
+ <poster id="calendar" host="wall" face="front" design="calendar" at="0.44 1.95" width=".46" rotation="1.5"/>
+ <poster id="roast-menu" host="wall" face="front" design="roast-menu" at="1.08 1.95" width=".46" rotation="-2"/>
+ <poster id="tea-ad" host="wall" face="front" design="tea-ad" at="1.72 1.95" width=".46" rotation="0"/>
+ <poster id="soda-ad" host="wall" face="front" design="soda-ad" at="2.36 1.95" width=".46" rotation="3"/>
+ <poster id="no-smoking" host="wall" face="front" design="no-smoking" at="3.00 1.95" width=".46" rotation="-1.5"/>
+ <poster id="repairs" host="wall" face="front" design="repairs" at="3.64 1.95" width=".46" rotation="2"/>
+ <poster id="room-rental" host="wall" face="front" design="room-rental" at="4.28 1.95" width=".46" rotation="-3"/>
+ <poster id="hiring" host="wall" face="front" design="hiring" at="4.92 1.95" width=".46" rotation="0"/>
+ <poster id="herbal-ad" host="wall" face="front" design="herbal-ad" at="0.44 0.85" width=".46" rotation="1.5"/>
+ <poster id="opera" host="wall" face="front" design="opera" at="1.08 0.85" width=".46" rotation="-2"/>
+ <poster id="film" host="wall" face="front" design="film" at="1.72 0.85" width=".46" rotation="0"/>
+ <poster id="laundry" host="wall" face="front" design="laundry" at="2.36 0.85" width=".46" rotation="3"/>
+ <poster id="rice-ad" host="wall" face="front" design="rice-ad" at="3.00 0.85" width=".46" rotation="-1.5"/>
+ <poster id="clinic" host="wall" face="front" design="clinic" at="3.64 0.85" width=".46" rotation="2"/>
+ <poster id="closure" host="wall" face="front" design="closure" at="4.28 0.85" width=".46" rotation="-3"/>
+ <poster id="electrical-ad" host="wall" face="front" design="electrical-ad" at="4.92 0.85" width=".46" rotation="0"/>
+ </dressing>
+</architecture>

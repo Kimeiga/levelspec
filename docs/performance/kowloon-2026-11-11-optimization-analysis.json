@@ -1,0 +1,372 @@
+{
+  "date": "2026-11-11",
+  "status": "analysis and plan only; no production change or new compile timing",
+  "baselineFingerprint": "a04a09e1ed6d03f4c709ae027c1d442ee967c6e63e0e08d16363c2b732ff59a3",
+  "cpuProfileSha256": "91894b78713dc959ab5d7d9e12d66732867adbd3a4ccfe6418db80477bdcd4c8",
+  "manifestEntriesChecked": 308,
+  "changedManifestPaths": [],
+  "profileElapsedMs": 9175.437833,
+  "scope": "Offline analysis of the frozen CPU profile and matching GLB. Sampling estimates overlap for nested callers. Predicted counts and resolution work reductions are not benchmark speedups.",
+  "output": {
+    "artifact": "generated/kowloon-textures-20261111/full-textured.glb",
+    "artifactSha256": "90709ed91943b285f05be8ba0097428dbfb7919d6f94a58d36c6631f529a3fd3",
+    "method": "Offline GLB inspection. Family labels inferred from material names. Raster yields derived from dimensions and current row scheduling, not observed timer durations. No timings measured here.",
+    "triangles": 222915,
+    "vertices": 621741,
+    "meshPrimitives": 639,
+    "rasterMaterials": 341,
+    "families": {
+      "native wall": {
+        "materials": 117,
+        "channelTexels": 2361057,
+        "pixels": 787019,
+        "paddedPixels": 67064,
+        "predictedRasterYields": 262,
+        "halfDensityChannelTexels": 647184,
+        "triangles": 309,
+        "uniformMaps": {
+          "normal": 12,
+          "metallicRoughness": 2
+        },
+        "maps": {
+          "color": 117,
+          "metallicRoughness": 117,
+          "normal": 117
+        }
+      },
+      "ground and other": {
+        "materials": 78,
+        "channelTexels": 686781,
+        "pixels": 228927,
+        "paddedPixels": 32248,
+        "predictedRasterYields": 100,
+        "halfDensityChannelTexels": 200697,
+        "triangles": 20924,
+        "uniformMaps": {
+          "metallicRoughness": 12,
+          "normal": 35
+        },
+        "maps": {
+          "color": 78,
+          "metallicRoughness": 78,
+          "normal": 78
+        }
+      },
+      "facade skin": {
+        "materials": 44,
+        "channelTexels": 898290,
+        "pixels": 299430,
+        "paddedPixels": 27860,
+        "predictedRasterYields": 97,
+        "halfDensityChannelTexels": 248718,
+        "triangles": 9664,
+        "uniformMaps": {},
+        "maps": {
+          "color": 44,
+          "metallicRoughness": 44,
+          "normal": 44
+        }
+      },
+      "panel": {
+        "materials": 102,
+        "channelTexels": 91316,
+        "pixels": 45658,
+        "paddedPixels": 27052,
+        "predictedRasterYields": 102,
+        "halfDensityChannelTexels": 38282,
+        "triangles": 204,
+        "uniformMaps": {},
+        "maps": {
+          "color": 102,
+          "metallicRoughness": 102
+        }
+      }
+    },
+    "images": {
+      "generated": {
+        "images": 903,
+        "pixels": 4004113,
+        "encodedBytes": 4281477,
+        "constantRGB": 45
+      },
+      "source": {
+        "images": 37,
+        "pixels": 73200928,
+        "encodedBytes": 71020555,
+        "constantRGB": 2
+      },
+      "compileSourceImagesPresentInGlb": {
+        "images": 10,
+        "recordedInputHashes": 10,
+        "pixels": 12056536,
+        "decodedRgbaBytes": 48226144
+      }
+    },
+    "predictedReceiverCopyYields": 218
+  },
+  "callAnalysis": {
+    "idleRuns": 519,
+    "idleTotalMs": 1023.2520000000012,
+    "idleMedianRunMs": 1.5,
+    "idleLongestRunMs": 20.875,
+    "callersSampledMs": {
+      "triangle": {
+        "add dressing/kit-mesh.ts:169": 233.499,
+        "geometry dressing/wall-geometry.ts:127": 44.625,
+        "emit dressing/ground.ts:706": 21.915,
+        "applyDressing dressing/apply.ts:83": 4.875,
+        "box dressing/geometry.ts:55": 1.292,
+        "panel dressing/wall-geometry.ts:53": 0.209
+      },
+      "at": {
+        "along dressing/wall-finish.ts:82": 250.211,
+        "bump dressing/wall-finish.ts:233": 10.166,
+        "(root) :0": 1.5
+      },
+      "runoff": {
+        "sample dressing/finish/wall-condition.ts:189": 102.416,
+        "plasterSample dressing/wall-surface.ts:44": 31.543000000000003,
+        "(root) :0": 3.0
+      },
+      "retention": {
+        "sample dressing/ground-surface.ts:276": 418.4139999999997,
+        "sample dressing/kowloon/skin.ts:132": 245.62800000000001
+      },
+      "renderRepairSample": {
+        "renderBump dressing/finish/patina.ts:114": 247.71,
+        "retention dressing/kowloon/skin.ts:89": 221.669,
+        "coatings dressing/kowloon/skin.ts:90": 197.248,
+        "renderPatina dressing/finish/patina.ts:101": 188.419,
+        "(root) :0": 0.083
+      },
+      "hash": {
+        "finalizeArchitecture architecture/finalize.ts:22": 423.16699999999975,
+        "(root) :0": 0.333
+      }
+    }
+  },
+  "additionalSampledFunctions": [
+    {
+      "location": "chart.sample dressing/kit-surfaces.ts:109",
+      "inclusiveMs": 1168.9649999999997,
+      "selfMs": 22.543
+    },
+    {
+      "location": "sample dressing/ground-surface.ts:276",
+      "inclusiveMs": 578.4569999999997,
+      "selfMs": 97.457
+    },
+    {
+      "location": "retention dressing/finish/ground-tile-erosion.ts:139",
+      "inclusiveMs": 418.4139999999997,
+      "selfMs": 10.79
+    },
+    {
+      "location": "coating dressing/finish/ground-tile-erosion.ts:49",
+      "inclusiveMs": 393.2489999999998,
+      "selfMs": 35.418000000000006
+    },
+    {
+      "location": "renderedHeight dressing/ground-surface.ts:256",
+      "inclusiveMs": 371.3719999999997,
+      "selfMs": 8.458
+    },
+    {
+      "location": "value dressing/finish/ground-tile-erosion.ts:64",
+      "inclusiveMs": 323.7069999999999,
+      "selfMs": 0
+    },
+    {
+      "location": "tile dressing/finish/ground-tile-erosion.ts:107",
+      "inclusiveMs": 174.917,
+      "selfMs": 6.5
+    },
+    {
+      "location": "retainedArea dressing/finish/ground-tile-erosion.ts:86",
+      "inclusiveMs": 166.875,
+      "selfMs": 3.375
+    },
+    {
+      "location": "broad dressing/finish/ground-tile-erosion.ts:41",
+      "inclusiveMs": 88.793,
+      "selfMs": 0
+    },
+    {
+      "location": "tint dressing/ground-surface.ts:264",
+      "inclusiveMs": 66.78999999999999,
+      "selfMs": 8.875
+    },
+    {
+      "location": "drawSkin dressing/kowloon/skin.ts:74",
+      "inclusiveMs": 66.458,
+      "selfMs": 3.7510000000000003
+    },
+    {
+      "location": "surfacePanel dressing/kowloon/skin.ts:115",
+      "inclusiveMs": 62.16499999999999,
+      "selfMs": 2.708
+    },
+    {
+      "location": "deposited dressing/kit-surfaces.ts:46",
+      "inclusiveMs": 43.251,
+      "selfMs": 13.376
+    },
+    {
+      "location": "asphaltDistance dressing/ground-surface.ts:156",
+      "inclusiveMs": 21.791,
+      "selfMs": 14.999
+    },
+    {
+      "location": "groundSignedDistance dressing/ground-surface.ts:39",
+      "inclusiveMs": 20.751,
+      "selfMs": 8.709
+    },
+    {
+      "location": "exposure dressing/finish/ground-tile-erosion.ts:32",
+      "inclusiveMs": 18.25,
+      "selfMs": 1.5
+    },
+    {
+      "location": "pointAt dressing/kit-surfaces.ts:20",
+      "inclusiveMs": 17.833,
+      "selfMs": 17.833
+    },
+    {
+      "location": "receive dressing/kit-surfaces.ts:85",
+      "inclusiveMs": 17.126,
+      "selfMs": 13.293
+    },
+    {
+      "location": "coordinates dressing/kit-surfaces.ts:25",
+      "inclusiveMs": 15.417,
+      "selfMs": 13.959
+    },
+    {
+      "location": " dressing/ground-surface.ts:327",
+      "inclusiveMs": 14.876,
+      "selfMs": 14.876
+    },
+    {
+      "location": "intersects dressing/kit-surfaces.ts:31",
+      "inclusiveMs": 13.625,
+      "selfMs": 3.25
+    },
+    {
+      "location": "deposit dressing/kit-surfaces.ts:116",
+      "inclusiveMs": 10.792,
+      "selfMs": 1.0
+    },
+    {
+      "location": " dressing/kit-surfaces.ts:36",
+      "inclusiveMs": 10.375,
+      "selfMs": 5.5
+    },
+    {
+      "location": "GroundSurfaceField dressing/ground-surface.ts:113",
+      "inclusiveMs": 7.914999999999999,
+      "selfMs": 3.0
+    },
+    {
+      "location": "apply dressing/ground-surface.ts:281",
+      "inclusiveMs": 6.125,
+      "selfMs": 6.125
+    },
+    {
+      "location": "tileCoverage dressing/finish/tile-grid.ts:5",
+      "inclusiveMs": 2.709,
+      "selfMs": 2.709
+    },
+    {
+      "location": " dressing/kit-surfaces.ts:108",
+      "inclusiveMs": 2.375,
+      "selfMs": 0
+    },
+    {
+      "location": "coverageFootprint dressing/ground-surface.ts:62",
+      "inclusiveMs": 2.1239999999999997,
+      "selfMs": 1.917
+    },
+    {
+      "location": " dressing/ground-surface.ts:125",
+      "inclusiveMs": 1.666,
+      "selfMs": 0
+    },
+    {
+      "location": " dressing/ground-surface.ts:121",
+      "inclusiveMs": 1.5819999999999999,
+      "selfMs": 0
+    },
+    {
+      "location": "range dressing/finish/ground-tile-erosion.ts:69",
+      "inclusiveMs": 1.542,
+      "selfMs": 0
+    },
+    {
+      "location": " dressing/ground-surface.ts:258",
+      "inclusiveMs": 1.5,
+      "selfMs": 1.5
+    },
+    {
+      "location": "chipValue dressing/finish/ground-tile-erosion.ts:57",
+      "inclusiveMs": 1.5,
+      "selfMs": 1.5
+    },
+    {
+      "location": " dressing/ground-surface.ts:322",
+      "inclusiveMs": 1.5,
+      "selfMs": 0
+    },
+    {
+      "location": " dressing/kit-surfaces.ts:21",
+      "inclusiveMs": 1.5,
+      "selfMs": 1.5
+    },
+    {
+      "location": " dressing/kit-surfaces.ts:26",
+      "inclusiveMs": 1.417,
+      "selfMs": 1.417
+    },
+    {
+      "location": "counterclockwise dressing/ground-surface.ts:51",
+      "inclusiveMs": 1.209,
+      "selfMs": 0
+    },
+    {
+      "location": " dressing/ground-surface.ts:57",
+      "inclusiveMs": 0.166,
+      "selfMs": 0.166
+    },
+    {
+      "location": "bounds dressing/ground-surface.ts:56",
+      "inclusiveMs": 0.166,
+      "selfMs": 0
+    },
+    {
+      "location": " dressing/ground-surface.ts:272",
+      "inclusiveMs": 0.042,
+      "selfMs": 0.042
+    },
+    {
+      "location": " dressing/ground-surface.ts:73",
+      "inclusiveMs": 0.041,
+      "selfMs": 0.041
+    },
+    {
+      "location": "dot dressing/kit-surfaces.ts:17",
+      "inclusiveMs": 0.041,
+      "selfMs": 0.041
+    }
+  ],
+  "projections": {
+    "nativeWallDensityFrom": 32,
+    "nativeWallDensityTo": 16,
+    "channelTexelsBefore": 4037444,
+    "channelTexelsAfter": 2323571,
+    "channelTexelReductionFraction": 0.42449455645700596,
+    "qualityVerified": false,
+    "timerYieldsRaster": 561,
+    "timerYieldsReceiverCopy": 218,
+    "timerYieldsReceiverRegistration": 7
+  },
+  "plan": "docs/performance/kowloon-optimization-plan-2026-11-11.md"
+}

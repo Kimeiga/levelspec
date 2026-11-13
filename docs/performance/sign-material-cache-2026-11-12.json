@@ -1,0 +1,190 @@
+{
+  "date": "2026-11-12",
+  "environment": {
+    "node": "v24.12.0",
+    "cpu": "Apple M4",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "method": "Single frozen serial comparison: optimized cold populates isolated shared cache namespace, then baseline warm and optimized warm in fresh processes; snapshots differ only in two sign producer files. Navigation included; module startup, initial source read, fingerprints, exports, GPU upload and light baking excluded. External load uncontrolled; no own overlapping heavy work. Both variants include integrity-only cache validation.",
+  "sourceSha256": "b2163bec1b7a0d338ba84c8689b4f3866e35327d77caf6aa76fe65a41545f56a",
+  "changedFiles": [
+    "src/dressing/kowloon/signs/panel.ts",
+    "src/dressing/kowloon/signs/weathering.ts"
+  ],
+  "triangles": 859305,
+  "vertices": 2535555,
+  "appearance": {
+    "charts": 95274,
+    "texels": 80663088,
+    "imageBytes": 87858744
+  },
+  "physicalHash": "03d781e884449cf89d04a16e4890af8bc28fbdad7d4593897ee9f04df09bd8a3",
+  "renderHash": "a34e4852c72f0b5ca9072a44d1517c6ec6ed2588b1517f16954b421d3a2e80e4",
+  "appearanceManifestSha256": "077dd0beb618735c53f6749acd167554d950ff70458b6b589c7ce3529cb024cc",
+  "allOutputsEqual": true,
+  "allSourcesStable": true,
+  "runs": [
+    {
+      "variant": "optimized",
+      "name": "cold",
+      "elapsedMs": 88758.00591600001,
+      "cpuMs": 111486.359,
+      "pngCalls": 14,
+      "pngPixels": 36174132,
+      "pngMs": 1177.1922089999998,
+      "cacheStats": {
+        "reads": 9173,
+        "hits": 0,
+        "writes": 9173
+      },
+      "misses": {
+        "jobs": 9173,
+        "texels": 80663088
+      },
+      "peakRssKiB": 2758816,
+      "fingerprintBefore": "6d0a79edb3546c0c7527174109b6e1176fd4e9c5bd67830b4ab1b1ed41779229",
+      "fingerprintAfter": "6d0a79edb3546c0c7527174109b6e1176fd4e9c5bd67830b4ab1b1ed41779229",
+      "stages": [
+        {
+          "stage": "Procedural dressing",
+          "elapsedMs": 5622.19025,
+          "share": 0.06334290852952243
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "elapsedMs": 1157.3062499999996,
+          "share": 0.013038894216430083
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "elapsedMs": 1363.6098340000008,
+          "share": 0.015363231969074565
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "elapsedMs": 72646.045083,
+          "share": 0.8184731544301675
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "elapsedMs": 5614.64633399999,
+          "share": 0.06325791432621475
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "elapsedMs": 1742.9618330000085,
+          "share": 0.01963723514304204
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "name": "baseline-warm",
+      "elapsedMs": 26594.904583000003,
+      "cpuMs": 38417.406,
+      "pngCalls": 14,
+      "pngPixels": 36174132,
+      "pngMs": 1334.7579179999984,
+      "cacheStats": {
+        "reads": 9057,
+        "hits": 9057,
+        "writes": 0
+      },
+      "misses": {
+        "jobs": 116,
+        "texels": 3523398
+      },
+      "peakRssKiB": 2369344,
+      "fingerprintBefore": "a33f02185e9ba5f5b1694c6a31df4f5148eb4c1f132db4245af3667ef099e704",
+      "fingerprintAfter": "a33f02185e9ba5f5b1694c6a31df4f5148eb4c1f132db4245af3667ef099e704",
+      "stages": [
+        {
+          "stage": "Procedural dressing",
+          "elapsedMs": 6013.722833,
+          "share": 0.22612312122541295
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "elapsedMs": 1175.7557080000006,
+          "share": 0.04420981110613073
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "elapsedMs": 1466.8287089999994,
+          "share": 0.05515450166110488
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "elapsedMs": 10116.947459000003,
+          "share": 0.3804092407034601
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "elapsedMs": 5647.460208,
+          "share": 0.21235121150274666
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "elapsedMs": 1555.2656669999997,
+          "share": 0.058479836321509375
+        }
+      ]
+    },
+    {
+      "variant": "optimized",
+      "name": "optimized-warm",
+      "elapsedMs": 17049.838709,
+      "cpuMs": 27643.436,
+      "pngCalls": 14,
+      "pngPixels": 36174132,
+      "pngMs": 1127.4144180000021,
+      "cacheStats": {
+        "reads": 9173,
+        "hits": 9173,
+        "writes": 0
+      },
+      "misses": {
+        "jobs": 0,
+        "texels": 0
+      },
+      "peakRssKiB": 3486624,
+      "fingerprintBefore": "6d0a79edb3546c0c7527174109b6e1176fd4e9c5bd67830b4ab1b1ed41779229",
+      "fingerprintAfter": "6d0a79edb3546c0c7527174109b6e1176fd4e9c5bd67830b4ab1b1ed41779229",
+      "stages": [
+        {
+          "stage": "Procedural dressing",
+          "elapsedMs": 5626.976542,
+          "share": 0.3300310717326447
+        },
+        {
+          "stage": "Surface appearance: validating receivers",
+          "elapsedMs": 1169.7447499999998,
+          "share": 0.06860737922303825
+        },
+        {
+          "stage": "Surface appearance: decoding material images",
+          "elapsedMs": 1261.3954999999996,
+          "share": 0.07398284063145735
+        },
+        {
+          "stage": "Surface appearance: rasterizing materials",
+          "elapsedMs": 2261.8127079999995,
+          "share": 0.13265889177039952
+        },
+        {
+          "stage": "Surface appearance: joining receiver edges",
+          "elapsedMs": 4693.1236659999995,
+          "share": 0.2752591239190238
+        },
+        {
+          "stage": "Mesh parts and finalization",
+          "elapsedMs": 1443.4581250000028,
+          "share": 0.08466110147059942
+        }
+      ]
+    }
+  ],
+  "observedWarmWallReduction": 0.35890581386411147,
+  "remainingRasterWorkReduction": 1.0
+}

@@ -1,0 +1,14 @@
+{
+  "source": "projects/kowloon-restaurant-props/concepts/surfaces-source.png",
+  "sourceSha256": "d02e5d0eb1c44f28ba4ddf6cbcb9a8cc7c168bc3d4b17adb1b7d919c8157ed6a",
+  "recipeSha256": "11a6c0820a2b83114db163a7df4b216a48aa853028d3fa4841718a6828be1cce",
+  "width": 512,
+  "height": 512,
+  "tileSize": 256,
+  "padding": 4,
+  "outputs": {
+    "projects/dressing-demo/textures/restaurant-surfaces.png": "9b6d0d6615db4eca1bbb18fed36989ccd3d950d47928a29cc1274294af72400b",
+    "projects/dressing-demo/textures/restaurant-surfaces-properties.png": "2b34eb6605864c7c3d7b8a0482d7449d6e3fc824d855486d1e275e317237e560"
+  },
+  "channels": "R=unused white, G=roughness, B=metalness. Flat normal: microdetail retained in albedo rather than false relief from color."
+}

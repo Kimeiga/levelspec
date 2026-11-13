@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="1370" viewBox="0 0 1520 1370">
+<rect width="100%" height="100%" fill="#f6f3eb"/>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 7L7 0" stroke="#839297" stroke-width="1"/></pattern><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0L6 3L0 6" fill="#4b7985"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#34474a} .label{font-size:13px;font-weight:bold;paint-order:stroke;stroke:#f6f3eb;stroke-width:3px;stroke-linejoin:round}.small{font-size:11px}.micro{font-size:10px}.note{font-size:14px}.route{fill:none;stroke:#4b7985;stroke-width:2;stroke-dasharray:5 4;marker-end:url(#arrow)}</style>
+<text x="60" y="47" font-size="30" font-weight="bold">BRACKEN QUAY R02 · headhouse / platform-head study</text>
+<text x="60" y="79" font-size="16">Enlarged plan: one continuous floor and two roof heights; broad structural openings replace the old room seams</text>
+<text x="60" y="109" font-size="13">R02 · phase 1 · invented station · return review pending · no AML, navigation or gameplay validation</text>
+<polygon points="92,206 417,154 495,232 495,388 534,479 534,596 443,687 378,713 378,1077 274,1129 131,1025 131,765 170,661 144,557 92,440" fill="#e9ddba" stroke="#34474a" stroke-width="3"/>
+<polygon points="131,219 235,193 248,284 144,310" fill="#c7bfa5" stroke="#34474a" stroke-width="2"/>
+<rect x="378" y="232" width="78" height="91" fill="#c7bfa5" stroke="#34474a" stroke-width="2"/>
+<polygon points="261,362 339,349 378,401 352,466 274,479 235,427" fill="#b4b39c" stroke="#34474a" stroke-width="2"/>
+<rect x="157" y="791" width="91" height="117" fill="#b4b39c" stroke="#34474a" stroke-width="2"/>
+<rect x="157" y="960" width="78" height="65" fill="#b4b39c" stroke="#34474a" stroke-width="2"/>
+<rect x="152.45" y="357.45" width="9.1" height="9.1" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="451.45" y="344.45" width="9.1" height="9.1" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="165.45" y="526.45" width="9.1" height="9.1" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="477.45" y="526.45" width="9.1" height="9.1" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="178.45" y="643.45" width="9.1" height="9.1" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="386.45" y="643.45" width="9.1" height="9.1" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<path d="M183,687L365,687" fill="none" stroke="#7c8d80" stroke-width="1.5" stroke-dasharray="3 4"/>
+<rect x="371.5" y="764.35" width="13" height="14.3" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="371.5" y="887.85" width="13" height="14.3" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="371.5" y="1004.85" width="13" height="14.3" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="371.5" y="1095.85" width="13" height="14.3" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<path d="M378,780.6L378,885.9" fill="none" stroke="#e9ddba" stroke-width="10"/>
+<path d="M378,780.6L378,885.9" fill="none" stroke="#83958a" stroke-width="1.5" stroke-dasharray="3 3"/>
+<path d="M378,904.1L378,1002.9" fill="none" stroke="#e9ddba" stroke-width="10"/>
+<path d="M378,904.1L378,1002.9" fill="none" stroke="#83958a" stroke-width="1.5" stroke-dasharray="3 3"/>
+<path d="M378,1021.1L378,1083.5" fill="none" stroke="#e9ddba" stroke-width="10"/>
+<path d="M378,1021.1L378,1083.5" fill="none" stroke="#83958a" stroke-width="1.5" stroke-dasharray="3 3"/>
+<polygon points="508,427 651,388 703,427 690,531 534,544" fill="#e9ddba" stroke="#a49f89" stroke-width="1"/>
+<polygon points="495,414 651,375 716,427 703,544 521,557" fill="none" stroke="#7c9387" stroke-width="1.5" stroke-dasharray="7 4"/>
+<circle cx="534" cy="427" r="3.9" fill="#34474a" stroke="none" stroke-width="2"/>
+<circle cx="625" cy="407.5" r="3.9" fill="#34474a" stroke="none" stroke-width="2"/>
+<circle cx="683.5" cy="427" r="3.9" fill="#34474a" stroke="none" stroke-width="2"/>
+<circle cx="677" cy="524.5" r="3.9" fill="#34474a" stroke="none" stroke-width="2"/>
+<circle cx="586" cy="537.5" r="3.9" fill="#34474a" stroke="none" stroke-width="2"/>
+<circle cx="527.5" cy="524.5" r="3.9" fill="#34474a" stroke="none" stroke-width="2"/>
+<path d="M508,440L527.5,524.5" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M508,440L527.5,524.5" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M92,310L92,388" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M92,310L92,388" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M131,843L131,934" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M131,843L131,934" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M-38,518L-38,583" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M-38,518L-38,583" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M14,752L79,804" fill="none" stroke="#e9ddba" stroke-width="9"/>
+<path d="M14,752L79,804" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<polygon points="339,518 326,843 365,986" fill="#cfdbc3" stroke="none" stroke-width="2"/>
+<path d="M339,518L365,986" fill="none" stroke="#7d9a71" stroke-width="1.3" stroke-dasharray="4 5"/>
+<text class="label" x="300" y="518" text-anchor="middle" style="font-size:11px;">02–03 · TICKET CONCOURSE</text>
+<text class="label" x="300" y="532" text-anchor="middle" style="font-size:11px;">one high shared volume</text>
+<text class="label" x="183" y="245" text-anchor="middle" style="font-size:10px;">buffet</text>
+<text class="label" x="417" y="271" text-anchor="middle" style="font-size:10px;">luggage</text>
+<text class="label" x="300" y="414" text-anchor="middle" style="font-size:10px;">ticket</text>
+<text class="label" x="300" y="427" text-anchor="middle" style="font-size:10px;">kiosk</text>
+<text class="label" x="313" y="609" text-anchor="middle" style="font-size:10px;">clear floor around kiosk</text>
+<text class="label" x="313" y="622" text-anchor="middle" style="font-size:10px;">onward hall visible south</text>
+<text class="label" x="261" y="752" text-anchor="middle" style="font-size:10px;">06 · buffer hall</text>
+<text class="label" x="261" y="765" text-anchor="middle" style="font-size:10px;">open roof step</text>
+<text class="label" x="196" y="843" text-anchor="middle" style="font-size:9px;">café</text>
+<text class="label" x="196" y="855" text-anchor="middle" style="font-size:9px;">solid flank</text>
+<text class="label" x="261" y="1064" text-anchor="middle" style="font-size:10px;">platform-head arcade →</text>
+<text class="label" x="599" y="466" text-anchor="middle" style="font-size:10px;">07</text>
+<text class="label" x="599" y="479" text-anchor="middle" style="font-size:10px;">open canopy</text>
+<polygon points="378,765 488.5,765 488.5,1155 352,1155 352,1077 378,1077" fill="#d7ddce" stroke="none" stroke-width="2"/>
+<rect x="482" y="778" width="234" height="104" fill="#d7ddce" stroke="#34474a" stroke-width="1"/>
+<path d="M482,780.6L482,879.4" fill="none" stroke="#d7ddce" stroke-width="9"/>
+<path d="M482,780.6L482,879.4" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="482" y="947" width="234" height="104" fill="#d7ddce" stroke="#34474a" stroke-width="1"/>
+<path d="M482,949.6L482,1048.4" fill="none" stroke="#d7ddce" stroke-width="9"/>
+<path d="M482,949.6L482,1048.4" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<rect x="482" y="1116" width="234" height="52" fill="#d7ddce" stroke="#34474a" stroke-width="1"/>
+<path d="M482,1118.6L482,1165.4" fill="none" stroke="#d7ddce" stroke-width="9"/>
+<path d="M482,1118.6L482,1165.4" fill="none" stroke="#4b7985" stroke-width="1.5"/>
+<path d="M501.5,889.8L501.5,928.8" fill="none" stroke="#9a584b" stroke-width="5"/>
+<path d="M508,898.9L716,898.9" fill="none" stroke="#61716f" stroke-width="1.5"/>
+<path d="M508,919.7L716,919.7" fill="none" stroke="#61716f" stroke-width="1.5"/>
+<path d="M501.5,1060.1L501.5,1099.1" fill="none" stroke="#9a584b" stroke-width="5"/>
+<path d="M508,1069.2L716,1069.2" fill="none" stroke="#61716f" stroke-width="1.5"/>
+<path d="M508,1090L716,1090" fill="none" stroke="#61716f" stroke-width="1.5"/>
+<rect x="371.5" y="764.35" width="13" height="14.3" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="371.5" y="887.85" width="13" height="14.3" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="371.5" y="1004.85" width="13" height="14.3" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<rect x="371.5" y="1095.85" width="13" height="14.3" fill="#34474a" stroke="#34474a" stroke-width="0"/>
+<polyline class="route" points="300,492 300,687 300,934 430,986 508,986"/>
+<text class="label" x="560" y="830" text-anchor="middle" style="font-size:11px;">north platform</text>
+<text class="label" x="599" y="1012" text-anchor="middle" style="font-size:11px;">island / z0</text>
+<text class="label" x="482" y="1194" text-anchor="middle" style="font-size:10px;">RED = track buffer stops / no walk across beds</text>
+<path d="M118,986L729,986" fill="none" stroke="#aa6b57" stroke-width="1.5" stroke-dasharray="9 3 2 3"/>
+<text class="label" x="703" y="960" text-anchor="middle" style="font-size:10px;fill:#aa6b57;">P–P</text>
+<path d="M300,193L300,1116" fill="none" stroke="#aa6b57" stroke-width="1.5" stroke-dasharray="9 3 2 3"/>
+<text class="label" x="300" y="180" text-anchor="middle" style="font-size:10px;fill:#aa6b57;">H–H</text>
+<text x="850" y="190" font-size="17" style="fill:#34474a">H–H / ticket hall into buffer hall</text>
+<path d="M855 470H1460M870 470V300L1080 255L1240 300V330H1440V470" fill="#e9ddba" stroke="#34474a" stroke-width="3"/>
+<path d="M1240 330V355M1215 355H1265" fill="none" stroke="#34474a" stroke-width="5"/>
+<rect x="1070" y="390" width="75" height="80" fill="#b4b39c" stroke="#34474a"/>
+<text x="880" y="285" font-size="13" style="fill:#34474a">roof +9</text>
+<text x="1260" y="320" font-size="13" style="fill:#34474a">buffer roof +7</text>
+<text x="1085" y="416" font-size="12" style="fill:#34474a">ticket</text>
+<text x="1085" y="434" font-size="12" style="fill:#34474a">kiosk</text>
+<text x="875" y="495" font-size="13" style="fill:#34474a">02–03: shared floor / same room</text>
+<text x="875" y="514" font-size="13" style="fill:#34474a">Open roof step to 06; beam at +5.5</text>
+<text x="875" y="533" font-size="13" style="fill:#34474a">continues overhead, with no partition below.</text>
+<text x="850" y="610" font-size="17" style="fill:#34474a">P–P / buffer hall → apron → island</text>
+<path d="M855 865H1460M875 865V735H1100V700Q1270 620 1450 700V865" fill="#e9ddba" stroke="#34474a" stroke-width="3"/>
+<path d="M1100 865V805Q1100 765 1140 765Q1180 765 1180 805V865" fill="none" stroke="#85968a" stroke-width="3" stroke-dasharray="4 4"/>
+<rect x="900" y="795" width="75" height="70" fill="#b4b39c" stroke="#34474a"/>
+<path d="M1100 865H1460" stroke="#b1c4a8" stroke-width="7"/>
+<text x="885" y="892" font-size="13" style="fill:#34474a">06 / z0</text>
+<text x="1105" y="892" font-size="13" style="fill:#34474a">apron / z0</text>
+<text x="1300" y="892" font-size="13" style="fill:#34474a">island / z0</text>
+<text x="880" y="925" font-size="13" style="fill:#34474a">Arcade bay is open to the shed; pier positions are</text>
+<text x="880" y="944" font-size="13" style="fill:#34474a">shown in plan. Continuous floor joins the island</text>
+<text x="880" y="963" font-size="13" style="fill:#34474a">west of the red buffer-stop line at x65.5 m.</text>
+<text x="880" y="982" font-size="13" style="fill:#34474a">Rail beds terminate beside the apron, never across it.</text>
+<text x="850" y="1085" font-size="13" style="fill:#34474a">ENCLOSURE / ORIENTATION</text>
+<text x="850" y="1104" font-size="13" style="fill:#34474a">Heavy perimeter = full wall. Solid islands = full-height rooms/kiosk.</text>
+<text x="850" y="1123" font-size="13" style="fill:#34474a">Dotted cross-lines = overhead beams / arches, no low partition.</text>
+<text x="850" y="1142" font-size="13" style="fill:#34474a">Green plan cone = provisional architectural orientation toward shed.</text>
+<text x="850" y="1161" font-size="13" style="fill:#34474a">07 has columns and a roof but open long sides; it faces the court.</text>
+<text x="850" y="1180" font-size="13" style="fill:#34474a">This is not a measured combat visibility study.</text>
+<text x="60" y="1315" font-size="13" style="fill:#34474a">Same XY as the whole-map plan; enlarged approximately 13 px/m. H–H and P–P are schematic architectural sections with labeled datums.</text>
+</svg>

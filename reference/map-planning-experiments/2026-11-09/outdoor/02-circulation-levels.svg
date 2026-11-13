@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1250" viewBox="0 0 1600 1250">
+<rect width="100%" height="100%" fill="#fbfaf5"/>
+<defs>
+ <pattern id="roof" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="8" height="8" fill="#f5e7bc"/><path d="M0 0V8" stroke="#cbb776" stroke-width="1"/></pattern>
+ <pattern id="water" width="26" height="20" patternUnits="userSpaceOnUse"><rect width="26" height="20" fill="#d1e4e6"/><path d="M2 11h13" stroke="#a7c9cd" stroke-width="1"/></pattern>
+ <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#217c83"/></marker>
+ <marker id="rustarrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b55a34"/></marker>
+ <style>text{font-family:Arial,Helvetica,sans-serif;fill:#28343a} .label{font-size:15px;font-weight:600;paint-order:stroke;stroke:#fbfaf5;stroke-width:4px;stroke-linejoin:round} .small{font-size:13px} .tiny{font-size:11px} .masslabel{font-size:13px;font-weight:600;fill:#465256} .heading{font-size:31px;font-weight:700;letter-spacing:1px} .sub{font-size:16px;fill:#55656a}</style>
+ </defs>
+<text x="64.00" y="57.00" text-anchor="start" font-size="19" font-weight="700">
+<tspan x="64.00" dy="0.00">SALTTURN  /  02</tspan>
+</text>
+<text x="64.00" y="99.00" text-anchor="start" font-size="30" font-weight="700">
+<tspan x="64.00" dy="0.00">CIRCULATION &amp; LEVELS</tspan>
+</text>
+<text x="64.00" y="132.00" text-anchor="start" font-size="16" fill="#59686b">
+<tspan x="64.00" dy="0.00">Same P02 geometry · illustrative traversable intentions, not verified routes</tspan>
+</text>
+<rect x="64.00" y="243.00" width="1148.00" height="812.00" fill="#e3e5de" stroke="none" stroke-width="0"/>
+<polygon points="64.00,1055.00 1212.00,1055.00 1212.00,243.00 1114.00,243.00 1114.00,285.00 1170.00,383.00 1170.00,796.00 1065.00,915.00 890.00,999.00 64.00,999.00" fill="url(#water)" stroke="none" stroke-width="0"/>
+<polygon points="106.00,999.00 890.00,999.00 1065.00,915.00 1170.00,796.00 1170.00,383.00 1114.00,285.00 106.00,285.00" fill="#f5efdf" stroke="#28343a" stroke-width="4"/>
+<polyline points="113.00,859.00 1149.00,859.00" fill="none" stroke="#e2ddce" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="113.00,614.00 1149.00,614.00" fill="none" stroke="#e2ddce" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="113.00,369.00 1149.00,369.00" fill="none" stroke="#e2ddce" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="575.00,530.00 764.00,530.00 764.00,488.00 652.00,488.00 652.00,376.00 575.00,376.00" fill="url(#roof)" stroke="#28343a" stroke-width="1.7"/>
+<rect x="295.00" y="649.00" width="28.00" height="161.00" fill="url(#roof)" stroke="#28343a" stroke-width="1"/>
+<rect x="827.00" y="670.00" width="161.00" height="28.00" fill="url(#roof)" stroke="#28343a" stroke-width="1"/>
+<rect x="841.00" y="670.00" width="133.00" height="28.00" fill="#dfc783" stroke="#28343a" stroke-width="1.6"/>
+<rect x="803.20" y="670.00" width="37.80" height="28.00" fill="#eee1b7" stroke="#28343a" stroke-width="1"/>
+<rect x="974.00" y="670.00" width="37.80" height="28.00" fill="#eee1b7" stroke="#28343a" stroke-width="1"/>
+<polyline points="807.40,684.00 837.50,684.00" fill="none" stroke="#217c83" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<polyline points="1007.60,684.00 977.50,684.00" fill="none" stroke="#217c83" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<polygon points="106.00,817.00 218.00,817.00 218.00,670.00 106.00,670.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="106.00,586.00 218.00,586.00 218.00,334.00 106.00,334.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="106.00,999.00 176.00,999.00 176.00,845.00 106.00,845.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="323.00,817.00 407.00,817.00 435.00,747.00 407.00,635.00 323.00,635.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="309.00,586.00 449.00,586.00 449.00,565.00 533.00,565.00 533.00,495.00 372.00,495.00 372.00,509.00 309.00,509.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="232.00,390.00 393.00,390.00 393.00,285.00 232.00,285.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="393.00,327.00 771.00,327.00 771.00,285.00 393.00,285.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="652.00,488.00 764.00,488.00 764.00,376.00 652.00,376.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="512.00,803.00 764.00,803.00 764.00,712.00 687.00,712.00 673.00,649.00 540.00,649.00 484.00,712.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="428.00,999.00 701.00,999.00 701.00,852.00 645.00,852.00 645.00,915.00 519.00,915.00 484.00,887.00 428.00,887.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="757.00,999.00 869.00,999.00 869.00,880.00 757.00,880.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="806.00,670.00 974.00,670.00 1044.00,593.00 1030.00,467.00 855.00,467.00 792.00,544.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="911.00,887.00 1037.00,928.44 1135.00,835.69 1079.00,775.00 960.00,810.00 911.00,845.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="897.00,348.00 1149.98,348.00 1114.00,285.00 897.00,285.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<polygon points="701.00,621.00 764.00,621.00 764.00,544.00 701.00,544.00" fill="#b3bab8" stroke="#28343a" stroke-width="2"/>
+<rect x="572.90" y="520.90" width="4.20" height="4.20" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="572.90" y="478.90" width="4.20" height="4.20" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="572.90" y="436.90" width="4.20" height="4.20" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="572.90" y="394.90" width="4.20" height="4.20" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="572.90" y="376.70" width="4.20" height="4.20" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="663.90" y="527.90" width="4.20" height="4.20" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="705.90" y="527.90" width="4.20" height="4.20" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="747.90" y="527.90" width="4.20" height="4.20" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="293.60" y="787.60" width="2.80" height="2.80" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="293.60" y="745.60" width="2.80" height="2.80" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="293.60" y="703.60" width="2.80" height="2.80" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<rect x="293.60" y="661.60" width="2.80" height="2.80" fill="#28343a" stroke="#28343a" stroke-width="0.5"/>
+<polyline points="176.00,994.10 890.00,994.10 1061.50,910.80 1165.10,793.90 1165.10,385.10" fill="none" stroke="#4c7075" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="197.00" y="866.00" width="168.00" height="98.00" fill="none" stroke="#b55a34" stroke-width="2"/>
+<rect x="1044.00" y="362.00" width="105.00" height="70.00" fill="none" stroke="#217c83" stroke-width="2"/>
+<circle cx="505" cy="453" r="14.700000000000001" fill="#fbfaf5" stroke="#b55a34" stroke-width="3"/>
+<text x="505.00" y="458.00" text-anchor="middle" font-size="18" font-weight="700">
+<tspan x="505.00" dy="0.00">A</tspan>
+</text>
+<circle cx="1030" cy="729.5" r="14.700000000000001" fill="#fbfaf5" stroke="#b55a34" stroke-width="3"/>
+<text x="1030.00" y="734.50" text-anchor="middle" font-size="18" font-weight="700">
+<tspan x="1030.00" dy="0.00">B</tspan>
+</text>
+<polyline points="281.00,894.00 260.00,761.00 260.00,635.00 260.00,481.00 323.00,439.00 477.00,439.00" fill="none" stroke="#fbfaf5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="281.00,894.00 260.00,761.00 260.00,635.00 260.00,481.00 323.00,439.00 477.00,439.00" fill="none" stroke="#217c83" stroke-width="3.2" stroke-dasharray="9 5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<polyline points="330.00,894.00 414.00,859.00 547.00,859.00 631.00,827.50 715.00,827.50 785.00,827.50 820.00,782.00 876.00,747.00 1009.00,733.00" fill="none" stroke="#fbfaf5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="330.00,894.00 414.00,859.00 547.00,859.00 631.00,827.50 715.00,827.50 785.00,827.50 820.00,782.00 876.00,747.00 1009.00,733.00" fill="none" stroke="#b55a34" stroke-width="3.2" stroke-dasharray="9 5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#rustarrow)"/>
+<polyline points="470.00,705.00 477.00,649.00 498.00,621.00 603.00,600.00 666.00,628.00 785.00,642.00 785.00,712.00 820.00,726.00 911.00,733.00" fill="none" stroke="#fbfaf5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="470.00,705.00 477.00,649.00 498.00,621.00 603.00,600.00 666.00,628.00 785.00,642.00 785.00,712.00 820.00,726.00 911.00,733.00" fill="none" stroke="#217c83" stroke-width="3.2" stroke-dasharray="9 5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<polyline points="1093.00,404.00 1044.00,425.00 862.00,425.00 813.00,376.00 638.00,355.00 505.00,369.00 505.00,425.00" fill="none" stroke="#fbfaf5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1093.00,404.00 1044.00,425.00 862.00,425.00 813.00,376.00 638.00,355.00 505.00,369.00 505.00,425.00" fill="none" stroke="#217c83" stroke-width="3.2" stroke-dasharray="9 5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<polyline points="1100.00,418.00 1121.00,481.00 1121.00,628.00 1107.00,712.00 1051.00,726.00" fill="none" stroke="#fbfaf5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1100.00,418.00 1121.00,481.00 1121.00,628.00 1107.00,712.00 1051.00,726.00" fill="none" stroke="#217c83" stroke-width="3.2" stroke-dasharray="9 5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<polyline points="498.00,460.00 610.00,460.00 610.00,509.00 680.00,509.00 785.00,509.00 785.00,593.00 785.00,642.00" fill="none" stroke="#fbfaf5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="498.00,460.00 610.00,460.00 610.00,509.00 680.00,509.00 785.00,509.00 785.00,593.00 785.00,642.00" fill="none" stroke="#217c83" stroke-width="3.2" stroke-dasharray="9 5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="260.00" y="712.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="260.00" dy="0.00">02 · BACK LANE</tspan>
+</text>
+<text x="295.00" y="467.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="295.00" dy="0.00">05 · RETAIL BEND</tspan>
+</text>
+<text x="463.00" y="411.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="463.00" dy="0.00">06 · AUCTION COURT</tspan>
+</text>
+<text x="610.00" y="579.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="610.00" dy="0.00">08 · WASH COURT</tspan>
+</text>
+<text x="547.00" y="880.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="547.00" dy="0.00">11 · NET COURT</tspan>
+</text>
+<text x="841.00" y="845.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="841.00" dy="0.00">12 · REPAIR COURT</tspan>
+</text>
+<text x="869.00" y="726.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="869.00" dy="0.00">10 · WEIGHBRIDGE YARD</tspan>
+</text>
+<text x="1030.00" y="769.40" text-anchor="middle" font-size="13" class="label">
+<tspan x="1030.00" dy="0.00">14 · ICE APRON</tspan>
+</text>
+<text x="1100.00" y="586.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="1100.00" dy="0.00">15 · SEA WALK</tspan>
+</text>
+<text x="813.00" y="439.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="813.00" dy="0.00">16 · CUSTOMS</tspan>
+</text>
+<text x="554.00" y="344.50" text-anchor="middle" font-size="13" class="label">
+<tspan x="554.00" dy="0.00">19 · BACK LANE</tspan>
+</text>
+<text x="274.00" y="936.00" text-anchor="middle" font-size="13" class="label">
+<tspan x="274.00" dy="0.00">ATTACKER SPAWN</tspan>
+</text>
+<text x="1079.00" y="379.50" text-anchor="middle" font-size="13" class="label">
+<tspan x="1079.00" dy="0.00">DEFENDER SPAWN</tspan>
+</text>
+<text x="449.00" y="467.00" text-anchor="middle" font-size="11" font-weight="700">
+<tspan x="449.00" dy="0.00">z 0.00</tspan>
+</text>
+<text x="582.00" y="614.00" text-anchor="middle" font-size="11" font-weight="700">
+<tspan x="582.00" dy="0.00">z 0.00</tspan>
+</text>
+<text x="827.00" y="775.00" text-anchor="middle" font-size="11" font-weight="700">
+<tspan x="827.00" dy="0.00">z 0.00</tspan>
+</text>
+<text x="1079.00" y="677.00" text-anchor="middle" font-size="11" font-weight="700">
+<tspan x="1079.00" dy="0.00">z 0.00</tspan>
+</text>
+<text x="904.00" y="684.00" text-anchor="middle" font-size="11" font-weight="700">
+<tspan x="904.00" dy="0.00">z +0.45</tspan>
+</text>
+<polyline points="554.00,593.00 554.00,509.00 519.00,467.00" fill="none" stroke="#217c83" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<text x="554.00" y="502.00" text-anchor="middle" font-size="9.5" font-weight="700">
+<tspan x="554.00" dy="0.00">20</tspan>
+<tspan x="554.00" dy="11.40">CART</tspan>
+<tspan x="554.00" dy="11.40">GATE</tspan>
+</text>
+<text x="673.00" y="812.10" text-anchor="middle" font-size="13" class="label">
+<tspan x="673.00" dy="0.00">21 · DISPATCH THROAT</tspan>
+</text>
+<text x="1250.00" y="220.00" text-anchor="start" font-size="16" font-weight="700">
+<tspan x="1250.00" dy="0.00">READ THE ROUTES</tspan>
+</text>
+<text x="1250.00" y="250.00" text-anchor="start" font-size="14">
+<tspan x="1250.00" dy="0.00">Dashed lines indicate intended</tspan>
+<tspan x="1250.00" dy="16.80">ground-level movement through</tspan>
+<tspan x="1250.00" dy="16.80">the drawn open space. They do not</tspan>
+<tspan x="1250.00" dy="16.80">define exclusive lanes or a navmesh.</tspan>
+</text>
+<text x="1250.00" y="357.00" text-anchor="start" font-size="14" font-weight="700">
+<tspan x="1250.00" dy="0.00">NAMED CONNECTIONS</tspan>
+</text>
+<text x="1250.00" y="388.00" text-anchor="start" font-size="14">
+<tspan x="1250.00" dy="0.00">Retail: Road court → Back lane →</tspan>
+<tspan x="1250.00" dy="16.80">Lantern elbow → Auction court</tspan>
+<tspan x="1250.00" dy="16.80"></tspan>
+<tspan x="1250.00" dy="16.80">Delivery: Road court → Net court →</tspan>
+<tspan x="1250.00" dy="16.80">Dispatch throat → Repair court →</tspan>
+<tspan x="1250.00" dy="16.80">Weighbridge yard → Ice apron</tspan>
+<tspan x="1250.00" dy="16.80"></tspan>
+<tspan x="1250.00" dy="16.80">Cross-district: Fillet walk → Wash</tspan>
+<tspan x="1250.00" dy="16.80">court → Scales cut → Weighbridge</tspan>
+<tspan x="1250.00" dy="16.80"></tspan>
+<tspan x="1250.00" dy="16.80">A through-route: Auction court →</tspan>
+<tspan x="1250.00" dy="16.80">Loggia → Customs / Scales cut</tspan>
+<tspan x="1250.00" dy="16.80"></tspan>
+<tspan x="1250.00" dy="16.80">Defender return: Service yard →</tspan>
+<tspan x="1250.00" dy="16.80">Market back lane, or Sea walk</tspan>
+</text>
+<text x="1250.00" y="767.00" text-anchor="start" font-size="14" font-weight="700">
+<tspan x="1250.00" dy="0.00">LEVEL TRANSFERS</tspan>
+</text>
+<text x="1250.00" y="799.00" text-anchor="start" font-size="14">
+<tspan x="1250.00" dy="0.00">All main connections remain z 0.00.</tspan>
+<tspan x="1250.00" dy="16.80">Loading ledge rises 0.45 m via two</tspan>
+<tspan x="1250.00" dy="16.80">5.4 × 4.0 m end ramps (1:12).</tspan>
+<tspan x="1250.00" dy="16.80">No stairs, jump gates, drops,</tspan>
+<tspan x="1250.00" dy="16.80">roof access or stacked crossings.</tspan>
+</text>
+<text x="1250.00" y="925.00" text-anchor="start" font-size="14" font-weight="700">
+<tspan x="1250.00" dy="0.00">OPEN QUESTIONS</tspan>
+</text>
+<text x="1250.00" y="957.00" text-anchor="start" font-size="14">
+<tspan x="1250.00" dy="0.00">Route competition and exposure,</tspan>
+<tspan x="1250.00" dy="16.80">movement/contact times, plant</tspan>
+<tspan x="1250.00" dy="16.80">areas, engine body and utility rules</tspan>
+<tspan x="1250.00" dy="16.80">remain for subsequent development.</tspan>
+</text>
+<rect x="88" y="1150" width="35" height="9" fill="#28343a" stroke="#28343a"/>
+<rect x="123" y="1150" width="35" height="9" fill="#fbfaf5" stroke="#28343a"/>
+<rect x="158" y="1150" width="35" height="9" fill="#28343a" stroke="#28343a"/>
+<rect x="193" y="1150" width="35" height="9" fill="#fbfaf5" stroke="#28343a"/>
+<text x="88.00" y="1178.00" text-anchor="middle" font-size="12">
+<tspan x="88.00" dy="0.00">0</tspan>
+</text>
+<text x="158.00" y="1178.00" text-anchor="middle" font-size="12">
+<tspan x="158.00" dy="0.00">10</tspan>
+</text>
+<text x="228.00" y="1178.00" text-anchor="middle" font-size="12">
+<tspan x="228.00" dy="0.00">20 m</tspan>
+</text>
+<text x="400.00" y="1170.00" text-anchor="start" font-size="13">
+<tspan x="400.00" dy="0.00">Plan envelope ≈ 152 × 102 m · do not scale a raster screenshot</tspan>
+</text>
+<text x="64.00" y="1221.00" text-anchor="start" font-size="12" fill="#68767b">
+<tspan x="64.00" dy="0.00">P02 · Scale and dimensions describe this proposal; they are not engine measurements.</tspan>
+</text>
+</svg>

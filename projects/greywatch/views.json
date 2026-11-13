@@ -1,0 +1,241 @@
+[
+  {
+    "id": "overview",
+    "position": [
+      125,
+      -100,
+      130
+    ],
+    "target": [
+      42,
+      45,
+      1.5
+    ],
+    "projection": "orthographic",
+    "viewHeight": 105,
+    "appearance": "full-render"
+  },
+  {
+    "id": "reverse",
+    "position": [
+      -65,
+      135,
+      100
+    ],
+    "target": [
+      42,
+      46,
+      2
+    ],
+    "projection": "orthographic",
+    "viewHeight": 110,
+    "appearance": "materials"
+  },
+  {
+    "id": "plan",
+    "position": [
+      42,
+      45,
+      140
+    ],
+    "target": [
+      42,
+      45,
+      0
+    ],
+    "projection": "orthographic",
+    "viewHeight": 102
+  },
+  {
+    "id": "t-gate",
+    "position": [
+      40,
+      8,
+      1.86
+    ],
+    "target": [
+      40,
+      17,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "a-entry",
+    "position": [
+      14.5,
+      53,
+      1.86
+    ],
+    "target": [
+      18,
+      68,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "a-retake",
+    "position": [
+      24.5,
+      76,
+      1.86
+    ],
+    "target": [
+      18,
+      64,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "bridge-west",
+    "position": [
+      27,
+      41,
+      4.86
+    ],
+    "target": [
+      56,
+      41,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "bridge-east",
+    "position": [
+      55,
+      41,
+      4.86
+    ],
+    "target": [
+      26,
+      41,
+      4.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "bridge-crouch",
+    "position": [
+      39,
+      41,
+      4.023
+    ],
+    "target": [
+      51,
+      41,
+      4.023
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "underpass-south",
+    "position": [
+      41,
+      35,
+      1.86
+    ],
+    "target": [
+      41,
+      48,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "underpass-north",
+    "position": [
+      43,
+      49,
+      1.86
+    ],
+    "target": [
+      42,
+      33,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "chapel-entry",
+    "position": [
+      64.5,
+      55,
+      1.86
+    ],
+    "target": [
+      67,
+      69,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "chapel-retake",
+    "position": [
+      62.5,
+      76,
+      1.86
+    ],
+    "target": [
+      66,
+      63,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "east-stair",
+    "position": [
+      56,
+      41,
+      4.86
+    ],
+    "target": [
+      65,
+      61,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  },
+  {
+    "id": "west-stair",
+    "position": [
+      26,
+      46,
+      4.86
+    ],
+    "target": [
+      27,
+      62,
+      1.86
+    ],
+    "projection": "perspective",
+    "fov": 65,
+    "frameAspect": 1.5696855771174902
+  }
+]

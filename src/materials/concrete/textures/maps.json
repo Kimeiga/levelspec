@@ -1,0 +1,7 @@
+{
+  "signature": "b3eb34e0572e80c6490997124505ca3b3f0ca22362427eac20beb2511e2f3277",
+  "meters": 8,
+  "pixels": 2048,
+  "roughness": 0.96,
+  "description": "Shared concrete intrinsic albedo and tangent normals. No lighting, shadows or AO."
+}

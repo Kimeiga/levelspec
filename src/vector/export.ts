@@ -1,44 +1,74 @@
 import { collisionMesh, selectMesh } from "./collision.ts";
-import type { CompiledLevel, V3 } from "./types.ts";
-import { escapeXML } from "./format.ts";
+import type { CompiledLevel, Material, V3 } from "./types.ts";
+import { escapeXML } from "./xml.ts";
+import { materialTangents } from "./tangents.ts";
 import {
   assertExportable,
   exportName,
   exportMetadata,
+  generatedImageManifest,
+  usedExportMaterialIds,
   type ExportOptions,
   type ExportFiles,
 } from "./export-assets.ts";
 /** Generated transport, not an authoring format. */
 export function toRuntime(level: CompiledLevel) {
   return {
-    version: "2",
+    version: "4",
+    ...(level.provenance
+      ? {
+          architecturalProvenance: level.provenance,
+          sourceProfiles: level.sourceProfiles,
+        }
+      : {}),
     id: level.document.id,
     name: level.document.name,
     coordinateSystem: "right-handed Z-up",
     geometryHash: level.geometryHash,
     mesh: level.mesh,
+    ...(level.physicalMesh ? { collision: collisionMesh(level, true) } : {}),
     meshes: level.parts,
     surfaces: level.surfaces,
     materials: level.document.materials,
+    ...(level.generatedImages ? { generatedImages: generatedImageManifest(level) } : {}),
     layers: level.document.layers.map((l) => ({ id: l.id, label: l.label })),
     markers: level.document.markers,
-    props: level.document.props,
     assets: level.document.assets,
     references: level.document.references,
     lights: level.document.lights,
     sky: level.document.sky,
+    timeOfDay: level.document.timeOfDay,
     atlas: level.atlas,
     navigation: level.navigation,
     waterNavigation: level.waterNavigation,
     validation: level.document.validation ?? "playable",
     repairs: level.repairs ?? [],
     water: level.water,
+    terrainTiles: level.terrainTiles,
+    ...(level.terrainTiles?.length ? { physicalMesh: level.physicalMesh } : {}),
+    spatialVolumes: level.spatialVolumes,
     boat: level.document.boat,
     diagnostics: level.diagnostics,
     stats: level.stats,
   };
 }
+/** Returns why these materials cannot be represented by the current OBJ writer. */
+export function objMaterialError(materials: Material[]): string | undefined {
+  if (materials.some(material => material.emissive && (material.emissiveStrength ?? 1) > 0))
+    return "Emissive materials currently export through GLB or glTF, not OBJ.";
+  if (materials.some(material => material.normalTexture))
+    return "Normal-mapped materials currently export through GLB or glTF, not OBJ.";
+  if (materials.some(material => material.alphaCutoff !== undefined))
+    return "Materials with an alpha cutoff currently export through GLB or glTF, not OBJ.";
+  if (materials.some(material => material.metallicRoughnessTexture))
+    return "Metallic-roughness textures currently export through GLB or glTF, not OBJ.";
+  if (materials.some(material => (material.opacity ?? 1) < 1))
+    return "Alpha-blended materials currently export through GLB or glTF, not OBJ.";
+}
+
 export function toOBJ(level: CompiledLevel): string {
+  const materialError = objMaterialError(level.document.materials);
+  if (materialError) throw new Error(materialError);
   const m = selectMesh(level, (surface) => surface.visible !== false),
     lines = [
       `# LevelSpec 2 ${level.document.id}`,
@@ -77,23 +107,41 @@ function stairPlanPaths(level: CompiledLevel, floors: CompiledLevel["floors"]) {
     ),
   );
   for (const floor of floors.filter((f) => stairIds.has(f.region))) {
-    const edges = new Map<string, { a: V3; b: V3; low: number; high: number }>();
-    const xy = (p: V3) => p.slice(0, 2).map((n) => Math.round(n * 1e6)).join(",");
+    const edges = new Map<
+      string,
+      { a: V3; b: V3; low: number; high: number }
+    >();
+    const xy = (p: V3) =>
+      p
+        .slice(0, 2)
+        .map((n) => Math.round(n * 1e6))
+        .join(",");
     for (const tri of floor.triangles)
       for (let i = 0; i < 3; i++) {
-        const a = floor.points[tri[i]], b = floor.points[tri[(i + 1) % 3]];
+        const a = floor.points[tri[i]],
+          b = floor.points[tri[(i + 1) % 3]];
         if (Math.abs(a[2] - b[2]) > 1e-5) continue;
-        const key = [xy(a), xy(b)].sort().join("/"), previous = edges.get(key);
-        edges.set(key, { a, b, low: Math.min(a[2], previous?.low ?? a[2]), high: Math.max(a[2], previous?.high ?? a[2]) });
+        const key = [xy(a), xy(b)].sort().join("/"),
+          previous = edges.get(key);
+        edges.set(key, {
+          a,
+          b,
+          low: Math.min(a[2], previous?.low ?? a[2]),
+          high: Math.max(a[2], previous?.high ?? a[2]),
+        });
       }
     const risers = [...edges.values()].filter((e) => e.high - e.low > 1e-4);
     if (risers.length)
-      body.push(`<path class="stair-treads" data-object="${escapeXML(floor.region)}" data-layer="${escapeXML(floor.layer)}" d="${risers.map(({ a, b }) => `M ${a[0]} ${-a[1]} L ${b[0]} ${-b[1]}`).join(" ")}" fill="none" stroke="#526d80" stroke-width="0.06" pointer-events="none"/>`);
+      body.push(
+        `<path class="stair-treads" data-object="${escapeXML(floor.region)}" data-layer="${escapeXML(floor.layer)}" d="${risers.map(({ a, b }) => `M ${a[0]} ${-a[1]} L ${b[0]} ${-b[1]}`).join(" ")}" fill="none" stroke="#526d80" stroke-width="0.06" pointer-events="none"/>`,
+      );
   }
   return body;
 }
 export function toSVGPlan(level: CompiledLevel, layer?: string): string {
-  const floors = [...level.floors, ...(level.water ?? [])].filter((f) => !layer || f.layer === layer),
+  const floors = [...level.floors, ...(level.water ?? [])].filter(
+      (f) => !layer || f.layer === layer,
+    ),
     points = floors.flatMap((f) => f.points),
     xs = points.map((p) => p[0]),
     ys = points.map((p) => p[1]),
@@ -103,20 +151,24 @@ export function toSVGPlan(level: CompiledLevel, layer?: string): string {
     maxY = Math.max(1, ...ys) + 1;
   const loop = (p: V3[]) =>
     `M ${p.map((v) => `${v[0]} ${-v[1]}`).join(" L ")} Z`;
-  const waterIds = new Set((level.water ?? []).map(f => f.region));
+  const waterIds = new Set((level.water ?? []).map((f) => f.region));
   const body = floors.map(
     (f, i) =>
-      `<path data-object="${escapeXML(f.region)}" data-layer="${escapeXML(f.layer)}" d="${f.loops.map(loop).join(" ")}" fill="${waterIds.has(f.region) ? '#398cc9' : `hsl(${205 + ((i * 19) % 85)} 28% 79%)`}" fill-rule="evenodd" stroke="#829cae" stroke-width="0.04"><title>${escapeXML(f.region)}</title></path>`,
+      `<path data-object="${escapeXML(f.region)}" data-layer="${escapeXML(f.layer)}" d="${f.loops.map(loop).join(" ")}" fill="${waterIds.has(f.region) ? "#398cc9" : `hsl(${205 + ((i * 19) % 85)} 28% 79%)`}" fill-rule="evenodd" stroke="#829cae" stroke-width="0.04"><title>${escapeXML(f.region)}</title></path>`,
   );
-  body.push(...stairPlanPaths(level,floors));
-  const retainingEdges = new Set(level.document.seams.flatMap(s => s.edges));
+  body.push(...stairPlanPaths(level, floors));
+  const retainingEdges = new Set(
+    level.surfaces
+      .filter((surface) => surface.role === "retaining-wall")
+      .map((surface) => surface.object),
+  );
   for (const l of level.document.layers.filter((l) => !layer || l.id === layer))
     for (const e of l.edges) {
       const p = level.curves[e.id];
       if (!p) continue;
       const retaining = retainingEdges.has(e.id);
       body.push(
-        `<polyline data-object="${escapeXML(e.id)}" data-layer="${escapeXML(l.id)}" points="${p.map((v) => `${v[0]},${-v[1]}`).join(" ")}" fill="none" stroke="${retaining ? '#776451' : e.kind === "open" ? "#79adba" : e.kind === "door" ? "#bc690d" : "#233749"}" stroke-linejoin="${e.join ?? "miter"}" stroke-linecap="${e.join === "round" ? "round" : "butt"}" stroke-width="${e.kind === "open" && !retaining ? 0.045 : (e.thickness ?? level.document.wallThickness)}"${e.kind === "open" && !retaining ? ' stroke-dasharray=".2 .2"' : ""}/>`,
+        `<polyline data-object="${escapeXML(e.id)}" data-layer="${escapeXML(l.id)}" points="${p.map((v) => `${v[0]},${-v[1]}`).join(" ")}" fill="none" stroke="${retaining ? "#776451" : e.kind === "open" ? "#79adba" : e.kind === "door" ? "#bc690d" : "#233749"}" stroke-linejoin="${e.join ?? "miter"}" stroke-linecap="${e.join === "round" ? "round" : "butt"}" stroke-width="${e.kind === "open" && !retaining ? 0.045 : (e.thickness ?? level.document.wallThickness)}"${e.kind === "open" && !retaining ? ' stroke-dasharray=".2 .2"' : ""}/>`,
       );
     }
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${minX} ${-maxY} ${maxX - minX} ${maxY - minY}" role="img" aria-label="Floor plan"><g>${body.join("")}</g></svg>`;
@@ -127,6 +179,7 @@ function buildGLTF(
   options: ExportOptions,
   embedded: boolean,
 ) {
+  options = { ...options, assets: { ...level.generatedImages, ...options.assets } };
   assertExportable(level, options);
   const purpose = options.purpose ?? "visual",
     m =
@@ -180,8 +233,7 @@ function buildGLTF(
     accessors.push(acc);
     return accessors.length - 1;
   };
-  // Compiled/Blender UVs are bottom-left; glTF samples images from top-left.
-  // Reflect V once, and reflect tangent handedness with material UVs.
+  // Image origin changes in glTF; authored +Y normal maps retain their tangent frame.
   const gltfUV = (uv: number[]) =>
     new Float32Array(uv.map((v, i) => (i % 2 ? 1 - v : v)));
   const attributes: Record<string, number> = {
@@ -189,41 +241,48 @@ function buildGLTF(
     NORMAL: add(new Float32Array(m.normals), "VEC3", 3),
     TEXCOORD_0: add(gltfUV(m.uv), "VEC2", 2),
   };
+  if (m.colors) attributes.COLOR_0 = add(new Float32Array(m.colors), "VEC3", 3);
   if (m.uv1) attributes.TEXCOORD_1 = add(gltfUV(m.uv1), "VEC2", 2);
-  if (m.tangents)
+  const tangents = m.tangents ?? (purpose !== "collision" && level.document.materials.some(material => material.normalTexture) ? materialTangents(m) : undefined);
+  if (tangents)
     attributes.TANGENT = add(
-      new Float32Array(m.tangents.map((v, i) => (i % 4 === 3 ? -v : v))),
+      new Float32Array(tangents),
       "VEC4",
       4,
     );
   const groups = new Map<string, number[]>();
   for (let t = 0; t < m.surfaces.length; t++) {
     const s = level.surfaces[m.surfaces[t]];
-    if (purpose === "collision" ? s.collidable === false : s.visible === false) continue;
+    if (purpose === "collision" ? s.collidable === false : s.visible === false)
+      continue;
     const key = JSON.stringify([
-        s.mesh,
-        s.object,
-        s.material,
-        m.atlasPages?.[t] ?? -1,
-      ]);
+      s.mesh,
+      s.object,
+      s.material,
+      m.atlasPages?.[t] ?? -1,
+    ]);
     const triangles = groups.get(key) ?? [];
     triangles.push(t);
     groups.set(key, triangles);
   }
-  const mats = [
+  const usedMaterialIds = usedExportMaterialIds(level, [...groups.values()].map(triangles => m.surfaces[triangles[0]]));
+  const mats: Material[] = [
     ...(!level.document.materials.some((m) => m.id === "default")
       ? [
           {
             id: "default",
             color: "#b9c7d1",
+            repeat: 1,
             roughness: 0.8,
             metalness: 0,
             texture: undefined as string | undefined,
+            normalTexture: undefined as string | undefined,
+            normalScale: undefined as number | undefined,
           },
         ]
       : []),
     ...level.document.materials,
-  ];
+  ].filter(material => usedMaterialIds.has(material.id));
   const images: any[] = [],
     textures: any[] = [],
     imageIndex = new Map<string, number>();
@@ -258,18 +317,34 @@ function buildGLTF(
     c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
   const materials = mats.map((m) => ({
     name: m.id,
+    ...(purpose !== "collision" && "alphaCutoff" in m && m.alphaCutoff !== undefined
+      ? { alphaMode: "MASK", alphaCutoff: m.alphaCutoff }
+      : {}),
+    ...(purpose !== "collision" && (m.opacity ?? 1) < 1
+      ? { alphaMode: "BLEND" }
+      : {}),
+    ...(purpose !== "collision" && m.normalTexture
+      ? { normalTexture: { index: texture(m.normalTexture), texCoord: 0, scale: m.normalScale ?? 1 } }
+      : {}),
+    ...(purpose !== "collision" && m.emissive ? {
+      emissiveFactor: m.emissive.slice(1).match(/../g)!.map(c => linear(parseInt(c, 16) / 255) * Math.min(1, m.emissiveStrength ?? 1)),
+      ...((m.emissiveStrength ?? 1) > 1 ? { extensions: { KHR_materials_emissive_strength: { emissiveStrength: m.emissiveStrength } } } : {}),
+    } : {}),
     pbrMetallicRoughness: {
       baseColorFactor: [
         ...m.color
           .slice(1)
           .match(/../g)!
           .map((c) => linear(parseInt(c, 16) / 255)),
-        1,
+        purpose === "collision" ? 1 : m.opacity ?? 1,
       ],
       roughnessFactor: m.roughness,
       metallicFactor: m.metalness,
       ...(purpose !== "collision" && m.texture
         ? { baseColorTexture: { index: texture(m.texture), texCoord: 0 } }
+        : {}),
+      ...(purpose !== "collision" && m.metallicRoughnessTexture
+        ? { metallicRoughnessTexture: { index: texture(m.metallicRoughnessTexture), texCoord: 0 } }
         : {}),
     },
   }));
@@ -286,7 +361,7 @@ function buildGLTF(
         {
           attributes,
           indices: add(new Uint32Array(ids), "SCALAR", 1),
-          material: materialIndex.get(surface.material) ?? 0,
+          material: materialIndex.get(surface.material) ?? materialIndex.get("default"),
           mode: 4,
           extras: { sourceSurfaces: triangles.map((t) => m.surfaces[t]) },
         },
@@ -331,6 +406,8 @@ function buildGLTF(
   });
   const json = {
     asset: { version: "2.0", generator: "LevelSpec 2" },
+    ...(purpose !== "collision" && mats.some(m => m.emissive && (m.emissiveStrength ?? 1) > 1)
+      ? { extensionsUsed: ["KHR_materials_emissive_strength"] } : {}),
     scene: 0,
     scenes: [{ nodes: [rootIndex] }],
     nodes,
@@ -354,12 +431,9 @@ function buildGLTF(
     bufferViews: views,
     accessors,
     extras: {
-      levelspec: exportMetadata(
-        level,
-        [embedded ? "glb" : "gltf"],
-        purpose,
-        [...new Set(m.surfaces)],
-      ),
+      levelspec: exportMetadata(level, [embedded ? "glb" : "gltf"], purpose, [
+        ...new Set(m.surfaces),
+      ]),
     },
   };
   const binary = new Uint8Array(byteLength);

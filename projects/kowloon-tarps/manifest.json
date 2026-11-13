@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "method": "Blender Cloth settled meshes; generated intrinsic canvas PBR; procedural steel and ties",
+  "lighting": "real-time; no illumination bake",
+  "material": "builtin:tarp",
+  "texturePeriodMeters": 1.5,
+  "assets": {
+    "model.py": {
+      "bytes": 19661,
+      "sha256": "0ab02824b325c96511c03519e0759f537d9b0e0ff05278eadaeae92d5bc52293"
+    },
+    "tarps.blend": {
+      "bytes": 26350318,
+      "sha256": "b24bebd7b4eaa2e13d7f16971caa07f5c9883a63229f6b09e6290ce46f53d2a9"
+    },
+    "assets/cloth-forms.json": {
+      "bytes": 461842,
+      "sha256": "52f1f0c50b14883b0f7fd5ad8850c320d503d4095d29519c22b808328ccd1b60"
+    },
+    "assets/tarp-color-source.png": {
+      "bytes": 3772647,
+      "sha256": "5aba83ea9cdd238801ecc9374d74e8c4a2f0b3f4691bf5f78d90e6535a105f31"
+    },
+    "concepts/awning-forms.png": {
+      "bytes": 2454255,
+      "sha256": "a99e8b2054c0e341ade1af3eb8d4599585305a4d8eabbef42fee09720013b968"
+    }
+  },
+  "forms": [
+    {
+      "id": "taut",
+      "frontTriangles": 1800,
+      "boundsMeters": [
+        [
+          0.011612950824201107,
+          2.9976041316986084
+        ],
+        [
+          0,
+          1.2999999523162842
+        ],
+        [
+          -0.5677111744880676,
+          0.008356275968253613
+        ]
+      ],
+      "simulation": {
+        "engine": "Blender Cloth",
+        "blenderVersion": "5.1.2",
+        "frames": [
+          1,
+          110
+        ],
+        "framesPerSecond": 24,
+        "pinTransitionFrames": [
+          1,
+          12
+        ],
+        "gravityTransitionFrames": [
+          12,
+          24
+        ],
+        "sourceGrid": [
+          60,
+          30
+        ],
+        "quality": 15,
+        "mass": 0.04,
+        "airDamping": 5,
+        "tension": 100,
+        "compression": 100,
+        "shear": 35,
+        "bending": 0.015,
+        "slackX": 0.065,
+        "slackY": 0.025,
+        "selfCollision": true,
+        "frameCollision": true,
+        "reductionPinErrorMeters": 0,
+        "maximumSimulationDisplacementMeters": 0.17269939254707475
+      }
+    },
+    {
+      "id": "loose",
+      "frontTriangles": 1800,
+      "boundsMeters": [
+        [
+          -0.001317382324486971,
+          3.003854990005493
+        ],
+        [
+          0,
+          1.2999999523162842
+        ],
+        [
+          -0.5939403176307678,
+          0.022453725337982178
+        ]
+      ],
+      "simulation": {
+        "engine": "Blender Cloth",
+        "blenderVersion": "5.1.2",
+        "frames": [
+          1,
+          110
+        ],
+        "framesPerSecond": 24,
+        "pinTransitionFrames": [
+          1,
+          12
+        ],
+        "gravityTransitionFrames": [
+          12,
+          24
+        ],
+        "sourceGrid": [
+          60,
+          30
+        ],
+        "quality": 15,
+        "mass": 0.04,
+        "airDamping": 5,
+        "tension": 100,
+        "compression": 100,
+        "shear": 35,
+        "bending": 0.008,
+        "slackX": 0.075,
+        "slackY": 0.045,
+        "selfCollision": true,
+        "frameCollision": true,
+        "reductionPinErrorMeters": 0,
+        "maximumSimulationDisplacementMeters": 0.20114965368196866
+      }
+    },
+    {
+      "id": "asymmetric",
+      "frontTriangles": 1800,
+      "boundsMeters": [
+        [
+          0.0010938536142930388,
+          2.998631715774536
+        ],
+        [
+          0,
+          1.2999999523162842
+        ],
+        [
+          -0.5862178802490234,
+          0.01129985973238945
+        ]
+      ],
+      "simulation": {
+        "engine": "Blender Cloth",
+        "blenderVersion": "5.1.2",
+        "frames": [
+          1,
+          110
+        ],
+        "framesPerSecond": 24,
+        "pinTransitionFrames": [
+          1,
+          12
+        ],
+        "gravityTransitionFrames": [
+          12,
+          24
+        ],
+        "sourceGrid": [
+          60,
+          30
+        ],
+        "quality": 15,
+        "mass": 0.04,
+        "airDamping": 5,
+        "tension": 100,
+        "compression": 100,
+        "shear": 35,
+        "bending": 0.012,
+        "slackX": 0.075,
+        "slackY": 0.035,
+        "selfCollision": true,
+        "frameCollision": true,
+        "reductionPinErrorMeters": 0,
+        "maximumSimulationDisplacementMeters": 0.2292479910154752
+      }
+    },
+    {
+      "id": "skirt",
+      "frontTriangles": 1800,
+      "boundsMeters": [
+        [
+          0.006899834610521793,
+          3.004298448562622
+        ],
+        [
+          0,
+          1.38852059841156
+        ],
+        [
+          -0.5019587278366089,
+          0.009991185739636421
+        ]
+      ],
+      "simulation": {
+        "engine": "Blender Cloth",
+        "blenderVersion": "5.1.2",
+        "frames": [
+          1,
+          110
+        ],
+        "framesPerSecond": 24,
+        "pinTransitionFrames": [
+          1,
+          12
+        ],
+        "gravityTransitionFrames": [
+          12,
+          24
+        ],
+        "sourceGrid": [
+          60,
+          34
+        ],
+        "quality": 15,
+        "mass": 0.04,
+        "airDamping": 5,
+        "tension": 100,
+        "compression": 100,
+        "shear": 35,
+        "bending": 0.0003,
+        "slackX": 0.09,
+        "slackY": 0.025,
+        "selfCollision": true,
+        "frameCollision": true,
+        "reductionPinErrorMeters": 0,
+        "maximumSimulationDisplacementMeters": 0.21313853468080382
+      }
+    }
+  ]
+}

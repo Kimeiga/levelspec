@@ -1,0 +1,1143 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<architecture version="1" id="daiban-courtyard-third" name="Daiban inner courtyard" description="Detailed M13 courtyard authored with native continuous architectural primitives; source-derived dimensions and circulation retained." units="meters" validation="premap" curve-tolerance="0.002">
+  <path id="e0:path" closed="false" points="6.92 2.239 1.238; 5.37 2.239 1.238" />
+  <path id="e1:path" closed="false" points="5.37 2.239 1.238; 5.37 3.731 1.238" />
+  <path id="e3:path" closed="false" points="5.15 3.731 1.238; 5.289 3.731 1.238" />
+  <path id="e4:path" closed="false" points="5.289 3.731 1.238; 5.289 3.951 1.238" />
+  <path id="e5:path" closed="false" points="5.289 3.951 1.238; 5.15 3.951 1.238" />
+  <path id="e6:path" closed="false" points="5.15 3.951 1.238; 4.615 3.951 1.238" />
+  <path id="e7:path" closed="false" points="4.615 3.951 1.238; 4.615 4.01 1.238" />
+  <path id="e8:path" closed="false" points="4.615 4.01 1.238; 4.179 4.01 1.238" />
+  <path id="e10:path" closed="false" points="4.179 5.142 1.238; 4.229 5.142 1.238" />
+  <path id="e11:path" closed="false" points="4.229 5.142 1.238; 5.36 5.142 1.238" />
+  <path id="e12:path" closed="false" points="5.36 5.142 1.238; 5.41 5.142 1.238" />
+  <path id="e13:path" closed="false" points="5.41 5.142 1.238; 6.92 5.142 1.238" />
+  <path id="e14:path" closed="false" points="6.92 5.142 1.238; 6.92 2.475 1.238" />
+  <path id="e15:path" closed="false" points="6.92 2.475 1.238; 6.92 2.445 1.238" />
+  <path id="e16:path" closed="false" points="6.92 2.445 1.238; 6.92 2.416 1.238" />
+  <path id="e17:path" closed="false" points="6.92 2.416 1.238; 6.92 2.386 1.238" />
+  <path id="e18:path" closed="false" points="6.92 2.386 1.238; 6.92 2.356 1.238" />
+  <path id="e19:path" closed="false" points="6.92 2.356 1.238; 6.92 2.35 1.238" />
+  <path id="e20:path" closed="false" points="6.92 2.35 1.238; 6.92 2.239 1.238" />
+  <path id="e21:path" closed="false" points="1.256 1.054 0; 2.564 1.054 0" />
+  <path id="e22:path" closed="false" points="2.564 1.054 0; 2.564 0.12 0" />
+  <path id="e23:path" closed="false" points="2.564 0.12 0; 4.561 0.12 0" />
+  <path id="e24:path" closed="false" points="4.561 0.12 0; 4.561 0.27 0" />
+  <path id="e25:path" closed="false" points="4.561 0.27 0; 5.15 0.27 0" />
+  <path id="e26:path" closed="false" points="5.15 0.27 0; 5.15 -0.647 0" />
+  <path id="e27:path" closed="false" points="5.15 -0.647 0; 5.37 -0.647 0" />
+  <path id="e28:path" closed="false" points="5.37 -0.647 0; 6.92 -0.647 0" />
+  <path id="e29:path" closed="false" points="6.92 -0.647 0; 6.92 -2.3 0" />
+  <path id="e30:path" closed="false" points="6.92 -2.3 0; 6.92 -3 0" />
+  <path id="e31:path" closed="false" points="6.92 -3 0; 6.55 -3 0" />
+  <path id="e32:path" closed="false" points="6.55 -3 0; 6.55 -3.45 0" />
+  <path id="e33:path" closed="false" points="6.55 -3.45 0; 6.5 -3.45 0" />
+  <path id="e34:path" closed="false" points="6.5 -3.45 0; 6.35 -3.45 0" />
+  <path id="e35:path" closed="false" points="6.35 -3.45 0; 6.35 -2.8 0" />
+  <path id="e36:path" closed="false" points="6.35 -2.8 0; 4.85 -2.8 0" />
+  <path id="e37:path" closed="false" points="4.85 -2.8 0; 4.85 -3.45 0" />
+  <path id="e38:path" closed="false" points="4.85 -3.45 0; 4.7 -3.45 0" />
+  <path id="e39:path" closed="false" points="4.7 -3.45 0; 3.6 -3.45 0" />
+  <path id="e40:path" closed="false" points="3.6 -3.45 0; 3.6 -3.314 0" />
+  <path id="e41:path" closed="false" points="3.6 -3.314 0; 1.32 -3.314 0" />
+  <path id="e42:path" closed="false" points="1.32 -3.314 0; 1.32 -3.45 0" />
+  <path id="e43:path" closed="false" points="1.32 -3.45 0; 0.55 -3.45 0" />
+  <path id="e44:path" closed="false" points="0.55 -3.45 0; 0.55 -3 0" />
+  <path id="e45:path" closed="false" points="0.55 -3 0; -0.7 -3 0" />
+  <path id="e46:path" closed="false" points="-0.7 -3 0; -0.7 1.44 0" />
+  <path id="e47:path" closed="false" points="-0.7 1.44 0; 1.256 1.44 0" />
+  <path id="e48:path" closed="false" points="1.256 1.44 0; 1.256 1.054 0" />
+  <path id="e49:path" closed="false" points="0.594 0 2.599; -0.7 0 2.599" />
+  <path id="e50:path" closed="false" points="-0.7 0 2.599; -0.7 3.93 2.599" />
+  <path id="e51:path" closed="false" points="-0.7 3.93 2.599; 0.594 3.93 2.599" />
+  <path id="e52:path" closed="false" points="0.594 3.93 2.599; 0.594 3.82 2.599" />
+  <path id="e53:path" closed="false" points="0.594 3.82 2.599; 0.594 3.74 2.599" />
+  <path id="e54:path" closed="false" points="0.594 3.74 2.599; 0.594 3.66 2.599" />
+  <path id="e55:path" closed="false" points="0.594 3.66 2.599; 0.594 1.66 2.599" />
+  <path id="e56:path" closed="false" points="0.594 1.66 2.599; 0.594 1.58 2.599" />
+  <path id="e57:path" closed="false" points="0.594 1.58 2.599; 0.594 1.5 2.599" />
+  <path id="e58:path" closed="false" points="0.594 1.5 2.599; 0.594 0 2.599" />
+  <path id="e59:path" closed="false" points="1.034 3.66 2.599; 1.034 1.66 2.599" />
+  <path id="e60:path" closed="false" points="1.034 1.66 2.599; 0.694 1.66 2.599" />
+  <path id="e61:path" closed="false" points="0.694 1.66 2.599; 0.694 3.66 2.599" />
+  <path id="e62:path" closed="false" points="0.694 3.66 2.599; 1.034 3.66 2.599" />
+  <path id="e63:path" closed="false" points="-0.7 5.142 2.599; 1.086 5.142 2.599" />
+  <path id="e66:path" closed="false" points="-0.7 3.93 2.599; -0.7 5.142 2.599" />
+  <path id="e67:path" closed="false" points="0.451 0 5.839; -0.7 0 5.839" />
+  <path id="e68:path" closed="false" points="-0.7 0 5.839; -0.7 3.93 5.839" />
+  <path id="e69:path" closed="false" points="-0.7 3.93 5.839; -0.7 4.946 5.839" />
+  <path id="e70:path" closed="false" points="-0.7 4.946 5.839; -0.7 5.142 5.839" />
+  <path id="e71:path" closed="false" points="-0.7 5.142 5.839; 0.451 5.142 5.839" />
+  <path id="e72:path" closed="false" points="0.451 5.142 5.839; 0.451 4.946 5.839" />
+  <path id="e73:path" closed="false" points="0.451 4.946 5.839; 0.451 4.836 5.839" />
+  <path id="e74:path" closed="false" points="0.451 4.836 5.839; 0.451 4.756 5.839" />
+  <path id="e75:path" closed="false" points="0.451 4.756 5.839; 0.451 4.676 5.839" />
+  <path id="e76:path" closed="false" points="0.451 4.676 5.839; 0.451 1.66 5.839" />
+  <path id="e77:path" closed="false" points="0.451 1.66 5.839; 0.451 1.58 5.839" />
+  <path id="e78:path" closed="false" points="0.451 1.58 5.839; 0.451 1.5 5.839" />
+  <path id="e79:path" closed="false" points="0.451 1.5 5.839; 0.451 0 5.839" />
+  <path id="e80:path" closed="false" points="0.551 4.676 5.839; 0.891 4.676 5.839" />
+  <path id="e81:path" closed="false" points="0.891 4.676 5.839; 0.891 1.66 5.839" />
+  <path id="e82:path" closed="false" points="0.891 1.66 5.839; 0.551 1.66 5.839" />
+  <path id="e83:path" closed="false" points="0.551 1.66 5.839; 0.551 4.676 5.839" />
+  <path id="e84:path" closed="false" points="0.319 0 10.277; -0.7 0 10.277" />
+  <path id="e85:path" closed="false" points="-0.7 0 10.277; -0.7 6.3 10.277" />
+  <path id="e86:path" closed="false" points="-0.7 6.3 10.277; 0.6 6.3 10.277" />
+  <path id="e87:path" closed="false" points="0.6 6.3 10.277; 0.6 5.053 10.277" />
+  <path id="e88:path" closed="false" points="0.6 5.053 10.277; 0.419 5.053 10.277" />
+  <path id="e89:path" closed="false" points="0.419 5.053 10.277; 0.369 5.053 10.277" />
+  <path id="e90:path" closed="false" points="0.369 5.053 10.277; 0.319 5.053 10.277" />
+  <path id="e91:path" closed="false" points="0.319 5.053 10.277; 0.319 4.973 10.277" />
+  <path id="e92:path" closed="false" points="0.319 4.973 10.277; 0.319 4.893 10.277" />
+  <path id="e93:path" closed="false" points="0.319 4.893 10.277; 0.319 1.66 10.277" />
+  <path id="e94:path" closed="false" points="0.319 1.66 10.277; 0.319 1.58 10.277" />
+  <path id="e95:path" closed="false" points="0.319 1.58 10.277; 0.319 1.5 10.277" />
+  <path id="e96:path" closed="false" points="0.319 1.5 10.277; 0.319 0 10.277" />
+  <path id="e97:path" closed="false" points="0.759 1.66 10.277; 0.419 1.66 10.277" />
+  <path id="e98:path" closed="false" points="0.419 1.66 10.277; 0.419 4.893 10.277" />
+  <path id="e99:path" closed="false" points="0.419 4.893 10.277; 0.759 4.893 10.277" />
+  <path id="e100:path" closed="false" points="0.759 4.893 10.277; 0.759 1.66 10.277" />
+  <path id="e101:path" closed="false" points="5.495 3.2 4.478; 5.495 3.551 4.478" />
+  <path id="e102:path" closed="false" points="5.495 3.551 4.478; 5.495 5.157 4.478" />
+  <path id="e103:path" closed="false" points="5.495 5.157 4.478; 5.275 5.157 4.478" />
+  <path id="e104:path" closed="false" points="5.275 5.157 4.478; 5.275 5.178 4.478" />
+  <path id="e105:path" closed="false" points="5.275 5.178 4.478; 5.132 5.178 4.478" />
+  <path id="e106:path" closed="false" points="5.132 5.178 4.478; 5.132 5.288 4.478" />
+  <path id="e107:path" closed="false" points="5.132 5.288 4.478; 5.352 5.288 4.478" />
+  <path id="e108:path" closed="false" points="5.352 5.288 4.478; 5.352 5.511 4.478" />
+  <path id="e109:path" closed="false" points="5.352 5.511 4.478; 5.46 5.511 4.478" />
+  <path id="e110:path" closed="false" points="5.46 5.511 4.478; 6.72 5.511 4.478" />
+  <path id="e111:path" closed="false" points="6.72 5.511 4.478; 6.92 5.511 4.478" />
+  <path id="e112:path" closed="false" points="6.92 5.511 4.478; 6.92 3.2 4.478" />
+  <path id="e113:path" closed="false" points="6.92 3.2 4.478; 5.495 3.2 4.478" />
+  <path id="e114:path" closed="false" points="5.41 -1.25 9.079; 5.41 -1.249 9.079" />
+  <path id="e115:path" closed="false" points="5.41 -1.249 9.079; 5.63 -1.249 9.079" />
+  <path id="e116:path" closed="false" points="5.63 -1.249 9.079; 5.63 -1.247 9.079" />
+  <path id="e117:path" closed="false" points="5.63 -1.247 9.079; 5.63 -1.236 9.079" />
+  <path id="e118:path" closed="false" points="5.63 -1.236 9.079; 5.63 -1.22 9.079" />
+  <path id="e119:path" closed="false" points="5.63 -1.22 9.079; 5.63 -1.209 9.079" />
+  <path id="e120:path" closed="false" points="5.63 -1.209 9.079; 5.63 -1.198 9.079" />
+  <path id="e121:path" closed="false" points="5.63 -1.198 9.079; 5.63 -1.169 9.079" />
+  <path id="e122:path" closed="false" points="5.63 -1.169 9.079; 5.63 -0.8 9.079" />
+  <path id="e123:path" closed="false" points="5.63 -0.8 9.079; 5.63 -0.732 9.079" />
+  <path id="e124:path" closed="false" points="5.63 -0.732 9.079; 5.63 -0.647 9.079" />
+  <path id="e125:path" closed="false" points="5.63 -0.647 9.079; 5.63 -0.474 9.079" />
+  <path id="e126:path" closed="false" points="5.63 -0.474 9.079; 6.92 -0.474 9.079" />
+  <path id="e127:path" closed="false" points="6.92 -0.474 9.079; 6.92 -1.25 9.079" />
+  <path id="e128:path" closed="false" points="6.92 -1.25 9.079; 5.41 -1.25 9.079" />
+  <path id="e129:path" closed="false" points="5.63 3.234 7.718; 5.63 3.255 7.718" />
+  <path id="e130:path" closed="false" points="5.63 3.255 7.718; 5.63 3.281 7.718" />
+  <path id="e131:path" closed="false" points="5.63 3.281 7.718; 5.63 3.308 7.718" />
+  <path id="e132:path" closed="false" points="5.63 3.308 7.718; 5.63 3.334 7.718" />
+  <path id="e133:path" closed="false" points="5.63 3.334 7.718; 5.63 3.36 7.718" />
+  <path id="e134:path" closed="false" points="5.63 3.36 7.718; 5.63 3.387 7.718" />
+  <path id="e135:path" closed="false" points="5.63 3.387 7.718; 5.63 3.413 7.718" />
+  <path id="e136:path" closed="false" points="5.63 3.413 7.718; 5.63 3.439 7.718" />
+  <path id="e137:path" closed="false" points="5.63 3.439 7.718; 5.63 3.466 7.718" />
+  <path id="e138:path" closed="false" points="5.63 3.466 7.718; 5.63 3.492 7.718" />
+  <path id="e139:path" closed="false" points="5.63 3.492 7.718; 5.63 3.518 7.718" />
+  <path id="e140:path" closed="false" points="5.63 3.518 7.718; 5.63 3.545 7.718" />
+  <path id="e141:path" closed="false" points="5.63 3.545 7.718; 5.63 3.571 7.718" />
+  <path id="e142:path" closed="false" points="5.63 3.571 7.718; 5.63 3.597 7.718" />
+  <path id="e143:path" closed="false" points="5.63 3.597 7.718; 5.63 3.624 7.718" />
+  <path id="e144:path" closed="false" points="5.63 3.624 7.718; 5.63 3.65 7.718" />
+  <path id="e145:path" closed="false" points="5.63 3.65 7.718; 5.63 3.676 7.718" />
+  <path id="e146:path" closed="false" points="5.63 3.676 7.718; 5.63 3.703 7.718" />
+  <path id="e147:path" closed="false" points="5.63 3.703 7.718; 5.63 3.729 7.718" />
+  <path id="e148:path" closed="false" points="5.63 3.729 7.718; 5.63 3.755 7.718" />
+  <path id="e149:path" closed="false" points="5.63 3.755 7.718; 5.63 5.178 7.718" />
+  <path id="e150:path" closed="false" points="5.63 5.178 7.718; 5.41 5.178 7.718" />
+  <path id="e151:path" closed="false" points="5.41 5.178 7.718; 5.132 5.178 7.718" />
+  <path id="e152:path" closed="false" points="5.132 5.178 7.718; 5.132 5.398 7.718" />
+  <path id="e153:path" closed="false" points="5.132 5.398 7.718; 4.882 5.398 7.718" />
+  <path id="e154:path" closed="false" points="4.882 5.398 7.718; 4.632 5.398 7.718" />
+  <path id="e155:path" closed="false" points="4.632 5.398 7.718; 4.351 5.398 7.718" />
+  <path id="e156:path" closed="false" points="4.351 5.398 7.718; 4.326 5.398 7.718" />
+  <path id="e157:path" closed="false" points="4.326 5.398 7.718; 4.301 5.398 7.718" />
+  <path id="e158:path" closed="false" points="4.301 5.398 7.718; 4.276 5.398 7.718" />
+  <path id="e159:path" closed="false" points="4.276 5.398 7.718; 4.251 5.398 7.718" />
+  <path id="e160:path" closed="false" points="4.251 5.398 7.718; 4.226 5.398 7.718" />
+  <path id="e161:path" closed="false" points="4.226 5.398 7.718; 4.201 5.398 7.718" />
+  <path id="e162:path" closed="false" points="4.201 5.398 7.718; 4.179 5.398 7.718" />
+  <path id="e163:path" closed="false" points="4.179 5.398 7.718; 4.179 6.798 7.718" />
+  <path id="e164:path" closed="false" points="4.179 6.798 7.718; 4.583 6.798 7.718" />
+  <path id="e165:path" closed="false" points="4.583 6.798 7.718; 5.132 6.798 7.718" />
+  <path id="e166:path" closed="false" points="5.132 6.798 7.718; 5.46 6.798 7.718" />
+  <path id="e167:path" closed="false" points="5.46 6.798 7.718; 6.72 6.798 7.718" />
+  <path id="e168:path" closed="false" points="6.72 6.798 7.718; 6.92 6.798 7.718" />
+  <path id="e169:path" closed="false" points="6.92 6.798 7.718; 6.92 3.234 7.718" />
+  <path id="e170:path" closed="false" points="6.92 3.234 7.718; 5.63 3.234 7.718" />
+  <path id="e171:path" closed="false" points="5.41 -1.25 12.319; 5.41 -1.249 12.319" />
+  <path id="e172:path" closed="false" points="5.41 -1.249 12.319; 5.63 -1.249 12.319" />
+  <path id="e173:path" closed="false" points="5.63 -1.249 12.319; 5.63 -1.247 12.319" />
+  <path id="e174:path" closed="false" points="5.63 -1.247 12.319; 5.63 -1.236 12.319" />
+  <path id="e175:path" closed="false" points="5.63 -1.236 12.319; 5.63 -1.22 12.319" />
+  <path id="e176:path" closed="false" points="5.63 -1.22 12.319; 5.63 -1.209 12.319" />
+  <path id="e177:path" closed="false" points="5.63 -1.209 12.319; 5.63 -1.198 12.319" />
+  <path id="e178:path" closed="false" points="5.63 -1.198 12.319; 5.63 -1.169 12.319" />
+  <path id="e179:path" closed="false" points="5.63 -1.169 12.319; 5.63 -0.962 12.319" />
+  <path id="e180:path" closed="false" points="5.63 -0.962 12.319; 5.63 -0.8 12.319" />
+  <path id="e181:path" closed="false" points="5.63 -0.8 12.319; 5.63 -0.732 12.319" />
+  <path id="e182:path" closed="false" points="5.63 -0.732 12.319; 5.63 -0.647 12.319" />
+  <path id="e183:path" closed="false" points="5.63 -0.647 12.319; 5.63 -0.474 12.319" />
+  <path id="e184:path" closed="false" points="5.63 -0.474 12.319; 6.92 -0.474 12.319" />
+  <path id="e185:path" closed="false" points="6.92 -0.474 12.319; 6.92 -1.25 12.319" />
+  <path id="e186:path" closed="false" points="6.92 -1.25 12.319; 5.41 -1.25 12.319" />
+  <path id="e187:path" closed="false" points="5.63 3.234 10.957; 5.63 3.255 10.957" />
+  <path id="e188:path" closed="false" points="5.63 3.255 10.957; 5.63 3.281 10.957" />
+  <path id="e189:path" closed="false" points="5.63 3.281 10.957; 5.63 3.308 10.957" />
+  <path id="e190:path" closed="false" points="5.63 3.308 10.957; 5.63 3.334 10.957" />
+  <path id="e191:path" closed="false" points="5.63 3.334 10.957; 5.63 3.36 10.957" />
+  <path id="e192:path" closed="false" points="5.63 3.36 10.957; 5.63 3.387 10.957" />
+  <path id="e193:path" closed="false" points="5.63 3.387 10.957; 5.63 3.413 10.957" />
+  <path id="e194:path" closed="false" points="5.63 3.413 10.957; 5.63 3.439 10.957" />
+  <path id="e195:path" closed="false" points="5.63 3.439 10.957; 5.63 3.466 10.957" />
+  <path id="e196:path" closed="false" points="5.63 3.466 10.957; 5.63 3.492 10.957" />
+  <path id="e197:path" closed="false" points="5.63 3.492 10.957; 5.63 3.518 10.957" />
+  <path id="e198:path" closed="false" points="5.63 3.518 10.957; 5.63 3.545 10.957" />
+  <path id="e199:path" closed="false" points="5.63 3.545 10.957; 5.63 3.571 10.957" />
+  <path id="e200:path" closed="false" points="5.63 3.571 10.957; 5.63 3.597 10.957" />
+  <path id="e201:path" closed="false" points="5.63 3.597 10.957; 5.63 3.624 10.957" />
+  <path id="e202:path" closed="false" points="5.63 3.624 10.957; 5.63 3.65 10.957" />
+  <path id="e203:path" closed="false" points="5.63 3.65 10.957; 5.63 3.676 10.957" />
+  <path id="e204:path" closed="false" points="5.63 3.676 10.957; 5.63 3.703 10.957" />
+  <path id="e205:path" closed="false" points="5.63 3.703 10.957; 5.63 3.729 10.957" />
+  <path id="e206:path" closed="false" points="5.63 3.729 10.957; 5.63 3.755 10.957" />
+  <path id="e207:path" closed="false" points="5.63 3.755 10.957; 5.63 5.178 10.957" />
+  <path id="e208:path" closed="false" points="5.63 5.178 10.957; 5.41 5.178 10.957" />
+  <path id="e209:path" closed="false" points="5.41 5.178 10.957; 5.132 5.178 10.957" />
+  <path id="e210:path" closed="false" points="5.132 5.178 10.957; 5.132 5.398 10.957" />
+  <path id="e211:path" closed="false" points="5.132 5.398 10.957; 5.132 5.4 10.957" />
+  <path id="e212:path" closed="false" points="5.132 5.4 10.957; 6.92 5.4 10.957" />
+  <path id="e213:path" closed="false" points="6.92 5.4 10.957; 6.92 3.234 10.957" />
+  <path id="e214:path" closed="false" points="6.92 3.234 10.957; 5.63 3.234 10.957" />
+  <path id="e216:path" closed="false" points="5.191 7.82 12.391; 5.223 7.82 12.391" />
+  <path id="e217:path" closed="false" points="5.223 7.82 12.391; 5.267 7.82 12.391" />
+  <path id="e218:path" closed="false" points="5.267 7.82 12.391; 5.45 7.82 12.391" />
+  <path id="e219:path" closed="false" points="5.45 7.82 12.391; 5.72 7.82 12.391" />
+  <path id="e220:path" closed="false" points="5.72 7.82 12.391; 6.667 7.82 12.391" />
+  <path id="e221:path" closed="false" points="6.667 7.82 12.391; 6.92 7.82 12.391" />
+  <path id="e222:path" closed="false" points="6.92 7.82 12.391; 6.92 6.798 12.391" />
+  <path id="e223:path" closed="false" points="6.92 6.798 12.391; 6.92 5.55 12.391" />
+  <path id="e224:path" closed="false" points="6.92 5.55 12.391; 5.191 5.55 12.391" />
+  <path id="e225:path" closed="false" points="5.495 -0.8 5.839; 5.495 0 5.839" />
+  <path id="e226:path" closed="false" points="5.495 0 5.839; 6.92 0 5.839" />
+  <path id="e227:path" closed="false" points="6.92 0 5.839; 6.92 -0.35 5.839" />
+  <path id="e228:path" closed="false" points="6.92 -0.35 5.839; 6.92 -0.8 5.839" />
+  <path id="e229:path" closed="false" points="6.92 -0.8 5.839; 5.495 -0.8 5.839" />
+  <path id="e230:path" closed="false" points="1.32 -4.616 0.1; 1.32 -3.314 0.1" />
+  <path id="e231:path" closed="false" points="1.32 -3.314 0.1; 3.6 -3.314 0.1" />
+  <path id="e232:path" closed="false" points="3.6 -3.314 0.1; 3.6 -4.616 0.1" />
+  <path id="e234:path" closed="false" points="4.85 -2.8 0.3; 6.35 -2.8 0.3" />
+  <path id="e235:path" closed="false" points="6.35 -2.8 0.3; 6.35 -3.45 0.3" />
+  <path id="e236:path" closed="false" points="6.35 -3.45 0.3; 6.1 -3.45 0.3" />
+  <path id="e237:path" closed="false" points="6.1 -3.45 0.3; 5.1 -3.45 0.3" />
+  <path id="e238:path" closed="false" points="5.1 -3.45 0.3; 4.85 -3.45 0.3" />
+  <path id="e239:path" closed="false" points="4.85 -3.45 0.3; 4.85 -2.8 0.3" />
+  <path id="e240:path" closed="false" points="1.813 -1.286 9.079; 1.98 -1.28 9.079" />
+  <path id="e241:path" closed="false" points="1.98 -1.28 9.079; 2.189 -1.273 9.079" />
+  <path id="e242:path" closed="false" points="2.189 -1.273 9.079; 2.455 -1.262 9.079" />
+  <path id="e243:path" closed="false" points="2.455 -1.262 9.079; 2.808 -1.247 9.079" />
+  <path id="e244:path" closed="false" points="2.808 -1.247 9.079; 3.127 -1.209 9.079" />
+  <path id="e245:path" closed="false" points="3.127 -1.209 9.079; 3.101 -2.05 9.079" />
+  <path id="e246:path" closed="false" points="3.101 -2.05 9.079; 1.6 -2.05 9.079" />
+  <path id="e247:path" closed="false" points="1.6 -2.05 9.079; 1.6 -1.293 9.079" />
+  <path id="e248:path" closed="false" points="1.6 -1.293 9.079; 1.813 -1.286 9.079" />
+  <path id="e249:path" closed="false" points="1.941 -1.249 9.079; 2.143 -1.236 9.079" />
+  <path id="e250:path" closed="false" points="2.143 -1.236 9.079; 2.402 -1.22 9.079" />
+  <path id="e251:path" closed="false" points="2.402 -1.22 9.079; 2.748 -1.198 9.079" />
+  <path id="e252:path" closed="false" points="2.748 -1.198 9.079; 3.194 -1.169 9.079" />
+  <path id="e253:path" closed="false" points="3.194 -1.169 9.079; 3.24 -2.05 9.079" />
+  <path id="e254:path" closed="false" points="3.24 -2.05 9.079; 3.101 -2.05 9.079" />
+  <path id="e255:path" closed="false" points="1.6 -1.293 9.079; 1.6 -1.276 9.079" />
+  <path id="e256:path" closed="false" points="1.6 -1.276 9.079; 1.783 -1.262 9.079" />
+  <path id="e257:path" closed="false" points="1.783 -1.262 9.079; 1.941 -1.249 9.079" />
+  <path id="e258:path" closed="false" points="6.92 -0.647 0; 6.92 2.239 1.238" />
+  <path id="e259:path" closed="false" points="5.37 2.239 1.238; 5.37 -0.647 0" />
+  <path id="e260:path" closed="false" points="1.086 4.04 2.599; 4.179 4.04 1.238" />
+  <path id="e261:path" closed="false" points="4.179 4.04 1.238; 4.179 5.142 1.238" />
+  <path id="e262:path" closed="false" points="4.179 5.142 1.238; 1.086 5.142 2.599" />
+  <path id="e263:path" closed="false" points="1.086 5.142 2.599; 1.086 4.04 2.599" />
+  <path id="e264:path" closed="false" points="1.086 3.93 2.599; 1.086 4.04 2.599" />
+  <path id="e265:path" closed="false" points="1.086 4.04 2.599; 1.252 4.04 2.599" />
+  <path id="e266:path" closed="false" points="1.252 4.04 2.599; 1.252 3.93 2.599" />
+  <path id="e267:path" closed="false" points="1.252 3.93 2.599; 1.086 3.93 2.599" />
+  <path id="e268:path" closed="false" points="3.492 4.04 1.692; 3.492 4.01 1.692" />
+  <path id="e269:path" closed="false" points="3.492 4.01 1.692; 3.344 4.01 1.692" />
+  <path id="e270:path" closed="false" points="3.344 4.01 1.692; 3.344 4.04 1.692" />
+  <path id="e271:path" closed="false" points="3.344 4.04 1.692; 3.492 4.04 1.692" />
+  <path id="e272:path" closed="false" points="3.835 4.04 1.54; 3.835 4.01 1.54" />
+  <path id="e273:path" closed="false" points="3.835 4.01 1.54; 3.492 4.01 1.54" />
+  <path id="e274:path" closed="false" points="3.492 4.01 1.54; 3.492 4.04 1.54" />
+  <path id="e275:path" closed="false" points="3.492 4.04 1.54; 3.835 4.04 1.54" />
+  <path id="e276:path" closed="false" points="3.835 4.04 1.389; 4.179 4.04 1.389" />
+  <path id="e277:path" closed="false" points="4.179 4.04 1.389; 4.179 4.01 1.389" />
+  <path id="e278:path" closed="false" points="4.179 4.01 1.389; 3.835 4.01 1.389" />
+  <path id="e279:path" closed="false" points="3.835 4.01 1.389; 3.835 4.04 1.389" />
+  <path id="e280:path" closed="false" points="6.92 0 5.839; 6.92 3.2 4.478" />
+  <path id="e281:path" closed="false" points="5.495 3.2 4.478; 5.495 0 5.839" />
+  <path id="e282:path" closed="false" points="6.92 -0.474 9.079; 6.92 3.234 7.718" />
+  <path id="e283:path" closed="false" points="5.63 3.234 7.718; 5.63 -0.474 9.079" />
+  <path id="e284:path" closed="false" points="6.92 -0.474 12.319; 6.92 3.234 10.957" />
+  <path id="e285:path" closed="false" points="5.63 3.234 10.957; 5.63 -0.474 12.319" />
+  <path id="e286:path" closed="false" points="1.086 5.398 5.839; 4.179 5.398 7.718" />
+  <path id="e287:path" closed="false" points="4.179 6.798 7.718; 1.086 6.798 5.839" />
+  <path id="e289:path" closed="false" points="3.963 5.398 11.941; 5.191 5.398 12.391" />
+  <path id="e290:path" closed="false" points="5.191 5.398 12.391; 5.191 7.82 12.391" />
+  <path id="e291:path" closed="false" points="5.191 7.82 12.391; 3.963 7.82 11.941" />
+  <path id="e295:path" closed="false" points="2.83 -4.616 0.1; 1.32 -4.616 0.1" />
+  <path id="e296:path" closed="false" points="1.32 -4.616 0.1; 1.32 -8.466 2.41" />
+  <path id="E-elevated-2-exposed-bearing-2-0:path" closed="false" points="5.52 -0.062 8.688; 5.52 0 8.688" />
+  <path id="E-elevated-2-exposed-bearing-3-0:path" closed="false" points="5.52 0 8.688; 5.52 0.12 8.688" />
+  <path id="E-elevated-2-exposed-bearing-4-0:path" closed="false" points="5.52 0.12 8.688; 5.52 0.27 8.688" />
+  <path id="E-elevated-2-exposed-bearing-5-0:path" closed="false" points="5.52 0.27 8.688; 5.52 0.33 8.688" />
+  <path id="E-elevated-2-exposed-bearing-17-0:path" closed="false" points="5.52 0.762 8.385; 5.52 0.805 8.385" />
+  <path id="E-elevated-2-exposed-bearing-18-0:path" closed="false" points="5.52 0.805 8.385; 5.52 0.849 8.385" />
+  <path id="E-elevated-2-exposed-bearing-19-0:path" closed="false" points="5.52 0.849 8.385; 5.52 0.887 8.385" />
+  <path id="E-elevated-2-exposed-bearing-20-0:path" closed="false" points="5.52 0.887 8.385; 5.52 0.892 8.385" />
+  <path id="E-elevated-2-exposed-bearing-21-0:path" closed="false" points="5.52 0.892 8.385; 5.52 0.907 8.385" />
+  <path id="E-elevated-2-exposed-bearing-22-0:path" closed="false" points="5.52 0.907 8.385; 5.52 0.928 8.385" />
+  <path id="E-elevated-2-exposed-bearing-23-0:path" closed="false" points="5.52 0.928 8.385; 5.52 0.935 8.385" />
+  <path id="E-elevated-2-exposed-bearing-24-0:path" closed="false" points="5.52 0.935 8.385; 5.52 0.948 8.385" />
+  <path id="E-elevated-2-exposed-bearing-25-0:path" closed="false" points="5.52 0.948 8.385; 5.52 0.969 8.385" />
+  <path id="E-elevated-2-exposed-bearing-26-0:path" closed="false" points="5.52 0.969 8.385; 5.52 0.979 8.385" />
+  <path id="E-elevated-2-exposed-bearing-27-0:path" closed="false" points="5.52 0.979 8.385; 5.52 0.989 8.385" />
+  <path id="E-elevated-2-exposed-bearing-28-0:path" closed="false" points="5.52 0.989 8.385; 5.52 1.009 8.385" />
+  <path id="E-elevated-2-exposed-bearing-29-0:path" closed="false" points="5.52 1.009 8.385; 5.52 1.022 8.385" />
+  <path id="E-elevated-2-exposed-bearing-30-0:path" closed="false" points="5.52 1.022 8.385; 5.52 1.03 8.385" />
+  <path id="E-elevated-2-exposed-bearing-31-0:path" closed="false" points="5.52 1.03 8.385; 5.52 1.05 8.385" />
+  <path id="E-elevated-2-exposed-bearing-32-0:path" closed="false" points="5.52 1.05 8.385; 5.52 1.054 8.385" />
+  <path id="E-elevated-2-exposed-bearing-33-0:path" closed="false" points="5.52 1.054 8.385; 5.52 1.065 8.385" />
+  <path id="E-elevated-2-exposed-bearing-34-0:path" closed="false" points="5.52 1.065 8.385; 5.52 1.071 8.385" />
+  <path id="E-elevated-2-exposed-bearing-35-0:path" closed="false" points="5.52 1.071 8.385; 5.52 1.091 8.385" />
+  <path id="E-elevated-2-exposed-bearing-36-0:path" closed="false" points="5.52 1.091 8.385; 5.52 1.108 8.385" />
+  <path id="E-elevated-2-exposed-bearing-37-0:path" closed="false" points="5.52 1.108 8.385; 5.52 1.111 8.385" />
+  <path id="E-elevated-2-exposed-bearing-38-0:path" closed="false" points="5.52 1.111 8.385; 5.52 1.132 8.385" />
+  <path id="E-elevated-2-exposed-bearing-39-0:path" closed="false" points="5.52 1.132 8.385; 5.52 1.152 8.385" />
+  <path id="E-elevated-2-exposed-bearing-40-0:path" closed="false" points="5.52 1.152 8.385; 5.52 1.173 8.385" />
+  <path id="E-elevated-2-exposed-bearing-41-0:path" closed="false" points="5.52 1.173 8.385; 5.52 1.174 8.385" />
+  <path id="E-elevated-2-exposed-bearing-42-0:path" closed="false" points="5.52 1.174 8.234; 5.52 1.193 8.234" />
+  <path id="E-elevated-2-exposed-bearing-43-0:path" closed="false" points="5.52 1.193 8.234; 5.52 1.195 8.234" />
+  <path id="E-elevated-2-exposed-bearing-44-0:path" closed="false" points="5.52 1.195 8.234; 5.52 1.213 8.234" />
+  <path id="E-elevated-2-exposed-bearing-45-0:path" closed="false" points="5.52 1.213 8.234; 5.52 1.234 8.234" />
+  <path id="E-elevated-2-exposed-bearing-46-0:path" closed="false" points="5.52 1.234 8.234; 5.52 1.238 8.234" />
+  <path id="E-elevated-2-exposed-bearing-49-0:path" closed="false" points="5.52 1.274 8.234; 5.52 1.275 8.234" />
+  <path id="E-elevated-2-exposed-bearing-67-0:path" closed="false" points="5.52 1.499 8.234; 5.52 1.5 8.234" />
+  <path id="E-elevated-2-exposed-bearing-127-0:path" closed="false" points="5.52 2.254 7.932; 5.52 2.255 7.932" />
+  <path id="E-elevated-2-exposed-bearing-134-0:path" closed="false" points="5.52 2.334 7.932; 5.52 2.335 7.932" />
+  <path id="E-elevated-3-exposed-bearing-41-0:path" closed="false" points="5.52 1.173 11.655; 5.52 1.174 11.655" />
+  <path id="E-elevated-3-exposed-bearing-42-0:path" closed="false" points="5.52 1.174 11.504; 5.52 1.193 11.504" />
+  <path id="E-elevated-3-exposed-bearing-43-0:path" closed="false" points="5.52 1.193 11.504; 5.52 1.195 11.504" />
+  <path id="E-elevated-3-exposed-bearing-44-0:path" closed="false" points="5.52 1.195 11.504; 5.52 1.213 11.504" />
+  <path id="E-elevated-3-exposed-bearing-45-0:path" closed="false" points="5.52 1.213 11.504; 5.52 1.234 11.504" />
+  <path id="E-elevated-3-exposed-bearing-46-0:path" closed="false" points="5.52 1.234 11.504; 5.52 1.238 11.504" />
+  <path id="E-elevated-3-exposed-bearing-47-0:path" closed="false" points="5.52 1.238 11.504; 5.52 1.254 11.504" />
+  <path id="E-elevated-3-exposed-bearing-48-0:path" closed="false" points="5.52 1.254 11.504; 5.52 1.274 11.504" />
+  <path id="E-elevated-3-exposed-bearing-49-0:path" closed="false" points="5.52 1.274 11.504; 5.52 1.275 11.504" />
+  <path id="E-elevated-3-exposed-bearing-50-0:path" closed="false" points="5.52 1.275 11.504; 5.52 1.295 11.504" />
+  <path id="E-elevated-3-exposed-bearing-51-0:path" closed="false" points="5.52 1.295 11.504; 5.52 1.31 11.504" />
+  <path id="E-elevated-3-exposed-bearing-52-0:path" closed="false" points="5.52 1.31 11.504; 5.52 1.315 11.504" />
+  <path id="E-elevated-3-exposed-bearing-53-0:path" closed="false" points="5.52 1.315 11.504; 5.52 1.336 11.504" />
+  <path id="E-elevated-3-exposed-bearing-54-0:path" closed="false" points="5.52 1.336 11.504; 5.52 1.345 11.504" />
+  <path id="E-elevated-3-exposed-bearing-55-0:path" closed="false" points="5.52 1.345 11.504; 5.52 1.356 11.504" />
+  <path id="E-elevated-3-exposed-bearing-56-0:path" closed="false" points="5.52 1.356 11.504; 5.52 1.377 11.504" />
+  <path id="E-elevated-3-exposed-bearing-57-0:path" closed="false" points="5.52 1.377 11.504; 5.52 1.381 11.504" />
+  <path id="E-elevated-3-exposed-bearing-58-0:path" closed="false" points="5.52 1.381 11.504; 5.52 1.397 11.504" />
+  <path id="E-elevated-3-exposed-bearing-59-0:path" closed="false" points="5.52 1.397 11.504; 5.52 1.417 11.504" />
+  <path id="E-elevated-3-exposed-bearing-60-0:path" closed="false" points="5.52 1.417 11.504; 5.52 1.438 11.504" />
+  <path id="E-elevated-3-exposed-bearing-61-0:path" closed="false" points="5.52 1.438 11.504; 5.52 1.44 11.504" />
+  <path id="E-elevated-3-exposed-bearing-62-0:path" closed="false" points="5.52 1.44 11.504; 5.52 1.453 11.504" />
+  <path id="E-elevated-3-exposed-bearing-63-0:path" closed="false" points="5.52 1.453 11.504; 5.52 1.458 11.504" />
+  <path id="E-elevated-3-exposed-bearing-64-0:path" closed="false" points="5.52 1.458 11.504; 5.52 1.478 11.504" />
+  <path id="E-elevated-3-exposed-bearing-65-0:path" closed="false" points="5.52 1.478 11.504; 5.52 1.489 11.504" />
+  <path id="E-elevated-3-exposed-bearing-66-0:path" closed="false" points="5.52 1.489 11.504; 5.52 1.499 11.504" />
+  <path id="E-elevated-3-exposed-bearing-67-0:path" closed="false" points="5.52 1.499 11.504; 5.52 1.5 11.504" />
+  <path id="E-elevated-3-exposed-bearing-68-0:path" closed="false" points="5.52 1.5 11.504; 5.52 1.519 11.504" />
+  <path id="E-elevated-3-exposed-bearing-69-0:path" closed="false" points="5.52 1.519 11.504; 5.52 1.524 11.504" />
+  <path id="E-elevated-3-exposed-bearing-70-0:path" closed="false" points="5.52 1.524 11.504; 5.52 1.54 11.504" />
+  <path id="E-elevated-3-exposed-bearing-71-0:path" closed="false" points="5.52 1.54 11.504; 5.52 1.56 11.504" />
+  <path id="E-elevated-3-exposed-bearing-72-0:path" closed="false" points="5.52 1.56 11.504; 5.52 1.58 11.504" />
+  <path id="E-elevated-3-exposed-bearing-73-0:path" closed="false" points="5.52 1.58 11.504; 5.52 1.586 11.504" />
+  <path id="E-elevated-3-exposed-bearing-74-0:path" closed="false" points="5.52 1.586 11.352; 5.52 1.596 11.352" />
+  <path id="E-elevated-3-exposed-bearing-75-0:path" closed="false" points="5.52 1.596 11.352; 5.52 1.601 11.352" />
+  <path id="E-elevated-3-exposed-bearing-76-0:path" closed="false" points="5.52 1.601 11.352; 5.52 1.621 11.352" />
+  <path id="E-elevated-3-exposed-bearing-77-0:path" closed="false" points="5.52 1.621 11.352; 5.52 1.632 11.352" />
+  <path id="E-elevated-3-exposed-bearing-78-0:path" closed="false" points="5.52 1.632 11.352; 5.52 1.642 11.352" />
+  <path id="E-elevated-3-exposed-bearing-79-0:path" closed="false" points="5.52 1.642 11.352; 5.52 1.662 11.352" />
+  <path id="E-elevated-3-exposed-bearing-80-0:path" closed="false" points="5.52 1.662 11.352; 5.52 1.668 11.352" />
+  <path id="E-elevated-3-exposed-bearing-81-0:path" closed="false" points="5.52 1.668 11.352; 5.52 1.682 11.352" />
+  <path id="E-elevated-3-exposed-bearing-82-0:path" closed="false" points="5.52 1.682 11.352; 5.52 1.703 11.352" />
+  <path id="E-elevated-3-exposed-bearing-83-0:path" closed="false" points="5.52 1.703 11.352; 5.52 1.723 11.352" />
+  <path id="E-elevated-3-exposed-bearing-84-0:path" closed="false" points="5.52 1.723 11.352; 5.52 1.739 11.352" />
+  <path id="E-elevated-3-exposed-bearing-85-0:path" closed="false" points="5.52 1.739 11.352; 5.52 1.744 11.352" />
+  <path id="E-elevated-3-exposed-bearing-86-0:path" closed="false" points="5.52 1.744 11.352; 5.52 1.764 11.352" />
+  <path id="E-elevated-3-exposed-bearing-87-0:path" closed="false" points="5.52 1.764 11.352; 5.52 1.775 11.352" />
+  <path id="E-elevated-3-exposed-bearing-88-0:path" closed="false" points="5.52 1.775 11.352; 5.52 1.784 11.352" />
+  <path id="E-elevated-3-exposed-bearing-89-0:path" closed="false" points="5.52 1.784 11.352; 5.52 1.805 11.352" />
+  <path id="E-elevated-3-exposed-bearing-90-0:path" closed="false" points="5.52 1.805 11.352; 5.52 1.811 11.352" />
+  <path id="E-elevated-3-exposed-bearing-91-0:path" closed="false" points="5.52 1.811 11.352; 5.52 1.825 11.352" />
+  <path id="E-elevated-3-exposed-bearing-92-0:path" closed="false" points="5.52 1.825 11.352; 5.52 1.846 11.352" />
+  <path id="E-elevated-3-exposed-bearing-93-0:path" closed="false" points="5.52 1.846 11.352; 5.52 1.866 11.352" />
+  <path id="E-elevated-3-exposed-bearing-94-0:path" closed="false" points="5.52 1.866 11.352; 5.52 1.882 11.352" />
+  <path id="E-elevated-3-exposed-bearing-95-0:path" closed="false" points="5.52 1.882 11.352; 5.52 1.886 11.352" />
+  <path id="E-elevated-3-exposed-bearing-96-0:path" closed="false" points="5.52 1.886 11.352; 5.52 1.907 11.352" />
+  <path id="E-elevated-3-exposed-bearing-97-0:path" closed="false" points="5.52 1.907 11.352; 5.52 1.918 11.352" />
+  <path id="E-elevated-3-exposed-bearing-98-0:path" closed="false" points="5.52 1.918 11.352; 5.52 1.927 11.352" />
+  <path id="E-elevated-3-exposed-bearing-99-0:path" closed="false" points="5.52 1.927 11.352; 5.52 1.948 11.352" />
+  <path id="E-elevated-3-exposed-bearing-100-0:path" closed="false" points="5.52 1.948 11.352; 5.52 1.954 11.352" />
+  <path id="E-elevated-3-exposed-bearing-101-0:path" closed="false" points="5.52 1.954 11.352; 5.52 1.968 11.352" />
+  <path id="E-elevated-3-exposed-bearing-102-0:path" closed="false" points="5.52 1.968 11.352; 5.52 1.988 11.352" />
+  <path id="E-elevated-3-exposed-bearing-103-0:path" closed="false" points="5.52 1.988 11.352; 5.52 1.99 11.352" />
+  <path id="E-elevated-3-exposed-bearing-104-0:path" closed="false" points="5.52 1.99 11.352; 5.52 1.998 11.352" />
+  <path id="E-elevated-3-exposed-bearing-105-0:path" closed="false" points="5.52 1.998 11.201; 5.52 2.009 11.201" />
+  <path id="E-elevated-3-exposed-bearing-106-0:path" closed="false" points="5.52 2.009 11.201; 5.52 2.025 11.201" />
+  <path id="E-elevated-3-exposed-bearing-107-0:path" closed="false" points="5.52 2.025 11.201; 5.52 2.029 11.201" />
+  <path id="E-elevated-3-exposed-bearing-108-0:path" closed="false" points="5.52 2.029 11.201; 5.52 2.05 11.201" />
+  <path id="E-elevated-3-exposed-bearing-109-0:path" closed="false" points="5.52 2.05 11.201; 5.52 2.061 11.201" />
+  <path id="E-elevated-3-exposed-bearing-110-0:path" closed="false" points="5.52 2.061 11.201; 5.52 2.07 11.201" />
+  <path id="E-elevated-3-exposed-bearing-111-0:path" closed="false" points="5.52 2.07 11.201; 5.52 2.09 11.201" />
+  <path id="E-elevated-3-exposed-bearing-112-0:path" closed="false" points="5.52 2.09 11.201; 5.52 2.097 11.201" />
+  <path id="E-elevated-3-exposed-bearing-113-0:path" closed="false" points="5.52 2.097 11.201; 5.52 2.111 11.201" />
+  <path id="E-elevated-3-exposed-bearing-114-0:path" closed="false" points="5.52 2.111 11.201; 5.52 2.123 11.201" />
+  <path id="E-elevated-3-exposed-bearing-115-0:path" closed="false" points="5.52 2.123 11.201; 5.52 2.131 11.201" />
+  <path id="E-elevated-3-exposed-bearing-116-0:path" closed="false" points="5.52 2.131 11.201; 5.52 2.15 11.201" />
+  <path id="E-elevated-3-exposed-bearing-117-0:path" closed="false" points="5.52 2.15 11.201; 5.52 2.152 11.201" />
+  <path id="E-elevated-3-exposed-bearing-118-0:path" closed="false" points="5.52 2.152 11.201; 5.52 2.172 11.201" />
+  <path id="E-elevated-3-exposed-bearing-119-0:path" closed="false" points="5.52 2.172 11.201; 5.52 2.176 11.201" />
+  <path id="E-elevated-3-exposed-bearing-120-0:path" closed="false" points="5.52 2.176 11.201; 5.52 2.192 11.201" />
+  <path id="E-elevated-3-exposed-bearing-121-0:path" closed="false" points="5.52 2.192 11.201; 5.52 2.202 11.201" />
+  <path id="E-elevated-3-exposed-bearing-122-0:path" closed="false" points="5.52 2.202 11.201; 5.52 2.213 11.201" />
+  <path id="E-elevated-3-exposed-bearing-123-0:path" closed="false" points="5.52 2.213 11.201; 5.52 2.229 11.201" />
+  <path id="E-elevated-3-exposed-bearing-124-0:path" closed="false" points="5.52 2.229 11.201; 5.52 2.233 11.201" />
+  <path id="E-elevated-3-exposed-bearing-125-0:path" closed="false" points="5.52 2.233 11.201; 5.52 2.239 11.201" />
+  <path id="E-elevated-3-exposed-bearing-126-0:path" closed="false" points="5.52 2.239 11.201; 5.52 2.254 11.201" />
+  <path id="E-elevated-3-exposed-bearing-127-0:path" closed="false" points="5.52 2.254 11.201; 5.52 2.255 11.201" />
+  <path id="E-elevated-3-exposed-bearing-128-0:path" closed="false" points="5.52 2.255 11.201; 5.52 2.274 11.201" />
+  <path id="E-elevated-3-exposed-bearing-129-0:path" closed="false" points="5.52 2.274 11.201; 5.52 2.281 11.201" />
+  <path id="E-elevated-3-exposed-bearing-130-0:path" closed="false" points="5.52 2.281 11.201; 5.52 2.294 11.201" />
+  <path id="E-elevated-3-exposed-bearing-131-0:path" closed="false" points="5.52 2.294 11.201; 5.52 2.308 11.201" />
+  <path id="E-elevated-3-exposed-bearing-132-0:path" closed="false" points="5.52 2.308 11.201; 5.52 2.315 11.201" />
+  <path id="E-elevated-3-exposed-bearing-133-0:path" closed="false" points="5.52 2.315 11.201; 5.52 2.334 11.201" />
+  <path id="E-elevated-3-exposed-bearing-134-0:path" closed="false" points="5.52 2.334 11.201; 5.52 2.335 11.201" />
+  <path id="E-elevated-3-exposed-bearing-135-0:path" closed="false" points="5.52 2.335 11.201; 5.52 2.356 11.201" />
+  <path id="E-elevated-3-exposed-bearing-136-0:path" closed="false" points="5.52 2.356 11.201; 5.52 2.36 11.201" />
+  <path id="E-elevated-3-exposed-bearing-137-0:path" closed="false" points="5.52 2.36 11.201; 5.52 2.376 11.201" />
+  <path id="E-elevated-3-exposed-bearing-138-0:path" closed="false" points="5.52 2.376 11.201; 5.52 2.387 11.201" />
+  <path id="E-elevated-3-exposed-bearing-139-0:path" closed="false" points="5.52 2.387 11.201; 5.52 2.396 11.201" />
+  <path id="E-elevated-3-exposed-bearing-140-0:path" closed="false" points="5.52 2.396 11.201; 5.52 2.41 11.201" />
+  <path id="E-elevated-3-exposed-bearing-141-0:path" closed="false" points="5.52 2.41 11.05; 5.52 2.413 11.05" />
+  <path id="E-elevated-3-exposed-bearing-142-0:path" closed="false" points="5.52 2.413 11.05; 5.52 2.417 11.05" />
+  <path id="E-elevated-3-exposed-bearing-143-0:path" closed="false" points="5.52 2.417 11.05; 5.52 2.437 11.05" />
+  <path id="E-elevated-3-exposed-bearing-144-0:path" closed="false" points="5.52 2.437 11.05; 5.52 2.439 11.05" />
+  <path id="E-elevated-3-exposed-bearing-145-0:path" closed="false" points="5.52 2.439 11.05; 5.52 2.457 11.05" />
+  <path id="E-elevated-3-exposed-bearing-146-0:path" closed="false" points="5.52 2.457 11.05; 5.52 2.465 11.05" />
+  <path id="E-elevated-3-exposed-bearing-147-0:path" closed="false" points="5.52 2.465 11.05; 5.52 2.478 11.05" />
+  <path id="E-elevated-3-exposed-bearing-148-0:path" closed="false" points="5.52 2.478 11.05; 5.52 2.492 11.05" />
+  <path id="E-elevated-3-exposed-bearing-149-0:path" closed="false" points="5.52 2.492 11.05; 5.52 2.498 11.05" />
+  <path id="E-elevated-3-exposed-bearing-150-0:path" closed="false" points="5.52 2.498 11.05; 5.52 2.518 11.05" />
+  <path id="E-elevated-3-exposed-bearing-151-0:path" closed="false" points="5.52 2.518 11.05; 5.52 2.519 11.05" />
+  <path id="E-elevated-3-exposed-bearing-152-0:path" closed="false" points="5.52 2.519 11.05; 5.52 2.539 11.05" />
+  <path id="E-elevated-3-exposed-bearing-153-0:path" closed="false" points="5.52 2.539 11.05; 5.52 2.544 11.05" />
+  <path id="E-elevated-3-exposed-bearing-154-0:path" closed="false" points="5.52 2.544 11.05; 5.52 2.559 11.05" />
+  <path id="E-elevated-3-exposed-bearing-155-0:path" closed="false" points="5.52 2.559 11.05; 5.52 2.571 11.05" />
+  <path id="E-elevated-3-exposed-bearing-156-0:path" closed="false" points="5.52 2.571 11.05; 5.52 2.58 11.05" />
+  <path id="E-elevated-3-exposed-bearing-157-0:path" closed="false" points="5.52 2.58 11.05; 5.52 2.597 11.05" />
+  <path id="E-elevated-3-exposed-bearing-158-0:path" closed="false" points="5.52 2.597 11.05; 5.52 2.6 11.05" />
+  <path id="E-elevated-3-exposed-bearing-159-0:path" closed="false" points="5.52 2.6 11.05; 5.52 2.621 11.05" />
+  <path id="E-elevated-3-exposed-bearing-160-0:path" closed="false" points="5.52 2.621 11.05; 5.52 2.623 11.05" />
+  <path id="E-elevated-3-exposed-bearing-161-0:path" closed="false" points="5.52 2.623 11.05; 5.52 2.641 11.05" />
+  <path id="E-elevated-3-exposed-bearing-162-0:path" closed="false" points="5.52 2.641 11.05; 5.52 2.65 11.05" />
+  <path id="E-elevated-3-exposed-bearing-163-0:path" closed="false" points="5.52 2.65 11.05; 5.52 2.661 11.05" />
+  <path id="E-elevated-3-exposed-bearing-164-0:path" closed="false" points="5.52 2.661 11.05; 5.52 2.676 11.05" />
+  <path id="E-elevated-3-exposed-bearing-165-0:path" closed="false" points="5.52 2.676 11.05; 5.52 2.682 11.05" />
+  <path id="E-elevated-3-exposed-bearing-166-0:path" closed="false" points="5.52 2.682 11.05; 5.52 2.702 11.05" />
+  <path id="E-elevated-3-exposed-bearing-167-0:path" closed="false" points="5.52 2.702 11.05; 5.52 2.723 11.05" />
+  <path id="E-elevated-3-exposed-bearing-168-0:path" closed="false" points="5.52 2.723 11.05; 5.52 2.729 11.05" />
+  <path id="E-elevated-3-exposed-bearing-169-0:path" closed="false" points="5.52 2.729 11.05; 5.52 2.743 11.05" />
+  <path id="E-elevated-3-exposed-bearing-170-0:path" closed="false" points="5.52 2.743 11.05; 5.52 2.755 11.05" />
+  <path id="E-elevated-3-exposed-bearing-171-0:path" closed="false" points="5.52 2.755 11.05; 5.52 2.763 11.05" />
+  <path id="E-elevated-3-exposed-bearing-172-0:path" closed="false" points="5.52 2.763 11.05; 5.52 2.781 11.05" />
+  <path id="E-elevated-3-exposed-bearing-173-0:path" closed="false" points="5.52 2.781 11.05; 5.52 2.784 11.05" />
+  <path id="E-elevated-3-exposed-bearing-174-0:path" closed="false" points="5.52 2.784 11.05; 5.52 2.804 11.05" />
+  <path id="E-elevated-3-exposed-bearing-175-0:path" closed="false" points="5.52 2.804 11.05; 5.52 2.808 11.05" />
+  <path id="E-elevated-3-exposed-bearing-176-0:path" closed="false" points="5.52 2.808 11.05; 5.52 2.822 11.05" />
+  <path id="E-elevated-3-exposed-bearing-177-0:path" closed="false" points="5.52 2.822 10.898; 5.52 2.825 10.898" />
+  <path id="E-elevated-3-exposed-bearing-178-0:path" closed="false" points="5.52 2.825 10.898; 5.52 2.834 10.898" />
+  <path id="e297:path" closed="false" points="4.068 8.04 12.091; 4.068 7.82 12.091" />
+  <path id="e298:path" closed="false" points="4.068 7.82 12.091; 4.067 7.82 12.091" />
+  <path id="e299:path" closed="false" points="4.067 7.82 12.091; 4.067 8.04 12.091" />
+  <path id="e300:path" closed="false" points="4.067 8.04 12.091; 4.068 8.04 12.091" />
+  <path id="e301:path" closed="false" points="5.191 5.77 12.391; 5.191 5.55 12.391" />
+  <path id="e302:path" closed="false" points="5.191 5.55 12.391; 5.132 5.55 12.391" />
+  <path id="e303:path" closed="false" points="5.132 5.55 12.391; 5.132 5.77 12.391" />
+  <path id="e304:path" closed="false" points="5.132 5.77 12.391; 5.191 5.77 12.391" />
+  <path id="e305:path" closed="false" points="2.83 -5.84 0.94; 2.83 -5.666 0.94" />
+  <path id="e306:path" closed="false" points="2.83 -5.666 0.94; 3.6 -5.666 0.94" />
+  <path id="e307:path" closed="false" points="3.6 -5.666 0.94; 3.6 -5.84 0.94" />
+  <path id="e308:path" closed="false" points="3.6 -5.84 0.94; 2.83 -5.84 0.94" />
+  <path id="e309:path" closed="false" points="2.83 -5.666 0.73; 2.83 -5.316 0.73" />
+  <path id="e310:path" closed="false" points="2.83 -5.316 0.73; 3.6 -5.316 0.73" />
+  <path id="e311:path" closed="false" points="3.6 -5.316 0.73; 3.6 -5.666 0.73" />
+  <path id="e312:path" closed="false" points="3.6 -5.666 0.73; 2.83 -5.666 0.73" />
+  <path id="e313:path" closed="false" points="2.83 -5.316 0.52; 2.83 -4.966 0.52" />
+  <path id="e314:path" closed="false" points="2.83 -4.966 0.52; 3.6 -4.966 0.52" />
+  <path id="e315:path" closed="false" points="3.6 -4.966 0.52; 3.6 -5.316 0.52" />
+  <path id="e316:path" closed="false" points="3.6 -5.316 0.52; 2.83 -5.316 0.52" />
+  <path id="e317:path" closed="false" points="2.83 -4.966 0.31; 2.83 -4.616 0.31" />
+  <path id="e318:path" closed="false" points="2.83 -4.616 0.31; 3.6 -4.616 0.31" />
+  <path id="e319:path" closed="false" points="3.6 -4.616 0.31; 3.6 -4.966 0.31" />
+  <path id="e320:path" closed="false" points="3.6 -4.966 0.31; 2.83 -4.966 0.31" />
+  <path id="e321:path" closed="false" points="5.37 3.731 1.238; 5.289 3.731 1.238" />
+  <path id="e322:path" closed="false" points="4.179 4.01 1.238; 4.179 4.04 1.238" />
+  <path id="e323:path" closed="false" points="1.086 3.93 2.599; 0.594 3.93 2.599" />
+  <path id="e324:path" closed="false" points="3.6 -4.616 0.1; 2.83 -4.616 0.1" />
+  <path id="e325:path" closed="false" points="2.83 -8.466 2.41; 2.83 -5.666 0.73" />
+  <path id="e326:path" closed="false" points="2.83 -5.666 0.73; 2.83 -5.316 0.52" />
+  <path id="e327:path" closed="false" points="2.83 -5.316 0.52; 2.83 -4.966 0.31" />
+  <path id="e328:path" closed="false" points="2.83 -4.966 0.31; 2.83 -4.616 0.1" />
+  <path id="mosaic-low-lip:path" closed="false" points="2.564 0.21 -0.29; 4.561 0.21 -0.29" />
+  <path id="basal-E-service:left" paths="e258:path" closed="false" points="" />
+  <path id="basal-E-service:right" paths="-e259:path" closed="false" points="" />
+  <path id="N0-front:left" paths="e262:path" closed="false" points="" />
+  <path id="N0-front:right" paths="-e260:path" closed="false" points="" />
+  <path id="E-elevated-1:left" paths="e281:path" closed="false" points="" />
+  <path id="E-elevated-1:right" paths="-e280:path" closed="false" points="" />
+  <path id="E-elevated-2:left" paths="e283:path" closed="false" points="" />
+  <path id="E-elevated-2:right" paths="-e282:path" closed="false" points="" />
+  <path id="E-elevated-3:left" paths="e285:path" closed="false" points="" />
+  <path id="E-elevated-3:right" paths="-e284:path" closed="false" points="" />
+  <path id="rear-fan-visible:left" paths="e286:path" closed="false" points="" />
+  <path id="rear-fan-visible:right" paths="-e287:path" closed="false" points="" />
+  <path id="rear-HOME-visible:left" paths="e289:path" closed="false" points="" />
+  <path id="rear-HOME-visible:right" paths="-e291:path" closed="false" points="" />
+  <path id="S-entry-regular:left" paths="e296:path" closed="false" points="" />
+  <path id="S-entry-regular:right" paths="-e328:path -e327:path -e326:path -e325:path" closed="false" points="" />
+  <path id="trough-W-gallery-0-court:axis" closed="false" points="1.114 1.5 0; 1.114 3.82 0" />
+  <path id="trough-W-gallery-0-court:base" closed="false" points="0 1.549 0; 2.32 1.549 0" />
+  <path id="trough-W-gallery-0-court:top" closed="false" points="0 3.604953 0; 2.32 3.604953 0" />
+  <path id="trough-W-gallery-0-back-0:axis" closed="false" points="0.644 1.5 0; 0.644 1.58 0" />
+  <path id="trough-W-gallery-0-back-0:base" closed="false" points="0 2.599 0; 0.08 2.599 0" />
+  <path id="trough-W-gallery-0-back-0:top" closed="false" points="0 3.454953 0; 0.08 3.454953 0" />
+  <path id="trough-W-gallery-0-back-1:axis" closed="false" points="0.644 1.58 0; 0.644 3.74 0" />
+  <path id="trough-W-gallery-0-back-1:base" closed="false" points="0 2.599 0; 2.16 2.599 0" />
+  <path id="trough-W-gallery-0-back-1:top" closed="false" points="0 3.454953 0; 2.16 3.454953 0" />
+  <path id="trough-W-gallery-0-back-2:axis" closed="false" points="0.644 3.74 0; 0.644 3.82 0" />
+  <path id="trough-W-gallery-0-back-2:base" closed="false" points="0 2.599 0; 0.08 2.599 0" />
+  <path id="trough-W-gallery-0-back-2:top" closed="false" points="0 3.454953 0; 0.08 3.454953 0" />
+  <path id="trough-W-gallery-0-end0-0:axis" closed="false" points="0.594 1.58 0; 0.644 1.58 0" />
+  <path id="trough-W-gallery-0-end0-0:base" closed="false" points="0 2.359 0; 0.05 2.359 0" />
+  <path id="trough-W-gallery-0-end0-0:top" closed="false" points="0 3.604953 0; 0.05 3.604953 0" />
+  <path id="trough-W-gallery-0-end0-1:axis" closed="false" points="0.644 1.58 0; 1.194 1.58 0" />
+  <path id="trough-W-gallery-0-end0-1:base" closed="false" points="0 2.359 0; 0.55 2.359 0" />
+  <path id="trough-W-gallery-0-end0-1:top" closed="false" points="0 3.604953 0; 0.55 3.604953 0" />
+  <path id="trough-W-gallery-0-end1-0:axis" closed="false" points="0.594 3.74 0; 0.644 3.74 0" />
+  <path id="trough-W-gallery-0-end1-0:base" closed="false" points="0 2.359 0; 0.05 2.359 0" />
+  <path id="trough-W-gallery-0-end1-0:top" closed="false" points="0 3.604953 0; 0.05 3.604953 0" />
+  <path id="trough-W-gallery-0-end1-1:axis" closed="false" points="0.644 3.74 0; 1.194 3.74 0" />
+  <path id="trough-W-gallery-0-end1-1:base" closed="false" points="0 2.359 0; 0.55 2.359 0" />
+  <path id="trough-W-gallery-0-end1-1:top" closed="false" points="0 3.604953 0; 0.55 3.604953 0" />
+  <path id="trough-W-gallery-0-rail:axis" closed="false" points="0.644 1.62 0; 0.644 3.7 0" />
+  <path id="trough-W-gallery-0-rail:base" closed="false" points="0 3.619 0; 2.08 3.619 0" />
+  <path id="trough-W-gallery-0-rail:top" closed="false" points="0 3.664 0; 2.08 3.664 0" />
+  <path id="trough-W-gallery-0-railpost0:axis" closed="false" points="0.621 1.68 0; 0.666 1.68 0" />
+  <path id="trough-W-gallery-0-railpost0:base" closed="false" points="0 3.454953 0; 0.045 3.454953 0" />
+  <path id="trough-W-gallery-0-railpost0:top" closed="false" points="0 3.664 0; 0.045 3.664 0" />
+  <path id="trough-W-gallery-0-railpost1:axis" closed="false" points="0.621 2.66 0; 0.666 2.66 0" />
+  <path id="trough-W-gallery-0-railpost1:base" closed="false" points="0 3.454953 0; 0.045 3.454953 0" />
+  <path id="trough-W-gallery-0-railpost1:top" closed="false" points="0 3.664 0; 0.045 3.664 0" />
+  <path id="trough-W-gallery-0-railpost2:axis" closed="false" points="0.621 3.64 0; 0.666 3.64 0" />
+  <path id="trough-W-gallery-0-railpost2:base" closed="false" points="0 3.454953 0; 0.045 3.454953 0" />
+  <path id="trough-W-gallery-0-railpost2:top" closed="false" points="0 3.664 0; 0.045 3.664 0" />
+  <path id="trough-W-gallery-1-court:axis" closed="false" points="0.971 1.5 0; 0.971 4.836 0" />
+  <path id="trough-W-gallery-1-court:base" closed="false" points="0 4.789 0; 3.336 4.789 0" />
+  <path id="trough-W-gallery-1-court:top" closed="false" points="0 6.844953 0; 3.336 6.844953 0" />
+  <path id="trough-W-gallery-1-back-0:axis" closed="false" points="0.501 1.5 0; 0.501 1.58 0" />
+  <path id="trough-W-gallery-1-back-0:base" closed="false" points="0 5.839 0; 0.08 5.839 0" />
+  <path id="trough-W-gallery-1-back-0:top" closed="false" points="0 6.694953 0; 0.08 6.694953 0" />
+  <path id="trough-W-gallery-1-back-1:axis" closed="false" points="0.501 1.58 0; 0.501 4.756 0" />
+  <path id="trough-W-gallery-1-back-1:base" closed="false" points="0 5.839 0; 3.176 5.839 0" />
+  <path id="trough-W-gallery-1-back-1:top" closed="false" points="0 6.694953 0; 3.176 6.694953 0" />
+  <path id="trough-W-gallery-1-back-2:axis" closed="false" points="0.501 4.756 0; 0.501 4.836 0" />
+  <path id="trough-W-gallery-1-back-2:base" closed="false" points="0 5.839 0; 0.08 5.839 0" />
+  <path id="trough-W-gallery-1-back-2:top" closed="false" points="0 6.694953 0; 0.08 6.694953 0" />
+  <path id="trough-W-gallery-1-end0-0:axis" closed="false" points="0.451 1.58 0; 0.501 1.58 0" />
+  <path id="trough-W-gallery-1-end0-0:base" closed="false" points="0 5.599 0; 0.05 5.599 0" />
+  <path id="trough-W-gallery-1-end0-0:top" closed="false" points="0 6.844953 0; 0.05 6.844953 0" />
+  <path id="trough-W-gallery-1-end0-1:axis" closed="false" points="0.501 1.58 0; 1.051 1.58 0" />
+  <path id="trough-W-gallery-1-end0-1:base" closed="false" points="0 5.599 0; 0.55 5.599 0" />
+  <path id="trough-W-gallery-1-end0-1:top" closed="false" points="0 6.844953 0; 0.55 6.844953 0" />
+  <path id="trough-W-gallery-1-end1-0:axis" closed="false" points="0.451 4.756 0; 0.501 4.756 0" />
+  <path id="trough-W-gallery-1-end1-0:base" closed="false" points="0 5.599 0; 0.05 5.599 0" />
+  <path id="trough-W-gallery-1-end1-0:top" closed="false" points="0 6.844953 0; 0.05 6.844953 0" />
+  <path id="trough-W-gallery-1-end1-1:axis" closed="false" points="0.501 4.756 0; 1.051 4.756 0" />
+  <path id="trough-W-gallery-1-end1-1:base" closed="false" points="0 5.599 0; 0.55 5.599 0" />
+  <path id="trough-W-gallery-1-end1-1:top" closed="false" points="0 6.844953 0; 0.55 6.844953 0" />
+  <path id="trough-W-gallery-1-rail:axis" closed="false" points="0.501 1.62 0; 0.501 4.716 0" />
+  <path id="trough-W-gallery-1-rail:base" closed="false" points="0 6.859 0; 3.096 6.859 0" />
+  <path id="trough-W-gallery-1-rail:top" closed="false" points="0 6.904 0; 3.096 6.904 0" />
+  <path id="trough-W-gallery-1-railpost0:axis" closed="false" points="0.478 1.68 0; 0.523 1.68 0" />
+  <path id="trough-W-gallery-1-railpost0:base" closed="false" points="0 6.694953 0; 0.045 6.694953 0" />
+  <path id="trough-W-gallery-1-railpost0:top" closed="false" points="0 6.904 0; 0.045 6.904 0" />
+  <path id="trough-W-gallery-1-railpost1:axis" closed="false" points="0.478 3.168 0; 0.523 3.168 0" />
+  <path id="trough-W-gallery-1-railpost1:base" closed="false" points="0 6.694953 0; 0.045 6.694953 0" />
+  <path id="trough-W-gallery-1-railpost1:top" closed="false" points="0 6.904 0; 0.045 6.904 0" />
+  <path id="trough-W-gallery-1-railpost2:axis" closed="false" points="0.478 4.656 0; 0.523 4.656 0" />
+  <path id="trough-W-gallery-1-railpost2:base" closed="false" points="0 6.694953 0; 0.045 6.694953 0" />
+  <path id="trough-W-gallery-1-railpost2:top" closed="false" points="0 6.904 0; 0.045 6.904 0" />
+  <path id="trough-W-gallery-2-court:axis" closed="false" points="0.839 1.5 0; 0.839 5.053 0" />
+  <path id="trough-W-gallery-2-court:base" closed="false" points="0 9.227 0; 3.553 9.227 0" />
+  <path id="trough-W-gallery-2-court:top" closed="false" points="0 10.9803 0; 3.553 10.9803 0" />
+  <path id="trough-W-gallery-2-back-0:axis" closed="false" points="0.369 1.5 0; 0.369 1.58 0" />
+  <path id="trough-W-gallery-2-back-0:base" closed="false" points="0 10.277 0; 0.08 10.277 0" />
+  <path id="trough-W-gallery-2-back-0:top" closed="false" points="0 11.132953 0; 0.08 11.132953 0" />
+  <path id="trough-W-gallery-2-back-1:axis" closed="false" points="0.369 1.58 0; 0.369 4.973 0" />
+  <path id="trough-W-gallery-2-back-1:base" closed="false" points="0 10.277 0; 3.393 10.277 0" />
+  <path id="trough-W-gallery-2-back-1:top" closed="false" points="0 11.132953 0; 3.393 11.132953 0" />
+  <path id="trough-W-gallery-2-back-2:axis" closed="false" points="0.369 4.973 0; 0.369 5.053 0" />
+  <path id="trough-W-gallery-2-back-2:base" closed="false" points="0 10.277 0; 0.08 10.277 0" />
+  <path id="trough-W-gallery-2-back-2:top" closed="false" points="0 11.132953 0; 0.08 11.132953 0" />
+  <path id="trough-W-gallery-2-end0-0:axis" closed="false" points="0.319 1.58 0; 0.369 1.58 0" />
+  <path id="trough-W-gallery-2-end0-0:base" closed="false" points="0 10.037 0; 0.05 10.037 0" />
+  <path id="trough-W-gallery-2-end0-0:top" closed="false" points="0 10.9803 0; 0.05 10.9803 0" />
+  <path id="trough-W-gallery-2-end0-1:axis" closed="false" points="0.369 1.58 0; 0.919 1.58 0" />
+  <path id="trough-W-gallery-2-end0-1:base" closed="false" points="0 10.037 0; 0.55 10.037 0" />
+  <path id="trough-W-gallery-2-end0-1:top" closed="false" points="0 10.9803 0; 0.55 10.9803 0" />
+  <path id="trough-W-gallery-2-end1-0:axis" closed="false" points="0.319 4.973 0; 0.369 4.973 0" />
+  <path id="trough-W-gallery-2-end1-0:base" closed="false" points="0 10.037 0; 0.05 10.037 0" />
+  <path id="trough-W-gallery-2-end1-0:top" closed="false" points="0 10.9803 0; 0.05 10.9803 0" />
+  <path id="trough-W-gallery-2-end1-1:axis" closed="false" points="0.369 4.973 0; 0.919 4.973 0" />
+  <path id="trough-W-gallery-2-end1-1:base" closed="false" points="0 10.037 0; 0.55 10.037 0" />
+  <path id="trough-W-gallery-2-end1-1:top" closed="false" points="0 10.9803 0; 0.55 10.9803 0" />
+  <path id="trough-W-gallery-2-rail:axis" closed="false" points="0.369 1.62 0; 0.369 4.933 0" />
+  <path id="trough-W-gallery-2-rail:base" closed="false" points="0 11.297 0; 3.313 11.297 0" />
+  <path id="trough-W-gallery-2-rail:top" closed="false" points="0 11.342 0; 3.313 11.342 0" />
+  <path id="trough-W-gallery-2-railpost0:axis" closed="false" points="0.346 1.68 0; 0.391 1.68 0" />
+  <path id="trough-W-gallery-2-railpost0:base" closed="false" points="0 11.132953 0; 0.045 11.132953 0" />
+  <path id="trough-W-gallery-2-railpost0:top" closed="false" points="0 11.342 0; 0.045 11.342 0" />
+  <path id="trough-W-gallery-2-railpost1:axis" closed="false" points="0.346 3.276 0; 0.391 3.276 0" />
+  <path id="trough-W-gallery-2-railpost1:base" closed="false" points="0 11.132953 0; 0.045 11.132953 0" />
+  <path id="trough-W-gallery-2-railpost1:top" closed="false" points="0 11.342 0; 0.045 11.342 0" />
+  <path id="trough-W-gallery-2-railpost2:axis" closed="false" points="0.346 4.873 0; 0.391 4.873 0" />
+  <path id="trough-W-gallery-2-railpost2:base" closed="false" points="0 11.132953 0; 0.045 11.132953 0" />
+  <path id="trough-W-gallery-2-railpost2:top" closed="false" points="0 11.342 0; 0.045 11.342 0" />
+  <path id="N0-west-pier:axis" closed="false" points="1.252 3.93 0; 1.96 3.93 0" />
+  <path id="N0-west-pier:base" closed="false" points="0 -0.24 0; 0.708 -0.24 0" />
+  <path id="N0-west-pier:top" closed="false" points="0 3.23088 0; 0.708 3.23088 0" />
+  <path id="N0-main1:axis" closed="false" points="1.96 3.93 0; 3.344 3.93 0" />
+  <path id="N0-main1:base" closed="false" points="0 -0.24 0; 1.384 -0.24 0" />
+  <path id="N0-main1:top" closed="false" points="0 2.699578 0; 1.384 2.699578 0" />
+  <path id="N0-main2:axis" closed="false" points="3.344 3.9 0; 4.615 3.9 0" />
+  <path id="N0-main2:base" closed="false" points="0 -0.24 0; 1.271 -0.24 0" />
+  <path id="N0-main2:top" closed="false" points="0 2.114805 0; 1.271 2.114805 0" />
+  <path id="N0-main3:axis" closed="false" points="4.615 3.841 0; 5.289 3.841 0" />
+  <path id="N0-main3:base" closed="false" points="0 -0.24 0; 0.674 -0.24 0" />
+  <path id="N0-main3:top" closed="false" points="0 1.553148 0; 0.674 1.553148 0" />
+  <path id="basal-court-0:axis" closed="false" points="5.26 -0.647 0; 5.26 0.315 0" />
+  <path id="basal-court-0:base" closed="false" points="0 -0.24 0; 0.962 -0.24 0" />
+  <path id="basal-court-0:top" closed="false" points="0 1.06272 0; 0.962 1.06272 0" />
+  <path id="basal-court-1:axis" closed="false" points="5.26 0.315 0; 5.26 1.277 0" />
+  <path id="basal-court-1:base" closed="false" points="0 -0.24 0; 0.962 -0.24 0" />
+  <path id="basal-court-1:top" closed="false" points="0 1.475439 0; 0.962 1.475439 0" />
+  <path id="basal-court-2:axis" closed="false" points="5.26 1.277 0; 5.26 2.239 0" />
+  <path id="basal-court-2:base" closed="false" points="0 -0.24 0; 0.962 -0.24 0" />
+  <path id="basal-court-2:top" closed="false" points="0 1.888159 0; 0.962 1.888159 0" />
+  <path id="basal-flat-strip-guard:axis" closed="false" points="5.26 2.239 0; 5.26 3.731 0" />
+  <path id="basal-flat-strip-guard:base" closed="false" points="0 -0.24 0; 1.492 -0.24 0" />
+  <path id="basal-flat-strip-guard:top" closed="false" points="0 1.888159 0; 1.492 1.888159 0" />
+  <path id="N-thin-joint:axis" closed="false" points="1.391 5.288 0; 5.52 5.288 0" />
+  <path id="N-thin-joint:base" closed="false" points="0 10.588698 0; 4.129 10.588698 0" />
+  <path id="N-thin-joint:top" closed="false" points="0 10.738698 0; 4.129 10.738698 0" />
+  <path id="N-fan-real-rail:axis" closed="false" points="1.951 5.318 0; 4.351 5.318 0" />
+  <path id="N-fan-real-rail:base" closed="false" points="0 8.320672 0; 2.4 8.320672 0" />
+  <path id="N-fan-real-rail:top" closed="false" points="0 8.365672 0; 2.4 8.365672 0" />
+  <path id="E-circle-real-rail:axis" closed="false" points="5.55 1.056 0; 5.55 2.676 0" />
+  <path id="E-circle-real-rail:base" closed="false" points="0 10.417769 0; 1.62 10.417769 0" />
+  <path id="E-circle-real-rail:top" closed="false" points="0 10.462769 0; 1.62 10.462769 0" />
+  <path id="NE-upper-guard-0:axis" closed="false" points="5.52 3.755 0; 5.52 5.288 0" />
+  <path id="NE-upper-guard-0:base" closed="false" points="0 7.478 0; 1.533 7.478 0" />
+  <path id="NE-upper-guard-0:top" closed="false" points="0 8.618 0; 1.533 8.618 0" />
+  <path id="NE-upper-guard-1:axis" closed="false" points="5.52 3.755 0; 5.52 5.288 0" />
+  <path id="NE-upper-guard-1:base" closed="false" points="0 10.717 0; 1.533 10.717 0" />
+  <path id="NE-upper-guard-1:top" closed="false" points="0 11.857 0; 1.533 11.857 0" />
+  <path id="S-plain-low-E-return:axis" closed="false" points="5.385 -1.938 0; 5.385 0 0" />
+  <path id="S-plain-low-E-return:base" closed="false" points="0 5.329571 0; 1.938 5.329571 0" />
+  <path id="S-plain-low-E-return:top" closed="false" points="0 7.465433 0; 1.938 7.465433 0" />
+  <path id="S-T-middle-E-return:axis" closed="false" points="5.52 -2.21 0; 5.52 -0.732 0" />
+  <path id="S-T-middle-E-return:base" closed="false" points="0 9.08055 0; 1.478 9.08055 0" />
+  <path id="S-T-middle-E-return:top" closed="false" points="0 10.98055 0; 1.478 10.98055 0" />
+  <path id="S-plain-high-E-return:axis" closed="false" points="5.52 -1.072 0; 5.52 -0.732 0" />
+  <path id="S-plain-high-E-return:base" closed="false" points="0 10.5 0; 0.34 10.5 0" />
+  <path id="S-plain-high-E-return:top" closed="false" points="0 12.4 0; 0.34 12.4 0" />
+  <path id="NE1-front-west-jamb-0:axis" closed="false" points="5.242 5.288 0; 5.242 5.621 0" />
+  <path id="NE1-front-west-jamb-0:base" closed="false" points="0 4.237909 0; 0.333 4.237909 0" />
+  <path id="NE1-front-west-jamb-0:top" closed="false" points="0 7.47766 0; 0.333 7.47766 0" />
+  <path id="NE1-front-west-jamb-1:axis" closed="false" points="5.242 5.621 0; 5.242 5.731 0" />
+  <path id="NE1-front-west-jamb-1:base" closed="false" points="0 4.237909 0; 0.11 4.237909 0" />
+  <path id="NE1-front-west-jamb-1:top" closed="false" points="0 7.47766 0; 0.11 7.47766 0" />
+  <path id="W2-rear-context:axis" closed="false" points="-0.81 7.93 0; 0.6 7.93 0" />
+  <path id="W2-rear-context:base" closed="false" points="0 10.037 0; 1.41 10.037 0" />
+  <path id="W2-rear-context:top" closed="false" points="0 16.3 0; 1.41 16.3 0" />
+  <path id="S-entry-pier:axis" closed="false" points="2.83 -5.95 0; 4.67 -5.95 0" />
+  <path id="S-entry-pier:base" closed="false" points="0 1.07 0; 1.84 1.07 0" />
+  <path id="S-entry-pier:top" closed="false" points="0 4.46 0; 1.84 4.46 0" />
+  <path id="A-near-higher:axis" closed="false" points="1 -0.108 0; 4.5 -0.108 0" />
+  <path id="A-near-higher:base" closed="false" points="0 19.58418 0; 3.5 19.58418 0" />
+  <path id="A-near-higher:top" closed="false" points="0 22 0; 3.5 22 0" />
+  <path id="N-fan-band:axis" closed="false" points="1.391 5.288 0; 5.52 5.288 0" />
+  <path id="N-fan-band:base" closed="false" points="0 4.013776 0; 1.525 4.013776 0; 1.525 5.144377 0; 1.962 5.144377 0; 1.962 4.013776 0; 3.241 4.013776 0; 3.241 3.813776 0; 3.491 3.813776 0; 3.491 3.413776 0; 4.129 3.413776 0" />
+  <path id="N-fan-band:top" closed="false" points="0 10.588698 0; 4.129 10.588698 0" />
+  <path id="N-upper-notched:axis" closed="false" points="1.391 5.288 0; 5.52 5.288 0" />
+  <path id="N-upper-notched:base" closed="false" points="0 10.3 0; 4.129 10.3 0" />
+  <path id="N-upper-notched:top" closed="false" points="0 13.21 0; 4.129 13.21 0" />
+  <path id="E1-low-body:axis" closed="false" points="5.385 0 0; 5.385 5.157 0" />
+  <path id="E1-low-body:base" closed="false" points="0 3.095747 0; 5.157 3.095747 0" />
+  <path id="E1-low-body:top" closed="false" points="0 6.970966 0; 1.032 6.970966 0; 1.032 6.370642 0; 2.378 6.370642 0; 2.378 5.316584 0; 2.555 5.316584 0; 2.555 5.517688 0; 3.551 5.517688 0; 3.551 4.990344 0; 5.157 4.990344 0" />
+  <path id="E-high-screen:axis" closed="false" points="5.52 -1.25 0; 5.52 3.755 0" />
+  <path id="E-high-screen:base" closed="false" points="0 8.835908 0; 1.58 8.840447 0; 1.58 8.498169 0; 2.488 8.439991 0; 2.488 7.984987 0; 3.347 7.91954 0; 3.347 7.144817 0; 5.005 6.969171 0" />
+  <path id="E-high-screen:top" closed="false" points="0 13.318563 0; 0.518 13.318563 0; 0.518 16.3 0; 5.005 16.3 0" />
+  <path id="S-plain-low:axis" closed="false" points="0.67 -1.938 0; 5.385 -1.938 0" />
+  <path id="S-plain-low:base" closed="false" points="0 5.329571 0; 4.715 5.329571 0" />
+  <path id="S-plain-low:top" closed="false" points="0 7.465433 0; 4.715 7.465433 0" />
+  <path id="S-T-middle:axis" closed="false" points="1.34 -2.21 0; 5.52 -2.21 0" />
+  <path id="S-T-middle:base" closed="false" points="0 9.08055 0; 4.18 9.08055 0" />
+  <path id="S-T-middle:top" closed="false" points="0 10.98055 0; 4.18 10.98055 0" />
+  <path id="S-plain-high:axis" closed="false" points="1.34 -1.072 0; 5.52 -1.072 0" />
+  <path id="S-plain-high:base" closed="false" points="0 10.5 0; 4.18 10.5 0" />
+  <path id="S-plain-high:top" closed="false" points="0 12.4 0; 4.18 12.4 0" />
+  <path id="lowerSaKi-backing:axis" closed="false" points="0.6 5.252 0; 4.179 5.252 0" />
+  <path id="lowerSaKi-backing:base" closed="false" points="0 -0.24 0; 3.579 -0.24 0" />
+  <path id="lowerSaKi-backing:top" closed="false" points="0 3.933776 0; 3.579 3.933776 0" />
+  <path id="lowerSaKi-0:shape:outline" closed="true" points="-0.063899 1.138159 0">
+    <line to="0.836101 1.138159 0" />
+    <line to="0.836101 2.788159 0" />
+    <arc center="0.386101 2.788159 0" radii="0.45 0.45" start="0" sweep="180" rotation="0" />
+  </path>
+  <path id="lowerSaKi-1:shape:outline" closed="true" points="1.95 1.438159 0">
+    <line to="2.85 1.438159 0" />
+    <line to="2.85 3.088159 0" />
+    <arc center="2.4 3.088159 0" radii="0.45 0.45" start="0" sweep="180" rotation="0" />
+  </path>
+  <path id="NEclosed-backing:axis" closed="false" points="5.132 6.908 0; 6.92 6.908 0" />
+  <path id="NEclosed-backing:base" closed="false" points="0 7.47766 0; 1.788 7.47766 0" />
+  <path id="NEclosed-backing:top" closed="false" points="0 12.151418 0; 1.788 12.151418 0" />
+  <path id="SaKiGreen-backing:axis" closed="false" points="4.179 5.252 0; 5.41 5.252 0" />
+  <path id="SaKiGreen-backing:base" closed="false" points="0 -0.24 0; 1.231 -0.24 0" />
+  <path id="SaKiGreen-backing:top" closed="false" points="0 3.738159 0; 1.231 3.738159 0" />
+  <path id="W-backing:axis" closed="false" points="-0.81 -2.3 0; -0.81 6.798 0" />
+  <path id="W-backing:base" closed="false" points="0 -0.24 0; 9.098 -0.24 0" />
+  <path id="W-backing:top" closed="false" points="0 22.8 0; 9.098 22.8 0" />
+  <path id="E-backing:axis" closed="false" points="7.03 -2.3 0; 7.03 6.798 0" />
+  <path id="E-backing:base" closed="false" points="0 -0.24 0; 9.098 -0.24 0" />
+  <path id="E-backing:top" closed="false" points="0 22.8 0; 9.098 22.8 0" />
+  <path id="E-upper-arch:shape:outline" closed="true" points="3.825 4.627909 0">
+    <line to="4.775 4.627909 0" />
+    <line to="4.775 6.502909 0" />
+    <arc center="4.3 6.502909 0" radii="0.475 0.475" start="0" sweep="180" rotation="0" />
+  </path>
+  <path id="Nfan-rear-two-openings:axis" closed="false" points="0.6 6.908 0; 5.132 6.908 0" />
+  <path id="Nfan-rear-two-openings:base" closed="false" points="0 5.439062 0; 4.532 5.439062 0" />
+  <path id="Nfan-rear-two-openings:top" closed="false" points="0.000000 10.038000 0; 0.486000 10.038000 0; 0.486000 10.176667 0; 0.725750 10.176667 0; 0.725750 10.315333 0; 0.965500 10.315333 0; 0.965500 10.454000 0; 1.205250 10.454000 0; 1.205250 10.592667 0; 1.445000 10.592667 0; 1.445000 10.731333 0; 1.684750 10.731333 0; 1.684750 10.738698 0; 4.532000 10.738698 0" />
+  <path id="Nfan-left-closed:shape:outline" closed="true" points="0.497999 7.71766 0">
+    <line to="2.167818 7.71766 0" />
+    <line to="2.167818 8.368175 0" />
+    <arc center="1.332908 8.368175 0" radii="0.834909 0.834909" start="0" sweep="180" rotation="0" />
+  </path>
+  <path id="NE1-front-storefront:axis" closed="false" points="5.132 5.621 0; 6.92 5.621 0" />
+  <path id="NE1-front-storefront:base" closed="false" points="0 4.237909 0; 1.788 4.237909 0" />
+  <path id="NE1-front-storefront:top" closed="false" points="0 7.47766 0; 1.788 7.47766 0" />
+  <path id="HOME-upper-window:axis" closed="false" points="0.6 7.93 0; 5.45 7.93 0" />
+  <path id="HOME-upper-window:base" closed="false" points="0 10.037 0; .486 10.037 0; .486 10.3 0; 4.85 10.3 0" />
+  <path id="HOME-upper-window:top" closed="false" points="0 16.3 0; 4.85 16.3 0" />
+  <path id="HOME-profile:shape:outline" closed="true" points="0.403308 12.774121 0">
+    <line to="4.666711 12.855383 0" />
+    <line to="4.495292 14.118279 0" />
+    <line to="4.152982 14.141329 0" />
+    <arc center="2.531781 13.03912 0" radii="1.960398 1.960398" start="34.210696" sweep="114.290193" rotation="0" />
+    <line to="0.512962 14.055179 0" />
+  </path>
+  <path id="HOME-upper-door:axis" closed="false" points="5.45 7.93 0; 6.92 7.93 0" />
+  <path id="HOME-upper-door:base" closed="false" points="0 12.151418 0; 1.47 12.151418 0" />
+  <path id="HOME-upper-door:top" closed="false" points="0 16.3 0; 1.47 16.3 0" />
+  <path id="S-entry-blue-face:axis" closed="false" points="4.7 -3.56 0; 6.5 -3.56 0" />
+  <path id="S-entry-blue-face:base" closed="false" points="0 -0.24 0; 1.8 -0.24 0" />
+  <path id="S-entry-blue-face:top" closed="false" points="0 4.2 0; 1.8 4.2 0" />
+  <path id="A-gray-upper:axis" closed="false" points="1 -0.125 0; 3.102 -0.125 0" />
+  <path id="A-gray-upper:base" closed="false" points="0 18.497833 0; 1.141 17.864009 0; 1.478 17.7587 0; 1.786 17.72598 0; 1.817 17.726746 0; 1.817 18.606214 0; 2.085 18.611934 0; 2.102 18.658599 0" />
+  <path id="A-gray-upper:top" closed="false" points="0 19.78418 0; 2.102 19.78418 0" />
+  <path id="north-infill:outline" closed="true" points="1.965713 8.320672 0">
+    <line to="4.335713 8.320672 0" />
+    <line to="4.335713 8.236298 0" />
+    <arc center="3.150713 8.320672 0" radii="1.188 1.188" start="-4.072691" sweep="-171.854618" rotation="0" />
+  </path>
+  <profile id="SaKi-L:profile" paths="e0:path e1:path e321:path -e3:path e3:path e4:path e5:path e6:path e7:path e8:path e322:path e261:path e10:path e11:path e12:path e13:path e14:path e15:path e16:path e17:path e18:path e19:path e20:path" />
+  <profile id="mosaic-M:profile" paths="e21:path e22:path e23:path e24:path e25:path e26:path e27:path e28:path e29:path e30:path e31:path e32:path e33:path e34:path e35:path e36:path e37:path e38:path e39:path e40:path e41:path e42:path e43:path e44:path e45:path e46:path e47:path e48:path" />
+  <profile id="W-gallery-0:profile" paths="e49:path e50:path e51:path e52:path e53:path e54:path e55:path e56:path e57:path e58:path" />
+  <profile id="W-gallery-0-support-1:profile" paths="e59:path e60:path e61:path e62:path" />
+  <profile id="NW-context-0:profile" paths="e63:path e263:path -e264:path e323:path -e51:path e66:path" />
+  <profile id="W-gallery-1:profile" paths="e67:path e68:path e69:path e70:path e71:path e72:path e73:path e74:path e75:path e76:path e77:path e78:path e79:path" />
+  <profile id="W-gallery-1-support-1:profile" paths="e80:path e81:path e82:path e83:path" />
+  <profile id="W-gallery-2:profile" paths="e84:path e85:path e86:path e87:path e88:path e89:path e90:path e91:path e92:path e93:path e94:path e95:path e96:path" />
+  <profile id="W-gallery-2-support-1:profile" paths="e97:path e98:path e99:path e100:path" />
+  <profile id="NE-receiving-1:profile" paths="e101:path e102:path e103:path e104:path e105:path e106:path e107:path e108:path e109:path e110:path e111:path e112:path e113:path" />
+  <profile id="SE-receiving-2:profile" paths="e114:path e115:path e116:path e117:path e118:path e119:path e120:path e121:path e122:path e123:path e124:path e125:path e126:path e127:path e128:path" />
+  <profile id="NE-receiving-2:profile" paths="e129:path e130:path e131:path e132:path e133:path e134:path e135:path e136:path e137:path e138:path e139:path e140:path e141:path e142:path e143:path e144:path e145:path e146:path e147:path e148:path e149:path e150:path e151:path e152:path e153:path e154:path e155:path e156:path e157:path e158:path e159:path e160:path e161:path e162:path e163:path e164:path e165:path e166:path e167:path e168:path e169:path e170:path" />
+  <profile id="SE-receiving-3:profile" paths="e171:path e172:path e173:path e174:path e175:path e176:path e177:path e178:path e179:path e180:path e181:path e182:path e183:path e184:path e185:path e186:path" />
+  <profile id="NE-receiving-3:profile" paths="e187:path e188:path e189:path e190:path e191:path e192:path e193:path e194:path e195:path e196:path e197:path e198:path e199:path e200:path e201:path e202:path e203:path e204:path e205:path e206:path e207:path e208:path e209:path e210:path e211:path e212:path e213:path e214:path" />
+  <profile id="HOME-NE-context:profile" dimensions="3" points="5.191 5.398 12.391; 5.191 7.82 12.391; 6.92 7.82 12.391; 6.92 5.398 12.391" />
+  <profile id="SE-receiving-1:profile" paths="e225:path e226:path e227:path e228:path e229:path" />
+  <profile id="S-entry-deep-starter:profile" paths="e230:path e231:path e232:path e324:path e295:path" />
+  <profile id="S-entry-blue-pad:profile" paths="e234:path e235:path e236:path e237:path e238:path e239:path" />
+  <profile id="S-overhead-gray:profile" paths="e240:path e241:path e242:path e243:path e244:path e245:path e246:path e247:path e248:path" />
+  <profile id="S-overhead-perimeter:profile" paths="e249:path e250:path e251:path e252:path e253:path e254:path -e245:path -e244:path -e243:path -e242:path -e241:path -e240:path -e248:path e255:path e256:path e257:path" />
+  <profile id="N0-tread-fringe-0-1-0:profile" paths="e264:path e265:path e266:path e267:path" />
+  <profile id="N0-tread-fringe-6-0-1:profile" paths="e268:path e269:path e270:path e271:path" />
+  <profile id="N0-tread-fringe-7-0-2:profile" paths="e272:path e273:path e274:path e275:path" />
+  <profile id="N0-tread-fringe-8-0-3:profile" paths="e276:path e277:path e278:path e279:path" />
+  <profile id="rear-HOME-visible-fringe-0-180:profile" paths="e297:path e298:path e299:path e300:path" />
+  <profile id="rear-HOME-visible-fringe-2-181:profile" paths="e301:path e302:path e303:path e304:path" />
+  <profile id="S-entry-regular-fringe-7-182:profile" paths="e305:path e306:path e307:path e308:path" />
+  <profile id="S-entry-regular-fringe-8-183:profile" paths="e309:path e310:path e311:path e312:path" />
+  <profile id="S-entry-regular-fringe-9-184:profile" paths="e313:path e314:path e315:path e316:path" />
+  <profile id="S-entry-regular-fringe-10-185:profile" paths="e317:path e318:path e319:path e320:path" />
+  <profile id="N-open-top-notch:shape" dimensions="3" points="1.912 12.12 0; 2.332 12.12 0; 2.332 13.21 0; 1.912 13.21 0" />
+  <profile id="S-T-middle-head:shape" dimensions="3" points="1.26 9.231 0; 2.36 9.231 0; 2.36 9.431 0; 1.26 9.431 0" />
+  <profile id="S-T-middle-stem:shape" dimensions="3" points="1.66 9.431 0; 1.96 9.431 0; 1.96 10.981 0; 1.66 10.981 0" />
+  <profile id="lowerSaKi-0:shape" paths="lowerSaKi-0:shape:outline" />
+  <profile id="lowerSaKi-1:shape" paths="lowerSaKi-1:shape:outline" />
+  <profile id="NEclosed-0:shape" dimensions="3" points="0.328 7.718 0; 1.588 7.718 0; 1.588 9.818 0; 0.328 9.818 0" />
+  <profile id="SaKi-door:shape" dimensions="3" points="0.05 1.238 0; 1.181 1.238 0; 1.181 3.338 0; 0.05 3.338 0" />
+  <profile id="E-lower-window:shape" dimensions="3" points="1.95 0.3 0; 4.65 0.3 0; 4.65 1.5 0; 1.95 1.5 0" />
+  <profile id="E-upper-arch:shape" paths="E-upper-arch:shape:outline" />
+  <profile id="Nfan-left-closed:shape" paths="Nfan-left-closed:shape:outline" />
+  <profile id="Nfan-right-closed:shape" dimensions="3" points="3.21 7.718 0; 3.983 7.718 0; 3.983 10.3 0; 3.21 10.3 0" />
+  <profile id="NE1-front-door:shape" dimensions="3" points="0.328 4.478 0; 1.588 4.478 0; 1.588 6.709 0; 0.328 6.709 0" />
+  <profile id="HOME-profile:shape" paths="HOME-profile:shape:outline" />
+  <profile id="HOME-closed-dark:shape" dimensions="3" points="0.27 12.391 0; 1.217 12.391 0; 1.217 16.3 0; 0.27 16.3 0" />
+  <profile id="S-entry-blue-leaf:shape" dimensions="3" points="0.4 0.3 0; 1.4 0.3 0; 1.4 2.23 0; 0.4 2.23 0" />
+  <profile id="A-gray-head:shape" dimensions="3" points="1.81 18.845 0; 1.969 18.845 0; 1.969 18.978 0; 1.81 18.978 0" />
+  <profile id="A-gray-stem:shape" dimensions="3" points="1.81 18.978 0; 1.861 18.978 0; 1.861 19.784 0; 1.81 19.784 0" />
+  <profile id="north-infill:shape" paths="north-infill:outline" />
+  <profile id="E-elevated-2:bearing-0:profile" dimensions="3" points="0 8.688000001013279 0; 0.11999999731779099 8.688000001013279 0; 0.27000000327825546 8.688000001013279 0; 0.32999999821186066 8.688000001013279 0; 0.32999999821186066 8.840000003576279 0; 0.27000000327825546 8.840000003576279 0; 0.11999999731779099 8.840000003576279 0; 0 8.840000003576279 0; 0 8.83900000154972 0; -0.06199999898672104 8.83900000154972 0; -0.06199999898672104 8.688000001013279 0" />
+  <profile id="E-elevated-2:bearing-1:profile" dimensions="3" points="1.193000003695488 8.233999997377396 0; 1.1950000002980232 8.233999997377396 0; 1.2129999995231628 8.233999997377396 0; 1.2339999973773956 8.233999997377396 0; 1.2379999980330467 8.233999997377396 0; 1.2379999980330467 8.439999997615814 0; 1.2339999973773956 8.439999997615814 0; 1.2339999973773956 8.440999999642372 0; 1.2129999995231628 8.440999999642372 0; 1.2129999995231628 8.44200000166893 0; 1.1950000002980232 8.44200000166893 0; 1.1950000002980232 8.443000003695488 0; 1.193000003695488 8.443000003695488 0; 1.1740000024437904 8.443000003695488 0; 1.1740000024437904 8.625 0; 1.1730000004172325 8.625 0; 1.1730000004172325 8.445000000298023 0; 1.1520000025629997 8.445000000298023 0; 1.1520000025629997 8.446000002324581 0; 1.1319999992847443 8.446000002324581 0; 1.1319999992847443 8.446999996900558 0; 1.1110000014305115 8.446999996900558 0; 1.1110000014305115 8.447999998927116 0; 1.1080000028014183 8.447999998927116 0; 1.1080000028014183 8.449000000953674 0; 1.090999998152256 8.449000000953674 0; 1.090999998152256 8.450000002980232 0; 1.0710000023245811 8.450000002980232 0; 1.0710000023245811 8.45099999755621 0; 1.0649999976158142 8.45099999755621 0; 1.0539999976754189 8.45099999755621 0; 1.0539999976754189 8.451999999582767 0; 1.0499999970197678 8.451999999582767 0; 1.0499999970197678 8.453000001609325 0; 1.030000001192093 8.453000001609325 0; 1.030000001192093 8.454000003635883 0; 1.0219999998807907 8.454000003635883 0; 1.00900000333786 8.454000003635883 0; 1.00900000333786 8.45499999821186 0; 0.9890000000596046 8.45499999821186 0; 0.9890000000596046 8.456000000238419 0; 0.9790000021457672 8.456000000238419 0; 0.9790000021457672 8.457000002264977 0; 0.9689999967813492 8.457000002264977 0; 0.9689999967813492 8.457999996840954 0; 0.9479999989271164 8.457999996840954 0; 0.9479999989271164 8.458999998867512 0; 0.9350000023841858 8.458999998867512 0; 0.9350000023841858 8.46000000089407 0; 0.9280000030994415 8.46000000089407 0; 0.9280000030994415 8.461000002920628 0; 0.9069999977946281 8.461000002920628 0; 0.9069999977946281 8.461999997496605 0; 0.8919999971985817 8.461999997496605 0; 0.8870000019669533 8.461999997496605 0; 0.8870000019669533 8.46400000154972 0; 0.8489999994635582 8.46400000154972 0; 0.8489999994635582 8.465999998152256 0; 0.8049999997019768 8.465999998152256 0; 0.8049999997019768 8.46899999678135 0; 0.7620000019669533 8.46899999678135 0; 0.7620000019669533 8.384999997913837 0; 0.8049999997019768 8.384999997913837 0; 0.8489999994635582 8.384999997913837 0; 0.8870000019669533 8.384999997913837 0; 0.8919999971985817 8.384999997913837 0; 0.9069999977946281 8.384999997913837 0; 0.9280000030994415 8.384999997913837 0; 0.9350000023841858 8.384999997913837 0; 0.9479999989271164 8.384999997913837 0; 0.9689999967813492 8.384999997913837 0; 0.9790000021457672 8.384999997913837 0; 0.9890000000596046 8.384999997913837 0; 1.00900000333786 8.384999997913837 0; 1.0219999998807907 8.384999997913837 0; 1.030000001192093 8.384999997913837 0; 1.0499999970197678 8.384999997913837 0; 1.0539999976754189 8.384999997913837 0; 1.0649999976158142 8.384999997913837 0; 1.0710000023245811 8.384999997913837 0; 1.090999998152256 8.384999997913837 0; 1.1080000028014183 8.384999997913837 0; 1.1110000014305115 8.384999997913837 0; 1.1319999992847443 8.384999997913837 0; 1.1520000025629997 8.384999997913837 0; 1.1730000004172325 8.384999997913837 0; 1.1740000024437904 8.384999997913837 0; 1.1740000024437904 8.233999997377396 0" />
+  <profile id="E-elevated-2:bearing-2:profile" dimensions="3" points="1.2749999985098839 8.473999999463558 0; 1.273999996483326 8.473999999463558 0; 1.273999996483326 8.233999997377396 0; 1.2749999985098839 8.233999997377396 0" />
+  <profile id="E-elevated-2:bearing-3:profile" dimensions="3" points="1.5 8.473999999463558 0; 1.498999997973442 8.473999999463558 0; 1.498999997973442 8.233999997377396 0; 1.5 8.233999997377396 0" />
+  <profile id="E-elevated-2:bearing-4:profile" dimensions="3" points="2.255000002682209 8.171999998390675 0; 2.254000000655651 8.171999998390675 0; 2.254000000655651 7.931999996304512 0; 2.255000002682209 7.931999996304512 0" />
+  <profile id="E-elevated-2:bearing-5:profile" dimensions="3" points="2.3350000008940697 8.171999998390675 0; 2.3339999988675117 8.171999998390675 0; 2.3339999988675117 7.931999996304512 0; 2.3350000008940697 7.931999996304512 0" />
+  <profile id="E-elevated-3:bearing-0:profile" dimensions="3" points="2.8250000029802322 10.898000001907349 0; 2.8339999988675117 10.898000001907349 0; 2.8339999988675117 11.108000002801418 0; 2.8250000029802322 11.108000002801418 0; 2.8219999969005585 11.108000002801418 0; 2.8219999969005585 11.177000001072884 0; 2.80799999833107 11.177000001072884 0; 2.80799999833107 11.233000002801418 0; 2.803999997675419 11.233000002801418 0; 2.803999997675419 11.247000001370907 0; 2.784000001847744 11.247000001370907 0; 2.784000001847744 11.259999997913837 0; 2.781000003218651 11.259999997913837 0; 2.7629999965429306 11.259999997913837 0; 2.755000002682209 11.259999997913837 0; 2.7430000007152557 11.259999997913837 0; 2.729000002145767 11.259999997913837 0; 2.7229999974370003 11.259999997913837 0; 2.7019999995827675 11.259999997913837 0; 2.681999996304512 11.259999997913837 0; 2.6759999990463257 11.259999997913837 0; 2.6609999984502792 11.259999997913837 0; 2.649999998509884 11.259999997913837 0; 2.6410000026226044 11.259999997913837 0; 2.6230000033974648 11.259999997913837 0; 2.620999999344349 11.259999997913837 0; 2.600000001490116 11.259999997913837 0; 2.597000002861023 11.259999997913837 0; 2.5799999982118607 11.259999997913837 0; 2.571000002324581 11.259999997913837 0; 2.559000000357628 11.259999997913837 0; 2.5439999997615814 11.259999997913837 0; 2.5389999970793724 11.259999997913837 0; 2.5190000012516975 11.259999997913837 0; 2.5179999992251396 11.259999997913837 0; 2.4980000033974648 11.259999997913837 0; 2.491999998688698 11.259999997913837 0; 2.4780000001192093 11.259999997913837 0; 2.4650000035762787 11.259999997913837 0; 2.4570000022649765 11.259999997913837 0; 2.439000003039837 11.259999997913837 0; 2.436999998986721 11.259999997913837 0; 2.417000003159046 11.259999997913837 0; 2.413000002503395 11.259999997913837 0; 2.4099999964237213 11.259999997913837 0; 2.4099999964237213 11.41099999845028 0; 2.395999997854233 11.41099999845028 0; 2.3870000019669533 11.41099999845028 0; 2.376000002026558 11.41099999845028 0; 2.3599999994039536 11.41099999845028 0; 2.3559999987483025 11.41099999845028 0; 2.3350000008940697 11.41099999845028 0; 2.3339999988675117 11.41099999845028 0; 2.314999997615814 11.41099999845028 0; 2.30799999833107 11.41099999845028 0; 2.2939999997615814 11.41099999845028 0; 2.281000003218651 11.41099999845028 0; 2.273999996483326 11.41099999845028 0; 2.255000002682209 11.41099999845028 0; 2.254000000655651 11.41099999845028 0; 2.2390000000596046 11.41099999845028 0; 2.2330000028014183 11.41099999845028 0; 2.229000002145767 11.41099999845028 0; 2.212999999523163 11.41099999845028 0; 2.2019999995827675 11.41099999845028 0; 2.19200000166893 11.41099999845028 0; 2.1759999990463257 11.41099999845028 0; 2.1719999983906746 11.41099999845028 0; 2.1520000025629997 11.41099999845028 0; 2.149999998509884 11.41099999845028 0; 2.1309999972581863 11.41099999845028 0; 2.1230000033974648 11.41099999845028 0; 2.1110000014305115 11.41099999845028 0; 2.097000002861023 11.41099999845028 0; 2.0900000035762787 11.41099999845028 0; 2.0700000002980232 11.41099999845028 0; 2.060999996960163 11.41099999845028 0; 2.0499999970197678 11.41099999845028 0; 2.028999999165535 11.41099999845028 0; 2.024999998509884 11.41099999845028 0; 2.00900000333786 11.41099999845028 0; 1.9980000033974648 11.41099999845028 0; 1.9980000033974648 11.561999998986721 0; 1.9900000020861626 11.561999998986721 0; 1.9879999980330467 11.561999998986721 0; 1.9680000022053719 11.561999998986721 0; 1.9540000036358833 11.561999998986721 0; 1.9479999989271164 11.561999998986721 0; 1.9270000010728836 11.561999998986721 0; 1.9179999977350235 11.561999998986721 0; 1.9069999977946281 11.561999998986721 0; 1.8859999999403954 11.561999998986721 0; 1.8819999992847443 11.561999998986721 0; 1.86599999666214 11.561999998986721 0; 1.846000000834465 11.561999998986721 0; 1.8250000029802322 11.561999998986721 0; 1.8109999969601631 11.561999998986721 0; 1.8049999997019768 11.561999998986721 0; 1.784000001847744 11.561999998986721 0; 1.7749999985098839 11.561999998986721 0; 1.7639999985694885 11.561999998986721 0; 1.7440000027418137 11.561999998986721 0; 1.7390000000596046 11.561999998986721 0; 1.7229999974370003 11.561999998986721 0; 1.7030000016093254 11.561999998986721 0; 1.681999996304512 11.561999998986721 0; 1.6679999977350235 11.561999998986721 0; 1.6620000004768372 11.561999998986721 0; 1.6419999971985817 11.561999998986721 0; 1.6319999992847443 11.561999998986721 0; 1.620999999344349 11.561999998986721 0; 1.601000003516674 11.561999998986721 0; 1.596000000834465 11.561999998986721 0; 1.5860000029206276 11.561999998986721 0; 1.5860000029206276 11.71400000154972 0; 1.5799999982118607 11.71400000154972 0; 1.5600000023841858 11.71400000154972 0; 1.5399999991059303 11.71400000154972 0; 1.523999996483326 11.71400000154972 0; 1.5190000012516975 11.71400000154972 0; 1.5 11.71400000154972 0; 1.498999997973442 11.71400000154972 0; 1.4890000000596046 11.71400000154972 0; 1.4780000001192093 11.71400000154972 0; 1.4579999968409538 11.71400000154972 0; 1.4530000016093254 11.71400000154972 0; 1.4399999976158142 11.71400000154972 0; 1.438000001013279 11.71400000154972 0; 1.4170000031590462 11.71400000154972 0; 1.3969999998807907 11.71400000154972 0; 1.3809999972581863 11.71400000154972 0; 1.3769999966025352 11.71400000154972 0; 1.3559999987483025 11.71400000154972 0; 1.344999998807907 11.71400000154972 0; 1.3360000029206276 11.71400000154972 0; 1.3149999976158142 11.71400000154972 0; 1.3100000023841858 11.71400000154972 0; 1.2950000017881393 11.71400000154972 0; 1.2749999985098839 11.71400000154972 0; 1.273999996483326 11.71400000154972 0; 1.254000000655651 11.71400000154972 0; 1.2379999980330467 11.71400000154972 0; 1.2339999973773956 11.71400000154972 0; 1.2339999973773956 11.696999996900558 0; 1.2129999995231628 11.696999996900558 0; 1.2129999995231628 11.679999999701977 0; 1.1950000002980232 11.679999999701977 0; 1.1950000002980232 11.678999997675419 0; 1.193000003695488 11.678999997675419 0; 1.193000003695488 11.659999996423721 0; 1.1740000024437904 11.659999996423721 0; 1.1740000024437904 11.865000002086163 0; 1.1730000004172325 11.865000002086163 0; 1.1730000004172325 11.655000001192093 0; 1.1740000024437904 11.655000001192093 0; 1.1740000024437904 11.504000000655651 0; 1.193000003695488 11.504000000655651 0; 1.1950000002980232 11.504000000655651 0; 1.2129999995231628 11.504000000655651 0; 1.2339999973773956 11.504000000655651 0; 1.2379999980330467 11.504000000655651 0; 1.254000000655651 11.504000000655651 0; 1.273999996483326 11.504000000655651 0; 1.2749999985098839 11.504000000655651 0; 1.2950000017881393 11.504000000655651 0; 1.3100000023841858 11.504000000655651 0; 1.3149999976158142 11.504000000655651 0; 1.3360000029206276 11.504000000655651 0; 1.344999998807907 11.504000000655651 0; 1.3559999987483025 11.504000000655651 0; 1.3769999966025352 11.504000000655651 0; 1.3809999972581863 11.504000000655651 0; 1.3969999998807907 11.504000000655651 0; 1.4170000031590462 11.504000000655651 0; 1.438000001013279 11.504000000655651 0; 1.4399999976158142 11.504000000655651 0; 1.4530000016093254 11.504000000655651 0; 1.4579999968409538 11.504000000655651 0; 1.4780000001192093 11.504000000655651 0; 1.4890000000596046 11.504000000655651 0; 1.498999997973442 11.504000000655651 0; 1.5 11.504000000655651 0; 1.5190000012516975 11.504000000655651 0; 1.523999996483326 11.504000000655651 0; 1.5399999991059303 11.504000000655651 0; 1.5600000023841858 11.504000000655651 0; 1.5799999982118607 11.504000000655651 0; 1.5860000029206276 11.504000000655651 0; 1.5860000029206276 11.351999998092651 0; 1.596000000834465 11.351999998092651 0; 1.601000003516674 11.351999998092651 0; 1.620999999344349 11.351999998092651 0; 1.6319999992847443 11.351999998092651 0; 1.6419999971985817 11.351999998092651 0; 1.6620000004768372 11.351999998092651 0; 1.6679999977350235 11.351999998092651 0; 1.681999996304512 11.351999998092651 0; 1.7030000016093254 11.351999998092651 0; 1.7229999974370003 11.351999998092651 0; 1.7390000000596046 11.351999998092651 0; 1.7440000027418137 11.351999998092651 0; 1.7639999985694885 11.351999998092651 0; 1.7749999985098839 11.351999998092651 0; 1.784000001847744 11.351999998092651 0; 1.8049999997019768 11.351999998092651 0; 1.8109999969601631 11.351999998092651 0; 1.8250000029802322 11.351999998092651 0; 1.846000000834465 11.351999998092651 0; 1.86599999666214 11.351999998092651 0; 1.8819999992847443 11.351999998092651 0; 1.8859999999403954 11.351999998092651 0; 1.9069999977946281 11.351999998092651 0; 1.9179999977350235 11.351999998092651 0; 1.9270000010728836 11.351999998092651 0; 1.9479999989271164 11.351999998092651 0; 1.9540000036358833 11.351999998092651 0; 1.9680000022053719 11.351999998092651 0; 1.9879999980330467 11.351999998092651 0; 1.9900000020861626 11.351999998092651 0; 1.9980000033974648 11.351999998092651 0; 1.9980000033974648 11.20099999755621 0; 2.00900000333786 11.20099999755621 0; 2.024999998509884 11.20099999755621 0; 2.028999999165535 11.20099999755621 0; 2.0499999970197678 11.20099999755621 0; 2.060999996960163 11.20099999755621 0; 2.0700000002980232 11.20099999755621 0; 2.0900000035762787 11.20099999755621 0; 2.097000002861023 11.20099999755621 0; 2.1110000014305115 11.20099999755621 0; 2.1230000033974648 11.20099999755621 0; 2.1309999972581863 11.20099999755621 0; 2.149999998509884 11.20099999755621 0; 2.1520000025629997 11.20099999755621 0; 2.1719999983906746 11.20099999755621 0; 2.1759999990463257 11.20099999755621 0; 2.19200000166893 11.20099999755621 0; 2.2019999995827675 11.20099999755621 0; 2.212999999523163 11.20099999755621 0; 2.229000002145767 11.20099999755621 0; 2.2330000028014183 11.20099999755621 0; 2.2390000000596046 11.20099999755621 0; 2.254000000655651 11.20099999755621 0; 2.255000002682209 11.20099999755621 0; 2.273999996483326 11.20099999755621 0; 2.281000003218651 11.20099999755621 0; 2.2939999997615814 11.20099999755621 0; 2.30799999833107 11.20099999755621 0; 2.314999997615814 11.20099999755621 0; 2.3339999988675117 11.20099999755621 0; 2.3350000008940697 11.20099999755621 0; 2.3559999987483025 11.20099999755621 0; 2.3599999994039536 11.20099999755621 0; 2.376000002026558 11.20099999755621 0; 2.3870000019669533 11.20099999755621 0; 2.395999997854233 11.20099999755621 0; 2.4099999964237213 11.20099999755621 0; 2.4099999964237213 11.049999997019768 0; 2.413000002503395 11.049999997019768 0; 2.417000003159046 11.049999997019768 0; 2.436999998986721 11.049999997019768 0; 2.439000003039837 11.049999997019768 0; 2.4570000022649765 11.049999997019768 0; 2.4650000035762787 11.049999997019768 0; 2.4780000001192093 11.049999997019768 0; 2.491999998688698 11.049999997019768 0; 2.4980000033974648 11.049999997019768 0; 2.5179999992251396 11.049999997019768 0; 2.5190000012516975 11.049999997019768 0; 2.5389999970793724 11.049999997019768 0; 2.5439999997615814 11.049999997019768 0; 2.559000000357628 11.049999997019768 0; 2.571000002324581 11.049999997019768 0; 2.5799999982118607 11.049999997019768 0; 2.597000002861023 11.049999997019768 0; 2.600000001490116 11.049999997019768 0; 2.620999999344349 11.049999997019768 0; 2.6230000033974648 11.049999997019768 0; 2.6410000026226044 11.049999997019768 0; 2.649999998509884 11.049999997019768 0; 2.6609999984502792 11.049999997019768 0; 2.6759999990463257 11.049999997019768 0; 2.681999996304512 11.049999997019768 0; 2.7019999995827675 11.049999997019768 0; 2.7229999974370003 11.049999997019768 0; 2.729000002145767 11.049999997019768 0; 2.7430000007152557 11.049999997019768 0; 2.755000002682209 11.049999997019768 0; 2.7629999965429306 11.049999997019768 0; 2.781000003218651 11.049999997019768 0; 2.784000001847744 11.049999997019768 0; 2.803999997675419 11.049999997019768 0; 2.80799999833107 11.049999997019768 0; 2.8219999969005585 11.049999997019768 0; 2.8219999969005585 10.898000001907349 0" />
+  <material id="tile" color="#deddd5" repeat="1" roughness="0.95" metalness="0" />
+  <material id="floor" color="#b7ad8c" repeat="1" roughness="0.95" metalness="0" />
+  <material id="soil" color="#62645b" repeat="1" roughness="0.95" metalness="0" />
+  <material id="concrete" color="#aaa99f" repeat="1" roughness="0.95" metalness="0" />
+  <material id="white" color="#f0f0e8" repeat="1" roughness="0.95" metalness="0" />
+  <material id="green" color="#799085" repeat="1" roughness="0.95" metalness="0" />
+  <material id="dark" color="#3c4844" repeat="1" roughness="0.95" metalness="0" />
+  <material id="metal" color="#b0b6b1" repeat="1" roughness="0.95" metalness="0" />
+  <material id="blue" color="#557084" repeat="1" roughness="0.95" metalness="0" />
+  <opening id="N-fan" host="N-fan-band" shape="circle" mode="through" center="1.759498 8.320672" width="1" height="2" radius="1.2" radii="0.5 0.5" offset="0" />
+  <opening id="N-open-top-notch" host="N-upper-notched" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="N-open-top-notch:shape" offset="0" position="-.373 0 0" />
+  <opening id="E-circle" host="E-high-screen" shape="circle" mode="through" center="3.115872 10.967769" width="1" height="2" radius="0.978796" radii="0.5 0.5" offset="0" />
+  <opening id="S-T-middle-head" host="S-T-middle" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="S-T-middle-head:shape" offset="0" />
+  <opening id="S-T-middle-stem" host="S-T-middle" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="S-T-middle-stem:shape" offset="0" />
+  <opening id="lowerSaKi-0" host="lowerSaKi-backing" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="lowerSaKi-0:shape" offset="0" />
+  <opening id="lowerSaKi-1" host="lowerSaKi-backing" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="lowerSaKi-1:shape" offset="0" />
+  <opening id="NEclosed-0" host="NEclosed-backing" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="NEclosed-0:shape" offset="0" />
+  <opening id="SaKi-door" host="SaKiGreen-backing" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="SaKi-door:shape" offset="0" />
+  <opening id="E-lower-window" host="E-backing" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="E-lower-window:shape" offset="0" />
+  <opening id="E-upper-arch" host="E-backing" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="E-upper-arch:shape" offset="0" />
+  <opening id="Nfan-left-closed" host="Nfan-rear-two-openings" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="Nfan-left-closed:shape" offset="0" />
+  <opening id="Nfan-right-closed" host="Nfan-rear-two-openings" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="Nfan-right-closed:shape" offset="0" />
+  <opening id="NE1-front-door" host="NE1-front-storefront" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="NE1-front-door:shape" offset="0" />
+  <opening id="HOME-profile" host="HOME-upper-window" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="HOME-profile:shape" offset="0" />
+  <opening id="HOME-closed-dark" host="HOME-upper-door" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="HOME-closed-dark:shape" offset="0" />
+  <opening id="S-entry-blue-leaf" host="S-entry-blue-face" shape="profile" mode="through" center="0 0" width="1" height="2" radius="0.5" radii="0.5 0.5" profile="S-entry-blue-leaf:shape" offset="0" />
+  <assembly id="courtyard-construction" coincident-material="retained-face">
+    <group id="architecture">
+      <slab id="SaKi-L" material="floor" group="architecture" profile="SaKi-L:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="mosaic-M" material="floor" group="architecture" profile="mosaic-M:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="W-gallery-0" material="floor" group="architecture" profile="W-gallery-0:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="W-gallery-0-support-1" material="floor" group="architecture" profile="W-gallery-0-support-1:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="NW-context-0" material="floor" group="architecture" profile="NW-context-0:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="W-gallery-1" material="floor" group="architecture" profile="W-gallery-1:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="W-gallery-1-support-1" material="floor" group="architecture" profile="W-gallery-1-support-1:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="W-gallery-2" material="floor" group="architecture" profile="W-gallery-2:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="W-gallery-2-support-1" material="floor" group="architecture" profile="W-gallery-2-support-1:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="NE-receiving-1" material="floor" group="architecture" profile="NE-receiving-1:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="SE-receiving-2" material="floor" group="architecture" profile="SE-receiving-2:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="NE-receiving-2" material="floor" group="architecture" profile="NE-receiving-2:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="SE-receiving-3" material="floor" group="architecture" profile="SE-receiving-3:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="NE-receiving-3" material="floor" group="architecture" profile="NE-receiving-3:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="HOME-NE-context" material="floor" group="architecture" profile="HOME-NE-context:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="SE-receiving-1" material="floor" group="architecture" profile="SE-receiving-1:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="S-entry-deep-starter" material="floor" group="architecture" profile="S-entry-deep-starter:profile" thickness="0.34" flat="false" playable="true" elevation="0" />
+      <slab id="S-entry-blue-pad" material="floor" group="architecture" profile="S-entry-blue-pad:profile" thickness="0.54" flat="false" playable="true" elevation="0" />
+      <slab id="S-overhead-gray" material="concrete" group="architecture" profile="S-overhead-gray:profile" thickness="0.24" area="S-overhead-study" flat="false" playable="true" elevation="0" />
+      <slab id="S-overhead-perimeter" material="tile" group="architecture" profile="S-overhead-perimeter:profile" thickness="0.24" area="S-overhead-study" flat="false" playable="true" elevation="0" />
+      <stairs id="basal-E-service" material="floor" group="architecture" left="basal-E-service:left" right="basal-E-service:right" maximum-riser="0.155" thickness="0.24" underside="stepped" />
+      <stairs id="N0-front" material="floor" group="architecture" left="N0-front:left" right="N0-front:right" maximum-riser="0.152" thickness="0.24" underside="stepped" />
+      <slab id="N0-tread-fringe-0-1-0" material="floor" group="architecture" profile="N0-tread-fringe-0-1-0:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="N0-tread-fringe-6-0-1" material="floor" group="architecture" profile="N0-tread-fringe-6-0-1:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="N0-tread-fringe-7-0-2" material="floor" group="architecture" profile="N0-tread-fringe-7-0-2:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="N0-tread-fringe-8-0-3" material="floor" group="architecture" profile="N0-tread-fringe-8-0-3:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <stairs id="E-elevated-1" material="floor" group="architecture" left="E-elevated-1:left" right="E-elevated-1:right" maximum-riser="0.152" thickness="0.24" underside="stepped" />
+      <stairs id="E-elevated-2" material="floor" group="architecture" left="E-elevated-2:left" right="E-elevated-2:right" maximum-riser="0.152" thickness="0.24" underside="stepped" />
+      <stairs id="E-elevated-3" material="floor" group="architecture" left="E-elevated-3:left" right="E-elevated-3:right" maximum-riser="0.152" thickness="0.21" underside="stepped" />
+      <stairs id="rear-fan-visible" material="floor" group="architecture" left="rear-fan-visible:left" right="rear-fan-visible:right" maximum-riser="0.157" thickness="0.24" underside="stepped" />
+      <stairs id="rear-HOME-visible" material="floor" group="architecture" left="rear-HOME-visible:left" right="rear-HOME-visible:right" maximum-riser="0.15" thickness="0.24" underside="stepped" />
+      <stairs id="S-entry-regular" material="floor" group="architecture" left="S-entry-regular:left" right="S-entry-regular:right" maximum-riser="0.21" thickness="0.24" underside="stepped" />
+      <slab id="rear-HOME-visible-fringe-0-180" material="floor" group="architecture" profile="rear-HOME-visible-fringe-0-180:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+
+      <slab id="S-entry-regular-fringe-7-182" material="floor" group="architecture" profile="S-entry-regular-fringe-7-182:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="S-entry-regular-fringe-8-183" material="floor" group="architecture" profile="S-entry-regular-fringe-8-183:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="S-entry-regular-fringe-9-184" material="floor" group="architecture" profile="S-entry-regular-fringe-9-184:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+      <slab id="S-entry-regular-fringe-10-185" material="floor" group="architecture" profile="S-entry-regular-fringe-10-185:profile" thickness="0.24" flat="false" playable="true" elevation="0" />
+    </group>
+    <assembly id="migration:static-walls" coincident-material="retained-face">
+      <wall id="mosaic-low-lip" material="tile" group="architecture" dynamic="false" path="mosaic-low-lip:path" thickness="0.12" height="0.45" alignment="center" span-floors="false" join="miter" />
+      <retaining-wall id="entry-starter-step" material="floor" group="architecture" lower="e41:path" upper="e231:path" lower-floor="mosaic-M" upper-floor="S-entry-deep-starter" thickness="0.22" height="3" mode="open" />
+      <retaining-wall id="entry-blue-pad-step" material="floor" group="architecture" lower="e36:path" upper="e234:path" lower-floor="mosaic-M" upper-floor="S-entry-blue-pad" thickness="0.22" height="3" mode="open" />
+      <wall id="trough-W-gallery-0-court" material="tile" group="architecture" path="trough-W-gallery-0-court:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-0-court:base" top="trough-W-gallery-0-court:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-back-0" material="tile" group="architecture" path="trough-W-gallery-0-back-0:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-0-back-0:base" top="trough-W-gallery-0-back-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-back-1" material="tile" group="architecture" path="trough-W-gallery-0-back-1:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-0-back-1:base" top="trough-W-gallery-0-back-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-back-2" material="tile" group="architecture" path="trough-W-gallery-0-back-2:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-0-back-2:base" top="trough-W-gallery-0-back-2:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-end0-0" material="tile" group="architecture" path="trough-W-gallery-0-end0-0:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-0-end0-0:base" top="trough-W-gallery-0-end0-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-end0-1" material="tile" group="architecture" path="trough-W-gallery-0-end0-1:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-0-end0-1:base" top="trough-W-gallery-0-end0-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-end1-0" material="tile" group="architecture" path="trough-W-gallery-0-end1-0:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-0-end1-0:base" top="trough-W-gallery-0-end1-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-end1-1" material="tile" group="architecture" path="trough-W-gallery-0-end1-1:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-0-end1-1:base" top="trough-W-gallery-0-end1-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-rail" material="white" group="architecture" path="trough-W-gallery-0-rail:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-0-rail:base" top="trough-W-gallery-0-rail:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-railpost0" material="white" group="architecture" path="trough-W-gallery-0-railpost0:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-0-railpost0:base" top="trough-W-gallery-0-railpost0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-railpost1" material="white" group="architecture" path="trough-W-gallery-0-railpost1:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-0-railpost1:base" top="trough-W-gallery-0-railpost1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-0-railpost2" material="white" group="architecture" path="trough-W-gallery-0-railpost2:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-0-railpost2:base" top="trough-W-gallery-0-railpost2:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-court" material="tile" group="architecture" path="trough-W-gallery-1-court:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-1-court:base" top="trough-W-gallery-1-court:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-back-0" material="tile" group="architecture" path="trough-W-gallery-1-back-0:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-1-back-0:base" top="trough-W-gallery-1-back-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-back-1" material="tile" group="architecture" path="trough-W-gallery-1-back-1:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-1-back-1:base" top="trough-W-gallery-1-back-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-back-2" material="tile" group="architecture" path="trough-W-gallery-1-back-2:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-1-back-2:base" top="trough-W-gallery-1-back-2:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-end0-0" material="tile" group="architecture" path="trough-W-gallery-1-end0-0:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-1-end0-0:base" top="trough-W-gallery-1-end0-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-end0-1" material="tile" group="architecture" path="trough-W-gallery-1-end0-1:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-1-end0-1:base" top="trough-W-gallery-1-end0-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-end1-0" material="tile" group="architecture" path="trough-W-gallery-1-end1-0:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-1-end1-0:base" top="trough-W-gallery-1-end1-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-end1-1" material="tile" group="architecture" path="trough-W-gallery-1-end1-1:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-1-end1-1:base" top="trough-W-gallery-1-end1-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-rail" material="white" group="architecture" path="trough-W-gallery-1-rail:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-1-rail:base" top="trough-W-gallery-1-rail:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-railpost0" material="white" group="architecture" path="trough-W-gallery-1-railpost0:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-1-railpost0:base" top="trough-W-gallery-1-railpost0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-railpost1" material="white" group="architecture" path="trough-W-gallery-1-railpost1:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-1-railpost1:base" top="trough-W-gallery-1-railpost1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-1-railpost2" material="white" group="architecture" path="trough-W-gallery-1-railpost2:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-1-railpost2:base" top="trough-W-gallery-1-railpost2:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-court" material="tile" group="architecture" path="trough-W-gallery-2-court:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-2-court:base" top="trough-W-gallery-2-court:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-back-0" material="tile" group="architecture" path="trough-W-gallery-2-back-0:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-2-back-0:base" top="trough-W-gallery-2-back-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-back-1" material="tile" group="architecture" path="trough-W-gallery-2-back-1:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-2-back-1:base" top="trough-W-gallery-2-back-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-back-2" material="tile" group="architecture" path="trough-W-gallery-2-back-2:axis" thickness="0.1" height="1" alignment="center" base="trough-W-gallery-2-back-2:base" top="trough-W-gallery-2-back-2:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-end0-0" material="tile" group="architecture" path="trough-W-gallery-2-end0-0:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-2-end0-0:base" top="trough-W-gallery-2-end0-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-end0-1" material="tile" group="architecture" path="trough-W-gallery-2-end0-1:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-2-end0-1:base" top="trough-W-gallery-2-end0-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-end1-0" material="tile" group="architecture" path="trough-W-gallery-2-end1-0:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-2-end1-0:base" top="trough-W-gallery-2-end1-0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-end1-1" material="tile" group="architecture" path="trough-W-gallery-2-end1-1:axis" thickness="0.16" height="1" alignment="center" base="trough-W-gallery-2-end1-1:base" top="trough-W-gallery-2-end1-1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-rail" material="white" group="architecture" path="trough-W-gallery-2-rail:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-2-rail:base" top="trough-W-gallery-2-rail:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-railpost0" material="white" group="architecture" path="trough-W-gallery-2-railpost0:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-2-railpost0:base" top="trough-W-gallery-2-railpost0:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-railpost1" material="white" group="architecture" path="trough-W-gallery-2-railpost1:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-2-railpost1:base" top="trough-W-gallery-2-railpost1:top" span-floors="false" join="miter" />
+      <wall id="trough-W-gallery-2-railpost2" material="white" group="architecture" path="trough-W-gallery-2-railpost2:axis" thickness="0.045" height="1" alignment="center" base="trough-W-gallery-2-railpost2:base" top="trough-W-gallery-2-railpost2:top" span-floors="false" join="miter" />
+      <wall id="N0-west-pier" material="tile" group="architecture" path="N0-west-pier:axis" thickness="0.22" height="1" alignment="center" base="N0-west-pier:base" top="N0-west-pier:top" span-floors="false" join="miter" />
+      <wall id="N0-main1" material="tile" group="architecture" path="N0-main1:axis" thickness="0.22" height="1" alignment="center" base="N0-main1:base" top="N0-main1:top" span-floors="false" join="miter" />
+      <wall id="N0-main2" material="tile" group="architecture" path="N0-main2:axis" thickness="0.22" height="1" alignment="center" base="N0-main2:base" top="N0-main2:top" span-floors="false" join="miter" />
+      <wall id="N0-main3" material="tile" group="architecture" path="N0-main3:axis" thickness="0.22" height="1" alignment="center" base="N0-main3:base" top="N0-main3:top" span-floors="false" join="miter" />
+      <wall id="basal-court-0" material="tile" group="architecture" path="basal-court-0:axis" thickness="0.22" height="1" alignment="center" base="basal-court-0:base" top="basal-court-0:top" span-floors="false" join="miter" />
+      <wall id="basal-court-1" material="tile" group="architecture" path="basal-court-1:axis" thickness="0.22" height="1" alignment="center" base="basal-court-1:base" top="basal-court-1:top" span-floors="false" join="miter" />
+      <wall id="basal-court-2" material="tile" group="architecture" path="basal-court-2:axis" thickness="0.22" height="1" alignment="center" base="basal-court-2:base" top="basal-court-2:top" span-floors="false" join="miter" />
+      <wall id="basal-flat-strip-guard" material="tile" group="architecture" path="basal-flat-strip-guard:axis" thickness="0.22" height="1" alignment="center" base="basal-flat-strip-guard:base" top="basal-flat-strip-guard:top" span-floors="false" join="miter" />
+      <wall id="N-thin-joint" material="tile" group="architecture" path="N-thin-joint:axis" thickness="0.22" height="1" alignment="center" base="N-thin-joint:base" top="N-thin-joint:top" span-floors="false" join="miter" />
+      <wall id="N-fan-real-rail" material="white" group="architecture" path="N-fan-real-rail:axis" thickness="0.045" height="1" alignment="center" base="N-fan-real-rail:base" top="N-fan-real-rail:top" span-floors="false" join="miter" />
+      <wall id="E-circle-real-rail" material="white" group="architecture" path="E-circle-real-rail:axis" thickness="0.045" height="1" alignment="center" base="E-circle-real-rail:base" top="E-circle-real-rail:top" span-floors="false" join="miter" />
+      <wall id="NE-upper-guard-0" material="tile" group="architecture" path="NE-upper-guard-0:axis" thickness="0.22" height="1" alignment="center" base="NE-upper-guard-0:base" top="NE-upper-guard-0:top" span-floors="false" join="miter" />
+      <wall id="NE-upper-guard-1" material="tile" group="architecture" path="NE-upper-guard-1:axis" thickness="0.22" height="1" alignment="center" base="NE-upper-guard-1:base" top="NE-upper-guard-1:top" span-floors="false" join="miter" />
+      <wall id="S-plain-low-E-return" material="tile" group="architecture" path="S-plain-low-E-return:axis" thickness="0.22" height="1" alignment="center" base="S-plain-low-E-return:base" top="S-plain-low-E-return:top" span-floors="false" join="miter" />
+      <wall id="S-T-middle-E-return" material="tile" group="architecture" path="S-T-middle-E-return:axis" thickness="0.22" height="1" alignment="center" base="S-T-middle-E-return:base" top="S-T-middle-E-return:top" span-floors="false" join="miter" />
+      <wall id="S-plain-high-E-return" material="tile" group="architecture" path="S-plain-high-E-return:axis" thickness="0.22" height="1" alignment="center" base="S-plain-high-E-return:base" top="S-plain-high-E-return:top" span-floors="false" join="miter" />
+      <wall id="NE1-front-west-jamb-0" material="tile" group="architecture" path="NE1-front-west-jamb-0:axis" thickness="0.22" height="1" alignment="center" base="NE1-front-west-jamb-0:base" top="NE1-front-west-jamb-0:top" span-floors="false" join="miter" />
+      <wall id="NE1-front-west-jamb-1" material="tile" group="architecture" path="NE1-front-west-jamb-1:axis" thickness="0.22" height="1" alignment="center" base="NE1-front-west-jamb-1:base" top="NE1-front-west-jamb-1:top" span-floors="false" join="miter" />
+      <wall id="W2-rear-context" material="tile" group="architecture" path="W2-rear-context:axis" thickness="0.22" height="1" alignment="center" base="W2-rear-context:base" top="W2-rear-context:top" span-floors="false" join="miter" />
+      <wall id="S-entry-pier" material="tile" group="architecture" path="S-entry-pier:axis" thickness="0.22" height="1" alignment="center" base="S-entry-pier:base" top="S-entry-pier:top" span-floors="false" join="miter" />
+      <wall id="N-fan-band" material="tile" group="architecture" path="N-fan-band:axis" thickness="0.22" height="1" alignment="center" base="N-fan-band:base" top="N-fan-band:top" span-floors="false" join="miter" />
+      <wall id="N-upper-notched" material="tile" group="architecture" path="N-upper-notched:axis" thickness="0.22" height="1" alignment="center" base="N-upper-notched:base" top="N-upper-notched:top" span-floors="false" join="miter" />
+      <wall id="E1-low-body" material="tile" group="architecture" path="E1-low-body:axis" thickness="0.22" height="1" alignment="center" base="E1-low-body:base" top="E1-low-body:top" span-floors="false" join="miter" />
+      <wall id="E-high-screen" material="tile" group="architecture" path="E-high-screen:axis" thickness="0.22" height="1" alignment="center" base="E-high-screen:base" top="E-high-screen:top" span-floors="false" join="miter" />
+      <wall id="S-plain-low" material="tile" group="architecture" path="S-plain-low:axis" thickness="0.22" height="1" alignment="center" base="S-plain-low:base" top="S-plain-low:top" span-floors="false" join="miter" />
+      <wall id="S-T-middle" material="tile" group="architecture" path="S-T-middle:axis" thickness="0.22" height="1" alignment="center" base="S-T-middle:base" top="S-T-middle:top" span-floors="false" join="miter" />
+      <wall id="S-plain-high" material="tile" group="architecture" path="S-plain-high:axis" thickness="0.22" height="1" alignment="center" base="S-plain-high:base" top="S-plain-high:top" span-floors="false" join="miter" />
+      <wall id="lowerSaKi-backing" material="tile" group="architecture" path="lowerSaKi-backing:axis" thickness="0.22" height="1" alignment="center" base="lowerSaKi-backing:base" top="lowerSaKi-backing:top" span-floors="false" join="miter" />
+      <wall id="NEclosed-backing" material="tile" group="architecture" path="NEclosed-backing:axis" thickness="0.22" height="1" alignment="center" base="NEclosed-backing:base" top="NEclosed-backing:top" span-floors="false" join="miter" />
+      <wall id="SaKiGreen-backing" material="tile" group="architecture" path="SaKiGreen-backing:axis" thickness="0.22" height="1" alignment="center" base="SaKiGreen-backing:base" top="SaKiGreen-backing:top" span-floors="false" join="miter" />
+      <wall id="W-backing" material="tile" group="architecture" path="W-backing:axis" thickness="0.22" height="1" alignment="center" base="W-backing:base" top="W-backing:top" span-floors="false" join="miter" />
+      <wall id="E-backing" material="tile" group="architecture" path="E-backing:axis" thickness="0.22" height="1" alignment="center" base="E-backing:base" top="E-backing:top" span-floors="false" join="miter" />
+      <wall id="Nfan-rear-two-openings" material="tile" group="architecture" path="Nfan-rear-two-openings:axis" thickness="0.22" height="1" alignment="center" base="Nfan-rear-two-openings:base" top="Nfan-rear-two-openings:top" span-floors="false" join="miter" />
+      <wall id="NE1-front-storefront" material="tile" group="architecture" path="NE1-front-storefront:axis" thickness="0.22" height="1" alignment="center" base="NE1-front-storefront:base" top="NE1-front-storefront:top" span-floors="false" join="miter" />
+      <wall id="HOME-upper-window" material="tile" group="architecture" path="HOME-upper-window:axis" thickness="0.22" height="1" alignment="center" base="HOME-upper-window:base" top="HOME-upper-window:top" span-floors="false" join="miter" />
+      <wall id="HOME-upper-door" material="tile" group="architecture" path="HOME-upper-door:axis" thickness="0.22" height="1" alignment="center" base="HOME-upper-door:base" top="HOME-upper-door:top" span-floors="false" join="miter" />
+      <wall id="S-entry-blue-face" material="tile" group="architecture" path="S-entry-blue-face:axis" thickness="0.22" height="1" alignment="center" base="S-entry-blue-face:base" top="S-entry-blue-face:top" span-floors="false" join="miter" />
+    </assembly>
+    <box id="ground-centralSoil" position="2.376 1.054 -0.403" material="soil" group="architecture" dynamic="false" width="1.9849999999999999" depth="2.686" height="0.24000000000000002" radius="0.5" top-radius="0" anchor="corner" />
+    <box id="ground-westChannel" position="1.256 1.054 -0.24" material="concrete" group="architecture" dynamic="false" width="1.1199999999999999" depth="2.686" height="0.24" radius="0.5" top-radius="0" anchor="corner" />
+    <box id="ground-eastStrip" position="4.361 1.254 -0.24" material="concrete" group="architecture" dynamic="false" width="0.7890000000000006" depth="0.02299999999999991" height="0.24" radius="0.5" top-radius="0" anchor="corner" />
+    <box id="ground-eastStrip-core-1" position="4.361 1.277 -0.24" material="concrete" group="architecture" dynamic="false" width="0.7890000000000006" depth="0.962" height="0.24" radius="0.5" top-radius="0" anchor="corner" />
+    <box id="ground-eastStrip-core-2" position="4.361 2.239 -0.24" material="concrete" group="architecture" dynamic="false" width="0.7890000000000006" depth="1.492" height="0.24" radius="0.5" top-radius="0" anchor="corner" />
+    <box id="ground-eastStrip-core-3" position="4.361 3.731 -0.24" material="concrete" group="architecture" dynamic="false" width="0.25400000000000045" depth="0.009000000000000341" height="0.24" radius="0.5" top-radius="0" anchor="corner" />
+    <box id="ground-frontSoilFinger" position="2.564 0.27 -0.403" material="soil" group="architecture" dynamic="false" width="1.9969999999999999" depth="0.784" height="0.24000000000000002" radius="0.5" top-radius="0" anchor="corner" />
+    <box id="ground-soilStepReturn" position="4.361 1.054 -0.403" material="soil" group="architecture" dynamic="false" width="0.20000000000000018" depth="0.19999999999999996" height="0.24000000000000002" radius="0.5" top-radius="0" anchor="corner" />
+    <box id="trough-W-gallery-0-soil" position="0.864 2.66 2.669" rotation="0 0 0" material="soil" group="architecture" collidable="true" width="0.34" depth="2" height="0.18" radius="0.5" top-radius="0" anchor="bottom-center" />
+    <box id="trough-W-gallery-1-soil" position="0.721 3.168 5.909" rotation="0 0 0" material="soil" group="architecture" collidable="true" width="0.34" depth="3.016" height="0.18" radius="0.5" top-radius="0" anchor="bottom-center" />
+    <box id="trough-W-gallery-2-soil" position="0.589 3.277 10.347" rotation="0 0 0" material="soil" group="architecture" collidable="true" width="0.34" depth="3.233" height="0.18" radius="0.5" top-radius="0" anchor="bottom-center" />
+    <cylinder id="court-column" position="0.67 0.67 -0.3" rotation="0 0 0" scale="1.34 1.34 23.1" material="concrete" group="architecture" collidable="true" width="1" depth="1" height="1" radius="0.5" top-radius="0.5" segments="64" anchor="corner" />
+    <extrusion id="lowerSaKi-0:panel" position="0.6 5.331801 0" rotation="90 0 0" material="dark" profile="lowerSaKi-0:shape" distance="0.04" />
+    <extrusion id="lowerSaKi-1:panel" position="0.6 5.331801 0" rotation="90 0 0" material="dark" profile="lowerSaKi-1:shape" distance="0.04" />
+    <extrusion id="NEclosed-0:panel" position="5.132151 6.988272 0" rotation="90 0 0" material="green" profile="NEclosed-0:shape" distance="0.04" />
+    <extrusion id="SaKi-door:panel" position="4.178761 5.331801 0" rotation="90 0 0" material="green" profile="SaKi-door:shape" distance="0.04" />
+    <extrusion id="E-lower-window:panel" position="7.069856 -2.3 0" rotation="90 0 90" material="dark" profile="E-lower-window:shape" distance="0.04" />
+    <extrusion id="E-upper-arch:panel" position="7.069856 -2.3 0" rotation="90 0 90" material="green" profile="E-upper-arch:shape" distance="0.04" />
+    <extrusion id="Nfan-left-closed:panel" position="0.6 6.988272 0" rotation="90 0 0" material="dark" profile="Nfan-left-closed:shape" distance="0.04" />
+    <extrusion id="Nfan-right-closed:panel" position="0.6 6.988272 0" rotation="90 0 0" material="dark" profile="Nfan-right-closed:shape" distance="0.04" />
+    <extrusion id="NE1-front-door:panel" position="5.132151 5.701146 0" rotation="90 0 0" material="green" profile="NE1-front-door:shape" distance="0.04" />
+    <extrusion id="HOME-profile:panel" position="0.6 8.01 0" rotation="90 0 0" material="dark" profile="HOME-profile:shape" distance="0.04" />
+    <extrusion id="HOME-closed-dark:panel" position="5.45 8.01 0" rotation="90 0 0" material="dark" profile="HOME-closed-dark:shape" distance="0.04" />
+    <extrusion id="S-entry-blue-leaf:panel" position="4.7 -3.48 0" rotation="90 0 0" material="blue" profile="S-entry-blue-leaf:shape" distance="0.04" />
+    <extrusion id="north-infill" position="0 5.333272 0" rotation="90 0 0" material="white" profile="north-infill:shape" distance="0.03" />
+    <extrusion id="E-elevated-2:bearing-0" profile="E-elevated-2:bearing-0:profile" distance="0.22" material="floor" group="architecture" position="5.409999999999999 0 0" rotation="90 0 90" />
+    <extrusion id="E-elevated-2:bearing-1" profile="E-elevated-2:bearing-1:profile" distance="0.22" material="floor" group="architecture" position="5.409999999999999 0 0" rotation="90 0 90" />
+    <extrusion id="E-elevated-2:bearing-2" profile="E-elevated-2:bearing-2:profile" distance="0.22" material="floor" group="architecture" position="5.409999999999999 0 0" rotation="90 0 90" />
+    <extrusion id="E-elevated-2:bearing-3" profile="E-elevated-2:bearing-3:profile" distance="0.22" material="floor" group="architecture" position="5.409999999999999 0 0" rotation="90 0 90" />
+    <extrusion id="E-elevated-2:bearing-4" profile="E-elevated-2:bearing-4:profile" distance="0.22" material="floor" group="architecture" position="5.409999999999999 0 0" rotation="90 0 90" />
+    <extrusion id="E-elevated-2:bearing-5" profile="E-elevated-2:bearing-5:profile" distance="0.22" material="floor" group="architecture" position="5.409999999999999 0 0" rotation="90 0 90" />
+    <extrusion id="E-elevated-3:bearing-0" profile="E-elevated-3:bearing-0:profile" distance="0.22" material="floor" group="architecture" position="5.409999999999999 0 0" rotation="90 0 90" />
+    <assembly id="supplement:north-infill-bracing" coincident-material="retained-face">
+      <beam id="supplement:north-brace-left" profile="supplement:brace-section" path="supplement:north-brace-left:axis" material="white" group="architecture" />
+      <beam id="supplement:north-brace-center" profile="supplement:brace-section" path="supplement:north-brace-center:axis" material="white" group="architecture" />
+      <beam id="supplement:north-brace-right" profile="supplement:brace-section" path="supplement:north-brace-right:axis" material="white" group="architecture" />
+    </assembly>
+    <assembly id="supplement:closed-window-framing" coincident-material="retained-face">
+      <frame id="supplement:lowerSaKi-0-frame" opening="lowerSaKi-0" border=".025" depth=".025" offset="-.11" material="supplement:window-frame" />
+      <beam id="supplement:lowerSaKi-0-transom" profile="supplement:transom-section" path="supplement:lowerSaKi-0-transom:axis" material="supplement:window-frame" group="architecture" />
+      <frame id="supplement:lowerSaKi-1-frame" opening="lowerSaKi-1" border=".025" depth=".025" offset="-.11" material="supplement:window-frame" />
+      <beam id="supplement:lowerSaKi-1-transom" profile="supplement:transom-section" path="supplement:lowerSaKi-1-transom:axis" material="supplement:window-frame" group="architecture" />
+    </assembly>
+    <landing id="corner:nw-middle" profile="corner:nw-middle:profile" elevation="5.839" thickness=".24" material="floor" group="architecture" />
+    <wall id="corner:upper-west-return" path="corner:upper-west-return:axis" thickness=".22" height="6.263" position="0 0 10.037" material="tile" group="architecture" />
+    <landing id="corner:nw-upper" profile="corner:nw-upper:profile" elevation="10.277" thickness=".24" material="floor" group="architecture" />
+    <stairs id="corner:upper-connector" left="corner:upper-flight:left" right="corner:upper-flight:right" count="12" thickness=".24" underside="stepped" material="floor" group="architecture" />
+  </assembly>
+  <player radius="0.25" height="1.8" step="0.35" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false" />
+  <marker id="start" position="5.795 -1.047 0" movement="land" kind="attacker_spawn" group="architecture" element="mosaic-M" />
+  <marker id="SaKi-stop" position="5.795 4.5 1.238" movement="land" kind="poi" group="architecture" element="SaKi-L" />
+  <marker id="W0-stop" position="-0.35 0.55 2.599" movement="land" kind="poi" group="architecture" element="W-gallery-0" />
+  <marker id="NE-1" position="6.208 3.65 4.478" movement="land" kind="poi" group="architecture" element="NE-receiving-1" />
+  <marker id="SE-1" position="6.208 -0.4 5.839" movement="land" kind="poi" group="architecture" element="SE-receiving-1" />
+  <marker id="NE-2" position="6.275 3.684 7.718" movement="land" kind="poi" group="architecture" element="NE-receiving-2" />
+  <marker id="SE-2" position="6.275 -0.85 9.079" movement="land" kind="poi" group="architecture" element="SE-receiving-2" />
+  <marker id="NE-3" position="6.275 3.684 10.957" movement="land" kind="poi" group="architecture" element="NE-receiving-3" />
+  <marker id="SE-3" position="6.275 -0.85 12.319" movement="land" kind="poi" group="architecture" element="SE-receiving-3" />
+  <marker id="W-local-1" position="-0.35 2 5.839" movement="land" kind="poi" group="architecture" element="W-gallery-1" />
+  <marker id="W-local-2" position="-0.35 2 10.277" movement="land" kind="poi" group="architecture" element="W-gallery-2" />
+  <marker id="rear-fan-visible-east" position="3.779 6.098 7.561" movement="land" kind="poi" group="architecture" element="rear-fan-visible" />
+  <marker id="rear-fan-visible-west-stop" position="1.536 6.098 6.152" movement="land" kind="poi" group="architecture" element="rear-fan-visible" />
+  <marker id="rear-HOME-visible-east" position="4.791 7.42 12.391" movement="land" kind="poi" group="architecture" element="rear-HOME-visible" />
+  <marker id="rear-HOME-visible-west-stop" position="4.413 7.42 12.241" movement="land" kind="poi" group="architecture" element="rear-HOME-visible" />
+  <marker id="entry-upper-stop" position="2.08 -7.94 2.2" movement="land" kind="poi" group="architecture" element="S-entry-regular" />
+  <marker id="entry-start" position="2.08 -2.7 0" movement="land" kind="poi" group="architecture" element="mosaic-M" />
+  <marker id="blue-pad-stop" position="5.6 -3.05 0.3" movement="land" kind="poi" group="architecture" element="S-entry-blue-pad" />
+  <marker id="overhead-top-audit" label="Separate top body audit only; access/continuation unknown, no connected route claimed." position="2.4 -1.65 9.079" movement="land" kind="poi" group="architecture" element="S-overhead-gray" />
+  <marker id="study-cut-0" label="Unobserved north continuation; not a physical closure." position="0.193 5.142 2.599" movement="none" kind="decoration" group="architecture" element="NW-context-0" />
+  <marker id="study-cut-1" label="Unknown western rear continuation except independently observed rear-flight endpoint where specified." position="4.179 6.098 7.718" movement="none" kind="decoration" group="architecture" element="NE-receiving-2" />
+  <marker id="study-cut-2" label="Unobserved west continuation; no fabricated NW connection." position="1.086 6.098 5.839" movement="none" kind="decoration" group="architecture" element="rear-fan-visible" />
+  <marker id="study-cut-3" label="Unobserved lower W/column continuation toward entry; no transverse bridge or actual exposed drop inferred." position="-0.053 0 2.599" movement="none" kind="decoration" group="architecture" element="W-gallery-0" />
+  <marker id="study-cut-4" label="Unknown south continuation; actual top tread has this finite landing, no forced S connection." position="6.097 -0.8 5.839" movement="none" kind="decoration" group="architecture" element="SE-receiving-1" />
+  <marker id="study-cut-5" label="Unknown south/entry continuation after Sloop retirement; no fabricated guard or route link. Body-centre stops atY&gt;=.35." position="-0.125 0 5.839" movement="none" kind="decoration" group="architecture" element="W-gallery-1" />
+  <marker id="study-cut-6" label="Unknown south receiving continuation atY-1.25; body centre stops atY-.85 (&gt;=.35m setback), no claimed S-floor connection." position="6.165 -1.25 9.079" movement="none" kind="decoration" group="architecture" element="SE-receiving-2" />
+  <marker id="study-cut-7" label="Unknown south receiving continuation atY-1.25; body centre stops atY-.85 (&gt;=.35m setback), no claimed S-floor connection." position="6.165 -1.25 12.319" movement="none" kind="decoration" group="architecture" element="SE-receiving-3" />
+  <marker id="study-cut-8" label="Finite shaft/trough neck context: column covers most of this edge; residual unobserved end junction is a study extent, not a claimed exposed building drop or invented guard. Claimed walk stays in western lane." position="0.594 0.75 2.599" movement="none" kind="decoration" group="architecture" element="W-gallery-0" />
+  <marker id="study-cut-9" label="Finite shaft/trough neck context: column covers most of this edge; residual unobserved end junction is a study extent, not a claimed exposed building drop or invented guard. Claimed walk stays in western lane." position="0.451 0.75 5.839" movement="none" kind="decoration" group="architecture" element="W-gallery-1" />
+  <marker id="study-cut-10" label="Unobserved ground continuation under W/shaft context. No new barrier, soil boundary or exposed drop is claimed. Claimed M walking stays south/outside this finite study edge with .35m body-centre setback." position="0.278 1.44 0" movement="none" kind="decoration" group="architecture" element="mosaic-M" />
+  <marker id="study-cut-11" label="Unobserved north gallery continuation; no NW flight join." position="-0.125 5.142 5.839" movement="none" kind="decoration" group="architecture" element="W-gallery-1" />
+  <marker id="study-cut-12" label="Unobserved east end continuation beyond trough; no rear-flight connector." position="0.451 4.989 5.839" movement="none" kind="decoration" group="architecture" element="W-gallery-1" />
+  <marker id="study-cut-13" label="Unknown south/column continuation; no W/S join. Body stop &gt;=.35m inside." position="-0.191 0 10.277" movement="none" kind="decoration" group="architecture" element="W-gallery-2" />
+  <marker id="study-cut-14" label="Unknown east NW-context continuation; no rear-flight join." position="0.6 5.677 10.277" movement="none" kind="decoration" group="architecture" element="W-gallery-2" />
+  <marker id="study-cut-15" label="Unobserved residual shaft/trough neck boundary, not a certified drop; column covers much of the edge." position="0.319 0.75 10.277" movement="none" kind="decoration" group="architecture" element="W-gallery-2" />
+  <marker id="study-cut-16" label="Unobserved north continuation, not a real edge/door; copied rear tongue retired. Body-centre stays &lt;=Y5.05." position="6.026 5.4 10.957" movement="none" kind="decoration" group="architecture" element="NE-receiving-3" />
+  <marker id="study-cut-17" label="Historical source-visible fragment boundary; the user-authorized upper connector now supplies its west continuation." position="3.963 6.795 11.941" movement="none" kind="decoration" group="architecture" element="rear-HOME-visible" />
+  <marker id="study-cut-18" label="Unobserved south continuation behind the material-visible floor limit; not a real drop/E4 connection." position="6.055 5.55 12.391" movement="none" kind="decoration" group="architecture" element="HOME-NE-context" />
+  <marker id="study-cut-19" label="Unobserved east continuation beyond finite closed-threshold context." position="6.92 6.795 12.391" movement="none" kind="decoration" group="architecture" element="HOME-NE-context" />
+  <marker id="study-cut-20" label="Unobserved side-entry continuation outside visible apron; no actual drop." position="0.935 -3.45 0" movement="none" kind="decoration" group="architecture" element="mosaic-M" />
+  <marker id="study-cut-21" label="Unobserved between closed elevator pad and stair entry." position="4.225 -3.45 0" movement="none" kind="decoration" group="architecture" element="mosaic-M" />
+  <marker id="study-cut-22" label="Unobserved eastern entry extent." position="6.45 -3.45 0" movement="none" kind="decoration" group="architecture" element="mosaic-M" />
+  <marker id="study-cut-23" label="Source-occluded upper continuation; no street/upper gallery link. Body-centre stops &gt;=.35 inside." position="2.075 -8.466 2.41" movement="none" kind="decoration" group="architecture" element="S-entry-regular" />
+  <marker id="study-cut-24" label="Unobserved eastern tread extent behind finite pier; not a true side drop." position="2.83 -7.153 1.78" movement="none" kind="decoration" group="architecture" element="S-entry-regular" />
+  <marker id="study-cut-25" label="Unmodeled west entry enclosure; unknown scope edge, body routeX2.08 stays .76m inside." position="1.32 -3.965 0.1" movement="none" kind="decoration" group="architecture" element="S-entry-deep-starter" />
+  <marker id="study-cut-26" label="Unmodeled east starter enclosure; not a true drop or room connection." position="3.6 -3.965 0.1" movement="none" kind="decoration" group="architecture" element="S-entry-deep-starter" />
+  <marker id="study-cut-27" label="Unknown west side enclosure through regular fragment; routeX2.08 remains &gt;=.35m inside." position="1.32 -6.541 1.36" movement="none" kind="decoration" group="architecture" element="S-entry-regular" />
+  <marker id="study-cut-28" label="Unmodeled east side of the exposed lower tread fringe, not a protected finished entry." position="3.6 -5.228 0.52" movement="none" kind="decoration" group="architecture" element="S-entry-regular" />
+  <marker id="study-cut-29" label="Unknown west old-tail continuation; no real drop." position="-0.075 -3 0" movement="none" kind="decoration" group="architecture" element="mosaic-M" />
+  <marker id="study-cut-30" label="Unknown east old-tail continuation; no real drop." position="6.735 -3 0" movement="none" kind="decoration" group="architecture" element="mosaic-M" />
+  <marker id="study-cut-31" label="Unknown west apron step enclosure." position="0.55 -3.225 0" movement="none" kind="decoration" group="architecture" element="mosaic-M" />
+  <marker id="study-cut-32" label="Unknown east apron step enclosure." position="6.55 -3.225 0" movement="none" kind="decoration" group="architecture" element="mosaic-M" />
+  <marker id="study-cut-33" label="User-authorized cohesion repair widens the upper flight to the north screen and the receiving landing; original front-edge uncertainty is superseded." position="5.162 5.398 12.391" movement="none" kind="decoration" group="architecture" element="rear-HOME-visible" />
+  <marker id="study-cut-34" label="Unknown west overhead continuation outside source C crop; not a real free edge or access route." position="1.6 -1.663 9.079" movement="none" kind="decoration" group="architecture" element="S-overhead-gray" />
+  <marker id="study-cut-35" label="Unknown south overhead continuation; neither Tbody bearing nor a W/S/E-floor join is claimed." position="2.42 -2.05 9.079" movement="none" kind="decoration" group="architecture" element="S-overhead-gray" />
+  <route id="ground-to-SaKi" from="start" to="SaKi-stop" min-routes="1" movement="land" />
+  <route id="ground-to-W0" from="start" to="W0-stop" min-routes="1" movement="land" />
+  <route id="E-family-1" from="NE-1" to="SE-1" min-routes="1" movement="land" />
+  <route id="E-family-2" from="NE-2" to="SE-2" min-routes="1" movement="land" />
+  <route id="E-family-3" from="NE-3" to="SE-3" min-routes="1" movement="land" />
+  <route id="rear-fan-visible-local-walk" from="rear-fan-visible-east" to="rear-fan-visible-west-stop" min-routes="1" movement="land" />
+  <route id="rear-HOME-visible-local-walk" from="rear-HOME-visible-east" to="rear-HOME-visible-west-stop" min-routes="1" movement="land" />
+  <route id="entry-fragment-walk" from="entry-start" to="entry-upper-stop" min-routes="1" movement="land" />
+  <route id="entry-closed-elevator" from="entry-start" to="blue-pad-stop" min-routes="1" movement="land" />
+  <connection id="e0:connection" from="SaKi-L" to="basal-E-service" path="e0:path" />
+  <connection id="e3:connection" from="SaKi-L" to="SaKi-L" path="e3:path" />
+  <connection id="e261:connection" from="SaKi-L" to="N0-front" path="e261:path" />
+  <connection id="e28:connection" from="mosaic-M" to="basal-E-service" path="e28:path" />
+  <connection id="e51:connection" from="W-gallery-0" to="NW-context-0" path="e51:path" />
+  <connection id="e263:connection" from="NW-context-0" to="N0-front" path="e263:path" />
+  <connection id="e264:connection" from="NW-context-0" to="N0-tread-fringe-0-1-0" path="e264:path" />
+  <connection id="e113:connection" from="NE-receiving-1" to="E-elevated-1" path="e113:path" />
+  <connection id="e126:connection" from="SE-receiving-2" to="E-elevated-2" path="e126:path" />
+  <connection id="e163:connection" from="NE-receiving-2" to="rear-fan-visible" path="e163:path" />
+  <connection id="e170:connection" from="NE-receiving-2" to="E-elevated-2" path="e170:path" />
+  <connection id="e184:connection" from="SE-receiving-3" to="E-elevated-3" path="e184:path" />
+  <connection id="e214:connection" from="NE-receiving-3" to="E-elevated-3" path="e214:path" />
+
+  <connection id="e290:connection" from="HOME-NE-context" to="rear-HOME-visible" path="e290:path" />
+  <connection id="e226:connection" from="SE-receiving-1" to="E-elevated-1" path="e226:path" />
+  <connection id="e295:connection" from="S-entry-deep-starter" to="S-entry-regular" path="e295:path" />
+  <connection id="e240:connection" from="S-overhead-gray" to="S-overhead-perimeter" path="e240:path" />
+  <connection id="e241:connection" from="S-overhead-gray" to="S-overhead-perimeter" path="e241:path" />
+  <connection id="e242:connection" from="S-overhead-gray" to="S-overhead-perimeter" path="e242:path" />
+  <connection id="e243:connection" from="S-overhead-gray" to="S-overhead-perimeter" path="e243:path" />
+  <connection id="e244:connection" from="S-overhead-gray" to="S-overhead-perimeter" path="e244:path" />
+  <connection id="e245:connection" from="S-overhead-gray" to="S-overhead-perimeter" path="e245:path" />
+  <connection id="e248:connection" from="S-overhead-gray" to="S-overhead-perimeter" path="e248:path" />
+  <connection id="entry-starter-step:connection" from="mosaic-M" to="S-entry-deep-starter" path="e41:path" />
+  <connection id="entry-blue-pad-step:connection" from="mosaic-M" to="S-entry-blue-pad" path="e36:path" />
+  <reference id="overhead" image="companions/107a58382b365c20b751aa633756ef19d3d58f97892b48dfca75701c6dcf0fa7.png" width="683" height="1024" scale="assumed" scale-note="P12 frozen source calibration. Estimated Rn1.2m and band-index branch; image score does not establish whole-court architectural accuracy." position="5.340675 -1.057939 16.134328" target="-12.310769 19.134783 -33.96301" up="-0.305219 0.841087 0.446558" fov="66.046516" near="0.05" far="2000" />
+  <reference id="oblique" image="companions/72c914795e8e15257cdf18e56b42f0ab06df93105ed8a7277bd53d84aef39469.png" width="683" height="1024" scale="assumed" scale-note="P12 frozen source calibration. Estimated Rn1.2m and band-index branch; image score does not establish whole-court architectural accuracy." position="0.994303 -1.924833 7.767806" target="36.279682 42.589821 6.202442" up="0.01325 0.024648 0.999608" fov="96.497964" near="0.05" far="2000" />
+  <sky color="#dce8f5" intensity="0.5" />
+  <profile id="supplement:brace-section" points="-0.0175 -0.0175; 0.0175 -0.0175; 0.0175 0.0175; -0.0175 0.0175" />
+  <path id="supplement:north-brace-left:axis" points="3.151000 5.283272 8.321000; 2.318028 5.283272 7.488028" />
+  <path id="supplement:north-brace-center:axis" points="3.151000 5.283272 8.321000; 3.151000 5.283272 7.143000" />
+  <path id="supplement:north-brace-right:axis" points="3.151000 5.283272 8.321000; 3.983972 5.283272 7.488028" />
+  <material id="supplement:window-frame" color="#1d2421" roughness=".7" metalness=".3" />
+  <profile id="supplement:transom-section" points="-.0125 -.0125; .0125 -.0125; .0125 .0125; -.0125 .0125" />
+  <path id="supplement:lowerSaKi-0-transom:axis" points="0.561101 5.154500 2.788159; 1.411101 5.154500 2.788159" />
+  <path id="supplement:lowerSaKi-1-transom:axis" points="2.575000 5.154500 3.088159; 3.425000 5.154500 3.088159" />
+  <profile id="corner:nw-middle:profile" points="-.7 5.142; 1.086 5.142; 1.086 6.798; -.7 6.798" />
+  <path id="corner:upper-west-return:axis" points="-.81 6.798 0; -.81 7.93 0" />
+  <profile id="corner:nw-upper:profile" points="-.7 5.142; 1.086 5.142; 1.086 7.82; -.7 7.82" />
+  <path id="corner:upper-flight:left" points="1.086 7.82 10.277; 3.963 7.82 11.941" />
+  <path id="corner:upper-flight:right" points="1.086 5.398 10.277; 3.963 5.398 11.941" />
+  <path id="corner:middle-west:path" points="-0.7 5.142 5.839; 0.451 5.142 5.839" />
+  <connection id="corner:middle-west" from="W-gallery-1" to="corner:nw-middle" path="corner:middle-west:path" />
+  <path id="corner:middle-rear:path" points="1.086 5.398 5.839; 1.086 6.798 5.839" />
+  <connection id="corner:middle-rear" from="corner:nw-middle" to="rear-fan-visible" path="corner:middle-rear:path" />
+  <path id="corner:upper-west:path" points="0.6 5.77 10.277; 0.6 6.3 10.277" />
+  <connection id="corner:upper-west" from="W-gallery-2" to="corner:nw-upper" path="corner:upper-west:path" />
+  <path id="corner:upper-flight:path" points="1.086 5.398 10.277; 1.086 7.82 10.277" />
+  <connection id="corner:upper-flight" from="corner:nw-upper" to="corner:upper-connector" path="corner:upper-flight:path" />
+  <path id="corner:upper-rear:path" points="3.963 5.398 11.941; 3.963 7.82 11.941" />
+  <connection id="corner:upper-rear" from="corner:upper-connector" to="rear-HOME-visible" path="corner:upper-rear:path" />
+  <marker id="corner:middle-start" kind="poi" element="W-gallery-1" position="0 4.7 5.839" />
+  <marker id="corner:middle-end" kind="poi" element="rear-fan-visible" position="2.6 6.15 6.778" />
+  <marker id="corner:upper-start" kind="poi" element="W-gallery-2" position="0 5.5 10.277" />
+  <marker id="corner:upper-end" kind="poi" element="rear-HOME-visible" position="4.7 6.7 12.241" />
+  <route id="corner:middle-turn" from="corner:middle-start" to="corner:middle-end" min-routes="1" max-distance="8" movement="land" />
+  <route id="corner:upper-turn" from="corner:upper-start" to="corner:upper-end" min-routes="1" max-distance="8" movement="land" />
+</architecture>

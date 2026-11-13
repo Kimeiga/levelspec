@@ -1,0 +1,29 @@
+[
+  {
+    "floor": -2.4,
+    "standingHeight": 1.8,
+    "interiorRadialEnvelope": [
+      3.716868281959384,
+      8.273032748123304
+    ],
+    "scope": "Section-interior intersection over standing height only; no floors, rails, stairs or port obstacles."
+  },
+  {
+    "floor": 0,
+    "standingHeight": 1.8,
+    "interiorRadialEnvelope": [
+      3.7015,
+      9.157542697450761
+    ],
+    "scope": "Section-interior intersection over standing height only; no floors, rails, stairs or port obstacles."
+  },
+  {
+    "floor": 3.2,
+    "standingHeight": 1.8,
+    "interiorRadialEnvelope": [
+      3.7446306477063604,
+      8.119723481804614
+    ],
+    "scope": "Section-interior intersection over standing height only; no floors, rails, stairs or port obstacles."
+  }
+]

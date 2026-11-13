@@ -1,0 +1,62 @@
+[
+  {
+    "path": "src/dressing/kowloon/shop/assets/restaurant-food.json",
+    "bytes": 471065,
+    "sha256": "2df10d2a662334c9f55f2283bcfd47a461e40fd4a55e12e3caaa6cbb8e4075a0"
+  },
+  {
+    "path": "projects/dressing-demo/textures/restaurant-food.png",
+    "bytes": 1178046,
+    "sha256": "6cc7ec5e997bfd51f18b2e0ffce440c3c337fbd878737d49d349decc66b22609"
+  },
+  {
+    "path": "projects/dressing-demo/textures/restaurant-food-normal.png",
+    "bytes": 765578,
+    "sha256": "99eda4e97aed912123534b65392b27feda61233cb7745a4939c3426e2a97a55a"
+  },
+  {
+    "path": "projects/dressing-demo/textures/restaurant-food-properties.png",
+    "bytes": 5334,
+    "sha256": "26e45e21e8952f74f031b046443416720644db026d8a9e2f8327554929ceb01c"
+  },
+  {
+    "path": "projects/dressing-demo/textures/restaurant-surfaces.png",
+    "bytes": 561641,
+    "sha256": "9b6d0d6615db4eca1bbb18fed36989ccd3d950d47928a29cc1274294af72400b"
+  },
+  {
+    "path": "projects/dressing-demo/textures/restaurant-surfaces-properties.png",
+    "bytes": 1954,
+    "sha256": "2b34eb6605864c7c3d7b8a0482d7449d6e3fc824d855486d1e275e317237e560"
+  },
+  {
+    "path": "projects/dressing-demo/textures/brushed-metal.png",
+    "sha256": "1aabaf6cddf71c98c49cd146f0acd4159cd3170075d01037bacf809e19537972",
+    "bytes": 80533
+  },
+  {
+    "path": "projects/dressing-demo/textures/brushed-metal-normal.png",
+    "sha256": "01c54b177625d95d056a5660d5a9291a020dc6f416c820f596b3e019ffa50df2",
+    "bytes": 48272
+  },
+  {
+    "path": "projects/dressing-demo/textures/brushed-metal-properties.png",
+    "sha256": "bbf24bcbcd268ffd02b4b380224045e56e7da0cddc0472248d2540c019397e55",
+    "bytes": 106090
+  },
+  {
+    "path": "projects/dressing-demo/textures/restaurant-tiles.png",
+    "bytes": 771748,
+    "sha256": "b862f2cca91399b27c3990e83697eeba3eebc12a9ee3754c66ae80603f091775"
+  },
+  {
+    "path": "projects/dressing-demo/textures/restaurant-tiles-normal.png",
+    "bytes": 389074,
+    "sha256": "9bc6b9625c050ea309e148aa8d855e7da9b89729f1d3b064dcc575955545f925"
+  },
+  {
+    "path": "projects/dressing-demo/textures/restaurant-tiles-properties.png",
+    "bytes": 58747,
+    "sha256": "06e5b60af1eb1940c0a9b30d09dbb82c24c8963a8d1f200618ffc760b2efda14"
+  }
+]

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level version="2" id="architectural-project" name="Architectural project" units="meters">
+  <layer id="ground">
+    <vertex id="a" x="0" y="0" z="0"/>
+    <vertex id="b" x="8" y="0" z="0"/>
+    <vertex id="c" x="8" y="6" z="0"/>
+    <vertex id="d" x="0" y="6" z="0"/>
+    <edge id="ab" from="a" to="b" kind="wall"/>
+    <edge id="bc" from="b" to="c" kind="wall"/>
+    <edge id="cd" from="c" to="d" kind="wall"/>
+    <edge id="da" from="d" to="a" kind="wall"/>
+    <region id="room" boundary="ab bc cd da" fill="floor"/>
+  </layer>
+  <marker id="spawn" layer="ground" region="room" position="2 2 0" kind="attacker_spawn"/>
+</level>
