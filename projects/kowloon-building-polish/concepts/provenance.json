@@ -1,0 +1,25 @@
+{
+  "assets": [
+    {
+      "file": "01-building.png",
+      "prompt": "../prompts/01-building.txt",
+      "sha256": "553dc172d7b5832639cc6c0bccc7d430edf8f53636ed3a9a935d9c49bc748a83",
+      "generator": "OpenAI image generation",
+      "purpose": "Modeling concept reference; not a photograph"
+    },
+    {
+      "file": "02-rooftop-ac.png",
+      "prompt": "../prompts/02-rooftop-ac.txt",
+      "sha256": "0b03ef70c760a5f788a3c7c09584a5dddaf2a4546c8ad5d3ce21b10e9cbce29e",
+      "generator": "OpenAI image generation",
+      "purpose": "Modeling concept reference; not a photograph"
+    },
+    {
+      "file": "03-signage.png",
+      "prompt": "../prompts/03-signage.txt",
+      "sha256": "5b2e55750a2c6962f7554fd05d22a1d426cefb379718faa54a26dcb0b63983b9",
+      "generator": "OpenAI image generation",
+      "purpose": "Modeling concept reference; not a photograph"
+    }
+  ]
+}

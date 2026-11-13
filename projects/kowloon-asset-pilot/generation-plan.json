@@ -1,0 +1,145 @@
+{
+  "provider": "Tripo",
+  "modelAlias": "tripo-p1",
+  "model": "P1-20260311",
+  "estimatedTotalCredits": 200,
+  "approval": "Approved by user on 2026-11-11 for the four listed models, approximately 200 credits, once funded",
+  "plans": [
+    {
+      "id": "laundry-shirt",
+      "estimateCredits": 50,
+      "command": "TRIPO_CLIENT_APP=codex TRIPO_DISTRIBUTION_CHANNEL=codex_plugin tripo make projects/kowloon-asset-pilot/concepts/laundry-shirt.png --model tripo-p1 -p face_limit=2500 -p texture=true -p pbr=true --name laundry-shirt -o generated/kowloon-asset-pilot --yes --json",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-asset-pilot/concepts/laundry-shirt.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-asset-pilot/concepts/laundry-shirt.png>",
+              "model": "P1-20260311",
+              "face_limit": 2500,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-asset-pilot/concepts/laundry-shirt.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "id": "market-apple",
+      "estimateCredits": 50,
+      "command": "TRIPO_CLIENT_APP=codex TRIPO_DISTRIBUTION_CHANNEL=codex_plugin tripo make projects/kowloon-asset-pilot/concepts/market-apple.png --model tripo-p1 -p face_limit=600 -p texture=true -p pbr=true --name market-apple -o generated/kowloon-asset-pilot --yes --json",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-asset-pilot/concepts/market-apple.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-asset-pilot/concepts/market-apple.png>",
+              "model": "P1-20260311",
+              "face_limit": 600,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-asset-pilot/concepts/market-apple.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "id": "snack-packet",
+      "estimateCredits": 50,
+      "command": "TRIPO_CLIENT_APP=codex TRIPO_DISTRIBUTION_CHANNEL=codex_plugin tripo make projects/kowloon-asset-pilot/concepts/snack-packet.png --model tripo-p1 -p face_limit=900 -p texture=true -p pbr=true --name snack-packet -o generated/kowloon-asset-pilot --yes --json",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-asset-pilot/concepts/snack-packet.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-asset-pilot/concepts/snack-packet.png>",
+              "model": "P1-20260311",
+              "face_limit": 900,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-asset-pilot/concepts/snack-packet.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "id": "seasoning-jar",
+      "estimateCredits": 50,
+      "command": "TRIPO_CLIENT_APP=codex TRIPO_DISTRIBUTION_CHANNEL=codex_plugin tripo make projects/kowloon-asset-pilot/concepts/seasoning-jar.png --model tripo-p1 -p face_limit=1200 -p texture=true -p pbr=true --name seasoning-jar -o generated/kowloon-asset-pilot --yes --json",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-asset-pilot/concepts/seasoning-jar.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-asset-pilot/concepts/seasoning-jar.png>",
+              "model": "P1-20260311",
+              "face_limit": 1200,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-asset-pilot/concepts/seasoning-jar.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    }
+  ]
+}

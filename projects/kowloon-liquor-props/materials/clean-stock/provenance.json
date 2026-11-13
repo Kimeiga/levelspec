@@ -1,0 +1,93 @@
+{
+  "tool": "built-in image_gen",
+  "source": "tin-label-source.png",
+  "purpose": "Flat wraparound label for a clean cylindrical UV layout; resize during the material bake.",
+  "generation": "01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89",
+  "prompt": "prompt.txt",
+  "sha256": "a1405fc6d201a6a803d77b97b6079eeda77a5ed9972673eb68f51394a845695c",
+  "dimensions": [
+    1774,
+    887
+  ],
+  "reusedLabelArt": {
+    "path": "../packaging-labels.png",
+    "provenance": "../provenance.json",
+    "sha256": "a74fe2a6aee2835f1b385f32d30a3ef8d897d9e30837a58c5b081c9463e5d3b2"
+  },
+  "outputs": [
+    {
+      "path": "drink-bottle-color-256.png",
+      "sha256": "1f337697afd61d2b1a9a0d79ae17de14ea6c748a6a3cd7f3ea0ea0f089dbcc4b",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "drink-bottle-normal-256.png",
+      "sha256": "1f512d718e2e134cd93ffad0371df7b869dc3db963d23d4621a6e507320d3e0b",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "drink-bottle-properties-256.png",
+      "sha256": "b28bd7cefc8ca91d8cc5c22a1554f1d50ebee52963019b1db458f55f97e3561f",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "food-tin-color-256.png",
+      "sha256": "2338257a59413de1796338533fa8461a785dcef1dd3ef84ff7d4d35f576371c7",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "food-tin-normal-256.png",
+      "sha256": "1f512d718e2e134cd93ffad0371df7b869dc3db963d23d4621a6e507320d3e0b",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "food-tin-properties-256.png",
+      "sha256": "6a3cad518d74b4d8ee438184c58f8aa86ed93313a420aed817b12ead8e46f6e8",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "seasoning-jar-color-256.png",
+      "sha256": "8e60d3e44b3f1679c3288dee1e76e8fcd80a71560f163ec5195a793ad0e84a35",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "seasoning-jar-normal-256.png",
+      "sha256": "1f512d718e2e134cd93ffad0371df7b869dc3db963d23d4621a6e507320d3e0b",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "seasoning-jar-properties-256.png",
+      "sha256": "31df816afe471a839ebe1baf0890b7c4b1e6235d2a37d2bb4259067a578f1bc8",
+      "dimensions": [
+        256,
+        256
+      ]
+    }
+  ],
+  "workflow": "Authored profile meshes and cylindrical UVs. Generated flat tin label and existing label sheet are downsampled, selectively recolored, and packed with aligned flat tangent normals and authored roughness/metalness. No new Tripo calls.",
+  "geometry": "../../open-clean-stock.py imports the production geometry built by tools/bake-clean-stock.py into the editable Blender file; the curved shelf bottle uses smooth side/shoulder normals with flat caps."
+}

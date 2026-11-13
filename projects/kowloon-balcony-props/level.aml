@@ -1,0 +1,8 @@
+<architecture version="1" id="balcony-props" name="Kowloon balcony props" validation="premap">
+  <material id="plaster" color="#bcbcaf" roughness=".95"/>
+  <box id="tenement" width="5" depth="3" height="6.35" collidable="false" material="plaster"/>
+  <box id="street" position="-2 -2 -.15" width="9" depth="7" height=".15" material="builtin:concrete"/>
+  <dressing theme="kowloon-street@1" seed="balcony-props-12" detail="medium" grime="0" wear="0">
+    <building host="tenement" stories="2" texture-density="16" material="plaster"/>
+  </dressing>
+</architecture>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="dressing-demo" name="Kowloon courtyard · Elevation laboratory" description="A curved courtyard, a branching partition, a ramp, stairs and an upper bridge." units="meters" validation="playable" curve-tolerance="0.01">
+  <path id="courtyard.e0:path" closed="false" elevation="0 0" points="0 0 0">
+    <bezier to="14 0 0" controls="4 -3 0; 10 -3 0"/>
+  </path>
+  <path id="building-west-base:path" points="0 12 0; 8 12 0"/>
+  <path id="building-east-base:path" points="8 12 0; 14 12 0"/>
+  <profile id="street:profile" points="-10 16.89; 24 16.89; 24 24; -10 24"/>
+  <path id="courtyard.e2:path" closed="false" points="14 12 0; 0 12 0"/>
+  <path id="courtyard.e3:path" closed="false" points="0 12 0; 0 0 0"/>
+  <path id="partition:path" closed="false" points="0 12 0; 4 8 0"/>
+  <path id="well.e0:path" closed="false" points="5 4 0; 5 7 0"/>
+  <path id="well.e1:path" closed="false" points="5 7 0; 8 7 0"/>
+  <path id="well.e2:path" closed="false" points="8 7 0; 8 4 0"/>
+  <path id="well.e3:path" closed="false" points="8 4 0; 5 4 0"/>
+  <path id="east.door:path" closed="false" points="14 0 0; 14 3 0"/>
+  <path id="east.wall:path" closed="false" points="14 3 0; 14 6 0"/>
+  <path id="east.stairs:path" closed="false" points="14 6 0; 14 9 0"/>
+  <path id="east.top:path" closed="false" points="14 9 0; 14 12 0"/>
+  <path id="ramp.e0:path" closed="false" points="14 0 0; 23 0 3"/>
+  <path id="ramp.e1:path" closed="false" points="23 0 3; 23 3 3"/>
+  <path id="ramp.e2:path" closed="false" points="23 3 3; 14 3 0"/>
+  <path id="stairs.e0:path" closed="false" points="14 6 0; 23 6 3"/>
+  <path id="stairs.e1:path" closed="false" points="23 6 3; 23 9 3"/>
+  <path id="stairs.e2:path" closed="false" points="23 9 3; 14 9 0"/>
+  <path id="bridge.e0:path" closed="false" points="23 0 3; 27 0 3"/>
+  <path id="bridge.e1:path" closed="false" points="27 0 3; 27 9 3"/>
+  <path id="bridge.e2:path" closed="false" points="27 9 3; 23 9 3"/>
+  <path id="bridge.e3:path" closed="false" points="23 9 3; 23 6 3"/>
+  <path id="bridge.e4:path" closed="false" points="23 6 3; 23 3 3"/>
+  <path id="bridge.e5:path" closed="false" points="23 3 3; 23 0 3"/>
+  <path id="stairs:left" paths="stairs.e0:path" closed="false" points=""/>
+  <path id="stairs:right" paths="-stairs.e2:path" closed="false" points=""/>
+  <profile id="courtyard:profile" paths="courtyard.e0:path east.door:path east.wall:path east.stairs:path east.top:path courtyard.e2:path courtyard.e3:path">
+    <hole paths="well.e0:path well.e1:path well.e2:path well.e3:path"/>
+  </profile>
+  <profile id="ramp:profile" paths="ramp.e0:path ramp.e1:path ramp.e2:path -east.door:path"/>
+  <profile id="stairs:profile" paths="stairs.e0:path stairs.e1:path stairs.e2:path -east.stairs:path"/>
+  <profile id="bridge:profile" paths="bridge.e0:path bridge.e1:path bridge.e2:path bridge.e3:path bridge.e4:path bridge.e5:path"/>
+  <material id="concrete" color="#aebbc5" repeat="1" roughness="0.85" metalness="0"/>
+  <material id="blue" color="#63869f" repeat="1" roughness="0.65" metalness="0"/>
+  <material id="sand" color="#c5aa80" repeat="1" roughness="0.8" metalness="0"/>
+  <group id="ground" label="Ground and approaches">
+    <slab id="courtyard" group="ground" material="concrete" profile="courtyard:profile" thickness="0.2" elevation="0"/>
+    <slab id="ramp" group="ground" material="sand" profile="ramp:profile" thickness="0.2" elevation="0"/>
+    <stairs id="stairs" group="ground" material="blue" left="stairs:left" right="stairs:right" maximum-riser="0.18" thickness="0.2" underside="filled"/>
+  </group>
+  <group id="upper" label="Upper bridge">
+    <slab id="bridge" group="upper" material="concrete" profile="bridge:profile" thickness="0.2" elevation="0"/>
+  </group>
+  <assembly id="migration:static-walls" coincident-material="retained-face">
+    <wall id="courtyard.e0" group="ground" path="courtyard.e0:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="courtyard"/>
+    <wall id="building-west-base" group="ground" path="building-west-base:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="courtyard"/>
+    <wall id="building-east-base" group="ground" path="building-east-base:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="courtyard"/>
+    <wall id="courtyard.e3" group="ground" path="courtyard.e3:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="courtyard"/>
+    <wall id="partition" group="ground" path="partition:path" thickness="0.22" height="1.4" material="blue" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+    <wall id="well.e0" group="ground" path="well.e0:path" thickness="0.22" height="0.7" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+    <wall id="well.e1" group="ground" path="well.e1:path" thickness="0.22" height="0.7" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+    <wall id="well.e2" group="ground" path="well.e2:path" thickness="0.22" height="0.7" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+    <wall id="well.e3" group="ground" path="well.e3:path" thickness="0.22" height="0.7" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+    <wall id="east.door" group="ground" path="east.door:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+    <wall id="east.wall" group="ground" path="east.wall:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="courtyard"/>
+    <wall id="east.top" group="ground" path="east.top:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="courtyard"/>
+    <wall id="ramp.e0" group="ground" path="ramp.e0:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="ramp"/>
+    <wall id="ramp.e2" group="ground" path="ramp.e2:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="ramp"/>
+    <wall id="stairs.e0" group="ground" path="stairs.e0:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+    <wall id="stairs.e2" group="ground" path="stairs.e2:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false"/>
+    <wall id="bridge.e0" group="upper" path="bridge.e0:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="bridge"/>
+    <wall id="bridge.e1" group="upper" path="bridge.e1:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="bridge"/>
+    <wall id="bridge.e2" group="upper" path="bridge.e2:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="bridge"/>
+    <wall id="bridge.e4" group="upper" path="bridge.e4:path" thickness="0.22" height="3" alignment="center" join="miter" dynamic="false" span-floors="false" fit-floor="bridge"/>
+    <retaining-wall id="ramp.join" lower="ramp.e1:path" upper="bridge.e5:path" lower-floor="ramp" upper-floor="bridge" thickness="0.22" height="3" mode="open" group="ground"/>
+    <retaining-wall id="stairs.join" lower="stairs.e1:path" upper="bridge.e3:path" lower-floor="stairs" upper-floor="bridge" thickness="0.22" height="3" mode="open" group="ground"/>
+  </assembly>
+  <opening id="east.door:opening" group="ground" host="east.door" shape="rectangle" mode="through" center="1.5 1.05" width="3" height="2.1" radius="0.5" radii="0.5 0.5" offset="0"/>
+  <player radius="0.35" height="1.8" step="0.45" slope="42" crouch="1.1" vault="0" rappel="false" ladder="false"/>
+  <marker id="spawn" position="2 2 0" kind="attacker_spawn" group="ground" element="courtyard"/>
+  <marker id="objective" position="25 5 3" kind="objective" group="upper" element="bridge"/>
+  <route id="climb" from="spawn" to="objective" min-routes="1" max-distance="60"/>
+  <connection id="east.door:connection" from="courtyard" to="ramp" path="east.door:path"/>
+  <connection id="east.stairs:connection" from="courtyard" to="stairs" path="east.stairs:path"/>
+  <connection id="ramp.join:connection" from="ramp" to="bridge" path="ramp.e1:path"/>
+  <connection id="stairs.join:connection" from="stairs" to="bridge" path="stairs.e1:path"/>
+  <light id="sun" position="-12 -15 25" target="10 5 0" color="#fff2dd" intensity="2" kind="directional"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+  <material id="kowloon-mosaic" color="#ffffff" repeat="1.4" roughness="0.88" texture="textures/mosaic.png"/>
+  <material id="kowloon-plaster" color="#ffffff" repeat="0.65" roughness="0.88" texture="textures/plaster.png"/>
+  <material id="kowloon-glazing" color="#ffffff" repeat="1" roughness="0.2" texture="textures/glazing.png"/>
+  <box id="background-west" group="ground" position="-0.11 11.89 0" width="8.11" depth="5" height="11.8" collidable="false"/>
+  <box id="background-east" group="ground" position="8 11.89 0" width="6" depth="5" height="14.6" collidable="false"/>
+  <slab id="back-street" group="ground" material="builtin:concrete" profile="street:profile" thickness="0.2" elevation="0" collidable="false"/>
+  <box id="shop-row" group="ground" position="-8 24 0" width="30" depth="8" height="15.35" collidable="false"/>
+  <dressing wall-materials="builtin:concrete" theme="kowloon-street@1" seed="court-01" grime="0.7" wear="0.3" detail="medium">
+    <wall host="courtyard.e0" face="side" windows="false" material="builtin:concrete" tile-share="0.55" tile-size="0.18" tile-aspect="1" tile-wear="0.65" tile-color="#83a99c" texture-density="160"/>
+    <wall host="courtyard.e3" face="right" windows="true" material="kowloon-mosaic"/>
+    <wall host="well.e0" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="well.e1" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="well.e2" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="well.e3" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="east.wall" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="east.top" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="ramp.e0" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="ramp.e2" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="stairs.e0" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="stairs.e2" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="bridge.e0" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="bridge.e1" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="bridge.e2" face="side" windows="false" material="kowloon-plaster"/>
+    <wall host="bridge.e4" face="side" windows="false" material="kowloon-plaster"/>
+    <floor host="courtyard" material="builtin:concrete" ground="patched" patch-size="2.3" material-size="7" relief="0.032" wetness="0.32" litter="0.5" repairs="0.55" joined-pours="0.8" asphalt="0.18" asphalt-material="builtin:asphalt" manholes="0.55" breakup="0.7" tile-share="0.1" timber-share="0.025"/>
+    <floor host="ramp" material="builtin:concrete"/>
+    <floor host="stairs" material="builtin:concrete"/>
+    <floor host="bridge" material="builtin:concrete"/>
+    <building host="background-west" base-wall="building-west-base" material="builtin:plaster" stories="4" texture-density="64" shops="1"/>
+    <building host="background-east" base-wall="building-east-base" material="builtin:plaster" stories="5" texture-density="64" shops="1"/>
+    <floor host="back-street" material="builtin:concrete"/>
+    <building host="shop-row" material="builtin:plaster" stories="5" texture-density="64" shops="1"/>
+  </dressing>
+</architecture>

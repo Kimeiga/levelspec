@@ -1,0 +1,7 @@
+<architecture version="1" id="door-study">
+  <material id="wall" color="#d2c9b8" roughness="0.95"/>
+  <material id="kit-metal" color="#ffffff" texture="../dressing-demo/textures/metal.png" repeat="0.8" roughness="0.65"/>
+  <material id="kit-timber" color="#ffffff" texture="../dressing-demo/textures/timber.png" repeat="1.5" roughness="0.8"/>
+  <material id="kit-shop-timber" color="#ffffff" roughness="1" metalness="1" texture="../dressing-demo/textures/shop-timber.png" normal-texture="../dressing-demo/textures/shop-timber-normal.png" metallic-roughness-texture="../dressing-demo/textures/shop-timber-properties.png"/>
+  <box id="host" width="2.6" depth="0.12" height="2.95" position="0 -0.12 0" material="wall" collidable="false"/>
+</architecture>

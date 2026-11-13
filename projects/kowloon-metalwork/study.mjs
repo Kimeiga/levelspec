@@ -1,0 +1,37 @@
+/** Build a visual study using the production window, cage and sign generators. Run from the repository root. */
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {Matrix4} from 'three';
+import {compile,parseAml,toGLB,resolveExportAssets} from '../../src/architecture/index.ts';
+import {KitMesh} from '../../src/dressing/kit-mesh.ts';
+import {Pen} from '../../src/dressing/pen.ts';
+import {Kit} from '../../src/dressing/kowloon/kit.ts';
+import {windowUnit} from '../../src/dressing/kowloon/windows.ts';
+import {cage} from '../../src/dressing/kowloon/fixtures.ts';
+import {bladeSign} from '../../src/dressing/kowloon/signs/mounts.ts';
+import {inventBusiness} from '../../src/dressing/kowloon/signs/copy.ts';
+import {compileSurfaceAppearance} from '../../src/dressing/surface/compile.ts';
+import {srgb} from '../../src/dressing/kowloon/palette.ts';
+const output='generated/hardware-study';
+await mkdir(output,{recursive:true});
+const source=await readFile('projects/kowloon-metalwork/study.aml','utf8');
+const level=await compile(parseAml(source),{navigation:false});
+level.mesh.colors ??= Array(level.mesh.positions.length).fill(1);
+const slots=new Proxy({},{get:(_,slot)=>slot==='glass'?'glass':slot==='wall'?'plaster':slot==='metal'?'metal':'paint'});
+const mesh=new KitMesh(level,'wall','default',slots,{maximumTriangles:100000});
+const pen=new Pen(mesh,'hardware',new Matrix4(),false);
+const kit=new Kit('hardware-study',2,.8,.3,false,256,.65);
+const look={kind:'casement',frame:srgb('#51625c'),trim:srgb('#afa79a'),curtain:srgb('#c5b7a2'),reach:.55,hood:false,lit:false,boarded:false,fixed:true,weathering:kit};
+windowUnit(pen,.15,.65,1.2,1.5,look,kit.rng('casement'));
+windowUnit(pen,1.8,.65,1.5,1.5,{...look,kind:'slider',frame:srgb('#979d95')},kit.rng('slider'));
+cage(pen,1.75,3.35,.52,2.23,.42,srgb('#687568'),kit.rng('cage'),false,kit);
+const sign=bladeSign({pen,kit,key:'study-sign',shown:true},{u:4.55,foot:.45,ceiling:2.55,reach:.9},inventBusiness(kit.rng('business')),kit.rng('bracket'));
+sign?.proposal.fixings();
+// A plain silhouette leaves the actual support construction visible without lettering textures.
+for(const panel of sign?.proposal.panels??[]) panel.pen.box('paint',[0,-panel.design.depth,0],[panel.design.width,0,panel.design.height],srgb('#c3bba7'),'');
+const images=()=>readFile('projects/dressing-demo/textures/metal.png');
+await compileSurfaceAppearance(level,{resolveMaterialImage:images,appearance:{maximumTexels:8*1024*1024}},100000);
+await writeFile(`${output}/hardware.glb`,toGLB(level,{assets:await resolveExportAssets(level,images)}));
+const budget={triangles:level.mesh.surfaces.length,texels:level.surfaceAppearance.texels,textureBytes:level.surfaceAppearance.imageBytes};
+await writeFile(`${output}/budget.json`,JSON.stringify(budget,null,2));
+await writeFile(`${output}/index.html`,await readFile('projects/kowloon-metalwork/preview.html','utf8'));
+console.log(JSON.stringify(budget));

@@ -1,0 +1,18 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-11-09",
+  "assets": [
+    {
+      "key": "wall-ceramic-weathered",
+      "prompt": "Use case: photorealistic-natural. Output a seamless square PBR base-color texture of aged off-white ceramic glaze, covering roughly 40 cm square. A close orthographic scan with diffuse shadowless illumination. Tiny irregular glaze crazing, localized ingrained brown-gray dirt, fine pinholes and worn chalky speckling; mostly muted warm ivory ceramic, with physically plausible subtle weathering. No tile grid, no grout lines, no borders, no large crack motif, no green tint, no lighting/shadows/specular highlights, no text or objects. This is the microscopic ceramic surface only; separate procedural geometry supplies each tile boundary and missing chips. All four edges must tile seamlessly. Natural photographic detail, never illustration."
+    },
+    {
+      "key": "wall-metal-weathered",
+      "prompt": "Use case: photorealistic-natural. Output a seamless square PBR base-color texture of old galvanized steel used on Hong Kong alley drainpipes and ducts, covering 50 cm square. Exact head-on orthographic material scan, even diffuse albedo lighting. Mostly subdued midgray zinc with subtle spangle grain, tiny scratches, mottled thin dirt, sparse irregular reddish-brown oxidation and small patches of flaking old neutral gray paint. Authentic fine scale weathering, restrained broad variation, no large orange blotches. No seams, bolts, pipe shapes, corners, shadows, highlights, text or objects: flat edge-to-edge material suitable for wrapping actual 3D pipes and sheet metal. All four edges tile seamlessly. Photographic, not stylized."
+    },
+    {
+      "key": "wall-posters-atlas",
+      "prompt": "Use case: game texture atlas, photorealistic-natural. Create an orthographic flat scanner image of SIX different old Hong Kong alley paper notices arranged in EXACTLY three equal-width columns and two equal-height rows. Every cell is a full rectangular paper notice filling its cell edge to edge, with no gaps, grid lines, backdrop or shadows. Entire image aspect ratio 3:2. Texture includes believable aged yellowed paper fibers, faded red or black traditional Chinese ink, small peeling fibers, uneven stains and print wear. Six distinct generic headings, in reading order: '水電維修', '招工', '房屋出租', '中醫診所', '茶餐廳', '清潔服務'. Use authentic varied traditional printed typography with dense but restrained small print, no fake geometric imitation letters. Top left ivory black ink, top middle faded red paper black ink, top right cream dark blue ink, lower left offwhite red ink, lower middle buff black/red ink, lower right pale gray black ink. No logos, no people, no illustrations, no readable phone numbers, no QR codes. Each paper has margins INSIDE its cell; avoid framing the whole atlas. Natural flat diffuse paper scan with no lighting gradients. This will be UV-cropped into six individual posters."
+    }
+  ]
+}

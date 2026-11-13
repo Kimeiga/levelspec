@@ -1,0 +1,23 @@
+[
+  {
+    "tool": "image_gen",
+    "image": "projects/kowloon-restaurant-props/concepts/hanging-chicken.png",
+    "imageSha256": "027e5e39da54a50480e4d522f01e9662363e2e20c1783111d063ce20d979f4b8",
+    "prompt": "projects/kowloon-restaurant-props/concepts/hanging-chicken-prompt.txt",
+    "promptSha256": "b01bdbca294aae6b2952b1feb7008f5c8a3d456d6cbf1c861f030be9e1829780"
+  },
+  {
+    "tool": "image_gen",
+    "image": "projects/kowloon-restaurant-props/concepts/sliced-meat.png",
+    "imageSha256": "6fd7540f6926c3090c4e0dc7dfde3082261acbe74572389751e4376f560f392f",
+    "prompt": "projects/kowloon-restaurant-props/concepts/sliced-meat-prompt.txt",
+    "promptSha256": "c2998bb5e54c3b81cbaca64d24a10d4a6343560beb37e98a481493daa2d6d3ba"
+  },
+  {
+    "tool": "image_gen",
+    "image": "projects/kowloon-restaurant-props/concepts/surfaces-source.png",
+    "imageSha256": "d02e5d0eb1c44f28ba4ddf6cbcb9a8cc7c168bc3d4b17adb1b7d919c8157ed6a",
+    "prompt": "projects/kowloon-restaurant-props/concepts/surfaces-prompt.txt",
+    "promptSha256": "b9b659a29e21253413ff9229532362137e961ac7ca2a6288fb0dba23ed4c60e2"
+  }
+]

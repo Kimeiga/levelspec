@@ -1,0 +1,802 @@
+{
+  "model": "P1-20260311",
+  "estimateCredits": 750,
+  "steps": [
+    {
+      "asset": "rice-sack",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/rice-sack.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=600",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-rice-sack",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "85a99e6d2337afdf17802e91124736a8f483712029300612f127a55c05ef26c6",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/rice-sack.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/rice-sack.png>",
+              "model": "P1-20260311",
+              "face_limit": 600,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/rice-sack.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "egg-basket",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/egg-basket.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=500",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-egg-basket",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "5a2458f36c13c17779d0e3226911bdfca594235dedc5a709e90e2e6ce8641105",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/egg-basket.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/egg-basket.png>",
+              "model": "P1-20260311",
+              "face_limit": 500,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/egg-basket.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "garlic-braid",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/garlic-braid.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=500",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-garlic-braid",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "2317902adf74bbce41bab0d024d69f599d569dbc1e1cdd837cf0a3c239af759b",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/garlic-braid.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/garlic-braid.png>",
+              "model": "P1-20260311",
+              "face_limit": 500,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/garlic-braid.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "counter-scale",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/counter-scale.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=900",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-counter-scale",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "16aa759524220c69c300ddc7ff24b0c047d39d2ceb34f9db3f21297cde1ad022",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/counter-scale.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/counter-scale.png>",
+              "model": "P1-20260311",
+              "face_limit": 900,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/counter-scale.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "bottle-crate",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/bottle-crate.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=700",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-bottle-crate",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "070fd8b39440a817e6e0cc1565345d8bee6d26f9bcb33b5a8f2ba766ae169ec9",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/bottle-crate.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/bottle-crate.png>",
+              "model": "P1-20260311",
+              "face_limit": 700,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/bottle-crate.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "drink-bottle",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/drink-bottle.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=160",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-drink-bottle",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "6b775d9666ff7122caa771917e781b4017ddb9de429d6029e02636fb90e252da",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/drink-bottle.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/drink-bottle.png>",
+              "model": "P1-20260311",
+              "face_limit": 160,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/drink-bottle.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "food-tin",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/food-tin.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=100",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-food-tin",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "1b253df6cd0c5ed0775814ed11a88d94b8cf723b0fc444f66a42541729baa466",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/food-tin.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/food-tin.png>",
+              "model": "P1-20260311",
+              "face_limit": 100,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/food-tin.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "tea-carton",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/tea-carton.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=64",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-tea-carton",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "ec8ea07370a75f1c2767aff1f5fd292172d96b9c9742d987fc2357e8b74f3af7",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/tea-carton.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/tea-carton.png>",
+              "model": "P1-20260311",
+              "face_limit": 64,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/tea-carton.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "tissue-roll",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/tissue-roll.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=100",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-tissue-roll",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "477774bf92f735e4ffb6878900bdef126a8da03aff6d7b7d92781b09b70b4e46",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/tissue-roll.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/tissue-roll.png>",
+              "model": "P1-20260311",
+              "face_limit": 100,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/tissue-roll.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "shop-stool",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/shop-stool.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=400",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-shop-stool",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "edeabc386d49effafc8e4b27577fe8a3690e78a2a55a383081cde086852491de",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/shop-stool.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/shop-stool.png>",
+              "model": "P1-20260311",
+              "face_limit": 400,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/shop-stool.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "shop-counter",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/shop-counter.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=400",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-shop-counter",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "7a6e9ebe7fbedf25de3b8327101db8e8378799958fa1a6940b8c68245c5fe1f1",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/shop-counter.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/shop-counter.png>",
+              "model": "P1-20260311",
+              "face_limit": 400,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/shop-counter.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "drinks-cooler",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/drinks-cooler.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=1200",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-drinks-cooler",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "25d1cd634e0fcc792c359b6636f30dbd3b9e7ded929ce7d2fb100b5c0df521fe",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/drinks-cooler.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/drinks-cooler.png>",
+              "model": "P1-20260311",
+              "face_limit": 1200,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/drinks-cooler.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "pendant-lamp",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/pendant-lamp.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=250",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-pendant-lamp",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "aff4faf666a0536c23f664fb55b4d9a0b73b73145178aa19e15fe799d45aa575",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/pendant-lamp.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/pendant-lamp.png>",
+              "model": "P1-20260311",
+              "face_limit": 250,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/pendant-lamp.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "ceiling-fan",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/ceiling-fan.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=450",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-ceiling-fan",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "7925b77c91752c52023e1e3541d376cee566af4f281c378b425064901a62957c",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/ceiling-fan.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/ceiling-fan.png>",
+              "model": "P1-20260311",
+              "face_limit": 450,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/ceiling-fan.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    },
+    {
+      "asset": "fluorescent-batten",
+      "command": [
+        "tripo",
+        "make",
+        "projects/kowloon-liquor-props/concepts/fluorescent-batten.png",
+        "--model",
+        "tripo-p1",
+        "-p",
+        "face_limit=200",
+        "-p",
+        "texture=true",
+        "-p",
+        "pbr=true",
+        "--name",
+        "liquor-fluorescent-batten",
+        "-o",
+        "generated/liquor-props",
+        "--yes",
+        "--json"
+      ],
+      "estimate": 50,
+      "conceptSha256": "58076b4a8985453559220b6d54d61112c96a78504bbc439900ce9448b0f5a4a8",
+      "dryRun": {
+        "dry_run": true,
+        "valid": true,
+        "input": "projects/kowloon-liquor-props/concepts/fluorescent-batten.png",
+        "model": "P1-20260311",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "image-to-model",
+            "endpoint": "/v3/generation/image-to-model",
+            "task_type": "image_to_model",
+            "payload": {
+              "input": "<upload:projects/kowloon-liquor-props/concepts/fluorescent-batten.png>",
+              "model": "P1-20260311",
+              "face_limit": 200,
+              "texture": true,
+              "pbr": true
+            }
+          }
+        ],
+        "pending_uploads": [
+          "projects/kowloon-liquor-props/concepts/fluorescent-batten.png"
+        ],
+        "deliverables": [],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "cost_notes": []
+      }
+    }
+  ],
+  "approval": "User approved the 15-model batch at approximately 750 credits on 2026-11-11."
+}

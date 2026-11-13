@@ -1,0 +1,6 @@
+{
+  "type": "image_to_model",
+  "task_id": "816d972e-216b-44e4-a9b0-6e72338a3da5",
+  "model_file": "projects/kowloon-restaurant-props/source-models/slices/model.glb",
+  "sha256": "2ea2c04d0d5f99b1d62b2c371478cede3c18e7131b14d6d32bd625d3c6395c79"
+}

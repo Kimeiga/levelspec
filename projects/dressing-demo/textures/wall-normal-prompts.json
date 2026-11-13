@@ -1,0 +1,16 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-11-09",
+  "assets": [
+    {
+      "key": "wall-ceramic-normal",
+      "path": "/Users/tomokif/code/levelspec/projects/dressing-demo/textures/wall-ceramic-weathered.png",
+      "prompt": "Edit target: attached ceramic albedo. Create its matching tangent-space OpenGL normal map, preserving exact square framing, seamless edges and all feature positions. Output ONLY a conventional blue-purple normal texture, flat areas RGB 128 128 255; red encodes tangent X, green positive Y, blue outward Z. Very shallow glaze crazing grooves, tiny pitted depressions and fine ceramic grain. No albedo color, no brown dirt shading, no lighting/shadows, no illustration or labels. Keep normals subtle and mostly flat blue, physically plausible millimeter relief. No large bumps."
+    },
+    {
+      "key": "wall-metal-normal",
+      "path": "/Users/tomokif/code/levelspec/projects/dressing-demo/textures/wall-metal-weathered.png",
+      "prompt": "Edit target: attached weathered galvanized metal albedo. Produce a matching seamless tangent-space OpenGL normal map retaining exact framing and positions of surface wear. Output ONLY normal vectors encoded blue-purple: flat RGB 128 128 255, red tangent X, green positive Y, blue outward Z. Subtle zinc grain, shallow scratches and pits, slight raised flaking paint edges. Very low relief because this is sheet metal. No original gray/rust color, no baked lights or shadows, no text, no macro dents, no cartoon shapes. Seamless on all sides."
+    }
+  ]
+}

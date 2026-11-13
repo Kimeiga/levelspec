@@ -1,0 +1,7 @@
+{
+  "prompt": "Use case: stylized-concept. Single isolated realistic chicken egg game prop, upright with its narrower end on top and rounded broad bottom. Uncracked natural pale cream to light tan eggshell, extremely fine subtle speckles and pores. One solid whole egg only, no bowl, no basket, no stand, no other objects, no shadows, no text. Plain neutral gray background, soft diffuse lighting, fully visible centered. Proportions 4.5 cm wide and 6 cm tall. Clear asymmetric ovoid silhouette, not a sphere.",
+  "generation": "built-in image_gen",
+  "approvedFirstRetryCredits": 50,
+  "firstRetry": "P1 produced a cylinder; rejected",
+  "proposedFinalRetry": "tripo-v3.1 image-to-model, 30 credits, approval pending"
+}

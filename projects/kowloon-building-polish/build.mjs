@@ -1,0 +1,20 @@
+/** Export the production building for visual review; takes an optional output name. */
+import {readFile, writeFile, mkdir} from 'node:fs/promises';
+import {compile, parseAml, toGLB, resolveExportAssets} from '../../src/architecture/index.ts';
+import {packagePreview} from './package-preview.mjs';
+import {localMaterialImages} from '../../src/cli/material-images.ts';
+const name=process.argv[2] ?? 'after';
+const directory=`generated/building-polish/${name}`;
+await mkdir(directory,{recursive:true});
+const source='projects/kowloon-building-polish/study.aml';
+const images=localMaterialImages(source);
+const started=performance.now();
+const document=parseAml(await readFile(source,'utf8'));
+if(process.argv[3]) document.dressing.seed=process.argv[3];
+const level=await compile(document,{navigation:false,resolveMaterialImage:images.load,appearance:{maximumTexels:24*1024*1024,maximumCharts:32768}});
+if(level.diagnostics.some(d=>d.severity==='error')) throw new Error(JSON.stringify(level.diagnostics));
+await writeFile(`${directory}/building.glb`,toGLB(level,{assets:await resolveExportAssets(level,images.load)}));
+const budget={triangles:level.mesh.surfaces.length,texels:level.surfaceAppearance?.texels,textureBytes:level.surfaceAppearance?.imageBytes,seconds:(performance.now()-started)/1000};
+await writeFile(`${directory}/budget.json`,JSON.stringify(budget,null,2));
+await packagePreview(directory);
+console.log(JSON.stringify(budget));

@@ -1,0 +1,7 @@
+{
+  "type": "image_to_model",
+  "task_id": "19b1683e-3675-4881-bb7a-2c52c3ae8e45",
+  "model_file": "projects/kowloon-balcony-props/source-models/hanging-shirt/model.glb",
+  "sha256": "878cc7868f662c826efb40194e562f0d98945a8a28e77ca977a446a1f3193213",
+  "credits_consumed": 50
+}

@@ -1,0 +1,5263 @@
+{
+  "sourceHashes": {
+    "build-baseline.ts": "1690efc2d307290475803b1f962e46da7b19f8d995bb555a857b3308d8c264d8",
+    "viewer.ts": "381c6437193c7412abae81e56481d1c5ba6514711b052fdea5eda0545d49b24b",
+    "capture.mjs": "b3b5369d394df692eca7299fec2ad1297bc2d3322651432b0789226ee26914db",
+    "index.html": "339ae8f7c0c7bbfaa624702d2b09d721f0d8062bd7df9f78d8a4b3cdf172ab0b",
+    "models.json": "209062d75997635c6c868065a68d3cf31d8e8ec28b90cfb3d1f34e153bcc9f48",
+    "generation-plan.json": "29d426b422a49dfaf32980aaa9cb76d677f18faedd56aa8986f65689bea3b0db",
+    "concepts/provenance.json": "ee31794f00cd7415fd7e526518f6fd79c880b197430df896debc33aefee77edb"
+  },
+  "baselineHashes": {
+    "laundry-shirt": "4dc958c00a8122442af596741e1fb21afd241e5a5d6bca3d62027a566da8ac19",
+    "market-apple": "3766274e3f17008962efc187ca079e62bee377b34336b2b2beb2611e4d5d9d40",
+    "snack-packet": "309847bb2ff67196bddc9cd9a8d26484b31aabc2f56589790b1c38a8baa49c1e",
+    "seasoning-jar": "066023c521b1aa8db0d8a97990a2d1dfb4eae71242c7693e62d7585e15eef227"
+  },
+  "models": [
+    {
+      "id": "laundry-shirt",
+      "path": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+      "bytes": 4095400,
+      "sha256": "c46569f1f8f0e6007af497baabc24056ecb87557a6532aa075fb5eca71d931e0",
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE",
+            "message": "Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+            "severity": 1,
+            "pointer": "/meshes/0/primitives/0/material"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "id": "market-apple",
+      "path": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+      "bytes": 3476252,
+      "sha256": "7c5884bd9d4acf97ca2b6fc0fd6df7179dd8c3232b554fa107906ae14a7e6711",
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 0,
+        "numHints": 4,
+        "messages": [
+          {
+            "code": "BUFFER_VIEW_TARGET_MISSING",
+            "message": "bufferView.target should be set for vertex or index data.",
+            "severity": 3,
+            "pointer": "/meshes/0/primitives/0/attributes/POSITION"
+          },
+          {
+            "code": "BUFFER_VIEW_TARGET_MISSING",
+            "message": "bufferView.target should be set for vertex or index data.",
+            "severity": 3,
+            "pointer": "/meshes/0/primitives/0/attributes/NORMAL"
+          },
+          {
+            "code": "BUFFER_VIEW_TARGET_MISSING",
+            "message": "bufferView.target should be set for vertex or index data.",
+            "severity": 3,
+            "pointer": "/meshes/0/primitives/0/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "BUFFER_VIEW_TARGET_MISSING",
+            "message": "bufferView.target should be set for vertex or index data.",
+            "severity": 3,
+            "pointer": "/meshes/0/primitives/0/indices"
+          },
+          {
+            "code": "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE",
+            "message": "Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+            "severity": 1,
+            "pointer": "/meshes/0/primitives/0/material"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "id": "snack-packet",
+      "path": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+      "bytes": 4410032,
+      "sha256": "1df30f2bdb2da3bfb995eb155dece9ee0d62469d82e3a819a790282485996fcd",
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE",
+            "message": "Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+            "severity": 1,
+            "pointer": "/meshes/0/primitives/0/material"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "id": "seasoning-jar",
+      "path": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+      "bytes": 3244760,
+      "sha256": "2b1625aac386660881da98bd9e351480f30780cb05f288e00c67e54b78cd1168",
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 0,
+        "numHints": 4,
+        "messages": [
+          {
+            "code": "BUFFER_VIEW_TARGET_MISSING",
+            "message": "bufferView.target should be set for vertex or index data.",
+            "severity": 3,
+            "pointer": "/meshes/0/primitives/0/attributes/POSITION"
+          },
+          {
+            "code": "BUFFER_VIEW_TARGET_MISSING",
+            "message": "bufferView.target should be set for vertex or index data.",
+            "severity": 3,
+            "pointer": "/meshes/0/primitives/0/attributes/NORMAL"
+          },
+          {
+            "code": "BUFFER_VIEW_TARGET_MISSING",
+            "message": "bufferView.target should be set for vertex or index data.",
+            "severity": 3,
+            "pointer": "/meshes/0/primitives/0/attributes/TEXCOORD_0"
+          },
+          {
+            "code": "BUFFER_VIEW_TARGET_MISSING",
+            "message": "bufferView.target should be set for vertex or index data.",
+            "severity": 3,
+            "pointer": "/meshes/0/primitives/0/indices"
+          },
+          {
+            "code": "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE",
+            "message": "Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+            "severity": 1,
+            "pointer": "/meshes/0/primitives/0/material"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  ],
+  "captures": [
+    {
+      "filename": "laundry-shirt-oblique-textured-left.png",
+      "id": "laundry-shirt",
+      "view": "oblique",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.9400874730199577,
+          -1.7092499509453773,
+          0.6836999803781509
+        ],
+        "targetZ": 0.34184999018907547,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            -0.00040499959141016006,
+            -0.14630000293254852
+          ],
+          "rotation": [
+            0,
+            0,
+            3.141592653589793,
+            "XYZ"
+          ],
+          "size": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ]
+        },
+        "triangles": 168,
+        "uniqueTriangles": 168,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          }
+        ],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+        "transform": {
+          "originalSize": [
+            0.7714843750000002,
+            0.24414062500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.685037945114703,
+          "position": [
+            0,
+            0,
+            0.34184999018907547
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.5284960709381011,
+            0.1672455920690194,
+            0.6836999803781509
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 2270,
+        "uniqueTriangles": 2270,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.6836999803781509,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0020510999411344527,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 168,
+          "uniqueTriangles": 168,
+          "meshes": 2,
+          "materials": 2,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            }
+          ]
+        },
+        {
+          "triangles": 2270,
+          "uniqueTriangles": 2270,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "laundry-shirt-front-textured-left.png",
+      "id": "laundry-shirt",
+      "view": "front",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0,
+          -1.7092499509453773,
+          0.44440498724579813
+        ],
+        "targetZ": 0.34184999018907547,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            -0.00040499959141016006,
+            -0.14630000293254852
+          ],
+          "rotation": [
+            0,
+            0,
+            3.141592653589793,
+            "XYZ"
+          ],
+          "size": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ]
+        },
+        "triangles": 168,
+        "uniqueTriangles": 168,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          }
+        ],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+        "transform": {
+          "originalSize": [
+            0.7714843750000002,
+            0.24414062500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.685037945114703,
+          "position": [
+            0,
+            0,
+            0.34184999018907547
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.5284960709381011,
+            0.1672455920690194,
+            0.6836999803781509
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 2270,
+        "uniqueTriangles": 2270,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.6836999803781509,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0020510999411344527,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 168,
+          "uniqueTriangles": 168,
+          "meshes": 2,
+          "materials": 2,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            }
+          ]
+        },
+        {
+          "triangles": 2270,
+          "uniqueTriangles": 2270,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "laundry-shirt-side-textured-left.png",
+      "id": "laundry-shirt",
+      "view": "side",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          1.7092499509453773,
+          0,
+          0.44440498724579813
+        ],
+        "targetZ": 0.34184999018907547,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            -0.00040499959141016006,
+            -0.14630000293254852
+          ],
+          "rotation": [
+            0,
+            0,
+            3.141592653589793,
+            "XYZ"
+          ],
+          "size": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ]
+        },
+        "triangles": 168,
+        "uniqueTriangles": 168,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          }
+        ],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+        "transform": {
+          "originalSize": [
+            0.7714843750000002,
+            0.24414062500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.685037945114703,
+          "position": [
+            0,
+            0,
+            0.34184999018907547
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.5284960709381011,
+            0.1672455920690194,
+            0.6836999803781509
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 2270,
+        "uniqueTriangles": 2270,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.6836999803781509,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0020510999411344527,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 168,
+          "uniqueTriangles": 168,
+          "meshes": 2,
+          "materials": 2,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            }
+          ]
+        },
+        {
+          "triangles": 2270,
+          "uniqueTriangles": 2270,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "laundry-shirt-back-textured-left.png",
+      "id": "laundry-shirt",
+      "view": "back",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0,
+          1.7092499509453773,
+          0.44440498724579813
+        ],
+        "targetZ": 0.34184999018907547,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            -0.00040499959141016006,
+            -0.14630000293254852
+          ],
+          "rotation": [
+            0,
+            0,
+            3.141592653589793,
+            "XYZ"
+          ],
+          "size": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ]
+        },
+        "triangles": 168,
+        "uniqueTriangles": 168,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          }
+        ],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+        "transform": {
+          "originalSize": [
+            0.7714843750000002,
+            0.24414062500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.685037945114703,
+          "position": [
+            0,
+            0,
+            0.34184999018907547
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.5284960709381011,
+            0.1672455920690194,
+            0.6836999803781509
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 2270,
+        "uniqueTriangles": 2270,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.6836999803781509,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0020510999411344527,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 168,
+          "uniqueTriangles": 168,
+          "meshes": 2,
+          "materials": 2,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            }
+          ]
+        },
+        {
+          "triangles": 2270,
+          "uniqueTriangles": 2270,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "laundry-shirt-oblique-clay-left.png",
+      "id": "laundry-shirt",
+      "view": "oblique",
+      "surface": "clay",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.9400874730199577,
+          -1.7092499509453773,
+          0.6836999803781509
+        ],
+        "targetZ": 0.34184999018907547,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            -0.00040499959141016006,
+            -0.14630000293254852
+          ],
+          "rotation": [
+            0,
+            0,
+            3.141592653589793,
+            "XYZ"
+          ],
+          "size": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ]
+        },
+        "triangles": 168,
+        "uniqueTriangles": 168,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          }
+        ],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+        "transform": {
+          "originalSize": [
+            0.7714843750000002,
+            0.24414062500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.685037945114703,
+          "position": [
+            0,
+            0,
+            0.34184999018907547
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.5284960709381011,
+            0.1672455920690194,
+            0.6836999803781509
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 2270,
+        "uniqueTriangles": 2270,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.6836999803781509,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0020510999411344527,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 168,
+          "uniqueTriangles": 168,
+          "meshes": 2,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 2270,
+          "uniqueTriangles": 2270,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "filename": "laundry-shirt-oblique-textured-right.png",
+      "id": "laundry-shirt",
+      "view": "oblique",
+      "surface": "textured",
+      "light": "right",
+      "camera": {
+        "position": [
+          0.9400874730199577,
+          -1.7092499509453773,
+          0.6836999803781509
+        ],
+        "targetZ": 0.34184999018907547,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            -0.00040499959141016006,
+            -0.14630000293254852
+          ],
+          "rotation": [
+            0,
+            0,
+            3.141592653589793,
+            "XYZ"
+          ],
+          "size": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ]
+        },
+        "triangles": 168,
+        "uniqueTriangles": 168,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          }
+        ],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+        "transform": {
+          "originalSize": [
+            0.7714843750000002,
+            0.24414062500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.685037945114703,
+          "position": [
+            0,
+            0,
+            0.34184999018907547
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.5284960709381011,
+            0.1672455920690194,
+            0.6836999803781509
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 2270,
+        "uniqueTriangles": 2270,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          3,
+          -4,
+          6
+        ],
+        "scale": 0.6836999803781509,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0020510999411344527,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 168,
+          "uniqueTriangles": 168,
+          "meshes": 2,
+          "materials": 2,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            }
+          ]
+        },
+        {
+          "triangles": 2270,
+          "uniqueTriangles": 2270,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "laundry-shirt-context-textured-left.png",
+      "id": "laundry-shirt",
+      "view": "context",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          1.2,
+          -5.5,
+          2.4
+        ],
+        "targetZ": 1.1,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            -0.00040499959141016006,
+            -0.14630000293254852
+          ],
+          "rotation": [
+            0,
+            0,
+            3.141592653589793,
+            "XYZ"
+          ],
+          "size": [
+            0.819320023059845,
+            0.03357000090181837,
+            0.6836999803781509
+          ]
+        },
+        "triangles": 168,
+        "uniqueTriangles": 168,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 1024,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          }
+        ],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/laundry-shirt-84ab0570/model.glb",
+        "transform": {
+          "originalSize": [
+            0.7714843750000002,
+            0.24414062500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.685037945114703,
+          "position": [
+            0,
+            0,
+            0.34184999018907547
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.5284960709381011,
+            0.1672455920690194,
+            0.6836999803781509
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 2270,
+        "uniqueTriangles": 2270,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 1,
+        "shadowMapSize": 2048,
+        "normalBias": 0.003,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 540,
+          "uniqueTriangles": 204,
+          "meshes": 9,
+          "materials": 5,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            }
+          ]
+        },
+        {
+          "triangles": 6846,
+          "uniqueTriangles": 2306,
+          "meshes": 6,
+          "materials": 4,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "market-apple-oblique-textured-left.png",
+      "id": "market-apple",
+      "view": "oblique",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.09405000414699317,
+          -0.17100000753998756,
+          0.06840000301599503
+        ],
+        "targetZ": 0.03420000150799751,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002980000339448452,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ]
+        },
+        "triangles": 20,
+        "uniqueTriangles": 20,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9394531250000004,
+            0.9863281250000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.06853385820780714,
+          "position": [
+            0,
+            0,
+            0.03420000150799751
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.06438434726163134,
+            0.06759687186512228,
+            0.06840000301599503
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 612,
+        "uniqueTriangles": 612,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.06840000301599503,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00020520000904798507,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 20,
+          "uniqueTriangles": 20,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 612,
+          "uniqueTriangles": 612,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "market-apple-front-textured-left.png",
+      "id": "market-apple",
+      "view": "front",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0,
+          -0.17100000753998756,
+          0.04446000196039677
+        ],
+        "targetZ": 0.03420000150799751,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002980000339448452,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ]
+        },
+        "triangles": 20,
+        "uniqueTriangles": 20,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9394531250000004,
+            0.9863281250000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.06853385820780714,
+          "position": [
+            0,
+            0,
+            0.03420000150799751
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.06438434726163134,
+            0.06759687186512228,
+            0.06840000301599503
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 612,
+        "uniqueTriangles": 612,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.06840000301599503,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00020520000904798507,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 20,
+          "uniqueTriangles": 20,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 612,
+          "uniqueTriangles": 612,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "market-apple-side-textured-left.png",
+      "id": "market-apple",
+      "view": "side",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.17100000753998756,
+          0,
+          0.04446000196039677
+        ],
+        "targetZ": 0.03420000150799751,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002980000339448452,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ]
+        },
+        "triangles": 20,
+        "uniqueTriangles": 20,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9394531250000004,
+            0.9863281250000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.06853385820780714,
+          "position": [
+            0,
+            0,
+            0.03420000150799751
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.06438434726163134,
+            0.06759687186512228,
+            0.06840000301599503
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 612,
+        "uniqueTriangles": 612,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.06840000301599503,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00020520000904798507,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 20,
+          "uniqueTriangles": 20,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 612,
+          "uniqueTriangles": 612,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "market-apple-back-textured-left.png",
+      "id": "market-apple",
+      "view": "back",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0,
+          0.17100000753998756,
+          0.04446000196039677
+        ],
+        "targetZ": 0.03420000150799751,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002980000339448452,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ]
+        },
+        "triangles": 20,
+        "uniqueTriangles": 20,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9394531250000004,
+            0.9863281250000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.06853385820780714,
+          "position": [
+            0,
+            0,
+            0.03420000150799751
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.06438434726163134,
+            0.06759687186512228,
+            0.06840000301599503
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 612,
+        "uniqueTriangles": 612,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.06840000301599503,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00020520000904798507,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 20,
+          "uniqueTriangles": 20,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 612,
+          "uniqueTriangles": 612,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "market-apple-oblique-clay-left.png",
+      "id": "market-apple",
+      "view": "oblique",
+      "surface": "clay",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.09405000414699317,
+          -0.17100000753998756,
+          0.06840000301599503
+        ],
+        "targetZ": 0.03420000150799751,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002980000339448452,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ]
+        },
+        "triangles": 20,
+        "uniqueTriangles": 20,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9394531250000004,
+            0.9863281250000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.06853385820780714,
+          "position": [
+            0,
+            0,
+            0.03420000150799751
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.06438434726163134,
+            0.06759687186512228,
+            0.06840000301599503
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 612,
+        "uniqueTriangles": 612,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.06840000301599503,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00020520000904798507,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 20,
+          "uniqueTriangles": 20,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 612,
+          "uniqueTriangles": 612,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "filename": "market-apple-oblique-textured-right.png",
+      "id": "market-apple",
+      "view": "oblique",
+      "surface": "textured",
+      "light": "right",
+      "camera": {
+        "position": [
+          0.09405000414699317,
+          -0.17100000753998756,
+          0.06840000301599503
+        ],
+        "targetZ": 0.03420000150799751,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002980000339448452,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ]
+        },
+        "triangles": 20,
+        "uniqueTriangles": 20,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9394531250000004,
+            0.9863281250000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.06853385820780714,
+          "position": [
+            0,
+            0,
+            0.03420000150799751
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.06438434726163134,
+            0.06759687186512228,
+            0.06840000301599503
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 612,
+        "uniqueTriangles": 612,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          3,
+          -4,
+          6
+        ],
+        "scale": 0.06840000301599503,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00020520000904798507,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 20,
+          "uniqueTriangles": 20,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 612,
+          "uniqueTriangles": 612,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "market-apple-context-textured-left.png",
+      "id": "market-apple",
+      "view": "context",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.42,
+          -1.8,
+          1.25
+        ],
+        "targetZ": 0.94,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002980000339448452,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.0563999991863966,
+            0.059300001710653305,
+            0.06840000301599503
+          ]
+        },
+        "triangles": 20,
+        "uniqueTriangles": 20,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/market-apple-d0d15a89/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9394531250000004,
+            0.9863281250000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.06853385820780714,
+          "position": [
+            0,
+            0,
+            0.03420000150799751
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.06438434726163134,
+            0.06759687186512228,
+            0.06840000301599503
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 612,
+        "uniqueTriangles": 612,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 1,
+        "shadowMapSize": 2048,
+        "normalBias": 0.003,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 304,
+          "uniqueTriangles": 44,
+          "meshes": 16,
+          "materials": 3,
+          "textures": []
+        },
+        {
+          "triangles": 8592,
+          "uniqueTriangles": 636,
+          "meshes": 16,
+          "materials": 3,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "snack-packet-oblique-textured-left.png",
+      "id": "snack-packet",
+      "view": "oblique",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.27500000409781933,
+          -0.5000000074505806,
+          0.20000000298023224
+        ],
+        "targetZ": 0.10000000149011612,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ]
+        },
+        "triangles": 14,
+        "uniqueTriangles": 14,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+        "transform": {
+          "originalSize": [
+            0.8378906250000003,
+            0.41601562500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.20039139241854967,
+          "position": [
+            5.972128881703842e-9,
+            0,
+            0.100000007462245
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.16790606903819888,
+            0.08336595036162324,
+            0.20000000298023224
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 815,
+        "uniqueTriangles": 815,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.20000000298023224,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0006000000089406968,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 14,
+          "uniqueTriangles": 14,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 815,
+          "uniqueTriangles": 815,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "snack-packet-front-textured-left.png",
+      "id": "snack-packet",
+      "view": "front",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0,
+          -0.5000000074505806,
+          0.13000000193715097
+        ],
+        "targetZ": 0.10000000149011612,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ]
+        },
+        "triangles": 14,
+        "uniqueTriangles": 14,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+        "transform": {
+          "originalSize": [
+            0.8378906250000003,
+            0.41601562500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.20039139241854967,
+          "position": [
+            5.972128881703842e-9,
+            0,
+            0.100000007462245
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.16790606903819888,
+            0.08336595036162324,
+            0.20000000298023224
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 815,
+        "uniqueTriangles": 815,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.20000000298023224,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0006000000089406968,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 14,
+          "uniqueTriangles": 14,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 815,
+          "uniqueTriangles": 815,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "snack-packet-side-textured-left.png",
+      "id": "snack-packet",
+      "view": "side",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.5000000074505806,
+          0,
+          0.13000000193715097
+        ],
+        "targetZ": 0.10000000149011612,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ]
+        },
+        "triangles": 14,
+        "uniqueTriangles": 14,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+        "transform": {
+          "originalSize": [
+            0.8378906250000003,
+            0.41601562500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.20039139241854967,
+          "position": [
+            5.972128881703842e-9,
+            0,
+            0.100000007462245
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.16790606903819888,
+            0.08336595036162324,
+            0.20000000298023224
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 815,
+        "uniqueTriangles": 815,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.20000000298023224,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0006000000089406968,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 14,
+          "uniqueTriangles": 14,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 815,
+          "uniqueTriangles": 815,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "snack-packet-back-textured-left.png",
+      "id": "snack-packet",
+      "view": "back",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0,
+          0.5000000074505806,
+          0.13000000193715097
+        ],
+        "targetZ": 0.10000000149011612,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ]
+        },
+        "triangles": 14,
+        "uniqueTriangles": 14,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+        "transform": {
+          "originalSize": [
+            0.8378906250000003,
+            0.41601562500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.20039139241854967,
+          "position": [
+            5.972128881703842e-9,
+            0,
+            0.100000007462245
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.16790606903819888,
+            0.08336595036162324,
+            0.20000000298023224
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 815,
+        "uniqueTriangles": 815,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.20000000298023224,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0006000000089406968,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 14,
+          "uniqueTriangles": 14,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 815,
+          "uniqueTriangles": 815,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "snack-packet-oblique-clay-left.png",
+      "id": "snack-packet",
+      "view": "oblique",
+      "surface": "clay",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.27500000409781933,
+          -0.5000000074505806,
+          0.20000000298023224
+        ],
+        "targetZ": 0.10000000149011612,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ]
+        },
+        "triangles": 14,
+        "uniqueTriangles": 14,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+        "transform": {
+          "originalSize": [
+            0.8378906250000003,
+            0.41601562500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.20039139241854967,
+          "position": [
+            5.972128881703842e-9,
+            0,
+            0.100000007462245
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.16790606903819888,
+            0.08336595036162324,
+            0.20000000298023224
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 815,
+        "uniqueTriangles": 815,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.20000000298023224,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0006000000089406968,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 14,
+          "uniqueTriangles": 14,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 815,
+          "uniqueTriangles": 815,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "filename": "snack-packet-oblique-textured-right.png",
+      "id": "snack-packet",
+      "view": "oblique",
+      "surface": "textured",
+      "light": "right",
+      "camera": {
+        "position": [
+          0.27500000409781933,
+          -0.5000000074505806,
+          0.20000000298023224
+        ],
+        "targetZ": 0.10000000149011612,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ]
+        },
+        "triangles": 14,
+        "uniqueTriangles": 14,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+        "transform": {
+          "originalSize": [
+            0.8378906250000003,
+            0.41601562500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.20039139241854967,
+          "position": [
+            5.972128881703842e-9,
+            0,
+            0.100000007462245
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.16790606903819888,
+            0.08336595036162324,
+            0.20000000298023224
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 815,
+        "uniqueTriangles": 815,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          3,
+          -4,
+          6
+        ],
+        "scale": 0.20000000298023224,
+        "shadowMapSize": 2048,
+        "normalBias": 0.0006000000089406968,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 14,
+          "uniqueTriangles": 14,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 815,
+          "uniqueTriangles": 815,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "snack-packet-context-textured-left.png",
+      "id": "snack-packet",
+      "view": "context",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.42,
+          -1.8,
+          1.25
+        ],
+        "targetZ": 0.94,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ],
+          "uniformScale": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.12999999523162842,
+            0.05719999969005585,
+            0.20000000298023224
+          ]
+        },
+        "triangles": 14,
+        "uniqueTriangles": 14,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/snack-packet-4679f910/model.glb",
+        "transform": {
+          "originalSize": [
+            0.8378906250000003,
+            0.41601562500000017,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.20039139241854967,
+          "position": [
+            5.972128881703842e-9,
+            0,
+            0.100000007462245
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.16790606903819888,
+            0.08336595036162324,
+            0.20000000298023224
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 815,
+        "uniqueTriangles": 815,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 1,
+        "shadowMapSize": 2048,
+        "normalBias": 0.003,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 136,
+          "uniqueTriangles": 38,
+          "meshes": 10,
+          "materials": 3,
+          "textures": []
+        },
+        {
+          "triangles": 6544,
+          "uniqueTriangles": 839,
+          "meshes": 10,
+          "materials": 3,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "seasoning-jar-oblique-textured-left.png",
+      "id": "seasoning-jar",
+      "view": "oblique",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.20625000819563868,
+          -0.3750000149011612,
+          0.15000000596046448
+        ],
+        "targetZ": 0.07500000298023224,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002724999561905861,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ]
+        },
+        "triangles": 49,
+        "uniqueTriangles": 49,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9121093750000004,
+            0.9042968750000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.15029354804649275,
+          "position": [
+            0,
+            0,
+            0.07500000298023224
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.13708415417521902,
+            0.13590998583110578,
+            0.15000000596046448
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 1154,
+        "uniqueTriangles": 1154,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.15000000596046448,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00045000001788139346,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 49,
+          "uniqueTriangles": 49,
+          "meshes": 2,
+          "materials": 2,
+          "textures": []
+        },
+        {
+          "triangles": 1154,
+          "uniqueTriangles": 1154,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "seasoning-jar-front-textured-left.png",
+      "id": "seasoning-jar",
+      "view": "front",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0,
+          -0.3750000149011612,
+          0.09750000387430191
+        ],
+        "targetZ": 0.07500000298023224,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002724999561905861,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ]
+        },
+        "triangles": 49,
+        "uniqueTriangles": 49,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9121093750000004,
+            0.9042968750000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.15029354804649275,
+          "position": [
+            0,
+            0,
+            0.07500000298023224
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.13708415417521902,
+            0.13590998583110578,
+            0.15000000596046448
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 1154,
+        "uniqueTriangles": 1154,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.15000000596046448,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00045000001788139346,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 49,
+          "uniqueTriangles": 49,
+          "meshes": 2,
+          "materials": 2,
+          "textures": []
+        },
+        {
+          "triangles": 1154,
+          "uniqueTriangles": 1154,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "seasoning-jar-side-textured-left.png",
+      "id": "seasoning-jar",
+      "view": "side",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.3750000149011612,
+          0,
+          0.09750000387430191
+        ],
+        "targetZ": 0.07500000298023224,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002724999561905861,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ]
+        },
+        "triangles": 49,
+        "uniqueTriangles": 49,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9121093750000004,
+            0.9042968750000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.15029354804649275,
+          "position": [
+            0,
+            0,
+            0.07500000298023224
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.13708415417521902,
+            0.13590998583110578,
+            0.15000000596046448
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 1154,
+        "uniqueTriangles": 1154,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.15000000596046448,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00045000001788139346,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 49,
+          "uniqueTriangles": 49,
+          "meshes": 2,
+          "materials": 2,
+          "textures": []
+        },
+        {
+          "triangles": 1154,
+          "uniqueTriangles": 1154,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "seasoning-jar-back-textured-left.png",
+      "id": "seasoning-jar",
+      "view": "back",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0,
+          0.3750000149011612,
+          0.09750000387430191
+        ],
+        "targetZ": 0.07500000298023224,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002724999561905861,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ]
+        },
+        "triangles": 49,
+        "uniqueTriangles": 49,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9121093750000004,
+            0.9042968750000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.15029354804649275,
+          "position": [
+            0,
+            0,
+            0.07500000298023224
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.13708415417521902,
+            0.13590998583110578,
+            0.15000000596046448
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 1154,
+        "uniqueTriangles": 1154,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.15000000596046448,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00045000001788139346,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 49,
+          "uniqueTriangles": 49,
+          "meshes": 2,
+          "materials": 2,
+          "textures": []
+        },
+        {
+          "triangles": 1154,
+          "uniqueTriangles": 1154,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "seasoning-jar-oblique-clay-left.png",
+      "id": "seasoning-jar",
+      "view": "oblique",
+      "surface": "clay",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.20625000819563868,
+          -0.3750000149011612,
+          0.15000000596046448
+        ],
+        "targetZ": 0.07500000298023224,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002724999561905861,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ]
+        },
+        "triangles": 49,
+        "uniqueTriangles": 49,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9121093750000004,
+            0.9042968750000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.15029354804649275,
+          "position": [
+            0,
+            0,
+            0.07500000298023224
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.13708415417521902,
+            0.13590998583110578,
+            0.15000000596046448
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 1154,
+        "uniqueTriangles": 1154,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 0.15000000596046448,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00045000001788139346,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 49,
+          "uniqueTriangles": 49,
+          "meshes": 2,
+          "materials": 1,
+          "textures": []
+        },
+        {
+          "triangles": 1154,
+          "uniqueTriangles": 1154,
+          "meshes": 1,
+          "materials": 1,
+          "textures": []
+        }
+      ]
+    },
+    {
+      "filename": "seasoning-jar-oblique-textured-right.png",
+      "id": "seasoning-jar",
+      "view": "oblique",
+      "surface": "textured",
+      "light": "right",
+      "camera": {
+        "position": [
+          0.20625000819563868,
+          -0.3750000149011612,
+          0.15000000596046448
+        ],
+        "targetZ": 0.07500000298023224,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002724999561905861,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ]
+        },
+        "triangles": 49,
+        "uniqueTriangles": 49,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9121093750000004,
+            0.9042968750000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.15029354804649275,
+          "position": [
+            0,
+            0,
+            0.07500000298023224
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.13708415417521902,
+            0.13590998583110578,
+            0.15000000596046448
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 1154,
+        "uniqueTriangles": 1154,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          3,
+          -4,
+          6
+        ],
+        "scale": 0.15000000596046448,
+        "shadowMapSize": 2048,
+        "normalBias": 0.00045000001788139346,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 49,
+          "uniqueTriangles": 49,
+          "meshes": 2,
+          "materials": 2,
+          "textures": []
+        },
+        {
+          "triangles": 1154,
+          "uniqueTriangles": 1154,
+          "meshes": 1,
+          "materials": 1,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "seasoning-jar-context-textured-left.png",
+      "id": "seasoning-jar",
+      "view": "context",
+      "surface": "textured",
+      "light": "left",
+      "camera": {
+        "position": [
+          0.42,
+          -1.8,
+          1.25
+        ],
+        "targetZ": 0.94,
+        "fov": 38,
+        "aspect": 0.9079445145018915
+      },
+      "exposure": 1,
+      "status": "comparison",
+      "baseline": {
+        "transform": {
+          "originalSize": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ],
+          "uniformScale": 1,
+          "position": [
+            -0.002724999561905861,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            "XYZ"
+          ],
+          "size": [
+            0.10455000028014183,
+            0.10723999887704849,
+            0.15000000596046448
+          ]
+        },
+        "triangles": 49,
+        "uniqueTriangles": 49,
+        "meshes": 2,
+        "materials": 2,
+        "textures": [],
+        "sourceHashes": {
+          "src/dressing/kowloon/laundry.ts": "cb3f9f66fee6577af8b20a432bbe16daedd1cab7f2a6c4a9b1cb8c4ed4c8d43d",
+          "src/dressing/kowloon/shop/goods.ts": "5f541261508b0287e13e56b34deb3db6f84cac1b135c9eb9e388735d1d84ecc4",
+          "src/dressing/kowloon/shop/forms.ts": "4491d136936b8cc80b2490137fa92f7b2dcccd98919eabe2fd4cf3a967d486b0",
+          "src/dressing/kowloon/atlas.ts": "1294349341e28904b7b3b544af2c083b917c334379b3666a8a68093355c554b5",
+          "src/dressing/kowloon/palette.ts": "fe6569aa004eae119fb990dd8566b8610efe91a00e75fc56a3857211bb87c07b",
+          "src/dressing/pen.ts": "00afd3942ac80166b51a5088a1e840245f6528912cb74bae799000fc9c0b5788",
+          "src/dressing/kit-mesh.ts": "c01dec8c6317466e77df2736da4da09f0d245df9d2bd2d92342b2a48fc9d39c4",
+          "src/dressing/kit.ts": "aed24d7b66bbb2421b7ead20eaef6d3f70b3e048bad2634d0a40e4fb1aa78183",
+          "src/dressing/geometry.ts": "2e434ad05b11eb9d238dabfc931c69dd036e1777d9d1333ecc4cac51dbd99590",
+          "src/generate/rng.ts": "d470aa6108b78a47717d6ad3b469a5938708a901a39854c1c2149d7c970bd78a",
+          "projects/dressing-demo/textures/cloth.png": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+        }
+      },
+      "candidate": {
+        "path": "generated/kowloon-asset-pilot/tripo-out/seasoning-jar-7c6308dd/model.glb",
+        "transform": {
+          "originalSize": [
+            0.9121093750000004,
+            0.9042968750000002,
+            0.9980468750000002
+          ],
+          "uniformScale": 0.15029354804649275,
+          "position": [
+            0,
+            0,
+            0.07500000298023224
+          ],
+          "rotation": [
+            0,
+            0,
+            -1.5707963267948966,
+            "XYZ"
+          ],
+          "size": [
+            0.13708415417521902,
+            0.13590998583110578,
+            0.15000000596046448
+          ],
+          "glbToZUpRotationX": 1.5707963267948966
+        },
+        "triangles": 1154,
+        "uniqueTriangles": 1154,
+        "meshes": 1,
+        "materials": 1,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "srgb",
+            "slots": [
+              "map"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "normalMap"
+            ]
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "colorSpace": "",
+            "slots": [
+              "metalnessMap",
+              "roughnessMap"
+            ]
+          }
+        ]
+      },
+      "lighting": {
+        "hemisphereUp": [
+          0,
+          0,
+          1
+        ],
+        "hemisphereIntensity": 2.1,
+        "sunIntensity": 3,
+        "position": [
+          -3,
+          -4,
+          6
+        ],
+        "scale": 1,
+        "shadowMapSize": 2048,
+        "normalBias": 0.003,
+        "bias": -0.0001
+      },
+      "visible": [
+        {
+          "triangles": 416,
+          "uniqueTriangles": 73,
+          "meshes": 18,
+          "materials": 4,
+          "textures": []
+        },
+        {
+          "triangles": 9256,
+          "uniqueTriangles": 1178,
+          "meshes": 10,
+          "materials": 3,
+          "textures": [
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "srgb",
+              "slots": [
+                "map"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "normalMap"
+              ]
+            },
+            {
+              "width": 2048,
+              "height": 2048,
+              "colorSpace": "",
+              "slots": [
+                "metalnessMap",
+                "roughnessMap"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

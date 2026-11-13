@@ -1,0 +1,4 @@
+[
+ {"id":"structure","position":[10,-12,10],"target":[2,1,3],"projection":"perspective","fov":38,"appearance":"full-render"},
+ {"id":"construction-close","position":[5,-7,5.5],"target":[2,0,4.7],"projection":"perspective","fov":35,"appearance":"full-render"}
+]

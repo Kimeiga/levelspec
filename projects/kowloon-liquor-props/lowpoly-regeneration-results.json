@@ -1,0 +1,68 @@
+{
+  "totalCredits": 150,
+  "assets": [
+    {
+      "asset": "seasoning-jar",
+      "currentTriangles": 94,
+      "requestedTriangles": 64,
+      "actualTriangles": 92,
+      "credits": 50,
+      "taskId": "4dd211a7-313a-4d4d-acc6-4de5f603b7e9",
+      "modelFile": "generated/liquor-props/lowpoly-regeneration/tripo-out/liquor-lowpoly-seasoning-jar-4dd211a7/model.glb",
+      "preview": "generated/liquor-props/lowpoly-regeneration/tripo-out/liquor-lowpoly-seasoning-jar-4dd211a7/preview.png",
+      "serverParameters": {
+        "face_limit": 64,
+        "model_version": "P1-20260311",
+        "texture_quality": "standard",
+        "texture_version": "v3.5-20260815",
+        "delight": true
+      },
+      "adopted": false,
+      "decision": "Rejected: lid/neck shape and front label disappear;92 triangles versus64 requested and94 current."
+    },
+    {
+      "asset": "drink-bottle",
+      "currentTriangles": 110,
+      "requestedTriangles": 80,
+      "actualTriangles": 126,
+      "credits": 50,
+      "taskId": "e7106292-6dd6-4a6f-91e4-ccdf7a963744",
+      "modelFile": "generated/liquor-props/lowpoly-regeneration/tripo-out/liquor-lowpoly-drink-bottle-e7106292/model.glb",
+      "preview": "generated/liquor-props/lowpoly-regeneration/tripo-out/liquor-lowpoly-drink-bottle-e7106292/preview.png",
+      "serverParameters": {
+        "face_limit": 80,
+        "model_version": "P1-20260311",
+        "texture_quality": "standard",
+        "texture_version": "v3.5-20260815",
+        "delight": true
+      },
+      "adopted": false,
+      "decision": "Not adopted for optimization: cleaner texture, but126 triangles versus80 requested and110 current."
+    },
+    {
+      "asset": "food-tin",
+      "currentTriangles": 62,
+      "requestedTriangles": 50,
+      "actualTriangles": 76,
+      "credits": 50,
+      "taskId": "4cb37922-ef4a-4444-81c1-705488f1796d",
+      "modelFile": "generated/liquor-props/lowpoly-regeneration/tripo-out/liquor-lowpoly-food-tin-4cb37922/model.glb",
+      "preview": "generated/liquor-props/lowpoly-regeneration/tripo-out/liquor-lowpoly-food-tin-4cb37922/preview.png",
+      "serverParameters": {
+        "face_limit": 50,
+        "model_version": "P1-20260311",
+        "texture_quality": "standard",
+        "texture_version": "v3.5-20260815",
+        "delight": true
+      },
+      "adopted": false,
+      "decision": "Rejected: label artwork becomes blurred color bands;76 triangles versus50 requested and62 current."
+    }
+  ],
+  "comparisonDirectory": "generated/liquor-props/lowpoly-regeneration/compare-final",
+  "comparisonViews": 12,
+  "browserErrors": [],
+  "remainingCredits": 4850,
+  "frozenCredits": 0,
+  "productionDecision": "Keep restored pre-optimization meshes and textures; no candidate adopted."
+}

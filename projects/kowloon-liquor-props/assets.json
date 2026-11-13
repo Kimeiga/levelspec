@@ -1,0 +1,161 @@
+[
+  {
+    "name": "rice-sack",
+    "budget": 600,
+    "size": [
+      0.44,
+      0.4,
+      0.55
+    ],
+    "prompt": "Use case: stylized-concept. Single isolated game prop concept for image-to-3D modeling: a worn open burlap sack full of dry ivory rice, Kowloon Hong Kong neighborhood provision store, 1980s. 45 cm wide and 55 cm high. Soft asymmetrical slumped sides, coarse tan woven cloth, rolled thick uneven lip, compressed flat bottom, a continuous shallow mound of rice grains (texture detail, not separate floating particles). Faded small red geometric ink stamp with no letters. Neutral soft studio illumination with minimal shadows, realistic material colors, restrained weathering. Plain pale gray background. One object only, centered with generous margin, three-quarter front view slightly from above showing opening. No floor, stand, props, text, label, dimensions, multiple views, or dramatic lighting. Clear compact silhouette suitable for a 600-triangle game mesh.",
+    "existing": "sackImage"
+  },
+  {
+    "name": "egg-basket",
+    "budget": 500,
+    "size": [
+      0.28,
+      0.18,
+      0.095
+    ],
+    "prompt": "Use case: stylized-concept. One isolated compact shallow oval woven bamboo basket holding a naturally irregular pile of about twelve pale cream and light brown chicken eggs, from a 1980s Kowloon Hong Kong provisions shop. Game prop image-to-3D concept. Basket 28 cm wide, 18 cm deep, total height 10 cm. Eggs touch each other, tucked into basket, varied angles, no separate loose eggs outside. Thin woven rim and subtle worn bamboo texture. Realistic neutral colors, no caricature. Three-quarter front view slightly above to reveal contents. Single combined object, centered on pale gray background, neutral soft shadow-free studio light. No table, no handle, no text, no labels, no other objects, no strong baked shadows. Clear low-profile silhouette for a 500-triangle combined pile asset.",
+    "existing": "eggsImage"
+  },
+  {
+    "name": "garlic-braid",
+    "budget": 500,
+    "size": [
+      0.12,
+      0.1,
+      0.45
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One compact hanging braid of eight ivory garlic bulbs with papery wrinkled skins, dried tan stems twisted together into a short thick stem at the top. No hook or cord. The garlic forms a connected irregular cluster, no detached particles. Slight uneven natural arrangement."
+  },
+  {
+    "name": "counter-scale",
+    "budget": 900,
+    "size": [
+      0.3,
+      0.26,
+      0.38
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One vintage mechanical countertop weighing scale, worn teal enameled cast metal tapered housing, big ivory circular analog dial facing front, dark fine tick marks and numbers, thin red needle, small steel feet, shallow round stainless steel weighing bowl on top. Functional shop scale like old Hong Kong rice shops, not a balance with two pans. 30 cm wide, 38 cm tall. Clean but well used."
+  },
+  {
+    "name": "bottle-crate",
+    "budget": 700,
+    "size": [
+      0.42,
+      0.3,
+      0.27
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One EMPTY stackable red plastic soda bottle crate. Rectangular proportions 42 cm wide, 30 cm deep, 27 cm tall. Molded open lattice sides, thick square corner posts, continuous strong upper stacking rim, two real horizontal hand grip openings near upper side edges, internal bottle dividers visible inside. Scuffed red molded plastic. No bottles, no stacked crates, no floating pieces. Flat level upper rim for stacking."
+  },
+  {
+    "name": "drink-bottle",
+    "budget": 160,
+    "size": [
+      0.07,
+      0.07,
+      0.27
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One upright dark amber glass beer bottle with a short narrow neck, crimped dull gold metal crown cap, faded cream paper label with a red circular seal and small unreadable decorative lines. No existing brand. Glass has subtle translucent brown surface without harsh white studio reflections. 27 cm tall, 7 cm wide, flat bottom.",
+    "productionBudget": 112
+  },
+  {
+    "name": "food-tin",
+    "budget": 100,
+    "size": [
+      0.082,
+      0.082,
+      0.115
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One upright cylindrical tin can of preserved food from an old Hong Kong grocery. 8 cm diameter, 11.5 cm tall. Silver rolled top and bottom rims, embossed ring on closed metal lid, slightly worn red and cream printed paper label with small green vegetable illustration, tiny decorative lines. No real brand, no large readable letters. Flat bottom, no pull ring sticking up.",
+    "productionBudget": 64
+  },
+  {
+    "name": "tea-carton",
+    "budget": 64,
+    "size": [
+      0.12,
+      0.075,
+      0.19
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One rectangular closed folded paper tea carton. 12 cm wide, 7.5 cm deep, 19 cm tall. Rich ochre and dark green printed paper, red small square stamp and vintage botanical tea-leaf illustration. Worn corners, folded top seam, subtle printed fine detail. No actual brand, no legible main text. Perfectly flat bottom and straight upright sides.",
+    "productionBudget": 32
+  },
+  {
+    "name": "tissue-roll",
+    "budget": 100,
+    "size": [
+      0.11,
+      0.11,
+      0.1
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One unwrapped ivory toilet paper roll standing upright, 11 cm diameter and 10 cm high. Visible hollow brown cardboard core in the top, tightly wound layered edges, faint paper embossing, slightly loose outer end tucked against side. No packaging, no label, no pedestal.",
+    "productionBudget": 64
+  },
+  {
+    "name": "shop-stool",
+    "budget": 400,
+    "size": [
+      0.31,
+      0.31,
+      0.45
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One squat worn dark brown wooden shop stool, circular solid wood seat with subtly beveled edge, four splayed square wooden legs connected by low horizontal stretchers. 31 cm diameter seat, 45 cm height. Polished dark edge wear, scratches, old visible joinery, no cushions, no backrest, no extra objects. All four feet level on flat ground."
+  },
+  {
+    "name": "shop-counter",
+    "budget": 400,
+    "size": [
+      1.25,
+      0.5,
+      0.9
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One old Hong Kong wooden shop sales counter, 125 cm wide, 50 cm deep and 90 cm high. A simple rectangular freestanding cabinet with flat dark worn wooden top, two framed inset wooden front panels, black scuffed toe kick, warm brown stained timber, chipped edges and subtle grime. Empty top absolutely no goods, no scale, no stool. Front is closed, back has drawers, no shelves protruding. Straight flat top and base."
+  },
+  {
+    "name": "drinks-cooler",
+    "budget": 1200,
+    "size": [
+      0.7,
+      0.6,
+      1.8
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One narrow vintage Hong Kong shop drinks display refrigerator, 70 cm wide, 60 cm deep, 180 cm tall. Cream enamel cabinet with worn red header panel, an OPEN FRONT with no glass door, three interior metal shelves stocked with grouped amber and green glass drinks bottles and a few silver-red cans. All shelves and contents inside cabinet. Bottom compressor grille, dark interior behind stock, scuffed corners. No real logos or readable text. Entire fridge and feet visible. One combined game prop."
+  },
+  {
+    "name": "pendant-lamp",
+    "budget": 250,
+    "size": [
+      0.28,
+      0.28,
+      0.19
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One vintage small red enamel pendant lampshade with socket and frosted white bulb inside. Shallow conical shade 28 cm diameter, 19 cm total height, chips along metal rim, dusty red enamel top and pale cream underside. No cord, no ceiling canopy. Show from slightly BELOW to reveal bulb and inner shade. One compact object.",
+    "adoption": "replaced with procedural geometry after user review"
+  },
+  {
+    "name": "ceiling-fan",
+    "budget": 450,
+    "size": [
+      1,
+      1,
+      0.3
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One vintage three-blade ceiling fan, muted cream painted metal, dark rounded electric motor housing, three broad flat slightly curved blades equally spaced around motor, short vertical mounting stem ending in a small ceiling canopy. One meter blade diameter and 30 cm tall. Slightly yellowed paint, dark screw heads, dust along blade edges. Show from BELOW in three-quarter view so blades and motor are fully visible. No ceiling or cord, no motion blur.",
+    "adoption": "replaced with procedural geometry after user review"
+  },
+  {
+    "name": "fluorescent-batten",
+    "budget": 200,
+    "size": [
+      1,
+      0.1,
+      0.08
+    ],
+    "prompt": "Use case: stylized-concept. Isolated realistic game prop for a worn 1980s Hong Kong Kowloon provisions and liquor store. Materials should have restrained authentic handling wear, readable fine surface detail but a compact simple silhouette. Neutral diffuse studio illumination, minimal baked shadows, plain pale gray background, no floor or extra furniture. Single object centered fully visible with margin in a front three-quarter view, no montage, no dimensions, no captions or logos. One old horizontal fluorescent ceiling light fixture, 100 cm long, 10 cm wide, 8 cm deep. Slim cream painted steel rectangular backing tray, one long white fluorescent glass tube with metal end caps seated in two short end sockets, some brown paint wear at corners. View from below, entire fixture fully visible. Unlit, no glow, no wire, no ceiling, no surroundings.",
+    "adoption": "replaced with procedural geometry after user review"
+  }
+]

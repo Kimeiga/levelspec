@@ -1,0 +1,10 @@
+{
+  "tool": "image_gen",
+  "output": "store-target.png",
+  "prompt": "store-prompt.txt",
+  "inputs": {
+    "generated/shops-dev/cap3/roast-wide.png": "58f58149126e67a1ebc8cc0fb4b2b6220351596f15440de9c7178f4a95a8e244",
+    "generated/restaurant-props/references/joy-hing.jpg": "1b759917839320bda0cf11280ae5aa44b936c7c3d91b59b6c0b1c55f50954aa3",
+    "generated/restaurant-props/references/lin-heung.jpg": "30010ed2c6699740e621877f59c3ab9fb069fe07c4c5ff1852d63630ccf91132"
+  }
+}

@@ -1,0 +1,13 @@
+<architecture version="1" id="kowloon-buildings" name="Kowloon · Building construction study" validation="premap">
+  <material id="plaster" color="#d8d3c5" texture="../dressing-demo/textures/plaster.png" repeat="0.6" roughness="0.9"/>
+  <material id="concrete" color="#bdc1bb" texture="../dressing-demo/textures/ground-concrete.png" repeat="1.2" roughness="0.94"/>
+  <material id="kit-metal" color="#aeb5b1" texture="../dressing-demo/textures/metal.png" repeat="0.8" roughness="0.65"/>
+  <material id="kit-roofing" color="#737b79" texture="../dressing-demo/textures/roofing.png" repeat="0.6" roughness="0.95"/>
+  <profile id="trapezoid" points="0 0; 8 0; 6.5 6; 1.5 6"/>
+  <extrusion id="tenement" profile="trapezoid" distance="9.35" collidable="false"/>
+  <profile id="street-plan" points="-4 -4; 12 -4; 12 10; -4 10"/>
+  <slab id="street" profile="street-plan" thickness="0.2" elevation="0" material="concrete"/>
+  <dressing theme="kowloon-street@1" seed="building-study" finishes="kit" wall-materials="plaster" grime="0.45" wear="0.25" detail="high">
+    <building host="tenement" material="plaster" stories="3"/>
+  </dressing>
+</architecture>

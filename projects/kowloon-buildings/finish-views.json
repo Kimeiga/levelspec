@@ -1,0 +1,5 @@
+[
+ {"id":"textured-overview","position":[13,-17,14],"target":[2.5,1.5,4.8],"projection":"perspective","fov":38,"appearance":"full-render"},
+ {"id":"textured-facade","position":[5,-9,7.5],"target":[2.5,0,6.4],"projection":"perspective","fov":38,"appearance":"full-render"},
+ {"id":"textured-roof","position":[10,12,17],"target":[2.5,1.5,7],"projection":"perspective","fov":40,"appearance":"full-render"}
+]

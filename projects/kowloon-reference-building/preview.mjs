@@ -1,0 +1,31 @@
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {InteriorLighting} from '../../review/interior-lighting.ts';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;document.body.append(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#d6cbbd');
+const camera=new THREE.PerspectiveCamera(36,innerWidth/innerHeight,.05,150);const controls=new OrbitControls(camera,renderer.domElement);
+const room=new RoomEnvironment(),pmrem=new THREE.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(room,.1).texture;scene.environmentIntensity=.35;room.dispose();pmrem.dispose();
+const ambient=new THREE.HemisphereLight(0xe0e7e8,0x766957,1.2);scene.add(ambient);const sun=new THREE.DirectionalLight(0xffe9ce,2.8);sun.position.set(-6,22,12);sun.target.position.set(4.8,6,-2);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-16,right:16,top:18,bottom:-18,near:.1,far:65});sun.shadow.normalBias=.005;scene.add(sun,sun.target);
+const bytes=await fetch('./building.glb').then(r=>r.arrayBuffer());
+const digest=await crypto.subtle.digest('SHA-256',bytes);const loadedHash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');
+const gltf=await new GLTFLoader().parseAsync(bytes,location.href);gltf.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});scene.add(gltf.scene);
+const authoredRooms=await fetch('./lighting.json').then(r=>r.json());
+const convert=([x,y,z])=>new THREE.Vector3(x,z,-y);
+const rooms=authoredRooms.rooms.map(room=>({worldToRoom:new THREE.Matrix4().makeBasis(convert(room.across),convert(room.inward),new THREE.Vector3(0,1,0)).setPosition(convert(room.origin)).invert(),size:new THREE.Vector3(room.width,room.depth,room.height)}));
+const interiorLighting=new InteriorLighting(gltf.scene,rooms);
+const shopLights=authoredRooms.rooms.map(room=>{const light=new THREE.PointLight(0xffd6a3,0,7,2);light.castShadow=true;light.shadow.mapSize.set(1024,1024);light.shadow.normalBias=.01;light.position.copy(convert(room.origin)).addScaledVector(convert(room.across),room.width*.5).addScaledVector(convert(room.inward),.75).add(new THREE.Vector3(0,2.1,0));scene.add(light);return light;});
+let timeOfDay='day';
+window.setTimeOfDay=time=>{timeOfDay=time==='night'?'night':'day';const night=timeOfDay==='night';interiorLighting.setTimeOfDay(timeOfDay);scene.background.set(night?'#101927':'#d6cbbd');ambient.intensity=night?.3:1.2;sun.intensity=night?.12:2.8;sun.color.set(night?0x99b4df:0xffe9ce);scene.environmentIntensity=night?.08:.35;shopLights.forEach(light=>light.intensity=night?22:0);document.querySelector('#time').textContent=night?'Day view':'Night view';};
+document.querySelector('#time').onclick=()=>setTimeOfDay(timeOfDay==='day'?'night':'day');
+
+const views={hero:[[18,8.4,28],[4.9,7.1,-1.2],29],front:[[4.9,8.4,31],[4.9,6.6,-.5],31],side:[[24,9,-9],[8.8,6.3,-3.3],38],balcony:[[11,4.1,13],[5.4,4.1,-.1],36],upper:[[13,10.2,12],[5.4,9.8,-.1],38],shops:[[13,4.7,10],[5,1.7,-.2],40],roof:[[14,19,12],[4.5,13,-3],42]};
+window.setView=name=>{const [at,target,fov]=views[name]??views.hero;camera.position.set(...at);controls.target.set(...target);camera.fov=fov;camera.updateProjectionMatrix();controls.update();};
+window.reviewState=()=>({loadedHash,viewport:[innerWidth,innerHeight],canvas:[renderer.domElement.width,renderer.domElement.height],position:camera.position.toArray(),target:controls.target.toArray(),projection:camera.projectionMatrix.toArray(),view:camera.matrixWorldInverse.toArray(),exposure:renderer.toneMappingExposure,timeOfDay,light:sun.position.toArray()});
+window.referenceStudy={scene,camera,controls,renderer};
+for(const name of Object.keys(views)){const b=document.createElement('button');b.textContent=name;b.onclick=()=>setView(name);document.querySelector('nav').append(b);}
+document.querySelector('#light').onclick=()=>{sun.position.x=15-sun.position.x;};
+setView(new URLSearchParams(location.search).get('view')??'hero');setTimeOfDay(new URLSearchParams(location.search).get('time')??'day');window.ready=true;
+renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera);});
+addEventListener('resize',()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();});

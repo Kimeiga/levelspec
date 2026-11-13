@@ -1,0 +1,78 @@
+{
+  "beforeTriangles": 4101,
+  "afterTriangles": 1949,
+  "sceneBeforeTriangles": 12483,
+  "sceneAfterTriangles": 6082,
+  "additionalTripoCredits": 0,
+  "assets": {
+    "rubber-plant": {
+      "before": 820,
+      "after": 529
+    },
+    "trailing-pothos": {
+      "before": 691,
+      "after": 291
+    },
+    "snake-plant": {
+      "before": 560,
+      "after": 376
+    },
+    "hanging-shirt": {
+      "before": 830,
+      "after": 332
+    },
+    "hanging-trousers": {
+      "before": 625,
+      "after": 250
+    },
+    "hanging-bedsheet": {
+      "before": 575,
+      "after": 171
+    }
+  },
+  "unchangedTextureHashes": true,
+  "beforeCatalogSha256": "bf1ee972bf5fb03a6d581ac6d8f57d35690d394a4f97aad6d869db1881b4e2cd",
+  "afterCatalogSha256": "28a3716c3539c1325139442b548a411d460d5f7fb2e2ef66acbbb0fb1f5d2d3e",
+  "rejectedCandidate": "Whole-plant collapse removed pot shape; replaced by independent pot and foliage reduction.",
+  "toolHashes": {
+    "tools/bake-balcony-props.py": "899e805ceec644975a06ccd886886d46dbb63970f402416fd749a382f5c4ae84",
+    "tools/pack-balcony-props.py": "371de1ae622a21403b1037d17a220ce9774fcee35b45fc77de9b2d7e318d9d4d"
+  },
+  "captures": {
+    "reduced-context": {
+      "record": "generated/kowloon-balcony-props/reduced-context/capture.json",
+      "sha256": "98bf84b29db9149882b9e5c834dc5d77d8bf7fd6ffca7fe160a0c5b057625ff8"
+    },
+    "reduced-shirt": {
+      "record": "generated/kowloon-balcony-props/reduced-shirt/capture.json",
+      "sha256": "77301e07046416a1615af5cee99dcba596673dd02aac39ec5c58407be97e4e91"
+    },
+    "reduced-sheet-final": {
+      "record": "generated/kowloon-balcony-props/reduced-sheet-final/capture.json",
+      "sha256": "c6b262933824fd66df07c4e0d8b46382653aaacf1cd621e96bb79d77d8aaf831"
+    },
+    "reduced-trousers": {
+      "record": "generated/kowloon-balcony-props/reduced-trousers/capture.json",
+      "sha256": "4430e603e8f28f49202c2d847360c8a96b05d01039f1386a0cd7709de9120e52"
+    },
+    "optimized-rubber": {
+      "record": "generated/kowloon-balcony-props/optimized-rubber/capture.json",
+      "sha256": "5131ff46c83636509c4b57a18b8455e886ce4a24acc3197a9566eaff5578f8d4"
+    },
+    "optimized-pothos": {
+      "record": "generated/kowloon-balcony-props/optimized-pothos/capture.json",
+      "sha256": "2fb933a88037c38e06a8a706ea23631ec2cf34b6c4f7fb057ea644e36295fe0b"
+    },
+    "optimized-snake": {
+      "record": "generated/kowloon-balcony-props/optimized-snake/capture.json",
+      "sha256": "294339c1c9789e7ac031f0e070a3b04b7315490c9cdaa829a5c6e4e1e02b5052"
+    }
+  },
+  "validation": {
+    "focusedTestsPassed": 10,
+    "typecheck": "passed",
+    "nativeBuildingTriangles": 31242,
+    "nativeBuildingDiagnostics": 0,
+    "collisionUnchanged": true
+  }
+}

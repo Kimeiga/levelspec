@@ -1,0 +1,17 @@
+{
+  "purpose": "Freely redesigned aspirational restaurant concept; loose identity reference, not layout-fidelity transfer or implementation evidence.",
+  "tool": "built-in image_gen",
+  "generatedSource": "/Users/tomokif/.codex/generated_images/01a1cc0f-8063-7a21-bc3f-5ca2dfb4fd89/exec-278da95d-5c65-4d5e-8b89-8696e1df3174.png",
+  "input": {
+    "path": "projects/kowloon-restaurant-props/concepts/polish-study.png",
+    "sha256": "c3445009587bc8526ca910ba996995d94503b80f80283ca74981553d73c3aaa3"
+  },
+  "prompt": {
+    "path": "projects/kowloon-restaurant-props/concepts/aspirational-store-prompt.txt",
+    "sha256": "43c0adb122863b81ddb2d9f81538168158b7f39542b49316a4290c335906afcc"
+  },
+  "output": {
+    "path": "projects/kowloon-restaurant-props/concepts/aspirational-store.png",
+    "sha256": "c1a5747ad8e15a4bc593a7fa0d8c94945b6ef331e134ba7cca383c50e421dc8c"
+  }
+}

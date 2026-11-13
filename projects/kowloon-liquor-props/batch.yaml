@@ -1,0 +1,144 @@
+{
+  "concurrency": 2,
+  "defaults": {
+    "out": "generated/liquor-props",
+    "model": "tripo-p1"
+  },
+  "jobs": [
+    {
+      "input": "projects/kowloon-liquor-props/concepts/rice-sack.png",
+      "name": "liquor-rice-sack",
+      "params": {
+        "face_limit": 600,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/egg-basket.png",
+      "name": "liquor-egg-basket",
+      "params": {
+        "face_limit": 500,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/garlic-braid.png",
+      "name": "liquor-garlic-braid",
+      "params": {
+        "face_limit": 500,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/counter-scale.png",
+      "name": "liquor-counter-scale",
+      "params": {
+        "face_limit": 900,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/bottle-crate.png",
+      "name": "liquor-bottle-crate",
+      "params": {
+        "face_limit": 700,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/drink-bottle.png",
+      "name": "liquor-drink-bottle",
+      "params": {
+        "face_limit": 160,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/food-tin.png",
+      "name": "liquor-food-tin",
+      "params": {
+        "face_limit": 100,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/tea-carton.png",
+      "name": "liquor-tea-carton",
+      "params": {
+        "face_limit": 64,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/tissue-roll.png",
+      "name": "liquor-tissue-roll",
+      "params": {
+        "face_limit": 100,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/shop-stool.png",
+      "name": "liquor-shop-stool",
+      "params": {
+        "face_limit": 400,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/shop-counter.png",
+      "name": "liquor-shop-counter",
+      "params": {
+        "face_limit": 400,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/drinks-cooler.png",
+      "name": "liquor-drinks-cooler",
+      "params": {
+        "face_limit": 1200,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/pendant-lamp.png",
+      "name": "liquor-pendant-lamp",
+      "params": {
+        "face_limit": 250,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/ceiling-fan.png",
+      "name": "liquor-ceiling-fan",
+      "params": {
+        "face_limit": 450,
+        "texture": true,
+        "pbr": true
+      }
+    },
+    {
+      "input": "projects/kowloon-liquor-props/concepts/fluorescent-batten.png",
+      "name": "liquor-fluorescent-batten",
+      "params": {
+        "face_limit": 200,
+        "texture": true,
+        "pbr": true
+      }
+    }
+  ]
+}

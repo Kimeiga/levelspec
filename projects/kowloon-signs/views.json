@@ -1,0 +1,12 @@
+[
+  {"id": "01-street-east", "position": [2, -1.5, 1.7], "target": [30, 1, 7], "projection": "perspective", "fov": 70, "appearance": "full-render"},
+  {"id": "02-street-west", "position": [39, 1.5, 1.7], "target": [10, -1, 7], "projection": "perspective", "fov": 70, "appearance": "full-render"},
+  {"id": "03-north-frontage", "position": [14, -4, 6], "target": [14, 4.5, 6.5], "projection": "perspective", "fov": 75, "appearance": "full-render"},
+  {"id": "04-north-oblique", "position": [6, -2.5, 2], "target": [18, 4.5, 7], "projection": "perspective", "fov": 65, "appearance": "full-render"},
+  {"id": "05-signs-close", "position": [21, 1.4, 4.2], "target": [26, 4.4, 6], "projection": "perspective", "fov": 50, "appearance": "full-render"},
+  {"id": "06-south-frontage", "position": [24, 4, 6], "target": [24, -4.5, 6], "projection": "perspective", "fov": 75, "appearance": "full-render"},
+  {"id": "07-alley", "position": [41, -3, 1.7], "target": [41, 14, 8], "projection": "perspective", "fov": 75, "appearance": "full-render"},
+  {"id": "08-roofline", "position": [-5, -12, 24], "target": [24, 5, 14], "projection": "perspective", "fov": 55, "appearance": "full-render"},
+  {"id": "09-shopfronts", "position": [27, 0.5, 1.7], "target": [30, 4.5, 3.2], "projection": "perspective", "fov": 65, "appearance": "full-render"},
+  {"id": "10-supports", "position": [12.5, 2.2, 5.2], "target": [15, 4.4, 6.2], "projection": "perspective", "fov": 40, "appearance": "full-render"}
+]

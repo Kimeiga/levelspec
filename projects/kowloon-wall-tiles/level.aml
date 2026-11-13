@@ -1,0 +1,21 @@
+<architecture version="1" id="tile-blobs" name="Ceramic damage · Three contours per blob" validation="premap">
+  <material id="plaster" color="#d8d0bd" texture="../dressing-demo/textures/plaster.png" repeat="0.65" roughness="0.93"/>
+  <material id="concrete" color="#a4a49a" texture="../dressing-demo/textures/wall-concrete-rough.png" repeat="0.5" roughness="0.98"/>
+  <material id="study-wall-tile-plaster" color="#aaa69a" repeat="0.125" roughness="0.96" texture="../dressing-demo/textures/concrete-shared.png" normal-texture="../dressing-demo/textures/concrete-shared-normal.png" normal-scale="0.4"/>
+  <material id="study-wall-ceramic" color="#ffffff" texture="../dressing-demo/textures/wall-ceramic-weathered.png"
+            normal-texture="../dressing-demo/textures/wall-ceramic-normal.png" normal-scale="0.4" repeat="2.5" roughness="0.66"/>
+  <path id="cream-axis" points="0 0 0; 3.2 0 0"/>
+  <path id="jade-axis" points="3.4 0 0; 6.6 0 0"/>
+  <path id="blue-axis" points="6.8 0 0; 10 0 0"/>
+  <wall id="cream" path="cream-axis" height="2.4" thickness="0.16" material="plaster"/>
+  <wall id="jade" path="jade-axis" height="2.4" thickness="0.16" material="plaster"/>
+  <wall id="blue" path="blue-axis" height="2.4" thickness="0.16" material="plaster"/>
+  <dressing seed="tile-blobs-01" detail="high" finishes="study" wall-materials="plaster concrete" grime="0.35" wear="0.45">
+    <wall host="cream" face="front" windows="false" material="plaster" tile-share="1"
+          tile-size="0.18" tile-aspect="1" tile-wear="0.4" tile-grime="0" tile-color="#dfd0ad" texture-density="320"/>
+    <wall host="jade" face="front" windows="false" material="plaster" tile-share="1"
+          tile-size="0.24" tile-aspect="2" tile-wear="0.8" tile-grime="0.65" tile-color="#83a99c" tile-plaster-color="#aaa69a" texture-density="320"/>
+    <wall host="blue" face="front" windows="false" material="plaster" tile-share="1"
+          tile-size="0.1" tile-aspect="1" tile-wear="1" tile-grime="1" tile-color="#819ca9" texture-density="320"/>
+  </dressing>
+</architecture>

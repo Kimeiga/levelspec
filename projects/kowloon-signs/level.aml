@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture version="1" id="kowloon-signs" name="Kowloon sign street" description="Two tenement rows across a 9 m street and a 2 m side alley, for reviewing generated signs." units="meters" validation="premap">
+  <profile id="ground:profile" points="-6 -16; 64 -16; 64 24; -6 24"/>
+  <material id="paving" color="#9a9a94" repeat="0.65" roughness="0.95" texture="../dressing-demo/textures/concrete.png"/>
+  <material id="kowloon-plaster" color="#ffffff" repeat="0.65" roughness="0.88" texture="../dressing-demo/textures/plaster.png"/>
+  <material id="kowloon-roofing" color="#ffffff" repeat="0.65" roughness="0.88" texture="../dressing-demo/textures/roofing.png"/>
+  <material id="kowloon-lettering" color="#ffffff" repeat="1" roughness="0.75" texture="../dressing-demo/textures/lettering.png" alpha-cutoff="0.5"/>
+  <material id="kowloon-signboard" color="#ffffff" repeat="0.8" roughness="0.7" texture="../dressing-demo/textures/signboard.png"/>
+  <material id="kowloon-rust" color="#ffffff" repeat="2" roughness="0.92" metalness="0.2" texture="../dressing-demo/textures/rust.png"/>
+  <material id="kowloon-glazing" color="#ffffff" repeat="1" roughness="0.2" texture="../dressing-demo/textures/glazing.png"/>
+  <material id="kowloon-metal" color="#ffffff" repeat="1.4" roughness="0.6" metalness="0.2" texture="../dressing-demo/textures/metal.png"/>
+  <material id="kowloon-sheet" color="#ffffff" repeat="1.6" roughness="0.6" metalness="0.3" texture="../dressing-demo/textures/sheet.png"/>
+  <material id="kowloon-timber" color="#ffffff" repeat="1.5" roughness="0.8" texture="../dressing-demo/textures/timber.png"/>
+  <slab id="ground" material="paving" profile="ground:profile" thickness="0.2" elevation="0"/>
+  <box id="north-row" position="0 4.5 0" width="40" depth="8" height="17.35" collidable="false"/>
+  <box id="south-row" position="40 -4.5 0" rotation="0 0 180" width="40" depth="8" height="14.35" collidable="false"/>
+  <box id="east-row" position="42 20 0" rotation="0 0 -90" width="20" depth="9" height="20.35" collidable="false"/>
+  <light id="sun" position="-18 -30 40" target="24 0 4" color="#fff2dd" intensity="2" kind="directional"/>
+  <sky color="#dce8f5" intensity="0.5"/>
+  <dressing theme="kowloon-street@1" seed="sign-street" finishes="kowloon" grime="0.65" wear="0.35" detail="high">
+    <floor host="ground" material="paving"/>
+    <building host="north-row" material="kowloon-plaster" stories="5"/>
+    <building host="south-row" material="kowloon-plaster" stories="4"/>
+    <building host="east-row" material="kowloon-plaster" stories="6"/>
+    <spans cables="0.5" clotheslines="0.3" signs="0.6" clearance="2.8" reach="9"/>
+  </dressing>
+</architecture>

@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="icon" href="data:,"><title>Kowloon poster library</title><style>body{margin:0;background:#202725;color:#eee;font:15px system-ui}header{position:absolute;left:24px;top:18px}h1{font-size:22px;margin:0 0 6px}p{margin:0;color:#b8c3bd}canvas{display:block}</style></head><body><header><h1>Kowloon · Paper on walls</h1><p>16 original designs · calendars, menus, ads, notices & events</p></header><script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;
+document.body.append(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#202725');
+scene.add(new THREE.HemisphereLight(0xf5f0df,0x69726a,2));
+const key=new THREE.DirectionalLight(0xfff0db,2.4);key.position.set(-2,5,5);scene.add(key);
+const camera=new THREE.PerspectiveCamera(40,innerWidth/innerHeight,.01,100);camera.position.set(2.7,1.65,6.0);
+const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(2.7,1.4,0);controls.update();
+const model=await new GLTFLoader().loadAsync('/generated/poster-library/gallery.glb');
+scene.add(model.scene);
+model.scene.traverse(object=>{if(object.isMesh&&object.material.map)object.material.map.anisotropy=8;});
+window.renderGallery=()=>renderer.render(scene,camera);
+renderer.setAnimationLoop(window.renderGallery);document.body.dataset.ready='true';
+</script></body></html>

@@ -1,0 +1,7 @@
+{
+  "type": "image_to_model",
+  "task_id": "d40c3e76-2979-4fc3-901a-58f27368630c",
+  "model_file": "projects/kowloon-balcony-props/source-models/hanging-trousers/model.glb",
+  "sha256": "71ead52bd83afc33d688d014d0c3ac2603464b88229b155e90643d8cf499024f",
+  "credits_consumed": 50
+}

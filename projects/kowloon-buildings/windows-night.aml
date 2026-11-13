@@ -1,0 +1,8 @@
+<architecture version="1" id="building-structure" name="Kowloon · Recessed windows" validation="premap">
+  <material id="wall" color="#d3cfb9" roughness="0.9"/>
+  <profile id="lot" points="0 0; 5 0; 4 3; 0 3"/>
+  <extrusion id="building" profile="lot" distance="6.35" collidable="false"/>
+  <profile id="ground-plan" points="-2 -2; 6 -2; 6 5; -2 5"/>
+  <slab id="ground" profile="ground-plan" thickness="0.2" elevation="0" material="wall"/>
+  <dressing seed="window-27" time-of-day="night" grime="0" wear="0" detail="low"><building host="building" material="wall" stories="2"/></dressing>
+</architecture>

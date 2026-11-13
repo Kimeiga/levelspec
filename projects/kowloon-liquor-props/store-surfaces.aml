@@ -1,0 +1,9 @@
+<architecture version="1" id="store-surfaces" name="Kowloon store surface study">
+  <material id="coat" color="#cbcbca" texture="../dressing-demo/textures/plaster.png" repeat="0.65" roughness="0.88"/>
+  <material id="render-weathered" color="#bcbab7" texture="../dressing-demo/textures/wall-concrete-repaired.png" repeat="0.35" roughness="0.96"/>
+  <material id="render-repair" color="#dad8d3" texture="../dressing-demo/textures/plaster.png" repeat="1" roughness="0.82"/>
+  <material id="substrate" color="#a4a094" texture="../dressing-demo/textures/wall-concrete-rough.png" repeat="0.5" roughness="0.98"/>
+  <material id="concrete" color="#c4c1b5" texture="../dressing-demo/textures/ground-concrete.png" normal-texture="../dressing-demo/textures/ground-normal.png" repeat="1.1" roughness="0.94"/>
+  <material id="tile" color="#d1d0bf" texture="../dressing-demo/textures/wall-ceramic-weathered.png" normal-texture="../dressing-demo/textures/wall-ceramic-normal.png" normal-scale="0.55" repeat="2.5" roughness="0.7"/>
+  <material id="grout" color="#666452" texture="../dressing-demo/textures/ground-concrete.png" repeat="1.1" roughness="1"/>
+</architecture>

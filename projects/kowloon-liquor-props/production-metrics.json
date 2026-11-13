@@ -1,0 +1,189 @@
+[
+  {
+    "name": "rice-sack",
+    "texturedTriangles": 598,
+    "paintedTriangles": 0,
+    "triangles": 598,
+    "size": [
+      0.44,
+      0.397028,
+      0.477407
+    ]
+  },
+  {
+    "name": "egg-basket",
+    "texturedTriangles": 496,
+    "paintedTriangles": 480,
+    "triangles": 976,
+    "size": [
+      0.18,
+      0.18,
+      0.042932
+    ]
+  },
+  {
+    "name": "garlic-braid",
+    "texturedTriangles": 456,
+    "paintedTriangles": 0,
+    "triangles": 456,
+    "size": [
+      0.12,
+      0.094562,
+      0.282581
+    ]
+  },
+  {
+    "name": "counter-scale",
+    "texturedTriangles": 854,
+    "paintedTriangles": 0,
+    "triangles": 854,
+    "size": [
+      0.26,
+      0.26,
+      0.341542
+    ]
+  },
+  {
+    "name": "bottle-crate",
+    "texturedTriangles": 648,
+    "paintedTriangles": 0,
+    "triangles": 648,
+    "size": [
+      0.347328,
+      0.3,
+      0.2354
+    ]
+  },
+  {
+    "name": "drink-bottle",
+    "texturedTriangles": 108,
+    "paintedTriangles": 0,
+    "triangles": 108,
+    "size": [
+      0.07,
+      0.068556,
+      0.268747
+    ]
+  },
+  {
+    "name": "food-tin",
+    "texturedTriangles": 44,
+    "paintedTriangles": 0,
+    "triangles": 44,
+    "size": [
+      0.075633,
+      0.07539,
+      0.115
+    ]
+  },
+  {
+    "name": "tea-carton",
+    "texturedTriangles": 30,
+    "paintedTriangles": 0,
+    "triangles": 30,
+    "size": [
+      0.075734,
+      0.075,
+      0.141851
+    ]
+  },
+  {
+    "name": "tissue-roll",
+    "texturedTriangles": 62,
+    "paintedTriangles": 0,
+    "triangles": 62,
+    "size": [
+      0.109717,
+      0.11,
+      0.092154
+    ]
+  },
+  {
+    "name": "shop-stool",
+    "texturedTriangles": 398,
+    "paintedTriangles": 0,
+    "triangles": 398,
+    "size": [
+      0.303784,
+      0.31,
+      0.397047
+    ]
+  },
+  {
+    "name": "shop-counter",
+    "texturedTriangles": 380,
+    "paintedTriangles": 0,
+    "triangles": 380,
+    "size": [
+      1.125551,
+      0.5,
+      0.742291
+    ]
+  },
+  {
+    "name": "drinks-cooler",
+    "texturedTriangles": 426,
+    "paintedTriangles": 0,
+    "triangles": 426,
+    "size": [
+      0.693933,
+      0.588258,
+      1.8
+    ]
+  },
+  {
+    "name": "seasoning-jar",
+    "texturedTriangles": 76,
+    "paintedTriangles": 0,
+    "triangles": 76,
+    "size": [
+      0.14,
+      0.139378,
+      0.15346
+    ]
+  },
+  {
+    "name": "dry-goods-bag",
+    "texturedTriangles": 94,
+    "paintedTriangles": 0,
+    "triangles": 94,
+    "size": [
+      0.12,
+      0.106372,
+      0.134591
+    ]
+  },
+  {
+    "name": "bottle-load",
+    "texturedTriangles": 840,
+    "paintedTriangles": 0,
+    "triangles": 840,
+    "size": [
+      0.291842,
+      0.216794,
+      0.27
+    ]
+  },
+  {
+    "name": "produce-crate",
+    "texturedTriangles": 180,
+    "paintedTriangles": 16,
+    "triangles": 196,
+    "size": [
+      0.4,
+      0.31002,
+      0.071
+    ]
+  },
+  {
+    "name": "stock-box",
+    "texturedTriangles": 12,
+    "paintedTriangles": 0,
+    "triangles": 12,
+    "size": [
+      0.3,
+      0.2,
+      0.18
+    ]
+  }
+]

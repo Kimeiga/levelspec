@@ -1,0 +1,6 @@
+<architecture version="1" id="kowloon-reference-building" name="Kowloon · Reference corner building" validation="premap">
+  <box id="reference-building" width="9.8" depth="7" height="13.1" visible="false" collidable="false"/>
+  <profile id="street-plan" points="0 0; 9.56 0; 9.8 .24; 9.8 7; 0 7"/>
+  <slab id="street" profile="street-plan" thickness="0.16" elevation="-0.16" material="builtin:concrete"/>
+  <dressing theme="kowloon-street@1" seed="reference-building" grime="0.7" wear="0.35" rust="0.3" detail="high"/>
+</architecture>

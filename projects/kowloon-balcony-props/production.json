@@ -1,0 +1,197 @@
+{
+  "atlasSize": [
+    1024,
+    1024
+  ],
+  "cellSize": 512,
+  "padding": 8,
+  "outputs": {
+    "src/materials/library/balcony-plants.png": "2bb284616fd393523e40f859c718d54b086f7f593934ad20048c879f2aa0644e",
+    "src/materials/library/balcony-plants-normal.png": "c6644e1d3d12bc5130c97154f067318f75430a1a4ec9ce0d75ad9003a0ac9e91",
+    "src/materials/library/balcony-plants-properties.png": "fab2a5f0b06659fd3537dbe244067c2b5ad50650ea8ecf34d7b685df92624746",
+    "src/materials/library/balcony-cloth.png": "10461dbb75dc1bcb1000742689bc8ef60fd2666fd5b80276d66e2d8123d563fe",
+    "src/materials/library/balcony-cloth-normal.png": "0c2496894f98ec9940a91e7c284179e5024f07cc35acff766cf076185c320e58",
+    "src/materials/library/balcony-cloth-properties.png": "33245ed6c4e05182e2e843b7d122e0f653c42216e880df047e05903f44ee2d56",
+    "src/dressing/kowloon/assets/balcony-props.json": "28a3716c3539c1325139442b548a411d460d5f7fb2e2ef66acbbb0fb1f5d2d3e"
+  },
+  "assets": {
+    "rubber-plant": {
+      "size": [
+        0.44737189009189604,
+        0.466636210179329,
+        0.5808175142413006
+      ],
+      "plant": true,
+      "slot": "balcony-plants",
+      "tile": 0,
+      "repairs": [
+        "Added missing pot wall: 24 triangles, local terracotta material",
+        "Separated opposing leaf skins by 1.4mm"
+      ],
+      "min": [
+        -0.23695941644906998,
+        -0.28230045858025554,
+        0.0
+      ],
+      "max": [
+        0.2104124736428261,
+        0.18433575159907342,
+        0.5808175142413006
+      ],
+      "width": 0.47391883289813996,
+      "drop": 0,
+      "triangles": 529
+    },
+    "trailing-pothos": {
+      "size": [
+        0.35481477063894273,
+        0.3503639994740486,
+        0.4170553531263024
+      ],
+      "plant": true,
+      "slot": "balcony-plants",
+      "tile": 1,
+      "min": [
+        -0.19379835948348045,
+        -0.1663425377190113,
+        0.0
+      ],
+      "max": [
+        0.16101641115546225,
+        0.1840214617550373,
+        0.4170553531263024
+      ],
+      "width": 0.3875967189669609,
+      "drop": 0,
+      "triangles": 291
+    },
+    "snake-plant": {
+      "size": [
+        0.34169247223734855,
+        0.3274402875006199,
+        0.6200433340368748
+      ],
+      "plant": true,
+      "slot": "balcony-plants",
+      "tile": 2,
+      "min": [
+        -0.17007823277115822,
+        -0.13916253916621207,
+        0.0
+      ],
+      "max": [
+        0.17161423946619034,
+        0.1882777483344078,
+        0.6200433340368748
+      ],
+      "width": 0.3432284789323807,
+      "drop": 0,
+      "triangles": 376
+    },
+    "hanging-shirt": {
+      "size": [
+        0.6310185194015503,
+        0.04662858494832707,
+        0.7190428298933594
+      ],
+      "plant": false,
+      "anchors": [
+        [
+          -0.21980567276477814,
+          0,
+          0
+        ],
+        [
+          0.20817624032497406,
+          0,
+          0
+        ]
+      ],
+      "slot": "balcony-cloth",
+      "tile": 0,
+      "min": [
+        -0.31516391038894653,
+        -0.02003399090734297,
+        -0.6990357368354473
+      ],
+      "max": [
+        0.31585460901260376,
+        0.026594594040984104,
+        0.02000709305791215
+      ],
+      "width": 0.6317092180252075,
+      "drop": 0.6990357368354473,
+      "triangles": 332
+    },
+    "hanging-trousers": {
+      "size": [
+        0.42852917313575745,
+        0.049985440722279825,
+        0.9554876059261806
+      ],
+      "plant": false,
+      "anchors": [
+        [
+          -0.17087899148464203,
+          0,
+          0
+        ],
+        [
+          0.13820402324199677,
+          0,
+          0
+        ]
+      ],
+      "slot": "balcony-cloth",
+      "tile": 1,
+      "min": [
+        -0.21510763466358185,
+        -0.035049924315166334,
+        -0.9536399268160763
+      ],
+      "max": [
+        0.2134215384721756,
+        0.014935516407113495,
+        0.0018476791101043055
+      ],
+      "width": 0.4302152693271637,
+      "drop": 0.9536399268160763,
+      "triangles": 250
+    },
+    "hanging-bedsheet": {
+      "size": [
+        1.15450781583786,
+        0.04804796002085047,
+        1.4532722319250706
+      ],
+      "plant": false,
+      "anchors": [
+        [
+          -0.5488504767417908,
+          0,
+          0
+        ],
+        [
+          0.4268503487110138,
+          0,
+          0
+        ]
+      ],
+      "slot": "balcony-cloth",
+      "tile": 2,
+      "min": [
+        -0.577061653137207,
+        -0.027889243478973515,
+        -1.4532722319250706
+      ],
+      "max": [
+        0.5774461627006531,
+        0.020158716541876953,
+        0.0
+      ],
+      "width": 1.1548923254013062,
+      "drop": 1.4532722319250706,
+      "triangles": 171
+    }
+  }
+}

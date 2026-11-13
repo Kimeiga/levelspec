@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Metalwork study</title><style>body{margin:0;background:#d7d0c6;color:#292c2a;font:16px system-ui}header{position:absolute;left:28px;top:22px;pointer-events:none}h1{font-size:22px;margin:0 0 8px}p{margin:0}canvas{display:block}footer{position:absolute;bottom:20px;left:28px}</style></head><body><header><h1>Metalwork study</h1><p>Window frames · security cage · sign support</p></header><footer>Production generators · real-time lighting · shared metal finishes</footer><script type="module">
+import * as THREE from '/node_modules/three/build/three.module.js';
+import {GLTFLoader} from '/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import {OrbitControls} from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
+const scene=new THREE.Scene();scene.background=new THREE.Color('#d7d0c6');
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(devicePixelRatio);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;document.body.append(renderer.domElement);
+const camera=new THREE.PerspectiveCamera(37,innerWidth/innerHeight,.01,100);camera.position.set(.5,2.7,-7.5);const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(2.55,1.4,0);controls.update();
+scene.add(new THREE.HemisphereLight(0xdde8ef,0x6c6052,2));const sun=new THREE.DirectionalLight(0xffecd5,3.2);sun.position.set(-3,7,-6);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-6,right:6,top:6,bottom:-6});sun.shadow.bias=-.0001;scene.add(sun);
+const gltf=await new GLTFLoader().loadAsync('../../generated/hardware-study/hardware.glb');gltf.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});scene.add(gltf.scene);window.ready=true;
+window.setView=(name)=>{
+const views={window:[[.3,1.7,-3.2],[.75,1.4,0]],cage:[[1.0,2.3,-3.7],[2.55,1.4,-.15]],support:[[3.7,2.8,-1.6],[4.55,2.25,-.25]]};
+const [at,target]=views[name];camera.position.set(...at);controls.target.set(...target);controls.update();};
+renderer.setAnimationLoop(()=>renderer.render(scene,camera));
+</script></body></html>

@@ -1,0 +1,208 @@
+{
+  "description": "Promoted approved intrinsic material maps; no lighting or AO is included. Original generation studies and tooling remain under projects and tools.",
+  "assets": {
+    "aircon.png": {
+      "source": "projects/dressing-demo/textures/aircon.png",
+      "sha256": "5c4bb92914ef61c52361dcba9a7a5b42137e47c23fd0c96499ce5afd6bbf97ae"
+    },
+    "brushed-metal-normal.png": {
+      "source": "projects/dressing-demo/textures/brushed-metal-normal.png",
+      "sha256": "01c54b177625d95d056a5660d5a9291a020dc6f416c820f596b3e019ffa50df2"
+    },
+    "brushed-metal-properties.png": {
+      "source": "projects/dressing-demo/textures/brushed-metal-properties.png",
+      "sha256": "bbf24bcbcd268ffd02b4b380224045e56e7da0cddc0472248d2540c019397e55"
+    },
+    "brushed-metal.png": {
+      "source": "projects/dressing-demo/textures/brushed-metal.png",
+      "sha256": "1aabaf6cddf71c98c49cd146f0acd4159cd3170075d01037bacf809e19537972"
+    },
+    "building-plaster-plain.png": {
+      "source": "projects/dressing-demo/textures/building-plaster-plain.png",
+      "sha256": "027e7902b897bba66fbd4ac518112403d2c418dc6fa7646560a8276dadb5c5b4"
+    },
+    "cloth.png": {
+      "source": "projects/dressing-demo/textures/cloth.png",
+      "sha256": "c81da6dc9a6005e16f5baaf7bafaeda21935938f9a54aa7f951bb75d73719da6"
+    },
+    "concrete-shared-normal.png": {
+      "source": "projects/dressing-demo/textures/concrete-shared-normal.png",
+      "sha256": "6943e95e2a44ab6ca6b7babdc0dfbfdefa24e6c38b584e1aca1375961ab661c0"
+    },
+    "concrete-shared.png": {
+      "source": "projects/dressing-demo/textures/concrete-shared.png",
+      "sha256": "7c3e42b451e66a2b5dda7eaa5ba967021cfa066a7e52c8a76a75494c97a756d8"
+    },
+    "grocer-props-normal.png": {
+      "source": "projects/dressing-demo/textures/grocer-props-normal.png",
+      "sha256": "d59701776fddf9c3eddfce402b1ff5bafc85d9adef2637e86a91a8e59fff8712"
+    },
+    "grocer-props-properties.png": {
+      "source": "projects/dressing-demo/textures/grocer-props-properties.png",
+      "sha256": "cd0eb195fe23fd4dcb833ce95f55889f93b73b1e40f2762763e9f6a110cdf9b6"
+    },
+    "grocer-props.png": {
+      "source": "projects/dressing-demo/textures/grocer-props.png",
+      "sha256": "2804d355c4ac104091976bd44fca1fcfce0897ebc9795fe05115229cd29bcc13"
+    },
+    "ground-asphalt-normal.png": {
+      "source": "projects/dressing-demo/textures/ground-asphalt-normal.png",
+      "sha256": "5f8efbab5e0a692dec0d67c105fba778290d6b5e7f39ccef8e944a17dc4a0b6e"
+    },
+    "ground-asphalt.png": {
+      "source": "projects/dressing-demo/textures/ground-asphalt.png",
+      "sha256": "73dccf4dd5e6feaf7e535dcfa2fedb2eb94fd9ce3ca33d5a72fc15dbc79ca005"
+    },
+    "lettering.png": {
+      "source": "projects/dressing-demo/textures/lettering.png",
+      "sha256": "8f8c820af0153d6aa633beb59fb2af2d4cfcf9dd74703b4cc3c4ec9991dd766d"
+    },
+    "market-apple.png": {
+      "source": "projects/dressing-demo/textures/market-apple.png",
+      "sha256": "845577bf1f2f69e1c1870b5b53fb57520502dff26f314d184a2667a2ff643586"
+    },
+    "metal.png": {
+      "source": "projects/dressing-demo/textures/metal.png",
+      "sha256": "300570cabfa78394e458764bbd797faeb4132e968732d63d71faa08d0828aded"
+    },
+    "posters-atlas.jpg": {
+      "source": "projects/dressing-demo/textures/posters-atlas.jpg",
+      "sha256": "b2710134751286610fdb5908b9fdec5850ddf126273f4a40a269d97f5c2d1988"
+    },
+    "restaurant-food-normal.png": {
+      "source": "projects/dressing-demo/textures/restaurant-food-normal.png",
+      "sha256": "99eda4e97aed912123534b65392b27feda61233cb7745a4939c3426e2a97a55a"
+    },
+    "restaurant-food-properties.png": {
+      "source": "projects/dressing-demo/textures/restaurant-food-properties.png",
+      "sha256": "26e45e21e8952f74f031b046443416720644db026d8a9e2f8327554929ceb01c"
+    },
+    "restaurant-food.png": {
+      "source": "projects/dressing-demo/textures/restaurant-food.png",
+      "sha256": "6cc7ec5e997bfd51f18b2e0ffce440c3c337fbd878737d49d349decc66b22609"
+    },
+    "restaurant-surfaces-properties.png": {
+      "source": "projects/dressing-demo/textures/restaurant-surfaces-properties.png",
+      "sha256": "2b34eb6605864c7c3d7b8a0482d7449d6e3fc824d855486d1e275e317237e560"
+    },
+    "restaurant-surfaces.png": {
+      "source": "projects/dressing-demo/textures/restaurant-surfaces.png",
+      "sha256": "9b6d0d6615db4eca1bbb18fed36989ccd3d950d47928a29cc1274294af72400b"
+    },
+    "restaurant-tiles-normal.png": {
+      "source": "projects/dressing-demo/textures/restaurant-tiles-normal.png",
+      "sha256": "6f2f5fa4ab11c6a68a438dc5b99b3b27dc3efa200b3007fb5c2a03f2e5771a99"
+    },
+    "restaurant-tiles-properties.png": {
+      "source": "projects/dressing-demo/textures/restaurant-tiles-properties.png",
+      "sha256": "06e5b60af1eb1940c0a9b30d09dbb82c24c8963a8d1f200618ffc760b2efda14"
+    },
+    "restaurant-tiles.png": {
+      "source": "projects/dressing-demo/textures/restaurant-tiles.png",
+      "sha256": "c76c248648051797d4793e6ace63c061346c66c26eb796164c1c39d1971069ea"
+    },
+    "roofing.png": {
+      "source": "projects/dressing-demo/textures/roofing.png",
+      "sha256": "dbac0a57170f1d2fbbf810360c4f1cd9dbd8e0b16670d90996964cd6f90c9fab"
+    },
+    "rust.png": {
+      "source": "projects/dressing-demo/textures/rust.png",
+      "sha256": "7daee0f288b922bd005b9abdec5a70b41bc4fd988de1b3991e1c5a008f135879"
+    },
+    "sheet.png": {
+      "source": "projects/dressing-demo/textures/sheet.png",
+      "sha256": "ab2bca685ab36042f2a5ddf8b67d14309fa79bb06173de8322b8d45543a76f7f"
+    },
+    "shop-timber-normal.png": {
+      "source": "projects/dressing-demo/textures/shop-timber-normal.png",
+      "sha256": "afda993157e0c6756fd24c8cf530762274f374d7bcd35f07905c33c9b366a2f7"
+    },
+    "shop-timber-properties.png": {
+      "source": "projects/dressing-demo/textures/shop-timber-properties.png",
+      "sha256": "4b06f884bf4c3f8562be84d7040234e1e08ebcabd7cdf365f6ed0a8dfbf98b14"
+    },
+    "shop-timber.png": {
+      "source": "projects/dressing-demo/textures/shop-timber.png",
+      "sha256": "d1ef79b23c68fb97d91d45ff86d6197959f32553a421b810a42a6c0e93386539"
+    },
+    "signboard.png": {
+      "source": "projects/dressing-demo/textures/signboard.png",
+      "sha256": "34fcc105e129d698336662eb28260404ba5dd121435f4e30677b88613ca4cd96"
+    },
+    "snack-packet.png": {
+      "source": "projects/dressing-demo/textures/snack-packet.png",
+      "sha256": "ab5f890087d9886dc31965ef60389dd475517ba4c6dbd4d78242b00356ab9533"
+    },
+    "timber.png": {
+      "source": "projects/dressing-demo/textures/timber.png",
+      "sha256": "bc5ae3223375167419c41215734211760af25832e4ab3f4f322db98bef2123ca"
+    },
+    "wall-ceramic-normal.png": {
+      "source": "projects/dressing-demo/textures/wall-ceramic-normal.png",
+      "sha256": "b003bf9665ec2734d73871b546e98a232367ae3e8aa8a48163f58eb009846fd6"
+    },
+    "wall-ceramic-weathered.png": {
+      "source": "projects/dressing-demo/textures/wall-ceramic-weathered.png",
+      "sha256": "ecc76777912f119983966f9611f353e8409ca98c6e625e69dece9c1a88e8b63e"
+    },
+    "wall-metal-normal.png": {
+      "source": "projects/dressing-demo/textures/wall-metal-normal.png",
+      "sha256": "118e39f928aabf2b97b6cc93f45d8448825b8da14589c68e845a8c4c4f3552d7"
+    },
+    "wall-metal-weathered.png": {
+      "source": "projects/dressing-demo/textures/wall-metal-weathered.png",
+      "sha256": "e553567ee7aedbfcefd0dbcb147d3deff12c0f9619b6b90228b51ff916de38af"
+    },
+    "tarp.png": {
+      "source": "projects/kowloon-tarps/assets/tarp-color-source.png",
+      "sha256": "5aba83ea9cdd238801ecc9374d74e8c4a2f0b3f4691bf5f78d90e6535a105f31",
+      "provenance": "projects/kowloon-tarps/README.md"
+    },
+    "tarp-normal.png": {
+      "source": "projects/kowloon-tarps/material.mjs",
+      "sha256": "9145e9cc1ebda3375b9fbb4ba268cbb2df313b7418c2a506e5594183cbee46ff",
+      "provenance": "projects/kowloon-tarps/README.md"
+    },
+    "tarp-properties.png": {
+      "source": "projects/kowloon-tarps/material.mjs",
+      "sha256": "4e1c387522e455efbf6b6fbaa6f2cc5e44e8c66f8aa3d36941d94af3ba44ebd5",
+      "provenance": "projects/kowloon-tarps/README.md"
+    },
+    "balcony-plants.png": {
+      "source": "projects/kowloon-balcony-props/production.json",
+      "tool": "tools/pack-balcony-props.py",
+      "sha256": "2bb284616fd393523e40f859c718d54b086f7f593934ad20048c879f2aa0644e",
+      "notes": "Tripo source PBR repacked locally; shirt/sheet albedo replaced by plain ImageGen cotton. Some original plant/denim albedo contains baked shading."
+    },
+    "balcony-plants-normal.png": {
+      "source": "projects/kowloon-balcony-props/production.json",
+      "tool": "tools/pack-balcony-props.py",
+      "sha256": "c6644e1d3d12bc5130c97154f067318f75430a1a4ec9ce0d75ad9003a0ac9e91",
+      "notes": "Tripo source PBR repacked locally; shirt/sheet albedo replaced by plain ImageGen cotton. Some original plant/denim albedo contains baked shading."
+    },
+    "balcony-plants-properties.png": {
+      "source": "projects/kowloon-balcony-props/production.json",
+      "tool": "tools/pack-balcony-props.py",
+      "sha256": "fab2a5f0b06659fd3537dbe244067c2b5ad50650ea8ecf34d7b685df92624746",
+      "notes": "Tripo source PBR repacked locally; shirt/sheet albedo replaced by plain ImageGen cotton. Some original plant/denim albedo contains baked shading."
+    },
+    "balcony-cloth.png": {
+      "source": "projects/kowloon-balcony-props/production.json",
+      "tool": "tools/pack-balcony-props.py",
+      "sha256": "10461dbb75dc1bcb1000742689bc8ef60fd2666fd5b80276d66e2d8123d563fe",
+      "notes": "Tripo source PBR repacked locally; shirt/sheet albedo replaced by plain ImageGen cotton. Some original plant/denim albedo contains baked shading."
+    },
+    "balcony-cloth-normal.png": {
+      "source": "projects/kowloon-balcony-props/production.json",
+      "tool": "tools/pack-balcony-props.py",
+      "sha256": "0c2496894f98ec9940a91e7c284179e5024f07cc35acff766cf076185c320e58",
+      "notes": "Tripo source PBR repacked locally; shirt/sheet albedo replaced by plain ImageGen cotton. Some original plant/denim albedo contains baked shading."
+    },
+    "balcony-cloth-properties.png": {
+      "source": "projects/kowloon-balcony-props/production.json",
+      "tool": "tools/pack-balcony-props.py",
+      "sha256": "33245ed6c4e05182e2e843b7d122e0f653c42216e880df047e05903f44ee2d56",
+      "notes": "Tripo source PBR repacked locally; shirt/sheet albedo replaced by plain ImageGen cotton. Some original plant/denim albedo contains baked shading."
+    }
+  }
+}

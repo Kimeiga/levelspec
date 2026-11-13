@@ -1,0 +1,19 @@
+<architecture version="1" id="sign-weathering-study" name="Kowloon · Sign paint and weathering study" validation="premap">
+  <material id="plaster" color="#cbcbca" texture="../dressing-demo/textures/wall-concrete-repaired.png" repeat="0.7" roughness="0.9"/>
+  <material id="kit-render-weathered" color="#bcbab7" texture="../dressing-demo/textures/wall-concrete-repaired.png" repeat="0.35" roughness="0.96"/>
+  <material id="kit-render-repair" color="#dad8d3" texture="../dressing-demo/textures/plaster.png" repeat="1" roughness="0.82"/>
+  <material id="kit-signboard" color="#ffffff" texture="../dressing-demo/textures/signboard.png" repeat="0.8" roughness="0.7"/>
+  <material id="kit-rust" color="#ffffff" texture="../dressing-demo/textures/rust.png" repeat="2" roughness="0.96" metalness="0.05"/>
+  <material id="kit-timber" color="#ffffff" texture="../dressing-demo/textures/timber.png" repeat="1.5" roughness="0.8"/>
+  <material id="concrete" color="#bdc1bb" texture="../dressing-demo/textures/ground-concrete.png" repeat="1.2" roughness="0.94"/>
+  <material id="kit-metal" color="#aeb5b1" texture="../dressing-demo/textures/metal.png" repeat="0.8" roughness="0.65"/>
+  <material id="kit-lettering" color="#ffffff" texture="../dressing-demo/textures/lettering.png" alpha-cutoff="0.5"/>
+  <material id="kit-roofing" color="#737b79" texture="../dressing-demo/textures/roofing.png" repeat="0.6" roughness="0.95"/>
+  <profile id="trapezoid" points="0 0; 5 0; 4 3; 1 3"/>
+  <extrusion id="tenement" profile="trapezoid" distance="9.35" collidable="false"/>
+  <profile id="street-plan" points="-4 -4; 12 -4; 12 10; -4 10"/>
+  <slab id="street" profile="street-plan" thickness="0.2" elevation="0" material="concrete"/>
+  <dressing theme="kowloon-street@1" seed="building-study" finishes="kit" wall-materials="plaster" grime="0.9" wear="0.22" rust="0.5" detail="high">
+    <building host="tenement" material="plaster" stories="3" texture-density="64"/>
+  </dressing>
+</architecture>

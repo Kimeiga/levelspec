@@ -1,0 +1,85 @@
+{
+  "tool": "built-in image_gen",
+  "posters": [
+    {
+      "id": "calendar",
+      "category": "calendar",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. A red-and-ivory tear-off wall calendar. Large '1988', '六月', very large '18', smaller '星期六'. Tiny lunar almanac columns, decorative blue swallow and flowering branch above, richly yellowed edge staining. No extra calendar grid."
+    },
+    {
+      "id": "roast-menu",
+      "category": "menu",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Local roast meat shop price menu, vermilion headings '燒味飯店' and black list '燒雞飯', '叉燒飯', '燒肉飯', each with a small price $8, $9, $9. Hand painted loose lettering, small appetizing painted roast chicken illustration bottom, beige paper with cooking grease splashes."
+    },
+    {
+      "id": "tea-ad",
+      "category": "advertisement",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Illustrated old tea advertisement. Heading '香片茶'. Deep emerald-green and cream print, richly illustrated amber tea in a porcelain cup, tea leaves, small red seal. Watermarked beige paper and faded red accents."
+    },
+    {
+      "id": "soda-ad",
+      "category": "advertisement",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Bright nostalgic citrus soda advertisement, heading '清涼汽水'. Turquoise and orange lithograph, large glass bottle of orange soda with generic cream label, citrus slices, radiating cream bands. Worn and sun-faded."
+    },
+    {
+      "id": "no-smoking",
+      "category": "notice",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Simple neighborhood notice with heading '請勿吸煙', small English 'NO SMOKING', very large old red crossed-out cigarette pictogram. Off-white nicotine-yellowed paper, red border, sparse black print, taped-looking discoloration within edges."
+    },
+    {
+      "id": "repairs",
+      "category": "notice",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Small electrician/plumber flyer, heading '水電維修', bold blue ink on mustard paper, thick irregular typeset characters, simple black illustrations of a faucet and electric plug, narrow hand-set small print. Uneven dirty corners."
+    },
+    {
+      "id": "room-rental",
+      "category": "notice",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Room rental handbill, heading '雅房出租', black brush lettering on faded salmon paper, small floor-plan diagram, lower printed tear-tab divisions contained INSIDE full rectangular page, no telephone numbers. Thumb smudges and rain streaks."
+    },
+    {
+      "id": "hiring",
+      "category": "notice",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Restaurant hiring notice, huge brush headline '招工', smaller '廚房幫工' and '待遇面議'. Vivid aged red paper with black handwritten ink, grease marks, spare simple composition, hand-stamped blue corner seal."
+    },
+    {
+      "id": "herbal-ad",
+      "category": "advertisement",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Herbal tea advertisement, heading '清熱涼茶'. Jade green and ochre two-color lithograph, illustrated ceramic bowl, chrysanthemums and bundled herbs, cream margin, ancient-shop print craft, dark speckled paper foxing."
+    },
+    {
+      "id": "opera",
+      "category": "event",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Neighborhood Cantonese opera performance poster. Heading '粵劇公演'. Dramatic illustrated opera performer in ornate headdress, strong faded magenta, cobalt and warm cream inks, stacked vertical typography, old print registration and irregular worn border."
+    },
+    {
+      "id": "film",
+      "category": "event",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Original fictional 1980s Hong Kong detective cinema poster. Heading '午夜追蹤'. Painted rainy alley, small trench-coated detective silhouette under neon red/blue signs, bold cream title, blue-black and coral palette, aged small credits. No known characters or actors."
+    },
+    {
+      "id": "laundry",
+      "category": "advertisement",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Neighborhood laundry service flyer. Heading '洗衣服務', small '即日可取'. Pale blue paper, dark navy print, drawing of a hanging white shirt and iron, modest red decorative line, dirty water tide marks along bottom."
+    },
+    {
+      "id": "rice-ad",
+      "category": "advertisement",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Rice merchant advertisement. Heading '上等香米'. Warm ochre paper and burgundy lettering, large attractive vintage illustration of a rice sack, porcelain bowl with white rice and green stalks, modest dark-green round stamp, worn food-shop poster."
+    },
+    {
+      "id": "clinic",
+      "category": "notice",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Neighborhood clinic notice. Heading '中醫診所'. Ivory paper, forest green headline and red small seal, neat vertical Chinese text columns, tiny botanical line drawing, restrained medical notice aesthetic, mottled old paper."
+    },
+    {
+      "id": "closure",
+      "category": "notice",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Handwritten closing-hours paper note. Heading '逢週一休息', smaller '多謝惠顧'. Dark red brush pen on yellow cream paper, two black underlines, uneven handwritten personality, strong cooking grease thumbprints at corners."
+    },
+    {
+      "id": "electrical-ad",
+      "category": "advertisement",
+      "prompt": "Use case: ads-marketing. Asset: flat albedo texture for one wall-pasted paper poster in a worn 1980s Hong Kong / Kowloon neighborhood. Create ONE portrait poster, 2:3 aspect ratio, full bleed edge to edge, viewed perfectly square-on like a flat scan. No wall, frame, perspective, scene lighting, drop shadows, mockup, folds projecting into space, grid, watermark, QR code, real company logo or telephone number. Original period print design, traditional Chinese typography, convincing ink and fibrous matte paper, faded but legible, irregular moisture/grease stains and worn edges. Keep print colorful and distinct, cream paper where unprinted. Main text must be exactly as specified; supporting text may be sparse small traditional Chinese print. Small radio repair advertisement. Heading '收音機修理'. Warm ivory and cobalt blue ink, detailed vintage portable transistor radio illustration, orange sunburst discount seal, dense lower type, faded printing and irregular brown edge wear."
+    }
+  ]
+}

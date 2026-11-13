@@ -1,0 +1,138 @@
+{
+  "totalCredits": 950,
+  "tasks": [
+    {
+      "asset": "bottle-crate",
+      "taskId": "cbdbccf1-b034-49a2-9744-9f8d558b2d9b",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "ceiling-fan",
+      "taskId": "7819cec6-525c-402b-81c3-c0923964c242",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "counter-scale",
+      "taskId": "be500c34-d826-480c-b37e-a249ae760436",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "drink-bottle",
+      "taskId": "9596a42d-93f5-4b82-8252-456ec367dec1",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "drinks-cooler",
+      "taskId": "49d640de-8c82-45f5-bf40-bcc316848c6f",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "egg-basket",
+      "taskId": "0a8afa35-a1ee-4580-9ace-5715c47dcfb6",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "fluorescent-batten",
+      "taskId": "90ef6192-7858-4e38-bc9c-62111328722e",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "food-tin",
+      "taskId": "77df3aeb-028a-45bf-9116-4d6325beb04c",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "garlic-braid",
+      "taskId": "4c4de109-a61e-4b61-951f-24bb3ae06239",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "pendant-lamp",
+      "taskId": "387f5980-fca4-45b9-ac20-6a21925654ae",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "rice-sack",
+      "taskId": "832519fe-23f5-4392-a51f-773818bdab8c",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "shop-counter",
+      "taskId": "62a19957-80e7-470d-a159-a5f46182c3ea",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "shop-stool",
+      "taskId": "a56c5da3-74e7-4767-9911-0d3ec86e4f23",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "single-egg",
+      "taskId": "fda1d9bc-1d0b-494e-b7bc-77a6dbb9ae80",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "tea-carton",
+      "taskId": "f18e0cd2-bdfb-4cb5-b8f3-cb11c831930d",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "tissue-roll",
+      "taskId": "98ab5d8f-7bf1-4f41-b030-eb98e1c5d03e",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "lowpoly-seasoning-jar",
+      "taskId": "4dd211a7-313a-4d4d-acc6-4de5f603b7e9",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "lowpoly-drink-bottle",
+      "taskId": "e7106292-6dd6-4a6f-91e4-ccdf7a963744",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    },
+    {
+      "asset": "lowpoly-food-tin",
+      "taskId": "4cb37922-ef4a-4444-81c1-705488f1796d",
+      "type": "image_to_model",
+      "credits": 50,
+      "status": "success"
+    }
+  ]
+}
